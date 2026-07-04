@@ -1,15 +1,16 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import AgentPhoto from "@/components/shared/AgentPhoto";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { 
-  Phone, 
-  Mail, 
-  Award, 
-  Users, 
-  Home, 
-  TrendingUp, 
-  CheckCircle, 
+import {
+  Phone,
+  Mail,
+  Award,
+  Users,
+  Home,
+  TrendingUp,
+  CheckCircle,
   MapPin,
   Shield,
   Star,
@@ -17,18 +18,20 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { agentInfo, getAgentImageSrc, officeInfo, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "About Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
+  title: "About Dr. Jan Duffy | Midtown Las Vegas Condo Specialist",
   description:
-    "Meet Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent. Serving Las Vegas since 2008, $127M+ in transactions, Henderson & Summerlin specialist. Call (702) 500-1942.",
+    "Meet Dr. Jan Duffy, your midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties. Serving Las Vegas since 2008. Call (702) 500-1942.",
   keywords: [
     "Dr. Jan Duffy",
     "Berkshire Hathaway HomeServices agent",
     "Las Vegas realtor",
     "BHHS Nevada Properties",
     "Henderson real estate agent",
-    "Summerlin realtor",
+    "midtown Las Vegas condo agent",
+    "downtown Las Vegas condos",
   ],
 };
 
@@ -39,10 +42,11 @@ const personSchema = {
   name: "Dr. Jan Duffy",
   jobTitle: "REALTOR®",
   description:
-    "Licensed real estate agent with Berkshire Hathaway HomeServices Nevada Properties, serving Las Vegas, Henderson, and Summerlin since 2008.",
+    "Licensed real estate agent with Berkshire Hathaway HomeServices Nevada Properties, specializing in midtown and downtown Las Vegas condos since 2008.",
   telephone: "+17025001942",
-  email: "homes@heyberkshire.com",
-  url: "https://heyberkshire.com/about",
+  email: agentInfo.email,
+  url: `${siteConfig.url}/about`,
+  image: getAgentImageSrc(),
   worksFor: {
     "@type": "RealEstateAgent",
     name: "Berkshire Hathaway HomeServices Nevada Properties",
@@ -60,20 +64,19 @@ const personSchema = {
     credentialNumber: "S.0197614.LLC",
   },
   knowsAbout: [
-    "Las Vegas real estate",
-    "Henderson properties",
-    "Summerlin homes",
-    "Luxury real estate",
-    "Investment properties",
-    "55+ communities",
-    "California relocation",
+    "Midtown Las Vegas condos",
+    "Downtown Las Vegas high-rise living",
+    "Arts District lofts",
+    "Condo HOA review",
+    "Urban real estate investment",
+    "One Las Vegas and Juhl towers",
   ],
 };
 
 const specializations = [
   {
-    title: "Residential Home Sales",
-    description: "Single-family homes, condos, and townhomes throughout Las Vegas and Henderson",
+    title: "Midtown Condo Sales",
+    description: "High-rise towers, loft conversions, and condotels across midtown and downtown Las Vegas",
   },
   {
     title: "Luxury Properties ($1M+)",
@@ -139,7 +142,15 @@ export default function AboutPage() {
 
           {/* Agent Profile */}
           <section className="mb-16">
-            <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-[auto_1fr] gap-10 items-start max-w-6xl mx-auto">
+              <div className="flex flex-col items-center md:items-start">
+                <AgentPhoto size="xl" priority />
+                <p className="mt-4 text-center md:text-left text-sm text-slate-500 max-w-xs">
+                  {officeInfo.name}
+                  <br />
+                  {officeInfo.address.full}
+                </p>
+              </div>
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Dr. Jan Duffy</h2>
                 <p className="text-lg text-blue-600 mb-6">

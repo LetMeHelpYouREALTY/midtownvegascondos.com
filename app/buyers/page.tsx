@@ -19,76 +19,58 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { hyperlocalMeta, midtownNeighborhoods, midtownServiceSchema } from "@/lib/hyperlocal-content";
 
 export const metadata: Metadata = {
-  title: "Home Buying Guide Las Vegas | Berkshire Hathaway HomeServices",
-  description:
-    "Looking to buy a home in Las Vegas? Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties guides you through every step. Free buyer consultation. Call (702) 500-1942.",
-  keywords: [
-    "buy home Las Vegas",
-    "Las Vegas home buyer",
-    "Berkshire Hathaway buyer agent",
-    "Henderson homes for sale",
-    "first time home buyer Las Vegas",
-    "California relocation Las Vegas",
-    "55+ communities Las Vegas",
-  ],
+  title: hyperlocalMeta.buyers.title,
+  description: hyperlocalMeta.buyers.description,
+  keywords: hyperlocalMeta.buyers.keywords,
 };
 
-const buyerSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Home Buying Services Las Vegas",
-  provider: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
-  },
-  areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
-  serviceType: "Buyer Representation",
-};
+const buyerSchema = midtownServiceSchema(
+  "Midtown Las Vegas Condo Buying Services",
+  "Condo Buyer Representation"
+);
 
 const buyingSteps = [
   {
     icon: DollarSign,
-    title: "Get Pre-Approved for Financing",
+    title: "Get Pre-Approved for Condo Financing",
     description:
-      "Know your budget before you start looking. Dr. Jan connects you with trusted local lenders who offer competitive rates and programs for every situation—FHA, VA, conventional, and down payment assistance programs.",
+      "Know your budget before touring midtown towers. Dr. Jan connects you with lenders experienced in high-rise and condo financing — including FHA-approved buildings, VA loans, and conventional programs.",
   },
   {
     icon: Search,
-    title: "Define Your Priorities & Search",
+    title: "Choose Your Building & Neighborhood",
     description:
-      "Dr. Jan provides access to all MLS listings, off-market opportunities, and new construction. She'll help you identify which Las Vegas neighborhoods match your lifestyle while setting up automated alerts so you never miss a new listing.",
+      "Compare Arts District lofts, Fremont East boutiques, and Strip-view high-rises. Dr. Jan reviews HOA fees, rental rules, parking deeded rights, and building amenities so you find the right midtown fit.",
   },
   {
     icon: FileText,
-    title: "Tour Properties & Make an Offer",
+    title: "Tour Units & Make an Offer",
     description:
-      "Dr. Jan's market expertise ensures your offer is competitive yet protects your interests. She negotiates on your behalf to get the best price and terms possible, with contingencies that protect you.",
+      "Dr. Jan's midtown condo expertise ensures your offer is competitive. She negotiates price, closing costs, and HOA document review periods — protecting you in every high-rise transaction.",
   },
   {
     icon: Home,
-    title: "Due Diligence & Inspections",
+    title: "HOA Review & Inspections",
     description:
-      "Coordinate home inspections, review disclosures, and ensure you understand exactly what you're buying. Dr. Jan helps negotiate repairs or credits if issues arise during the inspection period.",
+      "Review HOA budgets, reserve studies, special assessments, and CC&Rs before you commit. Dr. Jan coordinates inspections and helps negotiate credits if issues arise during due diligence.",
   },
   {
     icon: Key,
-    title: "Close & Get Your Keys",
+    title: "Close on Your Midtown Condo",
     description:
-      "Dr. Jan coordinates with lenders, title, and escrow to ensure a smooth closing. The typical closing process takes 30-45 days from offer acceptance—then you get the keys to your new Las Vegas home!",
+      "Dr. Jan coordinates with lenders, title, and escrow for a smooth closing — typically 30–45 days for financed purchases. Then you get the keys to your midtown Las Vegas condo.",
   },
 ];
 
-const neighborhoods = [
-  { name: "Summerlin", price: "$625K", description: "Master-planned community with Red Rock views" },
-  { name: "Henderson", price: "$485K", description: "Family-friendly with low crime rates" },
-  { name: "Green Valley", price: "$520K", description: "Established with mature landscaping" },
-  { name: "The Ridges", price: "$2.5M", description: "Ultra-luxury guard-gated estates" },
-  { name: "North Las Vegas", price: "$385K", description: "Affordable new construction" },
-  { name: "Southern Highlands", price: "$750K", description: "Golf course community" },
-];
+const neighborhoods = midtownNeighborhoods.slice(0, 6).map((n) => ({
+  name: n.name,
+  price: n.medianPrice,
+  description: n.description,
+  slug: n.slug,
+}));
 
 export default function BuyersPage() {
   return (
@@ -106,12 +88,12 @@ export default function BuyersPage() {
               Berkshire Hathaway HomeServices Nevada Properties
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Buy Your Las Vegas Home with Confidence
+              Buy Your Midtown Las Vegas Condo with Confidence
             </h1>
             <p className="text-xl text-slate-600 mb-8">
-              When you work with a <strong>Berkshire Hathaway HomeServices</strong> buyer's agent,
-              you're backed by the most trusted name in real estate—and it costs you nothing.
-              The seller pays the commission, but the representation is yours.
+              When you work with Dr. Jan Duffy, a midtown condo specialist at{" "}
+              <strong>Berkshire Hathaway HomeServices</strong>, you get HOA expertise, building
+              comparisons, and expert negotiation — and buyer representation costs you nothing.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Buyer Representation</span>
@@ -165,13 +147,12 @@ export default function BuyersPage() {
           {/* Buying Process */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              The Home Buying Process in Las Vegas
+              The Midtown Condo Buying Process
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Buying a home is one of the most significant financial decisions you'll make. 
-              Understanding the process helps reduce stress and ensures you're prepared at each 
-              step. Here's what to expect when purchasing a home in Las Vegas with Dr. Jan Duffy 
-              and Berkshire Hathaway HomeServices.
+              Buying a midtown condo means reviewing HOA documents, rental restrictions, and
+              building-specific comps — not just square footage. Here&apos;s what to expect when
+              purchasing a condo in midtown Las Vegas with Dr. Jan Duffy.
             </p>
             <div className="space-y-6">
               {buyingSteps.map((step, index) => {
@@ -204,26 +185,26 @@ export default function BuyersPage() {
           {/* Neighborhood Guide */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Las Vegas Neighborhoods for Home Buyers
+              Midtown Las Vegas Condo Neighborhoods
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Las Vegas offers diverse neighborhoods for every lifestyle and budget. Whether you're 
-              seeking luxury estates in guard-gated communities, family homes near top-rated schools, 
-              or affordable new construction, Dr. Jan helps you find the perfect neighborhood. Here's 
-              a quick guide to median prices and what each area offers.
+              Midtown offers walkable urban living from Arts District lofts to Strip-view high-rises.
+              Dr. Jan helps you compare buildings by HOA fees, rental rules, amenities, and
+              walkability — so you buy in the right tower for your lifestyle.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {neighborhoods.map((neighborhood) => (
-                <div
+                <Link
                   key={neighborhood.name}
-                  className="bg-white rounded-lg p-4 border border-slate-200"
+                  href={`/neighborhoods/${neighborhood.slug}`}
+                  className="bg-white rounded-lg p-4 border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all"
                 >
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="font-bold text-slate-900">{neighborhood.name}</h3>
                     <span className="text-blue-600 font-semibold">{neighborhood.price}</span>
                   </div>
                   <p className="text-slate-600 text-sm">{neighborhood.description}</p>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="text-center mt-6">
@@ -401,28 +382,28 @@ export default function BuyersPage() {
             <div className="space-y-4">
               {[
                 {
-                  q: "How much do I need for a down payment in Las Vegas?",
-                  a: "Down payments vary by loan type: FHA requires 3.5%, conventional loans typically 3-20%, VA loans 0% for eligible veterans, and USDA loans 0% for rural areas. Nevada also offers down payment assistance programs for first-time buyers. Dr. Jan can connect you with lenders who specialize in low down payment programs.",
+                  q: "What should I know about HOA fees before buying a midtown condo?",
+                  a: "HOA fees vary widely — some midtown towers include utilities, cable, and internet; others cover only common areas. Dr. Jan reviews HOA budgets, reserve studies, and special assessment history for every building before you make an offer.",
                 },
                 {
-                  q: "Should I get pre-approved before looking at homes?",
-                  a: "Yes! Pre-approval shows sellers you're serious and gives you a clear budget. In competitive situations, pre-approved buyers have a significant advantage. The process typically takes 1-3 days with proper documentation.",
+                  q: "Should I get pre-approved before touring midtown condos?",
+                  a: "Yes. Pre-approval shows sellers you're serious and confirms you qualify for condo financing — which can differ from single-family loans. The process typically takes 1–3 days with proper documentation.",
                 },
                 {
-                  q: "Does BHHS help with new construction purchases?",
-                  a: "Yes! Dr. Jan provides free representation for new construction purchases from builders like Toll Brothers, Lennar, and Century Communities. The builder pays her commission, but she works for you—reviewing contracts, negotiating upgrades, and protecting your interests during the build process.",
+                  q: "Can I rent out my midtown condo on Airbnb?",
+                  a: "Rental rules are building-specific. Some midtown towers allow short-term rentals; others require 6-month minimum leases. Dr. Jan checks CC&Rs before you buy, especially if you're purchasing for investment.",
                 },
                 {
-                  q: "What if I'm relocating from another state?",
-                  a: "Berkshire Hathaway's global network of 50,000+ agents makes relocations seamless. Dr. Jan can coordinate with agents in your current city while helping you find the perfect Las Vegas home remotely through virtual tours and video calls.",
+                  q: "What midtown buildings does Dr. Jan know best?",
+                  a: "One Las Vegas, Juhl, Ogden, Palms Place, The English Residences, and Arts District loft conversions. She compares floor plans, HOA fees, and recent sales in each building.",
                 },
                 {
-                  q: "How competitive is the Las Vegas housing market?",
-                  a: "The Las Vegas market is moderately competitive with 2.1 months of inventory—a slight seller's market. Well-priced homes in desirable areas like Summerlin and Henderson often receive multiple offers within the first week. Having a pre-approval and experienced agent gives you a significant advantage.",
+                  q: "How competitive is the midtown condo market?",
+                  a: "Well-priced midtown units with updated interiors and reasonable HOA fees typically sell in 30–45 days. Strip-view and walkable Arts District lofts move faster. Dr. Jan's building-specific comps help you make competitive offers.",
                 },
                 {
-                  q: "What are the best neighborhoods for families in Las Vegas?",
-                  a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering excellent schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities—schools, commute, budget, and lifestyle.",
+                  q: "What's the best midtown neighborhood for walkable urban living?",
+                  a: "The Arts District and Fremont East offer the highest walk scores for dining, galleries, and nightlife. Symphony Park suits culture lovers near the Smith Center. Dr. Jan matches you based on lifestyle, budget, and parking needs.",
                 },
               ].map((faq, index) => (
                 <div key={index} className="bg-slate-50 rounded-lg p-6">
@@ -435,11 +416,10 @@ export default function BuyersPage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Find Your Las Vegas Home?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Find Your Midtown Condo?</h2>
             <p className="text-xl text-slate-300 mb-8">
-              Questions about buying in Las Vegas? Call or text Dr. Jan Duffy for a free buyer
-              consultation. Get expert guidance backed by Berkshire Hathaway HomeServices—the 
-              seller pays the commission, so representation is free for you.
+              Questions about buying a midtown Las Vegas condo? Call Dr. Jan Duffy for a free
+              consultation — HOA review, building comparisons, and expert negotiation included.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

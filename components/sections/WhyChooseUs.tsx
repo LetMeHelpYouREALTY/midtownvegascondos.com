@@ -1,35 +1,41 @@
-import { Shield, TrendingUp, Users, Award, Clock, Home } from "lucide-react";
+import { Shield, Building2, FileSearch, Award, Clock, MapPin } from "lucide-react";
 
 const features = [
   {
+    icon: Building2,
+    title: "Condo Building Expertise",
+    description:
+      "Deep knowledge of midtown towers — HOA reserves, rental caps, and floor-plan comparisons across One Las Vegas, Ogden, Juhl, and more.",
+  },
+  {
+    icon: FileSearch,
+    title: "HOA Document Review",
+    description:
+      "Every condo purchase includes CC&R analysis, special assessment checks, and rental restriction verification before you commit.",
+  },
+  {
+    icon: MapPin,
+    title: "Midtown Market Data",
+    description:
+      "Current per-square-foot pricing, days-on-market trends, and building-specific comparable sales for informed offers.",
+  },
+  {
     icon: Shield,
-    title: "Trusted Expertise",
-    description: "Serving Las Vegas and Henderson since 2008 with proven results.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Market Knowledge",
-    description: "Deep understanding of local market trends and neighborhood insights.",
-  },
-  {
-    icon: Users,
-    title: "Personalized Service",
-    description: "Dedicated attention to every client with customized solutions.",
+    title: "BHHS Trust & Resources",
+    description:
+      "Backed by Berkshire Hathaway HomeServices — Warren Buffett's brand with 50,000+ agents and world-class marketing.",
   },
   {
     icon: Award,
-    title: "Proven Results",
-    description: "500+ successful transactions and satisfied clients.",
+    title: "500+ Transactions",
+    description:
+      "Serving Las Vegas since 2008 with $127M+ closed — including high-rise, loft, and urban condo specialists.",
   },
   {
     icon: Clock,
-    title: "Responsive",
-    description: "Quick response times and seamless communication throughout.",
-  },
-  {
-    icon: Home,
-    title: "Full Service",
-    description: "Complete support from search to closing and beyond.",
+    title: "Direct Access",
+    description:
+      "Call (702) 500-1942 and reach Dr. Jan directly — no assistant queue, no callback delays.",
   },
 ];
 
@@ -39,10 +45,11 @@ export default function WhyChooseUs() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-            Why Choose Us
+            Why Choose Dr. Jan for Midtown Condos?
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Experience the difference of working with a trusted real estate professional
+            Condo transactions require specialized expertise — HOA review, rental rules, and
+            building-specific market knowledge that generalist agents often miss.
           </p>
         </div>
 

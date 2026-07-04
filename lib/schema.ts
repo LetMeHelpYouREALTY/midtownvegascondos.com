@@ -1,12 +1,12 @@
 /**
- * Schema.org Structured Data Generators for heyberkshire.com
+ * Schema.org Structured Data Generators for midtownvegascondos.com
  * Following Google's 2025 Structured Data Guidelines
  *
  * @see https://schema.org
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
-import { siteConfig, agentInfo, officeInfo, agentStats } from "./site-config";
+import { siteConfig, agentInfo, officeInfo, agentStats, getAgentImageSrc } from "./site-config";
 
 // ============================================================================
 // Types
@@ -65,11 +65,11 @@ const BASE_URL = siteConfig.url;
 
 // Social media profiles (to be updated with actual URLs)
 export const socialProfiles = {
-  facebook: "https://www.facebook.com/heyberkshire",
-  instagram: "https://www.instagram.com/heyberkshire",
+  facebook: "https://www.facebook.com/drjanduffy",
+  instagram: "https://www.instagram.com/drjanduffy",
   linkedin: "https://www.linkedin.com/in/drjanduffy",
-  tiktok: "https://www.tiktok.com/@heyberkshire",
-  youtube: "https://www.youtube.com/@heyberkshire",
+  tiktok: "https://www.tiktok.com/@drjanduffy",
+  youtube: "https://www.youtube.com/@drjanduffy",
 };
 
 // ============================================================================
@@ -87,13 +87,13 @@ export function generateRealEstateAgentSchema() {
     "@id": `${BASE_URL}#organization`,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     alternateName: [
-      "HeyBerkshire",
+      "Midtown Vegas Condos",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
     ],
     url: BASE_URL,
-    logo: `${BASE_URL}/images/dr-jan-duffy.jpg`,
-    image: `${BASE_URL}/images/dr-jan-duffy.jpg`,
+    logo: getAgentImageSrc(),
+    image: getAgentImageSrc(),
     description: siteConfig.description,
     telephone: "+1-702-500-1942",
     email: agentInfo.email,
@@ -177,17 +177,15 @@ export function generateRealEstateAgentSchema() {
       worstRating: "1",
     },
     knowsAbout: [
-      "Las Vegas real estate",
-      "Henderson homes",
-      "Summerlin properties",
-      "Luxury homes",
-      "New construction",
+      "Midtown Las Vegas condos",
+      "Las Vegas high-rise condos",
+      "Urban lofts Las Vegas",
+      "Arts District real estate",
+      "Luxury condos",
       "Investment properties",
-      "Relocation services",
-      "55+ communities",
-      "First-time homebuyers",
+      "California relocation",
     ],
-    slogan: "Your Berkshire Hathaway HomeServices expert in Las Vegas",
+    slogan: "Your midtown Las Vegas condo specialist",
   };
 }
 

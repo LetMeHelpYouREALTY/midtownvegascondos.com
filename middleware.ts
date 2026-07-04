@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+const DEFAULT_DOMAIN = "midtownvegascondos.com";
+
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
+  const domain =
+    hostname.startsWith("localhost") || hostname.startsWith("127.0.0.1")
+      ? DEFAULT_DOMAIN
+      : hostname;
   const response = NextResponse.next();
-  // Pass hostname to pages via header so server components can read it
-  response.headers.set("x-domain", hostname);
+  response.headers.set("x-domain", domain);
   return response;
 }
 

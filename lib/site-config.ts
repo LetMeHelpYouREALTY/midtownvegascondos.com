@@ -1,18 +1,18 @@
-// Site Configuration - HeyBerkshire.com
+// Site Configuration — midtownvegascondos.com
 // Berkshire Hathaway HomeServices Nevada Properties
+// NAP must match Google Business Profile exactly
 
 export const siteConfig = {
-  name: "HeyBerkshire",
+  name: "Midtown Vegas Condos",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
-  tagline: "Private Client Real Estate Advisory",
-  /** Full brand line for titles and OG: Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory */
+  tagline: "Midtown Las Vegas Condo Specialist",
   brandLine:
-    "Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory",
+    "Midtown Vegas Condos | Dr. Jan Duffy, REALTOR® | Berkshire Hathaway HomeServices Nevada Properties",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
-  url: "https://heyberkshire.com",
+  url: "https://www.midtownvegascondos.com",
   description:
-    "Expert real estate services in Las Vegas and Henderson, NV. Buy, sell, or invest with Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent.",
+    "Search midtown Las Vegas condos, high-rise towers, and urban lofts. Expert condo buying and selling guidance from Dr. Jan Duffy, REALTOR® at Berkshire Hathaway HomeServices Nevada Properties.",
 };
 
 export const agentInfo = {
@@ -26,6 +26,20 @@ export const agentInfo = {
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 
+/** Dr. Jan Duffy profile photo — hosted on Cloudflare R2 (realestatedomains-assets) */
+export const agentImage = {
+  alt: "Dr. Jan Duffy, REALTOR® — midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties",
+  width: 800,
+  height: 800,
+  localPath: "/images/agent/dr-jan-duffy-headshot.jpg",
+  cloudflareUrl:
+    "https://pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/shared/agent/dr-jan-duffy-headshot.jpg",
+};
+
+export function getAgentImageSrc(): string {
+  return process.env.NEXT_PUBLIC_AGENT_IMAGE_URL ?? agentImage.cloudflareUrl;
+}
+
 export const officeInfo = {
   name: "Berkshire Hathaway HomeServices Nevada Properties",
   address: {
@@ -36,8 +50,8 @@ export const officeInfo = {
     full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
   },
   coordinates: {
-    lat: 36.1893,
-    lng: -115.2821,
+    lat: 36.1941,
+    lng: -115.2678,
   },
   phone: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
@@ -46,6 +60,14 @@ export const officeInfo = {
 // Market Statistics (Updated January 2026)
 export const marketStats = {
   lastUpdated: "January 2026",
+  midtown: {
+    medianPrice: 385000,
+    medianPriceFormatted: "$385,000",
+    yearOverYearChange: "+3.8%",
+    daysOnMarket: 32,
+    activeListings: 420,
+    pricePerSqFt: 295,
+  },
   lasVegas: {
     medianPrice: 450000,
     medianPriceFormatted: "$450,000",
@@ -55,28 +77,6 @@ export const marketStats = {
     closedSales: 2340,
     inventoryMonths: 2.1,
   },
-  henderson: {
-    medianPrice: 485000,
-    medianPriceFormatted: "$485,000",
-    yearOverYearChange: "+5.1%",
-    daysOnMarket: 24,
-    activeListings: 1280,
-  },
-  summerlin: {
-    medianPrice: 625000,
-    medianPriceFormatted: "$625,000",
-    yearOverYearChange: "+6.8%",
-    daysOnMarket: 22,
-    luxuryMedian: 1200000,
-    luxuryMedianFormatted: "$1.2M",
-  },
-  luxury: {
-    medianPrice: 1200000,
-    medianPriceFormatted: "$1.2M",
-    activeListings: 890,
-    daysOnMarket: 45,
-    pricePerSqFt: 385,
-  },
 };
 
 // Agent Stats
@@ -85,7 +85,7 @@ export const agentStats = {
   transactionsClosed: 500,
   volumeClosed: "$127M+",
   averageRating: 4.9,
-  reviewCount: 200,
+  reviewCount: 500,
 };
 
 // Value Propositions
@@ -94,203 +94,131 @@ export const valuePropositions = {
   trust:
     "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents.",
   expertise:
-    "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with the resources of a global brand.",
+    "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep midtown condo market knowledge with the resources of a global brand.",
 };
 
-// Neighborhoods served
-export const neighborhoods = [
+// Midtown Las Vegas condo buildings and areas
+export const midtownAreas = [
   {
-    name: "Summerlin",
-    slug: "summerlin",
-    description: "Master-planned community with parks, trails, and top-rated schools",
-    medianPrice: "$625,000",
-    highlights: ["Red Rock views", "150+ parks", "Top schools", "Golf courses"],
+    name: "One Las Vegas",
+    slug: "one-las-vegas",
+    description: "Luxury high-rise tower with Strip views and resort-style amenities",
+    highlights: ["Strip views", "Resort pool", "Concierge", "High-rise living"],
   },
   {
-    name: "Henderson",
-    slug: "henderson",
-    description: "Nevada's second-largest city with family-friendly neighborhoods",
-    medianPrice: "$485,000",
-    highlights: ["Low crime rate", "Excellent schools", "Lake Las Vegas", "Green Valley"],
+    name: "Arts District",
+    slug: "arts-district",
+    description: "Walkable urban core with galleries, dining, and loft-style condos",
+    highlights: ["Walkability", "Gallery Row", "Urban lofts", "Downtown proximity"],
   },
   {
-    name: "Green Valley",
-    slug: "green-valley",
-    description: "Established Henderson community with mature landscaping",
-    medianPrice: "$520,000",
-    highlights: ["Golf courses", "Walking trails", "Shopping", "Parks"],
+    name: "Fremont East",
+    slug: "fremont-east",
+    description: "Revitalized downtown corridor with boutique condo options",
+    highlights: ["Entertainment", "Restaurants", "Urban lifestyle", "Investment potential"],
   },
   {
-    name: "The Ridges",
-    slug: "the-ridges",
-    description: "Ultra-luxury guard-gated community in Summerlin",
-    medianPrice: "$2.5M",
-    highlights: ["Celebrity homes", "Custom estates", "Bear's Best Golf", "Strip views"],
-  },
-  {
-    name: "Southern Highlands",
-    slug: "southern-highlands",
-    description: "Master-planned luxury community with championship golf",
-    medianPrice: "$750,000",
-    highlights: ["Golf community", "Guard-gated", "Mountain views", "Luxury amenities"],
-  },
-  {
-    name: "North Las Vegas",
-    slug: "north-las-vegas",
-    description: "Rapidly growing area with affordable new construction",
-    medianPrice: "$385,000",
-    highlights: ["New construction", "Affordable", "Growing area", "Family-friendly"],
-  },
-  {
-    name: "Skye Canyon",
-    slug: "skye-canyon",
-    description: "Newer master-planned community in northwest Las Vegas",
-    medianPrice: "$550,000",
-    highlights: ["New homes", "Mountain views", "Modern amenities", "Great schools"],
-  },
-  {
-    name: "Centennial Hills",
-    slug: "centennial-hills",
-    description: "Northwest Las Vegas community with mountain proximity",
-    medianPrice: "$495,000",
-    highlights: ["Mountain access", "Parks", "Shopping", "Family-friendly"],
-  },
-  {
-    name: "Inspirada",
-    slug: "inspirada",
-    description: "Henderson master-planned community with resort-style living",
-    medianPrice: "$525,000",
-    highlights: ["Resort pools", "Walking trails", "New construction", "Great schools"],
-  },
-  {
-    name: "Mountains Edge",
-    slug: "mountains-edge",
-    description: "Southwest Las Vegas master-planned community",
-    medianPrice: "$475,000",
-    highlights: ["Mountain views", "Parks", "Growing area", "Affordable luxury"],
+    name: "Symphony Park",
+    slug: "symphony-park",
+    description: "Master-planned urban district near the Smith Center",
+    highlights: ["Smith Center", "New construction", "Walkable", "Cultural district"],
   },
 ];
 
 // Services offered
 export const services = [
   {
-    name: "Home Buying",
+    name: "Condo Buying",
     slug: "buyers",
-    description: "Expert guidance through every step of the home buying process",
+    description: "Expert guidance through HOA reviews, financing, and midtown condo purchases",
     icon: "Home",
   },
   {
-    name: "Home Selling",
+    name: "Condo Selling",
     slug: "sellers",
-    description: "Maximize your home's value with professional marketing and negotiation",
+    description: "Maximize your condo's value with professional marketing and negotiation",
     icon: "TrendingUp",
   },
   {
-    name: "Luxury Homes",
+    name: "High-Rise Living",
     slug: "luxury-homes",
-    description: "Specialized expertise in Las Vegas luxury real estate",
+    description: "Specialized expertise in Las Vegas high-rise and luxury condo properties",
     icon: "Star",
   },
   {
-    name: "New Construction",
-    slug: "new-construction",
-    description: "Free buyer representation for new home purchases",
-    icon: "Building",
-  },
-  {
-    name: "Investment Properties",
+    name: "Investment Condos",
     slug: "investment-properties",
-    description: "Strategic consulting for rental and investment opportunities",
+    description: "Rental yield analysis and STR regulations for midtown condo investors",
     icon: "DollarSign",
   },
   {
-    name: "Relocation",
+    name: "California Relocation",
     slug: "relocation",
-    description: "Comprehensive relocation assistance for moves to Las Vegas",
+    description: "Help California buyers find urban Las Vegas condo living with Nevada tax advantages",
     icon: "Truck",
   },
   {
-    name: "Home Valuation",
+    name: "Condo Valuation",
     slug: "home-valuation",
-    description: "Free property valuations using current market data",
+    description: "Free condo valuations using current midtown market data and comparable sales",
     icon: "Calculator",
-  },
-  {
-    name: "Market Analysis",
-    slug: "market-report",
-    description: "In-depth Las Vegas real estate market insights",
-    icon: "BarChart",
   },
 ];
 
 // Expert quotes from Dr. Jan Duffy
 export const expertQuotes = {
-  market: `"The Las Vegas market remains strong heading into 2026. We're seeing continued demand from California relocators and remote workers, but the days of 20 offers on every listing are behind us. Buyers finally have some negotiating power."`,
-  buyers: `"My job isn't just to show you houses—it's to make sure you don't overpay, that you understand what you're buying, and that you're protected through every step of the transaction."`,
-  sellers: `"Pricing your home correctly from day one is the single most important factor in getting top dollar. Overpriced homes sit, and every day on market costs you money."`,
-  luxury: `"Luxury buyers expect discretion, market expertise, and flawless execution. In this price range, one wrong move can cost hundreds of thousands of dollars."`,
-  investment: `"Las Vegas rental yields are among the best in the country right now. But you need to know which neighborhoods are appreciating and which have peaked."`,
-  relocation: `"Moving to a new city is stressful enough. I handle everything from neighborhood tours to school research to contractor referrals so you can focus on your new beginning."`,
-  newConstruction: `"Builders have sales agents who work for them, not you. Having your own representation costs you nothing but can save you tens of thousands in upgrades and negotiations."`,
-  valueProposition: `"When clients ask why they should choose a Berkshire Hathaway HomeServices agent, I tell them: you're not just getting me—you're getting a global network of 50,000 agents, world-class marketing, and a brand that's synonymous with trust."`,
+  condos: `"Midtown Las Vegas condos offer something you can't find in the suburbs — walkability, Strip proximity, and a true urban lifestyle. But every building has different HOA rules, rental restrictions, and fee structures. That's where specialized condo expertise matters."`,
+  buyers: `"My job isn't just to show you units — it's to review HOA financials, understand rental caps, and make sure you're protected through every step of a condo transaction."`,
+  sellers: `"Pricing a condo correctly means knowing your building's recent sales, active competition, and what buyers are paying per square foot in midtown right now."`,
+  investment: `"Midtown condos can be strong investments, but you need to know which buildings allow short-term rentals and which have the best HOA reserves."`,
 };
 
-// Common FAQs
+// Midtown condo FAQs
 export const commonFAQs = {
   general: [
     {
-      question: "Why should I choose a Berkshire Hathaway HomeServices agent?",
+      question: "What midtown Las Vegas condo buildings does Dr. Jan Duffy specialize in?",
       answer:
-        "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents. When you're making the biggest purchase of your life, that trust matters.",
+        "Dr. Jan Duffy specializes in midtown and downtown Las Vegas condos including One Las Vegas, The Martin, Ogden, Juhl, and Arts District loft conversions. She reviews HOA documents, rental restrictions, and comparable sales for every building.",
     },
     {
-      question: "What areas does Berkshire Hathaway HomeServices Nevada Properties cover?",
+      question: "Why choose a Berkshire Hathaway HomeServices agent for midtown condos?",
       answer:
-        "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, and Henderson's master-planned communities.",
+        "Berkshire Hathaway HomeServices is backed by Warren Buffett's Berkshire Hathaway Inc. You get a global network of 50,000+ agents, world-class marketing, and a brand synonymous with trust — plus Dr. Jan's specialized midtown condo expertise since 2008.",
     },
     {
-      question: "How do Berkshire Hathaway HomeServices agents get paid?",
+      question: "What is Dr. Jan Duffy's license number?",
       answer:
-        "Commission structures are negotiable. Dr. Jan Duffy offers transparent pricing and will walk you through all costs before you sign anything. For buyers, our services are typically free as commissions are paid by the seller.",
-    },
-    {
-      question: "What is Dr. Jan Duffy's experience in Las Vegas real estate?",
-      answer:
-        "Dr. Jan Duffy has been serving Las Vegas since 2008, with $127M+ in closed transactions and 500+ satisfied clients. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
+        "Dr. Jan Duffy holds Nevada Real Estate License S.0197614.LLC and is affiliated with Berkshire Hathaway HomeServices Nevada Properties at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
     },
   ],
   buying: [
     {
-      question: "How long does the home buying process take in Las Vegas?",
+      question: "What should I know before buying a midtown Las Vegas condo?",
       answer:
-        "Typically 30-45 days from offer acceptance to closing. Cash purchases can close in as little as 7-14 days. The timeline depends on financing, inspections, and other contingencies.",
+        "Review HOA financials, rental restrictions, special assessments, and parking deeded rights. Dr. Jan walks buyers through every disclosure and connects you with lenders experienced in high-rise and condo financing.",
     },
     {
-      question: "Do I need a pre-approval before looking at homes?",
+      question: "How much do midtown Las Vegas condos cost in 2026?",
       answer:
-        "Yes, a pre-approval letter is essential. It shows sellers you're serious and gives you a clear budget. Dr. Jan can connect you with trusted local lenders who offer competitive rates.",
+        "As of January 2026, midtown Las Vegas condos range from approximately $250,000 for studio units to $1M+ for luxury high-rise penthouses with Strip views. Contact Dr. Jan at (702) 500-1942 for current building-specific pricing.",
     },
     {
-      question: "How much do I need for a down payment?",
+      question: "Can I rent out a midtown Las Vegas condo?",
       answer:
-        "Down payment requirements vary: FHA loans require 3.5%, conventional loans typically 3-20%, and VA/USDA loans may require 0% down. Dr. Jan can connect you with lenders who specialize in various loan programs.",
+        "Rental rules vary by building. Some midtown towers allow short-term rentals; others restrict to 6-month minimum leases. Dr. Jan reviews each building's CC&Rs before you make an offer.",
     },
   ],
   selling: [
     {
-      question: "What is my home worth in today's Las Vegas market?",
+      question: "How do I sell my midtown Las Vegas condo?",
       answer:
-        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise serving Las Vegas since 2008.",
+        "Dr. Jan provides a free condo valuation using recent midtown comparable sales, professional photography, and targeted marketing to urban buyers and investors. Call (702) 500-1942 for a no-obligation consultation.",
     },
     {
-      question: "How long will it take to sell my home?",
+      question: "How long do midtown condos take to sell?",
       answer:
-        "Currently, well-priced homes in Las Vegas are selling in an average of 28 days. Luxury homes may take longer (45+ days). Pricing strategy is crucial—overpriced homes can sit for months.",
-    },
-    {
-      question: "What do I need to do to prepare my home for sale?",
-      answer:
-        "Dr. Jan provides a personalized preparation checklist for every listing. Generally, decluttering, minor repairs, fresh paint, and professional photography are the highest-ROI improvements.",
+        "Well-priced midtown condos typically sell in 30–45 days. Units with Strip views, updated interiors, and reasonable HOA fees tend to move faster. Overpriced units can sit 90+ days.",
     },
   ],
 };

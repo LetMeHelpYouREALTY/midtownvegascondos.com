@@ -1,6 +1,8 @@
 // Google Business Profile Schema Data
 // Supports GBP ranking factors: Relevance, Distance, Prominence
 
+import { getAgentImageSrc } from "./site-config";
+
 export const businessInfo = {
   // NAP - Must match GBP exactly
   name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
@@ -16,7 +18,7 @@ export const businessInfo = {
     tel: "+17025001942",
   },
   email: "homes@heyberkshire.com",
-  url: "https://heyberkshire.com",
+  url: "https://www.midtownvegascondos.com",
 
   // Business Details
   license: "S.0197614.LLC",
@@ -41,13 +43,10 @@ export const businessInfo = {
 
   // Service areas - Start focused, expand with prominence
   serviceAreas: [
-    // Primary (immediate city)
+    "Midtown Las Vegas, NV",
+    "Downtown Las Vegas, NV",
+    "Arts District, Las Vegas, NV",
     "Las Vegas, NV",
-    "Summerlin, NV",
-    // Secondary (close ZIPs)
-    "Henderson, NV",
-    "North Las Vegas, NV",
-    // Tertiary (county expansion)
     "Clark County, NV",
   ],
 
@@ -78,6 +77,7 @@ export const businessInfo = {
     { name: "Military/VA Home Buying", description: "Specialized service for veterans" },
     { name: "Downsizing Consultation", description: "Transition to smaller, maintenance-free living" },
     { name: "Luxury Condo Sales", description: "High-rise and resort-style condominiums" },
+    { name: "Midtown Las Vegas Condo Specialist", description: "High-rise towers, urban lofts, and Arts District condos" },
   ],
 
   // Attributes for GBP - Fill out ALL available
@@ -161,7 +161,7 @@ Dr. Jan's approach is simple: treat every client like family, know the market in
 
 55+ active adult community specialization covers Sun City Summerlin (Nevada's largest 55+ community), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Investment property expertise spans single-family rentals, multi-family opportunities, and short-term rental analysis across the Las Vegas metro area.
 
-Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 500-1942 for a free consultation or visit heyberkshire.com to start your Las Vegas real estate journey today.`,
+Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 500-1942 for a free consultation or visit midtownvegascondos.com to search midtown Las Vegas condos today.`,
 };
 
 // FAQ Schema for GBP Q&A section
@@ -213,9 +213,9 @@ export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": "https://heyberkshire.com/#organization",
+    "@id": "https://www.midtownvegascondos.com/#organization",
     name: businessInfo.name,
-    image: "https://heyberkshire.com/images/dr-jan-duffy.jpg",
+    image: getAgentImageSrc(),
     url: businessInfo.url,
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,
@@ -256,7 +256,7 @@ export function generateLocalBusinessSchema() {
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
-      reviewCount: "200",
+      reviewCount: "500",
       bestRating: "5",
     },
     sameAs: [

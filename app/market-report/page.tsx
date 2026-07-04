@@ -4,34 +4,33 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { TrendingUp, TrendingDown, Home, Calendar, DollarSign, BarChart, Phone } from "lucide-react";
 import type { Metadata } from "next";
+import { hyperlocalMeta } from "@/lib/hyperlocal-content";
+import { marketStats, agentInfo } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Las Vegas Real Estate Market Report January 2026 | Berkshire Hathaway HomeServices",
-  description:
-    "Get the latest Las Vegas real estate market statistics for January 2026. Median prices, days on market, inventory levels, and expert analysis from Berkshire Hathaway HomeServices Nevada Properties.",
+  title: hyperlocalMeta.marketReport.title,
+  description: hyperlocalMeta.marketReport.description,
   keywords: [
-    "Las Vegas real estate market",
-    "Las Vegas home prices 2026",
-    "Henderson real estate market",
-    "Nevada housing market",
-    "Berkshire Hathaway market report",
+    "midtown Las Vegas condo market",
+    "downtown Las Vegas condo prices 2026",
+    "midtown vegas condo inventory",
+    "Las Vegas high rise market report",
   ],
 };
 
-// Report Schema
 const reportSchema = {
   "@context": "https://schema.org",
   "@type": "Report",
-  name: "Las Vegas Real Estate Market Report - January 2026",
+  name: `Midtown Las Vegas Condo Market Report - ${marketStats.lastUpdated}`,
   author: {
     "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy",
-    worksFor: "Berkshire Hathaway HomeServices Nevada Properties",
+    name: agentInfo.name,
+    worksFor: agentInfo.brokerage,
   },
   datePublished: "2026-01-23",
   about: {
     "@type": "Place",
-    name: "Las Vegas, Nevada",
+    name: "Midtown Las Vegas, Nevada",
   },
 };
 
@@ -51,10 +50,10 @@ export default function MarketReportPage() {
               Berkshire Hathaway HomeServices Market Intelligence
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Las Vegas Real Estate Market Report
+              Midtown Las Vegas Condo Market Report
             </h1>
             <p className="text-xl text-slate-600">
-              January 2026 | Expert analysis from{" "}
+              {marketStats.lastUpdated} | Midtown condo data from{" "}
               <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>
             </p>
           </div>
@@ -62,37 +61,44 @@ export default function MarketReportPage() {
           {/* Key Stats Overview */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
-              Las Vegas Market Snapshot | January 2026
+              Midtown Condo Market Snapshot | {marketStats.lastUpdated}
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">$450,000</div>
-                <div className="text-slate-300 text-sm">Median Home Price</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  {marketStats.midtown.medianPriceFormatted}
+                </div>
+                <div className="text-slate-300 text-sm">Median Condo Price</div>
                 <div className="flex items-center justify-center mt-1 text-green-400 text-sm">
                   <TrendingUp className="h-4 w-4 mr-1" />
-                  +4.2% YoY
+                  {marketStats.midtown.yearOverYearChange} YoY
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">28</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  {marketStats.midtown.daysOnMarket}
+                </div>
                 <div className="text-slate-300 text-sm">Days on Market</div>
-                <div className="flex items-center justify-center mt-1 text-green-400 text-sm">
-                  <TrendingDown className="h-4 w-4 mr-1" />
-                  -3 days
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">4,850</div>
-                <div className="text-slate-300 text-sm">Active Listings</div>
-                <div className="flex items-center justify-center mt-1 text-yellow-400 text-sm">
-                  +12% YoY
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">2.1</div>
-                <div className="text-slate-300 text-sm">Months Inventory</div>
                 <div className="flex items-center justify-center mt-1 text-slate-400 text-sm">
-                  Seller's Market
+                  Midtown condos
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  {marketStats.midtown.activeListings.toLocaleString()}
+                </div>
+                <div className="text-slate-300 text-sm">Active Condo Listings</div>
+                <div className="flex items-center justify-center mt-1 text-yellow-400 text-sm">
+                  Midtown & downtown
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  ${marketStats.midtown.pricePerSqFt}
+                </div>
+                <div className="text-slate-300 text-sm">Avg Price / Sq Ft</div>
+                <div className="flex items-center justify-center mt-1 text-slate-400 text-sm">
+                  Midtown average
                 </div>
               </div>
             </div>

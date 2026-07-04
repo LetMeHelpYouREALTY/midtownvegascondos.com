@@ -18,34 +18,18 @@ import {
   Award,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { hyperlocalMeta, midtownServiceSchema } from "@/lib/hyperlocal-content";
 
 export const metadata: Metadata = {
-  title: "Sell Your Las Vegas Home | Berkshire Hathaway HomeServices",
-  description:
-    "Sell your Las Vegas or Henderson home for top dollar with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Free home valuation. World-class marketing. Call (702) 500-1942.",
-  keywords: [
-    "sell home Las Vegas",
-    "Las Vegas listing agent",
-    "Berkshire Hathaway sell house",
-    "Henderson home selling",
-    "what is my home worth Las Vegas",
-    "Las Vegas real estate agent",
-    "Summerlin home selling",
-  ],
+  title: hyperlocalMeta.sellers.title,
+  description: hyperlocalMeta.sellers.description,
+  keywords: hyperlocalMeta.sellers.keywords,
 };
 
-const sellerSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Home Selling Services Las Vegas",
-  provider: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
-  },
-  areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
-  serviceType: "Seller Representation",
-};
+const sellerSchema = midtownServiceSchema(
+  "Midtown Las Vegas Condo Selling Services",
+  "Condo Seller Representation"
+);
 
 const sellingBenefits = [
   {
@@ -62,9 +46,9 @@ const sellingBenefits = [
   },
   {
     icon: BarChart,
-    title: "Expert Pricing Strategy",
+    title: "Building-Specific Pricing Strategy",
     description:
-      "Dr. Jan has been serving Las Vegas since 2008, which means accurate pricing that attracts buyers without leaving money on the table. Overpriced homes sit and lose value; well-priced homes generate competition and sell for more.",
+      "Midtown condo pricing depends on your building's recent sales, active competition, and price per square foot — not just valley-wide averages. Dr. Jan uses tower-specific comps so your unit is priced to sell without leaving money on the table.",
   },
   {
     icon: DollarSign,
@@ -138,16 +122,16 @@ export default function SellersPage() {
               Berkshire Hathaway HomeServices Nevada Properties
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Sell Your Las Vegas Home for Top Dollar
+              Sell Your Midtown Las Vegas Condo for Top Dollar
             </h1>
             <p className="text-xl text-slate-600 mb-8">
-              When you list with <strong>Berkshire Hathaway HomeServices</strong>, you get
-              world-class marketing, expert pricing, and a name that buyers trust. Dr. Jan Duffy 
-              has been serving Las Vegas since 2008—helping sellers achieve top-dollar results 
-              with proven marketing strategies and skilled negotiation.
+              Listing a midtown condo requires building-specific comps, HOA-aware buyers, and
+              urban marketing expertise. Dr. Jan Duffy at{" "}
+              <strong>Berkshire Hathaway HomeServices</strong> has sold condos across One Las Vegas,
+              Juhl, Arts District, and downtown towers since 2008.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Home Valuation</span>
+              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Condo Valuation</span>
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> World-Class Marketing</span>
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Expert Negotiation</span>
             </div>

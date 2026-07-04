@@ -6,6 +6,13 @@ const nextConfig = {
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pub-720ca9b7443b47be981def05abd3d7f0.r2.dev',
+        pathname: '/shared/agent/**',
+      },
+    ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
@@ -22,16 +29,39 @@ const nextConfig = {
 
   // Redirect non-www to www
   async redirects() {
+    const legacyNeighborhoodRedirects = [
+      ['summerlin', 'arts-district'],
+      ['henderson', 'symphony-park'],
+      ['green-valley', 'fremont-east'],
+      ['the-ridges', 'one-las-vegas'],
+      ['southern-highlands', 'one-las-vegas'],
+      ['north-las-vegas', 'midtown-plaza'],
+      ['skye-canyon', 'midtown-plaza'],
+      ['centennial-hills', 'midtown-plaza'],
+      ['inspirada', 'the-english-residences'],
+      ['mountains-edge', 'juhl'],
+    ].map(([from, to]) => ({
+      source: `/neighborhoods/${from}`,
+      destination: `/neighborhoods/${to}`,
+      permanent: true,
+    }))
+
     return [
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
-            value: 'heyberkshire.com',
+            value: 'midtownvegascondos.com',
           },
         ],
-        destination: 'https://www.heyberkshire.com/:path*',
+        destination: 'https://www.midtownvegascondos.com/:path*',
+        permanent: true,
+      },
+      ...legacyNeighborhoodRedirects,
+      {
+        source: '/55-plus-communities/:path*',
+        destination: '/buyers',
         permanent: true,
       },
     ]
@@ -61,11 +91,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://www.googletagmanager.com https://www.google-analytics.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://www.googletagmanager.com https://www.google-analytics.com https://widgetbe.com https://va.vercel-scripts.com",
               "style-src 'self' 'unsafe-inline' https://em.realscout.com https://www.realscout.com https://assets.calendly.com",
               "img-src 'self' data: blob: https: http:",
               "font-src 'self' data: https://assets.calendly.com",
-              "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io",
+              "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io https://widgetbe.com https://vitals.vercel-insights.com",
               "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com",
               "worker-src 'self' blob:",
             ].join('; '),

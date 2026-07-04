@@ -12,16 +12,18 @@ import {
   combineSchemas,
 } from "@/lib/schema";
 
+import { hyperlocalMeta, midtownCondoFaqs } from "@/lib/hyperlocal-content";
+import { commonFAQs, agentInfo, officeInfo } from "@/lib/site-config";
+
 export const metadata: Metadata = {
-  title: "FAQ | Berkshire Hathaway HomeServices Las Vegas Real Estate",
-  description:
-    "Frequently asked questions about Las Vegas real estate, Berkshire Hathaway HomeServices, buying, selling, and working with Dr. Jan Duffy at BHHS Nevada Properties.",
+  title: hyperlocalMeta.faq.title,
+  description: hyperlocalMeta.faq.description,
   keywords: [
-    "Berkshire Hathaway HomeServices FAQ",
-    "Las Vegas real estate questions",
-    "buying a home Las Vegas",
-    "selling a home Henderson",
-    "BHHS agent questions",
+    "midtown Las Vegas condo FAQ",
+    "downtown Las Vegas condo questions",
+    "HOA fees midtown Vegas",
+    "condo rental rules Las Vegas",
+    "Dr Jan Duffy condo agent",
   ],
 };
 
@@ -33,107 +35,31 @@ const breadcrumbs = [
 
 const faqCategories = [
   {
-    title: "About Berkshire Hathaway HomeServices",
-    faqs: [
-      {
-        q: "Why should I choose a Berkshire Hathaway HomeServices agent?",
-        a: "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents. When you're making the biggest purchase of your life, that trust matters.",
-      },
-      {
-        q: "Is Berkshire Hathaway HomeServices owned by Warren Buffett?",
-        a: "Berkshire Hathaway HomeServices is part of HSF Affiliates LLC, a joint venture of Berkshire Hathaway Inc. (Warren Buffett's company) and HomeServices of America. The brand carries the trusted Berkshire Hathaway name and upholds its values.",
-      },
-      {
-        q: "What areas does BHHS Nevada Properties serve?",
-        a: "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, Inspirada, and all Henderson communities.",
-      },
-      {
-        q: "Does using a Berkshire Hathaway agent cost more?",
-        a: "No. Commission rates are negotiable and comparable to other brokerages. The value you receive—global marketing exposure, trusted brand recognition, and experienced agents—often helps homes sell faster and for more money.",
-      },
-    ],
+    title: "Midtown Las Vegas Condos",
+    faqs: midtownCondoFaqs.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
-    title: "Buying a Home in Las Vegas",
-    faqs: [
-      {
-        q: "How long does the home buying process take?",
-        a: "Typically 30-45 days from offer acceptance to closing. Cash purchases can close in as little as 7-14 days. The timeline depends on financing, inspections, and contingencies.",
-      },
-      {
-        q: "Do I need a pre-approval before looking at homes?",
-        a: "Yes, a pre-approval letter is essential. It shows sellers you're serious and gives you a clear budget. Dr. Jan can connect you with trusted local lenders who offer competitive rates.",
-      },
-      {
-        q: "How much do I need for a down payment?",
-        a: "Down payment requirements vary: FHA loans require 3.5%, conventional loans typically 3-20%, and VA/USDA loans may require 0% down. Dr. Jan can connect you with lenders who specialize in various loan programs.",
-      },
-      {
-        q: "Is now a good time to buy in Las Vegas?",
-        a: "Yes. With more inventory, returning negotiating power, and stable interest rates, buyers have more options than they've had in years. Well-priced homes still move quickly, but you won't face the bidding wars of 2021-2022.",
-      },
-      {
-        q: "Does BHHS help with new construction homes?",
-        a: "Yes! BHHS agents provide free buyer representation for new construction purchases from builders like Toll Brothers, Lennar, and Century Communities—the builder pays the commission, not you. Having representation protects your interests.",
-      },
-    ],
+    title: "About Dr. Jan Duffy & BHHS",
+    faqs: commonFAQs.general.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
-    title: "Selling Your Home",
-    faqs: [
-      {
-        q: "What is my home worth in today's market?",
-        a: "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise serving Las Vegas since 2008.",
-      },
-      {
-        q: "How long will it take to sell my home?",
-        a: "Currently, well-priced homes in Las Vegas are selling in an average of 28 days. Luxury homes may take longer (45+ days). Pricing strategy is crucial—overpriced homes can sit for months.",
-      },
-      {
-        q: "What do I need to do to prepare my home for sale?",
-        a: "Dr. Jan provides a personalized preparation checklist for every listing. Generally, decluttering, minor repairs, fresh paint, and professional photography are the highest-ROI improvements.",
-      },
-      {
-        q: "How does Berkshire Hathaway market my home?",
-        a: "BHHS provides world-class marketing including professional photography, virtual tours, MLS syndication to 100+ websites, social media promotion, the BHHS global network exposure, and targeted digital advertising.",
-      },
-      {
-        q: "Should I wait for prices to go higher?",
-        a: "Current appreciation of 4.2% YoY suggests prices are stable with gradual increases. Timing the market is difficult—most sellers do better by listing when ready rather than waiting. Dr. Jan can provide a personalized market analysis.",
-      },
-    ],
+    title: "Buying a Midtown Condo",
+    faqs: commonFAQs.buying.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
-    title: "Investment Properties",
-    faqs: [
-      {
-        q: "Is Las Vegas good for real estate investing?",
-        a: "Yes. Las Vegas offers strong rental yields, appreciation potential, no state income tax, and a growing population. However, not all areas perform equally—Dr. Jan can identify neighborhoods with the best investment potential.",
-      },
-      {
-        q: "What kind of returns can I expect?",
-        a: "Returns vary by property type and location. Typical Las Vegas rental properties generate 5-8% cash-on-cash returns. Dr. Jan can analyze specific opportunities and provide realistic projections.",
-      },
-      {
-        q: "Does BHHS help with rental properties?",
-        a: "Yes. Dr. Jan specializes in investment properties and can help identify opportunities, analyze returns, and connect you with property management resources.",
-      },
-    ],
+    title: "Selling Your Midtown Condo",
+    faqs: commonFAQs.selling.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
-    title: "Relocating to Las Vegas",
+    title: "Midtown Condo Investing",
     faqs: [
       {
-        q: "Can BHHS help with relocations?",
-        a: "Absolutely! Our global network of 50,000+ agents makes relocations seamless. Dr. Jan can coordinate with BHHS agents in your current city while providing expert guidance on Las Vegas neighborhoods, schools, and communities.",
+        q: "Is midtown Las Vegas good for condo investing?",
+        a: "Midtown condos can offer strong rental demand from urban professionals and entertainment workers. Dr. Jan analyzes rental caps, STR rules, and HOA reserves before you invest.",
       },
       {
-        q: "What are the best neighborhoods for families?",
-        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering excellent schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities.",
-      },
-      {
-        q: "How is the cost of living in Las Vegas?",
-        a: "Las Vegas offers lower costs than most major metros, especially California. No state income tax, affordable housing compared to coastal cities, and reasonable utility costs make it attractive for relocators.",
+        q: "Which midtown buildings allow short-term rentals?",
+        a: "Rules vary by tower. Some allow Airbnb-style rentals; others restrict to long-term leases. Dr. Jan reviews CC&Rs for every investment purchase.",
       },
     ],
   },
@@ -141,16 +67,12 @@ const faqCategories = [
     title: "Working with Dr. Jan Duffy",
     faqs: [
       {
-        q: "What is Dr. Jan Duffy's experience?",
-        a: "Dr. Jan has been serving Las Vegas since 2008, with $127M+ in closed transactions and 500+ satisfied clients. She specializes in residential, luxury, investment, and relocation services throughout Southern Nevada.",
+        q: "What is Dr. Jan Duffy's midtown condo experience?",
+        a: "Dr. Jan has served Las Vegas since 2008 with $127M+ in closed transactions. She specializes in midtown and downtown condos including One Las Vegas, Juhl, Arts District lofts, and Palms Place.",
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
-      },
-      {
-        q: "What areas does Dr. Jan cover?",
-        a: "Dr. Jan serves all of Las Vegas, Henderson, Summerlin, Green Valley, North Las Vegas, Southern Highlands, Skye Canyon, Centennial Hills, The Ridges, and surrounding communities.",
+        a: `Call or text ${agentInfo.phone} or email ${agentInfo.email}. Office: ${officeInfo.address.full}.`,
       },
     ],
   },
@@ -194,8 +116,8 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-slate-600">
-              Everything you need to know about working with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> in Las Vegas
+              Midtown Las Vegas condo questions — HOA fees, rental rules, buildings, and working
+              with <strong>Dr. Jan Duffy</strong> at Berkshire Hathaway HomeServices
             </p>
           </div>
 
@@ -222,8 +144,8 @@ export default function FAQPage() {
           <section className="mt-16 text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Still Have Questions?</h2>
             <p className="text-xl text-blue-100 mb-8">
-              Dr. Jan Duffy is happy to answer any questions about Las Vegas real estate or working
-              with Berkshire Hathaway HomeServices.
+              Dr. Jan Duffy is happy to answer questions about midtown Las Vegas condos, HOA
+              review, and buying or selling downtown towers.
             </p>
             <a
               href="tel:+17025001942"

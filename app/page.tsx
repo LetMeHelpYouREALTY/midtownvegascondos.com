@@ -2,41 +2,54 @@ import Navbar from "@/components/layouts/Navbar";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
-import FAQSection from "@/components/sections/FAQSection";
+import FAQSection, { defaultFaqs } from "@/components/sections/FAQSection";
 import Footer from "@/components/layouts/Footer";
+import AgentPhoto from "@/components/shared/AgentPhoto";
 import Link from "next/link";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
+import { agentInfo, agentStats, getAgentImageSrc, marketStats, midtownAreas, officeInfo, siteConfig } from "@/lib/site-config";
+import SchemaScript, { FAQSchema } from "@/components/SchemaScript";
+import { generateWebPageSchema } from "@/lib/schema";
 
 export default async function Home() {
   const config = await getPageDomainConfig();
+  const siteUrl = siteConfig.url;
+
+  const webPageSchema = generateWebPageSchema({
+    name: config.heroHeadline,
+    description: config.description,
+    url: siteUrl,
+  });
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    name: `Dr. Jan Duffy - ${config.neighborhood} Real Estate`,
-    url: `https://${config.domain !== "default" ? config.domain : "heyberkshire.com"}`,
-    telephone: "+17022221964",
+    "@id": `${siteUrl}#organization`,
+    name: `${agentInfo.name} - ${config.neighborhood} Condo Specialist`,
+    url: siteUrl,
+    image: getAgentImageSrc(),
+    telephone: agentInfo.phoneTel.replace("tel:", ""),
+    email: agentInfo.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
+      streetAddress: officeInfo.address.street,
+      addressLocality: officeInfo.address.city,
+      addressRegion: officeInfo.address.state,
+      postalCode: officeInfo.address.zip,
+      addressCountry: "US",
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "200",
+      ratingValue: agentStats.averageRating.toString(),
+      reviewCount: agentStats.reviewCount.toString(),
     },
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
+      <SchemaScript schemas={[webPageSchema, organizationSchema]} id="home-schema" />
+      <FAQSchema faqs={defaultFaqs} />
       <Navbar />
       <main>
         {/* Domain-Aware Hero */}
@@ -57,6 +70,13 @@ export default async function Home() {
             <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto">
               {config.heroSubheadline}
             </p>
+
+            <div className="flex flex-col items-center gap-4 mb-8">
+              <AgentPhoto size="md" priority className="border-blue-400/50" />
+              <p className="text-sm text-white/70">
+                {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
+              </p>
+            </div>
 
             {/* RealScout Search Widget */}
             <div className="mb-8 flex justify-center">
@@ -93,15 +113,15 @@ export default async function Home() {
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600">
-                Berkshire Hathaway HomeServices Nevada Properties — the most trusted name in Las Vegas real estate.
+                Midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[
-                { icon: Shield, title: "Trusted Brand", desc: "Backed by Warren Buffett's Berkshire Hathaway — unmatched integrity" },
-                { icon: Users, title: "50K+ Network", desc: "Global referral network for seamless moves to or from any market" },
-                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven results across every Las Vegas neighborhood since 2008" },
-                { icon: HomeIcon, title: "Full Service", desc: "Buying, selling, 55+, luxury, investment — one expert handles it all" },
+                { icon: Shield, title: "HOA Expertise", desc: "CC&R review, rental caps, and special assessment checks on every building" },
+                { icon: Users, title: "50K+ Network", desc: "Global BHHS referral network for relocations to or from Las Vegas" },
+                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven midtown and valley-wide results since 2008" },
+                { icon: HomeIcon, title: "Condo Specialist", desc: "High-rise towers, urban lofts, Arts District — one expert for all midtown condos" },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="text-center p-6">
                   <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -126,10 +146,10 @@ export default async function Home() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {[
-                { value: "$450K", label: "Median Price", sub: "+4.2% YoY" },
-                { value: "28", label: "Avg Days on Market", sub: "" },
-                { value: "4,850", label: "Active Listings", sub: "" },
-                { value: "2.1", label: "Months Inventory", sub: "" },
+                { value: marketStats.midtown.medianPriceFormatted, label: "Median Condo Price", sub: marketStats.midtown.yearOverYearChange + " YoY" },
+                { value: String(marketStats.midtown.daysOnMarket), label: "Avg Days on Market", sub: "" },
+                { value: marketStats.midtown.activeListings.toLocaleString(), label: "Active Condo Listings", sub: "" },
+                { value: "$" + marketStats.midtown.pricePerSqFt, label: "Avg Price/Sq Ft", sub: "" },
               ].map(({ value, label, sub }) => (
                 <div key={label} className="text-center">
                   <div className="text-4xl font-bold text-blue-400 mb-1">{value}</div>
@@ -146,10 +166,45 @@ export default async function Home() {
           </div>
         </section>
 
+        {/* Midtown Areas */}
+        <section className="py-16 md:py-20 bg-slate-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                Midtown Las Vegas Condo Neighborhoods
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                From Strip-adjacent high-rises to Arts District lofts — explore Las Vegas urban living.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {midtownAreas.map((area) => (
+                <div
+                  key={area.slug}
+                  className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <h3 className="font-bold text-lg text-slate-900 mb-2">{area.name}</h3>
+                  <p className="text-slate-600 text-sm mb-4">{area.description}</p>
+                  <ul className="space-y-1">
+                    {area.highlights.map((h) => (
+                      <li key={h} className="text-xs text-blue-600 font-medium">
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <RealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
-        <FAQSection />
+        <FAQSection
+          title="Midtown Las Vegas Condo FAQs"
+          subtitle="Common questions about buying and selling midtown Vegas condos"
+        />
 
         {/* Domain-Specific CTA */}
         <section className="py-16 md:py-20 bg-blue-600 text-white">
@@ -162,11 +217,11 @@ export default async function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17022221964"
+                href={agentInfo.phoneTel}
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call 702-222-1964
+                Call {agentInfo.phone}
               </a>
               <Link
                 href="/contact"

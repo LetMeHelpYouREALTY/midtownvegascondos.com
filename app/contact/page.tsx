@@ -1,15 +1,17 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import AgentPhoto from "@/components/shared/AgentPhoto";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield } from "lucide-react";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { agentInfo, getAgentImageSrc, officeInfo, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Contact Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
+  title: "Contact Dr. Jan Duffy | Midtown Las Vegas Condo Specialist",
   description:
-    "Contact Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Schedule an appointment, get directions, or call (702) 500-1942. Las Vegas, Henderson, Summerlin real estate expert.",
+    "Contact Dr. Jan Duffy for midtown Las Vegas condos. Schedule a showing, get directions, or call (702) 500-1942. Berkshire Hathaway HomeServices Nevada Properties.",
   keywords: [
     "contact real estate agent Las Vegas",
     "Berkshire Hathaway contact",
@@ -26,7 +28,9 @@ const contactSchema = {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     telephone: "+17025001942",
-    email: "homes@heyberkshire.com",
+    email: agentInfo.email,
+    image: getAgentImageSrc(),
+    url: `${siteConfig.url}/contact`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "9406 W Lake Mead Blvd, Suite 100",
@@ -50,6 +54,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           {/* Hero */}
           <div className="text-center mb-12">
+            <AgentPhoto size="lg" className="mx-auto mb-6" />
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Berkshire Hathaway HomeServices Nevada Properties
             </div>
@@ -57,9 +62,9 @@ export default function ContactPage() {
               Contact Dr. Jan Duffy
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Questions about Las Vegas real estate? Your{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> expert is here to help. 
-              Schedule an appointment or reach out directly.
+              Questions about midtown Las Vegas condos? Your{" "}
+              <strong>Berkshire Hathaway HomeServices</strong> condo specialist is here to help.
+              Schedule a showing or reach out directly.
             </p>
           </div>
 
@@ -68,10 +73,11 @@ export default function ContactPage() {
             <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h2>
               <p className="text-slate-700 mb-8">
-                Whether you're buying your first home, selling a luxury property, or exploring
-                investment opportunities, I'm here to provide expert guidance backed by the trusted{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> brand. Serving Las Vegas since 2008 
-                with $127M+ in closed transactions.
+                Whether you&apos;re buying your first midtown condo, selling a high-rise unit, or
+                exploring downtown investment opportunities, I provide expert HOA review and
+                building-specific guidance backed by{" "}
+                <strong>Berkshire Hathaway HomeServices</strong>. Serving Las Vegas since 2008 with
+                $127M+ in closed transactions.
               </p>
 
               {/* NAP Information */}

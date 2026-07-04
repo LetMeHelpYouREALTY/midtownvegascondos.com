@@ -8,39 +8,40 @@ export interface FAQ {
   answer: string;
 }
 
-// Default FAQs for the section
+// Default FAQs for midtown Las Vegas condos
 export const defaultFaqs: FAQ[] = [
   {
-    question: "What areas do you serve?",
+    question: "What midtown Las Vegas condo buildings do you specialize in?",
     answer:
-      "We specialize in Las Vegas and Henderson, Nevada, including Summerlin, Green Valley, and surrounding communities. Our expertise covers residential, luxury, and investment properties throughout Southern Nevada.",
+      "Dr. Jan Duffy specializes in midtown and downtown Las Vegas condos including One Las Vegas, The Martin, Ogden, Juhl, and Arts District lofts. She reviews HOA documents, rental restrictions, and comparable sales for every building.",
   },
   {
-    question: "How long does the home buying process take?",
+    question: "How long does buying a midtown Las Vegas condo take?",
     answer:
-      "Typically, the home buying process takes 30-45 days from offer acceptance to closing. However, this can vary based on financing, inspections, and other factors. We'll guide you through each step to ensure a smooth transaction.",
+      "Typically 30–45 days from offer acceptance to closing. Condo transactions may take slightly longer due to HOA document review. Cash purchases can close in 7–14 days.",
   },
   {
-    question: "Do you help with home valuations?",
+    question: "Do you provide free condo valuations?",
     answer:
-      "Yes! We provide free, no-obligation home valuations using current market data and comparable sales. This helps you understand your home's value whether you're considering selling or just curious about your investment.",
+      "Yes! Dr. Jan provides free, no-obligation condo valuations using current midtown comparable sales and per-square-foot data. Call (702) 500-1942 for a consultation.",
   },
   {
-    question: "What makes you different from other real estate agents?",
+    question: "What makes Dr. Jan different for condo buyers?",
     answer:
-      "Serving Las Vegas since 2008 with 500+ successful transactions, we combine deep local market knowledge with personalized service. As part of Berkshire Hathaway HomeServices, we have access to extensive resources and technology to serve you better.",
+      "Serving Las Vegas since 2008 with 500+ transactions, Dr. Jan combines specialized condo expertise — HOA review, rental cap analysis, and building-specific knowledge — with Berkshire Hathaway HomeServices resources.",
   },
   {
-    question: "Can you help with investment properties?",
+    question: "Can you help with midtown condo investment properties?",
     answer:
-      "Absolutely! We specialize in investment real estate including rental properties, fix-and-flip opportunities, and commercial properties. We'll help you identify profitable opportunities and navigate the investment process.",
+      "Absolutely! Dr. Jan analyzes rental yields, short-term rental regulations, and cap rates for midtown condo investors. She knows which buildings allow STR and which have the strongest HOA reserves.",
   },
   {
-    question: "What are your fees?",
+    question: "What are your fees for condo transactions?",
     answer:
-      "For buyers, our services are typically free as commissions are paid by the seller. For sellers, we offer competitive commission structures. Contact us for a personalized consultation to discuss your specific situation.",
+      "Commission structures are negotiable and transparent. For buyers, Dr. Jan's services are typically free as commissions are paid by the seller. Call (702) 500-1942 to discuss your midtown condo goals.",
   },
 ];
+
 
 interface FAQSectionProps {
   /** Custom FAQs to display (defaults to defaultFaqs) */
@@ -56,7 +57,7 @@ interface FAQSectionProps {
 export default function FAQSection({
   faqs = defaultFaqs,
   title = "Frequently Asked Questions",
-  subtitle = "Get answers to common questions about our real estate services",
+  subtitle = "Common questions about buying and selling midtown Las Vegas condos",
   className = "",
 }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);

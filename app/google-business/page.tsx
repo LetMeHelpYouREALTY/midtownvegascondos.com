@@ -1,5 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import AgentPhoto from "@/components/shared/AgentPhoto";
 import Link from "next/link";
 import {
   Phone,
@@ -105,6 +106,7 @@ export default function GoogleBusinessPage() {
                 
                 {/* Rating & CTA */}
                 <div className="text-center bg-white/10 rounded-xl p-8">
+                  <AgentPhoto size="lg" className="mx-auto mb-6 border-white/30" />
                   <div className="flex justify-center mb-4">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star key={star} className="h-8 w-8 text-yellow-400 fill-yellow-400" />
