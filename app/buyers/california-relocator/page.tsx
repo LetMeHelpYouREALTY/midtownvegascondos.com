@@ -17,6 +17,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import type { Metadata } from "next";
+import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "Relocating from California to Las Vegas | Berkshire Hathaway HomeServices",
@@ -108,32 +109,17 @@ export default function CaliforniaRelocatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Breadcrumb */}
-          <div className="max-w-6xl mx-auto mb-6">
-            <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
-              {" / "}
-              <Link href="/buyers" className="hover:text-blue-600">Buyers</Link>
-              {" / "}
-              <span className="text-slate-900">California Relocator</span>
-            </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+      <PageHero
+        imageKey="stripTwilight"
+        title="Relocating from California? Welcome Home to Las Vegas"
+        subtitle="Zero state income tax. 40-60% lower home prices. Same sunshine."
+      >
+        <div className="inline-flex items-center bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Sun className="h-4 w-4 mr-2" />
               37% of Las Vegas Buyers Are From California
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Relocating from California?<br />
-              <span className="text-blue-600">Welcome Home to Las Vegas</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-600 mb-8">
-              Zero state income tax. 40-60% lower home prices. Same sunshine.
-            </p>
+            
+            
             <a
               href="tel:+17025001942"
               className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
@@ -141,7 +127,9 @@ export default function CaliforniaRelocatorPage() {
               <Phone className="h-5 w-5 mr-2" />
               Start Your Tax-Free Life → (702) 500-1942
             </a>
-          </div>
+      </PageHero>
+      <main className="pb-16">
+        <div className="container mx-auto px-4">
 
           {/* Tax Savings Comparison */}
           <section className="mb-16 bg-gradient-to-br from-green-600 to-green-700 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">

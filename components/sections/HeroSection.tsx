@@ -9,9 +9,9 @@ export default function HeroSection() {
   const prefersReducedMotion = useReducedMotion();
   
   const images = [
-    "/Image/hero_bg_1.jpg",
-    "/Image/hero_bg_2.jpg",
-    "/Image/hero_bg_3.jpg",
+    "/images/hero/midtown-skyline.webp",
+    "/images/hero/strip-twilight.webp",
+    "/images/hero/condo-tower.webp",
   ];
 
   useEffect(() => {

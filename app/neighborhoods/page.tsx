@@ -6,6 +6,7 @@ import { MapPin, Phone, Home, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { hyperlocalMeta, midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import { agentInfo } from "@/lib/site-config";
+import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: hyperlocalMeta.neighborhoods.title,
@@ -17,21 +18,17 @@ export default function NeighborhoodsPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Midtown Las Vegas Condo Specialist
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Midtown Las Vegas Condo Neighborhoods
-            </h1>
-            <p className="text-xl text-slate-600">
-              From Arts District lofts to Strip-view high-rises — explore every midtown building
+      <PageHero
+        imageKey="midtownSkyline"
+        badge="Midtown Las Vegas Condo Specialist"
+        title="Midtown Las Vegas Condo Neighborhoods"
+      >
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">From Arts District lofts to Strip-view high-rises — explore every midtown building
               and neighborhood with Dr. Jan Duffy, your condo specialist at{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>.
-            </p>
-          </div>
+              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>.</p>
+      </PageHero>
+      <main className="pb-16">
+        <div className="container mx-auto px-4">
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
             {midtownNeighborhoods.map((area) => (

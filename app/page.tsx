@@ -6,10 +6,12 @@ import FAQSection from "@/components/sections/FAQSection";
 import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { agentInfo, agentStats, getAgentImageSrc, marketStats, midtownAreas, officeInfo, siteConfig } from "@/lib/site-config";
 import { defaultFaqs } from "@/lib/faqs";
+import { getHeroImage } from "@/lib/hero-images";
 import SchemaScript, { FAQSchema } from "@/components/SchemaScript";
 import { generateWebPageSchema } from "@/lib/schema";
 
@@ -55,10 +57,15 @@ export default async function Home() {
       <main>
         {/* Domain-Aware Hero */}
         <section className="relative bg-slate-900 text-white py-24 md:py-32 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{ backgroundImage: "url('/Image/hero_bg_1.jpg')" }}
+          <Image
+            src={getHeroImage("midtownSkyline").src}
+            alt={getHeroImage("midtownSkyline").alt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-40"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/30 to-slate-900/70" />
           <div className="relative z-10 container mx-auto px-4 text-center">
             {config.ctaBadge && (
               <span className="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6">

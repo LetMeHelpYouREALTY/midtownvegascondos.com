@@ -4,6 +4,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, TrendingUp, DollarSign, Building, BarChart, CheckCircle, Calculator } from "lucide-react";
 import type { Metadata } from "next";
+import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "Las Vegas Investment Properties | Berkshire Hathaway HomeServices",
@@ -68,22 +69,17 @@ export default function InvestmentPropertiesPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Las Vegas Investment Properties
-            </h1>
-            <p className="text-xl text-slate-600">
-              No state income tax, strong appreciation, and excellent rental yields. Discover why
+      <PageHero
+        imageKey="highriseTowers"
+        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        title="Las Vegas Investment Properties"
+      >
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">No state income tax, strong appreciation, and excellent rental yields. Discover why
               investors choose Las Vegas—with guidance from{" "}
-              <strong>Berkshire Hathaway HomeServices</strong>.
-            </p>
-          </div>
+              <strong>Berkshire Hathaway HomeServices</strong>.</p>
+      </PageHero>
+      <main className="pb-16">
+        <div className="container mx-auto px-4">
 
           {/* Why Las Vegas */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">

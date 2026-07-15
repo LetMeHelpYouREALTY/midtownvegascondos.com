@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import AgentPhoto from "@/components/shared/AgentPhoto";
+import PageHero from "@/components/sections/PageHero";
 import Link from "next/link";
 import { Phone, MapPin, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
@@ -19,6 +20,7 @@ import {
   type MidtownNeighborhoodSlug,
 } from "@/lib/hyperlocal-content";
 import { agentInfo, siteConfig } from "@/lib/site-config";
+import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -73,14 +75,47 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
   }
 
   const pageSchema = combineSchemas(...schemas);
+  const heroKey = neighborhoodHeroBySlug[area.slug] ?? "midtownSkyline";
 
   return (
     <>
       <SchemaScript schema={pageSchema} id={`${area.slug}-schema`} />
       <Navbar />
-      <main className="pt-24 pb-16">
+      <PageHero
+        imageKey={heroKey}
+        imageAlt={`${area.name} midtown Las Vegas condos — ${getHeroImage(heroKey).alt}`}
+        badge="Midtown Las Vegas Condos"
+        title={`${area.name} Condos for Sale`}
+        subtitle={area.description}
+        priority
+      >
+        <div className="flex flex-wrap justify-center gap-4 mb-6">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/20">
+            <div className="text-2xl font-bold text-white">{area.medianPrice}</div>
+            <div className="text-sm text-white/70">Median condo price</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/20">
+            <div className="text-2xl font-bold text-green-400">{area.priceChange}</div>
+            <div className="text-sm text-white/70">Year over year</div>
+          </div>
+        </div>
+        <p className="text-white/85 mb-4">
+          <strong className="text-white">Best for:</strong> {area.bestFor}
+        </p>
+        <ul className="flex flex-wrap justify-center gap-2">
+          {area.highlights.map((h) => (
+            <li
+              key={h}
+              className="bg-blue-500/30 text-white text-sm font-medium px-3 py-1 rounded-full border border-blue-300/30"
+            >
+              {h}
+            </li>
+          ))}
+        </ul>
+      </PageHero>
+      <main className="pb-16">
         <div className="container mx-auto px-4">
-          <nav className="text-sm text-slate-500 mb-6">
+          <nav className="text-sm text-slate-500 mb-6 pt-8">
             <Link href="/" className="hover:text-blue-600">
               Home
             </Link>
@@ -94,36 +129,10 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
 
           <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-start max-w-6xl mx-auto mb-12">
             <div>
-              <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">
-                Midtown Las Vegas Condos
-              </span>
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-                {area.name} Condos for Sale
-              </h1>
-              <p className="text-xl text-slate-600 mb-6">{area.description}</p>
-              <div className="flex flex-wrap gap-4 mb-6">
-                <div className="bg-slate-50 rounded-lg px-4 py-3">
-                  <div className="text-2xl font-bold text-blue-600">{area.medianPrice}</div>
-                  <div className="text-sm text-slate-500">Median condo price</div>
-                </div>
-                <div className="bg-slate-50 rounded-lg px-4 py-3">
-                  <div className="text-2xl font-bold text-green-600">{area.priceChange}</div>
-                  <div className="text-sm text-slate-500">Year over year</div>
-                </div>
-              </div>
-              <p className="text-slate-700 mb-4">
-                <strong>Best for:</strong> {area.bestFor}
+              <p className="text-slate-700 mb-6">
+                Explore {area.name} with Dr. Jan Duffy — HOA review, building comps, and condo-specific
+                guidance from a midtown specialist at Berkshire Hathaway HomeServices Nevada Properties.
               </p>
-              <ul className="flex flex-wrap gap-2 mb-8">
-                {area.highlights.map((h) => (
-                  <li
-                    key={h}
-                    className="bg-blue-50 text-blue-800 text-sm font-medium px-3 py-1 rounded-full"
-                  >
-                    {h}
-                  </li>
-                ))}
-              </ul>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href={agentInfo.phoneTel}

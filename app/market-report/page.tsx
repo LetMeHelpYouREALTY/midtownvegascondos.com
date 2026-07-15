@@ -6,6 +6,7 @@ import { TrendingUp, TrendingDown, Home, Calendar, DollarSign, BarChart, Phone }
 import type { Metadata } from "next";
 import { hyperlocalMeta } from "@/lib/hyperlocal-content";
 import { marketStats, agentInfo } from "@/lib/site-config";
+import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: hyperlocalMeta.marketReport.title,
@@ -42,21 +43,16 @@ export default function MarketReportPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reportSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
+      <PageHero
+        imageKey="stripNight"
+        badge="Berkshire Hathaway HomeServices Market Intelligence"
+        title="Midtown Las Vegas Condo Market Report"
+      >
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">{marketStats.lastUpdated} | Midtown condo data from{" "}
+              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong></p>
+      </PageHero>
+      <main className="pb-16">
         <div className="container mx-auto px-4">
-          {/* Hero Section */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Market Intelligence
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Midtown Las Vegas Condo Market Report
-            </h1>
-            <p className="text-xl text-slate-600">
-              {marketStats.lastUpdated} | Midtown condo data from{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>
-            </p>
-          </div>
 
           {/* Key Stats Overview */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">

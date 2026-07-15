@@ -14,6 +14,7 @@ import {
   Calendar,
 } from "lucide-react";
 import type { Metadata } from "next";
+import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "Relocation Home Sales Las Vegas | Berkshire Hathaway HomeServices",
@@ -32,32 +33,17 @@ export default function RelocationPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Breadcrumb */}
-          <div className="max-w-6xl mx-auto mb-6">
-            <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
-              {" / "}
-              <Link href="/sellers" className="hover:text-blue-600">Sellers</Link>
-              {" / "}
-              <span className="text-slate-900">Relocation</span>
-            </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+      <PageHero
+        imageKey="midtownSkyline"
+        title="New Opportunity? We Handle Your Sale."
+        subtitle="Sell your Las Vegas home while you focus on your new chapter. We coordinate both ends of your move."
+      >
+        <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Plane className="h-4 w-4 mr-2" />
               Nationwide BHHS Network
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              New Opportunity?<br />We Handle Your Sale.
-            </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Sell your Las Vegas home while you focus on your new chapter.
-              We coordinate both ends of your move.
-            </p>
+            
+            
             <a
               href="tel:+17025001942"
               className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
@@ -65,7 +51,9 @@ export default function RelocationPage() {
               <Phone className="h-5 w-5 mr-2" />
               Start Your Relocation → (702) 500-1942
             </a>
-          </div>
+      </PageHero>
+      <main className="pb-16">
+        <div className="container mx-auto px-4">
 
           {/* Network Advantage */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">

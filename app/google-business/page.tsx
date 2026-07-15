@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
+import PageHero from "@/components/sections/PageHero";
 import Link from "next/link";
 import {
   Phone,
@@ -63,20 +64,27 @@ export default function GoogleBusinessPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
+      <PageHero
+        imageKey="midtownSkyline"
+        badge="Berkshire Hathaway HomeServices"
+        title="Dr. Jan Duffy"
+        subtitle={`REALTOR® | License ${businessInfo.license} — Midtown Las Vegas condo specialist at Nevada Properties`}
+        priority
+      />
+      <main className="pb-16">
         <div className="container mx-auto px-4">
           {/* Hero - NAP Prominent */}
-          <section className="max-w-5xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white rounded-2xl p-8 md:p-12">
+          <section className="max-w-5xl mx-auto mb-16 -mt-8 relative z-10">
+            <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white rounded-2xl p-8 md:p-12 shadow-xl">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <Award className="h-6 w-6 text-yellow-400" />
                     <span className="text-yellow-400 font-semibold">Berkshire Hathaway HomeServices</span>
                   </div>
-                  <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                    Dr. Jan Duffy
-                  </h1>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                    Connect on Google
+                  </h2>
                   <p className="text-xl text-blue-200 mb-2">REALTOR® | License {businessInfo.license}</p>
                   <p className="text-slate-300 mb-6">Nevada Properties</p>
                   

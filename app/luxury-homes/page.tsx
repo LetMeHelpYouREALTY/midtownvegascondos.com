@@ -18,6 +18,7 @@ import {
   Users,
 } from "lucide-react";
 import type { Metadata } from "next";
+import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "Las Vegas Luxury Homes for Sale | Berkshire Hathaway HomeServices",
@@ -121,28 +122,23 @@ export default function LuxuryHomesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(luxurySchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Las Vegas Luxury Real Estate
-            </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              <strong>Berkshire Hathaway HomeServices</strong> represents the gold standard in
+      <PageHero
+        imageKey="stripTwilight"
+        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        title="Las Vegas Luxury Real Estate"
+      >
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto"><strong>Berkshire Hathaway HomeServices</strong> represents the gold standard in
               luxury real estate. When you're buying or selling a $1M+ home, trust matters more than
               ever. Our global network, discretion, and expertise ensure your luxury transaction 
-              receives the exceptional service it deserves.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+              receives the exceptional service it deserves.</p>
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> White Glove Service</span>
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Global Buyer Network</span>
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Discrete Transactions</span>
             </div>
-          </div>
+      </PageHero>
+      <main className="pb-16">
+        <div className="container mx-auto px-4">
 
           {/* Luxury Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">

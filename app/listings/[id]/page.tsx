@@ -1,5 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import PageHero from "@/components/sections/PageHero";
 import Image from "next/image";
 import { Bed, Bath, Square, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,16 +16,16 @@ async function getProperty(id: string) {
   // Placeholder - replace with RealScout API call
   return {
     id,
-    name: "Modern Luxury Home",
-    location: "Summerlin, Las Vegas, NV",
-    price: "$850,000",
-    image: "/Image/hero_bg_1.jpg",
-    bedrooms: 4,
-    bathrooms: 3,
-    squareFeet: 3200,
+    name: "Strip-View Midtown Condo",
+    location: "Midtown Las Vegas, NV",
+    price: "$485,000",
+    image: "/images/hero/condo-tower.webp",
+    bedrooms: 2,
+    bathrooms: 2,
+    squareFeet: 1250,
     yearBuilt: 2018,
     description:
-      "Stunning modern home in desirable Summerlin community. Features open floor plan, updated kitchen, and beautiful backyard. Close to schools, shopping, and entertainment.",
+      "Modern midtown Las Vegas condo with open floor plan, updated kitchen, and urban amenities. Close to the Arts District, dining, and entertainment.",
   };
 }
 
@@ -39,10 +40,20 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
   return (
     <>
       <Navbar />
-      <main className="pt-24 pb-16">
+      <PageHero
+        imageKey="condoTower"
+        imageSrc={property.image}
+        imageAlt={`${property.name} in ${property.location}`}
+        badge="Midtown Las Vegas Condo"
+        title={property.name}
+        subtitle={`${property.location} · ${property.price}`}
+        priority
+        compact
+      />
+      <main className="pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <nav className="mb-6 text-sm">
+          <nav className="mb-6 text-sm pt-8">
             <ol className="flex items-center space-x-2 text-slate-600">
               <li>
                 <a href="/" className="hover:text-blue-600">
@@ -62,9 +73,6 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
 
           {/* Property Header */}
           <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
-              {property.name}
-            </h1>
             <div className="flex items-center text-slate-600 mb-4">
               <MapPin className="h-5 w-5 mr-2" />
               {property.location}

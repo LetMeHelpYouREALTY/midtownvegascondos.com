@@ -15,6 +15,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = {
   title: "Sun City Summerlin Homes for Sale | Berkshire Hathaway HomeServices",
@@ -55,10 +56,15 @@ export default function SunCitySummerlinPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(communitySchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
+      <PageHero
+        imageKey="condoInterior"
+        title="Sun City Summerlin"
+        subtitle="7,700+ homes. 3 golf courses. 4 recreation centers. The gold standard of active adult living."
+      />
+      <main className="pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
-          <div className="max-w-6xl mx-auto mb-6">
+          <div className="max-w-6xl mx-auto mb-6 pt-8">
             <nav className="text-sm text-slate-500">
               <Link href="/" className="hover:text-blue-600">Home</Link>
               {" / "}
@@ -67,22 +73,7 @@ export default function SunCitySummerlinPage() {
               <span className="text-slate-900">Sun City Summerlin</span>
             </nav>
           </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Trophy className="h-4 w-4 mr-2" />
-              Nevada's Largest 55+ Community
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Sun City Summerlin
-            </h1>
-            <p className="text-xl text-slate-600">
-              7,700+ homes. 3 golf courses. 4 recreation centers. The gold standard of active adult living.
-            </p>
-          </div>
-
-          {/* Quick Stats */}
+{/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Sun City Summerlin at a Glance
