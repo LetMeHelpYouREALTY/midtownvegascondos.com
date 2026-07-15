@@ -42,7 +42,7 @@ export default function PageHero({
 
   return (
     <section
-      className={`relative bg-slate-900 text-white overflow-hidden ${
+      className={`relative bg-slate-950 text-white overflow-hidden ${
         compact ? "pt-28 pb-14 md:pt-32 md:pb-16" : "pt-32 pb-20 md:pt-40 md:pb-28"
       } ${className}`}
     >
@@ -52,11 +52,12 @@ export default function PageHero({
         fill
         priority={priority}
         sizes="100vw"
-        className="object-cover object-center opacity-40"
+        className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-900/40 to-slate-900/70" />
+      {/* Light scrim for text contrast — keeps the photo dominant */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/55" />
 
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative z-10 container mx-auto px-4 text-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)]">
         {badge ? (
           <span className="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6">
             {badge}
@@ -66,7 +67,7 @@ export default function PageHero({
           {title}
         </h1>
         {subtitle ? (
-          <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">{subtitle}</p>
+          <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">{subtitle}</p>
         ) : null}
         {children}
       </div>

@@ -56,17 +56,18 @@ export default async function Home() {
       <Navbar />
       <main>
         {/* Domain-Aware Hero */}
-        <section className="relative bg-slate-900 text-white py-24 md:py-32 overflow-hidden">
+        <section className="relative bg-slate-950 text-white py-24 md:py-32 overflow-hidden">
           <Image
             src={getHeroImage("midtownSkyline").src}
             alt={getHeroImage("midtownSkyline").alt}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center opacity-40"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/30 to-slate-900/70" />
-          <div className="relative z-10 container mx-auto px-4 text-center">
+          {/* Light scrim for text contrast — keeps the photo dominant */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/55" />
+          <div className="relative z-10 container mx-auto px-4 text-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)]">
             {config.ctaBadge && (
               <span className="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6">
                 {config.ctaBadge}
