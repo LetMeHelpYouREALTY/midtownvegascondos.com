@@ -59,6 +59,17 @@ const nextConfig = {
         permanent: true,
       },
       ...legacyNeighborhoodRedirects,
+      // Legacy short paths Google crawled — consolidate to the listings hub
+      {
+        source: "/ap",
+        destination: "/listings",
+        permanent: true,
+      },
+      {
+        source: "/lc",
+        destination: "/listings",
+        permanent: true,
+      },
       // /55-plus-communities/* pages are live indexable URLs — no redirect
     ]
   },
@@ -79,6 +90,31 @@ const nextConfig = {
   // Enhanced security headers including CSP for RealScout widget
   async headers() {
     return [
+      {
+        source: '/favicon.ico',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+          { key: 'Cache-Control', value: 'public, max-age=86400, immutable' },
+        ],
+      },
+      {
+        source: '/favicon-:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
+      {
+        source: '/icon',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
+      {
+        source: '/apple-icon',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
       {
         source: '/(.*)',
         headers: [

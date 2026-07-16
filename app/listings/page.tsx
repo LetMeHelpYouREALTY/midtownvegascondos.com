@@ -1,141 +1,220 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
+import SchemaScript from "@/components/SchemaScript";
+import PageHero from "@/components/sections/PageHero";
 import Link from "next/link";
 import {
   Phone,
-  Home,
-  MapPin,
-  DollarSign,
-  TrendingUp,
-  Search,
-  Filter,
-  Heart,
-  Building2,
-  Users,
-  Clock,
   CheckCircle,
-  Star,
   ArrowRight,
+  Building2,
+  MapPin,
+  Search,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
-import PageHero from "@/components/sections/PageHero";
+import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
+import { agentInfo, officeInfo, marketStats, siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = withPageHeroMetadata("/listings", {
-  title: "Las Vegas Homes for Sale | MLS Property Search | Berkshire Hathaway HomeServices",
-  description:
-    "Browse all Las Vegas and Henderson homes for sale with live MLS listings. Search by neighborhood, price, and features. Dr. Jan Duffy, Berkshire Hathaway HomeServices. Call (702) 500-1942.",
-  keywords: [
-    "Las Vegas homes for sale",
-    "Henderson real estate",
-    "MLS listings Las Vegas",
-    "Summerlin homes",
-    "houses for sale Las Vegas",
-    "Berkshire Hathaway listings",
-  ],
-});
+const PATH = "/listings";
+
+const faqs = [
+  {
+    question: "How do I search midtown Las Vegas condos for sale?",
+    answer:
+      "Use the live MLS search on this page, filter by condo/townhome, then shortlist Arts District, Symphony Park, One Las Vegas, Juhl, Palms Place, or The English Residences. Call Dr. Jan Duffy at (702) 500-1942 for a curated list matched to HOA dues and rental rules.",
+  },
+  {
+    question: "Are these listings updated from the MLS?",
+    answer:
+      "Yes. The RealScout office listings widget pulls active for-sale inventory. Status and price can change between page loads — confirm details with Dr. Jan before you write an offer.",
+  },
+  {
+    question: "What is the median midtown condo price?",
+    answer: `As of ${marketStats.lastUpdated}, the midtown condo median is about ${marketStats.midtown.medianPriceFormatted} with roughly ${marketStats.midtown.daysOnMarket} days on market. Live comps beat any static number — call ${agentInfo.phone}.`,
+  },
+  {
+    question: "Can I search Strip-view and downtown high-rises here?",
+    answer:
+      "Yes. Sort newest for-sale inventory, then ask Dr. Jan to filter for high-rise vs loft conversions, parking, and view premiums near Main Street and the Arts District.",
+  },
+];
+
+export const metadata: Metadata = {
+  ...withPageHeroMetadata(PATH, {
+    title: "Midtown Las Vegas Condos for Sale | Live MLS Listings | Dr. Jan Duffy",
+    description:
+      "Search live MLS midtown Las Vegas condos for sale — Arts District lofts, high-rises, The English Residences, and downtown inventory. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1942.",
+    keywords: [
+      "midtown Las Vegas condos for sale",
+      "Las Vegas MLS listings",
+      "Arts District condos",
+      "downtown Las Vegas condos for sale",
+      "Dr Jan Duffy listings",
+    ],
+  }),
+  robots: { index: true, follow: true },
+  alternates: { canonical: PATH },
+};
 
 const listingsSchema = {
   "@context": "https://schema.org",
-  "@type": "RealEstateListing",
-  name: "Las Vegas MLS Property Listings",
-  description: "Live MLS property listings for Las Vegas, Henderson, and Summerlin homes for sale",
-  provider: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
-  },
-  areaServed: [
-    { "@type": "City", name: "Las Vegas, NV" },
-    { "@type": "City", name: "Henderson, NV" },
-    { "@type": "City", name: "Summerlin, NV" },
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${siteConfig.url}/listings#webpage`,
+      url: `${siteConfig.url}/listings`,
+      name: "Midtown Las Vegas Condos for Sale — Live MLS Search",
+      description:
+        "Live MLS search and midtown condo buying guide for Las Vegas Arts District, downtown high-rises, and condo-hotel residences.",
+      isPartOf: { "@id": `${siteConfig.url}#website` },
+      about: {
+        "@type": "Place",
+        name: "Midtown Las Vegas",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Las Vegas",
+          addressRegion: "NV",
+          addressCountry: "US",
+        },
+      },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", "[data-listings-summary]", "[data-listings-faq]"],
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteConfig.url}/listings#faq`,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Listings",
+          item: `${siteConfig.url}/listings`,
+        },
+      ],
+    },
+    {
+      "@type": "RealEstateAgent",
+      name: agentInfo.name,
+      telephone: agentInfo.phoneTel.replace("tel:", ""),
+      url: siteConfig.url,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: officeInfo.address.street,
+        addressLocality: officeInfo.address.city,
+        addressRegion: officeInfo.address.state,
+        postalCode: officeInfo.address.zip,
+        addressCountry: "US",
+      },
+    },
   ],
 };
 
-const popularSearches = [
-  { name: "Summerlin Homes", href: "/neighborhoods/summerlin", count: "1,200+" },
-  { name: "Henderson Properties", href: "/neighborhoods/henderson", count: "980+" },
-  { name: "Green Valley", href: "/neighborhoods/green-valley", count: "450+" },
-  { name: "The Ridges Luxury", href: "/neighborhoods/the-ridges", count: "85+" },
-  { name: "55+ Communities", href: "/55-plus-communities", count: "320+" },
-  { name: "New Construction", href: "/new-construction", count: "600+" },
+const searchPaths = [
+  { name: "Arts District lofts", href: "/neighborhoods/arts-district" },
+  { name: "The English Residences", href: "/neighborhoods/the-english-residences" },
+  { name: "Symphony Park", href: "/neighborhoods/symphony-park" },
+  { name: "One Las Vegas", href: "/neighborhoods/one-las-vegas" },
+  { name: "Juhl", href: "/neighborhoods/juhl" },
+  { name: "Palms Place", href: "/neighborhoods/palms-place" },
+  { name: "Midtown Plaza", href: "/neighborhoods/midtown-plaza" },
+  { name: "Fremont East", href: "/neighborhoods/fremont-east" },
 ];
 
-const priceRanges = [
-  { range: "Under $400K", description: "Starter homes, condos, townhomes", count: "1,500+" },
-  { range: "$400K - $600K", description: "Family homes, established neighborhoods", count: "2,100+" },
-  { range: "$600K - $1M", description: "Premium locations, larger homes", count: "1,200+" },
-  { range: "$1M - $2M", description: "Luxury homes, guard-gated communities", count: "450+" },
-  { range: "$2M+", description: "Ultra-luxury estates, custom builds", count: "180+" },
-];
-
-const neighborhoods = [
-  {
-    name: "Summerlin",
-    description: "Master-planned community with Red Rock views, top schools, and 150+ parks",
-    medianPrice: "$625,000",
-    daysOnMarket: 22,
-  },
-  {
-    name: "Henderson",
-    description: "Nevada's second-largest city with family-friendly communities and low crime",
-    medianPrice: "$485,000",
-    daysOnMarket: 24,
-  },
-  {
-    name: "Green Valley",
-    description: "Established Henderson community with mature landscaping and golf courses",
-    medianPrice: "$520,000",
-    daysOnMarket: 26,
-  },
-  {
-    name: "Southern Highlands",
-    description: "Guard-gated luxury community with championship golf and mountain views",
-    medianPrice: "$750,000",
-    daysOnMarket: 32,
-  },
-  {
-    name: "North Las Vegas",
-    description: "Affordable new construction and growing infrastructure",
-    medianPrice: "$385,000",
-    daysOnMarket: 18,
-  },
-  {
-    name: "Skye Canyon",
-    description: "Newer master-planned community with modern amenities and mountain access",
-    medianPrice: "$550,000",
-    daysOnMarket: 20,
-  },
+const buyingTips = [
+  "Confirm HOA reserves, special assessments, and rental caps in the CC&Rs before you write.",
+  "Compare parking deeded vs assigned — downtown towers price parking separately.",
+  "Ask for recent sold comps in the same building, not just neighborhood averages.",
+  "Verify short-term rental rules if investment yield is part of your plan.",
+  "Walk the block at night — Arts District foot traffic is part of the product.",
 ];
 
 export default function ListingsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(listingsSchema) }}
-      />
+      <SchemaScript schema={listingsSchema} id="listings-schema" />
       <Navbar />
       <PageHero
         imageKey="listingsSearch"
-        pagePath="/listings"
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
-        title="Las Vegas Homes for Sale"
+        pagePath={PATH}
+        badge="Live MLS · Berkshire Hathaway HomeServices Nevada Properties"
+        title="Midtown Las Vegas condos for sale"
+        subtitle="Search active MLS inventory, then shortlist Arts District lofts and downtown high-rises with Dr. Jan Duffy."
+        priority
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Search thousands of Las Vegas, Henderson, and Summerlin properties with live MLS 
-              listings updated every 15 minutes. Find your dream home with expert guidance from 
-              Dr. Jan Duffy at <strong>Berkshire Hathaway HomeServices</strong>.</p>
+        <p data-listings-summary className="text-lg text-white/85 max-w-3xl mx-auto mb-6">
+          Midtown median about {marketStats.midtown.medianPriceFormatted} (
+          {marketStats.lastUpdated}). Use the live search below, then call {agentInfo.phone} for
+          building-level comps.
+        </p>
         <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Live MLS Data</span>
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Updated Every 15 Min</span>
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> 5,000+ Active Listings</span>
-            </div>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Live MLS feed
+          </span>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Condo specialist
+          </span>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> HOA & CC&R review
+          </span>
+        </div>
       </PageHero>
+
       <main className="pb-16">
         <div className="container mx-auto px-4">
+          <nav className="max-w-6xl mx-auto mb-8 pt-6 text-sm text-slate-500" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-blue-600">
+              Home
+            </Link>
+            {" / "}
+            <span className="text-slate-900">Listings</span>
+          </nav>
 
-          {/* RealScout Widget - Live MLS Listings */}
-          <section className="mb-16">
+          <section className="mb-14 max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <Search className="h-6 w-6 text-blue-600" />
+              How to use this MLS search
+            </h2>
+            <p className="text-slate-700 leading-relaxed mb-4">
+              This page is your midtown condo search hub — not a generic valley dump. Start with
+              for-sale inventory, then filter toward condominiums and townhomes. When a building
+              looks right, open the neighborhood guide for HOA context and walkability notes, then
+              book a showing with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.
+            </p>
+            <p className="text-slate-700 leading-relaxed">
+              Office: {officeInfo.address.full}. License {agentInfo.license}. Also explore{" "}
+              <Link href="/midtown-real-estate" className="text-blue-600 font-medium">
+                midtown real estate
+              </Link>{" "}
+              and the{" "}
+              <Link href="/blog" className="text-blue-600 font-medium">
+                condo blog
+              </Link>{" "}
+              for market notes.
+            </p>
+          </section>
+
+          {/* Live MLS — keep widget, surround with crawlable copy */}
+          <section className="mb-16" aria-labelledby="live-mls">
+            <h2 id="live-mls" className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Live MLS listings
+            </h2>
+            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
+              Active for-sale properties via RealScout. Prices and status update with the MLS —
+              treat this as your discovery layer, then verify details before offers.
+            </p>
             <div className="max-w-7xl mx-auto">
               <div
                 dangerouslySetInnerHTML={{
@@ -143,360 +222,148 @@ export default function ListingsPage() {
                     agent-encoded-id="QWdlbnQtMjI1MDUw" 
                     sort-order="NEWEST" 
                     listing-status="For Sale" 
-                    property-types=",SFR,MF,TC"
+                    property-types=",SFR,MF,TC,CND"
                   ></realscout-office-listings>`,
                 }}
               />
             </div>
           </section>
 
-          {/* Popular Searches Section */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Popular Property Searches in Las Vegas
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 text-center">
+              Midtown search shortcuts
             </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Las Vegas offers diverse neighborhoods for every lifestyle and budget. Whether you're 
-              seeking luxury estates in guard-gated communities, family homes near top-rated schools, 
-              or affordable new construction, our comprehensive search tools help you find exactly 
-              what you're looking for. Browse the most popular searches below or use the advanced 
-              filters to customize your home search experience.
+            <p className="text-slate-600 text-center max-w-2xl mx-auto mb-8">
+              Jump to hyperlocal condo pages Google and buyers already care about — each has unique
+              inventory notes and FAQs.
             </p>
-            <div className="grid md:grid-cols-3 gap-4">
-              {popularSearches.map((search) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {searchPaths.map((item) => (
                 <Link
-                  key={search.name}
-                  href={search.href}
-                  className="bg-white border border-slate-200 rounded-lg p-4 hover:shadow-lg hover:border-blue-300 transition-all group flex justify-between items-center"
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-lg border border-slate-200 bg-white p-4 hover:border-blue-300 transition-colors flex items-center justify-between"
                 >
-                  <div>
-                    <h3 className="font-bold text-slate-900 group-hover:text-blue-600">
-                      {search.name}
-                    </h3>
-                    <span className="text-sm text-slate-500">{search.count} listings</span>
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-slate-400 group-hover:text-blue-600" />
+                  <span className="font-semibold text-slate-900">{item.name}</span>
+                  <ArrowRight className="h-4 w-4 text-blue-600" />
                 </Link>
               ))}
             </div>
           </section>
 
-          {/* Price Range Guide */}
-          <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Las Vegas Home Price Guide
-            </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              The Las Vegas real estate market offers exceptional value compared to California and 
-              other western states. With no state income tax and housing prices 40-60% lower than 
-              coastal cities, your dollar stretches further in Southern Nevada. Here's what you can 
-              expect at different price points in the current January 2026 market.
-            </p>
-            <div className="space-y-4">
-              {priceRanges.map((price, index) => (
-                <div
-                  key={price.range}
-                  className="bg-white rounded-lg p-4 border border-slate-200 flex flex-col md:flex-row md:items-center justify-between"
-                >
-                  <div className="flex items-center mb-2 md:mb-0">
-                    <DollarSign className="h-5 w-5 text-green-600 mr-3" />
-                    <div>
-                      <h3 className="font-bold text-slate-900">{price.range}</h3>
-                      <p className="text-sm text-slate-600">{price.description}</p>
-                    </div>
-                  </div>
-                  <span className="text-blue-600 font-semibold">{price.count} homes</span>
+          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold mb-8 text-center">Midtown market snapshot</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-3xl font-bold text-blue-400 mb-1">
+                  {marketStats.midtown.medianPriceFormatted}
                 </div>
+                <div className="text-slate-300 text-sm">Midtown median</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-green-400 mb-1">
+                  {marketStats.midtown.yearOverYearChange}
+                </div>
+                <div className="text-slate-300 text-sm">YoY change</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold mb-1">{marketStats.midtown.daysOnMarket}</div>
+                <div className="text-slate-300 text-sm">Days on market</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-amber-400 mb-1">
+                  ${marketStats.midtown.pricePerSqFt}
+                </div>
+                <div className="text-slate-300 text-sm">Approx. $/sq ft</div>
+              </div>
+            </div>
+            <p className="text-center text-slate-400 text-xs mt-6">
+              Updated {marketStats.lastUpdated}. Call {agentInfo.phone} for MLS-verified building comps.
+            </p>
+          </section>
+
+          <section className="mb-16 max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center flex items-center justify-center gap-2">
+              <Building2 className="h-7 w-7 text-blue-600" />
+              Midtown condo neighborhoods
+            </h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {midtownNeighborhoods.map((area) => (
+                <Link
+                  key={area.slug}
+                  href={`/neighborhoods/${area.slug}`}
+                  className="rounded-xl border border-slate-200 p-5 hover:border-blue-300 transition-colors"
+                >
+                  <div className="flex justify-between gap-3 mb-2">
+                    <h3 className="font-bold text-slate-900">{area.name}</h3>
+                    <span className="text-sm font-semibold text-blue-600">{area.medianPrice}</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-2">{area.description}</p>
+                  <p className="text-xs text-slate-500 flex items-center gap-1">
+                    <MapPin className="h-3.5 w-3.5" />
+                    {area.priceChange} YoY · View condos
+                  </p>
+                </Link>
               ))}
             </div>
           </section>
 
-          {/* Neighborhood Overview */}
-          <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Las Vegas Neighborhoods & Communities
-            </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Each Las Vegas neighborhood offers a unique lifestyle, from the resort-style living 
-              of Summerlin to the family-friendly communities of Henderson. Understanding these 
-              differences is crucial to finding a home that fits your needs. As a Berkshire 
-              Hathaway HomeServices agent serving Las Vegas since 2008, Dr. Jan Duffy provides 
-              expert guidance on which neighborhoods match your priorities—whether that's schools, 
-              commute times, amenities, or investment potential.
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {neighborhoods.map((neighborhood) => (
-                <div
-                  key={neighborhood.name}
-                  className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
-                >
-                  <h3 className="font-bold text-lg text-slate-900 mb-2">{neighborhood.name}</h3>
-                  <p className="text-slate-600 text-sm mb-4">{neighborhood.description}</p>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-slate-500">Median: <strong className="text-slate-900">{neighborhood.medianPrice}</strong></span>
-                    <span className="text-slate-500">DOM: <strong className="text-slate-900">{neighborhood.daysOnMarket} days</strong></span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-8">
-              <Link
-                href="/neighborhoods"
-                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                Explore All Neighborhoods <ArrowRight className="h-4 w-4 ml-2" />
-              </Link>
-            </div>
-          </section>
-
-          {/* Why Use an Agent Section */}
-          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-center">
-              Why Work With a Berkshire Hathaway HomeServices Agent
-            </h2>
-            <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
-              In today's competitive Las Vegas market, having expert representation can mean the 
-              difference between winning your dream home and losing out. Dr. Jan Duffy brings 
-              the resources of Berkshire Hathaway HomeServices—the most trusted name in real estate—
-              combined with deep local market knowledge from serving Las Vegas since 2008.
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Search className="h-6 w-6" />
-                </div>
-                <h3 className="font-bold mb-2">Off-Market Access</h3>
-                <p className="text-slate-400 text-sm">
-                  See listings before they hit the MLS through our network of 50,000+ agents
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <TrendingUp className="h-6 w-6" />
-                </div>
-                <h3 className="font-bold mb-2">Expert Negotiation</h3>
-                <p className="text-slate-400 text-sm">
-                  $127M+ in closed transactions means proven negotiation skills on your behalf
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <MapPin className="h-6 w-6" />
-                </div>
-                <h3 className="font-bold mb-2">Local Expertise</h3>
-                <p className="text-slate-400 text-sm">
-                  Insider knowledge of neighborhoods, schools, and upcoming developments
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <CheckCircle className="h-6 w-6" />
-                </div>
-                <h3 className="font-bold mb-2">Free for Buyers</h3>
-                <p className="text-slate-400 text-sm">
-                  The seller pays the commission—you get full representation at no cost
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Market Stats */}
-          <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Las Vegas Real Estate Market Statistics
-            </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              The Las Vegas housing market remains strong heading into 2026, with steady appreciation 
-              and healthy inventory levels. Understanding current market conditions helps buyers 
-              make informed decisions about timing, pricing, and negotiation strategies. Here's a 
-              snapshot of the current market as of January 2026.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-blue-50 rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">$450K</div>
-                <div className="text-sm text-slate-600">Median Home Price</div>
-              </div>
-              <div className="bg-blue-50 rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">28</div>
-                <div className="text-sm text-slate-600">Avg Days on Market</div>
-              </div>
-              <div className="bg-blue-50 rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">4,850</div>
-                <div className="text-sm text-slate-600">Active Listings</div>
-              </div>
-              <div className="bg-blue-50 rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-1">+4.2%</div>
-                <div className="text-sm text-slate-600">Year-Over-Year</div>
-              </div>
-            </div>
-          </section>
-
-          {/* Home Buying Process */}
-          <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              The Home Buying Process in Las Vegas
-            </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Buying a home is one of the most significant financial decisions you'll make. 
-              Understanding the process helps reduce stress and ensures you're prepared at each 
-              step. Here's what to expect when purchasing a home in Las Vegas with Dr. Jan Duffy 
-              and Berkshire Hathaway HomeServices.
-            </p>
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  1
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Get Pre-Approved for Financing</h3>
-                  <p className="text-slate-600 text-sm">
-                    A pre-approval letter shows sellers you're serious and gives you a clear budget. 
-                    Dr. Jan can connect you with trusted local lenders offering competitive rates. 
-                    This typically takes 1-3 days with proper documentation.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  2
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Define Your Priorities & Search</h3>
-                  <p className="text-slate-600 text-sm">
-                    Location, size, features, and budget all factor into your search. Dr. Jan helps 
-                    you identify which Las Vegas neighborhoods match your lifestyle while setting 
-                    up automated MLS alerts so you never miss a new listing.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  3
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Tour Properties & Make an Offer</h3>
-                  <p className="text-slate-600 text-sm">
-                    Visit homes that meet your criteria, either in person or virtually. When you 
-                    find "the one," Dr. Jan helps you craft a competitive offer with the right 
-                    price, contingencies, and terms to win in today's market.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  4
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Due Diligence & Inspections</h3>
-                  <p className="text-slate-600 text-sm">
-                    Once under contract, you'll have time for home inspections, appraisals, and 
-                    final financing approval. Dr. Jan coordinates with all parties and helps you 
-                    negotiate repairs or credits if issues arise.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  5
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Close & Get Your Keys</h3>
-                  <p className="text-slate-600 text-sm">
-                    The closing process typically takes 30-45 days from offer acceptance. You'll 
-                    sign final documents, transfer funds, and receive the keys to your new Las Vegas 
-                    home. Dr. Jan remains available for any questions even after closing.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions About Las Vegas Real Estate
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Condo buyer checklist before you offer
             </h2>
-            <div className="space-y-4">
-              <div className="bg-slate-50 rounded-lg p-6">
-                <h3 className="font-bold text-slate-900 mb-2">
-                  How competitive is the Las Vegas housing market in 2026?
-                </h3>
-                <p className="text-slate-600">
-                  The Las Vegas market is moderately competitive with 2.1 months of inventory—a 
-                  slight seller's market. Well-priced homes in desirable areas like Summerlin and 
-                  Henderson often receive multiple offers within the first week. Having a 
-                  pre-approval and experienced agent gives you a significant advantage.
-                </p>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-6">
-                <h3 className="font-bold text-slate-900 mb-2">
-                  What's the best time of year to buy a home in Las Vegas?
-                </h3>
-                <p className="text-slate-600">
-                  Las Vegas has a year-round real estate market, but inventory typically peaks in 
-                  spring (March-May) while competition is lowest in winter (November-January). The 
-                  best time depends on your priorities: more selection in spring, potentially better 
-                  deals in winter.
-                </p>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-6">
-                <h3 className="font-bold text-slate-900 mb-2">
-                  How much do I need for a down payment in Las Vegas?
-                </h3>
-                <p className="text-slate-600">
-                  Down payment requirements vary by loan type: FHA loans require 3.5%, conventional 
-                  loans typically 3-20%, VA loans 0% for eligible veterans. Nevada also offers down 
-                  payment assistance programs for first-time buyers. Dr. Jan can connect you with 
-                  lenders who specialize in various loan programs.
-                </p>
-              </div>
-              <div className="bg-slate-50 rounded-lg p-6">
-                <h3 className="font-bold text-slate-900 mb-2">
-                  Are Las Vegas HOA fees expensive?
-                </h3>
-                <p className="text-slate-600">
-                  HOA fees in Las Vegas range from $25/month for basic community maintenance to 
-                  $400+/month for guard-gated luxury communities with extensive amenities. Most 
-                  standard neighborhoods fall between $50-$150/month. Dr. Jan always reviews HOA 
-                  documents to ensure you understand what's included and any special assessments.
-                </p>
-              </div>
-            </div>
+            <ul className="space-y-3">
+              {buyingTips.map((tip) => (
+                <li key={tip} className="flex gap-3 text-slate-700">
+                  <CheckCircle className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
+                  <span>{tip}</span>
+                </li>
+              ))}
+            </ul>
           </section>
 
-          {/* CTA */}
-          <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Find Your Las Vegas Home?
+          <section className="mb-16 max-w-4xl mx-auto" aria-labelledby="listings-faq">
+            <h2 id="listings-faq" className="text-2xl font-bold text-slate-900 mb-4">
+              Listings FAQ
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Contact Dr. Jan Duffy for personalized guidance, off-market listings, and expert 
-              representation backed by Berkshire Hathaway HomeServices. Free buyer consultations 
-              available—the seller pays the commission.
+            <dl className="space-y-4">
+              {faqs.map((faq) => (
+                <div
+                  key={faq.question}
+                  data-listings-faq
+                  className="rounded-lg border border-slate-200 p-4"
+                >
+                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
+                  <dd className="mt-2 text-sm text-slate-600 leading-relaxed">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          <section className="rounded-2xl bg-slate-900 text-white p-8 md:p-12 max-w-4xl mx-auto text-center mb-8">
+            <h2 className="text-2xl font-bold mb-3">Get a curated midtown shortlist</h2>
+            <p className="text-slate-300 mb-2">
+              {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <p className="text-slate-400 text-sm mb-6">{officeInfo.address.full}</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="tel:+17025001942"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
+                href={agentInfo.phoneTel}
+                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500"
               >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                <Phone className="mr-2 h-4 w-4" />
+                Call {agentInfo.phone}
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3 font-semibold hover:bg-white/10"
               >
-                Schedule Consultation
+                Schedule a consultation
               </Link>
             </div>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
-
-        {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <RealScoutListings />
       </main>
       <Footer />
     </>
