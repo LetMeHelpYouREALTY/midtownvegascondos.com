@@ -33,7 +33,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/market-insights", priority: 0.9, changeFrequency: "monthly" },
     { path: "/google-business", priority: 0.9, changeFrequency: "monthly" },
     { path: "/faq", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/blog", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/midtown-real-estate", priority: 0.9, changeFrequency: "weekly" },
     { path: "/security-policy", priority: 0.3, changeFrequency: "yearly" },
+
+    // Midtown lifestyle (GSC recovery — singular /neighborhood paths)
+    { path: "/neighborhood", priority: 0.8, changeFrequency: "weekly" },
+    { path: "/neighborhood/run-club", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/neighborhood/ev-program", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/neighborhood/pepper-club", priority: 0.7, changeFrequency: "monthly" },
 
     // Services
     { path: "/buyers", priority: 0.8, changeFrequency: "monthly" },

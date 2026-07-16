@@ -99,6 +99,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/blog"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/midtown-real-estate"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  Midtown Real Estate
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/#commute-times"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
