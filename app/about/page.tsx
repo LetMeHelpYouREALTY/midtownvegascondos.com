@@ -195,11 +195,11 @@ export default function AboutPage() {
                       <span className="font-semibold">(702) 500-1980</span>
                     </a>
                     <a
-                      href="mailto:homes@heyberkshire.com"
+                      href={`mailto:${agentInfo.email}`}
                       className="flex items-center text-slate-700 hover:text-blue-600"
                     >
                       <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                      Homes@HeyBerkshire.com
+                      {agentInfo.email}
                     </a>
                     <div className="flex items-start text-slate-700">
                       <MapPin className="h-5 w-5 mr-3 text-blue-600 mt-0.5" />
@@ -210,7 +210,7 @@ export default function AboutPage() {
                     </div>
                     <div className="flex items-center text-slate-700">
                       <Clock className="h-5 w-5 mr-3 text-blue-600" />
-                      Mon-Fri 9am-6pm, Sat 10am-4pm, Sun by appointment
+                      Sunday–Thursday 9:00 AM–5:00 PM · Friday–Saturday Closed
                     </div>
                   </div>
                 </div>

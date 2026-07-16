@@ -18,7 +18,7 @@ export const businessInfo = {
     tel: "+17025001980",
     sms: "sms:+17025001980",
   },
-  email: "homes@heyberkshire.com",
+  email: "DrDuffySells@MidtownVegasCondos.com",
   url: "https://www.midtownvegascondos.com",
 
   // Business Details

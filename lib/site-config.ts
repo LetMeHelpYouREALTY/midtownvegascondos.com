@@ -25,7 +25,7 @@ export const agentInfo = {
   phoneFormatted: "(702) 500-1980",
   phoneTel: "tel:+17025001980",
   phoneSms: "sms:+17025001980",
-  email: "homes@heyberkshire.com",
+  email: "DrDuffySells@MidtownVegasCondos.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 
