@@ -12,9 +12,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/55-plus-communities/del-webb-lake-las-vegas", {
   title: "Del Webb at Lake Las Vegas Homes | Berkshire Hathaway HomeServices",
   description:
     "Lakefront 55+ living at Del Webb Lake Las Vegas. Homes from $400K-$900K. Resort amenities, stunning lake and mountain views. Dr. Jan Duffy. Call (702) 500-1942.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     "lakefront retirement community",
     "Berkshire Hathaway Del Webb",
   ],
-};
+});
 
 export default function DelWebbLakeLasVegasPage() {
   return (

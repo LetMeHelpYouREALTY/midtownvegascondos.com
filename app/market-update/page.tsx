@@ -14,9 +14,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/market-update", {
   title: "Berkshire Hathaway HomeServices Las Vegas Market Update | January 2026",
   description:
     "Weekly Las Vegas real estate market update from Berkshire Hathaway HomeServices Nevada Properties. Get the latest stats, notable sales, and expert analysis from Dr. Jan Duffy. Call (702) 500-1942.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     "Henderson real estate market",
     "Las Vegas home prices",
   ],
-};
+});
 
 const articleSchema = {
   "@context": "https://schema.org",

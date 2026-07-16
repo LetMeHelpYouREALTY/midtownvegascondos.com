@@ -5,9 +5,10 @@ import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import { Phone, CheckCircle, Home, TrendingUp, MapPin, Calculator, Clock, DollarSign } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/home-valuation", {
   title: "Free Home Valuation Las Vegas | What's Your Home Worth? | Berkshire Hathaway HomeServices",
   description:
     "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 500-1942.",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     "Summerlin home value",
     "Henderson home value",
   ],
-};
+});
 
 // FAQ Schema for SEO
 const faqSchema = {

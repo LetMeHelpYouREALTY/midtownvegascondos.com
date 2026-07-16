@@ -21,6 +21,7 @@ import {
 } from "@/lib/hyperlocal-content";
 import { agentInfo, siteConfig } from "@/lib/site-config";
 import { neighborhoodHeroBySlug } from "@/lib/hero-images";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -35,16 +36,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const area = getMidtownNeighborhood(slug);
   if (!area) return {};
 
-  return {
-    title: `${area.name} Condos for Sale | Midtown Las Vegas | Dr. Jan Duffy`,
-    description: `${area.description} Search ${area.name} condos with Dr. Jan Duffy, midtown Las Vegas condo specialist. Median ${area.medianPrice}. Call ${agentInfo.phone}.`,
-    keywords: [
-      `${area.name} condos Las Vegas`,
-      `${area.name} midtown condos`,
-      "midtown Las Vegas real estate",
-      "Dr Jan Duffy condo agent",
-    ],
-  };
+  const imageKey = neighborhoodHeroBySlug[area.slug];
+
+  return withPageHeroMetadata(
+    `/neighborhoods/${area.slug}`,
+    {
+      title: `${area.name} Condos for Sale | Midtown Las Vegas | Dr. Jan Duffy`,
+      description: `${area.description} Search ${area.name} condos with Dr. Jan Duffy, midtown Las Vegas condo specialist. Median ${area.medianPrice}. Call ${agentInfo.phone}.`,
+      keywords: [
+        `${area.name} condos Las Vegas`,
+        `${area.name} midtown condos`,
+        "midtown Las Vegas real estate",
+        "Dr Jan Duffy condo agent",
+      ],
+    },
+    imageKey
+  );
 }
 
 export default async function MidtownNeighborhoodPage({ params }: PageProps) {

@@ -15,9 +15,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/55-plus-communities/sun-city-summerlin", {
   title: "Sun City Summerlin Homes for Sale | Berkshire Hathaway HomeServices",
   description:
     "Nevada's largest 55+ community. Sun City Summerlin homes from $320K-$850K. 3 golf courses, 4 rec centers, 100+ clubs. Dr. Jan Duffy, BHHS specialist. Call (702) 500-1942.",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     "retirement community Las Vegas",
     "Berkshire Hathaway Sun City",
   ],
-};
+});
 
 const communitySchema = {
   "@context": "https://schema.org",

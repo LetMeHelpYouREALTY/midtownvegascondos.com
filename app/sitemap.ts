@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { imagesForSitemapPage } from "@/lib/image-seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -67,14 +68,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/neighborhoods/centennial-hills`, priority: 0.7, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/neighborhoods/inspirada`, priority: 0.7, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/neighborhoods/mountains-edge`, priority: 0.7, changeFrequency: "weekly" as const },
+    // Midtown hyperlocal
+    { url: `${baseUrl}/neighborhoods/arts-district`, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${baseUrl}/neighborhoods/fremont-east`, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${baseUrl}/neighborhoods/symphony-park`, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${baseUrl}/neighborhoods/one-las-vegas`, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${baseUrl}/neighborhoods/the-english-residences`, priority: 0.7, changeFrequency: "weekly" as const },
+    { url: `${baseUrl}/neighborhoods/juhl`, priority: 0.7, changeFrequency: "weekly" as const },
+    { url: `${baseUrl}/neighborhoods/palms-place`, priority: 0.7, changeFrequency: "weekly" as const },
+    { url: `${baseUrl}/neighborhoods/midtown-plaza`, priority: 0.7, changeFrequency: "weekly" as const },
   ];
 
-  const allPages = [...corePages, ...servicePages, ...buyerPersonaPages, ...sellerPersonaPages, ...fiftyPlusCommunityPages, ...neighborhoodPages];
+  const allPages = [
+    ...corePages,
+    ...servicePages,
+    ...buyerPersonaPages,
+    ...sellerPersonaPages,
+    ...fiftyPlusCommunityPages,
+    ...neighborhoodPages,
+  ];
 
-  return allPages.map((page) => ({
-    url: page.url,
-    lastModified,
-    changeFrequency: page.changeFrequency,
-    priority: page.priority,
-  }));
+  return allPages.map((page) => {
+    const images = imagesForSitemapPage(page.url);
+    return {
+      url: page.url,
+      lastModified,
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+      ...(images.length > 0 ? { images } : {}),
+    };
+  });
 }

@@ -3,11 +3,8 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
-import {
-  siteConfig,
-  getAgentImageSrc,
-  agentImage,
-} from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
+import { getDefaultSocialImage, heroImageMetadata } from "@/lib/image-seo";
 import { generateLocalBusinessSchema } from "@/lib/gbp-schema";
 import { generateWebSiteSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
@@ -24,6 +21,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const title = `${config.heroHeadline} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`;
   const description = config.description;
+  const social = getDefaultSocialImage();
+  const geoMeta = heroImageMetadata("homeStripDusk", {
+    title: config.heroHeadline,
+    description,
+    path: "/",
+  });
 
   return {
     title: {
@@ -45,10 +48,11 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: "en_US",
       images: [
         {
-          url: getAgentImageSrc(),
-          width: agentImage.width,
-          height: agentImage.height,
-          alt: agentImage.alt,
+          url: social.url,
+          width: social.width,
+          height: social.height,
+          alt: social.alt,
+          type: "image/webp",
         },
       ],
     },
@@ -56,11 +60,10 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: config.heroHeadline,
       description,
-      images: [getAgentImageSrc()],
+      images: [social.url],
     },
     other: {
-      "geo.region": "US-NV",
-      "geo.placename": "Las Vegas",
+      ...(geoMeta.other as Record<string, string>),
     },
   };
 }

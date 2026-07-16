@@ -4,9 +4,10 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Shield, Star, Mountain, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/neighborhoods/the-ridges", {
   title: "Berkshire Hathaway HomeServices The Ridges | Las Vegas Luxury Real Estate",
   description:
     "Find luxury homes in The Ridges with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Summerlin's most exclusive guard-gated community. Median price $2.5M. Call (702) 500-1942.",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     "luxury homes Las Vegas",
     "guard gated Summerlin",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",

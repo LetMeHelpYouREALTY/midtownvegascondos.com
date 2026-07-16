@@ -5,11 +5,13 @@ import Image from "next/image";
 import { Bed, Bath, Square, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/listings", {
   title: "Property Details | Las Vegas & Henderson Real Estate",
-  description: "View detailed information about this property listing in Las Vegas or Henderson, NV.",
-};
+  description:
+    "View detailed information about this property listing in Las Vegas or Henderson, NV.",
+});
 
 // This would typically fetch from RealScout API
 async function getProperty(id: string) {

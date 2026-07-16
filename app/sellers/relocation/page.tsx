@@ -14,9 +14,10 @@ import {
   Calendar,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/sellers/relocation", {
   title: "Relocation Home Sales Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Leaving Las Vegas for a new opportunity? Dr. Jan Duffy helps relocating homeowners sell fast and coordinates with BHHS offices nationwide. Call (702) 500-1942.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     "Berkshire Hathaway relocation services",
     "corporate relocation Nevada",
   ],
-};
+});
 
 export default function RelocationPage() {
   return (

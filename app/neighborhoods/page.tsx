@@ -4,15 +4,16 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { MapPin, Phone, Home, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta, midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import { agentInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/neighborhoods", {
   title: hyperlocalMeta.neighborhoods.title,
   description: hyperlocalMeta.neighborhoods.description,
   keywords: hyperlocalMeta.neighborhoods.keywords,
-};
+});
 
 export default function NeighborhoodsPage() {
   return (

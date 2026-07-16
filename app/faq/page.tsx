@@ -4,6 +4,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateBreadcrumbSchema,
@@ -16,7 +17,7 @@ import { hyperlocalMeta, midtownCondoFaqs } from "@/lib/hyperlocal-content";
 import { commonFAQs, agentInfo, officeInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/faq", {
   title: hyperlocalMeta.faq.title,
   description: hyperlocalMeta.faq.description,
   keywords: [
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     "condo rental rules Las Vegas",
     "Dr Jan Duffy condo agent",
   ],
-};
+});
 
 // Breadcrumb items
 const breadcrumbs = [

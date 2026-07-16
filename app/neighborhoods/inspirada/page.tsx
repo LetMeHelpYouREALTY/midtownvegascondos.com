@@ -4,9 +4,10 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Waves, TreePine, GraduationCap, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/neighborhoods/inspirada", {
   title: "Berkshire Hathaway HomeServices Inspirada | Henderson Resort Living",
   description:
     "Find Inspirada homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's resort-style community. Median price $525K. Call (702) 500-1942.",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     "Henderson master planned",
     "resort style community",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",

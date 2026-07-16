@@ -15,9 +15,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/market-insights", {
   title: "Las Vegas Real Estate Market Insights 2026 | Berkshire Hathaway HomeServices",
   description:
     "Technology trends, economic forecasts, and market analysis shaping Las Vegas real estate in 2026. AI, data centers, California migration, and what it means for buyers and sellers. Call (702) 500-1942.",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     "Las Vegas tech hub",
     "Berkshire Hathaway market insights",
   ],
-};
+});
 
 const reportSchema = {
   "@context": "https://schema.org",

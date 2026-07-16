@@ -4,9 +4,10 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, TreePine, ShoppingBag, GraduationCap, MapPin } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/neighborhoods/green-valley", {
   title: "Berkshire Hathaway HomeServices Green Valley | Henderson Real Estate",
   description:
     "Find Green Valley homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's most established community. Median price $520K. Call (702) 500-1942.",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     "Green Valley real estate",
     "Green Valley Ranch",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",

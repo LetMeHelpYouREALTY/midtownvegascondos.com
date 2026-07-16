@@ -18,9 +18,10 @@ import {
   Users,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/luxury-homes", {
   title: "Las Vegas Luxury Homes for Sale | Berkshire Hathaway HomeServices",
   description:
     "Discover Las Vegas luxury real estate with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. The Ridges, MacDonald Highlands, Summerlin, Southern Highlands. $1M+ homes. Call (702) 500-1942.",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     "MacDonald Highlands Henderson",
     "luxury real estate agent Las Vegas",
   ],
-};
+});
 
 const luxurySchema = {
   "@context": "https://schema.org",

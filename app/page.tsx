@@ -11,25 +11,34 @@ import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { agentInfo, agentStats, getAgentImageSrc, marketStats, midtownAreas, officeInfo, siteConfig } from "@/lib/site-config";
 import { defaultFaqs } from "@/lib/faqs";
-import { generateHeroImageSchema, getHeroImage } from "@/lib/hero-images";
+import { getHeroImage } from "@/lib/hero-images";
+import {
+  generatePageHeroSchemaGraph,
+  withPageHeroMetadata,
+} from "@/lib/image-seo";
 import SchemaScript, { FAQSchema } from "@/components/SchemaScript";
-import { generateWebPageSchema } from "@/lib/schema";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const config = await getPageDomainConfig();
+  return withPageHeroMetadata("/", {
+    title: `${config.heroHeadline} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`,
+    description: config.description,
+    keywords: config.keywords,
+  });
+}
 
 export default async function Home() {
   const config = await getPageDomainConfig();
   const siteUrl = siteConfig.url;
+  const homeHero = getHeroImage("homeStripDusk");
 
-  const webPageSchema = generateWebPageSchema({
-    name: config.heroHeadline,
-    description: config.description,
-    url: siteUrl,
+  const heroPageSchema = generatePageHeroSchemaGraph({
+    imageKey: "homeStripDusk",
+    pagePath: "/",
+    pageName: config.heroHeadline,
+    pageDescription: config.description,
   });
-
-  const heroImageSchema = generateHeroImageSchema(
-    "homeStripDusk",
-    siteUrl,
-    config.heroHeadline
-  );
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -57,20 +66,21 @@ export default async function Home() {
 
   return (
     <>
-      <SchemaScript schemas={[webPageSchema, organizationSchema, heroImageSchema]} id="home-schema" />
+      <SchemaScript schema={organizationSchema} id="home-org-schema" />
+      <SchemaScript schema={heroPageSchema} id="home-hero-schema" />
       <FAQSchema faqs={defaultFaqs} />
       <Navbar />
       <main>
         {/* Domain-Aware Hero */}
         <section className="relative bg-slate-950 text-white py-24 md:py-32 overflow-hidden">
           <Image
-            src={getHeroImage("homeStripDusk").src}
-            alt={getHeroImage("homeStripDusk").alt}
+            src={homeHero.src}
+            alt={homeHero.alt}
             fill
             priority
             sizes="100vw"
             className="object-cover object-center"
-            title={getHeroImage("homeStripDusk").caption}
+            title={homeHero.caption}
           />
           {/* Light scrim for text contrast — keeps the photo dominant */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/55" />
@@ -118,6 +128,18 @@ export default async function Home() {
                 <span>Client Rating</span>
               </div>
             </div>
+
+            <figure className="mt-10 mx-auto max-w-2xl border-t border-white/20 pt-4 text-left md:text-center">
+              <figcaption
+                data-hero-caption
+                className="text-xs leading-relaxed text-white/70 md:text-sm"
+              >
+                <span className="font-medium text-white/85">{homeHero.caption}</span>
+                <span className="mt-1 block text-white/50">
+                  Photo credit: {agentInfo.name}, {siteConfig.name} · {homeHero.geoName}
+                </span>
+              </figcaption>
+            </figure>
           </div>
         </section>
 

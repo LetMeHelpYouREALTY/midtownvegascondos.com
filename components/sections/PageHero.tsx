@@ -1,11 +1,11 @@
 import Image from "next/image";
 import SchemaScript from "@/components/SchemaScript";
 import {
-  generateHeroImageSchema,
   getHeroImage,
   type HeroImageKey,
 } from "@/lib/hero-images";
-import { siteConfig } from "@/lib/site-config";
+import { generatePageHeroSchemaGraph } from "@/lib/image-seo";
+import { agentInfo, siteConfig } from "@/lib/site-config";
 
 type PageHeroProps = {
   /** Optional badge above the H1 */
@@ -25,11 +25,13 @@ type PageHeroProps = {
   compact?: boolean;
   /** Prefer priority loading for LCP pages */
   priority?: boolean;
+  /** Visible figcaption for AEO / image context (default true) */
+  showCaption?: boolean;
   className?: string;
 };
 
 /**
- * Full-bleed photo hero with ImageObject schema (SEO / GEO / AEO).
+ * Full-bleed photo hero with WebPage + ImageObject schema (SEO / GEO / AEO).
  */
 export default function PageHero({
   badge,
@@ -42,21 +44,28 @@ export default function PageHero({
   children,
   compact = false,
   priority = false,
+  showCaption = true,
   className = "",
 }: PageHeroProps) {
   const meta = getHeroImage(imageKey);
   const src = imageSrc ?? meta.src;
   const alt = imageAlt ?? meta.alt;
-  const pageUrl = `${siteConfig.url}${pagePath ?? ""}`;
-  const imageSchema = generateHeroImageSchema(imageKey, pageUrl, title);
+  const path = pagePath ?? "/";
+  const schemaGraph = generatePageHeroSchemaGraph({
+    imageKey,
+    pagePath: path,
+    pageName: title,
+    pageDescription: subtitle,
+  });
 
   return (
     <section
       className={`relative bg-slate-950 text-white overflow-hidden ${
         compact ? "pt-28 pb-14 md:pt-32 md:pb-16" : "pt-32 pb-20 md:pt-40 md:pb-28"
       } ${className}`}
+      aria-labelledby="page-hero-heading"
     >
-      <SchemaScript schema={imageSchema} id="hero-image-schema" />
+      <SchemaScript schema={schemaGraph} id="hero-image-schema" />
       <Image
         src={src}
         alt={alt}
@@ -75,13 +84,29 @@ export default function PageHero({
             {badge}
           </span>
         ) : null}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
+        <h1
+          id="page-hero-heading"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto"
+        >
           {title}
         </h1>
         {subtitle ? (
           <p className="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">{subtitle}</p>
         ) : null}
         {children}
+        {showCaption ? (
+          <figure className="mt-10 mx-auto max-w-2xl border-t border-white/20 pt-4 text-left md:text-center">
+            <figcaption
+              data-hero-caption
+              className="text-xs leading-relaxed text-white/70 md:text-sm"
+            >
+              <span className="font-medium text-white/85">{meta.caption}</span>
+              <span className="mt-1 block text-white/50">
+                Photo credit: {agentInfo.name}, {siteConfig.name} · {meta.geoName}
+              </span>
+            </figcaption>
+          </figure>
+        ) : null}
       </div>
     </section>
   );

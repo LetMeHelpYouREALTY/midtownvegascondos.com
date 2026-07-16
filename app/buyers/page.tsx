@@ -19,14 +19,15 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta, midtownNeighborhoods, midtownServiceSchema } from "@/lib/hyperlocal-content";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/buyers", {
   title: hyperlocalMeta.buyers.title,
   description: hyperlocalMeta.buyers.description,
   keywords: hyperlocalMeta.buyers.keywords,
-};
+});
 
 const buyerSchema = midtownServiceSchema(
   "Midtown Las Vegas Condo Buying Services",

@@ -17,9 +17,10 @@ import {
   TrendingUp,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/buyers/california-relocator", {
   title: "Relocating from California to Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Moving from California to Las Vegas? Zero state income tax, 40-60% lower home prices, same sunshine. Dr. Jan Duffy helps CA relocators find their perfect Las Vegas home. Call (702) 500-1942.",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     "Las Vegas homes California buyers",
     "Berkshire Hathaway HomeServices relocation",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",

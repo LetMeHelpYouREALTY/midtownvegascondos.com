@@ -4,11 +4,12 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { TrendingUp, TrendingDown, Home, Calendar, DollarSign, BarChart, Phone } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta } from "@/lib/hyperlocal-content";
 import { marketStats, agentInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/market-report", {
   title: hyperlocalMeta.marketReport.title,
   description: hyperlocalMeta.marketReport.description,
   keywords: [
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     "midtown vegas condo inventory",
     "Las Vegas high rise market report",
   ],
-};
+});
 
 const reportSchema = {
   "@context": "https://schema.org",

@@ -13,9 +13,10 @@ import {
   Shield,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/sellers/move-up", {
   title: "Move-Up Sellers Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Ready for your next chapter? Dr. Jan Duffy helps Las Vegas homeowners leverage equity into their dream home. Sell and buy seamlessly. Call (702) 500-1942.",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     "upgrade home Las Vegas",
     "Berkshire Hathaway HomeServices seller",
   ],
-};
+});
 
 export default function MoveUpSellerPage() {
   return (

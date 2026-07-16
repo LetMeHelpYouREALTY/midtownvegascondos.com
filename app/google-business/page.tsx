@@ -20,6 +20,7 @@ import {
   Heart,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import {
   businessInfo,
   gbpDescription,
@@ -28,7 +29,7 @@ import {
   generateFAQSchema,
 } from "@/lib/gbp-schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/google-business", {
   title: "Dr. Jan Duffy, REALTOR® Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Dr. Jan Duffy is a trusted Las Vegas REALTOR® with Berkshire Hathaway HomeServices Nevada Properties. Specializing in Summerlin, Henderson, 55+ communities, California relocation, and luxury homes. Call (702) 500-1942.",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     url: "https://heyberkshire.com/google-business",
     type: "profile",
   },
-};
+});
 
 export default function GoogleBusinessPage() {
   const localBusinessSchema = generateLocalBusinessSchema();

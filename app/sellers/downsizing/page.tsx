@@ -14,9 +14,10 @@ import {
   Sun,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/sellers/downsizing", {
   title: "Downsizing in Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 500-1942.",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     "empty nester Las Vegas",
     "Berkshire Hathaway HomeServices downsizing",
   ],
-};
+});
 
 export default function DownsizingPage() {
   return (

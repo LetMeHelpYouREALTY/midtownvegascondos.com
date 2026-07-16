@@ -6,10 +6,11 @@ import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield 
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import { agentInfo, getAgentImageSrc, officeInfo, siteConfig } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/contact", {
   title: "Contact Dr. Jan Duffy | Midtown Las Vegas Condo Specialist",
   description:
     "Contact Dr. Jan Duffy for midtown Las Vegas condos. Schedule a showing, get directions, or call (702) 500-1942. Berkshire Hathaway HomeServices Nevada Properties.",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     "Las Vegas realtor contact",
     "schedule real estate appointment",
   ],
-};
+});
 
 const contactSchema = {
   "@context": "https://schema.org",

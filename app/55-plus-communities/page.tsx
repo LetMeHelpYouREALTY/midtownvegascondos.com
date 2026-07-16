@@ -23,9 +23,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/55-plus-communities", {
   title:
     "55+ Active Adult Communities Las Vegas | Sun City, Del Webb, Heritage | Dr. Jan Duffy",
   description:
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
       "Sun City, Del Webb, Heritage at Stonebridge & more—Dr. Duffy specializes in active adult living. Berkshire Hathaway HomeServices Nevada Properties.",
     type: "website",
   },
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",

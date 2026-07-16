@@ -18,9 +18,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/listings", {
   title: "Las Vegas Homes for Sale | MLS Property Search | Berkshire Hathaway HomeServices",
   description:
     "Browse all Las Vegas and Henderson homes for sale with live MLS listings. Search by neighborhood, price, and features. Dr. Jan Duffy, Berkshire Hathaway HomeServices. Call (702) 500-1942.",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     "houses for sale Las Vegas",
     "Berkshire Hathaway listings",
   ],
-};
+});
 
 const listingsSchema = {
   "@context": "https://schema.org",

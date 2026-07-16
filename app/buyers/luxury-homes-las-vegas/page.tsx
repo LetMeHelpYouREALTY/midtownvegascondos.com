@@ -16,9 +16,10 @@ import {
   DollarSign,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/buyers/luxury-homes-las-vegas", {
   title: "Luxury Homes Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Las Vegas luxury real estate from $1.2M to $10M+. Guard-gated estates, Strip penthouses, and custom homes. Dr. Jan Duffy provides discrete, expert representation. Call (702) 500-1942.",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     "guard gated communities Las Vegas",
     "Berkshire Hathaway luxury homes",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",

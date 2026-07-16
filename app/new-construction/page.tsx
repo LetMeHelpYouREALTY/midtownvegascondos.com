@@ -18,9 +18,10 @@ import {
   HelpCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/new-construction", {
   title: "Berkshire Hathaway HomeServices New Construction Las Vegas | Buyer's Guide",
   description:
     "Free buyer representation on new construction homes in Las Vegas. Dr. Jan Duffy helps you navigate builder contracts, negotiate upgrades, and secure incentives. Call (702) 500-1942.",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     "Lennar Las Vegas",
     "KB Home Las Vegas",
   ],
-};
+});
 
 const faqSchema = {
   "@context": "https://schema.org",

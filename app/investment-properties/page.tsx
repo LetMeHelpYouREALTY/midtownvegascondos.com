@@ -4,9 +4,10 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, TrendingUp, DollarSign, Building, BarChart, CheckCircle, Calculator } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/investment-properties", {
   title: "Las Vegas Investment Properties | Berkshire Hathaway HomeServices",
   description:
     "Invest in Las Vegas real estate with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Rental properties, ROI analysis, 1031 exchanges. No state income tax. Call (702) 500-1942.",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     "1031 exchange Las Vegas",
     "cash flow properties Las Vegas",
   ],
-};
+});
 
 const investmentAreas = [
   {

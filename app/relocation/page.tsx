@@ -19,9 +19,10 @@ import {
   Globe,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageHeroMetadata("/relocation", {
   title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Moving to Las Vegas? Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties provides comprehensive relocation services. Schools, neighborhoods, cost of living. Call (702) 500-1942.",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     "moving from California to Nevada",
     "Las Vegas real estate relocation",
   ],
-};
+});
 
 const relocationSchema = {
   "@context": "https://schema.org",
