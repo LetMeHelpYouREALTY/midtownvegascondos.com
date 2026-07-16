@@ -1,13 +1,21 @@
 /**
  * Google Maps Platform — Commute times widget
- * Embed: Maps Solutions (storage.googleapis.com)
+ * Embed: standard Google Maps iframe, pinned to the GBP office address.
  * Used site-wide for GEO / local SEO / AEO commute answers.
+ *
+ * NOTE: This previously used a hosted "Maps Solutions — Commutes and
+ * Destinations" widget (storage.googleapis.com/maps-solutions-gurx0m5wr9),
+ * but that widget's remote config (commutes-config.js) was centered on
+ * Seattle, WA (47.6115, -122.3222) — a template default that was never
+ * updated. Since that config lives outside this repo and can't be fixed
+ * by a code change, we render our own embed pinned to the office instead.
  */
 
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 
-export const COMMUTES_MAP_EMBED_URL =
-  "https://storage.googleapis.com/maps-solutions-gurx0m5wr9/commutes/nulb/commutes.html";
+export const COMMUTES_MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${officeInfo.name}, ${officeInfo.address.full}`
+)}&ll=${officeInfo.coordinates.lat},${officeInfo.coordinates.lng}&z=12&output=embed`;
 
 export const COMMUTES_MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
   officeInfo.address.full
@@ -83,7 +91,7 @@ export function generateCommutesMapSchemaGraph(): Record<string, unknown> {
         description:
           "Interactive Google commute-times map for midtown Las Vegas condominiums, the BHHS Nevada Properties office, and valley destinations.",
         url: COMMUTES_MAP_EMBED_URL,
-        mapType: "TransitMap",
+        mapType: "VenueMap",
         isAccessibleForFree: true,
         inLanguage: "en-US",
         about: { "@id": placeId },
