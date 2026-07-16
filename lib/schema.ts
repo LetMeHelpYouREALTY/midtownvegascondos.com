@@ -85,8 +85,10 @@ export function generateRealEstateAgentSchema() {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": `${BASE_URL}#organization`,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: siteConfig.name,
     alternateName: [
+      "Las Vegas Arts District Condos",
+      "Homes by Dr. Jan Duffy",
       "Midtown Vegas Condos",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
@@ -95,7 +97,7 @@ export function generateRealEstateAgentSchema() {
     logo: getAgentImageSrc(),
     image: getAgentImageSrc(),
     description: siteConfig.description,
-    telephone: "+1-702-500-1942",
+    telephone: agentInfo.phoneTel.replace("tel:", ""),
     email: agentInfo.email,
     priceRange: "$385K - $10M+",
     address: {
@@ -113,36 +115,28 @@ export function generateRealEstateAgentSchema() {
     },
     areaServed: [
       {
+        "@type": "Place",
+        name: "Arts District, Las Vegas, NV",
+      },
+      {
+        "@type": "Place",
+        name: "Downtown Las Vegas, Las Vegas, NV",
+      },
+      {
         "@type": "City",
         name: "Las Vegas",
         sameAs: "https://en.wikipedia.org/wiki/Las_Vegas",
-      },
-      {
-        "@type": "City",
-        name: "Henderson",
-        sameAs: "https://en.wikipedia.org/wiki/Henderson,_Nevada",
-      },
-      {
-        "@type": "Place",
-        name: "Summerlin",
-      },
-      {
-        "@type": "City",
-        name: "North Las Vegas",
-      },
-      {
-        "@type": "Place",
-        name: "Green Valley",
       },
     ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        opens: "08:00",
-        closes: "20:00",
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        opens: "09:00",
+        closes: "17:00",
       },
     ],
+    hasMap: officeInfo.maps.place,
     hasCredential: {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "Real Estate License",

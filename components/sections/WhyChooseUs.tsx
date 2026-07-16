@@ -35,7 +35,7 @@ const features = [
     icon: Clock,
     title: "Direct Access",
     description:
-      "Call (702) 500-1942 and reach Dr. Jan directly — no assistant queue, no callback delays.",
+      "Call (702) 500-1980 and reach Dr. Jan directly — no assistant queue, no callback delays.",
   },
 ];
 

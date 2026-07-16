@@ -20,7 +20,7 @@ import PageHero from "@/components/sections/PageHero";
 export const metadata: Metadata = withPageHeroMetadata("/sellers/relocation", {
   title: "Relocation Home Sales Las Vegas | Berkshire Hathaway HomeServices",
   description:
-    "Leaving Las Vegas for a new opportunity? Dr. Jan Duffy helps relocating homeowners sell fast and coordinates with BHHS offices nationwide. Call (702) 500-1942.",
+    "Leaving Las Vegas for a new opportunity? Dr. Jan Duffy helps relocating homeowners sell fast and coordinates with BHHS offices nationwide. Call (702) 500-1980.",
   keywords: [
     "relocation sale Las Vegas",
     "job relocation Las Vegas",
@@ -47,11 +47,11 @@ export default function RelocationPage() {
             
             
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001980"
               className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Start Your Relocation → (702) 500-1942
+              Start Your Relocation → (702) 500-1980
             </a>
       </PageHero>
       <main className="pb-16">
@@ -492,11 +492,11 @@ export default function RelocationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17025001980"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 500-1980
               </a>
               <Link
                 href="/home-valuation"

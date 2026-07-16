@@ -100,7 +100,7 @@ export const midtownNeighborhoods = [
       {
         question: "Can investors buy at One Las Vegas?",
         answer:
-          "Some units allow long-term or restricted rentals depending on HOA rules. Confirm rental caps, lease minimums, and special assessments in writing. Call (702) 500-1942 for investment-ready inventory.",
+          "Some units allow long-term or restricted rentals depending on HOA rules. Confirm rental caps, lease minimums, and special assessments in writing. Call (702) 500-1980 for investment-ready inventory.",
       },
     ],
   },
@@ -212,7 +212,7 @@ export const midtownCondoFaqs = [
   {
     question: "Do I need a realtor who specializes in condos?",
     answer:
-      "Yes. Condo transactions require HOA document review, rental restriction analysis, and building-specific comparable sales. Dr. Jan specializes in midtown Las Vegas condos — call (702) 500-1942.",
+      "Yes. Condo transactions require HOA document review, rental restriction analysis, and building-specific comparable sales. Dr. Jan specializes in midtown Las Vegas condos — call (702) 500-1980.",
   },
   {
     question: "How long do midtown condos take to sell?",

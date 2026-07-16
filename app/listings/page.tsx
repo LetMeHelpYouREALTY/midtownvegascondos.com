@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "How do I search midtown Las Vegas condos for sale?",
     answer:
-      "Use the live MLS search on this page, filter by condo/townhome, then shortlist Arts District, Symphony Park, One Las Vegas, Juhl, Palms Place, or The English Residences. Call Dr. Jan Duffy at (702) 500-1942 for a curated list matched to HOA dues and rental rules.",
+      "Use the live MLS search on this page, filter by condo/townhome, then shortlist Arts District, Symphony Park, One Las Vegas, Juhl, Palms Place, or The English Residences. Call Dr. Jan Duffy at (702) 500-1980 for a curated list matched to HOA dues and rental rules.",
   },
   {
     question: "Are these listings updated from the MLS?",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Midtown Las Vegas Condos for Sale | Live MLS Listings | Dr. Jan Duffy",
     description:
-      "Search live MLS midtown Las Vegas condos for sale — Arts District lofts, high-rises, The English Residences, and downtown inventory. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1942.",
+      "Search live MLS midtown Las Vegas condos for sale — Arts District lofts, high-rises, The English Residences, and downtown inventory. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1980.",
     keywords: [
       "midtown Las Vegas condos for sale",
       "Las Vegas MLS listings",

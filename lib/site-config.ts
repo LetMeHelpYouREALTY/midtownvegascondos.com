@@ -1,27 +1,30 @@
 // Site Configuration — midtownvegascondos.com
-// Berkshire Hathaway HomeServices Nevada Properties
-// NAP must match Google Business Profile exactly
+// NAP must match Google Business Profile exactly (Arts District profile)
 
 export const siteConfig = {
-  name: "Midtown Vegas Condos",
+  /** Exact Google Business Profile business name */
+  name: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
+  shortBrand: "Las Vegas Arts District Condos",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
-  tagline: "Midtown Las Vegas Condo Specialist",
+  tagline: "Downtown Las Vegas & Arts District Condo Specialist",
   brandLine:
-    "Midtown Vegas Condos | Dr. Jan Duffy, REALTOR® | Berkshire Hathaway HomeServices Nevada Properties",
+    "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
   url: "https://www.midtownvegascondos.com",
   description:
-    "Search midtown Las Vegas condos, high-rise towers, and urban lofts. Expert condo buying and selling guidance from Dr. Jan Duffy, REALTOR® at Berkshire Hathaway HomeServices Nevada Properties.",
+    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, a real estate expert with 30+ years of experience. Personalized service guaranteed!",
 };
 
 export const agentInfo = {
   name: "Dr. Jan Duffy",
   title: "REALTOR®",
   license: "S.0197614.LLC",
-  phone: "(702) 500-1942",
-  phoneFormatted: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
+  /** GBP primary phone — must match Google Business Profile */
+  phone: "(702) 500-1980",
+  phoneFormatted: "(702) 500-1980",
+  phoneTel: "tel:+17025001980",
+  phoneSms: "sms:+17025001980",
   email: "homes@heyberkshire.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
@@ -42,20 +45,49 @@ export function getAgentImageSrc(): string {
 }
 
 export const officeInfo = {
-  name: "Berkshire Hathaway HomeServices Nevada Properties",
+  /** GBP business name (NAP) */
+  name: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
   address: {
-    street: "9406 W Lake Mead Blvd, Suite 100",
+    street: "921 South Main Street",
     city: "Las Vegas",
     state: "NV",
-    zip: "89134",
-    full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
+    zip: "89101",
+    full: "921 South Main Street, Las Vegas, NV 89101",
   },
   coordinates: {
-    lat: 36.1941,
-    lng: -115.2678,
+    // Nominatim pin for 921 South Main Street (Arts District / The English Hotel)
+    lat: 36.1612394,
+    lng: -115.1522884,
   },
-  phone: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
+  phone: "(702) 500-1980",
+  phoneTel: "tel:+17025001980",
+  /** GBP hours: Sun–Thu 9am–5pm; Fri–Sat closed */
+  hours: {
+    sunday: { opens: "09:00", closes: "17:00" },
+    monday: { opens: "09:00", closes: "17:00" },
+    tuesday: { opens: "09:00", closes: "17:00" },
+    wednesday: { opens: "09:00", closes: "17:00" },
+    thursday: { opens: "09:00", closes: "17:00" },
+    friday: null,
+    saturday: null,
+  },
+  hoursDisplay: [
+    "Sunday – Thursday: 9:00 AM – 5:00 PM",
+    "Friday – Saturday: Closed",
+  ],
+  foundingDate: "2009-09-20",
+  serviceAreas: ["Arts District, Las Vegas, NV", "Downtown Las Vegas, Las Vegas, NV"],
+  maps: {
+    embed: `https://maps.google.com/maps?q=${encodeURIComponent(
+      "921 South Main Street, Las Vegas, NV 89101"
+    )}&t=&z=16&ie=UTF8&iwloc=&output=embed`,
+    place: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
+    )}`,
+    directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+      "921 South Main Street, Las Vegas, NV 89101"
+    )}`,
+  },
 };
 
 // Market Statistics (Updated January 2026)
@@ -190,7 +222,7 @@ export const commonFAQs = {
     {
       question: "What is Dr. Jan Duffy's license number?",
       answer:
-        "Dr. Jan Duffy holds Nevada Real Estate License S.0197614.LLC and is affiliated with Berkshire Hathaway HomeServices Nevada Properties at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        "Dr. Jan Duffy holds Nevada Real Estate License S.0197614.LLC and is affiliated with Berkshire Hathaway HomeServices Nevada Properties. Business location: 921 South Main Street, Las Vegas, NV 89101.",
     },
   ],
   buying: [
@@ -202,7 +234,7 @@ export const commonFAQs = {
     {
       question: "How much do midtown Las Vegas condos cost in 2026?",
       answer:
-        "As of January 2026, midtown Las Vegas condos range from approximately $250,000 for studio units to $1M+ for luxury high-rise penthouses with Strip views. Contact Dr. Jan at (702) 500-1942 for current building-specific pricing.",
+        "As of January 2026, midtown Las Vegas condos range from approximately $250,000 for studio units to $1M+ for luxury high-rise penthouses with Strip views. Contact Dr. Jan at (702) 500-1980 for current building-specific pricing.",
     },
     {
       question: "Can I rent out a midtown Las Vegas condo?",
@@ -214,7 +246,7 @@ export const commonFAQs = {
     {
       question: "How do I sell my midtown Las Vegas condo?",
       answer:
-        "Dr. Jan provides a free condo valuation using recent midtown comparable sales, professional photography, and targeted marketing to urban buyers and investors. Call (702) 500-1942 for a no-obligation consultation.",
+        "Dr. Jan provides a free condo valuation using recent midtown comparable sales, professional photography, and targeted marketing to urban buyers and investors. Call (702) 500-1980 for a no-obligation consultation.",
     },
     {
       question: "How long do midtown condos take to sell?",

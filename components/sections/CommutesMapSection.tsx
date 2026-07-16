@@ -101,7 +101,7 @@ export default function CommutesMapSection({
       >
         <iframe
           src={COMMUTES_MAP_EMBED_URL}
-          title="Google Commute Times map for midtown Las Vegas condos and Berkshire Hathaway HomeServices Nevada Properties office"
+          title={`Google Commute Times map — ${officeInfo.name} at ${officeInfo.address.full}`}
           width="100%"
           height="100%"
           loading="lazy"

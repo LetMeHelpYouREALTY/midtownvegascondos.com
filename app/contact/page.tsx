@@ -11,14 +11,13 @@ import { agentInfo, getAgentImageSrc, officeInfo, siteConfig } from "@/lib/site-
 import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = withPageHeroMetadata("/contact", {
-  title: "Contact Dr. Jan Duffy | Midtown Las Vegas Condo Specialist",
-  description:
-    "Contact Dr. Jan Duffy for midtown Las Vegas condos. Schedule a showing, get directions, or call (702) 500-1942. Berkshire Hathaway HomeServices Nevada Properties.",
+  title: "Contact Dr. Jan Duffy | Las Vegas Arts District Condos",
+  description: `Contact Dr. Jan Duffy for Downtown Las Vegas & Arts District condos. Call ${agentInfo.phone}. ${officeInfo.address.full}.`,
   keywords: [
     "contact real estate agent Las Vegas",
-    "Berkshire Hathaway contact",
+    "Arts District realtor contact",
     "Dr. Jan Duffy phone",
-    "Las Vegas realtor contact",
+    "Downtown Las Vegas condo agent",
     "schedule real estate appointment",
   ],
 });
@@ -28,17 +27,17 @@ const contactSchema = {
   "@type": "ContactPage",
   mainEntity: {
     "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
+    name: siteConfig.name,
+    telephone: agentInfo.phoneTel.replace("tel:", ""),
     email: agentInfo.email,
     image: getAgentImageSrc(),
     url: `${siteConfig.url}/contact`,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
+      streetAddress: officeInfo.address.street,
+      addressLocality: officeInfo.address.city,
+      addressRegion: officeInfo.address.state,
+      postalCode: officeInfo.address.zip,
       addressCountry: "US",
     },
   },
@@ -80,20 +79,20 @@ export default function ContactPage() {
                 $127M+ in closed transactions.
               </p>
 
-              {/* NAP Information */}
+              {/* NAP Information — must match Google Business Profile */}
               <div className="space-y-4 mb-8">
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <Phone className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-1">Phone (Call or Text)</h3>
                     <a
-                      href="tel:+17025001942"
+                      href={agentInfo.phoneTel}
                       className="text-2xl font-bold text-blue-600 hover:text-blue-700"
                     >
-                      (702) 500-1942
+                      {agentInfo.phone}
                     </a>
                     <p className="text-sm text-slate-500 mt-1">
-                      Available 7 days a week, 9am-6pm
+                      Sunday–Thursday 9:00 AM–5:00 PM · Appointment required
                     </p>
                   </div>
                 </div>
@@ -117,12 +116,14 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <MapPin className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Office Address</h3>
+                    <h3 className="font-semibold text-slate-900 mb-1">Business Location</h3>
                     <address className="not-italic text-slate-700">
-                      Berkshire Hathaway HomeServices<br />
-                      Nevada Properties<br />
-                      9406 W Lake Mead Blvd, Suite 100<br />
-                      Las Vegas, NV 89134
+                      {officeInfo.name}
+                      <br />
+                      {officeInfo.address.street}
+                      <br />
+                      {officeInfo.address.city}, {officeInfo.address.state}{" "}
+                      {officeInfo.address.zip}
                     </address>
                   </div>
                 </div>
@@ -130,37 +131,38 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <Clock className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Office Hours</h3>
+                    <h3 className="font-semibold text-slate-900 mb-1">Business Hours</h3>
                     <p className="text-slate-700">
-                      Monday - Friday: 9:00 AM - 6:00 PM<br />
-                      Saturday - Sunday: 10:00 AM - 4:00 PM
+                      {officeInfo.hoursDisplay[0]}
+                      <br />
+                      {officeInfo.hoursDisplay[1]}
                     </p>
                     <p className="text-sm text-slate-500 mt-1">
-                      Available by appointment outside these hours
+                      Appointment required · Online appointments available
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Google Map Embed */}
+              {/* Google Map Embed — GBP pin */}
               <div className="rounded-xl overflow-hidden shadow-md mb-4">
                 <iframe
-                  src="https://maps.google.com/maps?q=9406+W+Lake+Mead+Blvd+Suite+100,+Las+Vegas,+NV+89134&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src={officeInfo.maps.embed}
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Berkshire Hathaway HomeServices Nevada Properties - Office Location"
+                  title={`${officeInfo.name} — ${officeInfo.address.full}`}
                   className="w-full"
                 />
               </div>
-              
+
               {/* Map Action Buttons */}
               <div className="flex gap-3 mb-8">
                 <a
-                  href="https://www.google.com/maps/dir//9406+W+Lake+Mead+Blvd+Suite+100,+Las+Vegas,+NV+89134"
+                  href={officeInfo.maps.directions}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
@@ -169,7 +171,7 @@ export default function ContactPage() {
                   Get Directions
                 </a>
                 <a
-                  href="https://maps.google.com/?q=Berkshire+Hathaway+HomeServices+Nevada+Properties+9406+W+Lake+Mead+Blvd+Las+Vegas+NV"
+                  href={officeInfo.maps.place}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-3 rounded-lg font-medium transition-colors"
@@ -268,13 +270,13 @@ export default function ContactPage() {
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <a
-                href="tel:+17025001942"
+                href="tel:+17025001980"
                 className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white p-6 rounded-xl transition-colors"
               >
                 <Phone className="h-8 w-8 mr-4" />
                 <div className="text-left">
                   <div className="font-bold text-lg">Call Now</div>
-                  <div className="text-blue-100">(702) 500-1942</div>
+                  <div className="text-blue-100">(702) 500-1980</div>
                 </div>
               </a>
               <a
@@ -307,7 +309,7 @@ export default function ContactPage() {
                 },
                 {
                   q: "How quickly can you respond to inquiries?",
-                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (9am-6pm daily). For urgent matters, calling or texting (702) 500-1942 is the fastest way to reach me.",
+                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (9am-6pm daily). For urgent matters, calling or texting (702) 500-1980 is the fastest way to reach me.",
                 },
                 {
                   q: "Do you charge for consultations?",

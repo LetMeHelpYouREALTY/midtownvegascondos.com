@@ -48,7 +48,7 @@ export default function Navbar() {
           {/* Brand Logo */}
           <Link href="/" className="flex flex-col">
             <span className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors leading-tight">
-              {siteConfig.name}
+              {siteConfig.shortBrand}
             </span>
             <span className="text-xs text-slate-500 hidden sm:block">{siteConfig.tagline}</span>
           </Link>

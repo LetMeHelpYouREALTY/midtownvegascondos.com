@@ -23,7 +23,7 @@ export const defaultFaqs: FAQ[] = [
   {
     question: "Do you provide free condo valuations?",
     answer:
-      "Yes! Dr. Jan provides free, no-obligation condo valuations using current midtown comparable sales and per-square-foot data. Call (702) 500-1942 for a consultation.",
+      "Yes! Dr. Jan provides free, no-obligation condo valuations using current midtown comparable sales and per-square-foot data. Call (702) 500-1980 for a consultation.",
   },
   {
     question: "What makes Dr. Jan different for condo buyers?",
@@ -38,7 +38,7 @@ export const defaultFaqs: FAQ[] = [
   {
     question: "What are your fees for condo transactions?",
     answer:
-      "Commission structures are negotiable and transparent. For buyers, Dr. Jan's services are typically free as commissions are paid by the seller. Call (702) 500-1942 to discuss your midtown condo goals.",
+      "Commission structures are negotiable and transparent. For buyers, Dr. Jan's services are typically free as commissions are paid by the seller. Call (702) 500-1980 to discuss your midtown condo goals.",
   },
 ];
 

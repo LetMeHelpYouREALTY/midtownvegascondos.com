@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "What do Sun City Summerlin homes cost in 2026?",
     answer:
-      "Inventory commonly spans roughly $320K–$850K depending on model, golf proximity, and updates. Call Dr. Jan Duffy at (702) 500-1942 for live MLS comps.",
+      "Inventory commonly spans roughly $320K–$850K depending on model, golf proximity, and updates. Call Dr. Jan Duffy at (702) 500-1980 for live MLS comps.",
   },
   {
     question: "Is Sun City Summerlin age-restricted?",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Sun City Summerlin Homes for Sale | 55+ Community | Dr. Jan Duffy",
     description:
-      "Sun City Summerlin 55+ homes for sale — Nevada's largest active adult community with golf, rec centers, and 100+ clubs. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+      "Sun City Summerlin 55+ homes for sale — Nevada's largest active adult community with golf, rec centers, and 100+ clubs. Dr. Jan Duffy, BHHS. Call (702) 500-1980.",
     keywords: [
       "Sun City Summerlin homes for sale",
       "Sun City Summerlin Las Vegas",
@@ -328,11 +328,11 @@ export default function SunCitySummerlinPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17025001980"
                 className="inline-flex items-center justify-center bg-white text-amber-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-amber-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 500-1980
               </a>
               <Link
                 href="/contact"

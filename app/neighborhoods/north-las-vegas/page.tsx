@@ -10,7 +10,7 @@ import PageHero from "@/components/sections/PageHero";
 export const metadata: Metadata = withPageHeroMetadata("/neighborhoods/north-las-vegas", {
   title: "Berkshire Hathaway HomeServices North Las Vegas | Affordable Homes",
   description:
-    "Find affordable North Las Vegas homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy helps first-time buyers and investors. Median price $385K. Call (702) 500-1942.",
+    "Find affordable North Las Vegas homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy helps first-time buyers and investors. Median price $385K. Call (702) 500-1980.",
   keywords: [
     "Berkshire Hathaway HomeServices North Las Vegas",
     "North Las Vegas homes for sale",
@@ -365,11 +365,11 @@ export default function NorthLasVegasPage() {
               for guidance on finding affordable homes that fit your budget.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001980"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 500-1980
             </a>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties

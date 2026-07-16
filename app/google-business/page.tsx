@@ -28,24 +28,24 @@ import {
   generateLocalBusinessSchema,
   generateFAQSchema,
 } from "@/lib/gbp-schema";
+import { officeInfo } from "@/lib/site-config";
 
 export const metadata: Metadata = withPageHeroMetadata("/google-business", {
-  title: "Dr. Jan Duffy, REALTOR® Las Vegas | Berkshire Hathaway HomeServices",
+  title: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy | GBP",
   description:
-    "Dr. Jan Duffy is a trusted Las Vegas REALTOR® with Berkshire Hathaway HomeServices Nevada Properties. Specializing in Summerlin, Henderson, 55+ communities, California relocation, and luxury homes. Call (702) 500-1942.",
+    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy. 921 South Main Street, Las Vegas, NV 89101. Call (702) 500-1980.",
   keywords: [
+    "Las Vegas Arts District Condos",
     "Dr. Jan Duffy realtor",
-    "Las Vegas real estate agent",
-    "Berkshire Hathaway HomeServices Las Vegas",
-    "Summerlin realtor",
-    "Henderson real estate agent",
-    "55+ communities Las Vegas",
-    "California relocation Las Vegas",
+    "Downtown Las Vegas real estate agent",
+    "Arts District Las Vegas realtor",
+    "921 South Main Street Las Vegas",
   ],
   openGraph: {
-    title: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    description: "Trusted Las Vegas REALTOR® serving since 2008. Summerlin, Henderson, luxury homes, 55+ communities.",
-    url: "https://heyberkshire.com/google-business",
+    title: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
+    description:
+      "Downtown Las Vegas & Arts District condos with Dr. Jan Duffy. Call (702) 500-1980.",
+    url: "https://www.midtownvegascondos.com/google-business",
     type: "profile",
   },
 });
@@ -85,10 +85,10 @@ export default function GoogleBusinessPage() {
                     <span className="text-yellow-400 font-semibold">Berkshire Hathaway HomeServices</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                    Connect on Google
+                    {businessInfo.name}
                   </h2>
                   <p className="text-xl text-blue-200 mb-2">REALTOR® | License {businessInfo.license}</p>
-                  <p className="text-slate-300 mb-6">Nevada Properties</p>
+                  <p className="text-slate-300 mb-6">Berkshire Hathaway HomeServices Nevada Properties</p>
                   
                   {/* NAP - Exact match to GBP */}
                   <div className="space-y-3">
@@ -144,18 +144,65 @@ export default function GoogleBusinessPage() {
                 <h2 className="text-xl font-bold text-slate-900">Business Hours</h2>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div><span className="font-medium">Monday:</span> 9am - 6pm</div>
-                <div><span className="font-medium">Tuesday:</span> 9am - 6pm</div>
-                <div><span className="font-medium">Wednesday:</span> 9am - 6pm</div>
-                <div><span className="font-medium">Thursday:</span> 9am - 6pm</div>
-                <div><span className="font-medium">Friday:</span> 9am - 6pm</div>
-                <div><span className="font-medium">Saturday:</span> 10am - 4pm</div>
-                <div><span className="font-medium">Sunday:</span> By Appointment</div>
+                <div><span className="font-medium">Sunday:</span> 9:00 AM – 5:00 PM</div>
+                <div><span className="font-medium">Monday:</span> 9:00 AM – 5:00 PM</div>
+                <div><span className="font-medium">Tuesday:</span> 9:00 AM – 5:00 PM</div>
+                <div><span className="font-medium">Wednesday:</span> 9:00 AM – 5:00 PM</div>
+                <div><span className="font-medium">Thursday:</span> 9:00 AM – 5:00 PM</div>
+                <div><span className="font-medium">Friday:</span> Closed</div>
+                <div><span className="font-medium">Saturday:</span> Closed</div>
               </div>
             </div>
           </section>
 
-          {/* About - 750 Word Description Structure */}
+          {/* GBP map pin */}
+          <section className="max-w-5xl mx-auto mb-16">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Business Location</h2>
+            <p className="text-slate-600 mb-4">
+              {officeInfo.address.full} · Arts District & Downtown Las Vegas service area
+            </p>
+            <div className="rounded-xl overflow-hidden shadow-md mb-4">
+              <iframe
+                src={officeInfo.maps.embed}
+                width="100%"
+                height="360"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={`${officeInfo.name} map — ${officeInfo.address.full}`}
+                className="w-full"
+              />
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={officeInfo.maps.directions}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-3 font-medium text-white hover:bg-blue-700"
+              >
+                <MapPin className="mr-2 h-4 w-4" />
+                Get Directions
+              </a>
+              <a
+                href={officeInfo.maps.place}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-lg bg-slate-100 px-4 py-3 font-medium text-slate-800 hover:bg-slate-200"
+              >
+                View Google Reviews
+              </a>
+              <a
+                href={`tel:${businessInfo.phone.tel}`}
+                className="inline-flex items-center rounded-lg bg-slate-100 px-4 py-3 font-medium text-slate-800 hover:bg-slate-200"
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                Call {businessInfo.phone.display}
+              </a>
+            </div>
+          </section>
+
+          {/* About - GBP Description Structure */}
           <section className="max-w-4xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">About Dr. Jan Duffy</h2>
             

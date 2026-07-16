@@ -12,7 +12,7 @@ export const midtownLifestylePages = {
     name: "Midtown Run Club",
     title: "Midtown Run Club | Condos Near Arts District Wellness | Dr. Jan Duffy",
     description:
-      "Learn how Midtown Run Club fits condo living in the Las Vegas Arts District. Weekly runs, community training, and walkable midtown residences with Dr. Jan Duffy. Call (702) 500-1942.",
+      "Learn how Midtown Run Club fits condo living in the Las Vegas Arts District. Weekly runs, community training, and walkable midtown residences with Dr. Jan Duffy. Call (702) 500-1980.",
     keywords: [
       "Midtown Run Club Las Vegas",
       "Arts District running club",
@@ -60,7 +60,7 @@ export const midtownLifestylePages = {
     name: "Midtown EV Vehicle Program",
     title: "Midtown EV Program | Condo Living with Shared EVs | Dr. Jan Duffy",
     description:
-      "Midtown Las Vegas EV Vehicle Program for condo residents — reserve, drive, and charge shared electric vehicles near 921 S Main St. Tour midtown condos with Dr. Jan Duffy at (702) 500-1942.",
+      "Midtown Las Vegas EV Vehicle Program for condo residents — reserve, drive, and charge shared electric vehicles near 921 S Main St. Tour midtown condos with Dr. Jan Duffy at (702) 500-1980.",
     keywords: [
       "Midtown Las Vegas EV program",
       "Arts District electric vehicles",
@@ -108,7 +108,7 @@ export const midtownLifestylePages = {
     name: "The Pepper Club",
     title: "The Pepper Club Midtown Las Vegas | Dining Near Condos | Dr. Jan Duffy",
     description:
-      "The Pepper Club at Midtown Las Vegas / The English Hotel — chef-driven dining in the Arts District condo corridor. Tour nearby residences with Dr. Jan Duffy. Call (702) 500-1942.",
+      "The Pepper Club at Midtown Las Vegas / The English Hotel — chef-driven dining in the Arts District condo corridor. Tour nearby residences with Dr. Jan Duffy. Call (702) 500-1980.",
     keywords: [
       "Pepper Club Las Vegas",
       "Midtown Las Vegas dining",

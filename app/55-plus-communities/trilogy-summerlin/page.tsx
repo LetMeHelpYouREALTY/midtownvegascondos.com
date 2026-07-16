@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "What is the Trilogy at Summerlin price range?",
     answer:
-      "Homes commonly trade from about $500K to $1.1M+ depending on elevation, upgrades, and inventory. Call Dr. Jan Duffy at (702) 500-1942 for current listings.",
+      "Homes commonly trade from about $500K to $1.1M+ depending on elevation, upgrades, and inventory. Call Dr. Jan Duffy at (702) 500-1980 for current listings.",
   },
   {
     question: "Is Trilogy at Summerlin age-restricted?",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Trilogy at Summerlin Homes for Sale | Luxury 55+ | Dr. Jan Duffy",
     description:
-      "Trilogy at Summerlin luxury 55+ homes — resort amenities, spa, contemporary designs. Often $500K–$1.1M. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1942.",
+      "Trilogy at Summerlin luxury 55+ homes — resort amenities, spa, contemporary designs. Often $500K–$1.1M. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1980.",
     keywords: [
       "Trilogy at Summerlin homes for sale",
       "Trilogy Summerlin Las Vegas",
@@ -425,11 +425,11 @@ export default function TrilogySummerlinPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a
-                href="tel:+17025001942"
+                href="tel:+17025001980"
                 className="inline-flex items-center justify-center bg-white text-rose-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-rose-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 500-1980
               </a>
               <Link
                 href="/contact"

@@ -1,5 +1,5 @@
 Contact: mailto:security@heyberkshire.com
-Contact: tel:+1-702-500-1942
+Contact: tel:+1-702-500-1980
 Expires: 2027-07-16T00:00:00.000Z
 Preferred-Languages: en
 Canonical: https://www.midtownvegascondos.com/.well-known/security.txt
@@ -10,6 +10,6 @@ Acknowledgments: We appreciate responsible disclosure of security vulnerabilitie
 # Security Contact Information
 #
 # If you've discovered a security vulnerability on midtownvegascondos.com,
-# please report it to security@heyberkshire.com or call (702) 500-1942.
+# please report it to security@heyberkshire.com or call (702) 500-1980.
 #
 # We respond within 48 hours. Include description, repro steps, and impact.

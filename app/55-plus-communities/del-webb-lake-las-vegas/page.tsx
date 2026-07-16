@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "What do Del Webb Lake Las Vegas homes cost?",
     answer:
-      "Production homes commonly range about $400K–$900K depending on model, upgrades, and view premiums. Newer construction may carry LID/SID assessments — verify on each listing. Call (702) 500-1942 for live inventory.",
+      "Production homes commonly range about $400K–$900K depending on model, upgrades, and view premiums. Newer construction may carry LID/SID assessments — verify on each listing. Call (702) 500-1980 for live inventory.",
   },
   {
     question: "Is Del Webb at Lake Las Vegas age-restricted?",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Del Webb Lake Las Vegas Homes for Sale | 55+ | Dr. Jan Duffy",
     description:
-      "Del Webb at Lake Las Vegas 55+ homes — lake views, resort amenities, modern floor plans in Henderson. Often $400K–$900K. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+      "Del Webb at Lake Las Vegas 55+ homes — lake views, resort amenities, modern floor plans in Henderson. Often $400K–$900K. Dr. Jan Duffy, BHHS. Call (702) 500-1980.",
     keywords: [
       "Del Webb Lake Las Vegas",
       "Lake Las Vegas 55 plus",
@@ -325,11 +325,11 @@ export default function DelWebbLakeLasVegasPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17025001980"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 500-1980
               </a>
               <Link
                 href="/contact"

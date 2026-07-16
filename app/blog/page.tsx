@@ -13,7 +13,7 @@ import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = withPageHeroMetadata("/blog", {
   title: "Midtown Las Vegas Condo Blog | Market & Lifestyle Guides | Dr. Jan Duffy",
   description:
-    "Midtown Las Vegas condo blog — market updates, building guides, Run Club, EV living, and Arts District tips from Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 500-1942.",
+    "Midtown Las Vegas condo blog — market updates, building guides, Run Club, EV living, and Arts District tips from Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 500-1980.",
   keywords: [
     "midtown Las Vegas condo blog",
     "Las Vegas real estate blog",

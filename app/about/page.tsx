@@ -25,7 +25,7 @@ import PageHero from "@/components/sections/PageHero";
 export const metadata: Metadata = withPageHeroMetadata("/about", {
   title: "About Dr. Jan Duffy | Midtown Las Vegas Condo Specialist",
   description:
-    "Meet Dr. Jan Duffy, your midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties. Serving Las Vegas since 2008. Call (702) 500-1942.",
+    "Meet Dr. Jan Duffy, your midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties. Serving Las Vegas since 2008. Call (702) 500-1980.",
   keywords: [
     "Dr. Jan Duffy",
     "Berkshire Hathaway HomeServices agent",
@@ -45,7 +45,7 @@ const personSchema = {
   jobTitle: "REALTOR®",
   description:
     "Licensed real estate agent with Berkshire Hathaway HomeServices Nevada Properties, specializing in midtown and downtown Las Vegas condos since 2008.",
-  telephone: "+17025001942",
+  telephone: "+17025001980",
   email: agentInfo.email,
   url: `${siteConfig.url}/about`,
   image: getAgentImageSrc(),
@@ -54,10 +54,10 @@ const personSchema = {
     name: "Berkshire Hathaway HomeServices Nevada Properties",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+      streetAddress: "921 South Main Street",
       addressLocality: "Las Vegas",
       addressRegion: "NV",
-      postalCode: "89134",
+      postalCode: "89101",
     },
   },
   hasCredential: {
@@ -188,11 +188,11 @@ export default function AboutPage() {
                   <h3 className="font-bold text-slate-900 mb-4">Contact Dr. Jan Duffy</h3>
                   <div className="space-y-3">
                     <a
-                      href="tel:+17025001942"
+                      href="tel:+17025001980"
                       className="flex items-center text-slate-700 hover:text-blue-600"
                     >
                       <Phone className="h-5 w-5 mr-3 text-blue-600" />
-                      <span className="font-semibold">(702) 500-1942</span>
+                      <span className="font-semibold">(702) 500-1980</span>
                     </a>
                     <a
                       href="mailto:homes@heyberkshire.com"
@@ -204,8 +204,8 @@ export default function AboutPage() {
                     <div className="flex items-start text-slate-700">
                       <MapPin className="h-5 w-5 mr-3 text-blue-600 mt-0.5" />
                       <address className="not-italic">
-                        9406 W Lake Mead Blvd, Suite 100<br />
-                        Las Vegas, NV 89134
+                        921 South Main Street<br />
+                        Las Vegas, NV 89101
                       </address>
                     </div>
                     <div className="flex items-center text-slate-700">
@@ -441,11 +441,11 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17025001980"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 500-1980
               </a>
               <Link
                 href="/contact"

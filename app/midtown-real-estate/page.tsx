@@ -13,7 +13,7 @@ import { agentInfo, officeInfo, marketStats, siteConfig } from "@/lib/site-confi
 export const metadata: Metadata = withPageHeroMetadata("/midtown-real-estate", {
   title: "Midtown Real Estate Las Vegas | Condos for Sale | Dr. Jan Duffy",
   description:
-    "Midtown real estate in Las Vegas — Arts District lofts, high-rises, The English Residences, and downtown condos. Expert buying and selling with Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1942.",
+    "Midtown real estate in Las Vegas — Arts District lofts, high-rises, The English Residences, and downtown condos. Expert buying and selling with Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1980.",
   keywords: [
     "midtown real estate Las Vegas",
     "midtown Las Vegas condos for sale",

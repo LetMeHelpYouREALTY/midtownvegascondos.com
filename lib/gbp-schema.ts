@@ -1,21 +1,22 @@
 // Google Business Profile Schema Data
-// Supports GBP ranking factors: Relevance, Distance, Prominence
+// NAP / hours / categories must match GBP exactly for midtownvegascondos.com
 
-import { getAgentImageSrc } from "./site-config";
+import { getAgentImageSrc, officeInfo, siteConfig } from "./site-config";
 
 export const businessInfo = {
   // NAP - Must match GBP exactly
-  name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+  name: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
   address: {
-    streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+    streetAddress: "921 South Main Street",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
-    postalCode: "89134",
+    postalCode: "89101",
     addressCountry: "US",
   },
   phone: {
-    display: "(702) 500-1942",
-    tel: "+17025001942",
+    display: "(702) 500-1980",
+    tel: "+17025001980",
+    sms: "sms:+17025001980",
   },
   email: "homes@heyberkshire.com",
   url: "https://www.midtownvegascondos.com",
@@ -23,188 +24,124 @@ export const businessInfo = {
   // Business Details
   license: "S.0197614.LLC",
   priceRange: "$$",
+  description:
+    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, a real estate expert with 30+ years of experience. Personalized service guaranteed!",
 
-  // Hours - Match GBP exactly
+  // Hours - Match GBP exactly (Sun–Thu 9–5; Fri–Sat closed)
   hours: {
-    monday: "09:00-18:00",
-    tuesday: "09:00-18:00",
-    wednesday: "09:00-18:00",
-    thursday: "09:00-18:00",
-    friday: "09:00-18:00",
-    saturday: "10:00-16:00",
-    sunday: "By Appointment",
+    sunday: "09:00-17:00",
+    monday: "09:00-17:00",
+    tuesday: "09:00-17:00",
+    wednesday: "09:00-17:00",
+    thursday: "09:00-17:00",
+    friday: "Closed",
+    saturday: "Closed",
   },
 
-  // Geo coordinates for distance ranking
+  // Geo coordinates for 921 South Main Street
   geo: {
-    latitude: 36.1941,
-    longitude: -115.2678,
+    latitude: officeInfo.coordinates.lat,
+    longitude: officeInfo.coordinates.lng,
   },
 
-  // Service areas - Start focused, expand with prominence
+  // Service areas - Match GBP
   serviceAreas: [
-    "Midtown Las Vegas, NV",
-    "Downtown Las Vegas, NV",
     "Arts District, Las Vegas, NV",
-    "Las Vegas, NV",
-    "Clark County, NV",
+    "Downtown Las Vegas, Las Vegas, NV",
   ],
 
   // Categories - Primary + Secondary for GBP
   categories: {
-    primary: "Real Estate Agent",
+    primary: "Real estate agent",
     secondary: [
-      "Real Estate Agency",
-      "Real Estate Consultant",
+      "Real estate agency",
+      "Real estate developer",
+      "Real estate consultant",
     ],
   },
 
   // Services - Each creates searchable fields in GBP
   services: [
-    // Core Services
     { name: "Buyer Representation", description: "Full-service home buying assistance" },
     { name: "Seller Representation", description: "List and sell your home for top dollar" },
-    { name: "Luxury Home Sales", description: "High-end properties $1M+" },
-    // Niche Services (trigger intent phrases)
+    { name: "Luxury Condo Sales", description: "High-rise and Arts District condominiums" },
+    { name: "Downtown Las Vegas Condos", description: "Downtown and Arts District condo expertise" },
     { name: "California Relocation Services", description: "Helping CA buyers transition to Las Vegas" },
-    { name: "55+ Community Specialist", description: "Sun City, Anthem, Del Webb communities" },
     { name: "First-Time Home Buyer Guidance", description: "FHA, VA, down payment assistance" },
-    { name: "Probate Real Estate Sales", description: "Estate and probate property transactions" },
-    { name: "Divorce Real Estate Sales", description: "Neutral representation for marital asset division" },
-    { name: "Relocation Services", description: "Corporate and individual relocation assistance" },
     { name: "Investment Property Consulting", description: "Rental properties and investment analysis" },
-    { name: "New Construction Representation", description: "Builder negotiations and buyer protection" },
-    { name: "Military/VA Home Buying", description: "Specialized service for veterans" },
-    { name: "Downsizing Consultation", description: "Transition to smaller, maintenance-free living" },
-    { name: "Luxury Condo Sales", description: "High-rise and resort-style condominiums" },
-    { name: "Midtown Las Vegas Condo Specialist", description: "High-rise towers, urban lofts, and Arts District condos" },
+    { name: "Online Appointments", description: "Schedule consultations and showings online" },
   ],
 
-  // Attributes for GBP - Fill out ALL available
+  // Attributes for GBP - Match profile
   attributes: {
-    // Accessibility (important for GBP)
     accessibility: [
       "Wheelchair accessible entrance",
       "Wheelchair accessible parking lot",
       "Wheelchair accessible restroom",
     ],
-    // Service options
-    serviceOptions: [
-      "Online appointments",
-      "Onsite services",
-      "Same-day appointments",
-    ],
-    // Highlights
+    serviceOptions: ["Online appointments", "Onsite services"],
     highlights: [
       "Identifies as women-owned",
+      "Identifies as veteran-owned",
       "LGBTQ+ friendly",
-      "Veteran-led",
+      "Transgender safespace",
     ],
-    // Offerings
-    offerings: [
-      "Free consultation",
-      "Free estimates",
-    ],
-    // Amenities
-    amenities: [
-      "Free Wi-Fi",
-      "Free parking",
-    ],
-    // Planning
-    planning: [
-      "Appointment required",
-      "Accepts new clients",
-    ],
-    // Payments (if applicable)
-    payments: [
-      "Credit cards",
-      "Checks",
-      "Wire transfer",
-    ],
+    amenities: ["Gender-neutral restroom", "Free parking lot"],
+    planning: ["Appointment required"],
   },
 
   // Social profiles for sameAs schema
   socialProfiles: [
-    "https://www.facebook.com/drjanduffy",
-    "https://www.instagram.com/drjanduffy",
-    "https://www.linkedin.com/in/drjanduffy",
-    "https://www.youtube.com/@drjanduffy",
-    "https://twitter.com/drjanduffy",
+    "https://www.linkedin.com/company/downtown-las-vegas-condos-and-homes-for-sale",
   ],
 
   // Languages spoken
-  languages: ["English", "Spanish"],
+  languages: ["English", "Spanish", "Korean", "Filipino"],
 
-  // Payment methods accepted
-  paymentAccepted: ["Credit Card", "Check", "Wire Transfer"],
-
-  // Year established
-  foundingDate: "2010",
+  // Year established (GBP opening date)
+  foundingDate: "2009-09-20",
 };
 
-// 750-word GBP Description (3 sections)
+// GBP description aligned to Downtown / Arts District profile
 export const gbpDescription = {
-  // Section 1: Who you are/mission (~250 words)
-  whoWeAre: `Dr. Jan Duffy is a trusted REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, serving the Las Vegas real estate market since 2008. Backed by Warren Buffett's Berkshire Hathaway—the most recognized name in real estate—Dr. Jan combines local expertise with world-class resources to deliver exceptional results for buyers and sellers alike.
+  whoWeAre: `Las Vegas Arts District Condos | Homes by Dr. Jan Duffy helps buyers and sellers find luxury condos and charming homes in Downtown Las Vegas and the Arts District. Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices Nevada Properties (License S.0197614.LLC) with 30+ years of experience and personalized service.`,
 
-With $127 million in closed transactions and hundreds of satisfied clients, Dr. Jan has earned a reputation for integrity, market knowledge, and personalized service. Whether you're a first-time buyer navigating the process, a luxury home seeker exploring The Ridges or MacDonald Highlands, or a California family relocating for Nevada's tax advantages, Dr. Jan provides the guidance you need to make confident real estate decisions.`,
+  whatWeDo: `We specialize in Downtown Las Vegas and Arts District condominiums — loft conversions, midtown high-rises, and walkable urban residences. Services include buyer and seller representation, investment consulting, online appointments, and onsite consultations by appointment.`,
 
-  // Section 2: What/why - Value proposition (~250 words)
-  whatWeDo: `What sets Dr. Jan apart is a commitment to education and advocacy. Clients receive comprehensive market analysis, expert negotiation, and honest advice—not sales pressure. As a Berkshire Hathaway HomeServices agent, Dr. Jan offers access to a global network of 50,000+ agents, world-class marketing for sellers, and off-market opportunities for buyers.
-
-Specialized services include: buyer and seller representation, luxury home sales, 55+ active adult community expertise (Sun City Summerlin, Sun City Anthem, Del Webb Lake Las Vegas), California relocation assistance, probate and divorce real estate, investment property consulting, new construction representation, and first-time buyer programs including FHA, VA, and down payment assistance guidance.
-
-Dr. Jan's approach is simple: treat every client like family, know the market inside and out, and never stop working until the deal closes successfully.`,
-
-  // Section 3: Where - Areas served (~250 words)
-  whereWeServe: `Dr. Jan serves the entire Las Vegas Valley with specialized knowledge of Las Vegas, Summerlin, Henderson, North Las Vegas, and all of Clark County. Neighborhood expertise includes Summerlin's master-planned communities, Henderson's Green Valley and Inspirada, the luxury enclaves of The Ridges and Southern Highlands, family-friendly Centennial Hills and Skye Canyon, and affordable options in Mountains Edge and North Las Vegas.
-
-55+ active adult community specialization covers Sun City Summerlin (Nevada's largest 55+ community), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Investment property expertise spans single-family rentals, multi-family opportunities, and short-term rental analysis across the Las Vegas metro area.
-
-Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 500-1942 for a free consultation or visit midtownvegascondos.com to search midtown Las Vegas condos today.`,
+  whereWeServe: `Service areas: Arts District, Las Vegas, NV and Downtown Las Vegas, Las Vegas, NV. Business location: 921 South Main Street, Las Vegas, NV 89101. Hours: Sunday–Thursday 9:00 AM–5:00 PM; Friday–Saturday closed. Call or text (702) 500-1980 or visit midtownvegascondos.com.`,
 };
 
 // FAQ Schema for GBP Q&A section
 export const gbpFAQs = [
   {
-    question: "What areas does Dr. Jan Duffy serve in Las Vegas?",
-    answer: "Dr. Jan serves all of Las Vegas, Summerlin, Henderson, North Las Vegas, and Clark County. Specialized neighborhood expertise includes Summerlin, Green Valley, The Ridges, Southern Highlands, Centennial Hills, Skye Canyon, Inspirada, and Mountains Edge.",
+    question: "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
+    answer:
+      "Our business location is 921 South Main Street, Las Vegas, NV 89101 in the Arts District / Downtown Las Vegas corridor. Call (702) 500-1980 for directions or to schedule an appointment.",
   },
   {
-    question: "Does Dr. Jan help buyers relocating from California?",
-    answer: "Yes! California relocation is a specialty. Dr. Jan helps CA buyers understand Nevada's 0% state income tax advantage, compare home values (40-60% lower than comparable CA properties), and find the perfect Las Vegas neighborhood. Call (702) 500-1942 for California relocation assistance.",
+    question: "What are your business hours?",
+    answer:
+      "We are open Sunday through Thursday from 9:00 AM to 5:00 PM. We are closed Friday and Saturday. Appointments are required — call or text (702) 500-1980 to schedule.",
   },
   {
-    question: "What 55+ communities does Dr. Jan specialize in?",
-    answer: "Dr. Jan specializes in Sun City Summerlin (Nevada's largest 55+ community with 7,700+ homes), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Each community offers different amenities and price points for active adult living.",
-  },
-  {
-    question: "Does Berkshire Hathaway HomeServices help with new construction?",
-    answer: "Yes! Dr. Jan provides free buyer representation for new construction purchases from builders like Toll Brothers, Lennar, and Century Communities. The builder pays the commission, but Dr. Jan works exclusively for you—protecting your interests during the build process.",
-  },
-  {
-    question: "How does Dr. Jan help with probate or divorce real estate sales?",
-    answer: "Dr. Jan handles sensitive transactions with discretion and professionalism. For probate sales, she coordinates with estate attorneys and ensures court compliance. For divorce sales, she provides neutral representation and works with both parties' attorneys. Call (702) 500-1942 for a confidential consultation.",
-  },
-  {
-    question: "What is the average home price in Las Vegas in 2026?",
-    answer: "As of January 2026, the Las Vegas median home price is $450,000, up 4.2% year-over-year. Henderson's median is slightly higher at $485,000. Luxury communities like Summerlin average $625,000, while The Ridges averages $2.5 million. Contact Dr. Jan for current market data.",
-  },
-  {
-    question: "Does Dr. Jan work with first-time home buyers?",
-    answer: "Absolutely! Dr. Jan guides first-time buyers through every step, including pre-approval, loan programs (FHA 3.5% down, VA 0% down, conventional options), Nevada down payment assistance programs, and new construction incentives. Free buyer consultations available.",
-  },
-  {
-    question: "Why choose Berkshire Hathaway HomeServices over other agencies?",
-    answer: "Berkshire Hathaway HomeServices is backed by Warren Buffett's Berkshire Hathaway Inc.—the only real estate brand with this level of financial stability and trust. You get a global network of 50,000+ agents, world-class marketing, and a name synonymous with integrity.",
+    question: "What areas does Dr. Jan Duffy serve?",
+    answer:
+      "Primary service areas are the Arts District and Downtown Las Vegas. Dr. Jan also helps clients compare midtown condo buildings across the Las Vegas urban core.",
   },
   {
     question: "How do I schedule a consultation with Dr. Jan Duffy?",
-    answer: "Call or text (702) 500-1942 for immediate assistance, or email homes@heyberkshire.com. Office visits available at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Monday-Friday 9am-6pm, Saturday 10am-4pm, Sunday by appointment.",
+    answer:
+      "Call or text (702) 500-1980, use SMS at +17025001980, or book an online appointment at midtownvegascondos.com/contact. Visits are by appointment at 921 South Main Street, Las Vegas, NV 89101.",
   },
   {
-    question: "Does Dr. Jan help with investment properties in Las Vegas?",
-    answer: "Yes! Dr. Jan provides investment property consulting including rental property analysis, cap rate calculations, short-term rental regulations, and multi-family opportunities across the Las Vegas Valley. Contact (702) 500-1942 for investment property guidance.",
+    question: "Does Dr. Jan help buyers relocating from California?",
+    answer:
+      "Yes. California relocation is a specialty — comparing Nevada tax advantages, Downtown condo inventory, and walkable Arts District living. Call (702) 500-1980 to start.",
+  },
+  {
+    question: "What languages do you speak?",
+    answer:
+      "We can assist in English, Spanish, Korean, and Filipino. Call (702) 500-1980 to request language support for your appointment.",
   },
 ];
 
@@ -212,14 +149,21 @@ export const gbpFAQs = [
 export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "@id": "https://www.midtownvegascondos.com/#organization",
+    "@type": ["RealEstateAgent", "LocalBusiness"],
+    "@id": `${siteConfig.url}/#organization`,
     name: businessInfo.name,
+    alternateName: [
+      "Las Vegas Arts District Condos",
+      "Homes by Dr. Jan Duffy",
+      "Berkshire Hathaway HomeServices Nevada Properties",
+    ],
+    description: businessInfo.description,
     image: getAgentImageSrc(),
     url: businessInfo.url,
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,
     priceRange: businessInfo.priceRange,
+    foundingDate: businessInfo.foundingDate,
     address: {
       "@type": "PostalAddress",
       ...businessInfo.address,
@@ -229,22 +173,44 @@ export function generateLocalBusinessSchema() {
       latitude: businessInfo.geo.latitude,
       longitude: businessInfo.geo.longitude,
     },
-    hasMap: [
-      "https://www.google.com/maps/search/?api=1&query=Berkshire+Hathaway+HomeServices+Nevada+Properties+9406+W+Lake+Mead+Blvd+Las+Vegas+NV+89134",
-      "https://storage.googleapis.com/maps-solutions-gurx0m5wr9/commutes/nulb/commutes.html",
-    ],
+    hasMap: [officeInfo.maps.place, officeInfo.maps.directions],
     openingHoursSpecification: [
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Monday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Thursday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Sunday",
+        opens: "09:00",
+        closes: "17:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Monday",
+        opens: "09:00",
+        closes: "17:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Tuesday",
+        opens: "09:00",
+        closes: "17:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Wednesday",
+        opens: "09:00",
+        closes: "17:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Thursday",
+        opens: "09:00",
+        closes: "17:00",
+      },
     ],
     areaServed: businessInfo.serviceAreas.map((area) => ({
-      "@type": "City",
+      "@type": "Place",
       name: area,
     })),
+    knowsLanguage: businessInfo.languages,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Real Estate Services",
@@ -263,11 +229,7 @@ export function generateLocalBusinessSchema() {
       reviewCount: "500",
       bestRating: "5",
     },
-    sameAs: [
-      "https://www.facebook.com/drjanduffy",
-      "https://www.instagram.com/drjanduffy",
-      "https://www.linkedin.com/in/drjanduffy",
-    ],
+    sameAs: businessInfo.socialProfiles,
   };
 }
 

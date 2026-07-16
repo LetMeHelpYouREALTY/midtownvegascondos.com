@@ -13,7 +13,7 @@ import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = withPageHeroMetadata("/neighborhood", {
   title: "Midtown Las Vegas Neighborhood Lifestyle | Run Club, EV, Dining | Dr. Jan Duffy",
   description:
-    "Explore Midtown Las Vegas lifestyle — Run Club, EV Vehicle Program, and Pepper Club dining near Arts District condos. Call Dr. Jan Duffy at (702) 500-1942.",
+    "Explore Midtown Las Vegas lifestyle — Run Club, EV Vehicle Program, and Pepper Club dining near Arts District condos. Call Dr. Jan Duffy at (702) 500-1980.",
   keywords: [
     "Midtown Las Vegas neighborhood",
     "Arts District lifestyle",

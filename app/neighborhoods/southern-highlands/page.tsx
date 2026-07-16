@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "What are current Southern Highlands home prices in 2026?",
     answer:
-      "As of mid-2026, Southern Highlands median listing prices have been reported near the mid-$700Ks, with median sold prices often closer to the low-to-mid $600Ks depending on section and month. Call Dr. Jan Duffy at (702) 500-1942 for live comps before you write an offer.",
+      "As of mid-2026, Southern Highlands median listing prices have been reported near the mid-$700Ks, with median sold prices often closer to the low-to-mid $600Ks depending on section and month. Call Dr. Jan Duffy at (702) 500-1980 for live comps before you write an offer.",
   },
   {
     question: "Does Southern Highlands have gated sections?",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Southern Highlands Homes for Sale | Las Vegas Golf Community | Dr. Jan Duffy",
     description:
-      "Southern Highlands Las Vegas homes for sale — golf-course estates, gated sections, and southwest valley access. Median listings near mid-$700Ks (mid-2026). Call Dr. Jan Duffy at (702) 500-1942.",
+      "Southern Highlands Las Vegas homes for sale — golf-course estates, gated sections, and southwest valley access. Median listings near mid-$700Ks (mid-2026). Call Dr. Jan Duffy at (702) 500-1980.",
     keywords: [
       "Southern Highlands homes for sale",
       "Southern Highlands Las Vegas",

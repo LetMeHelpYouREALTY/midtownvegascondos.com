@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "What lifestyle does Heritage at Stonebridge offer?",
     answer:
-      "Expect golf-course living, clubhouse programming, fitness, and single-story or low-maintenance homes aimed at 55+ buyers. Tour current inventory and confirm age restrictions, HOA dues, and membership rules with listing documents. Call (702) 500-1942 for live MLS comps.",
+      "Expect golf-course living, clubhouse programming, fitness, and single-story or low-maintenance homes aimed at 55+ buyers. Tour current inventory and confirm age restrictions, HOA dues, and membership rules with listing documents. Call (702) 500-1980 for live MLS comps.",
   },
   {
     question: "How does Heritage at Stonebridge compare to Midtown for investors?",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Heritage at Stonebridge Homes for Sale | 55+ North Las Vegas",
     description:
-      "Heritage at Stonebridge 55+ homes in North Las Vegas — golf-course living, club amenities, single-story plans. Compare with Midtown condos. Dr. Jan Duffy. Call (702) 500-1942.",
+      "Heritage at Stonebridge 55+ homes in North Las Vegas — golf-course living, club amenities, single-story plans. Compare with Midtown condos. Dr. Jan Duffy. Call (702) 500-1980.",
     keywords: [
       "Heritage at Stonebridge",
       "Stonebridge 55+",
