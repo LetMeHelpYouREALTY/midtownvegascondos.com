@@ -38,20 +38,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const imageKey = neighborhoodHeroBySlug[area.slug];
 
-  return withPageHeroMetadata(
-    `/neighborhoods/${area.slug}`,
-    {
-      title: `${area.name} Condos for Sale | Midtown Las Vegas | Dr. Jan Duffy`,
-      description: `${area.description} Search ${area.name} condos with Dr. Jan Duffy, midtown Las Vegas condo specialist. Median ${area.medianPrice}. Call ${agentInfo.phone}.`,
-      keywords: [
-        `${area.name} condos Las Vegas`,
-        `${area.name} midtown condos`,
-        "midtown Las Vegas real estate",
-        "Dr Jan Duffy condo agent",
-      ],
-    },
-    imageKey
-  );
+  return {
+    ...withPageHeroMetadata(
+      `/neighborhoods/${area.slug}`,
+      {
+        title: `${area.name} Condos for Sale | Midtown Las Vegas | Dr. Jan Duffy`,
+        description: `${area.description} Search ${area.name} condos with Dr. Jan Duffy, midtown Las Vegas condo specialist. Median ${area.medianPrice}. Call ${agentInfo.phone}.`,
+        keywords: [
+          `${area.name} condos Las Vegas`,
+          `${area.name} midtown condos`,
+          "midtown Las Vegas real estate",
+          "Dr Jan Duffy condo agent",
+        ],
+      },
+      imageKey
+    ),
+    robots: { index: true, follow: true },
+  };
 }
 
 export default async function MidtownNeighborhoodPage({ params }: PageProps) {
