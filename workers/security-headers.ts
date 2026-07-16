@@ -22,8 +22,8 @@ export default {
         "style-src 'self' 'unsafe-inline' https://em.realscout.com https://www.realscout.com https://assets.calendly.com",
         "img-src 'self' data: blob: https: http:",
         "font-src 'self' data: https://assets.calendly.com",
-        "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com",
-        "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com",
+        "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://storage.googleapis.com https://*.googleapis.com https://maps.googleapis.com",
+        "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com https://storage.googleapis.com https://*.googleapis.com",
         "worker-src 'self' blob:",
       ].join('; '),
       
@@ -39,8 +39,8 @@ export default {
       // Referrer policy
       'Referrer-Policy': 'strict-origin-when-cross-origin',
       
-      // Permissions policy
-      'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+      // Permissions policy — allow Maps Commutes geolocation in iframe
+      'Permissions-Policy': 'camera=(), microphone=(), geolocation=(self "https://storage.googleapis.com")',
       
       // DNS prefetch control
       'X-DNS-Prefetch-Control': 'on',

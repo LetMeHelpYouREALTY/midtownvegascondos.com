@@ -95,8 +95,8 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://em.realscout.com https://www.realscout.com https://assets.calendly.com",
               "img-src 'self' data: blob: https: http:",
               "font-src 'self' data: https://assets.calendly.com",
-              "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io https://widgetbe.com https://vitals.vercel-insights.com",
-              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com",
+              "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io https://widgetbe.com https://vitals.vercel-insights.com https://storage.googleapis.com https://*.googleapis.com https://maps.googleapis.com",
+              "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com https://storage.googleapis.com https://*.googleapis.com",
               "worker-src 'self' blob:",
             ].join('; '),
           },
@@ -119,11 +119,11 @@ const nextConfig = {
           },
           {
             key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
+            value: 'strict-origin-when-downgrade'
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
+            value: 'camera=(), microphone=(), geolocation=(self "https://storage.googleapis.com")'
           }
         ],
       },
