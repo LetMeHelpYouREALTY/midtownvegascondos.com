@@ -1,13 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
+import { withPageHeroMetadata } from "@/lib/image-seo";
 
 export const metadata: Metadata = {
-  title: 'Security Policy',
-  description: 'Security policy and responsible disclosure information for heyberkshire.com',
+  ...withPageHeroMetadata("/security-policy", {
+    title: "Security Policy | Midtown Vegas Condos",
+    description:
+      "Security policy and responsible disclosure for midtownvegascondos.com — Berkshire Hathaway HomeServices Nevada Properties / Dr. Jan Duffy.",
+  }),
   robots: {
     index: true,
     follow: true,
   },
-}
+};
 
 export default function SecurityPolicyPage() {
   return (

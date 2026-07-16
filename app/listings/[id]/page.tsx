@@ -7,11 +7,18 @@ import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 
-export const metadata: Metadata = withPageHeroMetadata("/listings", {
-  title: "Property Details | Las Vegas & Henderson Real Estate",
-  description:
-    "View detailed information about this property listing in Las Vegas or Henderson, NV.",
-});
+export const metadata: Metadata = {
+  ...withPageHeroMetadata("/listings", {
+    title: "Property Details | Las Vegas & Henderson Real Estate",
+    description:
+      "View detailed information about this property listing in Las Vegas or Henderson, NV.",
+  }),
+  // Placeholder listing pages — keep out of GSC until RealScout IDs are live
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 // This would typically fetch from RealScout API
 async function getProperty(id: string) {

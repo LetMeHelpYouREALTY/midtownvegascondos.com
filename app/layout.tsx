@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
 import { siteConfig } from "@/lib/site-config";
 import { getDefaultSocialImage, heroImageMetadata } from "@/lib/image-seo";
+import { getSearchConsoleVerification } from "@/lib/search-console";
 import { generateLocalBusinessSchema } from "@/lib/gbp-schema";
 import { generateWebSiteSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
@@ -27,6 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     path: "/",
   });
+  const verification = getSearchConsoleVerification();
 
   return {
     title: {
@@ -39,6 +41,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "/",
     },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    ...(verification ? { verification } : {}),
     openGraph: {
       title: config.heroHeadline,
       description,
