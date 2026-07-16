@@ -27,14 +27,14 @@ const nextConfig = {
   // Performance optimizations
   swcMinify: true,
 
-  // Redirect non-www to www
+  // Redirect non-www to www. Do NOT redirect live SEO pages Google already discovered.
   async redirects() {
+    // Legacy suburban slugs → midtown equivalents (southern-highlands kept as a live page)
     const legacyNeighborhoodRedirects = [
       ['summerlin', 'arts-district'],
       ['henderson', 'symphony-park'],
       ['green-valley', 'fremont-east'],
       ['the-ridges', 'one-las-vegas'],
-      ['southern-highlands', 'one-las-vegas'],
       ['north-las-vegas', 'midtown-plaza'],
       ['skye-canyon', 'midtown-plaza'],
       ['centennial-hills', 'midtown-plaza'],
@@ -59,11 +59,7 @@ const nextConfig = {
         permanent: true,
       },
       ...legacyNeighborhoodRedirects,
-      {
-        source: '/55-plus-communities/:path*',
-        destination: '/buyers',
-        permanent: true,
-      },
+      // /55-plus-communities/* pages are live indexable URLs — no redirect
     ]
   },
 

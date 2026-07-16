@@ -13,31 +13,77 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
+import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
+import SchemaScript from "@/components/SchemaScript";
+import { agentInfo } from "@/lib/site-config";
 
-export const metadata: Metadata = withPageHeroMetadata("/55-plus-communities/del-webb-lake-las-vegas", {
-  title: "Del Webb at Lake Las Vegas Homes | Berkshire Hathaway HomeServices",
+const PATH = "/55-plus-communities/del-webb-lake-las-vegas";
+
+const faqs = [
+  {
+    question: "Where is Del Webb at Lake Las Vegas?",
+    answer:
+      "Del Webb at Lake Las Vegas is a 55+ active adult neighborhood inside the Lake Las Vegas master plan in Henderson, with lake and mountain views and dedicated clubhouse amenities.",
+  },
+  {
+    question: "What do Del Webb Lake Las Vegas homes cost?",
+    answer:
+      "Production homes commonly range about $400K–$900K depending on model, upgrades, and view premiums. Newer construction may carry LID/SID assessments — verify on each listing. Call (702) 500-1942 for live inventory.",
+  },
+  {
+    question: "Is Del Webb at Lake Las Vegas age-restricted?",
+    answer:
+      "Yes. It is an age-restricted 55+ Del Webb community. Confirm occupancy rules, HOA fees, and any assessments before closing.",
+  },
+];
+
+export const metadata: Metadata = {
+  ...withPageHeroMetadata(PATH, {
+    title: "Del Webb Lake Las Vegas Homes for Sale | 55+ | Dr. Jan Duffy",
+    description:
+      "Del Webb at Lake Las Vegas 55+ homes — lake views, resort amenities, modern floor plans in Henderson. Often $400K–$900K. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+    keywords: [
+      "Del Webb Lake Las Vegas",
+      "Lake Las Vegas 55 plus",
+      "Del Webb homes Henderson",
+      "active adult Lake Las Vegas",
+      "Berkshire Hathaway Del Webb",
+    ],
+  }),
+  robots: { index: true, follow: true },
+};
+
+const communitySchema = generateCommunityPageSchema({
+  path: PATH,
+  name: "Del Webb at Lake Las Vegas",
   description:
-    "Lakefront 55+ living at Del Webb Lake Las Vegas. Homes from $400K-$900K. Resort amenities, stunning lake and mountain views. Dr. Jan Duffy. Call (702) 500-1942.",
-  keywords: [
-    "Del Webb Lake Las Vegas",
-    "Lake Las Vegas 55 plus",
-    "Del Webb homes Henderson",
-    "lakefront retirement community",
-    "Berkshire Hathaway Del Webb",
-  ],
+    "55+ Del Webb active adult community at Lake Las Vegas in Henderson with modern homes, clubhouse amenities, and lake or mountain views.",
+  locality: "Henderson",
+  postalCode: "89011",
+  latitude: 36.1205,
+  longitude: -114.9263,
+  faqs,
+  placeType: "HousingComplex",
 });
 
 export default function DelWebbLakeLasVegasPage() {
   return (
     <>
+      <SchemaScript schema={communitySchema} id="del-webb-llv-schema" />
       <Navbar />
       <PageHero
         imageKey="fiftyFiveDelWebb"
-        pagePath="/55-plus-communities/del-webb-lake-las-vegas"
-        title="Del Webb at Lake Las Vegas"
-        subtitle="Modern homes. Lake views. Resort living. The newest Del Webb in Las Vegas."
-      />
+        pagePath={PATH}
+        title="Del Webb at Lake Las Vegas homes for sale"
+        subtitle="Modern 55+ homes with lake and mountain views in Henderson — with Dr. Jan Duffy."
+        priority
+      >
+        <p data-community-summary className="text-white/85 max-w-3xl mx-auto">
+          Age-restricted Del Webb neighborhood inside Lake Las Vegas. Call {agentInfo.phone} to
+          review HOA dues, LID assessments, and available models.
+        </p>
+      </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
@@ -248,6 +294,24 @@ export default function DelWebbLakeLasVegasPage() {
                 — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
               </cite>
             </div>
+          </section>
+
+          <section className="mb-16 max-w-4xl mx-auto" aria-labelledby="del-webb-faq">
+            <h2 id="del-webb-faq" className="text-2xl font-bold text-slate-900 mb-4">
+              Del Webb Lake Las Vegas FAQ
+            </h2>
+            <dl className="space-y-4">
+              {faqs.map((faq) => (
+                <div
+                  key={faq.question}
+                  data-community-faq
+                  className="rounded-lg border border-slate-200 p-4"
+                >
+                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
+                  <dd className="mt-2 text-sm text-slate-600 leading-relaxed">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
 
           {/* CTA */}

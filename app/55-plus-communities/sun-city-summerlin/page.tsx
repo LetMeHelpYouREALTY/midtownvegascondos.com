@@ -16,53 +16,77 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
+import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
+import SchemaScript from "@/components/SchemaScript";
+import { agentInfo } from "@/lib/site-config";
 
-export const metadata: Metadata = withPageHeroMetadata("/55-plus-communities/sun-city-summerlin", {
-  title: "Sun City Summerlin Homes for Sale | Berkshire Hathaway HomeServices",
-  description:
-    "Nevada's largest 55+ community. Sun City Summerlin homes from $320K-$850K. 3 golf courses, 4 rec centers, 100+ clubs. Dr. Jan Duffy, BHHS specialist. Call (702) 500-1942.",
-  keywords: [
-    "Sun City Summerlin homes for sale",
-    "Sun City Summerlin Las Vegas",
-    "55 plus communities Summerlin",
-    "retirement community Las Vegas",
-    "Berkshire Hathaway Sun City",
-  ],
-});
+const PATH = "/55-plus-communities/sun-city-summerlin";
 
-const communitySchema = {
-  "@context": "https://schema.org",
-  "@type": "Place",
-  name: "Sun City Summerlin",
-  description: "Nevada's largest 55+ active adult community with 7,700+ homes",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Las Vegas",
-    addressRegion: "NV",
-    postalCode: "89134",
+const faqs = [
+  {
+    question: "How large is Sun City Summerlin?",
+    answer:
+      "Sun City Summerlin is Nevada's largest 55+ active adult community with roughly 7,700+ homes, multiple recreation centers, and three golf courses.",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 36.2048,
-    longitude: -115.2954,
+  {
+    question: "What do Sun City Summerlin homes cost in 2026?",
+    answer:
+      "Inventory commonly spans roughly $320K–$850K depending on model, golf proximity, and updates. Call Dr. Jan Duffy at (702) 500-1942 for live MLS comps.",
   },
+  {
+    question: "Is Sun City Summerlin age-restricted?",
+    answer:
+      "Yes. It is a 55+ active adult community. Age-occupancy rules are enforced by the HOA — verify current requirements before you write an offer.",
+  },
+];
+
+export const metadata: Metadata = {
+  ...withPageHeroMetadata(PATH, {
+    title: "Sun City Summerlin Homes for Sale | 55+ Community | Dr. Jan Duffy",
+    description:
+      "Sun City Summerlin 55+ homes for sale — Nevada's largest active adult community with golf, rec centers, and 100+ clubs. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+    keywords: [
+      "Sun City Summerlin homes for sale",
+      "Sun City Summerlin Las Vegas",
+      "55 plus communities Summerlin",
+      "active adult community Las Vegas",
+      "Berkshire Hathaway Sun City",
+    ],
+  }),
+  robots: { index: true, follow: true },
 };
+
+const communitySchema = generateCommunityPageSchema({
+  path: PATH,
+  name: "Sun City Summerlin",
+  description:
+    "Nevada's largest 55+ active adult community in Summerlin with 7,700+ homes, golf courses, and recreation centers.",
+  locality: "Las Vegas",
+  postalCode: "89134",
+  latitude: 36.2048,
+  longitude: -115.2954,
+  faqs,
+  placeType: "HousingComplex",
+});
 
 export default function SunCitySummerlinPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(communitySchema) }}
-      />
+      <SchemaScript schema={communitySchema} id="sun-city-summerlin-schema" />
       <Navbar />
       <PageHero
         imageKey="fiftyFiveSunCitySummerlin"
-        pagePath="/55-plus-communities/sun-city-summerlin"
-        title="Sun City Summerlin"
-        subtitle="7,700+ homes. 3 golf courses. 4 recreation centers. The gold standard of active adult living."
-      />
+        pagePath={PATH}
+        title="Sun City Summerlin homes for sale"
+        subtitle="7,700+ homes. 3 golf courses. 4 recreation centers. Nevada's largest 55+ community — with Dr. Jan Duffy."
+        priority
+      >
+        <p data-community-summary className="text-white/85 max-w-3xl mx-auto">
+          Age-restricted active adult living in Summerlin. Call {agentInfo.phone} for available
+          models, HOA dues, and golf proximity comps.
+        </p>
+      </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
@@ -273,6 +297,24 @@ export default function SunCitySummerlinPage() {
                 — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
               </cite>
             </div>
+          </section>
+
+          <section className="mb-16 max-w-4xl mx-auto" aria-labelledby="scs-faq">
+            <h2 id="scs-faq" className="text-2xl font-bold text-slate-900 mb-4">
+              Sun City Summerlin FAQ
+            </h2>
+            <dl className="space-y-4">
+              {faqs.map((faq) => (
+                <div
+                  key={faq.question}
+                  data-community-faq
+                  className="rounded-lg border border-slate-200 p-4"
+                >
+                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
+                  <dd className="mt-2 text-sm text-slate-600 leading-relaxed">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
 
           {/* CTA */}

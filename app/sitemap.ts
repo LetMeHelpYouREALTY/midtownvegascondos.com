@@ -13,7 +13,7 @@ type PageEntry = {
 
 /**
  * GSC-ready sitemap: only final 200 URLs on the www host.
- * Omits legacy neighborhood slugs and /55-plus-communities/* (permanent redirects).
+ * Includes Southern Highlands + 55+ community pages (no longer redirected).
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -64,13 +64,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/sellers/divorce-probate", priority: 0.7, changeFrequency: "monthly" },
     { path: "/sellers/relocation", priority: 0.8, changeFrequency: "monthly" },
 
-    // Midtown neighborhoods hub + live [slug] pages only
+    // Midtown neighborhoods hub + live [slug] pages
     { path: "/neighborhoods", priority: 0.9, changeFrequency: "weekly" },
     ...midtownNeighborhoods.map((n) => ({
       path: `/neighborhoods/${n.slug}`,
       priority: 0.8,
       changeFrequency: "weekly" as const,
     })),
+    // Valley neighborhood page Google already discovered (no longer redirected)
+    { path: "/neighborhoods/southern-highlands", priority: 0.8, changeFrequency: "weekly" },
+
+    // 55+ communities (restored as indexable 200 pages)
+    { path: "/55-plus-communities", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/55-plus-communities/sun-city-summerlin", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/55-plus-communities/trilogy-summerlin", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/55-plus-communities/del-webb-lake-las-vegas", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/55-plus-communities/sun-city-anthem", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/55-plus-communities/solera-anthem", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/55-plus-communities/sun-city-aliante", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/55-plus-communities/heritage-stonebridge", priority: 0.7, changeFrequency: "monthly" },
   ];
 
   return pages.map((page) => {

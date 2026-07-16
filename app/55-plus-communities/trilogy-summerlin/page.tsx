@@ -16,61 +16,77 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
+import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
+import SchemaScript from "@/components/SchemaScript";
+import { agentInfo } from "@/lib/site-config";
 
-export const metadata: Metadata = withPageHeroMetadata("/55-plus-communities/trilogy-summerlin", {
-  title: "Trilogy at Summerlin Homes for Sale | Luxury Resort 55+ Living | Dr. Jan Duffy",
-  description:
-    "Trilogy at Summerlin - luxury resort-style 55+ community. Homes from $500K-$1.1M. On-site farm-to-table restaurant, spa, contemporary designs. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
-  keywords: [
-    "Trilogy at Summerlin homes for sale",
-    "Trilogy Summerlin Las Vegas",
-    "luxury 55+ community Las Vegas",
-    "resort style 55+ Las Vegas",
-    "Shea Homes Trilogy",
-    "Berkshire Hathaway Trilogy Summerlin",
-  ],
-  openGraph: {
-    title: "Trilogy at Summerlin - Luxury Resort 55+ Living",
-    description:
-      "Where resort living meets 55+ community. Farm-to-table dining, spa, contemporary homes. From $500K. Dr. Jan Duffy, BHHS.",
-    type: "website",
+const PATH = "/55-plus-communities/trilogy-summerlin";
+
+const faqs = [
+  {
+    question: "What makes Trilogy at Summerlin different from Sun City Summerlin?",
+    answer:
+      "Trilogy is a newer Shea Homes 55+ community with resort-style amenities, contemporary floor plans, an on-site restaurant concept, and spa facilities. Pricing typically runs higher than many Sun City Summerlin models.",
   },
-});
+  {
+    question: "What is the Trilogy at Summerlin price range?",
+    answer:
+      "Homes commonly trade from about $500K to $1.1M+ depending on elevation, upgrades, and inventory. Call Dr. Jan Duffy at (702) 500-1942 for current listings.",
+  },
+  {
+    question: "Is Trilogy at Summerlin age-restricted?",
+    answer:
+      "Yes. It is a 55+ active adult community. Confirm occupancy rules and HOA docs with your agent before closing.",
+  },
+];
 
-const communitySchema = {
-  "@context": "https://schema.org",
-  "@type": "Place",
+export const metadata: Metadata = {
+  ...withPageHeroMetadata(PATH, {
+    title: "Trilogy at Summerlin Homes for Sale | Luxury 55+ | Dr. Jan Duffy",
+    description:
+      "Trilogy at Summerlin luxury 55+ homes — resort amenities, spa, contemporary designs. Often $500K–$1.1M. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1942.",
+    keywords: [
+      "Trilogy at Summerlin homes for sale",
+      "Trilogy Summerlin Las Vegas",
+      "luxury 55+ community Las Vegas",
+      "Shea Homes Trilogy",
+      "Berkshire Hathaway Trilogy Summerlin",
+    ],
+  }),
+  robots: { index: true, follow: true },
+};
+
+const communitySchema = generateCommunityPageSchema({
+  path: PATH,
   name: "Trilogy at Summerlin",
   description:
-    "Luxury resort-style 55+ community in Summerlin with 800+ homes and upscale amenities",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Las Vegas",
-    addressRegion: "NV",
-    postalCode: "89135",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 36.1523,
-    longitude: -115.3456,
-  },
-};
+    "Luxury resort-style 55+ community in Summerlin with contemporary homes, spa amenities, and on-site dining.",
+  locality: "Las Vegas",
+  postalCode: "89135",
+  latitude: 36.1523,
+  longitude: -115.3456,
+  faqs,
+  placeType: "HousingComplex",
+});
 
 export default function TrilogySummerlinPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(communitySchema) }}
-      />
+      <SchemaScript schema={communitySchema} id="trilogy-summerlin-schema" />
       <Navbar />
       <PageHero
         imageKey="fiftyFiveTrilogy"
-        pagePath="/55-plus-communities/trilogy-summerlin"
-        title="Trilogy at Summerlin"
-        subtitle="Where five-star resort living meets 55+ community. Farm-to-table dining, world-class spa, and contemporary homes."
-      />
+        pagePath={PATH}
+        title="Trilogy at Summerlin homes for sale"
+        subtitle="Resort-style 55+ living with spa amenities and contemporary homes — represented by Dr. Jan Duffy."
+        priority
+      >
+        <p data-community-summary className="text-white/85 max-w-3xl mx-auto">
+          Shea Homes active adult community in Summerlin. Call {agentInfo.phone} to compare Trilogy
+          vs Sun City Summerlin floor plans and HOA dues.
+        </p>
+      </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
@@ -378,6 +394,24 @@ export default function TrilogySummerlinPage() {
                 — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
               </cite>
             </div>
+          </section>
+
+          <section className="mb-16 max-w-4xl mx-auto" aria-labelledby="trilogy-faq">
+            <h2 id="trilogy-faq" className="text-2xl font-bold text-slate-900 mb-4">
+              Trilogy at Summerlin FAQ
+            </h2>
+            <dl className="space-y-4">
+              {faqs.map((faq) => (
+                <div
+                  key={faq.question}
+                  data-community-faq
+                  className="rounded-lg border border-slate-200 p-4"
+                >
+                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
+                  <dd className="mt-2 text-sm text-slate-600 leading-relaxed">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
 
           {/* CTA */}

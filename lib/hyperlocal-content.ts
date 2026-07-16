@@ -281,7 +281,6 @@ export const legacyNeighborhoodRedirects: Record<string, string> = {
   henderson: "/neighborhoods/symphony-park",
   "green-valley": "/neighborhoods/fremont-east",
   "the-ridges": "/neighborhoods/one-las-vegas",
-  "southern-highlands": "/neighborhoods/one-las-vegas",
   "north-las-vegas": "/neighborhoods/midtown-plaza",
   "skye-canyon": "/neighborhoods/midtown-plaza",
   "centennial-hills": "/neighborhoods/midtown-plaza",
