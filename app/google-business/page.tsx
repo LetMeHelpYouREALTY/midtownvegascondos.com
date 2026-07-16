@@ -328,13 +328,16 @@ export default function GoogleBusinessPage() {
                 Mention your neighborhood, type of transaction, and what made the experience valuable.
               </p>
               <a
-                href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review"
+                href={officeInfo.maps.reviews}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
               >
                 Leave a Google Review
               </a>
+              <p className="mt-3 text-sm text-slate-500">
+                {officeInfo.name} · {officeInfo.address.full}
+              </p>
             </div>
           </section>
 

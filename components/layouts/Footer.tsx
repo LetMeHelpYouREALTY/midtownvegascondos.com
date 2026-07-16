@@ -242,7 +242,7 @@ export default function Footer() {
                 </a>
                 {" · "}
                 <a
-                  href={officeInfo.maps.place}
+                  href={officeInfo.maps.reviews}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 text-sm"

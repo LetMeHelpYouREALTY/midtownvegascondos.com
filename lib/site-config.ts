@@ -78,14 +78,18 @@ export const officeInfo = {
   foundingDate: "2009-09-20",
   serviceAreas: ["Arts District, Las Vegas, NV", "Downtown Las Vegas, Las Vegas, NV"],
   maps: {
-    embed: `https://maps.google.com/maps?q=${encodeURIComponent(
-      "921 South Main Street, Las Vegas, NV 89101"
-    )}&t=&z=16&ie=UTF8&iwloc=&output=embed`,
+    // Always pin GBP office — name + 921 South Main Street (see lib/google-config.ts)
+    embed: `https://www.google.com/maps?q=${encodeURIComponent(
+      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
+    )}&ll=36.1612394,-115.1522884&z=16&output=embed`,
     place: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
       "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
     )}`,
     directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
       "921 South Main Street, Las Vegas, NV 89101"
+    )}`,
+    reviews: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
     )}`,
   },
 };

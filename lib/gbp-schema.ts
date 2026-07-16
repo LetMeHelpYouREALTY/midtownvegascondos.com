@@ -173,7 +173,7 @@ export function generateLocalBusinessSchema() {
       latitude: businessInfo.geo.latitude,
       longitude: businessInfo.geo.longitude,
     },
-    hasMap: [officeInfo.maps.place, officeInfo.maps.directions],
+    hasMap: [officeInfo.maps.place, officeInfo.maps.directions, officeInfo.maps.reviews],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
