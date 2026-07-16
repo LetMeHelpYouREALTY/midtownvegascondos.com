@@ -38,9 +38,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     keywords: config.keywords,
     metadataBase: new URL(siteUrl),
-    alternates: {
-      canonical: "/",
-    },
+    // Do NOT set alternates.canonical here — a root "/" canonical fights every child page
+    // and triggers GSC "Duplicate without user-selected canonical".
     robots: {
       index: true,
       follow: true,

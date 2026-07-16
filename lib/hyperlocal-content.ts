@@ -76,16 +76,31 @@ export const midtownNeighborhoods = [
     medianPrice: "$650,000",
     priceChange: "+4.8%",
     description:
-      "Luxury high-rise tower with Strip views, resort-style amenities, and full-service concierge living.",
+      "Luxury high-rise tower with Strip views, resort-style amenities, and full-service concierge living near the midtown / Strip corridor.",
     highlights: ["Strip views", "Resort pool", "Concierge", "High-rise luxury"],
     bestFor: "Luxury buyers, second-home owners, view seekers",
     latitude: 36.1075,
     longitude: -115.1767,
     faqs: [
       {
+        question: "Where is One Las Vegas located?",
+        answer:
+          "One Las Vegas is a luxury high-rise on the south Strip corridor with quick access to midtown, Harry Reid International Airport, and entertainment venues. Dr. Jan Duffy maps commute times and parking options for each floor plan.",
+      },
+      {
         question: "What are typical HOA fees at One Las Vegas?",
         answer:
-          "High-rise luxury HOAs in Las Vegas typically range $400–$1,200+/month depending on square footage and amenities. Dr. Jan provides current HOA docs and reserve study summaries for every building.",
+          "High-rise luxury HOAs in Las Vegas typically range $400–$1,200+/month depending on square footage and amenities. Dr. Jan provides current HOA docs and reserve study summaries for every building before you write.",
+      },
+      {
+        question: "Is One Las Vegas the same as The Ridges?",
+        answer:
+          "No. The Ridges is a custom-estate community in Summerlin. One Las Vegas is a high-rise condo tower. Older site URLs for The Ridges now redirect here only as a midtown luxury-condo path — ask Dr. Jan if you specifically want Ridges estate inventory.",
+      },
+      {
+        question: "Can investors buy at One Las Vegas?",
+        answer:
+          "Some units allow long-term or restricted rentals depending on HOA rules. Confirm rental caps, lease minimums, and special assessments in writing. Call (702) 500-1942 for investment-ready inventory.",
       },
     ],
   },
