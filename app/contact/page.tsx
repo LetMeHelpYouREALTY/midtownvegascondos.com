@@ -52,7 +52,8 @@ export default function ContactPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="contactOffice"
+        pagePath="/contact"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Contact Dr. Jan Duffy"
       >

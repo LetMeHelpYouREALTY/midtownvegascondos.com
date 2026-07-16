@@ -65,7 +65,8 @@ export default function GoogleBusinessPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="googleBusiness"
+        pagePath="/google-business"
         badge="Berkshire Hathaway HomeServices"
         title="Dr. Jan Duffy"
         subtitle={`REALTOR® | License ${businessInfo.license} — Midtown Las Vegas condo specialist at Nevada Properties`}

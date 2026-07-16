@@ -83,7 +83,8 @@ export default function HendersonPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbHenderson"
+        pagePath="/neighborhoods/henderson"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Henderson"
       >

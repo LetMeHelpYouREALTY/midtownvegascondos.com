@@ -65,7 +65,8 @@ export default function SoleraAnthemPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="fiftyFiveSolera"
+        pagePath="/55-plus-communities/solera-anthem"
         title="Solera at Anthem"
         subtitle="The close-knit alternative to mega-communities. Guard-gated security in Henderson's safest neighborhood."
       />

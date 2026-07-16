@@ -71,7 +71,8 @@ export default function HomeValuationPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="homeValuation"
+        pagePath="/home-valuation"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="What's Your Las Vegas Home Worth?"
       >

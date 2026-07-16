@@ -34,7 +34,8 @@ export default function DownsizingPage() {
     <>
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="sellersDownsizing"
+        pagePath="/sellers/downsizing"
         title="Simplify. Downsize. Enjoy."
         subtitle="Extract your equity. Embrace low-maintenance living. Start your next chapter."
       >

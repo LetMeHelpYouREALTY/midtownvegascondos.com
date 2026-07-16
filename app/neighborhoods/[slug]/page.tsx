@@ -20,7 +20,7 @@ import {
   type MidtownNeighborhoodSlug,
 } from "@/lib/hyperlocal-content";
 import { agentInfo, siteConfig } from "@/lib/site-config";
-import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
+import { neighborhoodHeroBySlug } from "@/lib/hero-images";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -75,7 +75,7 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
   }
 
   const pageSchema = combineSchemas(...schemas);
-  const heroKey = neighborhoodHeroBySlug[area.slug] ?? "midtownSkyline";
+  const heroKey = neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
 
   return (
     <>
@@ -83,7 +83,7 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
       <Navbar />
       <PageHero
         imageKey={heroKey}
-        imageAlt={`${area.name} midtown Las Vegas condos — ${getHeroImage(heroKey).alt}`}
+        pagePath={`/neighborhoods/${area.slug}`}
         badge="Midtown Las Vegas Condos"
         title={`${area.name} Condos for Sale`}
         subtitle={area.description}

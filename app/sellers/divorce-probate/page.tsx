@@ -34,7 +34,8 @@ export default function DivorceProbatePage() {
     <>
       <Navbar />
       <PageHero
-        imageKey="urbanCondo"
+        imageKey="sellersDivorceProbate"
+        pagePath="/sellers/divorce-probate"
         title="Difficult Situations, Expert Guidance"
         subtitle="When life gets complicated, you need an agent who handles sensitive transactions with discretion, expertise, and compassion."
       >

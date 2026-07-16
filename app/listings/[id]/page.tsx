@@ -19,7 +19,7 @@ async function getProperty(id: string) {
     name: "Strip-View Midtown Condo",
     location: "Midtown Las Vegas, NV",
     price: "$485,000",
-    image: "/images/hero/condo-tower.webp",
+    image: "/images/hero/balcony-city.webp",
     bedrooms: 2,
     bathrooms: 2,
     squareFeet: 1250,
@@ -41,7 +41,8 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
     <>
       <Navbar />
       <PageHero
-        imageKey="condoTower"
+        imageKey="listingDetail"
+        pagePath="/listings"
         imageSrc={property.image}
         imageAlt={`${property.name} in ${property.location}`}
         badge="Midtown Las Vegas Condo"

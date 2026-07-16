@@ -67,7 +67,8 @@ export default function SouthernHighlandsPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbSouthernHighlands"
+        pagePath="/neighborhoods/southern-highlands"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Southern Highlands"
       >

@@ -82,7 +82,8 @@ export default function BuyersPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoTower"
+        imageKey="buyersCondoTower"
+        pagePath="/buyers"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Buy Your Midtown Las Vegas Condo with Confidence"
       >

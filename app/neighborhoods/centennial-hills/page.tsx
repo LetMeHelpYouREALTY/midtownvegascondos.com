@@ -67,7 +67,8 @@ export default function CentennialHillsPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbCentennialHills"
+        pagePath="/neighborhoods/centennial-hills"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Centennial Hills"
       >

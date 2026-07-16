@@ -62,7 +62,8 @@ export default function MarketUpdatePage() {
       />
       <Navbar />
       <PageHero
-        imageKey="stripNight"
+        imageKey="marketUpdate"
+        pagePath="/market-update"
         title="Berkshire Hathaway HomeServices Las Vegas Market Update"
       >
         <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Your weekly insider report on Las Vegas Valley real estate from{" "}

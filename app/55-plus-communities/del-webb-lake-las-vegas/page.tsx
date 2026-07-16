@@ -32,7 +32,8 @@ export default function DelWebbLakeLasVegasPage() {
     <>
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="fiftyFiveDelWebb"
+        pagePath="/55-plus-communities/del-webb-lake-las-vegas"
         title="Del Webb at Lake Las Vegas"
         subtitle="Modern homes. Lake views. Resort living. The newest Del Webb in Las Vegas."
       />

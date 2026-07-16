@@ -110,7 +110,8 @@ export default function CaliforniaRelocatorPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="stripTwilight"
+        imageKey="buyersCaRelocator"
+        pagePath="/buyers/california-relocator"
         title="Relocating from California? Welcome Home to Las Vegas"
         subtitle="Zero state income tax. 40-60% lower home prices. Same sunshine."
       >

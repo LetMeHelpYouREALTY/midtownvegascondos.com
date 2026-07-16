@@ -56,7 +56,8 @@ export default function MarketInsightsPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="stripNight"
+        imageKey="marketInsights"
+        pagePath="/market-insights"
         title="Las Vegas Market Insights"
         subtitle="Technology trends, economic forces, and market dynamics shaping Las Vegas real estate in 2026 and beyond."
       >

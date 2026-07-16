@@ -123,7 +123,8 @@ export default function LuxuryHomesPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="stripTwilight"
+        imageKey="luxuryHomes"
+        pagePath="/luxury-homes"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Las Vegas Luxury Real Estate"
       >

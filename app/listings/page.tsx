@@ -116,7 +116,8 @@ export default function ListingsPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoTower"
+        imageKey="listingsSearch"
+        pagePath="/listings"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Las Vegas Homes for Sale"
       >

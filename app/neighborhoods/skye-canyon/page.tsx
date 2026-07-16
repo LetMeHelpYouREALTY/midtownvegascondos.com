@@ -67,7 +67,8 @@ export default function SkyeCanyonPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbSkyeCanyon"
+        pagePath="/neighborhoods/skye-canyon"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Skye Canyon"
       >

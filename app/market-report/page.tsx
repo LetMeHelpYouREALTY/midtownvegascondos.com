@@ -44,7 +44,8 @@ export default function MarketReportPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="stripNight"
+        imageKey="marketReport"
+        pagePath="/market-report"
         badge="Berkshire Hathaway HomeServices Market Intelligence"
         title="Midtown Las Vegas Condo Market Report"
       >

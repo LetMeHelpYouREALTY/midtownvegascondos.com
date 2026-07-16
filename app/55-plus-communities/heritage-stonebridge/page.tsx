@@ -65,7 +65,8 @@ export default function HeritageAtStonebridgePage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="fiftyFiveHeritage"
+        pagePath="/55-plus-communities/heritage-stonebridge"
         title="Heritage at Stonebridge"
         subtitle="Boutique 55+ living with guard-gated privacy in the heart of Summerlin."
       />

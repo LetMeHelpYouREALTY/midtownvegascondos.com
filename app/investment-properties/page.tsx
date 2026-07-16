@@ -70,7 +70,8 @@ export default function InvestmentPropertiesPage() {
     <>
       <Navbar />
       <PageHero
-        imageKey="highriseTowers"
+        imageKey="investmentProperties"
+        pagePath="/investment-properties"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Las Vegas Investment Properties"
       >

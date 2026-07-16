@@ -336,7 +336,8 @@ export default function FiftyFiveCommunitiesPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="fiftyFivePlus"
+        pagePath="/55-plus-communities"
         badge="Active Adult Living Specialist"
         title="Find Your Perfect 55+ Community in Las Vegas"
         subtitle="Sun City, Del Webb, Heritage at Stonebridge & more — Dr. Duffy specializes in active adult living"

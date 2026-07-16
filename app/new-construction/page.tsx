@@ -238,7 +238,8 @@ export default function NewConstructionPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="urbanCondo"
+        imageKey="newConstruction"
+        pagePath="/new-construction"
         title="Berkshire Hathaway HomeServices New Construction Las Vegas"
         subtitle="Your complete buyer's guide to new homes in Las Vegas. Free representation, expert contract review, and insider knowledge of builder incentives."
       >

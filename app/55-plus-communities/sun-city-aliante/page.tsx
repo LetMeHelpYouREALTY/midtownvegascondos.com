@@ -64,7 +64,8 @@ export default function SunCityAliantePage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="fiftyFiveSunCityAliante"
+        pagePath="/55-plus-communities/sun-city-aliante"
         title="Sun City Aliante"
         subtitle="Full Sun City amenities at the best value. Golf, pools, fitness, and 100+ clubs—from $280K."
       />

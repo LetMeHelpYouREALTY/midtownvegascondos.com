@@ -116,7 +116,8 @@ export default function SellersPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="highriseTowers"
+        imageKey="sellersHighrise"
+        pagePath="/sellers"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Sell Your Midtown Las Vegas Condo for Top Dollar"
       >

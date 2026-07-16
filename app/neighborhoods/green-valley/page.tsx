@@ -67,7 +67,8 @@ export default function GreenValleyPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbGreenValley"
+        pagePath="/neighborhoods/green-valley"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Green Valley"
       >

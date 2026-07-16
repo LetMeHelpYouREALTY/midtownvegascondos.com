@@ -67,7 +67,8 @@ export default function InspiradaPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbInspirada"
+        pagePath="/neighborhoods/inspirada"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Inspirada"
       >

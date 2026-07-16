@@ -81,7 +81,8 @@ export default function FirstTimeBuyersPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="urbanLoft"
+        imageKey="buyersFirstTime"
+        pagePath="/buyers/first-time-buyers"
         title="Your First Home in Las Vegas Starts Here"
         subtitle="Down payment assistance. Builder incentives. Expert guidance every step of the way."
       >

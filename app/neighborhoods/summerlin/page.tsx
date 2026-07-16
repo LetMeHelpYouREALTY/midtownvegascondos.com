@@ -79,7 +79,8 @@ export default function SummerlinPage() {
       <SchemaScript schema={pageSchemas} id="summerlin-schema" />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbSummerlin"
+        pagePath="/neighborhoods/summerlin"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Summerlin"
       >

@@ -173,7 +173,8 @@ export default function ServicesPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="highriseTowers"
+        imageKey="servicesHub"
+        pagePath="/services"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Las Vegas Real Estate Services"
       >

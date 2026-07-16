@@ -57,7 +57,8 @@ export default function SunCitySummerlinPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="fiftyFiveSunCitySummerlin"
+        pagePath="/55-plus-communities/sun-city-summerlin"
         title="Sun City Summerlin"
         subtitle="7,700+ homes. 3 golf courses. 4 recreation centers. The gold standard of active adult living."
       />

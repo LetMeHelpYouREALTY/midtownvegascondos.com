@@ -67,7 +67,8 @@ export default function TheRidgesPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbRidges"
+        pagePath="/neighborhoods/the-ridges"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices The Ridges"
       >

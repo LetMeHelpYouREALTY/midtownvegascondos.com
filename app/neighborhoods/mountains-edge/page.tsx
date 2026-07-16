@@ -67,7 +67,8 @@ export default function MountainsEdgePage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbMountainsEdge"
+        pagePath="/neighborhoods/mountains-edge"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Mountains Edge"
       >

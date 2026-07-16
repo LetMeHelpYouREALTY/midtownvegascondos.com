@@ -72,7 +72,8 @@ export default function LuxuryHomesPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="stripTwilight"
+        imageKey="buyersLuxury"
+        pagePath="/buyers/luxury-homes-las-vegas"
         title="Las Vegas Luxury Real Estate"
         subtitle="Guard-gated estates. Strip penthouses. Uncompromising privacy."
       >

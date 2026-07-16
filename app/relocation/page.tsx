@@ -113,7 +113,8 @@ export default function RelocationPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="stripTwilight"
+        imageKey="relocationHub"
+        pagePath="/relocation"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Relocating to Las Vegas?"
       >

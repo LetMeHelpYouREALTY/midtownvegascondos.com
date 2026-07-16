@@ -33,7 +33,8 @@ export default function MoveUpSellerPage() {
     <>
       <Navbar />
       <PageHero
-        imageKey="condoTower"
+        imageKey="sellersMoveUp"
+        pagePath="/sellers/move-up"
         title="Ready for Your Next Chapter?"
         subtitle="Your home's equity unlocks your dream home. Let's make the upgrade seamless."
       >

@@ -107,7 +107,8 @@ export default function FAQPage() {
       <SchemaScript schema={pageSchemas} id="faq-page-schema" />
       <Navbar />
       <PageHero
-        imageKey="urbanLoft"
+        imageKey="faqLoft"
+        pagePath="/faq"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Frequently Asked Questions"
       >

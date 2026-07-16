@@ -65,7 +65,8 @@ export default function TrilogySummerlinPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="fiftyFiveTrilogy"
+        pagePath="/55-plus-communities/trilogy-summerlin"
         title="Trilogy at Summerlin"
         subtitle="Where five-star resort living meets 55+ community. Farm-to-table dining, world-class spa, and contemporary homes."
       />

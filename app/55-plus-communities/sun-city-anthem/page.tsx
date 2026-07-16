@@ -106,7 +106,8 @@ export default function SunCityAnthemPage() {
       <SchemaScript schema={pageSchemas} id="sun-city-anthem-schema" />
       <Navbar />
       <PageHero
-        imageKey="condoInterior"
+        imageKey="fiftyFiveSunCityAnthem"
+        pagePath="/55-plus-communities/sun-city-anthem"
         title="Sun City Anthem"
         subtitle="7,100+ homes. Mountain views. Henderson safety. Championship golf."
       />

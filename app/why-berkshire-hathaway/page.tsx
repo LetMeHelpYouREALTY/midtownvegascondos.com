@@ -44,7 +44,8 @@ export default function WhyBerkshireHathawayPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="whyBhhs"
+        pagePath="/why-berkshire-hathaway"
         badge="The Most Trusted Name in Real Estate"
         title="Why Choose Berkshire Hathaway HomeServices?"
       >

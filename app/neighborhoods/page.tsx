@@ -19,7 +19,8 @@ export default function NeighborhoodsPage() {
     <>
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="neighborhoodsHub"
+        pagePath="/neighborhoods"
         badge="Midtown Las Vegas Condo Specialist"
         title="Midtown Las Vegas Condo Neighborhoods"
       >

@@ -67,7 +67,8 @@ export default function NorthLasVegasPage() {
       />
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="nbNorthLasVegas"
+        pagePath="/neighborhoods/north-las-vegas"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices North Las Vegas"
       >

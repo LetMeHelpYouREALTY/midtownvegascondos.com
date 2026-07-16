@@ -34,7 +34,8 @@ export default function RelocationPage() {
     <>
       <Navbar />
       <PageHero
-        imageKey="midtownSkyline"
+        imageKey="sellersRelocation"
+        pagePath="/sellers/relocation"
         title="New Opportunity? We Handle Your Sale."
         subtitle="Sell your Las Vegas home while you focus on your new chapter. We coordinate both ends of your move."
       >

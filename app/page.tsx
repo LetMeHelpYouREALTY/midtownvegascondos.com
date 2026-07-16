@@ -11,7 +11,7 @@ import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { agentInfo, agentStats, getAgentImageSrc, marketStats, midtownAreas, officeInfo, siteConfig } from "@/lib/site-config";
 import { defaultFaqs } from "@/lib/faqs";
-import { getHeroImage } from "@/lib/hero-images";
+import { generateHeroImageSchema, getHeroImage } from "@/lib/hero-images";
 import SchemaScript, { FAQSchema } from "@/components/SchemaScript";
 import { generateWebPageSchema } from "@/lib/schema";
 
@@ -24,6 +24,12 @@ export default async function Home() {
     description: config.description,
     url: siteUrl,
   });
+
+  const heroImageSchema = generateHeroImageSchema(
+    "homeStripDusk",
+    siteUrl,
+    config.heroHeadline
+  );
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -51,19 +57,20 @@ export default async function Home() {
 
   return (
     <>
-      <SchemaScript schemas={[webPageSchema, organizationSchema]} id="home-schema" />
+      <SchemaScript schemas={[webPageSchema, organizationSchema, heroImageSchema]} id="home-schema" />
       <FAQSchema faqs={defaultFaqs} />
       <Navbar />
       <main>
         {/* Domain-Aware Hero */}
         <section className="relative bg-slate-950 text-white py-24 md:py-32 overflow-hidden">
           <Image
-            src={getHeroImage("midtownSkyline").src}
-            alt={getHeroImage("midtownSkyline").alt}
+            src={getHeroImage("homeStripDusk").src}
+            alt={getHeroImage("homeStripDusk").alt}
             fill
             priority
             sizes="100vw"
             className="object-cover object-center"
+            title={getHeroImage("homeStripDusk").caption}
           />
           {/* Light scrim for text contrast — keeps the photo dominant */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/55" />
