@@ -37,7 +37,8 @@ export const agentImage = {
 };
 
 export function getAgentImageSrc(): string {
-  return process.env.NEXT_PUBLIC_AGENT_IMAGE_URL ?? agentImage.cloudflareUrl;
+  // Prefer same-origin headshot for LCP (avoid extra DNS/TLS to R2 on first paint).
+  return process.env.NEXT_PUBLIC_AGENT_IMAGE_URL ?? agentImage.localPath;
 }
 
 export const officeInfo = {

@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import DeferredRealScoutWidget from "@/components/realscout/DeferredRealScoutWidget";
 import SchemaScript from "@/components/SchemaScript";
 import PageHero from "@/components/sections/PageHero";
 import Link from "next/link";
@@ -216,15 +217,14 @@ export default function ListingsPage() {
               treat this as your discovery layer, then verify details before offers.
             </p>
             <div className="max-w-7xl mx-auto">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-office-listings 
+              <DeferredRealScoutWidget
+                html={`<realscout-office-listings 
                     agent-encoded-id="QWdlbnQtMjI1MDUw" 
                     sort-order="NEWEST" 
                     listing-status="For Sale" 
                     property-types=",SFR,MF,TC,CND"
-                  ></realscout-office-listings>`,
-                }}
+                  ></realscout-office-listings>`}
+                minHeight="480px"
               />
             </div>
           </section>

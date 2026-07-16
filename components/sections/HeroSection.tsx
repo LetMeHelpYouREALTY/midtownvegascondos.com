@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch";
+import { agentInfo } from "@/lib/site-config";
+import { Phone } from "lucide-react";
 
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -63,13 +67,24 @@ export default function HeroSection() {
           selling, and investing in Southern Nevada.
         </p>
 
-        {/* RealScout Search Widget */}
-        <div className="realscout-wrapper mb-4">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `<realscout-simple-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-simple-search>`,
-            }}
-          />
+        <div className="mb-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href={agentInfo.phoneTel}
+            className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-3.5 text-lg font-bold text-white transition-colors hover:bg-blue-700"
+          >
+            <Phone className="mr-2 h-5 w-5" aria-hidden />
+            Call {agentInfo.phone}
+          </a>
+          <Link
+            href="/listings"
+            className="inline-flex items-center justify-center rounded-md border-2 border-white/80 bg-white/10 px-8 py-3.5 text-lg font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+          >
+            Browse Listings
+          </Link>
+        </div>
+
+        <div className="realscout-wrapper mb-4 w-full max-w-xl">
+          <RealScoutSimpleSearch agentEncodedId="QWdlbnQtMjI1MDUw" />
         </div>
 
         {/* Trust Indicators */}

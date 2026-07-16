@@ -61,6 +61,7 @@ export function heroImageMetadata(
 
 /**
  * Merge page metadata with unique hero image OG/Twitter/GEO tags.
+ * Always emits an absolute self-canonical (GSC-safe).
  */
 export function withPageHeroMetadata(
   path: string,
@@ -68,21 +69,28 @@ export function withPageHeroMetadata(
   imageKey?: HeroImageKey
 ): Metadata {
   const key = imageKey ?? getHeroKeyForPath(path);
+  const normalizedPath = path === "" ? "/" : path.startsWith("/") ? path : `/${path}`;
+  const canonicalUrl =
+    normalizedPath === "/"
+      ? siteConfig.url
+      : `${siteConfig.url}${normalizedPath.replace(/\/$/, "")}`;
+
   const imgMeta = heroImageMetadata(key, {
     title: typeof base.title === "string" ? base.title : undefined,
     description: typeof base.description === "string" ? base.description : undefined,
-    path,
+    path: normalizedPath,
   });
 
   return {
     ...base,
     alternates: {
       ...(typeof base.alternates === "object" ? base.alternates : {}),
-      canonical: path,
+      canonical: canonicalUrl,
     },
     openGraph: {
       ...imgMeta.openGraph,
       ...(base.openGraph as object | undefined),
+      url: canonicalUrl,
       images: imgMeta.openGraph?.images,
       type: "website",
       siteName: siteConfig.name,

@@ -1,5 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
@@ -8,7 +9,7 @@ import AgentPhoto from "@/components/shared/AgentPhoto";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
-import { getPageDomainConfig } from "@/lib/get-domain-config";
+import { DEFAULT_CONFIG } from "@/lib/domain-config";
 import { agentInfo, agentStats, getAgentImageSrc, marketStats, midtownAreas, officeInfo, siteConfig } from "@/lib/site-config";
 import { defaultFaqs } from "@/lib/faqs";
 import { getHeroImage } from "@/lib/hero-images";
@@ -19,17 +20,18 @@ import {
 import SchemaScript, { FAQSchema } from "@/components/SchemaScript";
 import type { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const config = await getPageDomainConfig();
-  return withPageHeroMetadata("/", {
-    title: `${config.heroHeadline} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`,
-    description: config.description,
-    keywords: config.keywords,
-  });
-}
+/** ISR — homepage stays cacheable (no headers()) for mobile TTFB/LCP. */
+export const revalidate = 3600;
 
-export default async function Home() {
-  const config = await getPageDomainConfig();
+const config = DEFAULT_CONFIG;
+
+export const metadata: Metadata = withPageHeroMetadata("/", {
+  title: `${config.heroHeadline} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`,
+  description: config.description,
+  keywords: config.keywords,
+});
+
+export default function Home() {
   const siteUrl = siteConfig.url;
   const homeHero = getHeroImage("homeStripDusk");
 
@@ -97,24 +99,32 @@ export default async function Home() {
               {config.heroSubheadline}
             </p>
 
-            <div className="flex flex-col items-center gap-4 mb-8">
-              <AgentPhoto size="md" priority className="border-blue-400/50" />
+            <div className="mb-8 flex flex-col items-center gap-4">
+              <AgentPhoto size="md" className="border-blue-400/50" />
               <p className="text-sm text-white/70">
                 {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
               </p>
             </div>
 
-            {/* RealScout Search Widget */}
-            <div className="mb-8 flex justify-center">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-simple-search agent-encoded-id="${config.realscoutAgentId}"></realscout-simple-search>`,
-                }}
-              />
+            {/* Primary CTAs in the first viewport — RealScout loads below for LCP */}
+            <div className="mb-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href={agentInfo.phoneTel}
+                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-3.5 text-lg font-bold text-white transition-colors hover:bg-blue-700"
+              >
+                <Phone className="mr-2 h-5 w-5" aria-hidden />
+                Call {agentInfo.phone}
+              </a>
+              <Link
+                href="/listings"
+                className="inline-flex items-center justify-center rounded-md border-2 border-white/80 bg-white/10 px-8 py-3.5 text-lg font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+              >
+                Browse Midtown Listings
+              </Link>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-6 text-white/80 text-sm">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80">
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-white">500+</span>
                 <span>Families Helped</span>
@@ -143,11 +153,29 @@ export default async function Home() {
           </div>
         </section>
 
+        {/* RealScout search — below hero so LCP is not blocked by the UMD widget */}
+        <section className="border-b border-slate-200 bg-white py-10">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="mb-2 text-2xl font-bold text-slate-900 md:text-3xl">
+              Search Midtown Vegas Condos
+            </h2>
+            <p className="mb-6 text-slate-600">
+              Live MLS results with Dr. Jan Duffy — filter by price, beds, and building.
+            </p>
+            <div className="mx-auto flex max-w-2xl justify-center">
+              <RealScoutSimpleSearch
+                agentEncodedId={config.realscoutAgentId}
+                className="w-full"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Value Proposition */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="bg-white py-16 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <div className="mx-auto mb-12 max-w-4xl text-center">
+              <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600">

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-import { headers } from "next/headers";
-import { getDomainConfig } from "@/lib/domain-config";
+import { DEFAULT_CONFIG } from "@/lib/domain-config";
 import { siteConfig } from "@/lib/site-config";
 import { getDefaultSocialImage, heroImageMetadata } from "@/lib/image-seo";
 import { getSearchConsoleVerification } from "@/lib/search-console";
@@ -12,14 +11,14 @@ import SchemaScript from "@/components/SchemaScript";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const domain = headers().get("x-domain") || siteConfig.url.replace("https://", "");
-  const config = getDomainConfig(domain);
-  const siteUrl =
-    config.domain !== "default" && config.domain !== "midtownvegascondos.com"
-      ? `https://${config.domain}`
-      : siteConfig.url;
-
+/**
+ * Static midtown metadata — avoid headers() here so the document shell can
+ * be cached (mobile TTFB / LCP). Per-domain pages override via their own
+ * generateMetadata + getPageDomainConfig().
+ */
+export const metadata: Metadata = (() => {
+  const config = DEFAULT_CONFIG;
+  const siteUrl = siteConfig.url;
   const title = `${config.heroHeadline} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`;
   const description = config.description;
   const social = getDefaultSocialImage();
@@ -38,16 +37,15 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     keywords: config.keywords,
     metadataBase: new URL(siteUrl),
-    alternates: {
-      canonical: "/",
-    },
+    // Do NOT set alternates.canonical here — a root "/" canonical fights every child page
+    // and triggers GSC "Duplicate without user-selected canonical".
     robots: {
       index: true,
       follow: true,
       googleBot: {
         index: true,
         follow: true,
-        "max-image-preview": "large",
+        "max-image-preview": "large" as const,
         "max-snippet": -1,
         "max-video-preview": -1,
       },
@@ -56,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: config.heroHeadline,
       description,
-      type: "website",
+      type: "website" as const,
       url: siteUrl,
       siteName: siteConfig.name,
       locale: "en_US",
@@ -71,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary_large_image" as const,
       title: config.heroHeadline,
       description,
       images: [social.url],
@@ -80,7 +78,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ...(geoMeta.other as Record<string, string>),
     },
   };
-}
+})();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const localBusinessSchema = generateLocalBusinessSchema();
@@ -90,13 +88,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={GeistSans.className}>
       <head>
         <SchemaScript schemas={[localBusinessSchema, webSiteSchema]} id="site-schema" />
-        {/* RealScout widget script — loads once globally */}
-        <Script
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          strategy="afterInteractive"
-        />
-        {/* WidgetTracker */}
-        <Script id="widget-tracker" strategy="afterInteractive">{`
+        {/* WidgetTracker — lazyOnload so ~450KB + fonts stay off LCP */}
+        <Script id="widget-tracker" strategy="lazyOnload">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
           {(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
           (t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
