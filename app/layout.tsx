@@ -10,6 +10,7 @@ import { generateWebSiteSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import GlobalHeroBanner from "@/components/layout/GlobalHeroBanner";
 
 /**
  * Static midtown metadata — avoid headers() here so the document shell can
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}</Script>
       </head>
       <body>
+        <GlobalHeroBanner />
         {children}
         <Analytics />
       </body>
