@@ -8,6 +8,9 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta, midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import { agentInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import Image from "next/image";
+import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/neighborhoods", {
   title: hyperlocalMeta.neighborhoods.title,
@@ -32,13 +35,31 @@ export default function NeighborhoodsPage() {
       <main className="pb-16">
         <div className="container mx-auto px-4">
 
+          <SectionPhoto
+            imageKey="neighborhoods"
+            heading="Midtown Las Vegas Condo Neighborhoods"
+            className="mx-auto mb-10 max-w-4xl"
+          />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-            {midtownNeighborhoods.map((area) => (
+            {midtownNeighborhoods.map((area) => {
+              const heroKey = neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
+              const img = getHeroImage(heroKey);
+              return (
               <Link
                 key={area.slug}
                 href={`/neighborhoods/${area.slug}`}
-                className="group bg-white border border-slate-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all"
+                className="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all"
               >
+                <div className="relative h-40">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600">
                     {area.name}
@@ -47,15 +68,17 @@ export default function NeighborhoodsPage() {
                 </div>
                 <p className="text-slate-600 text-sm mb-4 line-clamp-2">{area.description}</p>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="font-semibold text-blue-600">{area.medianPrice}</span>
+                  <span className="font-semibold text-blue-600">Median {area.medianPrice}</span>
                   <span className="text-green-600">{area.priceChange} YoY</span>
                 </div>
                 <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
                   View condos
                   <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </div>
+                </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
 
           <section className="bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto text-center">

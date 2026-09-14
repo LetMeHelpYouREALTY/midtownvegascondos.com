@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { defaultFaqs, type FAQ } from "@/lib/faqs";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 interface FAQSectionProps {
   /** Custom FAQs to display (defaults to defaultFaqs) */
@@ -34,7 +35,12 @@ export default function FAQSection({
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             {title}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">{subtitle}</p>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">{subtitle}</p>
+          <SectionPhoto
+            imageKey="hoaReview"
+            heading={title}
+            className="mx-auto max-w-3xl text-left"
+          />
         </div>
 
         <div className="max-w-3xl mx-auto">

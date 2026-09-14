@@ -1,4 +1,5 @@
 import { Shield, Building2, FileSearch, Award, Clock, MapPin } from "lucide-react";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 const features = [
   {
@@ -47,10 +48,15 @@ export default function WhyChooseUs() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             Why Choose Dr. Jan for Midtown Condos?
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
             Condo transactions require specialized expertise — HOA review, rental rules, and
             building-specific market knowledge that generalist agents often miss.
           </p>
+          <SectionPhoto
+            imageKey="hoaReview"
+            heading="Why Choose Dr. Jan for Midtown Condos?"
+            className="mx-auto max-w-4xl text-left"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

@@ -1,58 +1,38 @@
 # Image Assets Guide
 
+Primary delivery: **Cloudflare R2** (`pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/...`).
+Git copies in this folder are the **backup** and the Vercel fallback until `NEXT_PUBLIC_R2_ENABLED=true`.
+
 ## Folder Structure
 
 ```
 images/
-├── hero/           # Homepage hero backgrounds
+├── hero/           # H1 page heroes (unique per route)
+├── sections/       # H2 / H3 heading-matched photos
 ├── agent/          # Dr. Jan Duffy photos
 ├── properties/     # Listing photos
 ├── neighborhoods/  # Area/community photos
-├── testimonials/   # Client headshots
+├── testimonials/   # Unused — reviews use initials (no fake headshots)
 └── logos/          # Brand assets
 ```
 
-## Recommended Specifications
+## Sync to Cloudflare R2
 
-| Folder | Size | Format | Notes |
-|--------|------|--------|-------|
-| hero/ | 1920x1080+ | WebP, JPG | 16:9 ratio, compress <200KB |
-| agent/ | 400x400+ | WebP, JPG | Square, professional headshot |
-| properties/ | 1200x800+ | WebP, JPG | Landscape, MLS-quality |
-| neighborhoods/ | 1200x800+ | WebP, JPG | Scenic community shots |
-| testimonials/ | 200x200 | WebP, JPG | Square, optional |
-| logos/ | Various | PNG, SVG | Transparent background |
-
-## Naming Conventions
-
-- Use lowercase with hyphens: `summerlin-aerial.webp`
-- Be descriptive: `dr-jan-duffy-headshot.jpg`
-- Include size if multiple: `hero-desktop.webp`, `hero-mobile.webp`
-
-## Image Optimization
-
-Before uploading, optimize images:
-
-1. **Online tools**: [Squoosh](https://squoosh.app), [TinyPNG](https://tinypng.com)
-2. **CLI**: `npx @squoosh/cli --webp '{"quality":80}' image.jpg`
-3. **Target**: <200KB for hero, <100KB for thumbnails
-
-## Usage in Code
-
-```tsx
-import Image from 'next/image'
-
-<Image 
-  src="/images/hero/las-vegas-skyline.webp"
-  alt="Las Vegas skyline at sunset"
-  width={1920}
-  height={1080}
-  priority // for above-fold images
-/>
+```bash
+npx wrangler login   # or CLOUDFLARE_API_TOKEN
+npm run cloudflare:images
 ```
 
-## Notes
+Then set `NEXT_PUBLIC_R2_ENABLED=true` in Vercel.
 
-- Next.js auto-optimizes images via `next/image`
-- WebP preferred for web (30% smaller than JPEG)
-- Always include descriptive alt text for SEO/accessibility
+Do **not** orange-cloud the Vercel production hostname. R2 is object storage only.
+
+## Specs
+
+| Folder | Size | Format |
+|--------|------|--------|
+| hero/ | 1920px wide | WebP, typically 90–250KB |
+| sections/ | 1920px wide | WebP |
+| agent/ | 800px square | JPG/WebP |
+
+Alt text includes location + property type. No Unsplash filenames in production routes.

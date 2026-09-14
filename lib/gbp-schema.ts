@@ -158,7 +158,9 @@ export function generateLocalBusinessSchema() {
       "Berkshire Hathaway HomeServices Nevada Properties",
     ],
     description: businessInfo.description,
-    image: getAgentImageSrc(),
+    image: getAgentImageSrc().startsWith("http")
+      ? getAgentImageSrc()
+      : `${siteConfig.url}${getAgentImageSrc()}`,
     url: businessInfo.url,
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,

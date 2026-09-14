@@ -1,13 +1,15 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Linkedin } from "lucide-react";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import CommutesMapSection from "@/components/sections/CommutesMapSection";
+import GbpLocalPack from "@/components/sections/GbpLocalPack";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-slate-900 text-white">
+      <GbpLocalPack />
       {/* Site-wide Google Commute Times — SEO / GEO / AEO + Map schema */}
       <CommutesMapSection />
 
@@ -30,24 +32,12 @@ export default function Footer() {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a
-                href="http://drjanduffy.realscout.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Search Las Vegas Homes"
+              <Link
+                href="/google-business"
+                className="text-slate-400 hover:text-white transition-colors text-sm"
               >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="http://drjanduffy.realscout.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Search Las Vegas Homes"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
+                Google Business Profile
+              </Link>
             </div>
           </div>
 

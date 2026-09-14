@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { blogPosts } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
+import GbpPostsSection from "@/components/sections/GbpPostsSection";
 
 export const metadata: Metadata = withPageHeroMetadata("/blog", {
   title: "Midtown Las Vegas Condo Blog | Market & Lifestyle Guides | Dr. Jan Duffy",
@@ -119,6 +120,7 @@ export default function BlogPage() {
           </section>
         </div>
         <div className="mt-12">
+          <GbpPostsSection />
           <RealScoutListings />
         </div>
       </main>

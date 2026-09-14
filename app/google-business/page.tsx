@@ -29,6 +29,7 @@ import {
   generateFAQSchema,
 } from "@/lib/gbp-schema";
 import { officeInfo } from "@/lib/site-config";
+import GbpPostsSection from "@/components/sections/GbpPostsSection";
 
 export const metadata: Metadata = withPageHeroMetadata("/google-business", {
   title: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy | GBP",
@@ -123,7 +124,7 @@ export default function GoogleBusinessPage() {
                     ))}
                   </div>
                   <p className="text-3xl font-bold mb-2">4.9 / 5.0</p>
-                  <p className="text-blue-200 mb-6">200+ Client Reviews</p>
+                  <p className="text-blue-200 mb-6">500+ Client Reviews</p>
                   <a
                     href={`tel:${businessInfo.phone.tel}`}
                     className="inline-block w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-lg font-bold text-lg transition-colors"
@@ -340,7 +341,9 @@ export default function GoogleBusinessPage() {
               </p>
             </div>
           </section>
-
+        </div>
+        <GbpPostsSection />
+        <div className="container mx-auto px-4">
           {/* Contact CTA */}
           <section className="max-w-4xl mx-auto">
             <div className="bg-slate-900 text-white rounded-2xl p-8 md:p-12 text-center">

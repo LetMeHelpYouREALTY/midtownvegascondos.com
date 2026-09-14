@@ -160,23 +160,30 @@ export default function ContactPage() {
               </div>
 
               {/* Map Action Buttons */}
-              <div className="flex gap-3 mb-8">
+              <div className="flex flex-wrap gap-3 mb-8">
+                <a
+                  href={agentInfo.phoneTel}
+                  className="flex-1 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
+                >
+                  <Phone className="h-4 w-4 mr-2" />
+                  Call
+                </a>
                 <a
                   href={officeInfo.maps.directions}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
+                  className="flex-1 inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-3 rounded-lg font-medium transition-colors"
                 >
                   <MapPin className="h-4 w-4 mr-2" />
-                  Get Directions
+                  Directions
                 </a>
                 <a
-                  href={officeInfo.maps.place}
+                  href={officeInfo.maps.reviews}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-3 rounded-lg font-medium transition-colors"
                 >
-                  View on Google Maps
+                  View Google Reviews
                 </a>
               </div>
 

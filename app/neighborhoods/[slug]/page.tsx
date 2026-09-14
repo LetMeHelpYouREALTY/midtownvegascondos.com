@@ -22,6 +22,7 @@ import {
 import { agentInfo, siteConfig } from "@/lib/site-config";
 import { neighborhoodHeroBySlug } from "@/lib/hero-images";
 import { withPageHeroMetadata } from "@/lib/image-seo";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -175,6 +176,11 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
               <h2 className="text-2xl font-bold text-slate-900 mb-6">
                 {area.name} Condo FAQs
               </h2>
+              <SectionPhoto
+                imageKey="hoaReview"
+                heading={`${area.name} Condo FAQs`}
+                className="mb-8"
+              />
               <div className="space-y-4">
                 {area.faqs.map((faq) => (
                   <div key={faq.question} className="border border-slate-200 rounded-lg p-5">

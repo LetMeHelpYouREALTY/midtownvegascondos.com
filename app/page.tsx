@@ -6,13 +6,17 @@ import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import GbpPostsSection from "@/components/sections/GbpPostsSection";
+import FeaturedProperties from "@/components/sections/FeaturedProperties";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { DEFAULT_CONFIG } from "@/lib/domain-config";
-import { agentInfo, agentStats, getAgentImageSrc, marketStats, midtownAreas, officeInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo, agentStats, getAgentImageSrc, marketStats, officeInfo, siteConfig } from "@/lib/site-config";
 import { defaultFaqs } from "@/lib/faqs";
-import { getHeroImage } from "@/lib/hero-images";
+import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
+import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import {
   generatePageHeroSchemaGraph,
   withPageHeroMetadata,
@@ -162,6 +166,11 @@ export default function Home() {
             <p className="mb-6 text-slate-600">
               Live MLS results with Dr. Jan Duffy — filter by price, beds, and building.
             </p>
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading="Search Midtown Vegas Condos"
+              className="mx-auto mb-8 max-w-3xl text-left"
+            />
             <div className="mx-auto flex max-w-2xl justify-center">
               <RealScoutSimpleSearch
                 agentEncodedId={config.realscoutAgentId}
@@ -178,9 +187,14 @@ export default function Home() {
               <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
                 Why Work With Dr. Jan Duffy?
               </h2>
-              <p className="text-lg text-slate-600">
+              <p className="text-lg text-slate-600 mb-8">
                 Midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties.
               </p>
+              <SectionPhoto
+                imageKey="whyJan"
+                heading="Why Work With Dr. Jan Duffy?"
+                className="mx-auto max-w-4xl text-left"
+              />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[
@@ -208,7 +222,12 @@ export default function Home() {
               <h2 className="text-3xl font-bold mb-3">
                 {config.neighborhood} Real Estate Market
               </h2>
-              <p className="text-slate-400">Current data — updated regularly</p>
+              <p className="text-slate-400 mb-8">Current data — updated regularly</p>
+              <SectionPhoto
+                imageKey="marketStats"
+                heading={`${config.neighborhood} Real Estate Market`}
+                className="mx-auto max-w-4xl text-left"
+              />
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {[
@@ -239,34 +258,53 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                 Midtown Las Vegas Condo Neighborhoods
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
                 From Strip-adjacent high-rises to Arts District lofts — explore Las Vegas urban living.
               </p>
+              <SectionPhoto
+                imageKey="neighborhoods"
+                heading="Midtown Las Vegas Condo Neighborhoods"
+                className="mx-auto max-w-4xl text-left"
+              />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {midtownAreas.map((area) => (
-                <div
-                  key={area.slug}
-                  className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <h3 className="font-bold text-lg text-slate-900 mb-2">{area.name}</h3>
-                  <p className="text-slate-600 text-sm mb-4">{area.description}</p>
-                  <ul className="space-y-1">
-                    {area.highlights.map((h) => (
-                      <li key={h} className="text-xs text-blue-600 font-medium">
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              {midtownNeighborhoods.slice(0, 8).map((area) => {
+                const heroKey = neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
+                const img = getHeroImage(heroKey);
+                return (
+                  <Link
+                    key={area.slug}
+                    href={`/neighborhoods/${area.slug}`}
+                    className="bg-white rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                  >
+                    <div className="relative h-36">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-bold text-lg text-slate-900 mb-2">{area.name}</h3>
+                      <p className="text-slate-600 text-sm mb-4">{area.description}</p>
+                      <p className="text-sm font-semibold text-blue-600">
+                        Area median {area.medianPrice}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
 
+        <FeaturedProperties />
         <RealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
+        <GbpPostsSection />
         <FAQSection
           title="Midtown Las Vegas Condo FAQs"
           subtitle="Common questions about buying and selling midtown Vegas condos"

@@ -86,7 +86,7 @@ const realEstateAgentSchema = {
   "@type": "RealEstateAgent",
   name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
   telephone: "+17025001980",
-  url: "https://heyberkshire.com/buyers/california-relocator",
+  url: "https://www.midtownvegascondos.com/buyers/california-relocator",
   address: {
     "@type": "PostalAddress",
     streetAddress: "921 South Main Street",

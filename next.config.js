@@ -10,7 +10,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'pub-720ca9b7443b47be981def05abd3d7f0.r2.dev',
-        pathname: '/shared/agent/**',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'imagedelivery.net',
+        pathname: '/**',
       },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

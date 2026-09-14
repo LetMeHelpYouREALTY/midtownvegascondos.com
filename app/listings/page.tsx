@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import { agentInfo, officeInfo, marketStats, siteConfig } from "@/lib/site-config";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 const PATH = "/listings";
 
@@ -216,6 +217,11 @@ export default function ListingsPage() {
               Active for-sale properties via RealScout. Prices and status update with the MLS —
               treat this as your discovery layer, then verify details before offers.
             </p>
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading="Live MLS listings"
+              className="mx-auto mb-8 max-w-4xl"
+            />
             <div className="max-w-7xl mx-auto">
               <DeferredRealScoutWidget
                 html={`<realscout-office-listings 
