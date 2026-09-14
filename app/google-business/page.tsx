@@ -11,13 +11,9 @@ import {
   Star,
   CheckCircle,
   MessageSquare,
-  Camera,
-  FileText,
   Award,
   Users,
   Home,
-  Building,
-  Heart,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";

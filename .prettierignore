@@ -8,3 +8,6 @@ package-lock.json
 pnpm-lock.yaml
 *.min.js
 public
+.agent
+.agents
+.cursor

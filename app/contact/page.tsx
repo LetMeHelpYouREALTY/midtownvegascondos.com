@@ -8,13 +8,11 @@ import {
   MapPin,
   Clock,
   Calendar,
-  CheckCircle,
   Star,
   Users,
   Shield,
 } from "lucide-react";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import {

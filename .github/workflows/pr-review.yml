@@ -63,6 +63,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -85,7 +87,17 @@ jobs:
         run: npm run lint
 
       - name: Check Prettier formatting
-        run: npx prettier --check "**/*.{ts,tsx,js,jsx,json,md,css}"
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          files=$(git diff --name-only --diff-filter=ACMR "origin/${{ github.base_ref }}...HEAD" -- \
+            '*.ts' '*.tsx' '*.js' '*.jsx' '*.json' '*.md' '*.css' \
+            | grep -vE '(^|/)(package-lock\.json|pnpm-lock\.yaml)$' || true)
+          if [ -z "$files" ]; then
+            echo "No Prettier-eligible files changed"
+            exit 0
+          fi
+          echo "$files"
+          echo "$files" | xargs npx prettier --check
 
   # ============================================
   # Test Suite

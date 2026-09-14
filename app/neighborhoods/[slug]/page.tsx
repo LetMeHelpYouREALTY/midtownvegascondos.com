@@ -17,9 +17,8 @@ import {
 import {
   getMidtownNeighborhood,
   midtownNeighborhoods,
-  type MidtownNeighborhoodSlug,
 } from "@/lib/hyperlocal-content";
-import { agentInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo } from "@/lib/site-config";
 import { neighborhoodHeroBySlug } from "@/lib/hero-images";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import SectionPhoto from "@/components/sections/SectionPhoto";

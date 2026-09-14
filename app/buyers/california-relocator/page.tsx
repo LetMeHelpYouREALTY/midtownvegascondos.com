@@ -4,13 +4,9 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
   Phone,
-  DollarSign,
   Sun,
-  Home as HomeIcon,
   Briefcase,
   Plane,
-  GraduationCap,
-  Heart,
   Calculator,
   MapPin,
   CheckCircle,
