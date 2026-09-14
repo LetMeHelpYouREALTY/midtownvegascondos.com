@@ -32,7 +32,9 @@ export async function generateStaticParams() {
   return midtownNeighborhoods.map((n) => ({ slug: n.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const area = getMidtownNeighborhood(slug);
   if (!area) return {};
@@ -52,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           "Dr Jan Duffy condo agent",
         ],
       },
-      imageKey
+      imageKey,
     ),
     robots: { index: true, follow: true },
   };
@@ -102,11 +104,15 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
       >
         <div className="flex flex-wrap justify-center gap-4 mb-6">
           <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/20">
-            <div className="text-2xl font-bold text-white">{area.medianPrice}</div>
+            <div className="text-2xl font-bold text-white">
+              {area.medianPrice}
+            </div>
             <div className="text-sm text-white/70">Median condo price</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/20">
-            <div className="text-2xl font-bold text-green-400">{area.priceChange}</div>
+            <div className="text-2xl font-bold text-green-400">
+              {area.priceChange}
+            </div>
             <div className="text-sm text-white/70">Year over year</div>
           </div>
         </div>
@@ -141,8 +147,9 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
           <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-start max-w-6xl mx-auto mb-12">
             <div>
               <p className="text-slate-700 mb-6">
-                Explore {area.name} with Dr. Jan Duffy — HOA review, building comps, and condo-specific
-                guidance from a midtown specialist at Berkshire Hathaway HomeServices Nevada Properties.
+                Explore {area.name} with Dr. Jan Duffy — HOA review, building
+                comps, and condo-specific guidance from a midtown specialist at
+                Berkshire Hathaway HomeServices Nevada Properties.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -183,8 +190,13 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
               />
               <div className="space-y-4">
                 {area.faqs.map((faq) => (
-                  <div key={faq.question} className="border border-slate-200 rounded-lg p-5">
-                    <h3 className="font-semibold text-slate-900 mb-2">{faq.question}</h3>
+                  <div
+                    key={faq.question}
+                    className="border border-slate-200 rounded-lg p-5"
+                  >
+                    <h3 className="font-semibold text-slate-900 mb-2">
+                      {faq.question}
+                    </h3>
                     <p className="text-slate-600 text-sm">{faq.answer}</p>
                   </div>
                 ))}
@@ -198,8 +210,8 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
               Search {area.name} Condos
             </h2>
             <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-              Dr. Jan Duffy knows every midtown building, floor plan, and HOA — get expert guidance
-              on your {area.name} condo search.
+              Dr. Jan Duffy knows every midtown building, floor plan, and HOA —
+              get expert guidance on your {area.name} condo search.
             </p>
             <Link
               href="/contact"

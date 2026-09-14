@@ -23,7 +23,7 @@ describe("cloudflare-assets", () => {
 
   it("builds R2 object URLs under the site prefix", () => {
     expect(getR2ObjectUrl("/images/hero/juhl-downtown-condo-tower.webp")).toBe(
-      "https://pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/images/hero/juhl-downtown-condo-tower.webp"
+      "https://pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/images/hero/juhl-downtown-condo-tower.webp",
     );
   });
 
@@ -35,7 +35,7 @@ describe("cloudflare-assets", () => {
   it("switches to R2 when delivery is enabled", () => {
     vi.stubEnv("NEXT_PUBLIC_R2_ENABLED", "true");
     expect(getCdnImageSrc("/images/hero/a.webp")).toContain(
-      "/midtownvegascondos/images/hero/a.webp"
+      "/midtownvegascondos/images/hero/a.webp",
     );
   });
 });

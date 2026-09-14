@@ -62,14 +62,38 @@ export const businessInfo = {
 
   // Services - Each creates searchable fields in GBP
   services: [
-    { name: "Buyer Representation", description: "Full-service home buying assistance" },
-    { name: "Seller Representation", description: "List and sell your home for top dollar" },
-    { name: "Luxury Condo Sales", description: "High-rise and Arts District condominiums" },
-    { name: "Downtown Las Vegas Condos", description: "Downtown and Arts District condo expertise" },
-    { name: "California Relocation Services", description: "Helping CA buyers transition to Las Vegas" },
-    { name: "First-Time Home Buyer Guidance", description: "FHA, VA, down payment assistance" },
-    { name: "Investment Property Consulting", description: "Rental properties and investment analysis" },
-    { name: "Online Appointments", description: "Schedule consultations and showings online" },
+    {
+      name: "Buyer Representation",
+      description: "Full-service home buying assistance",
+    },
+    {
+      name: "Seller Representation",
+      description: "List and sell your home for top dollar",
+    },
+    {
+      name: "Luxury Condo Sales",
+      description: "High-rise and Arts District condominiums",
+    },
+    {
+      name: "Downtown Las Vegas Condos",
+      description: "Downtown and Arts District condo expertise",
+    },
+    {
+      name: "California Relocation Services",
+      description: "Helping CA buyers transition to Las Vegas",
+    },
+    {
+      name: "First-Time Home Buyer Guidance",
+      description: "FHA, VA, down payment assistance",
+    },
+    {
+      name: "Investment Property Consulting",
+      description: "Rental properties and investment analysis",
+    },
+    {
+      name: "Online Appointments",
+      description: "Schedule consultations and showings online",
+    },
   ],
 
   // Attributes for GBP - Match profile
@@ -114,7 +138,8 @@ export const gbpDescription = {
 // FAQ Schema for GBP Q&A section
 export const gbpFAQs = [
   {
-    question: "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
+    question:
+      "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
     answer:
       "Our business location is 921 South Main Street, Las Vegas, NV 89101 in the Arts District / Downtown Las Vegas corridor. Call (702) 500-1980 for directions or to schedule an appointment.",
   },
@@ -175,7 +200,11 @@ export function generateLocalBusinessSchema() {
       latitude: businessInfo.geo.latitude,
       longitude: businessInfo.geo.longitude,
     },
-    hasMap: [officeInfo.maps.place, officeInfo.maps.directions, officeInfo.maps.reviews],
+    hasMap: [
+      officeInfo.maps.place,
+      officeInfo.maps.directions,
+      officeInfo.maps.reviews,
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",

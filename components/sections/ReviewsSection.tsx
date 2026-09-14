@@ -69,7 +69,9 @@ export default function ReviewsSection({
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             {title}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">{subtitle}</p>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            {subtitle}
+          </p>
           <SectionPhoto
             imageKey="reviews"
             heading={title}
@@ -91,7 +93,9 @@ export default function ReviewsSection({
             <span className="text-lg font-semibold text-slate-900">
               {aggregateRating.ratingValue}
             </span>
-            <span className="text-slate-600">({aggregateRating.reviewCount}+ Google reviews)</span>
+            <span className="text-slate-600">
+              ({aggregateRating.reviewCount}+ Google reviews)
+            </span>
           </div>
         </div>
 
@@ -125,13 +129,18 @@ export default function ReviewsSection({
                 itemScope
                 itemType="https://schema.org/Rating"
               >
-                <meta itemProp="ratingValue" content={review.rating.toString()} />
+                <meta
+                  itemProp="ratingValue"
+                  content={review.rating.toString()}
+                />
                 <meta itemProp="bestRating" content="5" />
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     className={`h-5 w-5 ${
-                      i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-slate-300"
+                      i < review.rating
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-slate-300"
                     }`}
                   />
                 ))}
@@ -139,7 +148,10 @@ export default function ReviewsSection({
 
               <div className="relative">
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-blue-100" />
-                <p className="text-slate-700 relative z-10 pl-4" itemProp="reviewBody">
+                <p
+                  className="text-slate-700 relative z-10 pl-4"
+                  itemProp="reviewBody"
+                >
                   {review.text}
                 </p>
               </div>

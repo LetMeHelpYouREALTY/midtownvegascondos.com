@@ -38,8 +38,16 @@ function wranglerPut(localFile, objectKey) {
   return new Promise((resolve, reject) => {
     const child = spawn(
       "npx",
-      ["wrangler", "r2", "object", "put", `${BUCKET}/${objectKey}`, "--file", localFile],
-      { stdio: "inherit", cwd: ROOT }
+      [
+        "wrangler",
+        "r2",
+        "object",
+        "put",
+        `${BUCKET}/${objectKey}`,
+        "--file",
+        localFile,
+      ],
+      { stdio: "inherit", cwd: ROOT },
     );
     child.on("exit", (code) => {
       if (code === 0) resolve();
@@ -50,7 +58,9 @@ function wranglerPut(localFile, objectKey) {
 
 async function main() {
   const files = await walk(IMAGES_DIR);
-  console.log(`Syncing ${files.length} images to r2://${BUCKET}/${PREFIX}/images/ ...`);
+  console.log(
+    `Syncing ${files.length} images to r2://${BUCKET}/${PREFIX}/images/ ...`,
+  );
   for (const file of files) {
     const rel = relative(join(ROOT, "public"), file).replaceAll("\\", "/");
     const objectKey = `${PREFIX}/${rel}`;
@@ -58,7 +68,9 @@ async function main() {
     console.log(`→ ${objectKey} (${Math.round(size / 1024)} KB)`);
     await wranglerPut(file, objectKey);
   }
-  console.log("Done. Set NEXT_PUBLIC_R2_ENABLED=true after verifying objects are public.");
+  console.log(
+    "Done. Set NEXT_PUBLIC_R2_ENABLED=true after verifying objects are public.",
+  );
 }
 
 main().catch((error) => {

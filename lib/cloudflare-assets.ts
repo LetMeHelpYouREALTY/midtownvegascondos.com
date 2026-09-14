@@ -11,7 +11,8 @@
 export const R2_PUBLIC_HOST = "pub-720ca9b7443b47be981def05abd3d7f0.r2.dev";
 export const R2_PUBLIC_BASE =
   process.env.NEXT_PUBLIC_R2_PUBLIC_BASE_URL ?? `https://${R2_PUBLIC_HOST}`;
-export const R2_SITE_PREFIX = process.env.NEXT_PUBLIC_R2_PREFIX ?? "midtownvegascondos";
+export const R2_SITE_PREFIX =
+  process.env.NEXT_PUBLIC_R2_PREFIX ?? "midtownvegascondos";
 
 export function isRemoteImageSrc(src: string): boolean {
   return src.startsWith("http://") || src.startsWith("https://");

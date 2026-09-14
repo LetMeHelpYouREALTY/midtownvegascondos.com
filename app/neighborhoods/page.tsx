@@ -28,13 +28,15 @@ export default function NeighborhoodsPage() {
         badge="Midtown Las Vegas Condo Specialist"
         title="Midtown Las Vegas Condo Neighborhoods"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">From Arts District lofts to Strip-view high-rises — explore every midtown building
-              and neighborhood with Dr. Jan Duffy, your condo specialist at{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>.</p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
+          From Arts District lofts to Strip-view high-rises — explore every
+          midtown building and neighborhood with Dr. Jan Duffy, your condo
+          specialist at{" "}
+          <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>.
+        </p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
-
           <SectionPhoto
             imageKey="neighborhoods"
             heading="Midtown Las Vegas Condo Neighborhoods"
@@ -42,41 +44,48 @@ export default function NeighborhoodsPage() {
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
             {midtownNeighborhoods.map((area) => {
-              const heroKey = neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
+              const heroKey =
+                neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
               const img = getHeroImage(heroKey);
               return (
-              <Link
-                key={area.slug}
-                href={`/neighborhoods/${area.slug}`}
-                className="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all"
-              >
-                <div className="relative h-40">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600">
-                    {area.name}
-                  </h2>
-                  <MapPin className="h-5 w-5 text-blue-500 flex-shrink-0" />
-                </div>
-                <p className="text-slate-600 text-sm mb-4 line-clamp-2">{area.description}</p>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="font-semibold text-blue-600">Median {area.medianPrice}</span>
-                  <span className="text-green-600">{area.priceChange} YoY</span>
-                </div>
-                <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
-                  View condos
-                  <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </div>
-                </div>
-              </Link>
+                <Link
+                  key={area.slug}
+                  href={`/neighborhoods/${area.slug}`}
+                  className="group bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-blue-300 hover:shadow-lg transition-all"
+                >
+                  <div className="relative h-40">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600">
+                        {area.name}
+                      </h2>
+                      <MapPin className="h-5 w-5 text-blue-500 flex-shrink-0" />
+                    </div>
+                    <p className="text-slate-600 text-sm mb-4 line-clamp-2">
+                      {area.description}
+                    </p>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-semibold text-blue-600">
+                        Median {area.medianPrice}
+                      </span>
+                      <span className="text-green-600">
+                        {area.priceChange} YoY
+                      </span>
+                    </div>
+                    <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
+                      View condos
+                      <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
               );
             })}
           </div>
@@ -87,8 +96,9 @@ export default function NeighborhoodsPage() {
               Not sure which midtown neighborhood fits you?
             </h2>
             <p className="text-slate-300 mb-6">
-              Dr. Jan Duffy knows every building, floor plan, and HOA in midtown Las Vegas. Get a
-              personalized neighborhood match based on your lifestyle and budget.
+              Dr. Jan Duffy knows every building, floor plan, and HOA in midtown
+              Las Vegas. Get a personalized neighborhood match based on your
+              lifestyle and budget.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

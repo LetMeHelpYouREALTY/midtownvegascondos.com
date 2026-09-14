@@ -32,7 +32,7 @@ function hero(
   lng: number,
   keywords: string[],
   width = 1920,
-  height = 1080
+  height = 1080,
 ): HeroImageMeta {
   return {
     src: getCdnImageSrc(`/images/hero/${file}`),
@@ -62,7 +62,7 @@ export const heroImages = {
     STRIP.lng,
     ["Las Vegas Strip", "midtown condos", "high-rise", "twilight skyline"],
     1920,
-    1143
+    1143,
   ),
   homeSkylineDay: hero(
     "home-skyline-day.webp",
@@ -71,7 +71,7 @@ export const heroImages = {
     "Downtown Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["downtown Las Vegas", "midtown skyline", "condo towers"]
+    ["downtown Las Vegas", "midtown skyline", "condo towers"],
   ),
   homeStripNight: hero(
     "home-strip-night.webp",
@@ -80,7 +80,7 @@ export const heroImages = {
     "Las Vegas Strip, Las Vegas, NV",
     STRIP.lat,
     STRIP.lng,
-    ["Las Vegas night skyline", "high-rise living"]
+    ["Las Vegas night skyline", "high-rise living"],
   ),
   buyersCondoTower: hero(
     "condo-balconies.webp",
@@ -89,7 +89,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["buy midtown condo", "condo tower", "balconies"]
+    ["buy midtown condo", "condo tower", "balconies"],
   ),
   buyersCaRelocator: hero(
     "desert-skyline.webp",
@@ -98,7 +98,7 @@ export const heroImages = {
     "Las Vegas Valley, NV",
     36.1699,
     -115.1398,
-    ["California relocation", "Las Vegas condo move"]
+    ["California relocation", "Las Vegas condo move"],
   ),
   buyersFirstTime: hero(
     "bright-living.webp",
@@ -107,7 +107,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["first-time condo buyers", "midtown living room"]
+    ["first-time condo buyers", "midtown living room"],
   ),
   buyersLuxury: hero(
     "penthouse.webp",
@@ -116,7 +116,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["luxury condos Las Vegas", "penthouse style"]
+    ["luxury condos Las Vegas", "penthouse style"],
   ),
   sellersHighrise: hero(
     "tower-look-up.webp",
@@ -125,7 +125,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["sell midtown condo", "high-rise listing"]
+    ["sell midtown condo", "high-rise listing"],
   ),
   sellersDownsizing: hero(
     "open-plan.webp",
@@ -134,7 +134,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["downsizing condo", "low maintenance living"]
+    ["downsizing condo", "low maintenance living"],
   ),
   sellersMoveUp: hero(
     "luxury-interior.webp",
@@ -143,7 +143,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["move-up home", "condo upgrade"]
+    ["move-up home", "condo upgrade"],
   ),
   sellersRelocation: hero(
     "map-planning.webp",
@@ -152,7 +152,7 @@ export const heroImages = {
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["condo relocation", "sell and move"]
+    ["condo relocation", "sell and move"],
   ),
   sellersDivorceProbate: hero(
     "handshake-deal.webp",
@@ -161,7 +161,7 @@ export const heroImages = {
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["probate real estate", "divorce property sale"]
+    ["probate real estate", "divorce property sale"],
   ),
   neighborhoodsHub: hero(
     "home-skyline-day.webp",
@@ -172,7 +172,7 @@ export const heroImages = {
     MIDTOWN.lng,
     ["midtown neighborhoods", "condo districts"],
     1920,
-    1280
+    1280,
   ),
   artsDistrict: hero(
     "highrise-windows.webp",
@@ -181,7 +181,7 @@ export const heroImages = {
     "Arts District, Las Vegas, NV",
     36.1589,
     -115.1534,
-    ["Arts District condos", "Gallery Row lofts"]
+    ["Arts District condos", "Gallery Row lofts"],
   ),
   fremontEast: hero(
     "fremont-east-daytime.webp",
@@ -192,7 +192,7 @@ export const heroImages = {
     -115.1398,
     ["Fremont East condos", "downtown entertainment"],
     1920,
-    1440
+    1440,
   ),
   symphonyPark: hero(
     "sky-terrace.webp",
@@ -201,7 +201,7 @@ export const heroImages = {
     "Symphony Park, Las Vegas, NV",
     36.1712,
     -115.1495,
-    ["Symphony Park condos", "Smith Center"]
+    ["Symphony Park condos", "Smith Center"],
   ),
   oneLasVegas: hero(
     "one-las-vegas-highrise.webp",
@@ -212,7 +212,7 @@ export const heroImages = {
     -115.172,
     ["One Las Vegas condos", "Strip view high-rise"],
     1920,
-    1143
+    1143,
   ),
   englishResidences: hero(
     "apartment-row.webp",
@@ -221,7 +221,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["English Residences", "boutique condos"]
+    ["English Residences", "boutique condos"],
   ),
   juhl: hero(
     "juhl-downtown-condo-tower.webp",
@@ -230,7 +230,7 @@ export const heroImages = {
     "Juhl, Las Vegas, NV",
     36.1676,
     -115.141,
-    ["Juhl condos", "downtown high-rise"]
+    ["Juhl condos", "downtown high-rise"],
   ),
   palmsPlace: hero(
     "home-strip-night.webp",
@@ -239,7 +239,7 @@ export const heroImages = {
     "Palms Place, Las Vegas, NV",
     36.1156,
     -115.186,
-    ["Palms Place condos", "Strip adjacent"]
+    ["Palms Place condos", "Strip adjacent"],
   ),
   midtownPlaza: hero(
     "midtown-plaza-walkable.webp",
@@ -248,7 +248,7 @@ export const heroImages = {
     "Midtown Plaza, Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["Midtown Plaza", "urban core condos"]
+    ["Midtown Plaza", "urban core condos"],
   ),
   listingsSearch: hero(
     "glass-facade.webp",
@@ -257,7 +257,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["condo listings", "MLS search"]
+    ["condo listings", "MLS search"],
   ),
   listingDetail: hero(
     "balcony-city.webp",
@@ -266,7 +266,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["property detail", "condo balcony view"]
+    ["property detail", "condo balcony view"],
   ),
   aboutAgent: hero(
     "agent-office.webp",
@@ -275,7 +275,7 @@ export const heroImages = {
     officeInfo.address.city + ", NV",
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["Dr Jan Duffy", "BHHS Nevada Properties"]
+    ["Dr Jan Duffy", "BHHS Nevada Properties"],
   ),
   contactOffice: hero(
     "contact-arts-district-main-street.webp",
@@ -284,7 +284,7 @@ export const heroImages = {
     officeInfo.address.full,
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["contact realtor", "Las Vegas condo agent"]
+    ["contact realtor", "Las Vegas condo agent"],
   ),
   faqLoft: hero(
     "faq-midtown-loft-interior.webp",
@@ -293,7 +293,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["condo FAQ", "HOA questions"]
+    ["condo FAQ", "HOA questions"],
   ),
   servicesHub: hero(
     "services-condo-consultation.webp",
@@ -302,7 +302,7 @@ export const heroImages = {
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["real estate services", "condo specialist"]
+    ["real estate services", "condo specialist"],
   ),
   relocationHub: hero(
     "relocation-vegas-skyline.webp",
@@ -311,7 +311,7 @@ export const heroImages = {
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["Las Vegas relocation", "out of state buyers"]
+    ["Las Vegas relocation", "out of state buyers"],
   ),
   luxuryHomes: hero(
     "pool-amenity.webp",
@@ -320,7 +320,7 @@ export const heroImages = {
     "Las Vegas, NV",
     STRIP.lat,
     STRIP.lng,
-    ["luxury condo amenities", "resort living"]
+    ["luxury condo amenities", "resort living"],
   ),
   investmentProperties: hero(
     "investment-downtown-condos.webp",
@@ -329,7 +329,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["condo investing", "rental property Las Vegas"]
+    ["condo investing", "rental property Las Vegas"],
   ),
   homeValuation: hero(
     "home-valuation-keys.webp",
@@ -338,7 +338,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["condo valuation", "home value estimate"]
+    ["condo valuation", "home value estimate"],
   ),
   newConstruction: hero(
     "new-construction.webp",
@@ -347,7 +347,7 @@ export const heroImages = {
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["new construction condos", "modern builds"]
+    ["new construction condos", "modern builds"],
   ),
   marketReport: hero(
     "night-city.webp",
@@ -356,7 +356,7 @@ export const heroImages = {
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["condo market report", "Las Vegas housing data"]
+    ["condo market report", "Las Vegas housing data"],
   ),
   marketInsights: hero(
     "night-neon.webp",
@@ -365,7 +365,7 @@ export const heroImages = {
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["market insights", "condo pricing trends"]
+    ["market insights", "condo pricing trends"],
   ),
   marketUpdate: hero(
     "market-update-downtown-night.webp",
@@ -374,7 +374,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["market update", "condo inventory"]
+    ["market update", "condo inventory"],
   ),
   whyBhhs: hero(
     "why-bhhs-brokerage.webp",
@@ -383,7 +383,7 @@ export const heroImages = {
     "Las Vegas, NV",
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["Berkshire Hathaway HomeServices", "trusted brokerage"]
+    ["Berkshire Hathaway HomeServices", "trusted brokerage"],
   ),
   googleBusiness: hero(
     "gbp-arts-district-office.webp",
@@ -392,7 +392,7 @@ export const heroImages = {
     officeInfo.address.full,
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["Google Business Profile", "local SEO realtor"]
+    ["Google Business Profile", "local SEO realtor"],
   ),
   fiftyFivePlus: hero(
     "active-adult.webp",
@@ -401,7 +401,7 @@ export const heroImages = {
     "Las Vegas, NV",
     36.0411,
     -115.165,
-    ["55+ communities", "active adult living"]
+    ["55+ communities", "active adult living"],
   ),
   fiftyFiveSunCitySummerlin: hero(
     "golf-community.webp",
@@ -410,7 +410,7 @@ export const heroImages = {
     "Sun City Summerlin, Las Vegas, NV",
     36.204,
     -115.295,
-    ["Sun City Summerlin", "55+ golf community"]
+    ["Sun City Summerlin", "55+ golf community"],
   ),
   fiftyFiveTrilogy: hero(
     "trilogy-summerlin-villas.webp",
@@ -419,7 +419,7 @@ export const heroImages = {
     "Trilogy Summerlin, Las Vegas, NV",
     36.21,
     -115.32,
-    ["Trilogy Summerlin", "55+ villas"]
+    ["Trilogy Summerlin", "55+ villas"],
   ),
   fiftyFiveSolera: hero(
     "solera-anthem-villas.webp",
@@ -428,7 +428,7 @@ export const heroImages = {
     "Solera at Anthem, Henderson, NV",
     35.966,
     -115.09,
-    ["Solera Anthem", "Henderson 55+"]
+    ["Solera Anthem", "Henderson 55+"],
   ),
   fiftyFiveSunCityAnthem: hero(
     "sun-city-anthem-golf.webp",
@@ -437,7 +437,7 @@ export const heroImages = {
     "Sun City Anthem, Henderson, NV",
     35.96,
     -115.08,
-    ["Sun City Anthem", "Henderson 55+"]
+    ["Sun City Anthem", "Henderson 55+"],
   ),
   fiftyFiveSunCityAliante: hero(
     "sun-city-aliante-homes.webp",
@@ -446,7 +446,7 @@ export const heroImages = {
     "Sun City Aliante, North Las Vegas, NV",
     36.319,
     -115.192,
-    ["Sun City Aliante", "North Las Vegas 55+"]
+    ["Sun City Aliante", "North Las Vegas 55+"],
   ),
   fiftyFiveDelWebb: hero(
     "del-webb-lake-las-vegas.webp",
@@ -455,7 +455,7 @@ export const heroImages = {
     "Lake Las Vegas, Henderson, NV",
     36.12,
     -114.92,
-    ["Del Webb Lake Las Vegas", "55+ waterfront"]
+    ["Del Webb Lake Las Vegas", "55+ waterfront"],
   ),
   fiftyFiveHeritage: hero(
     "heritage-stonebridge-new.webp",
@@ -464,7 +464,7 @@ export const heroImages = {
     "Heritage at Stonebridge, Las Vegas, NV",
     36.25,
     -115.28,
-    ["Heritage Stonebridge", "55+ new construction"]
+    ["Heritage Stonebridge", "55+ new construction"],
   ),
   nbSummerlin: hero(
     "summerlin-community.webp",
@@ -473,7 +473,7 @@ export const heroImages = {
     "Summerlin, Las Vegas, NV",
     36.1467,
     -115.332,
-    ["Summerlin homes", "master planned"]
+    ["Summerlin homes", "master planned"],
   ),
   nbHenderson: hero(
     "henderson-valley-homes.webp",
@@ -482,7 +482,7 @@ export const heroImages = {
     "Henderson, NV",
     36.0395,
     -114.9817,
-    ["Henderson real estate", "Las Vegas suburb"]
+    ["Henderson real estate", "Las Vegas suburb"],
   ),
   nbGreenValley: hero(
     "green-valley-henderson.webp",
@@ -491,7 +491,7 @@ export const heroImages = {
     "Green Valley, Henderson, NV",
     36.027,
     -115.08,
-    ["Green Valley homes", "Henderson condos"]
+    ["Green Valley homes", "Henderson condos"],
   ),
   nbRidges: hero(
     "the-ridges-luxury-estate.webp",
@@ -500,7 +500,7 @@ export const heroImages = {
     "The Ridges, Summerlin, Las Vegas, NV",
     36.126,
     -115.35,
-    ["The Ridges Summerlin", "luxury homes"]
+    ["The Ridges Summerlin", "luxury homes"],
   ),
   nbSouthernHighlands: hero(
     "southern-highlands-golf.webp",
@@ -509,7 +509,7 @@ export const heroImages = {
     "Southern Highlands, Las Vegas, NV",
     35.995,
     -115.21,
-    ["Southern Highlands", "golf community"]
+    ["Southern Highlands", "golf community"],
   ),
   nbNorthLasVegas: hero(
     "north-las-vegas-homes.webp",
@@ -518,7 +518,7 @@ export const heroImages = {
     "North Las Vegas, NV",
     36.1989,
     -115.1175,
-    ["North Las Vegas real estate"]
+    ["North Las Vegas real estate"],
   ),
   nbSkyeCanyon: hero(
     "skye-canyon-community.webp",
@@ -527,7 +527,7 @@ export const heroImages = {
     "Skye Canyon, Las Vegas, NV",
     36.32,
     -115.3,
-    ["Skye Canyon homes"]
+    ["Skye Canyon homes"],
   ),
   nbCentennialHills: hero(
     "centennial-hills-homes.webp",
@@ -536,7 +536,7 @@ export const heroImages = {
     "Centennial Hills, Las Vegas, NV",
     36.29,
     -115.28,
-    ["Centennial Hills homes"]
+    ["Centennial Hills homes"],
   ),
   nbInspirada: hero(
     "inspirada-henderson-village.webp",
@@ -545,7 +545,7 @@ export const heroImages = {
     "Inspirada, Henderson, NV",
     35.93,
     -115.15,
-    ["Inspirada Henderson"]
+    ["Inspirada Henderson"],
   ),
   nbMountainsEdge: hero(
     "mountains-edge-homes.webp",
@@ -554,7 +554,7 @@ export const heroImages = {
     "Mountain's Edge, Las Vegas, NV",
     36.0,
     -115.26,
-    ["Mountains Edge homes"]
+    ["Mountains Edge homes"],
   ),
   featuredStripView: hero(
     "strip-view-condo-balcony.webp",
@@ -563,7 +563,7 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["featured condo", "Strip view"]
+    ["featured condo", "Strip view"],
   ),
   featuredArtsLoft: hero(
     "city-avenue.webp",
@@ -572,7 +572,7 @@ export const heroImages = {
     "Arts District, Las Vegas, NV",
     36.1589,
     -115.1534,
-    ["featured loft", "Arts District listing"]
+    ["featured loft", "Arts District listing"],
   ),
   featuredSymphony: hero(
     "symphony-park-midrise.webp",
@@ -581,7 +581,7 @@ export const heroImages = {
     "Symphony Park, Las Vegas, NV",
     36.1712,
     -115.1495,
-    ["featured midrise", "Symphony Park"]
+    ["featured midrise", "Symphony Park"],
   ),
 } as const;
 
@@ -652,7 +652,9 @@ export const neighborhoodHeroBySlug: Record<string, HeroImageKey> = {
   "midtown-plaza": "midtownPlaza",
 };
 
-export function getHeroImage(key: HeroImageKey = "homeStripDusk"): HeroImageMeta {
+export function getHeroImage(
+  key: HeroImageKey = "homeStripDusk",
+): HeroImageMeta {
   return heroImages[key];
 }
 
@@ -666,7 +668,7 @@ export function getHeroKeyForPath(pathname: string): HeroImageKey {
 export function generateHeroImageSchema(
   key: HeroImageKey,
   pageUrl: string,
-  pageName: string
+  pageName: string,
 ): Record<string, unknown> {
   const img = getHeroImage(key);
   const absoluteUrl = img.src.startsWith("http")

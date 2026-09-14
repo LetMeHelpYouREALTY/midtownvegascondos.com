@@ -35,7 +35,9 @@ export default function FAQSection({
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             {title}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">{subtitle}</p>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            {subtitle}
+          </p>
           <SectionPhoto
             imageKey="hoaReview"
             heading={title}
@@ -53,7 +55,9 @@ export default function FAQSection({
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
               >
-                <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
+                <span className="font-semibold text-slate-900 pr-4">
+                  {faq.question}
+                </span>
                 {openIndex === index ? (
                   <ChevronUp className="h-5 w-5 text-blue-600 flex-shrink-0" />
                 ) : (

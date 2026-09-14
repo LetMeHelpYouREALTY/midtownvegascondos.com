@@ -12,12 +12,16 @@ export default function CTASection() {
             Ready to Tour Arts District Condos?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Call {agentInfo.phone} or visit {officeInfo.address.full}. Dr. Jan Duffy maps buildings,
-            HOA rules, and commute times before you write.
+            Call {agentInfo.phone} or visit {officeInfo.address.full}. Dr. Jan
+            Duffy maps buildings, HOA rules, and commute times before you write.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-blue-50"
+            >
               <Link href="/listings" className="flex items-center gap-2">
                 <Home className="h-5 w-5" />
                 Browse Listings
@@ -40,7 +44,10 @@ export default function CTASection() {
               variant="outline"
               className="border-white text-white hover:bg-white/10"
             >
-              <Link href={agentInfo.phoneTel} className="flex items-center gap-2">
+              <Link
+                href={agentInfo.phoneTel}
+                className="flex items-center gap-2"
+              >
                 <Phone className="h-5 w-5" />
                 Call Now
               </Link>
@@ -49,7 +56,9 @@ export default function CTASection() {
 
           <div className="flex flex-wrap justify-center gap-6 text-blue-100 text-sm">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-white">Free Consultation</span>
+              <span className="font-semibold text-white">
+                Free Consultation
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <span className="font-semibold text-white">No Obligation</span>

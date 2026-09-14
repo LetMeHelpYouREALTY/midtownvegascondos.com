@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
 
-const featuredSlugs = ["arts-district", "symphony-park", "one-las-vegas"] as const;
+const featuredSlugs = [
+  "arts-district",
+  "symphony-park",
+  "one-las-vegas",
+] as const;
 
 export default function FeaturedProperties() {
   const featured = featuredSlugs
@@ -21,8 +25,8 @@ export default function FeaturedProperties() {
               Featured Midtown Condo Areas
             </h2>
             <p className="text-slate-600 text-lg">
-              Arts District, Symphony Park, and Strip-adjacent high-rises — area medians, not a
-              specific listing price.
+              Arts District, Symphony Park, and Strip-adjacent high-rises — area
+              medians, not a specific listing price.
             </p>
           </div>
           <Button asChild variant="outline" className="mt-4 md:mt-0">
@@ -32,7 +36,8 @@ export default function FeaturedProperties() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featured.map((area) => {
-            const heroKey = neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
+            const heroKey =
+              neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
             const img = getHeroImage(heroKey);
             return (
               <Link
@@ -53,10 +58,13 @@ export default function FeaturedProperties() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{area.name} Condos</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    {area.name} Condos
+                  </h3>
                   <p className="text-slate-600 mb-4">{area.description}</p>
                   <span className="inline-flex items-center font-semibold text-blue-600">
-                    View {area.name} condos <ArrowRight className="h-4 w-4 ml-2" />
+                    View {area.name} condos{" "}
+                    <ArrowRight className="h-4 w-4 ml-2" />
                   </span>
                 </div>
               </Link>

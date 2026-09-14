@@ -12,8 +12,10 @@ describe("hero-images", () => {
 
   it("keeps git-backed local paths until R2 is enabled", () => {
     expect(heroImages.contactOffice.src).toBe(
-      "/images/hero/contact-arts-district-main-street.webp"
+      "/images/hero/contact-arts-district-main-street.webp",
     );
-    expect(heroImages.juhl.src).toBe("/images/hero/juhl-downtown-condo-tower.webp");
+    expect(heroImages.juhl.src).toBe(
+      "/images/hero/juhl-downtown-condo-tower.webp",
+    );
   });
 });

@@ -189,13 +189,16 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Contact Dr. Jan Duffy</h3>
             <ul className="space-y-3">
-              <li className="text-slate-300 text-sm font-medium">{officeInfo.name}</li>
+              <li className="text-slate-300 text-sm font-medium">
+                {officeInfo.name}
+              </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-300 text-sm">
                   {officeInfo.address.street}
                   <br />
-                  {officeInfo.address.city}, {officeInfo.address.state} {officeInfo.address.zip}
+                  {officeInfo.address.city}, {officeInfo.address.state}{" "}
+                  {officeInfo.address.zip}
                 </span>
               </li>
               <li className="flex items-center">
@@ -248,24 +251,32 @@ export default function Footer() {
         <div className="border-t border-slate-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-sm text-center md:text-left">
-              © {currentYear} Berkshire Hathaway HomeServices Nevada Properties. All Rights
-              Reserved.
+              © {currentYear} Berkshire Hathaway HomeServices Nevada Properties.
+              All Rights Reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link href="/faq" className="text-slate-400 hover:text-white transition-colors">
+              <Link
+                href="/faq"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 FAQ
               </Link>
-              <Link href="/sitemap.xml" className="text-slate-400 hover:text-white transition-colors">
+              <Link
+                href="/sitemap.xml"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 Sitemap
               </Link>
             </div>
           </div>
           <p className="text-slate-500 text-xs mt-4 text-center">
-            {agentInfo.name}, {agentInfo.title} | License {agentInfo.license} | {agentInfo.brokerage}
+            {agentInfo.name}, {agentInfo.title} | License {agentInfo.license} |{" "}
+            {agentInfo.brokerage}
           </p>
           <p className="text-slate-600 text-xs mt-2 text-center max-w-3xl mx-auto">
-            When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name
-            synonymous with trust, ethical standards, and financial strength.
+            When you work with a Berkshire Hathaway HomeServices agent, you're
+            backed by a name synonymous with trust, ethical standards, and
+            financial strength.
           </p>
         </div>
       </div>

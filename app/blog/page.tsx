@@ -12,7 +12,8 @@ import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
 
 export const metadata: Metadata = withPageHeroMetadata("/blog", {
-  title: "Midtown Las Vegas Condo Blog | Market & Lifestyle Guides | Dr. Jan Duffy",
+  title:
+    "Midtown Las Vegas Condo Blog | Market & Lifestyle Guides | Dr. Jan Duffy",
   description:
     "Midtown Las Vegas condo blog — market updates, building guides, Run Club, EV living, and Arts District tips from Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 500-1980.",
   keywords: [
@@ -49,7 +50,9 @@ const blogSchema = {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    url: post.href.startsWith("http") ? post.href : `${siteConfig.url}${post.href}`,
+    url: post.href.startsWith("http")
+      ? post.href
+      : `${siteConfig.url}${post.href}`,
     author: { "@type": "Person", name: agentInfo.name },
   })),
 };
@@ -81,11 +84,14 @@ export default function BlogPage() {
                     {post.category}
                   </span>
                   <time dateTime={post.date}>
-                    {new Date(post.date + "T12:00:00").toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
+                    {new Date(post.date + "T12:00:00").toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      },
+                    )}
                   </time>
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">
@@ -106,9 +112,12 @@ export default function BlogPage() {
           </div>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 text-center">
-            <h2 className="text-2xl font-bold mb-3">Want a custom midtown shortlist?</h2>
+            <h2 className="text-2xl font-bold mb-3">
+              Want a custom midtown shortlist?
+            </h2>
             <p className="text-slate-300 mb-6">
-              Call {agentInfo.name} at {agentInfo.phone} · {officeInfo.address.full}
+              Call {agentInfo.name} at {agentInfo.phone} ·{" "}
+              {officeInfo.address.full}
             </p>
             <a
               href={agentInfo.phoneTel}

@@ -28,8 +28,11 @@ export default function SectionPhoto({
   className = "",
 }: SectionPhotoProps) {
   const catalog = imageKey ? getSectionImage(imageKey) : null;
-  const resolvedSrc = getCdnImageSrc(src ?? catalog?.src ?? "/images/hero/home-skyline-day.webp");
-  const resolvedAlt = alt ?? catalog?.alt ?? heading ?? "Midtown Las Vegas real estate";
+  const resolvedSrc = getCdnImageSrc(
+    src ?? catalog?.src ?? "/images/hero/home-skyline-day.webp",
+  );
+  const resolvedAlt =
+    alt ?? catalog?.alt ?? heading ?? "Midtown Las Vegas real estate";
   const resolvedCaption = caption ?? catalog?.caption;
   const resolvedHeading = heading ?? catalog?.heading;
 
@@ -49,7 +52,9 @@ export default function SectionPhoto({
       {resolvedCaption ? (
         <figcaption className="mt-2 text-left text-xs text-slate-500 md:text-sm">
           {resolvedHeading ? (
-            <span className="font-medium text-slate-700">{resolvedHeading}. </span>
+            <span className="font-medium text-slate-700">
+              {resolvedHeading}.{" "}
+            </span>
           ) : null}
           {resolvedCaption}
           <span className="mt-0.5 block text-slate-400">

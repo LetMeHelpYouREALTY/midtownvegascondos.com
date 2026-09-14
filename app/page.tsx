@@ -11,9 +11,22 @@ import GbpPostsSection from "@/components/sections/GbpPostsSection";
 import FeaturedProperties from "@/components/sections/FeaturedProperties";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
+import {
+  Phone,
+  Home as HomeIcon,
+  TrendingUp,
+  Shield,
+  Users,
+} from "lucide-react";
 import { DEFAULT_CONFIG } from "@/lib/domain-config";
-import { agentInfo, agentStats, getAgentImageSrc, marketStats, officeInfo, siteConfig } from "@/lib/site-config";
+import {
+  agentInfo,
+  agentStats,
+  getAgentImageSrc,
+  marketStats,
+  officeInfo,
+  siteConfig,
+} from "@/lib/site-config";
 import { defaultFaqs } from "@/lib/faqs";
 import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
@@ -106,7 +119,8 @@ export default function Home() {
             <div className="mb-8 flex flex-col items-center gap-4">
               <AgentPhoto size="md" className="border-blue-400/50" />
               <p className="text-sm text-white/70">
-                {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
+                {agentInfo.name}, {agentInfo.title} · License{" "}
+                {agentInfo.license}
               </p>
             </div>
 
@@ -148,9 +162,12 @@ export default function Home() {
                 data-hero-caption
                 className="text-xs leading-relaxed text-white/70 md:text-sm"
               >
-                <span className="font-medium text-white/85">{homeHero.caption}</span>
+                <span className="font-medium text-white/85">
+                  {homeHero.caption}
+                </span>
                 <span className="mt-1 block text-white/50">
-                  Photo credit: {agentInfo.name}, {siteConfig.name} · {homeHero.geoName}
+                  Photo credit: {agentInfo.name}, {siteConfig.name} ·{" "}
+                  {homeHero.geoName}
                 </span>
               </figcaption>
             </figure>
@@ -164,7 +181,8 @@ export default function Home() {
               Search Midtown Vegas Condos
             </h2>
             <p className="mb-6 text-slate-600">
-              Live MLS results with Dr. Jan Duffy — filter by price, beds, and building.
+              Live MLS results with Dr. Jan Duffy — filter by price, beds, and
+              building.
             </p>
             <SectionPhoto
               imageKey="searchMidtown"
@@ -188,7 +206,8 @@ export default function Home() {
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600 mb-8">
-                Midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties.
+                Midtown Las Vegas condo specialist at Berkshire Hathaway
+                HomeServices Nevada Properties.
               </p>
               <SectionPhoto
                 imageKey="whyJan"
@@ -198,10 +217,26 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[
-                { icon: Shield, title: "HOA Expertise", desc: "CC&R review, rental caps, and special assessment checks on every building" },
-                { icon: Users, title: "50K+ Network", desc: "Global BHHS referral network for relocations to or from Las Vegas" },
-                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven midtown and valley-wide results since 2008" },
-                { icon: HomeIcon, title: "Condo Specialist", desc: "High-rise towers, urban lofts, Arts District — one expert for all midtown condos" },
+                {
+                  icon: Shield,
+                  title: "HOA Expertise",
+                  desc: "CC&R review, rental caps, and special assessment checks on every building",
+                },
+                {
+                  icon: Users,
+                  title: "50K+ Network",
+                  desc: "Global BHHS referral network for relocations to or from Las Vegas",
+                },
+                {
+                  icon: TrendingUp,
+                  title: "$127M+ Sold",
+                  desc: "Proven midtown and valley-wide results since 2008",
+                },
+                {
+                  icon: HomeIcon,
+                  title: "Condo Specialist",
+                  desc: "High-rise towers, urban lofts, Arts District — one expert for all midtown condos",
+                },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="text-center p-6">
                   <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -222,7 +257,9 @@ export default function Home() {
               <h2 className="text-3xl font-bold mb-3">
                 {config.neighborhood} Real Estate Market
               </h2>
-              <p className="text-slate-400 mb-8">Current data — updated regularly</p>
+              <p className="text-slate-400 mb-8">
+                Current data — updated regularly
+              </p>
               <SectionPhoto
                 imageKey="marketStats"
                 heading={`${config.neighborhood} Real Estate Market`}
@@ -231,20 +268,43 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {[
-                { value: marketStats.midtown.medianPriceFormatted, label: "Median Condo Price", sub: marketStats.midtown.yearOverYearChange + " YoY" },
-                { value: String(marketStats.midtown.daysOnMarket), label: "Avg Days on Market", sub: "" },
-                { value: marketStats.midtown.activeListings.toLocaleString(), label: "Active Condo Listings", sub: "" },
-                { value: "$" + marketStats.midtown.pricePerSqFt, label: "Avg Price/Sq Ft", sub: "" },
+                {
+                  value: marketStats.midtown.medianPriceFormatted,
+                  label: "Median Condo Price",
+                  sub: marketStats.midtown.yearOverYearChange + " YoY",
+                },
+                {
+                  value: String(marketStats.midtown.daysOnMarket),
+                  label: "Avg Days on Market",
+                  sub: "",
+                },
+                {
+                  value: marketStats.midtown.activeListings.toLocaleString(),
+                  label: "Active Condo Listings",
+                  sub: "",
+                },
+                {
+                  value: "$" + marketStats.midtown.pricePerSqFt,
+                  label: "Avg Price/Sq Ft",
+                  sub: "",
+                },
               ].map(({ value, label, sub }) => (
                 <div key={label} className="text-center">
-                  <div className="text-4xl font-bold text-blue-400 mb-1">{value}</div>
+                  <div className="text-4xl font-bold text-blue-400 mb-1">
+                    {value}
+                  </div>
                   <div className="text-slate-300 text-sm">{label}</div>
-                  {sub && <div className="text-green-400 text-xs mt-1">{sub}</div>}
+                  {sub && (
+                    <div className="text-green-400 text-xs mt-1">{sub}</div>
+                  )}
                 </div>
               ))}
             </div>
             <div className="text-center mt-8">
-              <Link href="/market-report" className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors">
+              <Link
+                href="/market-report"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors"
+              >
                 Full Market Report
               </Link>
             </div>
@@ -259,7 +319,8 @@ export default function Home() {
                 Midtown Las Vegas Condo Neighborhoods
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
-                From Strip-adjacent high-rises to Arts District lofts — explore Las Vegas urban living.
+                From Strip-adjacent high-rises to Arts District lofts — explore
+                Las Vegas urban living.
               </p>
               <SectionPhoto
                 imageKey="neighborhoods"
@@ -269,7 +330,8 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {midtownNeighborhoods.slice(0, 8).map((area) => {
-                const heroKey = neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
+                const heroKey =
+                  neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
                 const img = getHeroImage(heroKey);
                 return (
                   <Link
@@ -287,8 +349,12 @@ export default function Home() {
                       />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-bold text-lg text-slate-900 mb-2">{area.name}</h3>
-                      <p className="text-slate-600 text-sm mb-4">{area.description}</p>
+                      <h3 className="font-bold text-lg text-slate-900 mb-2">
+                        {area.name}
+                      </h3>
+                      <p className="text-slate-600 text-sm mb-4">
+                        {area.description}
+                      </p>
                       <p className="text-sm font-semibold text-blue-600">
                         Area median {area.medianPrice}
                       </p>
@@ -335,7 +401,8 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway
+              HomeServices Nevada Properties
             </p>
           </div>
         </section>

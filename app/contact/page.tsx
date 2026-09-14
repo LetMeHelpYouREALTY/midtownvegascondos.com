@@ -2,12 +2,27 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
-import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Calendar,
+  CheckCircle,
+  Star,
+  Users,
+  Shield,
+} from "lucide-react";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
-import { agentInfo, getAgentImageSrc, officeInfo, siteConfig } from "@/lib/site-config";
+import {
+  agentInfo,
+  getAgentImageSrc,
+  officeInfo,
+  siteConfig,
+} from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = withPageHeroMetadata("/contact", {
@@ -60,23 +75,24 @@ export default function ContactPage() {
         <AgentPhoto size="lg" className="mx-auto mb-6 border-white/40" />
         <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
           Questions about midtown Las Vegas condos? Your{" "}
-          <strong>Berkshire Hathaway HomeServices</strong> condo specialist is here to help.
-          Schedule a showing or reach out directly.
+          <strong>Berkshire Hathaway HomeServices</strong> condo specialist is
+          here to help. Schedule a showing or reach out directly.
         </p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
-
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Info & Map */}
             <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                Get In Touch
+              </h2>
               <p className="text-slate-700 mb-8">
-                Whether you&apos;re buying your first midtown condo, selling a high-rise unit, or
-                exploring downtown investment opportunities, I provide expert HOA review and
-                building-specific guidance backed by{" "}
-                <strong>Berkshire Hathaway HomeServices</strong>. Serving Las Vegas since 2008 with
-                $127M+ in closed transactions.
+                Whether you&apos;re buying your first midtown condo, selling a
+                high-rise unit, or exploring downtown investment opportunities,
+                I provide expert HOA review and building-specific guidance
+                backed by <strong>Berkshire Hathaway HomeServices</strong>.
+                Serving Las Vegas since 2008 with $127M+ in closed transactions.
               </p>
 
               {/* NAP Information — must match Google Business Profile */}
@@ -84,7 +100,9 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <Phone className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Phone (Call or Text)</h3>
+                    <h3 className="font-semibold text-slate-900 mb-1">
+                      Phone (Call or Text)
+                    </h3>
                     <a
                       href={agentInfo.phoneTel}
                       className="text-2xl font-bold text-blue-600 hover:text-blue-700"
@@ -116,7 +134,9 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <MapPin className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Business Location</h3>
+                    <h3 className="font-semibold text-slate-900 mb-1">
+                      Business Location
+                    </h3>
                     <address className="not-italic text-slate-700">
                       {officeInfo.name}
                       <br />
@@ -131,7 +151,9 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <Clock className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Business Hours</h3>
+                    <h3 className="font-semibold text-slate-900 mb-1">
+                      Business Hours
+                    </h3>
                     <p className="text-slate-700">
                       {officeInfo.hoursDisplay[0]}
                       <br />
@@ -190,8 +212,10 @@ export default function ContactPage() {
               {/* Credentials */}
               <div className="p-4 bg-blue-50 rounded-lg">
                 <p className="text-sm text-slate-700">
-                  <strong>Dr. Jan Duffy, REALTOR®</strong><br />
-                  License S.0197614.LLC<br />
+                  <strong>Dr. Jan Duffy, REALTOR®</strong>
+                  <br />
+                  License S.0197614.LLC
+                  <br />
                   Berkshire Hathaway HomeServices Nevada Properties
                 </p>
               </div>
@@ -202,10 +226,12 @@ export default function ContactPage() {
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                 <div className="bg-blue-600 text-white p-6 text-center">
                   <Calendar className="h-10 w-10 mx-auto mb-3" />
-                  <h2 className="text-2xl font-bold mb-2">Schedule an Appointment</h2>
+                  <h2 className="text-2xl font-bold mb-2">
+                    Schedule an Appointment
+                  </h2>
                   <p className="text-blue-100">
-                    Book a time that works for you—phone consultation, property showing, 
-                    or in-person meeting at our office.
+                    Book a time that works for you—phone consultation, property
+                    showing, or in-person meeting at our office.
                   </p>
                 </div>
                 <CalendlyWidget height="600px" />
@@ -213,24 +239,32 @@ export default function ContactPage() {
 
               {/* Why Contact BHHS */}
               <div className="mt-6 bg-slate-900 text-white rounded-xl p-6">
-                <h3 className="font-bold text-lg mb-4">Why Contact Berkshire Hathaway HomeServices?</h3>
+                <h3 className="font-bold text-lg mb-4">
+                  Why Contact Berkshire Hathaway HomeServices?
+                </h3>
                 <div className="space-y-3">
                   <div className="flex items-start">
                     <Shield className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Trusted Brand:</strong> The only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc.
+                      <strong className="text-white">Trusted Brand:</strong> The
+                      only real estate brand backed by Warren Buffett's
+                      Berkshire Hathaway Inc.
                     </p>
                   </div>
                   <div className="flex items-start">
                     <Star className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Proven Results:</strong> $127M+ in closed transactions serving Las Vegas since 2008.
+                      <strong className="text-white">Proven Results:</strong>{" "}
+                      $127M+ in closed transactions serving Las Vegas since
+                      2008.
                     </p>
                   </div>
                   <div className="flex items-start">
                     <Users className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Global Network:</strong> 50,000+ agents worldwide for seamless relocations and referrals.
+                      <strong className="text-white">Global Network:</strong>{" "}
+                      50,000+ agents worldwide for seamless relocations and
+                      referrals.
                     </p>
                   </div>
                 </div>
@@ -244,9 +278,10 @@ export default function ContactPage() {
               Areas We Serve
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Dr. Jan Duffy provides expert real estate services throughout the Las Vegas Valley. 
-              Whether you're buying, selling, or investing in any of these communities, contact us 
-              for personalized guidance backed by Berkshire Hathaway HomeServices.
+              Dr. Jan Duffy provides expert real estate services throughout the
+              Las Vegas Valley. Whether you're buying, selling, or investing in
+              any of these communities, contact us for personalized guidance
+              backed by Berkshire Hathaway HomeServices.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -263,8 +298,13 @@ export default function ContactPage() {
                 "Mountains Edge",
                 "Spring Valley",
               ].map((area) => (
-                <div key={area} className="bg-slate-50 rounded-lg p-3 text-center hover:bg-blue-50 transition-colors">
-                  <span className="text-slate-700 font-medium text-sm">{area}</span>
+                <div
+                  key={area}
+                  className="bg-slate-50 rounded-lg p-3 text-center hover:bg-blue-50 transition-colors"
+                >
+                  <span className="text-slate-700 font-medium text-sm">
+                    {area}
+                  </span>
                 </div>
               ))}
             </div>
@@ -333,7 +373,9 @@ export default function ContactPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <RealScoutListings />
       <Footer />
