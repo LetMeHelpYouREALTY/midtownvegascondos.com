@@ -251,7 +251,8 @@ export default function MarketUpdatePage() {
                 <div>
                   <div className="font-bold text-slate-900">Dr. Jan Duffy</div>
                   <div className="text-slate-500 text-sm">
-                    REALTOR® | Berkshire Hathaway HomeServices Nevada Properties
+                    REALTOR® | Berkshire Hathaway HomeServices Nevada
+                    Properties
                   </div>
                 </div>
               </div>
