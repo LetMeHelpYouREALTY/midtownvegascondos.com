@@ -553,15 +553,15 @@ export default function BuyersPage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Find Your Midtown Condo?
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Ready to Find Your Midtown Condo?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Find Your Midtown Condo?
+            </h2>
 
             <p className="text-xl text-slate-300 mb-8">
               Questions about buying a midtown Las Vegas condo? Call Dr. Jan

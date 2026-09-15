@@ -396,15 +396,15 @@ export default function AboutPage() {
 
           {/* Why BHHS Section */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-              Why Berkshire Hathaway HomeServices?
-            </h2>
             <SectionPhoto
               imageKey="aboutBhhs"
               heading="Why Berkshire Hathaway HomeServices?"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+              Why Berkshire Hathaway HomeServices?
+            </h2>
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
               Berkshire Hathaway HomeServices is the only real estate brand
               backed by Warren Buffett's Berkshire Hathaway Inc. This means

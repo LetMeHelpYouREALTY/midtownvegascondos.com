@@ -95,15 +95,15 @@ export default function CentennialHillsPage() {
         <div className="container mx-auto px-4">
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">
-              Centennial Hills Market | January 2026
-            </h2>
             <SectionPhoto
               imageKey="neighborhoodMarket"
               heading="Centennial Hills Market | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              Centennial Hills Market | January 2026
+            </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">

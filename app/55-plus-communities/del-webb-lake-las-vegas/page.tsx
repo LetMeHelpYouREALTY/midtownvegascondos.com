@@ -107,15 +107,15 @@ export default function DelWebbLakeLasVegasPage() {
           </div>
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">
-              Del Webb at Lake Las Vegas at a Glance
-            </h2>
             <SectionPhoto
               imageKey="neighborhoodMarket"
               heading="Del Webb at Lake Las Vegas at a Glance"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              Del Webb at Lake Las Vegas at a Glance
+            </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">

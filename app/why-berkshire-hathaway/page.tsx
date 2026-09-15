@@ -78,15 +78,15 @@ export default function WhyBerkshireHathawayPage() {
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Backed by Warren Buffett's Legacy
-                </h2>
                 <SectionPhoto
                   imageKey="whyBuffett"
                   heading="Backed by Warren Buffett's Legacy"
                   className="mb-6 text-left"
                   onDark
                 />
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Backed by Warren Buffett's Legacy
+                </h2>
                 <p className="text-slate-300 mb-6">
                   <strong>Berkshire Hathaway HomeServices</strong> is the only
                   real estate brand backed by Berkshire Hathaway Inc., Warren
@@ -367,15 +367,15 @@ export default function WhyBerkshireHathawayPage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Experience the Berkshire Hathaway Difference
-            </h2>
             <SectionPhoto
               imageKey="whyBuffett"
               heading="Experience the Berkshire Hathaway Difference"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Experience the Berkshire Hathaway Difference
+            </h2>
 
             <p className="text-xl text-slate-300 mb-8">
               Ready to work with the most trusted name in real estate? Contact

@@ -61,18 +61,18 @@ export default function RelocationPage() {
         <div className="container mx-auto px-4">
           {/* Network Advantage */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <div className="flex items-center justify-center mb-6">
-              <Globe className="h-8 w-8 mr-3 text-blue-400" />
-              <h2 className="text-3xl font-bold">
-                Berkshire Hathaway HomeServices Network
-              </h2>
-            </div>
             <SectionPhoto
               imageKey="sellersRelocation"
               heading="Berkshire Hathaway HomeServices Network"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <div className="flex items-center justify-center mb-6">
+              <Globe className="h-8 w-8 mr-3 text-blue-400" />
+              <h2 className="text-3xl font-bold">
+                Berkshire Hathaway HomeServices Network
+              </h2>
+            </div>
             <p className="text-center text-slate-300 mb-8 max-w-2xl mx-auto">
               When you work with Dr. Jan, you're not just getting a Las Vegas
               agent—you're tapping into the most trusted real estate network in
@@ -676,15 +676,15 @@ export default function RelocationPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Make Your Move?
-            </h2>
             <SectionPhoto
               imageKey="relocationWhy"
               heading="Ready to Make Your Move?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Make Your Move?
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Let's create a relocation plan that works with your timeline. Dr.

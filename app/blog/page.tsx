@@ -122,15 +122,15 @@ export default function BlogPage() {
           </div>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 text-center">
-            <h2 className="text-2xl font-bold mb-3">
-              Want a custom midtown shortlist?
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Want a custom midtown shortlist?"
               className="mx-auto mb-6 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-3">
+              Want a custom midtown shortlist?
+            </h2>
             <p className="text-slate-300 mb-6">
               Call {agentInfo.name} at {agentInfo.phone} ·{" "}
               {officeInfo.address.full}

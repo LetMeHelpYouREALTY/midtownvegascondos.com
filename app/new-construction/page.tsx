@@ -288,6 +288,12 @@ export default function NewConstructionPage() {
         <div className="container mx-auto px-4">
           {/* Why Free Representation */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="newConstructionAgent"
+              heading="Why Use a BHHS Agent for New Construction?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-3xl font-bold mb-8 text-center">
               Why Use a BHHS Agent for New Construction?
             </h2>

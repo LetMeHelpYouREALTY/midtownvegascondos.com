@@ -293,18 +293,18 @@ export default function Home() {
         <section className="py-16 bg-slate-900 text-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
+              <SectionPhoto
+                imageKey="marketStats"
+                heading={`${config.neighborhood} Real Estate Market`}
+                className="mx-auto mb-8 max-w-4xl text-left"
+                onDark
+              />
               <h2 className="text-3xl font-bold mb-3">
                 {config.neighborhood} Real Estate Market
               </h2>
               <p className="text-slate-400 mb-8">
                 Current data — updated regularly
               </p>
-              <SectionPhoto
-                imageKey="marketStats"
-                heading={`${config.neighborhood} Real Estate Market`}
-                className="mx-auto max-w-4xl text-left"
-                onDark
-              />
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {[

@@ -101,6 +101,12 @@ export default function InvestmentPropertiesPage() {
         <div className="container mx-auto px-4">
           {/* Why Las Vegas */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="investWhy"
+              heading="Why Invest in Las Vegas?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-2xl font-bold mb-8 text-center">
               Why Invest in Las Vegas?
             </h2>
@@ -646,15 +652,15 @@ export default function InvestmentPropertiesPage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Invest in Las Vegas?
-            </h2>
             <SectionPhoto
               imageKey="investWhy"
               heading="Ready to Invest in Las Vegas?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Invest in Las Vegas?
+            </h2>
 
             <p className="text-xl text-slate-300 mb-8">
               Get expert guidance on Las Vegas investment properties from Dr.

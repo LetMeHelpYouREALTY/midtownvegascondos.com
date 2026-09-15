@@ -374,15 +374,15 @@ export default function MoveUpSellerPage() {
 
           {/* Financing Options */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Financing Your Move-Up Purchase
-            </h2>
             <SectionPhoto
               imageKey="firstTimeFinancing"
               heading="Financing Your Move-Up Purchase"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Financing Your Move-Up Purchase
+            </h2>
 
             <p className="text-slate-300 text-center mb-8 max-w-3xl mx-auto">
               Understanding your financing options is crucial for a successful

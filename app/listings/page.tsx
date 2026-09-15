@@ -217,15 +217,15 @@ export default function ListingsPage() {
           </nav>
 
           <section className="mb-14 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <Search className="h-6 w-6 text-blue-600" />
-              How to use this MLS search
-            </h2>
             <SectionPhoto
               imageKey="listingsHowTo"
               heading="How to use this MLS search"
               className="mb-6 text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <Search className="h-6 w-6 text-blue-600" />
+              How to use this MLS search
+            </h2>
             <p className="text-slate-700 leading-relaxed mb-4">
               This page is your midtown condo search hub — not a generic valley
               dump. Start with for-sale inventory, then filter toward
@@ -253,6 +253,11 @@ export default function ListingsPage() {
 
           {/* Live MLS — keep widget, surround with crawlable copy */}
           <section className="mb-16" aria-labelledby="live-mls">
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading="Live MLS listings"
+              className="mx-auto mb-8 max-w-4xl"
+            />
             <h2
               id="live-mls"
               className="text-3xl font-bold text-slate-900 mb-4 text-center"
@@ -264,11 +269,6 @@ export default function ListingsPage() {
               with the MLS — treat this as your discovery layer, then verify
               details before offers.
             </p>
-            <SectionPhoto
-              imageKey="searchMidtown"
-              heading="Live MLS listings"
-              className="mx-auto mb-8 max-w-4xl"
-            />
             <div className="max-w-7xl mx-auto">
               <DeferredRealScoutWidget
                 html={`<realscout-office-listings 
@@ -319,12 +319,13 @@ export default function ListingsPage() {
           </section>
 
           <section className="mb-16 max-w-5xl mx-auto">
-            <SectionPhoto
-              imageKey="marketSnapshot"
-              heading="Midtown market snapshot"
-              className="mb-8 text-left"
-            />
             <div className="bg-slate-900 text-white rounded-2xl p-8 md:p-12">
+              <SectionPhoto
+                imageKey="marketSnapshot"
+                heading="Midtown market snapshot"
+                className="mb-8 text-left"
+                onDark
+              />
               <h2 className="text-2xl font-bold mb-8 text-center">
                 Midtown market snapshot
               </h2>
@@ -467,15 +468,15 @@ export default function ListingsPage() {
           </section>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 md:p-12 max-w-4xl mx-auto text-center mb-8">
-            <h2 className="text-2xl font-bold mb-3">
-              Get a curated midtown shortlist
-            </h2>
             <SectionPhoto
               imageKey="searchMidtown"
               heading="Get a curated midtown shortlist"
               className="mx-auto mb-6 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-3">
+              Get a curated midtown shortlist
+            </h2>
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>

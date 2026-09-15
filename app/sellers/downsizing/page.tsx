@@ -61,6 +61,12 @@ export default function DownsizingPage() {
         <div className="container mx-auto px-4">
           {/* Equity Extraction */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="sellersDownsizing"
+              heading="Extract Your Equity, Enjoy Your Life"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-3xl font-bold mb-8 text-center">
               Extract Your Equity, Enjoy Your Life
             </h2>
@@ -656,15 +662,15 @@ export default function DownsizingPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Simplify Your Life?
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Ready to Simplify Your Life?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Simplify Your Life?
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Get a free home valuation and explore your downsizing options. Dr.

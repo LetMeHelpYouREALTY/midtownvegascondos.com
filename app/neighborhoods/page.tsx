@@ -94,15 +94,15 @@ export default function NeighborhoodsPage() {
 
           <section className="bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto text-center">
             <Home className="h-10 w-10 text-blue-400 mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Not sure which midtown neighborhood fits you?
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="Not sure which midtown neighborhood fits you?"
               className="mx-auto mb-6 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Not sure which midtown neighborhood fits you?
+            </h2>
             <p className="text-slate-300 mb-6">
               Dr. Jan Duffy knows every building, floor plan, and HOA in midtown
               Las Vegas. Get a personalized neighborhood match based on your

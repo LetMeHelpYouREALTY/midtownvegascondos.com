@@ -667,15 +667,15 @@ export default function DivorceProbatePage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-800 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Confidential Consultation
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Confidential Consultation"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Confidential Consultation
+            </h2>
 
             <p className="text-xl text-slate-300 mb-8">
               Discuss your situation privately with Dr. Jan. No pressure, no

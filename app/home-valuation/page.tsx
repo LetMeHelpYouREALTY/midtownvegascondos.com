@@ -121,15 +121,15 @@ export default function HomeValuationPage() {
             {/* Value Prop */}
             <div className="space-y-8">
               <div className="bg-slate-900 text-white rounded-lg p-8">
-                <h2 className="text-2xl font-bold mb-4">
-                  Why Request a BHHS Valuation?
-                </h2>
                 <SectionPhoto
                   imageKey="whyBuffett"
                   heading="Why Request a BHHS Valuation?"
                   className="mx-auto mb-8 max-w-4xl text-left"
                   onDark
                 />
+                <h2 className="text-2xl font-bold mb-4">
+                  Why Request a BHHS Valuation?
+                </h2>
 
                 <p className="text-slate-300 mb-6">
                   Online estimators like Zillow's "Zestimate" can be off by 10%

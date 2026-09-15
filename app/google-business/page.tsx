@@ -571,13 +571,13 @@ export default function GoogleBusinessPage() {
           {/* Contact CTA */}
           <section className="max-w-4xl mx-auto">
             <div className="bg-slate-900 text-white rounded-2xl p-8 md:p-12 text-center">
-              <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
               <SectionPhoto
                 imageKey="homeCta"
                 heading="Ready to Get Started?"
                 className="mx-auto mb-8 max-w-3xl text-left"
                 onDark
               />
+              <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
               <p className="text-xl text-slate-300 mb-8">
                 Contact Dr. Jan Duffy for a free consultation about buying or
                 selling in Las Vegas.

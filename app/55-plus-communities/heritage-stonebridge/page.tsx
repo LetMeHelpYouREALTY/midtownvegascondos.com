@@ -113,6 +113,12 @@ export default function HeritageStonebridgePage() {
           </div>
 
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="heritageWhy"
+              heading="Why buyers look at Heritage at Stonebridge"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Why buyers look at Heritage at Stonebridge
             </h2>

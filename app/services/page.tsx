@@ -489,15 +489,15 @@ export default function ServicesPage() {
 
           {/* Value Proposition */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-center">
-              The Berkshire Hathaway HomeServices Difference
-            </h2>
             <SectionPhoto
               imageKey="whyBuffett"
               heading="The Berkshire Hathaway HomeServices Difference"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              The Berkshire Hathaway HomeServices Difference
+            </h2>
             <p className="text-lg text-slate-300 text-center max-w-3xl mx-auto mb-8">
               When you work with a Berkshire Hathaway HomeServices agent, you're
               backed by a name synonymous with trust, ethical standards, and

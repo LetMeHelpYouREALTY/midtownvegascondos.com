@@ -143,15 +143,15 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
           </section>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 text-center mb-12">
-            <h2 className="text-2xl font-bold mb-3">
-              Tour midtown condos with Dr. Jan Duffy
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Tour midtown condos with Dr. Jan Duffy"
               className="mx-auto mb-6 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-3">
+              Tour midtown condos with Dr. Jan Duffy
+            </h2>
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>

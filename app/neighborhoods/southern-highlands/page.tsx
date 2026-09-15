@@ -108,15 +108,15 @@ export default function SouthernHighlandsPage() {
           </div>
 
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">
-              Southern Highlands market snapshot | mid-2026
-            </h2>
             <SectionPhoto
               imageKey="neighborhoodMarket"
               heading="Southern Highlands market snapshot | mid-2026"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              Southern Highlands market snapshot | mid-2026
+            </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
@@ -315,15 +315,15 @@ export default function SouthernHighlandsPage() {
           </section>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 md:p-12 max-w-5xl mx-auto text-center mb-12">
-            <h2 className="text-2xl font-bold mb-3">
-              Tour Southern Highlands with Dr. Jan Duffy
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Tour Southern Highlands with Dr. Jan Duffy"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-3">
+              Tour Southern Highlands with Dr. Jan Duffy
+            </h2>
 
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
