@@ -1,0 +1,5 @@
+# Isolated Wrangler config for R2 object uploads only.
+# Do not inherit the heyberkshire worker wrangler.toml (empty account_id).
+# Do not orange-cloud the Vercel hostname — this file never deploys a Worker.
+name = "midtownvegascondos-r2-images"
+compatibility_date = "2026-09-15"

@@ -101,7 +101,8 @@ jobs:
         run: |
           TOKEN_OK=false
           S3_OK=false
-          [ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID$R2_ACCOUNT_ID" ] && TOKEN_OK=true
+          # Token-only is enough to attempt whoami / wrangler put; account id is resolved in the script.
+          [ -n "$CLOUDFLARE_API_TOKEN" ] && TOKEN_OK=true
           [ -n "$R2_ACCESS_KEY_ID" ] && [ -n "$R2_SECRET_ACCESS_KEY" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID$R2_ACCOUNT_ID" ] && S3_OK=true
           echo "token_auth=$TOKEN_OK"
           echo "s3_auth=$S3_OK"

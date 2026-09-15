@@ -3,7 +3,7 @@
  * Upload git-backed public/images to Cloudflare R2 (primary storage).
  *
  * Auth (either):
- *   CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID  → wrangler r2 object put
+ *   CLOUDFLARE_API_TOKEN [+ CLOUDFLARE_ACCOUNT_ID]  → R2 REST or wrangler put
  *   R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY + account id → S3-compatible sync
  *
  * Bucket: realestatedomains-assets (same public host as the agent headshot).
@@ -13,15 +13,17 @@
  */
 
 import { fileURLToPath } from "node:url";
-import { readdir, stat } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import { extname, join, relative, dirname } from "node:path";
 import { spawn } from "node:child_process";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const IMAGES_DIR = join(ROOT, "public", "images");
+const WRANGLER_CONFIG = join(ROOT, "scripts", "wrangler.r2.toml");
 const BUCKET = process.env.R2_BUCKET ?? "realestatedomains-assets";
 const PREFIX = process.env.NEXT_PUBLIC_R2_PREFIX ?? "midtownvegascondos";
 const CACHE_CONTROL = "public, max-age=31536000, immutable";
+const ACCOUNT_ID_RE = /\b([a-f0-9]{32})\b/gi;
 
 function contentTypeFor(file) {
   const ext = extname(file).toLowerCase();
@@ -51,7 +53,17 @@ function isUsableSecret(value) {
 }
 
 function accountId() {
-  return process.env.R2_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID || "";
+  return (
+    process.env.R2_ACCOUNT_ID ||
+    process.env.CLOUDFLARE_ACCOUNT_ID ||
+    ""
+  ).trim();
+}
+
+function setAccountId(id, label = "") {
+  process.env.CLOUDFLARE_ACCOUNT_ID = id;
+  process.env.R2_ACCOUNT_ID = id;
+  console.log(`Resolved Cloudflare account ${label || id}`);
 }
 
 function hasWranglerAuth() {
@@ -66,42 +78,126 @@ function hasS3Auth() {
   );
 }
 
-async function resolveAccountIdFromToken() {
-  if (accountId()) return accountId();
+function pickAccount(accounts) {
+  const list = Array.isArray(accounts) ? accounts.filter(Boolean) : [];
+  return (
+    list.find((account) =>
+      /real.?estate|duffy/i.test(String(account?.name ?? "")),
+    ) ?? list[0]
+  );
+}
+
+function accountsFromCfBody(path, body) {
+  const result = body?.result;
+  if (!Array.isArray(result)) return [];
+  if (path === "/memberships") {
+    return result
+      .map((row) => row?.account ?? row)
+      .filter((account) => account?.id);
+  }
+  return result.filter((account) => account?.id);
+}
+
+async function lookupCloudflareAccounts(path) {
   const token = process.env.CLOUDFLARE_API_TOKEN;
-  if (!isUsableSecret(token)) return "";
-  const response = await fetch("https://api.cloudflare.com/client/v4/accounts", {
-    headers: { Authorization: `Bearer ${token}` },
-  });
+  const response = await fetch(
+    `https://api.cloudflare.com/client/v4${path}?per_page=50`,
+    { headers: { Authorization: `Bearer ${token}` } },
+  );
+  const body = await response.json().catch(() => ({}));
   if (!response.ok) {
     console.error(
-      `Cloudflare accounts lookup HTTP ${response.status} — continuing with token-only wrangler auth`,
+      `Cloudflare ${path} lookup HTTP ${response.status} — ${body?.errors?.[0]?.message ?? "continuing"}`,
     );
-    return "";
+    return [];
   }
-  const body = await response.json();
-  const accounts = Array.isArray(body?.result) ? body.result : [];
-  const preferred =
-    accounts.find((account) =>
-      /real.?estate|duffy/i.test(String(account?.name ?? "")),
-    ) ?? accounts[0];
-  const id = preferred?.id ? String(preferred.id) : "";
-  if (id) {
-    process.env.CLOUDFLARE_ACCOUNT_ID = id;
-    process.env.R2_ACCOUNT_ID = id;
-    console.log(`Resolved Cloudflare account ${preferred.name ?? id}`);
-  }
+  return accountsFromCfBody(path, body);
+}
+
+function runCapture(command, args, extraEnv = {}) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(command, args, {
+      cwd: ROOT,
+      env: { ...process.env, ...extraEnv },
+    });
+    let stdout = "";
+    let stderr = "";
+    child.stdout.on("data", (chunk) => {
+      stdout += chunk;
+    });
+    child.stderr.on("data", (chunk) => {
+      stderr += chunk;
+    });
+    child.on("exit", (code) => {
+      if (code === 0) resolve({ stdout, stderr });
+      else {
+        reject(
+          new Error(
+            `${command} ${args.join(" ")} exited ${code}: ${(stderr || stdout).trim()}`,
+          ),
+        );
+      }
+    });
+  });
+}
+
+async function resolveAccountIdFromWhoami() {
+  const { stdout, stderr } = await runCapture("npx", [
+    "wrangler",
+    "whoami",
+    "--config",
+    WRANGLER_CONFIG,
+  ]);
+  const text = `${stdout}\n${stderr}`;
+  const ids = [...text.matchAll(ACCOUNT_ID_RE)].map((match) => match[1]);
+  const id = ids.find(Boolean) ?? "";
+  if (id) setAccountId(id, "from wrangler whoami");
+  else console.error("wrangler whoami did not print an account id");
   return id;
 }
 
+async function resolveAccountIdFromToken() {
+  if (accountId()) return accountId();
+  if (!isUsableSecret(process.env.CLOUDFLARE_API_TOKEN)) return "";
+
+  for (const path of ["/accounts", "/memberships"]) {
+    try {
+      const preferred = pickAccount(await lookupCloudflareAccounts(path));
+      if (preferred?.id) {
+        setAccountId(String(preferred.id), preferred.name);
+        return String(preferred.id);
+      }
+    } catch (error) {
+      console.error(`Cloudflare ${path} lookup failed:`, error);
+    }
+  }
+
+  try {
+    return await resolveAccountIdFromWhoami();
+  } catch (error) {
+    console.error(
+      "wrangler whoami failed — continuing with token-only wrangler auth:",
+      error instanceof Error ? error.message : error,
+    );
+    return "";
+  }
+}
+
+/**
+ * Recurse image files using string names from readdir. The invalid
+ * readdir option that returns strings (not Dirents) made entry.name
+ * undefined on Vercel, so path.join threw.
+ */
 async function walk(dir) {
-  const entries = await readdir(dir, { withTypes: true });
+  const names = await readdir(dir);
   const files = [];
-  for (const entry of entries) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) {
+  for (const name of names) {
+    if (typeof name !== "string" || !name) continue;
+    const full = join(dir, name);
+    const info = await stat(full);
+    if (info.isDirectory()) {
       files.push(...(await walk(full)));
-    } else if (/\.(webp|jpg|jpeg|png|svg)$/i.test(entry.name)) {
+    } else if (/\.(webp|jpg|jpeg|png|svg|gif)$/i.test(name)) {
       files.push(full);
     }
   }
@@ -129,6 +225,8 @@ function wranglerPut(localFile, objectKey) {
     "object",
     "put",
     `${BUCKET}/${objectKey}`,
+    "--config",
+    WRANGLER_CONFIG,
     "--file",
     localFile,
     "--content-type",
@@ -136,6 +234,28 @@ function wranglerPut(localFile, objectKey) {
     "--cache-control",
     CACHE_CONTROL,
   ]);
+}
+
+async function restPut(localFile, objectKey) {
+  const id = accountId();
+  if (!id) {
+    throw new Error("R2 REST put needs CLOUDFLARE_ACCOUNT_ID");
+  }
+  const url = `https://api.cloudflare.com/client/v4/accounts/${id}/r2/buckets/${BUCKET}/objects/${objectKey}`;
+  const body = await readFile(localFile);
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
+      "Content-Type": contentTypeFor(localFile),
+      "Cache-Control": CACHE_CONTROL,
+    },
+    body,
+  });
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`R2 REST put HTTP ${response.status}: ${text.slice(0, 400)}`);
+  }
 }
 
 async function s3Put(localFile, objectKey) {
@@ -162,11 +282,24 @@ async function s3Put(localFile, objectKey) {
   );
 }
 
+async function putObject(localFile, objectKey, mode) {
+  if (mode === "s3") {
+    await s3Put(localFile, objectKey);
+    return;
+  }
+  if (mode === "rest") {
+    await restPut(localFile, objectKey);
+    return;
+  }
+  await wranglerPut(localFile, objectKey);
+}
+
 async function main() {
   if (isUsableSecret(process.env.CLOUDFLARE_API_TOKEN) && !accountId()) {
     await resolveAccountIdFromToken();
   }
   const useS3 = hasS3Auth();
+  const useRest = hasWranglerAuth() && Boolean(accountId());
   const useWrangler = hasWranglerAuth();
   if (!useS3 && !useWrangler) {
     console.log(
@@ -176,7 +309,7 @@ async function main() {
   }
 
   const files = await walk(IMAGES_DIR);
-  const mode = useS3 ? "s3" : "wrangler";
+  const mode = useS3 ? "s3" : useRest ? "rest" : "wrangler";
   console.log(
     `Syncing ${files.length} images to r2://${BUCKET}/${PREFIX}/ via ${mode} ...`,
   );
@@ -185,18 +318,24 @@ async function main() {
     const objectKey = `${PREFIX}/${rel}`;
     const size = (await stat(file)).size;
     console.log(`→ ${objectKey} (${Math.round(size / 1024)} KB)`);
-    if (useS3) {
-      await s3Put(file, objectKey);
-    } else {
-      await wranglerPut(file, objectKey);
-    }
+    await putObject(file, objectKey, mode);
   }
   console.log(
     "Done. Verify a public object 200, then set NEXT_PUBLIC_R2_ENABLED=true.",
   );
 }
 
+function keepSiteBuild() {
+  return Boolean(process.env.VERCEL || process.env.CI);
+}
+
 main().catch((error) => {
-  console.error(error);
+  console.error("R2 image sync failed:", error);
+  if (keepSiteBuild()) {
+    console.warn(
+      "Vercel/CI postbuild: continuing after R2 sync error so git-backed images still deploy.",
+    );
+    process.exit(0);
+  }
   process.exit(1);
 });
