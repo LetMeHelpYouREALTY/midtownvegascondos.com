@@ -16,6 +16,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-update", {
   title:
@@ -179,6 +180,11 @@ export default function MarketUpdatePage() {
             <h2 className="text-2xl font-bold text-slate-900 mb-6">
               Notable Sale of the Week
             </h2>
+            <SectionPhoto
+              imageKey="listingDetails"
+              heading="Notable Sale of the Week"
+              className="mb-6 text-left"
+            />
             <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
@@ -217,6 +223,11 @@ export default function MarketUpdatePage() {
             <h2 className="text-2xl font-bold text-slate-900 mb-6">
               Dr. Jan Duffy's Expert Analysis
             </h2>
+            <SectionPhoto
+              imageKey="whyJan"
+              heading="Dr. Jan Duffy's Expert Analysis"
+              className="mb-6 text-left"
+            />
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <div className="prose prose-lg max-w-none text-slate-700">
                 <p>
@@ -367,6 +378,11 @@ export default function MarketUpdatePage() {
             <h2 className="text-2xl font-bold text-slate-900 mb-6">
               This Week by Area
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="This Week by Area"
+              className="mb-6 text-left"
+            />
             <div className="overflow-x-auto">
               <table className="w-full bg-white border border-slate-200 rounded-xl overflow-hidden">
                 <thead className="bg-slate-50">

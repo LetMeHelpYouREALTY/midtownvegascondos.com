@@ -17,6 +17,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-insights", {
   title:
@@ -119,6 +120,11 @@ export default function MarketInsightsPage() {
                 Las Vegas Tech Transformation
               </h2>
             </div>
+            <SectionPhoto
+              imageKey="buyersSpecialized"
+              heading="Las Vegas Tech Transformation"
+              className="mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="prose prose-lg max-w-none text-slate-700">
                 <p>
@@ -176,6 +182,12 @@ export default function MarketInsightsPage() {
                 California Migration Analysis
               </h2>
             </div>
+            <SectionPhoto
+              imageKey="caNumbers"
+              heading="California Migration Analysis"
+              className="mb-8 max-w-4xl text-left"
+              onDark
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-blue-100 mb-6">
@@ -265,6 +277,11 @@ export default function MarketInsightsPage() {
                 Economic Diversification
               </h2>
             </div>
+            <SectionPhoto
+              imageKey="marketStats"
+              heading="Economic Diversification"
+              className="mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <h3 className="font-bold text-slate-900 mb-3">
@@ -315,6 +332,11 @@ export default function MarketInsightsPage() {
                 2026 Neighborhood Outlook
               </h2>
             </div>
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="2026 Neighborhood Outlook"
+              className="mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-4">
@@ -387,6 +409,11 @@ export default function MarketInsightsPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               What This Means for You
             </h2>
+            <SectionPhoto
+              imageKey="whyJan"
+              heading="What This Means for You"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-green-50 border border-green-200 rounded-xl p-6">
                 <h3 className="font-bold text-green-900 text-xl mb-4 flex items-center">
