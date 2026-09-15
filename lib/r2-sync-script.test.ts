@@ -54,6 +54,10 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/AWS_SECRET_ACCESS_KEY/);
     expect(src).toMatch(/function normalizeS3Env/);
     expect(src).toMatch(/firstUsableSecret/);
+    expect(src).toMatch(/deriveS3CredentialsFromApiToken/);
+    expect(src).toMatch(/user\/tokens\/verify/);
+    expect(src).toMatch(/Derived R2 S3 credentials/);
+    expect(src).toMatch(/AWS4-HMAC-SHA256/);
     expect(src).toMatch(/CLOUDFLARE_GLOBAL_API_TOKEN/);
     expect(src).toMatch(/X-Auth-Email/);
     expect(src).toMatch(/X-Auth-Key/);
@@ -70,7 +74,7 @@ describe("R2 image sync script", () => {
     expect(workflow).toMatch(/global_auth=/);
     expect(workflow).toMatch(/Vercel env keys matching R2\/Cloudflare\/AWS/);
     expect(workflow).toMatch(/Vercel production env keys from env pull/);
-    expect(workflow).toMatch(/Pull R2 keys from sister Vercel projects/);
+    expect(workflow).toMatch(/Skipping sister Vercel scan/);
     expect(workflow).toMatch(/scripts\/scan-vercel-r2-keys.mjs/);
     const scanner = readFileSync(
       join(ROOT, "scripts/scan-vercel-r2-keys.mjs"),

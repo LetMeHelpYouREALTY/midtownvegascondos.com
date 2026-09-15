@@ -19,6 +19,7 @@
  * https://developers.cloudflare.com/r2/objects/upload-objects/
  */
 
+import { createHash, createHmac } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { readdir, readFile, stat } from "node:fs/promises";
 import { extname, join, relative, dirname } from "node:path";
@@ -175,6 +176,67 @@ function hasS3Auth() {
       isUsableSecret(process.env.R2_SECRET_ACCESS_KEY) &&
       accountId(),
   );
+}
+
+function sha256Hex(value) {
+  return createHash("sha256").update(value).digest("hex");
+}
+
+function hmacSha256(key, value) {
+  return createHmac("sha256", key).update(value).digest();
+}
+
+/**
+ * Object Read & Write tokens only work on the S3 API (Cloudflare R2 token
+ * docs, Aug 2026). REST PUT 401/10000s with that token. Derive S3 HMAC
+ * credentials instead: Access Key ID = token id from GET /user/tokens/verify,
+ * Secret Access Key = SHA-256 hex of the token value.
+ */
+async function deriveS3CredentialsFromApiToken() {
+  if (hasS3Auth()) return false;
+  const token = firstUsableSecret(["CLOUDFLARE_API_TOKEN"]);
+  if (!token) return false;
+  const response = await fetch(
+    "https://api.cloudflare.com/client/v4/user/tokens/verify",
+    { headers: { Authorization: `Bearer ${token}` } },
+  );
+  const text = await response.text();
+  let body = {};
+  try {
+    body = JSON.parse(text);
+  } catch {
+    body = {};
+  }
+  if (response.status === 429 || isTokenLocationBlocked(body)) {
+    console.warn(
+      `Skipping S3 derivation from API token (HTTP ${response.status} ${cloudflareError(body).message || ""}). Do not retry Account API writes.`.trim(),
+    );
+    return false;
+  }
+  if (!response.ok) {
+    console.warn(
+      `Token verify for S3 derivation HTTP ${response.status}: ${cloudflareError(body).message || text.slice(0, 120)}`,
+    );
+    return false;
+  }
+  const tokenId = body?.result?.id;
+  if (!tokenId) {
+    console.warn("Token verify succeeded but returned no token id.");
+    return false;
+  }
+  process.env.R2_ACCESS_KEY_ID = String(tokenId);
+  process.env.R2_SECRET_ACCESS_KEY = sha256Hex(token);
+  console.log(
+    "Derived R2 S3 credentials from CLOUDFLARE_API_TOKEN (token id + SHA-256). Per Cloudflare R2 auth docs Aug 2026.",
+  );
+  return true;
+}
+
+function s3CanonicalUri(objectKey) {
+  return `/${BUCKET}/${objectKey
+    .split("/")
+    .map((segment) => encodeURIComponent(segment))
+    .join("/")}`;
 }
 
 function pickAccount(accounts) {
@@ -467,27 +529,70 @@ async function restPut(localFile, objectKey) {
 }
 
 async function s3Put(localFile, objectKey) {
-  const endpoint = `https://${accountId()}.r2.cloudflarestorage.com`;
-  await run(
-    "aws",
-    [
-      "s3",
-      "cp",
-      localFile,
-      `s3://${BUCKET}/${objectKey}`,
-      "--endpoint-url",
-      endpoint,
-      "--content-type",
-      contentTypeFor(localFile),
-      "--cache-control",
-      CACHE_CONTROL,
-    ],
-    {
-      AWS_ACCESS_KEY_ID: process.env.R2_ACCESS_KEY_ID,
-      AWS_SECRET_ACCESS_KEY: process.env.R2_SECRET_ACCESS_KEY,
-      AWS_DEFAULT_REGION: "auto",
+  const accessKey = process.env.R2_ACCESS_KEY_ID;
+  const secretKey = process.env.R2_SECRET_ACCESS_KEY;
+  const host = `${accountId()}.r2.cloudflarestorage.com`;
+  const canonicalUri = s3CanonicalUri(objectKey);
+  const body = await readFile(localFile);
+  const contentType = contentTypeFor(localFile);
+  const payloadHash = sha256Hex(body);
+  const amzDate = new Date().toISOString().replace(/[:-]|\.\d{3}/g, "");
+  const dateStamp = amzDate.slice(0, 8);
+  const region = "auto";
+  const service = "s3";
+  const canonicalHeaders = [
+    `cache-control:${CACHE_CONTROL}`,
+    `content-type:${contentType}`,
+    `host:${host}`,
+    `x-amz-content-sha256:${payloadHash}`,
+    `x-amz-date:${amzDate}`,
+    "",
+  ].join("\n");
+  const signedHeaders =
+    "cache-control;content-type;host;x-amz-content-sha256;x-amz-date";
+  const canonicalRequest = [
+    "PUT",
+    canonicalUri,
+    "",
+    canonicalHeaders,
+    signedHeaders,
+    payloadHash,
+  ].join("\n");
+  const credentialScope = `${dateStamp}/${region}/${service}/aws4_request`;
+  const stringToSign = [
+    "AWS4-HMAC-SHA256",
+    amzDate,
+    credentialScope,
+    sha256Hex(canonicalRequest),
+  ].join("\n");
+  const kDate = hmacSha256(`AWS4${secretKey}`, dateStamp);
+  const kRegion = hmacSha256(kDate, region);
+  const kService = hmacSha256(kRegion, service);
+  const kSigning = hmacSha256(kService, "aws4_request");
+  const signature = createHmac("sha256", kSigning)
+    .update(stringToSign)
+    .digest("hex");
+  const response = await fetch(`https://${host}${canonicalUri}`, {
+    method: "PUT",
+    headers: {
+      "Cache-Control": CACHE_CONTROL,
+      "Content-Type": contentType,
+      "x-amz-content-sha256": payloadHash,
+      "x-amz-date": amzDate,
+      Authorization: `AWS4-HMAC-SHA256 Credential=${accessKey}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`,
     },
-  );
+    body,
+  });
+  if (response.ok) return;
+  const text = await response.text();
+  if (response.status === 401 || response.status === 403) {
+    const error = new Error(
+      `R2 S3 PUT HTTP ${response.status}: ${text.slice(0, 240)}. Derived or provided S3 credentials cannot write. Create R2 Object Read & Write tokens in the dashboard (Manage R2 API Tokens) instead of retrying Account API REST.`,
+    );
+    error.skipSync = true;
+    throw error;
+  }
+  throw new Error(`R2 S3 PUT HTTP ${response.status}: ${text.slice(0, 400)}`);
 }
 
 async function imagesPut(localFile, objectKey) {
@@ -862,6 +967,9 @@ async function syncFiles(files, mode) {
 
 async function main() {
   normalizeS3Env();
+  if (!hasS3Auth()) {
+    await deriveS3CredentialsFromApiToken();
+  }
   const s3Ready = hasS3Auth();
   if (
     !s3Ready &&

@@ -128,21 +128,16 @@ jobs:
           rm -f /tmp/vercel-prod.env
         id: vercelenv
 
-      # Same Cloudflare account hosts shared/agent/dr-jan-duffy-headshot.jpg.
-      # Sister sites may already have R2 S3 keys this project does not.
-      - name: Pull R2 keys from sister Vercel projects
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      # 158 sister Vercel projects were scanned 2026-09-15: no pullable R2 S3 keys.
+      # Do not repeat that hunt. Prefer S3 keys derived from CLOUDFLARE_API_TOKEN
+      # (token id + SHA-256) per Cloudflare R2 auth docs, Aug 2026.
+      - name: Skip exhausted sister Vercel R2 key scan
         run: |
-          if [ -z "$VERCEL_TOKEN" ]; then
-            echo "No VERCEL_TOKEN; cannot scan sister projects."
-            exit 0
-          fi
           if [ -n "${R2_ACCESS_KEY_ID:-}" ] && [ -n "${R2_SECRET_ACCESS_KEY:-}" ]; then
-            echo "R2 S3 keys already present; skipping sister scan."
+            echo "R2 S3 keys already present."
             exit 0
           fi
-          node scripts/scan-vercel-r2-keys.mjs
+          echo "Skipping sister Vercel scan; 158 projects scanned 2026-09-15 with no pullable R2 S3 keys. scripts/scan-vercel-r2-keys.mjs remains for a manual run if a human adds keys later."
 
       - name: List Vercel R2-related env key names
         if: always()
