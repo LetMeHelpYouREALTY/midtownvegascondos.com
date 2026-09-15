@@ -10,6 +10,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import { blogPosts } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/blog", {
   title:
@@ -117,6 +118,12 @@ export default function BlogPage() {
             <h2 className="text-2xl font-bold mb-3">
               Want a custom midtown shortlist?
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Want a custom midtown shortlist?"
+              className="mx-auto mb-6 max-w-3xl text-left"
+              onDark
+            />
             <p className="text-slate-300 mb-6">
               Call {agentInfo.name} at {agentInfo.phone} ·{" "}
               {officeInfo.address.full}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, Home } from "lucide-react";
 import { agentInfo, officeInfo } from "@/lib/site-config";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export default function CTASection() {
   return (
@@ -15,6 +16,12 @@ export default function CTASection() {
             Call {agentInfo.phone} or visit {officeInfo.address.full}. Dr. Jan
             Duffy maps buildings, HOA rules, and commute times before you write.
           </p>
+          <SectionPhoto
+            imageKey="homeCta"
+            heading="Ready to Tour Arts District Condos?"
+            className="mx-auto mb-8 max-w-3xl text-left"
+            onDark
+          />
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button

@@ -264,6 +264,7 @@ export default function Home() {
                 imageKey="marketStats"
                 heading={`${config.neighborhood} Real Estate Market`}
                 className="mx-auto max-w-4xl text-left"
+                onDark
               />
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
@@ -385,6 +386,12 @@ export default function Home() {
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
               {config.ctaSubheadline}
             </p>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading={config.ctaHeadline}
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={agentInfo.phoneTel}

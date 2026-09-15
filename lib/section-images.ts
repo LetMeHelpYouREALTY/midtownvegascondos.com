@@ -468,6 +468,36 @@ export const sectionImages = {
     "Bright Las Vegas living space illustrating 55+ and neighborhood buyer FAQ photography",
     "HOA, age restriction, amenities, and commute questions answered.",
   ),
+  featuredAreas: fromHero(
+    "one-las-vegas-highrise.webp",
+    "Featured Midtown Condo Areas",
+    "One Las Vegas high-rise representing featured Arts District, Symphony Park, and Strip-adjacent condo areas",
+    "Area medians for Arts District, Symphony Park, and One Las Vegas.",
+  ),
+  gbpPosts: fromHero(
+    "gbp-arts-district-office.webp",
+    "Latest from the Arts District office",
+    "Arts District Las Vegas office street matching Google Business Profile posts from 921 South Main Street",
+    "The same market notes posted on Google Business Profile.",
+  ),
+  homeCta: fromHero(
+    "strip-view-condo-balcony.webp",
+    "Find Your Downtown Las Vegas Condo",
+    "Strip-view midtown Las Vegas condo balcony for downtown and Arts District tour CTAs",
+    "Call (702) 500-1980 to tour Arts District and downtown towers.",
+  ),
+  gbpVisit: fromHero(
+    "contact-arts-district-main-street.webp",
+    "Visit Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
+    "921 South Main Street Arts District Las Vegas storefront matching the Google Maps pin",
+    "Same name, address, and phone as Google Business Profile.",
+  ),
+  commuteTimes: fromHero(
+    "map-planning.webp",
+    "Check drive times from midtown Las Vegas condos",
+    "Relocation planning map used to compare drive times from midtown Las Vegas condos",
+    "Strip, airport, Downtown, Summerlin, and Henderson commute context.",
+  ),
 } as const;
 
 export type SectionImageKey = keyof typeof sectionImages;

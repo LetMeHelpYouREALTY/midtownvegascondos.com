@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { gbpPostTemplates } from "@/lib/gbp-posts";
 import { agentInfo } from "@/lib/site-config";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 type GbpPostsSectionProps = {
   limit?: number;
@@ -30,6 +31,11 @@ export default function GbpPostsSection({ limit = 3 }: GbpPostsSectionProps) {
             for homebuyers comparing downtown and Arts District condos.
           </p>
         </div>
+        <SectionPhoto
+          imageKey="gbpPosts"
+          heading="Latest from the Arts District office"
+          className="mx-auto mb-10 max-w-4xl text-left"
+        />
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
           {posts.map((post) => (
             <article

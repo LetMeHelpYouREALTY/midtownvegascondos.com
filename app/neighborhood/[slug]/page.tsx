@@ -14,6 +14,7 @@ import {
 } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 import { notFound } from "next/navigation";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -96,6 +97,11 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
             >
               FAQ
             </h2>
+            <SectionPhoto
+              imageKey="lifestyleFaq"
+              heading="FAQ"
+              className="mb-6 text-left"
+            />
             <dl className="space-y-4">
               {page.faqs.map((faq) => (
                 <div

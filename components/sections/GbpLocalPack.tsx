@@ -1,5 +1,6 @@
 import { Clock, MapPin, Phone, Star } from "lucide-react";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 type GbpLocalPackProps = {
   showMap?: boolean;
@@ -38,6 +39,12 @@ export default function GbpLocalPack({
               directions, or read reviews before you tour Arts District and
               downtown Las Vegas condos.
             </p>
+            <SectionPhoto
+              imageKey="gbpVisit"
+              heading={`Visit ${officeInfo.name}`}
+              className="mb-6 max-w-xl text-left"
+              onDark
+            />
 
             <address className="mb-6 not-italic text-slate-200">
               <span className="block font-semibold text-white">
