@@ -2,11 +2,11 @@
 /**
  * Upload git-backed public/images to Cloudflare R2 (primary storage).
  *
- * Usage:
- *   CLOUDFLARE_API_TOKEN=... CLOUDFLARE_ACCOUNT_ID=... npm run cloudflare:images
+ * Auth (either):
+ *   CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID  → wrangler r2 object put
+ *   R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY + account id → S3-compatible sync
  *
- * Requires wrangler auth and a bucket named realestatedomains-assets
- * (same public host already serving the agent headshot).
+ * Bucket: realestatedomains-assets (same public host as the agent headshot).
  *
  * Per Cloudflare R2 upload docs (as of 2026): wrangler r2 object put
  * https://developers.cloudflare.com/r2/objects/upload-objects/
@@ -42,6 +42,22 @@ function contentTypeFor(file) {
   }
 }
 
+function accountId() {
+  return process.env.R2_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID || "";
+}
+
+function hasWranglerAuth() {
+  return Boolean(process.env.CLOUDFLARE_API_TOKEN && accountId());
+}
+
+function hasS3Auth() {
+  return Boolean(
+    process.env.R2_ACCESS_KEY_ID &&
+      process.env.R2_SECRET_ACCESS_KEY &&
+      accountId(),
+  );
+}
+
 async function walk(dir) {
   const entries = await readdir(dir, { withTypes: true });
   const files = [];
@@ -56,50 +72,85 @@ async function walk(dir) {
   return files;
 }
 
-function wranglerPut(localFile, objectKey) {
+function run(command, args, extraEnv = {}) {
   return new Promise((resolve, reject) => {
-    const child = spawn(
-      "npx",
-      [
-        "wrangler",
-        "r2",
-        "object",
-        "put",
-        `${BUCKET}/${objectKey}`,
-        "--file",
-        localFile,
-        "--content-type",
-        contentTypeFor(localFile),
-        "--cache-control",
-        CACHE_CONTROL,
-      ],
-      { stdio: "inherit", cwd: ROOT, env: process.env },
-    );
+    const child = spawn(command, args, {
+      stdio: "inherit",
+      cwd: ROOT,
+      env: { ...process.env, ...extraEnv },
+    });
     child.on("exit", (code) => {
       if (code === 0) resolve();
-      else reject(new Error(`wrangler exited ${code} for ${objectKey}`));
+      else reject(new Error(`${command} exited ${code}`));
     });
   });
 }
 
+function wranglerPut(localFile, objectKey) {
+  return run("npx", [
+    "wrangler",
+    "r2",
+    "object",
+    "put",
+    `${BUCKET}/${objectKey}`,
+    "--file",
+    localFile,
+    "--content-type",
+    contentTypeFor(localFile),
+    "--cache-control",
+    CACHE_CONTROL,
+  ]);
+}
+
+async function s3Put(localFile, objectKey) {
+  const endpoint = `https://${accountId()}.r2.cloudflarestorage.com`;
+  await run(
+    "aws",
+    [
+      "s3",
+      "cp",
+      localFile,
+      `s3://${BUCKET}/${objectKey}`,
+      "--endpoint-url",
+      endpoint,
+      "--content-type",
+      contentTypeFor(localFile),
+      "--cache-control",
+      CACHE_CONTROL,
+    ],
+    {
+      AWS_ACCESS_KEY_ID: process.env.R2_ACCESS_KEY_ID,
+      AWS_SECRET_ACCESS_KEY: process.env.R2_SECRET_ACCESS_KEY,
+      AWS_DEFAULT_REGION: "auto",
+    },
+  );
+}
+
 async function main() {
-  if (!process.env.CLOUDFLARE_API_TOKEN && !process.env.CLOUDFLARE_ACCOUNT_ID) {
+  const useS3 = hasS3Auth();
+  const useWrangler = hasWranglerAuth();
+  if (!useS3 && !useWrangler) {
     console.error(
-      "CLOUDFLARE_API_TOKEN (and CLOUDFLARE_ACCOUNT_ID) required to sync R2.",
+      "Need CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID, or R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY + account id.",
     );
     process.exit(2);
   }
 
   const files = await walk(IMAGES_DIR);
+  const mode = useS3 ? "s3" : "wrangler";
   console.log(
-    `Syncing ${files.length} images to r2://${BUCKET}/${PREFIX}/images/ ...`,
+    `Syncing ${files.length} images to r2://${BUCKET}/${PREFIX}/ via ${mode} ...`,
   );
   for (const file of files) {
     const rel = relative(join(ROOT, "public"), file).replaceAll("\\", "/");
     const objectKey = `${PREFIX}/${rel}`;
     const size = (await stat(file)).size;
     console.log(`→ ${objectKey} (${Math.round(size / 1024)} KB)`);
-    await wranglerPut(file, objectKey);
+    if (useS3) {
+      await s3Put(file, objectKey);
+    } else {
+      await wranglerPut(file, objectKey);
+    }
   }
   console.log(
     "Done. Verify a public object 200, then set NEXT_PUBLIC_R2_ENABLED=true.",

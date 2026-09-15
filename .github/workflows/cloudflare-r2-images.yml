@@ -16,6 +16,9 @@ jobs:
   sync-r2-images:
     name: Sync git images to Cloudflare R2
     runs-on: ubuntu-latest
+    # Production GitHub Environment holds Cloudflare/R2 secrets (repo-level
+    # secrets were empty, which made earlier syncs skip).
+    environment: Production
     permissions:
       contents: read
     steps:
@@ -26,13 +29,22 @@ jobs:
         id: cf
         env:
           TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || secrets.R2_ACCOUNT_ID }}
+          R2_KEY: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         run: |
-          if [ -z "$TOKEN" ] || [ -z "$ACCOUNT" ]; then
-            echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "Cloudflare R2 credentials are not configured. Skipping image sync."
-          else
+          TOKEN_OK=false
+          S3_OK=false
+          [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ] && TOKEN_OK=true
+          [ -n "$R2_KEY" ] && [ -n "$R2_SECRET" ] && [ -n "$ACCOUNT" ] && S3_OK=true
+          echo "token_auth=$TOKEN_OK" >> "$GITHUB_OUTPUT"
+          echo "s3_auth=$S3_OK" >> "$GITHUB_OUTPUT"
+          if [ "$TOKEN_OK" = true ] || [ "$S3_OK" = true ]; then
             echo "configured=true" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare R2 credentials found (token=$TOKEN_OK s3=$S3_OK)."
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare R2 credentials are not in the Production environment. Skipping image sync."
           fi
 
       - name: Setup Node.js
@@ -51,6 +63,9 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET: realestatedomains-assets
           NEXT_PUBLIC_R2_PREFIX: midtownvegascondos
         run: npm run cloudflare:images
@@ -64,5 +79,5 @@ jobs:
           if [ "$CODE" = "200" ]; then
             echo "Site images are live on Cloudflare R2."
           else
-            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID, re-run this workflow, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
+            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Put CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID (or R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_ACCOUNT_ID) on the Production GitHub Environment, re-run this workflow, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
           fi
