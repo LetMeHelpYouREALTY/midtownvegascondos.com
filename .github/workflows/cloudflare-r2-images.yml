@@ -108,6 +108,19 @@ jobs:
                 ;;
             esac
           done < /tmp/vercel-prod.env
+          echo "Vercel production env keys from env pull:"
+          awk -F= '
+            /^[A-Za-z_][A-Za-z0-9_]*=/ {
+              key=$1
+              val=substr($0, index($0,"=")+1)
+              gsub(/^"/, "", val)
+              gsub(/"$/, "", val)
+              if (val == "[SENSITIVE]" || val == "SENSITIVE")
+                print key " (sensitive/unreadable)"
+              else
+                print key
+            }
+          ' /tmp/vercel-prod.env | sort
           rm -f /tmp/vercel-prod.env
         id: vercelenv
 
@@ -134,13 +147,19 @@ jobs:
               console.log(`Vercel env list HTTP ${res.status}`);
               return;
             }
-            const envs = Array.isArray(body.envs) ? body.envs : [];
-            const interesting = envs
-              .map((entry) => entry.key)
-              .filter((key) =>
-                /R2|CLOUDFLARE|AWS_ACCESS|AWS_SECRET/i.test(String(key)),
-              )
-              .sort();
+            const pages = [];
+            if (Array.isArray(body)) pages.push(...body);
+            if (Array.isArray(body.envs)) pages.push(...body.envs);
+            if (Array.isArray(body.data)) pages.push(...body.data);
+            if (body.key) pages.push(body);
+            const keys = [
+              ...new Set(pages.map((entry) => entry.key).filter(Boolean)),
+            ].sort();
+            console.log(`Vercel env list HTTP ${res.status}, ${keys.length} keys`);
+            console.log("Vercel env key names:", keys.join(", ") || "(none)");
+            const interesting = keys.filter((key) =>
+              /R2|CLOUDFLARE|AWS_ACCESS|AWS_SECRET/i.test(String(key)),
+            );
             console.log(
               "Vercel env keys matching R2/Cloudflare/AWS:",
               interesting.join(", ") || "(none)",
