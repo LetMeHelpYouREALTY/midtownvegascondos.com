@@ -59,6 +59,36 @@ export default function CTASection() {
                 Call Now
               </Link>
             </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
+              <Link
+                href={officeInfo.maps.directions}
+                className="flex items-center gap-2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Directions
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
+              <Link
+                href={officeInfo.maps.reviews}
+                className="flex items-center gap-2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Google Reviews
+              </Link>
+            </Button>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-blue-100 text-sm">

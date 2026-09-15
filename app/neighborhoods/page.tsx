@@ -6,7 +6,7 @@ import { MapPin, Phone, Home, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta, midtownNeighborhoods } from "@/lib/hyperlocal-content";
-import { agentInfo } from "@/lib/site-config";
+import { agentInfo, officeInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import Image from "next/image";
@@ -115,6 +115,22 @@ export default function NeighborhoodsPage() {
               >
                 <Phone className="h-4 w-4 mr-2" />
                 Call {agentInfo.phone}
+              </a>
+              <a
+                href={officeInfo.maps.directions}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3 rounded-md font-semibold hover:bg-slate-100"
+              >
+                Directions
+              </a>
+              <a
+                href={officeInfo.maps.reviews}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center border border-white text-white hover:bg-white/10 px-6 py-3 rounded-md font-semibold"
+              >
+                View Google Reviews
               </a>
               <Link
                 href="/contact"

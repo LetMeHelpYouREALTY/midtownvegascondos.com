@@ -282,6 +282,11 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           {/* Core Services Section */}
           <section className="mb-16 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="servicesCore"
+              heading="Core Real Estate Services"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Core Real Estate Services
             </h2>

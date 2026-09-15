@@ -70,7 +70,7 @@ export default function WhyChooseUs() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <SectionPhoto
-            imageKey="hoaReview"
+            imageKey="whyJan"
             heading="Why Choose Dr. Jan for Midtown Condos?"
             className="mx-auto mb-8 max-w-4xl text-left"
           />

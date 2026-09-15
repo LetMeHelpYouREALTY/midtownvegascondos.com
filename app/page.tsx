@@ -439,6 +439,22 @@ export default function Home() {
                 <Phone className="h-5 w-5 mr-2" />
                 Call {agentInfo.phone}
               </a>
+              <a
+                href={officeInfo.maps.directions}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
+              >
+                Directions
+              </a>
+              <a
+                href={officeInfo.maps.reviews}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center border-2 border-white text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-white/10 transition-colors"
+              >
+                View Google Reviews
+              </a>
               <Link
                 href="/contact"
                 className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
