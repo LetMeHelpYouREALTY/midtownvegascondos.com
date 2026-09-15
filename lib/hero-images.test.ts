@@ -17,7 +17,9 @@ describe("hero-images", () => {
     expect(heroImages.juhl.src).toBe(
       "/images/hero/juhl-downtown-condo-tower.webp",
     );
-    expect(heroImages.securityPolicy.src).toBe("/images/hero/condo-lobby.webp");
+    expect(heroImages.securityPolicy.src).toBe(
+      "/images/hero/why-bhhs-brokerage.webp",
+    );
   });
 
   it("maps /security-policy to a unique hero", () => {
@@ -42,5 +44,18 @@ describe("hero-images", () => {
     expect(heroImages.listingsSearch.src).toContain(
       "juhl-downtown-condo-tower",
     );
+    expect(heroImages.symphonyPark.src).toContain("symphony-park-midrise");
+    expect(heroImages.newConstruction.src).toContain(
+      "heritage-stonebridge-new",
+    );
+    expect(heroImages.marketInsights.src).toContain("home-strip-dusk");
+  });
+
+  it("does not catalog wrong-city or off-subject stock filenames", () => {
+    const banned =
+      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan/;
+    for (const [key, img] of Object.entries(heroImages)) {
+      expect(img.src, key).not.toMatch(banned);
+    }
   });
 });

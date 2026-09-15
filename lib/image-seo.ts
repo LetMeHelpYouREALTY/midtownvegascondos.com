@@ -203,8 +203,8 @@ export function sitemapImageEntries(): Array<{
 
 const HEADING_SECTION_PHOTOS = [
   "/images/sections/search-midtown-condos.webp",
-  "/images/sections/why-choose-jan.webp",
-  "/images/sections/hoa-review.webp",
+  "/images/hero/gbp-arts-district-office.webp",
+  "/images/hero/services-condo-consultation.webp",
   "/images/sections/market-stats-skyline.webp",
   "/images/sections/arts-district-galleries.webp",
   "/images/sections/client-reviews.webp",

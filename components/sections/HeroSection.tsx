@@ -11,17 +11,17 @@ import { Phone } from "lucide-react";
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
   const prefersReducedMotion = useReducedMotion();
-  
+
   const images = [
     "/images/hero/home-strip-dusk.webp",
     "/images/hero/home-skyline-day.webp",
-    "/images/hero/condo-balconies.webp",
+    "/images/hero/juhl-downtown-condo-tower.webp",
   ];
 
   useEffect(() => {
     // Don't animate if user prefers reduced motion
     if (prefersReducedMotion) return;
-    
+
     const intervalId = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 5000);
@@ -36,12 +36,8 @@ export default function HeroSection() {
           <div
             key={index}
             className={`absolute inset-0 ${
-              prefersReducedMotion 
-                ? '' 
-                : 'transition-opacity duration-1000'
-            } ${
-              index === currentImage ? "opacity-100" : "opacity-0"
-            }`}
+              prefersReducedMotion ? "" : "transition-opacity duration-1000"
+            } ${index === currentImage ? "opacity-100" : "opacity-0"}`}
           >
             <Image
               src={src}
@@ -63,8 +59,8 @@ export default function HeroSection() {
           <span className="text-blue-400">Las Vegas & Henderson</span>
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-          Expert real estate services with personalized attention. Your trusted partner for buying,
-          selling, and investing in Southern Nevada.
+          Expert real estate services with personalized attention. Your trusted
+          partner for buying, selling, and investing in Southern Nevada.
         </p>
 
         <div className="mb-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -105,9 +101,9 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <div 
+      <div
         className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 ${
-          prefersReducedMotion ? '' : 'animate-bounce'
+          prefersReducedMotion ? "" : "animate-bounce"
         }`}
       >
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">

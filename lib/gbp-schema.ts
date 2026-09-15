@@ -284,8 +284,8 @@ const gbpPhotoObjects = [
     name: "The English Residences midtown condos",
     caption:
       "The English Residences boutique condo building in midtown Las Vegas",
-    url: absoluteSiteImage("/images/hero/apartment-row.webp"),
-    contentUrl: absoluteSiteImage("/images/hero/apartment-row.webp"),
+    url: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
   },
   {
     "@type": "ImageObject" as const,
@@ -317,17 +317,19 @@ const gbpPhotoObjects = [
     "@type": "ImageObject" as const,
     name: "Why work with Dr. Jan Duffy",
     caption:
-      "Las Vegas valley map and condo notes for Arts District and downtown buyer matching",
-    url: absoluteSiteImage("/images/sections/why-choose-jan.webp"),
-    contentUrl: absoluteSiteImage("/images/sections/why-choose-jan.webp"),
+      "Arts District Las Vegas office street for Dr. Jan Duffy buyer matching",
+    url: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
   },
   {
     "@type": "ImageObject" as const,
     name: "HOA document review",
     caption:
-      "HOA documents and floor plans with a downtown Las Vegas high-rise outside the window",
-    url: absoluteSiteImage("/images/sections/hoa-review.webp"),
-    contentUrl: absoluteSiteImage("/images/sections/hoa-review.webp"),
+      "Condo floor plans and keys with the Las Vegas Stratosphere outside the window",
+    url: absoluteSiteImage("/images/hero/services-condo-consultation.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/services-condo-consultation.webp",
+    ),
   },
   {
     "@type": "ImageObject" as const,

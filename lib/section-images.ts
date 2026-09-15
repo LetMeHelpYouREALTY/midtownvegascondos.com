@@ -54,16 +54,16 @@ export const sectionImages = {
     "Laptop on a midtown Las Vegas condo island used to search live Arts District and downtown listings",
     "Search live MLS condo inventory with Dr. Jan Duffy.",
   ),
-  whyJan: section(
-    "why-choose-jan.webp",
+  whyJan: fromHero(
+    "gbp-arts-district-office.webp",
     "Why Work With Dr. Jan Duffy?",
-    "Las Vegas valley map and condo notes on a desk for Arts District and downtown buyer matching",
+    "Arts District Las Vegas office street representing Dr. Jan Duffy buyer matching from 921 South Main Street",
     "Building-level condo matching for Downtown and Arts District buyers.",
   ),
-  hoaReview: section(
-    "hoa-review.webp",
+  hoaReview: fromHero(
+    "services-condo-consultation.webp",
     "HOA Expertise",
-    "HOA documents and floor plans on a desk with a downtown Las Vegas high-rise outside the window",
+    "Condo floor plans and keys on a desk with the Las Vegas Stratosphere outside the window",
     "CC&R review and reserve-study checks before you write an offer.",
   ),
   marketStats: section(
@@ -85,9 +85,9 @@ export const sectionImages = {
     "Read Google reviews for Las Vegas Arts District Condos | Homes by Dr. Jan Duffy.",
   ),
   aboutBio: fromHero(
-    "condo-lobby.webp",
+    "why-bhhs-brokerage.webp",
     "Dr. Jan Duffy",
-    "Midtown Las Vegas condo lobby where Dr. Jan Duffy meets Arts District and downtown buyers",
+    "Berkshire Hathaway HomeServices Nevada Properties office where Dr. Jan Duffy meets Arts District and downtown buyers",
     "Meet Dr. Jan Duffy, midtown condo specialist at BHHS Nevada Properties.",
   ),
   aboutSpecializations: fromHero(
@@ -103,9 +103,9 @@ export const sectionImages = {
     "Seller-paid representation for midtown Las Vegas condo buyers.",
   ),
   buyersProcess: fromHero(
-    "condo-balconies.webp",
+    "juhl-downtown-condo-tower.webp",
     "The Midtown Condo Buying Process",
-    "Midtown Las Vegas condo tower balconies used to illustrate the high-rise buying process",
+    "Downtown Las Vegas condo tower used to illustrate the high-rise buying process",
     "Pre-approval, building comparison, HOA review, and closing.",
   ),
   caNumbers: fromHero(
@@ -115,9 +115,9 @@ export const sectionImages = {
     "California equity often buys more square footage in Las Vegas.",
   ),
   firstTimeFinancing: fromHero(
-    "open-plan.webp",
+    "faq-midtown-loft-interior.webp",
     "First-Time Buyer Financing Options",
-    "Open-plan midtown Las Vegas condo living room for first-time buyers reviewing FHA and VA financing",
+    "Open-plan midtown Las Vegas loft living room for first-time buyers reviewing FHA and VA financing",
     "FHA, VA, conventional, and Nevada down-payment programs.",
   ),
   luxuryMarket: fromHero(
@@ -133,19 +133,19 @@ export const sectionImages = {
     "Building-specific comps and global BHHS buyer reach.",
   ),
   sellersDownsizing: fromHero(
-    "active-adult.webp",
+    "faq-midtown-loft-interior.webp",
     "Extract Your Equity, Enjoy Your Life",
-    "Active adult Las Vegas community living for condo sellers extracting equity and downsizing",
+    "Low-maintenance midtown Las Vegas loft interior for condo sellers extracting equity and downsizing",
     "Low-maintenance 55+ and midtown condo options after a sale.",
   ),
   sellersMoveUp: fromHero(
-    "modern-home-front.webp",
+    "juhl-downtown-condo-tower.webp",
     "Your Equity Position is Stronger Than You Think",
-    "Modern Las Vegas home exterior for move-up sellers using condo or home equity",
+    "Downtown Las Vegas condo tower for move-up sellers using condo equity",
     "Trade up with a midtown sale and a targeted next purchase.",
   ),
   sellersRelocation: fromHero(
-    "desert-skyline.webp",
+    "relocation-vegas-skyline.webp",
     "Berkshire Hathaway HomeServices Network",
     "Las Vegas valley skyline for sellers relocating through the BHHS global referral network",
     "List locally and land with a BHHS agent in the next city.",
@@ -193,9 +193,9 @@ export const sectionImages = {
     "No state income tax, urban amenities, and midtown condo inventory.",
   ),
   luxuryStats: fromHero(
-    "penthouse.webp",
+    "one-las-vegas-highrise.webp",
     "Las Vegas Luxury Market Statistics | January 2026",
-    "Luxury midtown Las Vegas condo interior used for $1M+ market statistics photography",
+    "One Las Vegas high-rise used for $1M+ market statistics photography",
     "Amenity-driven pricing for $1M+ Las Vegas homes and condos.",
   ),
   investWhy: fromHero(
@@ -217,13 +217,13 @@ export const sectionImages = {
     "Free buyer representation on most new-construction contracts.",
   ),
   marketForces: fromHero(
-    "night-neon.webp",
+    "home-strip-dusk.webp",
     "5 Forces Driving Las Vegas Real Estate in 2026",
-    "Las Vegas neon skyline at night used for 2026 real estate market-insight photography",
+    "Las Vegas Strip dusk skyline used for 2026 real estate market-insight photography",
     "Inventory, rates, relocation, and downtown condo demand.",
   ),
   marketSnapshot: fromHero(
-    "night-city.webp",
+    "market-update-downtown-night.webp",
     "Midtown Condo Market Snapshot",
     "Downtown Las Vegas night skyline used for the midtown condo market snapshot",
     "Median price, days on market, and active condo inventory.",
@@ -253,9 +253,9 @@ export const sectionImages = {
     "Search live MLS, review HOAs, and tour Arts District buildings.",
   ),
   lifestyleHub: fromHero(
-    "city-avenue.webp",
+    "fremont-east-daytime.webp",
     "Midtown neighborhood lifestyle",
-    "Arts District Las Vegas urban avenue representing Run Club, EV, and dining lifestyle pages",
+    "Fremont East Las Vegas daytime street representing Run Club, EV, and dining lifestyle pages",
     "Daily lifestyle that supports Arts District condo living.",
   ),
   lifestyleFaq: fromHero(
@@ -265,7 +265,7 @@ export const sectionImages = {
     "Run Club, EV program, and dining questions for condo buyers.",
   ),
   fiftyFiveWhy: fromHero(
-    "active-adult.webp",
+    "golf-community.webp",
     "Why Active Adults Choose Las Vegas",
     "Las Vegas 55+ active adult photography for buyers comparing valley options",
     "Golf, rec centers, and maintenance-free living near midtown.",
@@ -397,9 +397,9 @@ export const sectionImages = {
     "Review CC&Rs, reserves, rental caps, and parking before you write.",
   ),
   contactAreas: fromHero(
-    "city-avenue.webp",
+    "contact-arts-district-main-street.webp",
     "Areas We Serve",
-    "Arts District Las Vegas urban avenue representing valley neighborhoods served from 921 South Main Street",
+    "921 South Main Street Arts District storefront representing valley neighborhoods served from the office",
     "Midtown, Henderson, Summerlin, and valley-wide buyer and seller help.",
   ),
   gbpLocation: fromHero(
@@ -409,9 +409,9 @@ export const sectionImages = {
     "921 South Main Street, Las Vegas, NV 89101 — same pin as Google Maps.",
   ),
   gbpAbout: fromHero(
-    "condo-lobby.webp",
+    "why-bhhs-brokerage.webp",
     "About Dr. Jan Duffy",
-    "Midtown Las Vegas condo lobby where Dr. Jan Duffy meets Arts District and downtown buyers",
+    "Berkshire Hathaway HomeServices Nevada Properties office where Dr. Jan Duffy meets Arts District and downtown buyers",
     "BHHS Nevada Properties condo specialist for downtown and the Arts District.",
   ),
   gbpServices: fromHero(
@@ -427,15 +427,15 @@ export const sectionImages = {
     "Local condo expertise with Berkshire Hathaway brand resources.",
   ),
   aboutAreasServed: fromHero(
-    "desert-skyline.webp",
+    "relocation-vegas-skyline.webp",
     "Areas Served by BHHS Nevada Properties",
     "Las Vegas valley skyline representing areas served from the Arts District office",
     "Las Vegas, Henderson, Summerlin, and midtown condo neighborhoods.",
   ),
   buyersSpecialized: fromHero(
-    "apartment-row.webp",
+    "midtown-plaza-walkable.webp",
     "Specialized Guidance for Every Buyer",
-    "Midtown Las Vegas apartment-row condos representing first-time, luxury, and relocator buyer paths",
+    "Walkable Midtown Plaza Las Vegas courtyard representing first-time, luxury, and relocator buyer paths",
     "First-time, luxury, and California relocator condo guidance.",
   ),
   sellersProcess: fromHero(
@@ -451,21 +451,21 @@ export const sectionImages = {
     "Sun City, Del Webb, Trilogy, Solera, and Heritage at Stonebridge.",
   ),
   fiftyFiveAmenities: fromHero(
-    "pool-amenity.webp",
+    "golf-community.webp",
     "What 55+ Community Amenities Include",
-    "Resort-style pool amenity photography for Las Vegas 55+ community rec centers",
+    "Golf-course amenity photography for Las Vegas 55+ community rec centers",
     "Pools, golf, clubhouses, and maintenance-free living near midtown.",
   ),
   neighborhoodMarket: fromHero(
-    "night-city.webp",
+    "market-update-downtown-night.webp",
     "Neighborhood Real Estate Market",
     "Downtown Las Vegas night skyline used for neighborhood market snapshot photography",
     "Median price, days on market, and inventory context by area.",
   ),
   communityFaq: fromHero(
-    "bright-living.webp",
+    "faq-midtown-loft-interior.webp",
     "Community FAQ",
-    "Bright Las Vegas living space illustrating 55+ and neighborhood buyer FAQ photography",
+    "Midtown Las Vegas loft interior illustrating 55+ and neighborhood buyer FAQ photography",
     "HOA, age restriction, amenities, and commute questions answered.",
   ),
   featuredAreas: fromHero(

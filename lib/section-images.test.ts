@@ -18,7 +18,9 @@ describe("section-images", () => {
     expect(sectionImages.contactTouch.src).toBe(
       "/images/hero/gbp-arts-district-office.webp",
     );
-    expect(sectionImages.aboutBio.src).toBe("/images/hero/condo-lobby.webp");
+    expect(sectionImages.aboutBio.src).toBe(
+      "/images/hero/why-bhhs-brokerage.webp",
+    );
   });
 
   it("does not use Fair Housing proxies in heading-matched captions", () => {
@@ -73,8 +75,18 @@ describe("section-images", () => {
     expect(sectionImages.listingsChecklist.src).toContain(
       "faq-midtown-loft-interior",
     );
+    expect(sectionImages.marketForces.src).toContain("home-strip-dusk");
+    expect(sectionImages.fiftyFiveAmenities.src).toContain("golf-community");
     for (const [key, slug] of pairs) {
       expect(sectionImages[key].src, key).toContain(slug);
+    }
+  });
+
+  it("does not catalog wrong-city or off-subject stock filenames", () => {
+    const banned =
+      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan/;
+    for (const [key, img] of Object.entries(sectionImages)) {
+      expect(img.src, key).not.toMatch(banned);
     }
   });
 });

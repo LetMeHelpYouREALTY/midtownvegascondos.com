@@ -32,7 +32,7 @@ async function getProperty(id: string) {
     name: "Strip-View Midtown Condo",
     location: "Midtown Las Vegas, NV",
     price: "$485,000",
-    image: "/images/hero/balcony-city.webp",
+    image: "/images/hero/strip-view-condo-balcony.webp",
     bedrooms: 2,
     bathrooms: 2,
     squareFeet: 1250,
