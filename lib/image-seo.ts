@@ -211,7 +211,7 @@ export function imagesForSitemapPage(pageUrl: string): string[] {
       absoluteImageUrl("/images/hero/gbp-arts-district-office.webp"),
     );
   }
-  return [...new Set(urls)];
+  return urls.filter((url, index) => urls.indexOf(url) === index);
 }
 
 export function getDefaultSocialImage() {

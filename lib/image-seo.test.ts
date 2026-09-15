@@ -10,6 +10,9 @@ describe("imagesForSitemapPage", () => {
   it("lists office photos on the Google Business page for local-pack images", () => {
     const urls = imagesForSitemapPage(`${siteConfig.url}/google-business`);
     expect(urls.length).toBeGreaterThanOrEqual(2);
+    expect(urls.filter((url, index) => urls.indexOf(url) === index)).toEqual(
+      urls,
+    );
     expect(
       urls.some((url) => url.includes("contact-arts-district-main-street")),
     ).toBe(true);
