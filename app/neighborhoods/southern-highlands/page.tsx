@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 
 const PATH = "/neighborhoods/southern-highlands";
@@ -254,6 +255,12 @@ export default function SouthernHighlandsPage() {
             <h2 id="sh-faq" className="text-2xl font-bold text-slate-900 mb-4">
               Southern Highlands FAQ
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Southern Highlands FAQ"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <dl className="space-y-4">
               {faqs.map((faq) => (
                 <div

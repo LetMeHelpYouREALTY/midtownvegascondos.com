@@ -22,6 +22,7 @@ import {
   siteConfig,
 } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/contact", {
   title: "Contact Dr. Jan Duffy | Las Vegas Arts District Condos",
@@ -277,6 +278,11 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Areas We Serve
             </h2>
+            <SectionPhoto
+              imageKey="contactAreas"
+              heading="Areas We Serve"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Dr. Jan Duffy provides expert real estate services throughout the
               Las Vegas Valley. Whether you're buying, selling, or investing in
@@ -344,6 +350,11 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Frequently Asked Questions
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Frequently Asked Questions"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="space-y-4">
               {[
                 {

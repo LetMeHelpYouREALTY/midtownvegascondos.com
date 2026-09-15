@@ -25,6 +25,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/55-plus-communities", {
   title:
@@ -388,6 +389,12 @@ export default function FiftyFiveCommunitiesPage() {
             <h2 className="text-2xl font-bold mb-8 text-center">
               Las Vegas 55+ Market Overview | January 2026
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoodMarket"
+              heading="Las Vegas 55+ Market Overview | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-amber-400 mb-1">
@@ -534,6 +541,11 @@ export default function FiftyFiveCommunitiesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Las Vegas 55+ Communities
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Las Vegas 55+ Communities"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-lg text-slate-600 text-center mb-8">
               Click "View Homes" to explore each community in detail
             </p>
@@ -645,6 +657,11 @@ export default function FiftyFiveCommunitiesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               What 55+ Community Amenities Include
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveAmenities"
+              heading="What 55+ Community Amenities Include"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
@@ -719,6 +736,11 @@ export default function FiftyFiveCommunitiesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               55+ Community Buying FAQs
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="55+ Community Buying FAQs"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2 flex items-center">
@@ -793,6 +815,11 @@ export default function FiftyFiveCommunitiesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Why Choose Dr. Jan Duffy for 55+ Communities?
             </h2>
+            <SectionPhoto
+              imageKey="whyJan"
+              heading="Why Choose Dr. Jan Duffy for 55+ Communities?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start">
                 <div className="bg-blue-100 p-2 rounded-full mr-4 flex-shrink-0">

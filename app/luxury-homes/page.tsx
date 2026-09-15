@@ -20,6 +20,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/luxury-homes", {
   title: "Las Vegas Luxury Homes for Sale | Berkshire Hathaway HomeServices",
@@ -190,6 +191,13 @@ export default function LuxuryHomesPage() {
             <h2 className="text-2xl font-bold mb-4 text-center">
               Las Vegas Luxury Market Statistics | January 2026
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoodMarket"
+              heading="Las Vegas Luxury Market Statistics | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
               The Las Vegas luxury market continues to attract affluent buyers
               from California, the Midwest, and international markets.
@@ -454,6 +462,12 @@ export default function LuxuryHomesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Frequently Asked Questions About Las Vegas Luxury Homes
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Frequently Asked Questions About Las Vegas Luxury Homes"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Luxury real estate transactions involve unique considerations.
               Here are answers to common questions from buyers and sellers in

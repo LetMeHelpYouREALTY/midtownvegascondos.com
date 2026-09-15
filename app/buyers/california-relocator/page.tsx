@@ -15,6 +15,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/buyers/california-relocator",
@@ -412,6 +413,12 @@ export default function CaliforniaRelocatorPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               California Relocator FAQs
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="California Relocator FAQs"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">

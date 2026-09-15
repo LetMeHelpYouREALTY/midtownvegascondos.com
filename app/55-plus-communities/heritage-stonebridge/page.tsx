@@ -14,6 +14,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 
@@ -201,6 +202,12 @@ export default function HeritageStonebridgePage() {
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
               Frequently asked questions
             </h2>
+            <SectionPhoto
+              imageKey="communityFaq"
+              heading="Frequently asked questions"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-4">
               {faqs.map((faq) => (
                 <div

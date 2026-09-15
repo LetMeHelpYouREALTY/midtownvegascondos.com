@@ -4,6 +4,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import DeferredRealScoutWidget from "@/components/realscout/DeferredRealScoutWidget";
 import SchemaScript from "@/components/SchemaScript";
 import PageHero from "@/components/sections/PageHero";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Phone,
@@ -23,6 +24,7 @@ import {
   siteConfig,
 } from "@/lib/site-config";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
 
 const PATH = "/listings";
 
@@ -212,6 +214,11 @@ export default function ListingsPage() {
               <Search className="h-6 w-6 text-blue-600" />
               How to use this MLS search
             </h2>
+            <SectionPhoto
+              imageKey="listingsHowTo"
+              heading="How to use this MLS search"
+              className="mb-6 text-left"
+            />
             <p className="text-slate-700 leading-relaxed mb-4">
               This page is your midtown condo search hub — not a generic valley
               dump. Start with for-sale inventory, then filter toward
@@ -292,40 +299,47 @@ export default function ListingsPage() {
             </div>
           </section>
 
-          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">
-              Midtown market snapshot
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-bold text-blue-400 mb-1">
-                  {marketStats.midtown.medianPriceFormatted}
+          <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="marketSnapshot"
+              heading="Midtown market snapshot"
+              className="mb-8 text-left"
+            />
+            <div className="bg-slate-900 text-white rounded-2xl p-8 md:p-12">
+              <h2 className="text-2xl font-bold mb-8 text-center">
+                Midtown market snapshot
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                  <div className="text-3xl font-bold text-blue-400 mb-1">
+                    {marketStats.midtown.medianPriceFormatted}
+                  </div>
+                  <div className="text-slate-300 text-sm">Midtown median</div>
                 </div>
-                <div className="text-slate-300 text-sm">Midtown median</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-green-400 mb-1">
-                  {marketStats.midtown.yearOverYearChange}
+                <div>
+                  <div className="text-3xl font-bold text-green-400 mb-1">
+                    {marketStats.midtown.yearOverYearChange}
+                  </div>
+                  <div className="text-slate-300 text-sm">YoY change</div>
                 </div>
-                <div className="text-slate-300 text-sm">YoY change</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-1">
-                  {marketStats.midtown.daysOnMarket}
+                <div>
+                  <div className="text-3xl font-bold mb-1">
+                    {marketStats.midtown.daysOnMarket}
+                  </div>
+                  <div className="text-slate-300 text-sm">Days on market</div>
                 </div>
-                <div className="text-slate-300 text-sm">Days on market</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-amber-400 mb-1">
-                  ${marketStats.midtown.pricePerSqFt}
+                <div>
+                  <div className="text-3xl font-bold text-amber-400 mb-1">
+                    ${marketStats.midtown.pricePerSqFt}
+                  </div>
+                  <div className="text-slate-300 text-sm">Approx. $/sq ft</div>
                 </div>
-                <div className="text-slate-300 text-sm">Approx. $/sq ft</div>
               </div>
+              <p className="text-center text-slate-400 text-xs mt-6">
+                Updated {marketStats.lastUpdated}. Call {agentInfo.phone} for
+                MLS-verified building comps.
+              </p>
             </div>
-            <p className="text-center text-slate-400 text-xs mt-6">
-              Updated {marketStats.lastUpdated}. Call {agentInfo.phone} for
-              MLS-verified building comps.
-            </p>
           </section>
 
           <section className="mb-16 max-w-6xl mx-auto">
@@ -333,28 +347,51 @@ export default function ListingsPage() {
               <Building2 className="h-7 w-7 text-blue-600" />
               Midtown condo neighborhoods
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="Midtown condo neighborhoods"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-4">
-              {midtownNeighborhoods.map((area) => (
-                <Link
-                  key={area.slug}
-                  href={`/neighborhoods/${area.slug}`}
-                  className="rounded-xl border border-slate-200 p-5 hover:border-blue-300 transition-colors"
-                >
-                  <div className="flex justify-between gap-3 mb-2">
-                    <h3 className="font-bold text-slate-900">{area.name}</h3>
-                    <span className="text-sm font-semibold text-blue-600">
-                      {area.medianPrice}
-                    </span>
-                  </div>
-                  <p className="text-sm text-slate-600 mb-2">
-                    {area.description}
-                  </p>
-                  <p className="text-xs text-slate-500 flex items-center gap-1">
-                    <MapPin className="h-3.5 w-3.5" />
-                    {area.priceChange} YoY · View condos
-                  </p>
-                </Link>
-              ))}
+              {midtownNeighborhoods.map((area) => {
+                const heroKey =
+                  neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
+                const img = getHeroImage(heroKey);
+                return (
+                  <Link
+                    key={area.slug}
+                    href={`/neighborhoods/${area.slug}`}
+                    className="rounded-xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors bg-white"
+                  >
+                    <div className="relative h-40">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <div className="flex justify-between gap-3 mb-2">
+                        <h3 className="font-bold text-slate-900">
+                          {area.name}
+                        </h3>
+                        <span className="text-sm font-semibold text-blue-600">
+                          {area.medianPrice}
+                        </span>
+                      </div>
+                      <p className="text-sm text-slate-600 mb-2">
+                        {area.description}
+                      </p>
+                      <p className="text-xs text-slate-500 flex items-center gap-1">
+                        <MapPin className="h-3.5 w-3.5" />
+                        {area.priceChange} YoY · View condos
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </section>
 
@@ -362,6 +399,11 @@ export default function ListingsPage() {
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
               Condo buyer checklist before you offer
             </h2>
+            <SectionPhoto
+              imageKey="listingsChecklist"
+              heading="Condo buyer checklist before you offer"
+              className="mb-6 text-left"
+            />
             <ul className="space-y-3">
               {buyingTips.map((tip) => (
                 <li key={tip} className="flex gap-3 text-slate-700">
@@ -382,6 +424,11 @@ export default function ListingsPage() {
             >
               Listings FAQ
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Listings FAQ"
+              className="mb-6 text-left"
+            />
             <dl className="space-y-4">
               {faqs.map((faq) => (
                 <div

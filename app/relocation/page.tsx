@@ -21,6 +21,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/relocation", {
   title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
@@ -470,6 +471,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Relocation Frequently Asked Questions
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Relocation Frequently Asked Questions"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Moving to a new city raises many questions. Here are answers to
               the most common concerns from people relocating to Las Vegas.

@@ -22,6 +22,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/services", {
   title: "Real Estate Services Las Vegas | Berkshire Hathaway HomeServices",
@@ -312,6 +313,11 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Specialized Real Estate Services
             </h2>
+            <SectionPhoto
+              imageKey="buyersSpecialized"
+              heading="Specialized Real Estate Services"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Beyond traditional buying and selling, Dr. Jan Duffy offers
               specialized services for unique situations. Whether you're an
@@ -363,6 +369,11 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Services for Every Type of Buyer
             </h2>
+            <SectionPhoto
+              imageKey="buyersAgent"
+              heading="Services for Every Type of Buyer"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Different buyers have different needs. A first-time buyer needs
               education and hand-holding through the process. A California
@@ -396,6 +407,11 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Services for Every Type of Seller
             </h2>
+            <SectionPhoto
+              imageKey="sellersProcess"
+              heading="Services for Every Type of Seller"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Selling a home involves more than just listing it on the MLS. Your
               situation—whether you're upgrading, downsizing, dealing with a
@@ -429,6 +445,12 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold mb-6 text-center">
               The Berkshire Hathaway HomeServices Difference
             </h2>
+            <SectionPhoto
+              imageKey="whyBuffett"
+              heading="The Berkshire Hathaway HomeServices Difference"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <p className="text-lg text-slate-300 text-center max-w-3xl mx-auto mb-8">
               When you work with a Berkshire Hathaway HomeServices agent, you're
               backed by a name synonymous with trust, ethical standards, and
@@ -495,6 +517,11 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               How Our Real Estate Services Work
             </h2>
+            <SectionPhoto
+              imageKey="hoaReview"
+              heading="How Our Real Estate Services Work"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Whether you're buying or selling, the process begins with a free
               consultation to understand your goals, timeline, and unique

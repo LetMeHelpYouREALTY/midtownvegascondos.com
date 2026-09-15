@@ -13,6 +13,8 @@ type SectionPhotoProps = {
   heading?: string;
   priority?: boolean;
   className?: string;
+  /** Light caption when the photo sits on a dark section background */
+  onDark?: boolean;
 };
 
 /**
@@ -26,6 +28,7 @@ export default function SectionPhoto({
   heading,
   priority = false,
   className = "",
+  onDark = false,
 }: SectionPhotoProps) {
   const catalog = imageKey ? getSectionImage(imageKey) : null;
   const resolvedSrc = getCdnImageSrc(
@@ -50,14 +53,22 @@ export default function SectionPhoto({
         />
       </div>
       {resolvedCaption ? (
-        <figcaption className="mt-2 text-left text-xs text-slate-500 md:text-sm">
+        <figcaption
+          className={`mt-2 text-left text-xs md:text-sm ${
+            onDark ? "text-white/75" : "text-slate-500"
+          }`}
+        >
           {resolvedHeading ? (
-            <span className="font-medium text-slate-700">
+            <span
+              className={`font-medium ${onDark ? "text-white" : "text-slate-700"}`}
+            >
               {resolvedHeading}.{" "}
             </span>
           ) : null}
           {resolvedCaption}
-          <span className="mt-0.5 block text-slate-400">
+          <span
+            className={`mt-0.5 block ${onDark ? "text-white/50" : "text-slate-400"}`}
+          >
             Photo: {agentInfo.name}, {siteConfig.shortBrand}
           </span>
         </figcaption>

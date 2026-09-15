@@ -12,6 +12,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/neighborhoods/inspirada",
@@ -97,6 +98,13 @@ export default function InspiradaPage() {
             <h2 className="text-2xl font-bold mb-8 text-center">
               Inspirada Real Estate Market | January 2026
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoodMarket"
+              heading="Inspirada Real Estate Market | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-400 mb-1">
@@ -424,6 +432,12 @@ export default function InspiradaPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Frequently Asked Questions About Inspirada
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Frequently Asked Questions About Inspirada"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">

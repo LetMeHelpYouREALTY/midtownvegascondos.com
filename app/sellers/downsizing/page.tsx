@@ -16,6 +16,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/sellers/downsizing", {
   title: "Downsizing in Las Vegas | Berkshire Hathaway HomeServices",
@@ -512,6 +513,12 @@ export default function DownsizingPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Downsizing FAQs
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Downsizing FAQs"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-4">
               {[
                 {

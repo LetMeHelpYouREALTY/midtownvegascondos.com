@@ -21,6 +21,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta, midtownServiceSchema } from "@/lib/hyperlocal-content";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/sellers", {
   title: hyperlocalMeta.sellers.title,
@@ -159,6 +160,12 @@ export default function SellersPage() {
             <h2 className="text-2xl font-bold mb-4 text-center">
               Las Vegas Seller Market Statistics | January 2026
             </h2>
+            <SectionPhoto
+              imageKey="marketSnapshot"
+              heading="Las Vegas Seller Market Statistics | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
               The Las Vegas housing market remains favorable for sellers with
               low inventory and steady demand. Well-priced homes are selling
@@ -232,6 +239,11 @@ export default function SellersPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               The Home Selling Process
             </h2>
+            <SectionPhoto
+              imageKey="sellersProcess"
+              heading="The Home Selling Process"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Selling a home involves many steps, but you don't have to navigate
               them alone. Dr. Jan Duffy manages every detail from initial
@@ -263,6 +275,11 @@ export default function SellersPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Specialized Services for Every Seller
             </h2>
+            <SectionPhoto
+              imageKey="sellersSensitive"
+              heading="Specialized Services for Every Seller"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Every seller's situation is unique. Whether you're upgrading,
               downsizing, dealing with a life change, or relocating for work,
@@ -419,6 +436,11 @@ export default function SellersPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Frequently Asked Questions About Selling in Las Vegas
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Frequently Asked Questions About Selling in Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Selling your home raises many questions. Here are answers to the
               most common concerns from Las Vegas home sellers.

@@ -15,6 +15,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
 import { agentInfo } from "@/lib/site-config";
 
@@ -108,6 +109,13 @@ export default function DelWebbLakeLasVegasPage() {
             <h2 className="text-2xl font-bold mb-8 text-center">
               Del Webb at Lake Las Vegas at a Glance
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoodMarket"
+              heading="Del Webb at Lake Las Vegas at a Glance"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-400 mb-1">
@@ -214,6 +222,12 @@ export default function DelWebbLakeLasVegasPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Del Webb Amenities
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveWhy"
+              heading="Del Webb Amenities"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
@@ -344,6 +358,12 @@ export default function DelWebbLakeLasVegasPage() {
             >
               Del Webb Lake Las Vegas FAQ
             </h2>
+            <SectionPhoto
+              imageKey="communityFaq"
+              heading="Del Webb Lake Las Vegas FAQ"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <dl className="space-y-4">
               {faqs.map((faq) => (
                 <div

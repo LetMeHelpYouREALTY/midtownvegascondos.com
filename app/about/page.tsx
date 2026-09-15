@@ -339,6 +339,11 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
               Areas of Specialization
             </h2>
+            <SectionPhoto
+              imageKey="aboutSpecializations"
+              heading="Areas of Specialization"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Dr. Jan Duffy brings specialized expertise across multiple real
               estate categories. Whether you're a first-time buyer, luxury home
@@ -367,6 +372,12 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
               Why Berkshire Hathaway HomeServices?
             </h2>
+            <SectionPhoto
+              imageKey="aboutBhhs"
+              heading="Why Berkshire Hathaway HomeServices?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
               Berkshire Hathaway HomeServices is the only real estate brand
               backed by Warren Buffett's Berkshire Hathaway Inc. This means
@@ -423,6 +434,11 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
               Areas Served by BHHS Nevada Properties
             </h2>
+            <SectionPhoto
+              imageKey="aboutAreasServed"
+              heading="Areas Served by BHHS Nevada Properties"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Dr. Jan Duffy serves the entire Las Vegas Valley with specialized
               knowledge of each neighborhood's unique characteristics, price
@@ -457,6 +473,11 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
               What Clients Say About Dr. Jan Duffy
             </h2>
+            <SectionPhoto
+              imageKey="reviews"
+              heading="What Clients Say About Dr. Jan Duffy"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               With a 4.9-star rating and hundreds of satisfied clients, Dr. Jan
               has built a reputation for excellence, integrity, and personalized

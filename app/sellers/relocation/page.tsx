@@ -16,6 +16,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/sellers/relocation", {
   title: "Relocation Home Sales Las Vegas | Berkshire Hathaway HomeServices",
@@ -486,6 +487,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Relocation FAQs
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Relocation FAQs"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-4">
               {[
                 {

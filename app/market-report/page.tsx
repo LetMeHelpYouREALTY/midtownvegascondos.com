@@ -16,6 +16,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta } from "@/lib/hyperlocal-content";
 import { marketStats, agentInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-report", {
   title: hyperlocalMeta.marketReport.title,
@@ -120,6 +121,11 @@ export default function MarketReportPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Market Data by Area
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="Market Data by Area"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
@@ -204,6 +210,11 @@ export default function MarketReportPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Expert Market Analysis
             </h2>
+            <SectionPhoto
+              imageKey="whyJan"
+              heading="Expert Market Analysis"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-6">
                 "The Las Vegas market remains strong heading into 2026. We're
@@ -252,6 +263,11 @@ export default function MarketReportPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Key Market Trends to Watch
             </h2>
+            <SectionPhoto
+              imageKey="marketForces"
+              heading="Key Market Trends to Watch"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -293,6 +309,11 @@ export default function MarketReportPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Market Questions We're Hearing
             </h2>
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Market Questions We're Hearing"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="space-y-4">
               {[
                 {

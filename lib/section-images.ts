@@ -384,6 +384,90 @@ export const sectionImages = {
     "Strip-view midtown Las Vegas condo balcony representing MLS property detail photography",
     "Beds, baths, square footage, and building amenities from the listing.",
   ),
+  listingsHowTo: fromHero(
+    "map-planning.webp",
+    "How to use this MLS search",
+    "Relocation planning map used to filter live MLS midtown Las Vegas condo search results",
+    "Filter for condos, then match buildings to HOA dues and walkability.",
+  ),
+  listingsChecklist: fromHero(
+    "highrise-windows.webp",
+    "Condo buyer checklist before you offer",
+    "Midtown Las Vegas high-rise windows representing HOA, reserve, and parking checks before an offer",
+    "Review CC&Rs, reserves, rental caps, and parking before you write.",
+  ),
+  contactAreas: fromHero(
+    "city-avenue.webp",
+    "Areas We Serve",
+    "Arts District Las Vegas urban avenue representing valley neighborhoods served from 921 South Main Street",
+    "Midtown, Henderson, Summerlin, and valley-wide buyer and seller help.",
+  ),
+  gbpLocation: fromHero(
+    "midtown-plaza-walkable.webp",
+    "Business Location",
+    "Walkable Midtown Plaza Las Vegas streetscape near the Arts District office map pin",
+    "921 South Main Street, Las Vegas, NV 89101 — same pin as Google Maps.",
+  ),
+  gbpAbout: fromHero(
+    "condo-lobby.webp",
+    "About Dr. Jan Duffy",
+    "Midtown Las Vegas condo lobby where Dr. Jan Duffy meets Arts District and downtown buyers",
+    "BHHS Nevada Properties condo specialist for downtown and the Arts District.",
+  ),
+  gbpServices: fromHero(
+    "services-condo-consultation.webp",
+    "Real Estate Services",
+    "Condo consultation desk for buy, sell, and HOA-review services in midtown Las Vegas",
+    "Buyer representation, listings, valuations, and relocation from the Arts District.",
+  ),
+  aboutBhhs: fromHero(
+    "handshake-deal.webp",
+    "Why Berkshire Hathaway HomeServices?",
+    "Professional real estate closing handshake representing Berkshire Hathaway HomeServices Nevada Properties",
+    "Local condo expertise with Berkshire Hathaway brand resources.",
+  ),
+  aboutAreasServed: fromHero(
+    "desert-skyline.webp",
+    "Areas Served by BHHS Nevada Properties",
+    "Las Vegas valley skyline representing areas served from the Arts District office",
+    "Las Vegas, Henderson, Summerlin, and midtown condo neighborhoods.",
+  ),
+  buyersSpecialized: fromHero(
+    "apartment-row.webp",
+    "Specialized Guidance for Every Buyer",
+    "Midtown Las Vegas apartment-row condos representing first-time, luxury, and relocator buyer paths",
+    "First-time, luxury, and California relocator condo guidance.",
+  ),
+  sellersProcess: fromHero(
+    "home-valuation-keys.webp",
+    "The Home Selling Process",
+    "House keys on a listing folder for the midtown Las Vegas condo selling process",
+    "Pricing, staging, MLS exposure, and closing with BHHS Nevada.",
+  ),
+  fiftyFiveCommunities: fromHero(
+    "trilogy-summerlin-villas.webp",
+    "Las Vegas 55+ Communities",
+    "Trilogy at Summerlin villas representing Las Vegas 55+ community options",
+    "Sun City, Del Webb, Trilogy, Solera, and Heritage at Stonebridge.",
+  ),
+  fiftyFiveAmenities: fromHero(
+    "pool-amenity.webp",
+    "What 55+ Community Amenities Include",
+    "Resort-style pool amenity photography for Las Vegas 55+ community rec centers",
+    "Pools, golf, clubhouses, and maintenance-free living near midtown.",
+  ),
+  neighborhoodMarket: fromHero(
+    "night-city.webp",
+    "Neighborhood Real Estate Market",
+    "Downtown Las Vegas night skyline used for neighborhood market snapshot photography",
+    "Median price, days on market, and inventory context by area.",
+  ),
+  communityFaq: fromHero(
+    "bright-living.webp",
+    "Community FAQ",
+    "Bright Las Vegas living space illustrating 55+ and neighborhood buyer FAQ photography",
+    "HOA, age restriction, amenities, and commute questions answered.",
+  ),
 } as const;
 
 export type SectionImageKey = keyof typeof sectionImages;
