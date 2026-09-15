@@ -158,14 +158,14 @@ export default function InvestmentPropertiesPage() {
 
           {/* Market Stats */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Investment Property Markets | January 2026
-            </h2>
             <SectionPhoto
               imageKey="neighborhoodMarket"
               heading="Investment Property Markets | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Investment Property Markets | January 2026
+            </h2>
 
             <div className="overflow-x-auto">
               <table className="w-full bg-white border border-slate-200 rounded-lg">
@@ -238,14 +238,14 @@ export default function InvestmentPropertiesPage() {
 
           {/* Investment Services */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Investment Property Services
-            </h2>
             <SectionPhoto
               imageKey="gbpServices"
               heading="Investment Property Services"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Investment Property Services
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
               {[
@@ -273,15 +273,15 @@ export default function InvestmentPropertiesPage() {
 
           {/* Investment Types */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">
-              Investment Strategies We Support
-            </h2>
             <SectionPhoto
               imageKey="marketSnapshot"
               heading="Investment Strategies We Support"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              Investment Strategies We Support
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-blue-700 rounded-lg p-6">
@@ -326,14 +326,14 @@ export default function InvestmentPropertiesPage() {
 
           {/* Detailed Investment Analysis */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Understanding Las Vegas Investment Metrics
-            </h2>
             <SectionPhoto
               imageKey="marketStats"
               heading="Understanding Las Vegas Investment Metrics"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Understanding Las Vegas Investment Metrics
+            </h2>
 
             <div className="prose prose-lg max-w-none text-slate-700 mb-8">
               <p>
@@ -430,14 +430,14 @@ export default function InvestmentPropertiesPage() {
 
           {/* Neighborhood Deep Dives */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Las Vegas Investment Neighborhoods: Deep Dive
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="Las Vegas Investment Neighborhoods: Deep Dive"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Las Vegas Investment Neighborhoods: Deep Dive
+            </h2>
 
             <div className="space-y-6">
               <div className="bg-white rounded-xl p-6">
@@ -528,14 +528,14 @@ export default function InvestmentPropertiesPage() {
 
           {/* 1031 Exchange Section */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              1031 Exchanges in Las Vegas
-            </h2>
             <SectionPhoto
               imageKey="sellersProcess"
               heading="1031 Exchanges in Las Vegas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              1031 Exchanges in Las Vegas
+            </h2>
 
             <div className="bg-white border border-slate-200 rounded-xl p-8">
               <p className="text-slate-700 mb-6">
@@ -614,14 +614,14 @@ export default function InvestmentPropertiesPage() {
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Investment Property FAQs
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Investment Property FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Investment Property FAQs
+            </h2>
 
             <div className="space-y-4">
               {[

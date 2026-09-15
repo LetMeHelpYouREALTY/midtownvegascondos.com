@@ -432,14 +432,14 @@ export default function SkyeCanyonPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions About Skye Canyon
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions About Skye Canyon"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions About Skye Canyon
+            </h2>
 
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -492,15 +492,15 @@ export default function SkyeCanyonPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Discover Skye Canyon Living
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Discover Skye Canyon Living"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Discover Skye Canyon Living
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy, your Berkshire Hathaway HomeServices Skye

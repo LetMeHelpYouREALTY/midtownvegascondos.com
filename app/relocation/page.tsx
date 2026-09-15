@@ -231,14 +231,14 @@ export default function RelocationPage() {
 
           {/* Expert Quote */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Expert Relocation Guidance
-            </h2>
             <SectionPhoto
               imageKey="whyJan"
               heading="Expert Relocation Guidance"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Expert Relocation Guidance
+            </h2>
 
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
@@ -259,14 +259,14 @@ export default function RelocationPage() {
 
           {/* Relocation Services */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Comprehensive Relocation Services
-            </h2>
             <SectionPhoto
               imageKey="gbpServices"
               heading="Comprehensive Relocation Services"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Comprehensive Relocation Services
+            </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Relocating involves much more than just finding a home. Dr. Jan
@@ -289,14 +289,14 @@ export default function RelocationPage() {
 
           {/* Neighborhoods */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Popular Relocation Destinations
-            </h2>
             <SectionPhoto
               imageKey="contactAreas"
               heading="Popular Relocation Destinations"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Popular Relocation Destinations
+            </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Choosing the right neighborhood is crucial for a successful
@@ -344,14 +344,14 @@ export default function RelocationPage() {
 
           {/* School Information */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Las Vegas Schools & Education
-            </h2>
             <SectionPhoto
               imageKey="neighborhoodMarket"
               heading="Las Vegas Schools & Education"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Las Vegas Schools & Education
+            </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Compare named campuses, CCSD zoning, magnet programs, and private
@@ -430,15 +430,15 @@ export default function RelocationPage() {
 
           {/* Coming From California */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">
-              Moving from California?
-            </h2>
             <SectionPhoto
               imageKey="caNumbers"
               heading="Moving from California?"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-4 text-center">
+              Moving from California?
+            </h2>
 
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
               California to Nevada is one of the most popular relocation routes
@@ -516,14 +516,14 @@ export default function RelocationPage() {
 
           {/* BHHS Network */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              The Berkshire Hathaway HomeServices Advantage
-            </h2>
             <SectionPhoto
               imageKey="aboutBhhs"
               heading="The Berkshire Hathaway HomeServices Advantage"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              The Berkshire Hathaway HomeServices Advantage
+            </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               With 50,000+ agents in 1,500+ offices worldwide, Berkshire
@@ -578,14 +578,14 @@ export default function RelocationPage() {
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Relocation Frequently Asked Questions
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Relocation Frequently Asked Questions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Relocation Frequently Asked Questions
+            </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Moving to a new city raises many questions. Here are answers to

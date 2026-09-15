@@ -121,15 +121,15 @@ export default function MidtownRealEstatePage() {
           </p>
 
           <section className="mb-14">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <Building2 className="h-6 w-6 text-blue-600" />
-              Midtown condo neighborhoods
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="Midtown condo neighborhoods"
               className="mb-6 text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <Building2 className="h-6 w-6 text-blue-600" />
+              Midtown condo neighborhoods
+            </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {midtownNeighborhoods.map((area) => (
                 <Link
@@ -178,14 +178,14 @@ export default function MidtownRealEstatePage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
-              Lifestyle that sells midtown
-            </h2>
             <SectionPhoto
               imageKey="lifestyleHub"
               heading="Lifestyle that sells midtown"
               className="mb-6 text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Lifestyle that sells midtown
+            </h2>
             <div className="flex flex-wrap gap-3">
               {[
                 { href: "/neighborhood/run-club", label: "Midtown Run Club" },

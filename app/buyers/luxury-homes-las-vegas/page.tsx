@@ -150,14 +150,14 @@ export default function LuxuryHomesPage() {
 
           {/* Luxury Communities */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Premier Luxury Communities
-            </h2>
             <SectionPhoto
               imageKey="ridgesWhy"
               heading="Premier Luxury Communities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Premier Luxury Communities
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* The Ridges */}
@@ -382,17 +382,17 @@ export default function LuxuryHomesPage() {
 
           {/* Privacy & Discretion */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="sellersSensitive"
+              heading="Privacy & Discretion"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="flex items-center mb-6">
               <Lock className="h-8 w-8 text-slate-700 mr-3" />
               <h2 className="text-3xl font-bold text-slate-900">
                 Privacy & Discretion
               </h2>
             </div>
-            <SectionPhoto
-              imageKey="sellersSensitive"
-              heading="Privacy & Discretion"
-              className="mx-auto mb-8 max-w-4xl text-left"
-            />
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-slate-700 mb-4">

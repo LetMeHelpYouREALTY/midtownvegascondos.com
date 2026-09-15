@@ -243,14 +243,14 @@ export default function LuxuryHomesPage() {
 
           {/* Why BHHS for Luxury */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Why Choose Berkshire Hathaway for Luxury Real Estate
-            </h2>
             <SectionPhoto
               imageKey="whyBuffett"
               heading="Why Choose Berkshire Hathaway for Luxury Real Estate"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Why Choose Berkshire Hathaway for Luxury Real Estate
+            </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               In luxury real estate, the agent you choose can impact both the
@@ -309,14 +309,14 @@ export default function LuxuryHomesPage() {
 
           {/* Expert Quote */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Expert Luxury Real Estate Guidance
-            </h2>
             <SectionPhoto
               imageKey="luxuryMarket"
               heading="Expert Luxury Real Estate Guidance"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Expert Luxury Real Estate Guidance
+            </h2>
 
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
@@ -338,14 +338,14 @@ export default function LuxuryHomesPage() {
 
           {/* Luxury Neighborhoods */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Premier Las Vegas Luxury Communities
-            </h2>
             <SectionPhoto
               imageKey="ridgesWhy"
               heading="Premier Las Vegas Luxury Communities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Premier Las Vegas Luxury Communities
+            </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Las Vegas offers some of the most desirable luxury communities in
@@ -406,15 +406,15 @@ export default function LuxuryHomesPage() {
 
           {/* Luxury Services */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">
-              Luxury Home Marketing Services
-            </h2>
             <SectionPhoto
               imageKey="sellersAdvantage"
               heading="Luxury Home Marketing Services"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-4 text-center">
+              Luxury Home Marketing Services
+            </h2>
 
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
               Selling a luxury home requires more than just an MLS listing. Dr.
@@ -437,14 +437,14 @@ export default function LuxuryHomesPage() {
 
           {/* Buying vs Selling */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Luxury Buyer & Seller Services
-            </h2>
             <SectionPhoto
               imageKey="buyersSpecialized"
               heading="Luxury Buyer & Seller Services"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Luxury Buyer & Seller Services
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-slate-50 rounded-xl p-8">
@@ -521,14 +521,14 @@ export default function LuxuryHomesPage() {
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Frequently Asked Questions About Las Vegas Luxury Homes
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions About Las Vegas Luxury Homes"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Frequently Asked Questions About Las Vegas Luxury Homes
+            </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Luxury real estate transactions involve unique considerations.

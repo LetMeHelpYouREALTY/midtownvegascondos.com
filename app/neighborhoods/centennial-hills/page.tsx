@@ -456,14 +456,14 @@ export default function CentennialHillsPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions About Centennial Hills
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions About Centennial Hills"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions About Centennial Hills
+            </h2>
 
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -513,15 +513,15 @@ export default function CentennialHillsPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Find Your Centennial Hills Home
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Find Your Centennial Hills Home"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Find Your Centennial Hills Home
+            </h2>
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy, your Berkshire Hathaway HomeServices
               Centennial Hills expert, for guidance in this northwest Las Vegas

@@ -263,14 +263,14 @@ export default function SunCityAnthemPage() {
 
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Sun City Anthem Amenities
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveAmenities"
               heading="Sun City Anthem Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Sun City Anthem Amenities
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
@@ -335,14 +335,14 @@ export default function SunCityAnthemPage() {
 
           {/* Neighborhoods */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Sun City Anthem Neighborhoods
-            </h2>
             <SectionPhoto
               imageKey="sunCityAnthemAbout"
               heading="Sun City Anthem Neighborhoods"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Sun City Anthem Neighborhoods
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
@@ -419,15 +419,15 @@ export default function SunCityAnthemPage() {
 
           {/* CTA */}
           <section className="text-center bg-green-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Discover Sun City Anthem
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveCommunities"
               heading="Discover Sun City Anthem"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Discover Sun City Anthem
+            </h2>
 
             <p className="text-xl text-green-100 mb-8">
               Experience Henderson's premier 55+ community. Dr. Jan Duffy

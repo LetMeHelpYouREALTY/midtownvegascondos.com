@@ -230,14 +230,14 @@ export default function HomeValuationPage() {
 
           {/* Why Online Estimates Fall Short */}
           <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Why Online Home Value Estimates Often Miss the Mark
-            </h2>
             <SectionPhoto
               imageKey="marketSnapshot"
               heading="Why Online Home Value Estimates Often Miss the Mark"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Why Online Home Value Estimates Often Miss the Mark
+            </h2>
 
             <div className="prose prose-lg max-w-none text-slate-700">
               <p>
@@ -336,14 +336,14 @@ export default function HomeValuationPage() {
 
           {/* Factors Affecting Value */}
           <section className="max-w-5xl mx-auto mb-16 bg-slate-50 rounded-2xl p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Key Factors That Affect Your Las Vegas Home's Value
-            </h2>
             <SectionPhoto
               imageKey="listingsChecklist"
               heading="Key Factors That Affect Your Las Vegas Home's Value"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Key Factors That Affect Your Las Vegas Home's Value
+            </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-sm">
@@ -443,14 +443,14 @@ export default function HomeValuationPage() {
 
           {/* Neighborhood Values */}
           <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Las Vegas Neighborhood Home Values | January 2026
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="Las Vegas Neighborhood Home Values | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Las Vegas Neighborhood Home Values | January 2026
+            </h2>
 
             <div className="overflow-x-auto">
               <table className="w-full bg-white border border-slate-200 rounded-lg">
@@ -534,14 +534,14 @@ export default function HomeValuationPage() {
 
           {/* The Valuation Process */}
           <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              The BHHS Home Valuation Process
-            </h2>
             <SectionPhoto
               imageKey="sellersProcess"
               heading="The BHHS Home Valuation Process"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              The BHHS Home Valuation Process
+            </h2>
 
             <div className="space-y-6">
               <div className="flex items-start">
@@ -613,14 +613,14 @@ export default function HomeValuationPage() {
 
           {/* FAQ Section */}
           <section className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions About Home Valuations
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions About Home Valuations"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions About Home Valuations
+            </h2>
 
             <div className="space-y-4">
               {[
@@ -658,15 +658,15 @@ export default function HomeValuationPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Know What Your Home Is Worth?
-            </h2>
             <SectionPhoto
               imageKey="valuationSchedule"
               heading="Ready to Know What Your Home Is Worth?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Know What Your Home Is Worth?
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Get a free, no-obligation home valuation from Dr. Jan Duffy and

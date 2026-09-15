@@ -185,14 +185,14 @@ export default function CaliforniaRelocatorPage() {
 
           {/* What Your CA Equity Buys */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              What Your California Equity Buys in Las Vegas
-            </h2>
             <SectionPhoto
               imageKey="firstTimeFinancing"
               heading="What Your California Equity Buys in Las Vegas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              What Your California Equity Buys in Las Vegas
+            </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                 <HeadingCardPhoto
@@ -253,14 +253,14 @@ export default function CaliforniaRelocatorPage() {
 
           {/* Top Neighborhoods for CA Relocators */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Top 3 Neighborhoods for California Relocators
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="Top 3 Neighborhoods for California Relocators"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Top 3 Neighborhoods for California Relocators
+            </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <HeadingCardPhoto
@@ -392,17 +392,17 @@ export default function CaliforniaRelocatorPage() {
 
           {/* Remote Work Lifestyle */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="lifestyleHub"
+              heading="Remote Work, Vegas Lifestyle"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="flex items-center mb-6">
               <Briefcase className="h-8 w-8 text-blue-600 mr-3" />
               <h2 className="text-3xl font-bold text-slate-900">
                 Remote Work, Vegas Lifestyle
               </h2>
             </div>
-            <SectionPhoto
-              imageKey="lifestyleHub"
-              heading="Remote Work, Vegas Lifestyle"
-              className="mx-auto mb-8 max-w-4xl text-left"
-            />
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-slate-700 mb-4">
@@ -460,14 +460,14 @@ export default function CaliforniaRelocatorPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              California Relocator FAQs
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="California Relocator FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              California Relocator FAQs
+            </h2>
 
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -552,15 +552,15 @@ export default function CaliforniaRelocatorPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Start Your Tax-Free Life?
-            </h2>
             <SectionPhoto
               imageKey="relocationWhy"
               heading="Ready to Start Your Tax-Free Life?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Start Your Tax-Free Life?
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Get a personalized relocation consultation with Dr. Jan Duffy.

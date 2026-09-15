@@ -188,14 +188,14 @@ export default function HeritageStonebridgePage() {
           </section>
 
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-              Heritage at Stonebridge vs Midtown condos
-            </h2>
             <SectionPhoto
               imageKey="midtownHowTo"
               heading="Heritage at Stonebridge vs Midtown condos"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              Heritage at Stonebridge vs Midtown condos
+            </h2>
 
             <p className="text-slate-700 leading-relaxed mb-4">
               <strong>Heritage at Stonebridge</strong> is a North Las Vegas 55+
@@ -240,14 +240,14 @@ export default function HeritageStonebridgePage() {
           </section>
 
           <section className="mb-16 max-w-4xl mx-auto" data-community-faq>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
-              Frequently asked questions
-            </h2>
             <SectionPhoto
               imageKey="communityFaq"
               heading="Frequently asked questions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+              Frequently asked questions
+            </h2>
 
             <div className="space-y-4">
               {faqs.map((faq) => (
@@ -267,14 +267,14 @@ export default function HeritageStonebridgePage() {
           </section>
 
           <section className="max-w-4xl mx-auto rounded-2xl bg-blue-50 p-8">
-            <h2 className="text-xl font-bold text-slate-900 mb-2">
-              Tour Heritage at Stonebridge or Midtown
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveCommunities"
               heading="Tour Heritage at Stonebridge or Midtown"
               className="mb-6 text-left"
             />
+            <h2 className="text-xl font-bold text-slate-900 mb-2">
+              Tour Heritage at Stonebridge or Midtown
+            </h2>
             <p className="text-slate-700 mb-1">
               Dr. Jan Duffy · License {agentInfo.license} · Berkshire Hathaway
               HomeServices Nevada Properties

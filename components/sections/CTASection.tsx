@@ -9,6 +9,12 @@ export default function CTASection() {
     <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
+          <SectionPhoto
+            imageKey="homeCta"
+            heading="Ready to Tour Arts District Condos?"
+            className="mx-auto mb-8 max-w-3xl text-left"
+            onDark
+          />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Ready to Tour Arts District Condos?
           </h2>
@@ -16,12 +22,6 @@ export default function CTASection() {
             Call {agentInfo.phone} or visit {officeInfo.address.full}. Dr. Jan
             Duffy maps buildings, HOA rules, and commute times before you write.
           </p>
-          <SectionPhoto
-            imageKey="homeCta"
-            heading="Ready to Tour Arts District Condos?"
-            className="mx-auto mb-8 max-w-3xl text-left"
-            onDark
-          />
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button

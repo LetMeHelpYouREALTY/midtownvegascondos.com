@@ -17,6 +17,11 @@ export default function RealScoutListings() {
   return (
     <section className="bg-slate-50 py-16 md:py-24">
       <div className="container mx-auto px-4">
+        <SectionPhoto
+          imageKey="searchMidtown"
+          heading="Featured Properties"
+          className="mx-auto mb-8 max-w-4xl text-left"
+        />
         <div className="mb-12 flex flex-col items-center justify-between md:flex-row">
           <div>
             <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl lg:text-5xl">
@@ -30,11 +35,6 @@ export default function RealScoutListings() {
             <Link href="/listings">View All Properties</Link>
           </Button>
         </div>
-        <SectionPhoto
-          imageKey="searchMidtown"
-          heading="Featured Properties"
-          className="mx-auto mb-8 max-w-4xl text-left"
-        />
 
         <DeferredRealScoutWidget html={LISTINGS_HTML} minHeight="420px" />
       </div>

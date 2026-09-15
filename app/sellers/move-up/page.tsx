@@ -60,15 +60,15 @@ export default function MoveUpSellerPage() {
         <div className="container mx-auto px-4">
           {/* Equity Section */}
           <section className="mb-16 bg-green-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Your Equity Position is Stronger Than You Think
-            </h2>
             <SectionPhoto
               imageKey="sellersMoveUp"
               heading="Your Equity Position is Stronger Than You Think"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Your Equity Position is Stronger Than You Think
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="text-center bg-white/10 rounded-xl p-6">
@@ -102,14 +102,14 @@ export default function MoveUpSellerPage() {
 
           {/* Upgrade Path */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Common Upgrade Paths We Help With
-            </h2>
             <SectionPhoto
               imageKey="sellersMoveUp"
               heading="Common Upgrade Paths We Help With"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Common Upgrade Paths We Help With
+            </h2>
 
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
@@ -193,14 +193,14 @@ export default function MoveUpSellerPage() {
 
           {/* How We Handle Both */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              We Handle Both Transactions Seamlessly
-            </h2>
             <SectionPhoto
               imageKey="sellersProcess"
               heading="We Handle Both Transactions Seamlessly"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              We Handle Both Transactions Seamlessly
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -266,14 +266,14 @@ export default function MoveUpSellerPage() {
 
           {/* Timing Strategies */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Timing Your Move-Up: Three Proven Strategies
-            </h2>
             <SectionPhoto
               imageKey="valuationSchedule"
               heading="Timing Your Move-Up: Three Proven Strategies"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Timing Your Move-Up: Three Proven Strategies
+            </h2>
 
             <div className="prose prose-lg max-w-none text-slate-700 mb-8">
               <p>
@@ -475,14 +475,14 @@ export default function MoveUpSellerPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Move-Up Seller FAQs
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Move-Up Seller FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Move-Up Seller FAQs
+            </h2>
 
             <div className="space-y-4">
               {[
@@ -520,15 +520,15 @@ export default function MoveUpSellerPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What's Your Home Worth Today?
-            </h2>
             <SectionPhoto
               imageKey="valuationSchedule"
               heading="What's Your Home Worth Today?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What's Your Home Worth Today?
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Get a free equity analysis and see what your next home could look

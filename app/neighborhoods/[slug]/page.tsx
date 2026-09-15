@@ -181,14 +181,14 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
 
           {area.faqs.length > 0 && (
             <section className="max-w-3xl mx-auto mb-16">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">
-                {area.name} Condo FAQs
-              </h2>
               <SectionPhoto
                 imageKey="hoaReview"
                 heading={`${area.name} Condo FAQs`}
                 className="mb-8"
               />
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">
+                {area.name} Condo FAQs
+              </h2>
               <div className="space-y-4">
                 {area.faqs.map((faq) => (
                   <div

@@ -225,14 +225,14 @@ export default function DelWebbLakeLasVegasPage() {
 
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Del Webb Amenities
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveWhy"
               heading="Del Webb Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Del Webb Amenities
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
@@ -295,14 +295,14 @@ export default function DelWebbLakeLasVegasPage() {
 
           {/* Why Del Webb Lake Las Vegas */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Why Buyers Choose Del Webb Lake Las Vegas
-            </h2>
             <SectionPhoto
               imageKey="delWebbAbout"
               heading="Why Buyers Choose Del Webb Lake Las Vegas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Why Buyers Choose Del Webb Lake Las Vegas
+            </h2>
 
             <div className="space-y-4">
               <div className="flex items-start">
@@ -379,17 +379,17 @@ export default function DelWebbLakeLasVegasPage() {
             className="mb-16 max-w-4xl mx-auto"
             aria-labelledby="del-webb-faq"
           >
+            <SectionPhoto
+              imageKey="communityFaq"
+              heading="Del Webb Lake Las Vegas FAQ"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2
               id="del-webb-faq"
               className="text-2xl font-bold text-slate-900 mb-4"
             >
               Del Webb Lake Las Vegas FAQ
             </h2>
-            <SectionPhoto
-              imageKey="communityFaq"
-              heading="Del Webb Lake Las Vegas FAQ"
-              className="mx-auto mb-8 max-w-4xl text-left"
-            />
 
             <dl className="space-y-4">
               {faqs.map((faq) => (
@@ -411,15 +411,15 @@ export default function DelWebbLakeLasVegasPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Experience Lakefront 55+ Living
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveCommunities"
               heading="Experience Lakefront 55+ Living"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Experience Lakefront 55+ Living
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Tour Del Webb at Lake Las Vegas with Dr. Jan Duffy. See the homes,

@@ -28,6 +28,12 @@ export default function GbpLocalPack({
             <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-400">
               Google Business Profile
             </p>
+            <SectionPhoto
+              imageKey="gbpVisit"
+              heading={`Visit ${officeInfo.name}`}
+              className="mb-6 max-w-xl text-left"
+              onDark
+            />
             <h2
               id="gbp-local-pack-heading"
               className="mb-3 text-2xl font-bold md:text-3xl"
@@ -39,12 +45,6 @@ export default function GbpLocalPack({
               directions, or read reviews before you tour Arts District and
               downtown Las Vegas condos.
             </p>
-            <SectionPhoto
-              imageKey="gbpVisit"
-              heading={`Visit ${officeInfo.name}`}
-              className="mb-6 max-w-xl text-left"
-              onDark
-            />
 
             <address className="mb-6 not-italic text-slate-200">
               <span className="block font-semibold text-white">

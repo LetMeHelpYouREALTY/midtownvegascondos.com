@@ -66,17 +66,17 @@ export default function ReviewsSection({
     <section className={`py-16 md:py-24 bg-slate-50 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <SectionPhoto
+            imageKey="reviews"
+            heading={title}
+            className="mx-auto mb-8 max-w-4xl text-left"
+          />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             {title}
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
             {subtitle}
           </p>
-          <SectionPhoto
-            imageKey="reviews"
-            heading={title}
-            className="mx-auto mb-8 max-w-4xl text-left"
-          />
           <div className="flex items-center justify-center gap-2 mt-4">
             <div className="flex">
               {[...Array(5)].map((_, i) => (

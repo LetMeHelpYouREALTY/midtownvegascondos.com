@@ -188,14 +188,14 @@ export default function FirstTimeBuyersPage() {
 
           {/* Top Neighborhoods */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Best Neighborhoods for First-Time Buyers
-            </h2>
             <SectionPhoto
               imageKey="northLasVegasWhy"
               heading="Best Neighborhoods for First-Time Buyers"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Best Neighborhoods for First-Time Buyers
+            </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <HeadingCardPhoto
@@ -330,18 +330,18 @@ export default function FirstTimeBuyersPage() {
 
           {/* Builder Incentives */}
           <section className="mb-16 bg-green-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <div className="flex items-center justify-center mb-6">
-              <Building className="h-8 w-8 mr-3" />
-              <h2 className="text-3xl font-bold">
-                New Construction Incentives
-              </h2>
-            </div>
             <SectionPhoto
               imageKey="heritageWhy"
               heading="New Construction Incentives"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <div className="flex items-center justify-center mb-6">
+              <Building className="h-8 w-8 mr-3" />
+              <h2 className="text-3xl font-bold">
+                New Construction Incentives
+              </h2>
+            </div>
             <p className="text-center text-green-100 mb-8 max-w-2xl mx-auto">
               Las Vegas builders are offering incredible incentives that can
               make new homes more affordable than resale properties. These
@@ -382,14 +382,14 @@ export default function FirstTimeBuyersPage() {
 
           {/* Rent vs Buy */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Rent vs. Buy in Las Vegas
-            </h2>
             <SectionPhoto
               imageKey="marketSnapshot"
               heading="Rent vs. Buy in Las Vegas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Rent vs. Buy in Las Vegas
+            </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                 <HeadingCardPhoto
@@ -435,14 +435,14 @@ export default function FirstTimeBuyersPage() {
 
           {/* Timeline */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              First-Time Buyer Timeline
-            </h2>
             <SectionPhoto
               imageKey="buyersProcess"
               heading="First-Time Buyer Timeline"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              First-Time Buyer Timeline
+            </h2>
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
@@ -522,14 +522,14 @@ export default function FirstTimeBuyersPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              First-Time Buyer FAQs
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="First-Time Buyer FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              First-Time Buyer FAQs
+            </h2>
 
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -604,15 +604,15 @@ export default function FirstTimeBuyersPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Stop Renting?
-            </h2>
             <SectionPhoto
               imageKey="firstTimeFinancing"
               heading="Ready to Stop Renting?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Stop Renting?
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Let's talk about your options. Dr. Jan Duffy will help you

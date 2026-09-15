@@ -42,6 +42,12 @@ export default function CommutesMapSection({
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-blue-300">
               Las Vegas commute planner
             </p>
+            <SectionPhoto
+              imageKey="commuteTimes"
+              heading="Check drive times from midtown Las Vegas condos"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2
               id="commutes-map-heading"
               data-commute-heading
@@ -80,12 +86,6 @@ export default function CommutesMapSection({
                 {agentInfo.phone}
               </Link>
             </p>
-            <SectionPhoto
-              imageKey="commuteTimes"
-              heading="Check drive times from midtown Las Vegas condos"
-              className="mx-auto mt-8 max-w-4xl text-left"
-              onDark
-            />
           </div>
 
           <ul className="mx-auto mt-8 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-3">

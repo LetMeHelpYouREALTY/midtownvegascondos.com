@@ -227,14 +227,14 @@ export default function SunCityAliantePage() {
 
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Full Sun City Amenities
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveAmenities"
               heading="Full Sun City Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Full Sun City Amenities
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
@@ -299,14 +299,14 @@ export default function SunCityAliantePage() {
 
           {/* Location Benefits */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Location Advantages
-            </h2>
             <SectionPhoto
               imageKey="sunCityAlianteAbout"
               heading="Location Advantages"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Location Advantages
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
@@ -390,14 +390,14 @@ export default function SunCityAliantePage() {
 
           {/* Why Choose Sun City Aliante */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Why Buyers Choose Sun City Aliante
-            </h2>
             <SectionPhoto
               imageKey="northLasVegasWhy"
               heading="Why Buyers Choose Sun City Aliante"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Why Buyers Choose Sun City Aliante
+            </h2>
 
             <div className="space-y-4">
               <div className="flex items-start">
@@ -471,15 +471,15 @@ export default function SunCityAliantePage() {
 
           {/* CTA */}
           <section className="text-center bg-green-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Discover Sun City Aliante's Value
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveCommunities"
               heading="Discover Sun City Aliante's Value"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Discover Sun City Aliante's Value
+            </h2>
 
             <p className="text-xl text-green-100 mb-8">
               See why Sun City Aliante offers the best value in Las Vegas 55+

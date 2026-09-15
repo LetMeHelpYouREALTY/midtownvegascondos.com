@@ -181,14 +181,14 @@ export default function SunCitySummerlinPage() {
 
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              World-Class Amenities
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveAmenities"
               heading="World-Class Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              World-Class Amenities
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
@@ -253,14 +253,14 @@ export default function SunCitySummerlinPage() {
 
           {/* Neighborhoods */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Sun City Summerlin Neighborhoods
-            </h2>
             <SectionPhoto
               imageKey="sunCitySummerlinAbout"
               heading="Sun City Summerlin Neighborhoods"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Sun City Summerlin Neighborhoods
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
@@ -331,14 +331,14 @@ export default function SunCitySummerlinPage() {
 
           {/* Why Choose */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Why Buyers Choose Sun City Summerlin
-            </h2>
             <SectionPhoto
               imageKey="summerlinWhy"
               heading="Why Buyers Choose Sun City Summerlin"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Why Buyers Choose Sun City Summerlin
+            </h2>
 
             <div className="space-y-4">
               <div className="flex items-start">
@@ -415,14 +415,14 @@ export default function SunCitySummerlinPage() {
             className="mb-16 max-w-4xl mx-auto"
             aria-labelledby="scs-faq"
           >
-            <h2 id="scs-faq" className="text-2xl font-bold text-slate-900 mb-4">
-              Sun City Summerlin FAQ
-            </h2>
             <SectionPhoto
               imageKey="communityFaq"
               heading="Sun City Summerlin FAQ"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 id="scs-faq" className="text-2xl font-bold text-slate-900 mb-4">
+              Sun City Summerlin FAQ
+            </h2>
 
             <dl className="space-y-4">
               {faqs.map((faq) => (
@@ -444,15 +444,15 @@ export default function SunCitySummerlinPage() {
 
           {/* CTA */}
           <section className="text-center bg-amber-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Explore Sun City Summerlin
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveCommunities"
               heading="Explore Sun City Summerlin"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Explore Sun City Summerlin
+            </h2>
             <p className="text-xl text-amber-100 mb-8">
               Ready to experience Nevada's premier 55+ community? Dr. Jan Duffy
               offers private tours and expert guidance on finding your perfect

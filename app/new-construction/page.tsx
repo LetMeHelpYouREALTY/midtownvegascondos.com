@@ -384,6 +384,11 @@ export default function NewConstructionPage() {
           {/* Current Incentives Alert */}
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-8">
+              <SectionPhoto
+                imageKey="heritageWhy"
+                heading="January 2026 Builder Incentives"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
                 <h2 className="text-2xl font-bold text-slate-900 flex items-center">
                   <Calendar className="h-7 w-7 text-green-600 mr-3" />
@@ -393,11 +398,6 @@ export default function NewConstructionPage() {
                   Limited Time Offers
                 </span>
               </div>
-              <SectionPhoto
-                imageKey="heritageWhy"
-                heading="January 2026 Builder Incentives"
-                className="mx-auto mb-8 max-w-4xl text-left"
-              />
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white rounded-xl p-5 border border-green-100">
                   <div className="text-3xl font-bold text-green-600 mb-1">
@@ -443,14 +443,14 @@ export default function NewConstructionPage() {
 
           {/* Builders Grid */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Las Vegas New Home Builders
-            </h2>
             <SectionPhoto
               imageKey="sellersMoveUp"
               heading="Las Vegas New Home Builders"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Las Vegas New Home Builders
+            </h2>
 
             <div className="grid lg:grid-cols-2 gap-6">
               {builders.map((builder) => (
@@ -523,14 +523,14 @@ export default function NewConstructionPage() {
 
           {/* The Process */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              New Construction Buying Process with BHHS
-            </h2>
             <SectionPhoto
               imageKey="buyersProcess"
               heading="New Construction Buying Process with BHHS"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              New Construction Buying Process with BHHS
+            </h2>
 
             <div className="space-y-6">
               <div className="flex items-start">
@@ -640,14 +640,14 @@ export default function NewConstructionPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              New Construction FAQs
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="New Construction FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              New Construction FAQs
+            </h2>
 
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -738,14 +738,14 @@ export default function NewConstructionPage() {
 
           {/* What We Negotiate */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              What Dr. Jan Negotiates for New Construction Buyers
-            </h2>
             <SectionPhoto
               imageKey="whyJan"
               heading="What Dr. Jan Negotiates for New Construction Buyers"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              What Dr. Jan Negotiates for New Construction Buyers
+            </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
@@ -775,15 +775,15 @@ export default function NewConstructionPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Tour New Construction?
-            </h2>
             <SectionPhoto
               imageKey="newConstructionAgent"
               heading="Ready to Tour New Construction?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Tour New Construction?
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Call <strong>(702) 500-1980</strong> to register Dr. Jan Duffy as

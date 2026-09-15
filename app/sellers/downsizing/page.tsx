@@ -121,14 +121,14 @@ export default function DownsizingPage() {
 
           {/* Transition Options */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Popular Downsizing Destinations
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveCommunities"
               heading="Popular Downsizing Destinations"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Popular Downsizing Destinations
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
@@ -213,14 +213,14 @@ export default function DownsizingPage() {
 
           {/* Dual Transaction Expertise */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              We Handle Both Sides of Your Transition
-            </h2>
             <SectionPhoto
               imageKey="sellersProcess"
               heading="We Handle Both Sides of Your Transition"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              We Handle Both Sides of Your Transition
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -331,14 +331,14 @@ export default function DownsizingPage() {
 
           {/* 55+ Community Comparison */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Top 55+ Communities for Las Vegas Downsizers
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveAmenities"
               heading="Top 55+ Communities for Las Vegas Downsizers"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Top 55+ Communities for Las Vegas Downsizers
+            </h2>
 
             <p className="text-slate-600 text-center mb-8 max-w-3xl mx-auto">
               Las Vegas offers some of the nation's best 55+ communities. Here's
@@ -429,14 +429,14 @@ export default function DownsizingPage() {
 
           {/* What to Consider */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Key Considerations When Downsizing
-            </h2>
             <SectionPhoto
               imageKey="listingsChecklist"
               heading="Key Considerations When Downsizing"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Key Considerations When Downsizing
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -517,14 +517,14 @@ export default function DownsizingPage() {
 
           {/* The Downsizing Process */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              The Downsizing Process with Dr. Jan Duffy
-            </h2>
             <SectionPhoto
               imageKey="buyersProcess"
               heading="The Downsizing Process with Dr. Jan Duffy"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              The Downsizing Process with Dr. Jan Duffy
+            </h2>
 
             <div className="space-y-6">
               <div className="flex items-start">
@@ -597,14 +597,14 @@ export default function DownsizingPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Downsizing FAQs
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Downsizing FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Downsizing FAQs
+            </h2>
 
             <div className="space-y-4">
               {[

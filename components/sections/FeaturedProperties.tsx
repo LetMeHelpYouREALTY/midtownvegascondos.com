@@ -20,6 +20,11 @@ export default function FeaturedProperties() {
   return (
     <section className="py-16 md:py-24 bg-slate-50">
       <div className="container mx-auto px-4">
+        <SectionPhoto
+          imageKey="featuredAreas"
+          heading="Featured Midtown Condo Areas"
+          className="mx-auto mb-10 max-w-4xl text-left"
+        />
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
@@ -34,11 +39,6 @@ export default function FeaturedProperties() {
             <Link href="/listings">Search live listings</Link>
           </Button>
         </div>
-        <SectionPhoto
-          imageKey="featuredAreas"
-          heading="Featured Midtown Condo Areas"
-          className="mx-auto mb-10 max-w-4xl text-left"
-        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featured.map((area) => {

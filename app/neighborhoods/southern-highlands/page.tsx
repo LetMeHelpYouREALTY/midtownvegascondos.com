@@ -287,14 +287,14 @@ export default function SouthernHighlandsPage() {
           </section>
 
           <section className="mb-16 max-w-5xl mx-auto" aria-labelledby="sh-faq">
-            <h2 id="sh-faq" className="text-2xl font-bold text-slate-900 mb-4">
-              Southern Highlands FAQ
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Southern Highlands FAQ"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 id="sh-faq" className="text-2xl font-bold text-slate-900 mb-4">
+              Southern Highlands FAQ
+            </h2>
 
             <dl className="space-y-4">
               {faqs.map((faq) => (

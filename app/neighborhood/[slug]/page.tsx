@@ -91,17 +91,17 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
           </article>
 
           <section className="mb-12" aria-labelledby="lifestyle-faq">
+            <SectionPhoto
+              imageKey="lifestyleFaq"
+              heading="FAQ"
+              className="mb-6 text-left"
+            />
             <h2
               id="lifestyle-faq"
               className="text-2xl font-bold text-slate-900 mb-4"
             >
               FAQ
             </h2>
-            <SectionPhoto
-              imageKey="lifestyleFaq"
-              heading="FAQ"
-              className="mb-6 text-left"
-            />
             <dl className="space-y-4">
               {page.faqs.map((faq) => (
                 <div
@@ -120,14 +120,14 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-xl font-bold text-slate-900 mb-4">
-              Related midtown pages
-            </h2>
             <SectionPhoto
               imageKey="lifestyleHub"
               heading="Related midtown pages"
               className="mb-6 text-left"
             />
+            <h2 className="text-xl font-bold text-slate-900 mb-4">
+              Related midtown pages
+            </h2>
             <div className="flex flex-wrap gap-3">
               {page.relatedLinks.map((link) => (
                 <Link

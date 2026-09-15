@@ -104,14 +104,14 @@ export default function RelocationPage() {
 
           {/* How We Help */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              How We Handle Your Relocation Sale
-            </h2>
             <SectionPhoto
               imageKey="sellersRelocation"
               heading="How We Handle Your Relocation Sale"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              How We Handle Your Relocation Sale
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -245,14 +245,14 @@ export default function RelocationPage() {
 
           {/* Timeline Options */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Relocation Timeline Options
-            </h2>
             <SectionPhoto
               imageKey="relocationWhy"
               heading="Relocation Timeline Options"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Relocation Timeline Options
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
@@ -386,14 +386,14 @@ export default function RelocationPage() {
 
           {/* Common Relocation Destinations */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Popular Relocation Destinations from Las Vegas
-            </h2>
             <SectionPhoto
               imageKey="contactAreas"
               heading="Popular Relocation Destinations from Las Vegas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Popular Relocation Destinations from Las Vegas
+            </h2>
 
             <p className="text-slate-600 text-center mb-8 max-w-3xl mx-auto">
               Whether you're relocating for tech jobs in the Bay Area, corporate
@@ -466,14 +466,14 @@ export default function RelocationPage() {
 
           {/* The Relocation Process */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              The Relocation Process Step by Step
-            </h2>
             <SectionPhoto
               imageKey="sellersProcess"
               heading="The Relocation Process Step by Step"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              The Relocation Process Step by Step
+            </h2>
 
             <div className="space-y-6">
               <div className="flex items-start">
@@ -556,14 +556,14 @@ export default function RelocationPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Relocation FAQs
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Relocation FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Relocation FAQs
+            </h2>
 
             <div className="space-y-4">
               {[
@@ -601,14 +601,14 @@ export default function RelocationPage() {
 
           {/* Coming TO Las Vegas */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Relocating TO Las Vegas?
-            </h2>
             <SectionPhoto
               imageKey="caNumbers"
               heading="Relocating TO Las Vegas?"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Relocating TO Las Vegas?
+            </h2>
 
             <div className="bg-green-50 border border-green-200 rounded-xl p-8">
               <p className="text-slate-700 mb-4">

@@ -65,15 +65,15 @@ export default function DivorceProbatePage() {
         <div className="container mx-auto px-4">
           {/* Situations We Help With */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Situations We Help Navigate
-            </h2>
             <SectionPhoto
               imageKey="sellersSensitive"
               heading="Situations We Help Navigate"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Situations We Help Navigate
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
@@ -219,14 +219,14 @@ export default function DivorceProbatePage() {
 
           {/* Our Approach */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Our Approach to Sensitive Transactions
-            </h2>
             <SectionPhoto
               imageKey="sellersSensitive"
               heading="Our Approach to Sensitive Transactions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Our Approach to Sensitive Transactions
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
@@ -340,14 +340,14 @@ export default function DivorceProbatePage() {
 
           {/* Nevada-Specific Information */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Nevada-Specific Considerations
-            </h2>
             <SectionPhoto
               imageKey="hoaReview"
               heading="Nevada-Specific Considerations"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Nevada-Specific Considerations
+            </h2>
 
             <div className="prose prose-lg max-w-none text-slate-700 mb-8">
               <p>
@@ -439,14 +439,14 @@ export default function DivorceProbatePage() {
 
           {/* The Process */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              How We Handle Sensitive Transactions
-            </h2>
             <SectionPhoto
               imageKey="sellersProcess"
               heading="How We Handle Sensitive Transactions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              How We Handle Sensitive Transactions
+            </h2>
 
             <div className="space-y-6">
               <div className="flex items-start">
@@ -534,14 +534,14 @@ export default function DivorceProbatePage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
 
             <div className="space-y-4">
               {[
@@ -583,14 +583,14 @@ export default function DivorceProbatePage() {
 
           {/* Why BHHS Matters */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Why Berkshire Hathaway HomeServices for Sensitive Sales
-            </h2>
             <SectionPhoto
               imageKey="aboutBhhs"
               heading="Why Berkshire Hathaway HomeServices for Sensitive Sales"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Why Berkshire Hathaway HomeServices for Sensitive Sales
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">

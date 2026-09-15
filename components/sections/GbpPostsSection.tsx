@@ -30,6 +30,11 @@ export default function GbpPostsSection({ limit = 3 }: GbpPostsSectionProps) {
       aria-labelledby="gbp-posts-heading"
     >
       <div className="container mx-auto px-4">
+        <SectionPhoto
+          imageKey="gbpPosts"
+          heading="Latest from the Arts District office"
+          className="mx-auto mb-10 max-w-4xl text-left"
+        />
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <h2
             id="gbp-posts-heading"
@@ -42,11 +47,6 @@ export default function GbpPostsSection({ limit = 3 }: GbpPostsSectionProps) {
             for homebuyers comparing downtown and Arts District condos.
           </p>
         </div>
-        <SectionPhoto
-          imageKey="gbpPosts"
-          heading="Latest from the Arts District office"
-          className="mx-auto mb-10 max-w-4xl text-left"
-        />
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
           {posts.map((post) => (
             <article

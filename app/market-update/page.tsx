@@ -178,14 +178,14 @@ export default function MarketUpdatePage() {
 
           {/* Notable Sale */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">
-              Notable Sale of the Week
-            </h2>
             <SectionPhoto
               imageKey="listingDetails"
               heading="Notable Sale of the Week"
               className="mb-6 text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              Notable Sale of the Week
+            </h2>
             <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
@@ -221,14 +221,14 @@ export default function MarketUpdatePage() {
 
           {/* Expert Analysis */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">
-              Dr. Jan Duffy's Expert Analysis
-            </h2>
             <SectionPhoto
               imageKey="whyJan"
               heading="Dr. Jan Duffy's Expert Analysis"
               className="mb-6 text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              Dr. Jan Duffy's Expert Analysis
+            </h2>
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <div className="prose prose-lg max-w-none text-slate-700">
                 <p>
@@ -275,14 +275,14 @@ export default function MarketUpdatePage() {
 
           {/* What This Means */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
-              What This Means for You
-            </h2>
             <SectionPhoto
               imageKey="marketForces"
               heading="What This Means for You"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+              What This Means for You
+            </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* For Buyers */}
@@ -392,14 +392,14 @@ export default function MarketUpdatePage() {
 
           {/* Market by Area */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">
-              This Week by Area
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="This Week by Area"
               className="mb-6 text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              This Week by Area
+            </h2>
             <div className="overflow-x-auto">
               <table className="w-full bg-white border border-slate-200 rounded-xl overflow-hidden">
                 <thead className="bg-slate-50">
@@ -484,15 +484,15 @@ export default function MarketUpdatePage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Get Personalized Market Insights
-            </h2>
             <SectionPhoto
               imageKey="marketSnapshot"
               heading="Get Personalized Market Insights"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Get Personalized Market Insights
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Want to know what these trends mean for your specific situation?
