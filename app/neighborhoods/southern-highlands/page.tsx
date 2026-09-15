@@ -157,6 +157,11 @@ export default function SouthernHighlandsPage() {
           </section>
 
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="southernHighlandsWhy"
+              heading="Why buyers choose Southern Highlands"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
                 Why buyers choose Southern Highlands

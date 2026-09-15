@@ -161,6 +161,11 @@ export default function MidtownRealEstatePage() {
           </section>
 
           <section className="mb-14">
+            <SectionPhoto
+              imageKey="midtownHowTo"
+              heading="How to buy midtown real estate"
+              className="mb-6 text-left"
+            />
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
               How to buy midtown real estate
             </h2>

@@ -226,6 +226,11 @@ export default function SellersPage() {
 
           {/* Benefits */}
           <section className="mb-16 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="sellersAdvantage"
+              heading="The Berkshire Hathaway HomeServices Selling Advantage"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               The Berkshire Hathaway HomeServices Selling Advantage
             </h2>

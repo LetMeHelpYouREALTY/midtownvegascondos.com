@@ -145,6 +145,11 @@ export default function DelWebbLakeLasVegasPage() {
 
           {/* About */}
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="delWebbAbout"
+              heading="About Del Webb at Lake Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
                 About Del Webb at Lake Las Vegas

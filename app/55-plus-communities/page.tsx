@@ -502,6 +502,11 @@ export default function FiftyFiveCommunitiesPage() {
 
           {/* Lifestyle Benefits */}
           <section className="mb-16 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="fiftyFiveWhy"
+              heading="Why Active Adults Choose Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Why Active Adults Choose Las Vegas
             </h2>
