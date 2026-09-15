@@ -8,7 +8,7 @@ import { getSearchConsoleVerification } from "@/lib/search-console";
 import { generateLocalBusinessSchema } from "@/lib/gbp-schema";
 import { generateWebSiteSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 
 /**
