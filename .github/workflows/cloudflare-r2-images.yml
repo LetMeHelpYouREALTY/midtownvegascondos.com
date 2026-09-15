@@ -22,6 +22,10 @@ jobs:
     env:
       R2_BUCKET: realestatedomains-assets
       NEXT_PUBLIC_R2_PREFIX: midtownvegascondos
+      # Invoice-verified Cloudflare account (not a secret). Lets REST/S3
+      # skip the IP-blocked /accounts lookup.
+      CLOUDFLARE_ACCOUNT_ID: 2cc579c1ec9e426ed585e933ebf4753b
+      R2_ACCOUNT_ID: 2cc579c1ec9e426ed585e933ebf4753b
       # Native Vercel GitHub project (repo VERCEL_PROJECT_ID secret is stale).
       VERCEL_ORG_ID: team_EIbjFXaDDtGMTweb5Hvo3CG3
       VERCEL_PROJECT_ID: prj_cgzb65mf2GDFh37vU9hPWQ2TGJ6m

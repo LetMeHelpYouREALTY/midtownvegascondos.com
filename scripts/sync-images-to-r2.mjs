@@ -22,6 +22,8 @@ const IMAGES_DIR = join(ROOT, "public", "images");
 const WRANGLER_CONFIG = join(ROOT, "scripts", "wrangler.r2.toml");
 const BUCKET = process.env.R2_BUCKET ?? "realestatedomains-assets";
 const PREFIX = process.env.NEXT_PUBLIC_R2_PREFIX ?? "midtownvegascondos";
+/** Invoice-verified dash account; not a secret. Env vars still override. */
+const DEFAULT_ACCOUNT_ID = "2cc579c1ec9e426ed585e933ebf4753b";
 const CACHE_CONTROL = "public, max-age=31536000, immutable";
 const ACCOUNT_ID_RE = /\b([a-f0-9]{32})\b/gi;
 
@@ -56,7 +58,7 @@ function accountId() {
   return (
     process.env.R2_ACCOUNT_ID ||
     process.env.CLOUDFLARE_ACCOUNT_ID ||
-    ""
+    DEFAULT_ACCOUNT_ID
   ).trim();
 }
 
@@ -283,7 +285,23 @@ async function restPut(localFile, objectKey) {
   });
   if (!response.ok) {
     const text = await response.text();
-    throw new Error(`R2 REST put HTTP ${response.status}: ${text.slice(0, 400)}`);
+    let body = {};
+    try {
+      body = JSON.parse(text);
+    } catch {
+      body = {};
+    }
+    if (
+      isTokenLocationBlocked(body) ||
+      /cannot use the access token from location/i.test(text)
+    ) {
+      throw locationBlockedError(
+        cloudflareError(body).message || text.slice(0, 120),
+      );
+    }
+    throw new Error(
+      `R2 REST put HTTP ${response.status}: ${text.slice(0, 400)}`,
+    );
   }
 }
 

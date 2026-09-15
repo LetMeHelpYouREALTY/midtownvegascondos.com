@@ -28,7 +28,7 @@ Use **R2 S3 API tokens** instead (separate from Account API tokens):
 4. Set on **Vercel production** and the GitHub **Production** environment:
    - `R2_ACCESS_KEY_ID`
    - `R2_SECRET_ACCESS_KEY`
-   - `CLOUDFLARE_ACCOUNT_ID` (or `R2_ACCOUNT_ID`)
+   - `CLOUDFLARE_ACCOUNT_ID` is already known (`2cc579c1ec9e426ed585e933ebf4753b` in `scripts/wrangler.r2.toml`); still set it on Vercel if you want an override.
 5. Re-run `npm run cloudflare:images` (Vercel postbuild or the R2 GitHub workflow).
 6. Confirm `https://pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/images/hero/home-strip-dusk.webp` returns HTTP 200.
 7. Set `NEXT_PUBLIC_R2_ENABLED=true` on Vercel.
