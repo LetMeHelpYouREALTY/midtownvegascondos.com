@@ -191,4 +191,21 @@ describe("live heading photography", () => {
     expect(midtown).toMatch(/heading=\{`Search \$\{area\.name\} Condos`\}/);
     expect(midtown).toMatch(/src=\{getHeroImage\(heroKey\)\.src\}/);
   });
+
+  it("does not hardcode off-market image filenames on live pages", () => {
+    const root = process.cwd();
+    const files = [
+      ...walkTsx(join(root, "app")),
+      ...walkTsx(join(root, "components")),
+    ];
+    const banned =
+      /\/images\/(?:hero|sections)\/(?:night-neon|city-avenue|sky-terrace|modern-home-front|new-construction|condo-balconies|apartment-row|bright-living|penthouse|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan)\.webp/;
+    const hits: string[] = [];
+    for (const file of files) {
+      const rel = file.slice(root.length + 1);
+      const text = readFileSync(file, "utf8");
+      if (banned.test(text)) hits.push(rel);
+    }
+    expect(hits).toEqual([]);
+  });
 });

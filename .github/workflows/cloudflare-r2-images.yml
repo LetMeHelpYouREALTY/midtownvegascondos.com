@@ -111,6 +111,45 @@ jobs:
           rm -f /tmp/vercel-prod.env
         id: vercelenv
 
+      - name: List Vercel R2-related env key names
+        if: always()
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "No VERCEL_TOKEN; cannot list Vercel env keys."
+            exit 0
+          fi
+          node <<'NODE'
+          (async () => {
+            const token = process.env.VERCEL_TOKEN;
+            const project = process.env.VERCEL_PROJECT_ID;
+            const team = process.env.VERCEL_ORG_ID;
+            const url = `https://api.vercel.com/v9/projects/${project}/env?teamId=${team}`;
+            const res = await fetch(url, {
+              headers: { Authorization: `Bearer ${token}` },
+            });
+            const body = await res.json();
+            if (!res.ok) {
+              console.log(`Vercel env list HTTP ${res.status}`);
+              return;
+            }
+            const envs = Array.isArray(body.envs) ? body.envs : [];
+            const interesting = envs
+              .map((entry) => entry.key)
+              .filter((key) =>
+                /R2|CLOUDFLARE|AWS_ACCESS|AWS_SECRET/i.test(String(key)),
+              )
+              .sort();
+            console.log(
+              "Vercel env keys matching R2/Cloudflare/AWS:",
+              interesting.join(", ") || "(none)",
+            );
+          })().catch((error) => {
+            console.log("Vercel env list failed:", error.message);
+          });
+          NODE
+
       - name: Resolve R2 auth
         id: cf
         run: |

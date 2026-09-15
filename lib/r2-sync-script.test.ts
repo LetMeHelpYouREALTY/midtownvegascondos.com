@@ -58,6 +58,7 @@ describe("R2 image sync script", () => {
     );
     expect(workflow).toMatch(/CLOUDFLARE_R2_ACCESS_KEY_ID/);
     expect(workflow).toMatch(/AWS_SECRET_ACCESS_KEY/);
+    expect(workflow).toMatch(/Vercel env keys matching R2\/Cloudflare\/AWS/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {
