@@ -88,6 +88,11 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Info & Map */}
             <div>
+              <SectionPhoto
+                imageKey="contactTouch"
+                heading="Get In Touch"
+                className="mb-6 text-left"
+              />
               <h2 className="text-2xl font-bold text-slate-900 mb-6">
                 Get In Touch
               </h2>

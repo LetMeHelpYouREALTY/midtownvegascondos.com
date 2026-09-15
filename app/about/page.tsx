@@ -27,6 +27,7 @@ import {
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import type { HeroImageKey } from "@/lib/hero-images";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 
@@ -162,6 +163,11 @@ export default function AboutPage() {
                 </p>
               </div>
               <div>
+                <SectionPhoto
+                  imageKey="aboutBio"
+                  heading="Dr. Jan Duffy"
+                  className="mb-6 text-left"
+                />
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                   Dr. Jan Duffy
                 </h2>
@@ -180,11 +186,11 @@ export default function AboutPage() {
                   </p>
                   <p>
                     Since 2008, I've closed $127 million in transactions and
-                    helped hundreds of families find their perfect home in Las
-                    Vegas, Henderson, Summerlin, and throughout Southern Nevada.
-                    My expertise spans luxury properties, new construction,
+                    helped hundreds of clients buy and sell homes in Las Vegas,
+                    including Arts District and downtown condos. My expertise
+                    spans high-rise and loft condos, new construction,
                     investment real estate, 55+ active adult communities, and
-                    relocations—particularly for California families seeking
+                    relocations—particularly for California buyers comparing
                     Nevada's tax advantages.
                   </p>
                   <p>
@@ -571,21 +577,14 @@ export default function AboutPage() {
               Jan Duffy today for a free consultation. Whether you're ready to
               start your search or just exploring options, she's here to help.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark className="mb-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-400"
               >
                 Schedule Consultation
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>

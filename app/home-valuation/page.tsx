@@ -18,6 +18,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 export const metadata: Metadata = withPageHeroMetadata("/home-valuation", {
   title:
@@ -100,6 +101,11 @@ export default function HomeValuationPage() {
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
+          <SectionPhoto
+            imageKey="valuationSchedule"
+            heading="Schedule Your Free Valuation"
+            className="mx-auto mb-8 max-w-4xl text-left"
+          />
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
             {/* Calendly Widget */}
             <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
@@ -693,21 +699,14 @@ export default function HomeValuationPage() {
               Berkshire Hathaway HomeServices Nevada Properties. Accurate
               pricing. Expert guidance. Zero pressure.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/sellers"
-                className="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-400"
               >
                 Learn About Selling
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>

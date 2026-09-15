@@ -3,7 +3,6 @@ import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   TrendingUp,
   TrendingDown,
   Home as HomeIcon,
@@ -18,6 +17,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-update", {
   title:
@@ -89,6 +89,11 @@ export default function MarketUpdatePage() {
         <div className="container mx-auto px-4">
           {/* Key Statistics */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="marketWeek"
+              heading="5 Key Statistics This Week"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
               5 Key Statistics This Week
             </h2>
@@ -499,21 +504,14 @@ export default function MarketUpdatePage() {
               Contact Dr. Jan Duffy for a free consultation tailored to your
               goals.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/home-valuation"
-                className="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-400"
               >
                 Get Free Home Valuation
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="mt-6 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>
