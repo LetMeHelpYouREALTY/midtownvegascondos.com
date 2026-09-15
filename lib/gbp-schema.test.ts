@@ -34,6 +34,8 @@ describe("generateLocalBusinessSchema", () => {
     expect(schema.openingHours).toEqual(["Su-Th 09:00-17:00"]);
     expect(schema.employee.name).toBe("Dr. Jan Duffy");
     expect(schema.knowsAbout).toContain("Arts District condos");
+    expect(schema.areaServed[0]["@type"]).toBe("GeoCircle");
+    expect(schema.areaServed[0].geoRadius).toBe(8000);
     expect(
       schema.areaServed.some(
         (area: { url?: string }) =>
@@ -65,7 +67,13 @@ describe("generateLocalBusinessSchema", () => {
 
   it("includes heading-matched office photos as ImageObjects", () => {
     expect(Array.isArray(schema.image)).toBe(true);
-    expect(schema.image.length).toBeGreaterThanOrEqual(14);
+    expect(schema.image.length).toBeGreaterThanOrEqual(19);
+    expect(schema.image).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining("/images/sections/search-midtown-condos.webp"),
+        expect.stringContaining("/images/sections/arts-district-galleries.webp"),
+      ]),
+    );
     expect(schema.photo).toHaveLength(schema.image.length);
     expect(schema.image).toEqual(
       expect.arrayContaining([
@@ -104,6 +112,9 @@ describe("GBP engage CTAs on live pages", () => {
     "app/contact/page.tsx",
     "app/about/page.tsx",
     "app/55-plus-communities/page.tsx",
+    "app/55-plus-communities/sun-city-summerlin/page.tsx",
+    "app/55-plus-communities/trilogy-summerlin/page.tsx",
+    "app/55-plus-communities/heritage-stonebridge/page.tsx",
     "app/neighborhood/page.tsx",
     "app/midtown-real-estate/page.tsx",
     "app/google-business/page.tsx",

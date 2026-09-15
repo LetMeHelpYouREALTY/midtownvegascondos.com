@@ -324,7 +324,12 @@ async function putObject(localFile, objectKey, mode) {
 }
 
 async function main() {
-  if (isUsableSecret(process.env.CLOUDFLARE_API_TOKEN) && !accountId()) {
+  const s3Ready = hasS3Auth();
+  if (
+    !s3Ready &&
+    isUsableSecret(process.env.CLOUDFLARE_API_TOKEN) &&
+    !accountId()
+  ) {
     await resolveAccountIdFromToken();
   }
   const useS3 = hasS3Auth();

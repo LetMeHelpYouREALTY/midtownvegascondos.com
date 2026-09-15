@@ -18,13 +18,13 @@ export const metadata: Metadata = withPageHeroMetadata(
   {
     title: "Berkshire Hathaway HomeServices Centennial Hills | Las Vegas Homes",
     description:
-      "Find Centennial Hills homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this established northwest community. Median price $495K. Call (702) 500-1980.",
+      "Find Centennial Hills homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy covers northwest Las Vegas streets near US-95 and Centennial Hills Park. Median price $495K. Call (702) 500-1980.",
     keywords: [
       "Berkshire Hathaway HomeServices Centennial Hills",
       "Centennial Hills homes for sale",
       "Centennial Hills Las Vegas",
       "northwest Las Vegas real estate",
-      "family homes Las Vegas",
+      "Centennial Hills Park Las Vegas homes",
     ],
   },
 );

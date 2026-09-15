@@ -19,6 +19,13 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/Manage R2 API Tokens/);
   });
 
+  it("skips Account API /accounts lookup when R2 S3 keys are already complete", () => {
+    const src = readFileSync(SCRIPT, "utf8");
+    expect(src).toMatch(/const s3Ready = hasS3Auth\(\);/);
+    expect(src).toMatch(/!s3Ready &&/);
+    expect(src).toMatch(/resolveAccountIdFromToken/);
+  });
+
   it("skips cleanly when Cloudflare credentials are absent", () => {
     const result = spawnSync(process.execPath, [SCRIPT], {
       cwd: ROOT,

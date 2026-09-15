@@ -215,8 +215,7 @@ export default function SkyeCanyonPage() {
               </h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  Skye Canyon features newer schools purpose-built for the
-                  community, plus access to established northwest schools:
+                  Named campuses near Skye Canyon include:
                 </p>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>

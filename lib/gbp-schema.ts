@@ -303,6 +303,48 @@ const gbpPhotoObjects = [
     url: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
     contentUrl: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
   },
+  {
+    "@type": "ImageObject" as const,
+    name: "Search Midtown Vegas condos",
+    caption:
+      "Laptop on a midtown Las Vegas condo island used to search live Arts District listings",
+    url: absoluteSiteImage("/images/sections/search-midtown-condos.webp"),
+    contentUrl: absoluteSiteImage("/images/sections/search-midtown-condos.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Why work with Dr. Jan Duffy",
+    caption:
+      "Las Vegas valley map and condo notes for Arts District and downtown buyer matching",
+    url: absoluteSiteImage("/images/sections/why-choose-jan.webp"),
+    contentUrl: absoluteSiteImage("/images/sections/why-choose-jan.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "HOA document review",
+    caption:
+      "HOA documents and floor plans with a downtown Las Vegas high-rise outside the window",
+    url: absoluteSiteImage("/images/sections/hoa-review.webp"),
+    contentUrl: absoluteSiteImage("/images/sections/hoa-review.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Arts District gallery street",
+    caption:
+      "Las Vegas Arts District galleries and murals near downtown condo buildings",
+    url: absoluteSiteImage("/images/sections/arts-district-galleries.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/sections/arts-district-galleries.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Client reviews conference room",
+    caption:
+      "Las Vegas real estate conference room representing Google reviews for this GBP",
+    url: absoluteSiteImage("/images/sections/client-reviews.webp"),
+    contentUrl: absoluteSiteImage("/images/sections/client-reviews.webp"),
+  },
 ];
 
 // Generate LocalBusiness Schema
@@ -382,6 +424,16 @@ export function generateLocalBusinessSchema() {
       value: true,
     })),
     areaServed: [
+      {
+        "@type": "GeoCircle",
+        name: "Arts District and Downtown Las Vegas",
+        geoMidpoint: {
+          "@type": "GeoCoordinates",
+          latitude: businessInfo.geo.latitude,
+          longitude: businessInfo.geo.longitude,
+        },
+        geoRadius: 8000,
+      },
       ...businessInfo.serviceAreas.map((area) => ({
         "@type": "Place",
         name: area,

@@ -201,6 +201,15 @@ export function sitemapImageEntries(): Array<{
   return Array.from(byPage.values());
 }
 
+const HEADING_SECTION_PHOTOS = [
+  "/images/sections/search-midtown-condos.webp",
+  "/images/sections/why-choose-jan.webp",
+  "/images/sections/hoa-review.webp",
+  "/images/sections/market-stats-skyline.webp",
+  "/images/sections/arts-district-galleries.webp",
+  "/images/sections/client-reviews.webp",
+] as const;
+
 /** Look up hero image URL(s) for a sitemap page URL */
 export function imagesForSitemapPage(pageUrl: string): string[] {
   const entry = sitemapImageEntries().find((e) => e.pageUrl === pageUrl);
@@ -209,7 +218,14 @@ export function imagesForSitemapPage(pageUrl: string): string[] {
     urls.push(
       absoluteImageUrl("/images/hero/contact-arts-district-main-street.webp"),
       absoluteImageUrl("/images/hero/gbp-arts-district-office.webp"),
+      ...HEADING_SECTION_PHOTOS.map((path) => absoluteImageUrl(path)),
     );
+  }
+  if (pageUrl === siteConfig.url) {
+    urls.push(...HEADING_SECTION_PHOTOS.map((path) => absoluteImageUrl(path)));
+  }
+  if (pageUrl === `${siteConfig.url}/listings`) {
+    urls.push(absoluteImageUrl("/images/sections/search-midtown-condos.webp"));
   }
   return urls.filter((url, index) => urls.indexOf(url) === index);
 }

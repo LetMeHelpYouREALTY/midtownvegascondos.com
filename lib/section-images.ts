@@ -356,7 +356,7 @@ export const sectionImages = {
   ),
   centennialWhy: fromHero(
     "skye-canyon-community.webp",
-    "Centennial Hills: Northwest Las Vegas's Established Community",
+    "Centennial Hills: Northwest Las Vegas Near US-95",
     "Skye Canyon northwest Las Vegas community setting near Centennial Hills homes",
     "Northwest valley homes with mountain views and park access.",
   ),

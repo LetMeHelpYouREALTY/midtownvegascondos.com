@@ -21,6 +21,16 @@ describe("section-images", () => {
     expect(sectionImages.aboutBio.src).toBe("/images/hero/condo-lobby.webp");
   });
 
+  it("does not use Fair Housing proxies in heading-matched captions", () => {
+    const banned =
+      /safe neighborhood|good schools|family-friendly|established community/i;
+    for (const [key, img] of Object.entries(sectionImages)) {
+      expect(img.heading, key).not.toMatch(banned);
+      expect(img.alt, key).not.toMatch(banned);
+      expect(img.caption, key).not.toMatch(banned);
+    }
+  });
+
   it("points every catalog entry at a file that exists in git", () => {
     for (const [key, img] of Object.entries(sectionImages)) {
       const relative = img.src.replace(/^\//, "");

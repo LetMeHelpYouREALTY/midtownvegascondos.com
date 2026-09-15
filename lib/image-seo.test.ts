@@ -16,6 +16,23 @@ describe("imagesForSitemapPage", () => {
     expect(
       urls.some((url) => url.includes("contact-arts-district-main-street")),
     ).toBe(true);
+    expect(
+      urls.some((url) => url.includes("arts-district-galleries")),
+    ).toBe(true);
+    for (const url of urls) {
+      const relative = url.replace(siteConfig.url, "").replace(/^\//, "");
+      if (relative.startsWith("images/")) {
+        expect(existsSync(join(PUBLIC_ROOT, relative))).toBe(true);
+      }
+    }
+  });
+
+  it("lists heading-matched section photos on the homepage for Google Images", () => {
+    const urls = imagesForSitemapPage(siteConfig.url);
+    expect(urls.some((url) => url.includes("home-strip-dusk"))).toBe(true);
+    expect(
+      urls.some((url) => url.includes("search-midtown-condos")),
+    ).toBe(true);
     for (const url of urls) {
       const relative = url.replace(siteConfig.url, "").replace(/^\//, "");
       if (relative.startsWith("images/")) {
