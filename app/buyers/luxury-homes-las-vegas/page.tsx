@@ -102,6 +102,12 @@ export default function LuxuryHomesPage() {
         <div className="container mx-auto px-4">
           {/* Market Performance */}
           <section className="mb-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="luxuryMarket"
+              heading="Las Vegas Luxury Market Performance"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-3xl font-bold mb-8 text-center">
               Las Vegas Luxury Market Performance
             </h2>

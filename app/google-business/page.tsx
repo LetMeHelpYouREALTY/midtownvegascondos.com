@@ -95,6 +95,12 @@ export default function GoogleBusinessPage() {
             <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white rounded-2xl p-8 md:p-12 shadow-xl">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
+                  <SectionPhoto
+                    imageKey="gbpNap"
+                    heading={businessInfo.name}
+                    className="mb-6 text-left"
+                    onDark
+                  />
                   <div className="flex items-center gap-2 mb-4">
                     <Award className="h-6 w-6 text-yellow-400" />
                     <span className="text-yellow-400 font-semibold">

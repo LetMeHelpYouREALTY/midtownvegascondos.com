@@ -122,6 +122,12 @@ export default function BuyersPage() {
         <div className="container mx-auto px-4">
           {/* Value Prop */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="buyersAgent"
+              heading="Why You Need a Buyer's Agent"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-4">

@@ -139,6 +139,12 @@ export default function CaliforniaRelocatorPage() {
         <div className="container mx-auto px-4">
           {/* Tax Savings Comparison */}
           <section className="mb-16 bg-gradient-to-br from-green-600 to-green-700 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="caNumbers"
+              heading="California vs. Nevada: The Numbers"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <div className="flex items-center justify-center mb-6">
               <Calculator className="h-10 w-10 mr-3" />
               <h2 className="text-3xl font-bold">
