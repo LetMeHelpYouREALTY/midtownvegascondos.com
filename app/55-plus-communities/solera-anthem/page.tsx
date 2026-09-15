@@ -172,14 +172,14 @@ export default function SoleraAnthemPage() {
               <div className="flex items-start">
                 <Users className="h-8 w-8 text-teal-600 mr-4 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">
-                    All Residents 55+
-                  </h3>
                   <HeadingCardPhoto
                     heading="All Residents 55+"
                     heroKey="fiftyFiveSolera"
                     className="mb-4"
                   />
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                    All Residents 55+
+                  </h3>
                   <p className="text-slate-700 mb-4">
                     Most 55+ communities allow younger spouses under the 80/20
                     HOPA rule. Solera is different—

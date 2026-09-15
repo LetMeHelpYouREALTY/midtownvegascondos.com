@@ -183,14 +183,14 @@ export default function DelWebbLakeLasVegasPage() {
               <div className="flex items-start">
                 <Waves className="h-8 w-8 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">
-                    The Lake Las Vegas Experience
-                  </h3>
                   <HeadingCardPhoto
                     heading="The Lake Las Vegas Experience"
                     heroKey="fiftyFiveDelWebb"
                     className="mb-4"
                   />
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                    The Lake Las Vegas Experience
+                  </h3>
                   <p className="text-slate-700 mb-4">
                     Lake Las Vegas is a 320-acre private lake surrounded by
                     luxury resorts, golf courses, and residential communities.

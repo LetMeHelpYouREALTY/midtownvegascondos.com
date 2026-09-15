@@ -262,6 +262,11 @@ export default function NewConstructionPage() {
           <div className="flex items-start">
             <AlertTriangle className="h-6 w-6 text-amber-600 mr-3 flex-shrink-0 mt-1" />
             <div>
+              <HeadingCardPhoto
+                heading="Important: Register Dr. Jan Duffy as Your Agent FIRST"
+                heroKey="newConstruction"
+                className="mb-3"
+              />
               <h3 className="font-bold text-amber-900 mb-1">
                 Important: Register Dr. Jan Duffy as Your Agent FIRST
               </h3>

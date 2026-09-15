@@ -221,14 +221,14 @@ export default function SunCityAnthemPage() {
               <div className="flex items-start">
                 <Shield className="h-8 w-8 text-green-600 mr-4 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">
-                    Why Henderson Matters
-                  </h3>
                   <HeadingCardPhoto
                     heading="Why Henderson Matters"
                     heroKey="nbHenderson"
                     className="mb-4"
                   />
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                    Why Henderson Matters
+                  </h3>
                   <p className="text-slate-700 mb-4">
                     Henderson sits about 16 miles from the Arts District office,
                     with parks, trail systems, and championship golf inside the

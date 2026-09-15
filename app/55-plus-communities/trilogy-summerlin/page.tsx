@@ -183,14 +183,14 @@ export default function TrilogySummerlinPage() {
               <div className="flex items-start">
                 <Star className="h-8 w-8 text-rose-600 mr-4 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">
-                    The Trilogy Difference: Resort-Style Living
-                  </h3>
                   <HeadingCardPhoto
                     heading="The Trilogy Difference: Resort-Style Living"
                     heroKey="fiftyFiveTrilogy"
                     className="mb-4"
                   />
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                    The Trilogy Difference: Resort-Style Living
+                  </h3>
                   <p className="text-slate-700 mb-4">
                     Trilogy isn't just a 55+ community with a nice
                     clubhouse—it's a resort experience you happen to live in.

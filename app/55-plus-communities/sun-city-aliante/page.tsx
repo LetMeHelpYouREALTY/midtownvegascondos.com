@@ -172,14 +172,14 @@ export default function SunCityAliantePage() {
               <div className="flex items-start">
                 <TrendingUp className="h-8 w-8 text-green-600 mr-4 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">
-                    Why Sun City Aliante Is the Best Value
-                  </h3>
                   <HeadingCardPhoto
                     heading="Why Sun City Aliante Is the Best Value"
                     heroKey="fiftyFiveSunCityAliante"
                     className="mb-4"
                   />
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                    Why Sun City Aliante Is the Best Value
+                  </h3>
                   <p className="text-slate-700 mb-4">
                     Compare Sun City Aliante to other Sun City communities and
                     the value becomes clear. You get the same lifestyle and

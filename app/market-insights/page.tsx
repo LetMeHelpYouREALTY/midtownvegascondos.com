@@ -134,14 +134,14 @@ export default function MarketInsightsPage() {
                   has evolved into a broader technology ecosystem. The
                   implications for real estate are significant.
                 </p>
-                <h3 className="text-xl font-bold text-slate-900 mt-6 mb-3">
-                  Data Center Corridor
-                </h3>
                 <HeadingCardPhoto
                   heading="Data Center Corridor"
                   heroKey="nbHenderson"
                   className="mb-4"
                 />
+                <h3 className="text-xl font-bold text-slate-900 mt-6 mb-3">
+                  Data Center Corridor
+                </h3>
                 <p>
                   Henderson's data center corridor now hosts Google, Amazon Web
                   Services, Switch, and other major operators. These facilities

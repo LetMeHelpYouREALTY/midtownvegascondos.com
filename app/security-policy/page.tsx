@@ -65,14 +65,14 @@ export default function SecurityPolicyPage() {
               </p>
 
               <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
-                <h3 className="font-semibold text-blue-900 mb-3">
-                  How to Report
-                </h3>
                 <HeadingCardPhoto
                   heading="How to Report"
                   sectionKey="contactTouch"
                   className="mb-3"
                 />
+                <h3 className="font-semibold text-blue-900 mb-3">
+                  How to Report
+                </h3>
                 <ul className="space-y-2 text-blue-800">
                   <li>
                     <strong>Email:</strong>{" "}
@@ -95,14 +95,14 @@ export default function SecurityPolicyPage() {
                 </ul>
               </div>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                What to Include
-              </h3>
               <HeadingCardPhoto
                 heading="What to Include"
                 sectionKey="listingsChecklist"
                 className="mb-4 max-w-3xl"
               />
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                What to Include
+              </h3>
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Description of the vulnerability</li>
                 <li>Steps to reproduce the issue</li>
@@ -125,14 +125,14 @@ export default function SecurityPolicyPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    🛡️ Protection
-                  </h3>
                   <HeadingCardPhoto
                     heading="Protection"
                     sectionKey="listingsChecklist"
                     className="mb-3"
                   />
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    🛡️ Protection
+                  </h3>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Cloudflare Turnstile CAPTCHA</li>
                     <li>• Rate limiting (Upstash)</li>
@@ -143,14 +143,14 @@ export default function SecurityPolicyPage() {
                 </div>
 
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    📊 Monitoring
-                  </h3>
                   <HeadingCardPhoto
                     heading="Monitoring"
                     heroKey="marketUpdate"
                     className="mb-3"
                   />
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    📊 Monitoring
+                  </h3>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Sentry error tracking</li>
                     <li>• Vercel Analytics</li>
@@ -161,14 +161,14 @@ export default function SecurityPolicyPage() {
                 </div>
 
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    🔐 Data Protection
-                  </h3>
                   <HeadingCardPhoto
                     heading="Data Protection"
                     heroKey="contactOffice"
                     className="mb-3"
                   />
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    🔐 Data Protection
+                  </h3>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Encrypted connections (TLS 1.3)</li>
                     <li>• Secure API integrations</li>
@@ -179,14 +179,14 @@ export default function SecurityPolicyPage() {
                 </div>
 
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    ✅ Compliance
-                  </h3>
                   <HeadingCardPhoto
                     heading="Compliance"
                     heroKey="sellersDivorceProbate"
                     className="mb-3"
                   />
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    ✅ Compliance
+                  </h3>
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• GDPR ready</li>
                     <li>• CCPA compliant</li>
@@ -255,14 +255,14 @@ export default function SecurityPolicyPage() {
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
               <div className="bg-green-50 border-l-4 border-green-500 p-6">
-                <h3 className="font-semibold text-green-900 mb-3">
-                  We Promise
-                </h3>
                 <HeadingCardPhoto
                   heading="We Promise"
                   heroKey="whyBhhs"
                   className="mb-3"
                 />
+                <h3 className="font-semibold text-green-900 mb-3">
+                  We Promise
+                </h3>
                 <ul className="text-green-800 space-y-2">
                   <li>✅ We will respond within 48 hours</li>
                   <li>✅ We will keep you updated on our progress</li>

@@ -157,6 +157,11 @@ export default function HomeValuationPage() {
 
               {/* Market Stats */}
               <div className="bg-blue-50 rounded-lg p-8">
+                <HeadingCardPhoto
+                  heading="Las Vegas Market | January 2026"
+                  heroKey="marketReport"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-4">
                   Las Vegas Market | January 2026
                 </h3>

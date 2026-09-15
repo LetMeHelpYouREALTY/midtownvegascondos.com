@@ -222,14 +222,14 @@ export default function AboutPage() {
 
                 {/* Contact Info */}
                 <div className="bg-slate-50 rounded-lg p-6 mb-8">
-                  <h3 className="font-bold text-slate-900 mb-4">
-                    Contact Dr. Jan Duffy
-                  </h3>
                   <HeadingCardPhoto
                     heading="Contact Dr. Jan Duffy"
                     heroKey="contactOffice"
                     className="mb-4"
                   />
+                  <h3 className="font-bold text-slate-900 mb-4">
+                    Contact Dr. Jan Duffy
+                  </h3>
                   <div className="space-y-3">
                     <a
                       href="tel:+17025001980"
@@ -313,12 +313,12 @@ export default function AboutPage() {
 
                 {/* Quick Services */}
                 <div className="bg-white border border-slate-200 rounded-lg p-6">
-                  <h3 className="font-bold text-slate-900 mb-4">Quick Links</h3>
                   <HeadingCardPhoto
                     heading="Quick Links"
                     heroKey="buyersCondoTower"
                     className="mb-4"
                   />
+                  <h3 className="font-bold text-slate-900 mb-4">Quick Links</h3>
                   <div className="space-y-2">
                     <Link
                       href="/buyers"
@@ -416,12 +416,12 @@ export default function AboutPage() {
                 <div className="bg-blue-600 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <Award className="h-8 w-8" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Trusted Brand</h3>
                 <HeadingCardPhoto
                   heading="Trusted Brand"
                   heroKey="whyBhhs"
                   className="mb-3"
                 />
+                <h3 className="font-bold text-xl mb-2">Trusted Brand</h3>
                 <p className="text-slate-300 text-sm">
                   The only real estate brand backed by Warren Buffett's
                   Berkshire Hathaway Inc.—a name synonymous with trust and
@@ -432,12 +432,12 @@ export default function AboutPage() {
                 <div className="bg-blue-600 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <Users className="h-8 w-8" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Global Network</h3>
                 <HeadingCardPhoto
                   heading="Global Network"
                   heroKey="relocationHub"
                   className="mb-3"
                 />
+                <h3 className="font-bold text-xl mb-2">Global Network</h3>
                 <p className="text-slate-300 text-sm">
                   50,000+ agents worldwide for seamless referrals and
                   relocations. Whether you're moving from California or anywhere
@@ -448,12 +448,12 @@ export default function AboutPage() {
                 <div className="bg-blue-600 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <Shield className="h-8 w-8" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Ethical Standards</h3>
                 <HeadingCardPhoto
                   heading="Ethical Standards"
                   heroKey="sellersDivorceProbate"
                   className="mb-3"
                 />
+                <h3 className="font-bold text-xl mb-2">Ethical Standards</h3>
                 <p className="text-slate-300 text-sm">
                   Rigorous ethical guidelines ensure your interests always come
                   first. No pressure, no games—just honest advice and expert

@@ -450,14 +450,14 @@ export default function FiftyFiveCommunitiesPage() {
               <div className="flex items-start">
                 <Palmtree className="h-10 w-10 text-amber-600 mr-4 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                    Relocating from California?
-                  </h3>
                   <HeadingCardPhoto
                     heading="Relocating from California?"
                     heroKey="buyersCaRelocator"
                     className="mb-4"
                   />
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                    Relocating from California?
+                  </h3>
                   <p className="text-lg text-slate-700 mb-4">
                     Many of our 55+ buyers are relocating from California—and
                     for good reason.{" "}
@@ -540,14 +540,14 @@ export default function FiftyFiveCommunitiesPage() {
               <div className="flex items-start">
                 <Users className="h-8 w-8 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">
-                    Understanding 55+ Age Requirements
-                  </h3>
                   <HeadingCardPhoto
                     heading="Understanding 55+ Age Requirements"
                     sectionKey="fiftyFiveWhy"
                     className="mb-4"
                   />
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                    Understanding 55+ Age Requirements
+                  </h3>
                   <div className="text-slate-700 space-y-3">
                     <p>
                       <strong>Federal HOPA Guidelines:</strong> At least 80% of

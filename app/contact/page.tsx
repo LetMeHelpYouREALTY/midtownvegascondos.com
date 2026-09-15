@@ -102,14 +102,14 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <Phone className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">
-                      Phone (Call or Text)
-                    </h3>
                     <HeadingCardPhoto
                       heading="Phone (Call or Text)"
                       heroKey="contactOffice"
                       className="mb-3 max-w-sm"
                     />
+                    <h3 className="font-semibold text-slate-900 mb-1">
+                      Phone (Call or Text)
+                    </h3>
                     <a
                       href={agentInfo.phoneTel}
                       className="text-2xl font-bold text-blue-600 hover:text-blue-700"
@@ -125,12 +125,12 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <Mail className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Email</h3>
                     <HeadingCardPhoto
                       heading="Email"
                       heroKey="aboutAgent"
                       className="mb-3 max-w-sm"
                     />
+                    <h3 className="font-semibold text-slate-900 mb-1">Email</h3>
                     <a
                       href={`mailto:${agentInfo.email}`}
                       className="text-blue-600 hover:text-blue-700 font-medium"
@@ -146,14 +146,14 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <MapPin className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">
-                      Business Location
-                    </h3>
                     <HeadingCardPhoto
                       heading="Business Location"
                       sectionKey="gbpLocation"
                       className="mb-3 max-w-sm"
                     />
+                    <h3 className="font-semibold text-slate-900 mb-1">
+                      Business Location
+                    </h3>
                     <address className="not-italic text-slate-700">
                       {officeInfo.name}
                       <br />
@@ -168,14 +168,14 @@ export default function ContactPage() {
                 <div className="flex items-start bg-slate-50 rounded-lg p-4">
                   <Clock className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">
-                      Business Hours
-                    </h3>
                     <HeadingCardPhoto
                       heading="Business Hours"
                       sectionKey="gbpHours"
                       className="mb-3 max-w-sm"
                     />
+                    <h3 className="font-semibold text-slate-900 mb-1">
+                      Business Hours
+                    </h3>
                     <p className="text-slate-700">
                       {officeInfo.hoursDisplay[0]}
                       <br />
@@ -266,14 +266,14 @@ export default function ContactPage() {
 
               {/* Why Contact BHHS */}
               <div className="mt-6 bg-slate-900 text-white rounded-xl p-6">
-                <h3 className="font-bold text-lg mb-4">
-                  Why Contact Berkshire Hathaway HomeServices?
-                </h3>
                 <HeadingCardPhoto
                   heading="Why Contact Berkshire Hathaway HomeServices?"
                   heroKey="whyBhhs"
                   className="mb-4"
                 />
+                <h3 className="font-bold text-lg mb-4">
+                  Why Contact Berkshire Hathaway HomeServices?
+                </h3>
                 <div className="space-y-3">
                   <div className="flex items-start">
                     <Shield className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
