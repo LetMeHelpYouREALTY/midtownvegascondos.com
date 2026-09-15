@@ -3,6 +3,11 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { generateLocalBusinessSchema } from "./gbp-schema";
 import { officeInfo, siteConfig } from "./site-config";
+import {
+  COMMUTES_MAP_EMBED_URL,
+  COMMUTES_MAP_PLACE_URL,
+  COMMUTES_MAP_DIRECTIONS_URL,
+} from "./commutes-map";
 
 const PUBLIC_ROOT = join(process.cwd(), "public");
 
@@ -33,6 +38,13 @@ describe("generateLocalBusinessSchema", () => {
     );
     expect(officeInfo.maps.place).toContain(officeInfo.googlePlace.cid);
     expect(officeInfo.maps.reviews).toContain(officeInfo.googlePlace.placeId);
+  });
+
+  it("pins the commute map to the same GBP CID", () => {
+    expect(COMMUTES_MAP_EMBED_URL).toBe(officeInfo.maps.embed);
+    expect(COMMUTES_MAP_PLACE_URL).toBe(officeInfo.maps.place);
+    expect(COMMUTES_MAP_DIRECTIONS_URL).toBe(officeInfo.maps.directions);
+    expect(COMMUTES_MAP_PLACE_URL).toContain(officeInfo.googlePlace.cid);
   });
 
   it("includes heading-matched office photos as ImageObjects", () => {

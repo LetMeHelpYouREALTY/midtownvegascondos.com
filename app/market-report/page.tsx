@@ -13,11 +13,12 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
-import { hyperlocalMeta } from "@/lib/hyperlocal-content";
+import { hyperlocalMeta, midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import { marketStats, agentInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import { neighborhoodHeroBySlug, type HeroImageKey } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-report", {
   title: hyperlocalMeta.marketReport.title,
@@ -127,66 +128,38 @@ export default function MarketReportPage() {
           <section className="mb-16 max-w-6xl mx-auto">
             <SectionPhoto
               imageKey="neighborhoods"
-              heading="Market Data by Area"
+              heading="Midtown condo market by area"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Market Data by Area
+              Midtown condo market by area
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                {
-                  area: "Las Vegas (Overall)",
-                  median: "$450,000",
-                  change: "+4.2%",
-                  dom: 28,
-                  trend: "up",
-                  heroKey: "homeSkylineDay" as const,
-                },
-                {
-                  area: "Henderson",
-                  median: "$485,000",
-                  change: "+5.1%",
-                  dom: 24,
-                  trend: "up",
-                  heroKey: "nbHenderson" as const,
-                },
-                {
-                  area: "Summerlin",
-                  median: "$625,000",
-                  change: "+6.8%",
-                  dom: 22,
-                  trend: "up",
-                  heroKey: "nbSummerlin" as const,
-                },
-                {
-                  area: "North Las Vegas",
-                  median: "$385,000",
-                  change: "+3.2%",
-                  dom: 32,
-                  trend: "up",
-                  heroKey: "nbNorthLasVegas" as const,
-                },
+                ...midtownNeighborhoods.slice(0, 5).map((n) => ({
+                  area: n.name,
+                  median: n.medianPrice,
+                  change: n.priceChange,
+                  dom: marketStats.midtown.daysOnMarket,
+                  trend: "up" as const,
+                  heroKey: (neighborhoodHeroBySlug[n.slug] ??
+                    "neighborhoodsHub") as HeroImageKey,
+                  href: `/neighborhoods/${n.slug}`,
+                })),
                 {
                   area: "Southern Highlands",
                   median: "$750,000",
                   change: "+7.2%",
                   dom: 35,
-                  trend: "up",
+                  trend: "up" as const,
                   heroKey: "nbSouthernHighlands" as const,
-                },
-                {
-                  area: "Luxury ($1M+)",
-                  median: "$1,200,000",
-                  change: "+8.5%",
-                  dom: 45,
-                  trend: "up",
-                  heroKey: "luxuryHomes" as const,
+                  href: "/neighborhoods/southern-highlands",
                 },
               ].map((item) => (
-                <div
+                <Link
                   key={item.area}
-                  className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                  href={item.href}
+                  className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow block"
                 >
                   <HeadingCardPhoto
                     heading={item.area}
@@ -218,7 +191,7 @@ export default function MarketReportPage() {
                       </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>

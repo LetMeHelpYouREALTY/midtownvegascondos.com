@@ -28,9 +28,9 @@ export const gbpPostTemplates: GBPPost[] = [
 ⏱️ Average days on market: 28 days
 📈 Inventory: 2.1 months (seller's market)
 
-Whether you're buying your first home in Henderson, selling in Summerlin, or looking at 55+ communities like Sun City, now is a great time to make your move.
+Whether you're comparing Arts District lofts, Symphony Park mid-rises, or 55+ communities like Sun City Summerlin, call for live MLS comps.
 
-Call Dr. Jan Duffy at (702) 500-1980 for a free market analysis of your home or neighborhood.`,
+Call Dr. Jan Duffy at (702) 500-1980 for a free market analysis of your condo or building.`,
     cta: {
       text: "Get Free Market Analysis",
       url: "https://www.midtownvegascondos.com/home-valuation",
@@ -55,7 +55,7 @@ Call Dr. Jan Duffy at (702) 500-1980 for a free market analysis of your home or 
 ✅ Shorter Strip and airport commutes than many coastal metros
 ✅ 4-hour drive to LA, easy flights everywhere
 
-A $1.2M California home could buy you a luxury property in Summerlin or The Ridges. Dr. Jan Duffy specializes in California-to-Nevada relocations and can help you maximize your equity.
+A $1.2M California home can cover more square footage in Arts District lofts, Symphony Park residences, or One Las Vegas high-rises. Dr. Jan Duffy maps HOA dues, parking, and Harry Reid Airport commute times before you write.
 
 Call (702) 500-1980 for a free California equity comparison.`,
     cta: {
@@ -67,8 +67,8 @@ Call (702) 500-1980 for a free California equity comparison.`,
       "California relocation",
       "Las Vegas",
       "no state income tax",
-      "Summerlin",
-      "The Ridges",
+      "Arts District",
+      "One Las Vegas",
     ],
   },
   {
@@ -111,10 +111,10 @@ Schedule a community tour: (702) 500-1980`,
 
 Dr. Jan Duffy guides first-time buyers through every step—from pre-approval to keys. Free consultation, no pressure.
 
-Popular first-time buyer neighborhoods:
-- North Las Vegas (median $385K)
-- Mountains Edge (median $475K)
-- Centennial Hills (median $495K)
+Popular first-time buyer pages on this site:
+- Fremont East (median $295K)
+- Arts District (median $325K)
+- Midtown Plaza (median $350K)
 
 Call (702) 500-1980 to start your homeownership journey.`,
     cta: {
@@ -164,31 +164,31 @@ Get a free home valuation from Dr. Jan Duffy: (702) 500-1980`,
   {
     id: "luxury-homes",
     type: "update",
-    title: "Luxury Living in Las Vegas: The Ridges, MacDonald Highlands & More",
-    content: `Las Vegas luxury real estate offers world-class living at Nevada prices:
+    title: "Luxury living in Las Vegas: One Las Vegas, Palms Place & more",
+    content: `Midtown and Strip-corridor condos on this site:
 
-🏔️ The Ridges, Summerlin - Guard-gated, custom estates from $2M+
-⛰️ MacDonald Highlands - Henderson hillside luxury with Strip views
-🌆 Strip High-Rises - Waldorf, Veer, Panorama condos
-🌳 Southern Highlands - Golf course living from $800K+
+🏙️ One Las Vegas — high-rise, median $650K, typical HOA $400–$1,200+/mo
+🎵 Symphony Park — Smith Center mid-rises, median $410K
+🌆 Palms Place — Strip-adjacent condotel, median $380K
+⛳ Southern Highlands — golf-course homes from about $750K+
 
-Why luxury buyers choose Las Vegas:
+Why luxury buyers compare Las Vegas:
 ✅ No state income tax
-✅ Privacy and discretion
-✅ World-class dining, entertainment, golf
-✅ 40-60% lower than comparable CA/NY properties
+✅ Lock-and-leave high-rise floor plans
+✅ Dining, entertainment, and golf within a mapped commute
+✅ 40-60% lower prices than many comparable CA properties
 
-Confidential luxury home search: (702) 500-1980`,
+Confidential luxury condo search: (702) 500-1980`,
     cta: {
       text: "Luxury Home Search",
       url: "https://www.midtownvegascondos.com/buyers/luxury-homes-las-vegas",
     },
     publishDate: "2025-12-16",
     keywords: [
-      "luxury homes Las Vegas",
-      "The Ridges",
-      "MacDonald Highlands",
-      "high-rise condos",
+      "luxury condos Las Vegas",
+      "One Las Vegas",
+      "Palms Place",
+      "Symphony Park",
     ],
   },
 ];
