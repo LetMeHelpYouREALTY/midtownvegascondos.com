@@ -37,6 +37,8 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/isTokenLocationBlocked\(body\)/);
     expect(src).toMatch(/isR2WriteForbidden/);
     expect(src).toMatch(/code === 10000/);
+    expect(src).toMatch(/Cloudflare Images/);
+    expect(src).toMatch(/accounts\/\$\{id\}\/images\/v1/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {

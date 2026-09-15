@@ -352,16 +352,110 @@ async function s3Put(localFile, objectKey) {
   );
 }
 
+async function imagesPut(localFile, objectKey) {
+  const id = accountId();
+  if (!id) {
+    throw new Error("Cloudflare Images put needs an account id");
+  }
+  const imageId = objectKey
+    .replace(/\.[^.]+$/, "")
+    .replace(/[^a-zA-Z0-9._-]/g, "-");
+  const buf = await readFile(localFile);
+  const form = new FormData();
+  form.append(
+    "file",
+    new Blob([buf], { type: contentTypeFor(localFile) }),
+    objectKey.split("/").pop(),
+  );
+  form.append("id", imageId);
+  form.append("requireSignedURLs", "false");
+  const response = await fetch(
+    `https://api.cloudflare.com/client/v4/accounts/${id}/images/v1`,
+    {
+      method: "POST",
+      headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}` },
+      body: form,
+    },
+  );
+  const text = await response.text();
+  let body = {};
+  try {
+    body = JSON.parse(text);
+  } catch {
+    body = {};
+  }
+  if (response.status === 409 || /already exists|duplicate/i.test(text)) {
+    console.log(`  Cloudflare Images already has ${imageId}`);
+    return body;
+  }
+  if (
+    isTokenLocationBlocked(body) ||
+    /cannot use the access token from location/i.test(text)
+  ) {
+    throw locationBlockedError(
+      cloudflareError(body).message || text.slice(0, 120),
+    );
+  }
+  if (!response.ok) {
+    if (isR2WriteForbidden(body, response.status, text)) {
+      throw r2WriteForbiddenError(
+        `Cloudflare Images HTTP ${response.status} ${cloudflareError(body).message || ""}`.trim(),
+      );
+    }
+    throw new Error(
+      `Cloudflare Images put HTTP ${response.status}: ${text.slice(0, 400)}`,
+    );
+  }
+  const variant = Array.isArray(body?.result?.variants)
+    ? body.result.variants[0]
+    : "";
+  if (variant) console.log(`  Images ${imageId} → ${variant}`);
+  return body;
+}
+
 async function putObject(localFile, objectKey, mode) {
-  if (mode === "s3") {
-    await s3Put(localFile, objectKey);
+  switch (mode) {
+    case "s3":
+      await s3Put(localFile, objectKey);
+      return;
+    case "rest":
+      await restPut(localFile, objectKey);
+      return;
+    case "images":
+      await imagesPut(localFile, objectKey);
+      return;
+    case "wrangler":
+      await wranglerPut(localFile, objectKey);
+      return;
+    default: {
+      const exhaustive = mode;
+      throw new Error(`Unknown R2 sync mode: ${exhaustive}`);
+    }
+  }
+}
+
+async function syncFiles(files, mode) {
+  const target =
+    mode === "images"
+      ? `Cloudflare Images account ${accountId()}`
+      : `r2://${BUCKET}/${PREFIX}/`;
+  console.log(`Syncing ${files.length} images to ${target} via ${mode} ...`);
+  for (const file of files) {
+    const rel = relative(join(ROOT, "public"), file).replaceAll("\\", "/");
+    const objectKey = `${PREFIX}/${rel}`;
+    const size = (await stat(file)).size;
+    console.log(`→ ${objectKey} (${Math.round(size / 1024)} KB)`);
+    await putObject(file, objectKey, mode);
+  }
+  if (mode === "images") {
+    console.log(
+      "Done via Cloudflare Images. Confirm an imagedelivery.net URL is HTTP 200, then set NEXT_PUBLIC_CLOUDFLARE_IMAGES_ENABLED=true and NEXT_PUBLIC_CLOUDFLARE_ACCOUNT_HASH. Prefer R2 S3 keys for the public r2.dev prefix.",
+    );
     return;
   }
-  if (mode === "rest") {
-    await restPut(localFile, objectKey);
-    return;
-  }
-  await wranglerPut(localFile, objectKey);
+  console.log(
+    "Done. Verify a public object 200, then set NEXT_PUBLIC_R2_ENABLED=true.",
+  );
 }
 
 async function main() {
@@ -385,19 +479,18 @@ async function main() {
 
   const files = await walk(IMAGES_DIR);
   const mode = useS3 ? "s3" : useRest ? "rest" : "wrangler";
-  console.log(
-    `Syncing ${files.length} images to r2://${BUCKET}/${PREFIX}/ via ${mode} ...`,
-  );
-  for (const file of files) {
-    const rel = relative(join(ROOT, "public"), file).replaceAll("\\", "/");
-    const objectKey = `${PREFIX}/${rel}`;
-    const size = (await stat(file)).size;
-    console.log(`→ ${objectKey} (${Math.round(size / 1024)} KB)`);
-    await putObject(file, objectKey, mode);
+  try {
+    await syncFiles(files, mode);
+  } catch (error) {
+    if (error?.skipSync && mode === "rest" && hasWranglerAuth()) {
+      console.warn(
+        "R2 object write denied. Trying Cloudflare Images with the same Account API token...",
+      );
+      await syncFiles(files, "images");
+      return;
+    }
+    throw error;
   }
-  console.log(
-    "Done. Verify a public object 200, then set NEXT_PUBLIC_R2_ENABLED=true.",
-  );
 }
 
 function keepSiteBuild() {
