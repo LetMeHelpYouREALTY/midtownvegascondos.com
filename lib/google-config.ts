@@ -28,8 +28,9 @@ function officeQuery(includeName = true): string {
 }
 
 /**
- * Build map / place / directions / reviews URLs pinned to the GBP office.
+ * Map / place / directions / reviews URLs pinned to the GBP office.
  * Place ID / CID come from a verified GBP read for this listing only.
+ * Directions always include destination_place_id so Maps clicks stay on this entity.
  */
 export function getOfficeGoogleMapsLinks() {
   const query = officeQuery(true);
@@ -39,13 +40,13 @@ export function getOfficeGoogleMapsLinks() {
 
   return {
     /** iframe embed — Maps CID for this GBP listing */
-    embed: `https://www.google.com/maps?cid=${cid}&output=embed`,
+    embed: officeInfo.maps.embed,
     /** Open the Google Maps listing */
-    place: `https://maps.google.com/maps?cid=${cid}`,
-    /** Driving directions to the office */
-    directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addressOnly)}`,
+    place: officeInfo.maps.place,
+    /** Driving directions pinned to this Place ID */
+    directions: officeInfo.maps.directions,
     /** Google reviews for this Place ID */
-    reviews: `https://search.google.com/local/reviews?placeid=${placeId}`,
+    reviews: officeInfo.maps.reviews,
     /** Coordinates pin (fallback) */
     coordinatesEmbed: `https://www.google.com/maps?q=${lat},${lng}&z=16&output=embed`,
     query,

@@ -12,9 +12,9 @@ import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = {
   ...withPageHeroMetadata("/listings", {
-    title: "Property Details | Las Vegas & Henderson Real Estate",
+    title: "Property Details | Midtown Las Vegas Condos",
     description:
-      "View detailed information about this property listing in Las Vegas or Henderson, NV.",
+      "View detailed information about this midtown Las Vegas condo listing — Arts District, downtown, and Strip-adjacent inventory with Dr. Jan Duffy.",
   }),
   // Placeholder listing pages — keep out of GSC until RealScout IDs are live
   robots: {

@@ -93,9 +93,10 @@ export const officeInfo = {
     // CID pin is the Maps listing Google already associates with this GBP.
     embed: "https://www.google.com/maps?cid=18119447659217139859&output=embed",
     place: "https://maps.google.com/maps?cid=18119447659217139859",
+    // Place ID destination keeps Directions clicks on this GBP entity.
     directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
       "921 South Main Street, Las Vegas, NV 89101",
-    )}`,
+    )}&destination_place_id=ChIJiembhLDDyIARk7jrJaU1dfs`,
     reviews:
       "https://search.google.com/local/reviews?placeid=ChIJiembhLDDyIARk7jrJaU1dfs",
   },

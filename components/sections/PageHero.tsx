@@ -30,6 +30,10 @@ type PageHeroProps = {
   /** Heading-matched H2 photograph rendered under the hero */
   leadSectionKey?: SectionImageKey;
   leadSectionHeading?: string;
+  /** Optional building-specific lead photo (overrides catalog key) */
+  leadSrc?: string;
+  leadAlt?: string;
+  leadCaption?: string;
 };
 
 /**
@@ -50,6 +54,9 @@ export default function PageHero({
   className = "",
   leadSectionKey,
   leadSectionHeading,
+  leadSrc,
+  leadAlt,
+  leadCaption,
 }: PageHeroProps) {
   const meta = getHeroImage(imageKey);
   const src = imageSrc ?? meta.src;
@@ -121,10 +128,13 @@ export default function PageHero({
           ) : null}
         </div>
       </section>
-      {leadSectionKey ? (
+      {leadSectionKey || leadSrc ? (
         <div className="border-b border-slate-100 bg-white px-4 py-8 md:py-10">
           <SectionPhoto
-            imageKey={leadSectionKey}
+            imageKey={leadSrc ? undefined : leadSectionKey}
+            src={leadSrc}
+            alt={leadAlt}
+            caption={leadCaption}
             heading={leadSectionHeading}
             className="mx-auto max-w-5xl text-left"
           />

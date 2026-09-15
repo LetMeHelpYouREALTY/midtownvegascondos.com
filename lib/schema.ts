@@ -336,6 +336,11 @@ export function generateNeighborhoodSchema(neighborhood: NeighborhoodData) {
     "@id": `${BASE_URL}/neighborhoods/${neighborhood.slug}#place`,
     name: `${neighborhood.name}, Las Vegas`,
     description: neighborhood.description,
+    url: `${BASE_URL}/neighborhoods/${neighborhood.slug}`,
+    telephone: agentInfo.phoneTel.replace("tel:", ""),
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${neighborhood.name} Las Vegas NV`,
+    )}`,
     address: {
       "@type": "PostalAddress",
       addressLocality: neighborhood.containedIn || "Las Vegas",

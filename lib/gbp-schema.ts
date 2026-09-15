@@ -1,7 +1,13 @@
 // Google Business Profile Schema Data
 // NAP / hours / categories must match GBP exactly for midtownvegascondos.com
 
-import { getAgentImageSrc, officeInfo, siteConfig } from "./site-config";
+import { midtownNeighborhoods } from "./hyperlocal-content";
+import {
+  agentInfo,
+  getAgentImageSrc,
+  officeInfo,
+  siteConfig,
+} from "./site-config";
 
 export const businessInfo = {
   // NAP - Must match GBP exactly
@@ -257,6 +263,46 @@ const gbpPhotoObjects = [
       "/images/hero/juhl-downtown-condo-tower.webp",
     ),
   },
+  {
+    "@type": "ImageObject" as const,
+    name: "Fremont East downtown condos",
+    caption:
+      "Fremont East entertainment-district condo corridor for downtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/fremont-east-daytime.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/fremont-east-daytime.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Symphony Park Las Vegas condos",
+    caption:
+      "Symphony Park midtown residences near the Smith Center for downtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/symphony-park-midrise.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/symphony-park-midrise.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "The English Residences midtown condos",
+    caption:
+      "The English Residences boutique condo building in midtown Las Vegas",
+    url: absoluteSiteImage("/images/hero/apartment-row.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/apartment-row.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Palms Place Strip-adjacent condos",
+    caption:
+      "Palms Place Strip-adjacent high-rise condo photography for midtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/home-strip-night.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/home-strip-night.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Midtown Plaza Las Vegas condos",
+    caption:
+      "Walkable Midtown Plaza condo residences near the Arts District office",
+    url: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
+  },
 ];
 
 // Generate LocalBusiness Schema
@@ -274,11 +320,13 @@ export function generateLocalBusinessSchema() {
     description: businessInfo.description,
     image: gbpPhotoObjects.map((photo) => photo.contentUrl),
     photo: gbpPhotoObjects,
+    logo: absoluteSiteImage(getAgentImageSrc()),
     url: businessInfo.url,
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,
     priceRange: businessInfo.priceRange,
     foundingDate: businessInfo.foundingDate,
+    openingHours: ["Su-Th 09:00-17:00"],
     address: {
       "@type": "PostalAddress",
       ...businessInfo.address,
@@ -325,10 +373,44 @@ export function generateLocalBusinessSchema() {
         closes: "17:00",
       },
     ],
-    areaServed: businessInfo.serviceAreas.map((area) => ({
-      "@type": "Place",
-      name: area,
+    amenityFeature: [
+      ...businessInfo.attributes.amenities,
+      ...businessInfo.attributes.accessibility,
+    ].map((name) => ({
+      "@type": "LocationFeatureSpecification",
+      name,
+      value: true,
     })),
+    areaServed: [
+      ...businessInfo.serviceAreas.map((area) => ({
+        "@type": "Place",
+        name: area,
+      })),
+      ...midtownNeighborhoods.map((area) => ({
+        "@type": "Place",
+        name: `${area.name}, Las Vegas, NV`,
+        url: `${siteConfig.url}/neighborhoods/${area.slug}`,
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: area.latitude,
+          longitude: area.longitude,
+        },
+      })),
+    ],
+    knowsAbout: midtownNeighborhoods.map((area) => `${area.name} condos`),
+    employee: {
+      "@type": "Person",
+      name: agentInfo.name,
+      jobTitle: agentInfo.title,
+      identifier: agentInfo.license,
+      telephone: businessInfo.phone.tel,
+      url: `${siteConfig.url}/about`,
+      image: absoluteSiteImage(getAgentImageSrc()),
+      worksFor: {
+        "@type": "RealEstateAgent",
+        name: agentInfo.brokerage,
+      },
+    },
     knowsLanguage: businessInfo.languages,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -381,6 +463,18 @@ export function generateLocalBusinessSchema() {
         target: {
           "@type": "EntryPoint",
           urlTemplate: `tel:${businessInfo.phone.tel}`,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
+      {
+        "@type": "FindAction",
+        name: "Search midtown Las Vegas condos",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${siteConfig.url}/listings`,
           actionPlatform: [
             "http://schema.org/DesktopWebPlatform",
             "http://schema.org/MobileWebPlatform",

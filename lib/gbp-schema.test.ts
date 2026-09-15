@@ -28,6 +28,19 @@ describe("generateLocalBusinessSchema", () => {
       `https://www.google.com/maps/place/?q=place_id:${officeInfo.googlePlace.placeId}`,
     );
     expect(schema.identifier.value).toBe(officeInfo.googlePlace.placeId);
+    expect(officeInfo.maps.directions).toContain(
+      `destination_place_id=${officeInfo.googlePlace.placeId}`,
+    );
+    expect(schema.openingHours).toEqual(["Su-Th 09:00-17:00"]);
+    expect(schema.employee.name).toBe("Dr. Jan Duffy");
+    expect(schema.knowsAbout).toContain("Arts District condos");
+    expect(
+      schema.areaServed.some(
+        (area: { url?: string }) =>
+          area.url === `${siteConfig.url}/neighborhoods/one-las-vegas`,
+      ),
+    ).toBe(true);
+    expect(schema.potentialAction[2]["@type"]).toBe("FindAction");
     expect(schema.potentialAction[0]["@type"]).toBe("ReserveAction");
     expect(schema.potentialAction[0].target.urlTemplate).toBe(
       `${siteConfig.url}/contact`,
@@ -44,13 +57,23 @@ describe("generateLocalBusinessSchema", () => {
     expect(COMMUTES_MAP_EMBED_URL).toBe(officeInfo.maps.embed);
     expect(COMMUTES_MAP_PLACE_URL).toBe(officeInfo.maps.place);
     expect(COMMUTES_MAP_DIRECTIONS_URL).toBe(officeInfo.maps.directions);
+    expect(COMMUTES_MAP_DIRECTIONS_URL).toContain(
+      `destination_place_id=${officeInfo.googlePlace.placeId}`,
+    );
     expect(COMMUTES_MAP_PLACE_URL).toContain(officeInfo.googlePlace.cid);
   });
 
   it("includes heading-matched office photos as ImageObjects", () => {
     expect(Array.isArray(schema.image)).toBe(true);
-    expect(schema.image.length).toBeGreaterThanOrEqual(9);
+    expect(schema.image.length).toBeGreaterThanOrEqual(14);
     expect(schema.photo).toHaveLength(schema.image.length);
+    expect(schema.image).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining("/images/hero/fremont-east-daytime.webp"),
+        expect.stringContaining("/images/hero/symphony-park-midrise.webp"),
+        expect.stringContaining("/images/hero/midtown-plaza-walkable.webp"),
+      ]),
+    );
     for (const photo of schema.photo) {
       expect(photo["@type"]).toBe("ImageObject");
       expect(photo.contentUrl).toMatch(

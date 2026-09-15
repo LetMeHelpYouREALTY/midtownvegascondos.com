@@ -18,7 +18,7 @@ import {
   getMidtownNeighborhood,
   midtownNeighborhoods,
 } from "@/lib/hyperlocal-content";
-import { agentInfo } from "@/lib/site-config";
+import { agentInfo, officeInfo } from "@/lib/site-config";
 import { neighborhoodHeroBySlug, getHeroImage } from "@/lib/hero-images";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import SectionPhoto from "@/components/sections/SectionPhoto";
@@ -95,7 +95,9 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
       <Navbar />
       <PageHero
         imageKey={heroKey}
-        leadSectionKey="searchMidtown"
+        leadSrc={getHeroImage(heroKey).src}
+        leadAlt={getHeroImage(heroKey).alt}
+        leadCaption={getHeroImage(heroKey).caption}
         leadSectionHeading={`${area.name} Condos for Sale`}
         pagePath={`/neighborhoods/${area.slug}`}
         badge="Midtown Las Vegas Condos"
@@ -198,8 +200,10 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
           {area.faqs.length > 0 && (
             <section className="max-w-3xl mx-auto mb-16">
               <SectionPhoto
-                imageKey="hoaReview"
+                src={getHeroImage(heroKey).src}
                 heading={`${area.name} Condo FAQs`}
+                alt={getHeroImage(heroKey).alt}
+                caption={getHeroImage(heroKey).caption}
                 className="mb-8"
               />
               <h2 className="text-2xl font-bold text-slate-900 mb-6">
@@ -237,12 +241,36 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
               Dr. Jan Duffy knows every midtown building, floor plan, and HOA —
               get expert guidance on your {area.name} condo search.
             </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-semibold"
-            >
-              Schedule a Consultation
-            </Link>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
+              <a
+                href={agentInfo.phoneTel}
+                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-semibold"
+              >
+                Call {agentInfo.phone}
+              </a>
+              <a
+                href={officeInfo.maps.directions}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-3 rounded-md font-semibold hover:bg-slate-100"
+              >
+                Directions
+              </a>
+              <a
+                href={officeInfo.maps.reviews}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center border border-white/40 text-white px-8 py-3 rounded-md font-semibold hover:bg-white/10"
+              >
+                View Google Reviews
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center border border-white/40 text-white px-8 py-3 rounded-md font-semibold hover:bg-white/10"
+              >
+                Schedule a Consultation
+              </Link>
+            </div>
           </section>
         </div>
         <RealScoutListings />
