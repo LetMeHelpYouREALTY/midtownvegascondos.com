@@ -224,6 +224,11 @@ export default function ContactPage() {
 
             {/* Schedule Appointment - Calendly Widget */}
             <div>
+              <SectionPhoto
+                imageKey="valuationSchedule"
+                heading="Schedule an Appointment"
+                className="mb-6 text-left"
+              />
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                 <div className="bg-blue-600 text-white p-6 text-center">
                   <Calendar className="h-10 w-10 mx-auto mb-3" />
@@ -321,6 +326,11 @@ export default function ContactPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Prefer to Reach Out Directly?
             </h2>
+            <SectionPhoto
+              imageKey="contactTouch"
+              heading="Prefer to Reach Out Directly?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-6">
               <a
                 href="tel:+17025001980"

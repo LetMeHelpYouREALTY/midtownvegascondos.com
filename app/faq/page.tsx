@@ -16,6 +16,8 @@ import {
 import { hyperlocalMeta, midtownCondoFaqs } from "@/lib/hyperlocal-content";
 import { commonFAQs, agentInfo, officeInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import type { SectionImageKey } from "@/lib/section-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/faq", {
   title: hyperlocalMeta.faq.title,
@@ -35,25 +37,34 @@ const breadcrumbs = [
   { name: "FAQ", url: "/faq" },
 ];
 
-const faqCategories = [
+const faqCategories: {
+  title: string;
+  imageKey: SectionImageKey;
+  faqs: { q: string; a: string }[];
+}[] = [
   {
     title: "Midtown Las Vegas Condos",
+    imageKey: "faqCategories",
     faqs: midtownCondoFaqs.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
     title: "About Dr. Jan Duffy & BHHS",
+    imageKey: "aboutBhhs",
     faqs: commonFAQs.general.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
     title: "Buying a Midtown Condo",
+    imageKey: "buyersProcess",
     faqs: commonFAQs.buying.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
     title: "Selling Your Midtown Condo",
+    imageKey: "sellersProcess",
     faqs: commonFAQs.selling.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
     title: "Midtown Condo Investing",
+    imageKey: "investWhy",
     faqs: [
       {
         q: "Is midtown Las Vegas good for condo investing?",
@@ -67,6 +78,7 @@ const faqCategories = [
   },
   {
     title: "Working with Dr. Jan Duffy",
+    imageKey: "whyJan",
     faqs: [
       {
         q: "What is Dr. Jan Duffy's midtown condo experience?",
@@ -130,6 +142,11 @@ export default function FAQPage() {
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">
                   {category.title}
                 </h2>
+                <SectionPhoto
+                  imageKey={category.imageKey}
+                  heading={category.title}
+                  className="mb-6 text-left"
+                />
                 <div className="space-y-4">
                   {category.faqs.map((faq, index) => (
                     <div key={index} className="bg-slate-50 rounded-lg p-6">
@@ -147,6 +164,12 @@ export default function FAQPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Still Have Questions?
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Still Have Questions?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <p className="text-xl text-blue-100 mb-8">
               Dr. Jan Duffy is happy to answer questions about midtown Las Vegas
               condos, HOA review, and buying or selling downtown towers.

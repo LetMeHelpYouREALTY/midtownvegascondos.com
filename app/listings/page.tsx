@@ -457,6 +457,12 @@ export default function ListingsPage() {
             <h2 className="text-2xl font-bold mb-3">
               Get a curated midtown shortlist
             </h2>
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading="Get a curated midtown shortlist"
+              className="mx-auto mb-6 max-w-3xl text-left"
+              onDark
+            />
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>

@@ -114,9 +114,10 @@ export const businessInfo = {
     planning: ["Appointment required"],
   },
 
-  // Social profiles for sameAs schema
+  // Social profiles + Maps / GBP page for local-pack entity matching
   socialProfiles: [
     "https://www.linkedin.com/company/downtown-las-vegas-condos-and-homes-for-sale",
+    "https://www.midtownvegascondos.com/google-business",
   ],
 
   // Languages spoken
@@ -170,6 +171,42 @@ export const gbpFAQs = [
   },
 ];
 
+function absoluteSiteImage(path: string): string {
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+const gbpPhotoObjects = [
+  {
+    "@type": "ImageObject" as const,
+    name: "921 South Main Street Arts District office",
+    caption:
+      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy at 921 South Main Street",
+    url: absoluteSiteImage(
+      "/images/hero/contact-arts-district-main-street.webp",
+    ),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/contact-arts-district-main-street.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Arts District Las Vegas office street",
+    caption:
+      "Google Business Profile office photography for Downtown Las Vegas condo tours",
+    url: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Dr. Jan Duffy, REALTOR®",
+    caption:
+      "Dr. Jan Duffy, midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties",
+    url: absoluteSiteImage(getAgentImageSrc()),
+    contentUrl: absoluteSiteImage(getAgentImageSrc()),
+  },
+];
+
 // Generate LocalBusiness Schema
 export function generateLocalBusinessSchema() {
   return {
@@ -183,9 +220,8 @@ export function generateLocalBusinessSchema() {
       "Berkshire Hathaway HomeServices Nevada Properties",
     ],
     description: businessInfo.description,
-    image: getAgentImageSrc().startsWith("http")
-      ? getAgentImageSrc()
-      : `${siteConfig.url}${getAgentImageSrc()}`,
+    image: gbpPhotoObjects.map((photo) => photo.contentUrl),
+    photo: gbpPhotoObjects,
     url: businessInfo.url,
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,
@@ -260,7 +296,7 @@ export function generateLocalBusinessSchema() {
       reviewCount: "500",
       bestRating: "5",
     },
-    sameAs: businessInfo.socialProfiles,
+    sameAs: [...businessInfo.socialProfiles, officeInfo.maps.place],
   };
 }
 

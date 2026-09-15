@@ -24,6 +24,8 @@ export default function NeighborhoodsPage() {
       <Navbar />
       <PageHero
         imageKey="neighborhoodsHub"
+        leadSectionKey="neighborhoods"
+        leadSectionHeading="Midtown Las Vegas Condo Neighborhoods"
         pagePath="/neighborhoods"
         badge="Midtown Las Vegas Condo Specialist"
         title="Midtown Las Vegas Condo Neighborhoods"
@@ -95,6 +97,12 @@ export default function NeighborhoodsPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Not sure which midtown neighborhood fits you?
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="Not sure which midtown neighborhood fits you?"
+              className="mx-auto mb-6 max-w-3xl text-left"
+              onDark
+            />
             <p className="text-slate-300 mb-6">
               Dr. Jan Duffy knows every building, floor plan, and HOA in midtown
               Las Vegas. Get a personalized neighborhood match based on your

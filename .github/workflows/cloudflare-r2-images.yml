@@ -1,0 +1,56 @@
+name: Cloudflare R2 image sync
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Do not orange-cloud the Vercel hostname. This job only writes R2 objects.
+concurrency:
+  group: r2-images-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync-r2-images:
+    name: Sync git images to Cloudflare R2
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check Cloudflare credentials
+        id: cf
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$TOKEN" ] || [ -z "$ACCOUNT" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare R2 credentials are not configured. Skipping image sync."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node.js
+        if: steps.cf.outputs.configured == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.cf.outputs.configured == 'true'
+        run: npm ci
+
+      - name: Upload public/images to R2
+        if: steps.cf.outputs.configured == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_BUCKET: realestatedomains-assets
+          NEXT_PUBLIC_R2_PREFIX: midtownvegascondos
+        run: npm run cloudflare:images

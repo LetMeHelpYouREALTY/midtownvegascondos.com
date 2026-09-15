@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import DeferredRealScoutWidget from "@/components/realscout/DeferredRealScoutWidget";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import Link from "next/link";
 
 const LISTINGS_HTML = `<realscout-office-listings 
   agent-encoded-id="QWdlbnQtMjI1MDUw" 
@@ -21,19 +23,18 @@ export default function RealScoutListings() {
               Featured Properties
             </h2>
             <p className="text-lg text-slate-600">
-              Discover exceptional homes in Las Vegas and Henderson
+              Live MLS condos and homes in midtown Las Vegas and Henderson
             </p>
           </div>
           <Button asChild variant="outline" className="mt-4 md:mt-0">
-            <a
-              href="https://drjanduffy.realscout.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View All Properties
-            </a>
+            <Link href="/listings">View All Properties</Link>
           </Button>
         </div>
+        <SectionPhoto
+          imageKey="searchMidtown"
+          heading="Featured Properties"
+          className="mx-auto mb-8 max-w-4xl text-left"
+        />
 
         <DeferredRealScoutWidget html={LISTINGS_HTML} minHeight="420px" />
       </div>

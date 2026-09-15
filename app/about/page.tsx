@@ -527,6 +527,12 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Get Started?
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Ready to Get Started?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <p className="text-xl text-blue-100 mb-8">
               Questions about buying or selling in Las Vegas? Call or text Dr.
               Jan Duffy today for a free consultation. Whether you're ready to

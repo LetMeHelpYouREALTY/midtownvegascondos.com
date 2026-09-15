@@ -156,6 +156,29 @@ export default function GoogleBusinessPage() {
                   >
                     Call Now: {businessInfo.phone.display}
                   </a>
+                  <div className="mt-3 grid grid-cols-2 gap-2">
+                    <a
+                      href={officeInfo.maps.directions}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-lg bg-white/15 px-3 py-2 text-sm font-semibold text-white hover:bg-white/25"
+                    >
+                      <MapPin className="mr-1.5 h-4 w-4" aria-hidden />
+                      Directions
+                    </a>
+                    <a
+                      href={officeInfo.maps.reviews}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-lg bg-white/15 px-3 py-2 text-sm font-semibold text-white hover:bg-white/25"
+                    >
+                      <Star
+                        className="mr-1.5 h-4 w-4 text-yellow-400"
+                        aria-hidden
+                      />
+                      Reviews
+                    </a>
+                  </div>
                   <p className="text-sm text-blue-300 mt-3">
                     Free Consultation
                   </p>
@@ -245,11 +268,12 @@ export default function GoogleBusinessPage() {
                 Get Directions
               </a>
               <a
-                href={officeInfo.maps.place}
+                href={officeInfo.maps.reviews}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center rounded-lg bg-slate-100 px-4 py-3 font-medium text-slate-800 hover:bg-slate-200"
               >
+                <Star className="mr-2 h-4 w-4 text-yellow-500" />
                 View Google Reviews
               </a>
               <a
@@ -459,6 +483,11 @@ export default function GoogleBusinessPage() {
               <h2 className="text-2xl font-bold text-slate-900 mb-4">
                 Your Review Helps Others Find Quality Service
               </h2>
+              <SectionPhoto
+                imageKey="reviews"
+                heading="Your Review Helps Others Find Quality Service"
+                className="mx-auto mb-6 max-w-3xl text-left"
+              />
               <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
                 If Dr. Jan helped you buy or sell a home, please consider
                 sharing your experience. Mention your neighborhood, type of
@@ -484,6 +513,12 @@ export default function GoogleBusinessPage() {
           <section className="max-w-4xl mx-auto">
             <div className="bg-slate-900 text-white rounded-2xl p-8 md:p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+              <SectionPhoto
+                imageKey="homeCta"
+                heading="Ready to Get Started?"
+                className="mx-auto mb-8 max-w-3xl text-left"
+                onDark
+              />
               <p className="text-xl text-slate-300 mb-8">
                 Contact Dr. Jan Duffy for a free consultation about buying or
                 selling in Las Vegas.
