@@ -123,6 +123,11 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
             <h2 className="text-xl font-bold text-slate-900 mb-4">
               Related midtown pages
             </h2>
+            <SectionPhoto
+              imageKey="lifestyleHub"
+              heading="Related midtown pages"
+              className="mb-6 text-left"
+            />
             <div className="flex flex-wrap gap-3">
               {page.relatedLinks.map((link) => (
                 <Link

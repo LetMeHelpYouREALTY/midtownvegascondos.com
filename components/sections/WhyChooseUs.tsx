@@ -7,43 +7,60 @@ import {
   MapPin,
 } from "lucide-react";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
+import type { SectionImageKey } from "@/lib/section-images";
 
-const features = [
+type Feature = {
+  icon: typeof Building2;
+  title: string;
+  description: string;
+  heroKey?: HeroImageKey;
+  sectionKey?: SectionImageKey;
+};
+
+const features: Feature[] = [
   {
     icon: Building2,
     title: "Condo Building Expertise",
     description:
       "Deep knowledge of midtown towers — HOA reserves, rental caps, and floor-plan comparisons across One Las Vegas, Ogden, Juhl, and more.",
+    heroKey: "oneLasVegas",
   },
   {
     icon: FileSearch,
     title: "HOA Document Review",
     description:
       "Every condo purchase includes CC&R analysis, special assessment checks, and rental restriction verification before you commit.",
+    sectionKey: "hoaReview",
   },
   {
     icon: MapPin,
     title: "Midtown Market Data",
     description:
       "Current per-square-foot pricing, days-on-market trends, and building-specific comparable sales for informed offers.",
+    sectionKey: "marketStats",
   },
   {
     icon: Shield,
     title: "BHHS Trust & Resources",
     description:
       "Backed by Berkshire Hathaway HomeServices — Warren Buffett's brand with 50,000+ agents and world-class marketing.",
+    heroKey: "whyBhhs",
   },
   {
     icon: Award,
     title: "500+ Transactions",
     description:
       "Serving Las Vegas since 2008 with $127M+ closed — including high-rise, loft, and urban condo specialists.",
+    heroKey: "sellersHighrise",
   },
   {
     icon: Clock,
     title: "Direct Access",
     description:
       "Call (702) 500-1980 and reach Dr. Jan directly — no assistant queue, no callback delays.",
+    heroKey: "contactOffice",
   },
 ];
 
@@ -75,6 +92,12 @@ export default function WhyChooseUs() {
                 key={feature.title}
                 className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-slate-50 transition-colors"
               >
+                <HeadingCardPhoto
+                  heading={feature.title}
+                  heroKey={feature.heroKey}
+                  sectionKey={feature.sectionKey}
+                  className="mb-4 w-full"
+                />
                 <div className="bg-blue-100 rounded-full p-4 mb-4">
                   <Icon className="h-8 w-8 text-blue-600" />
                 </div>

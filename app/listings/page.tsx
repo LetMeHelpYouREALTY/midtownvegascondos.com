@@ -24,7 +24,12 @@ import {
   siteConfig,
 } from "@/lib/site-config";
 import SectionPhoto from "@/components/sections/SectionPhoto";
-import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import {
+  getHeroImage,
+  getHeroKeyForPath,
+  neighborhoodHeroBySlug,
+} from "@/lib/hero-images";
 
 const PATH = "/listings";
 
@@ -167,6 +172,8 @@ export default function ListingsPage() {
       <PageHero
         imageKey="listingsSearch"
         pagePath={PATH}
+        leadSectionKey="listingsHowTo"
+        leadSectionHeading="How to use this MLS search"
         badge="Live MLS · Berkshire Hathaway HomeServices Nevada Properties"
         title="Midtown Las Vegas condos for sale"
         subtitle="Search active MLS inventory, then shortlist Arts District lofts and downtown high-rises with Dr. Jan Duffy."
@@ -294,12 +301,18 @@ export default function ListingsPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-lg border border-slate-200 bg-white p-4 hover:border-blue-300 transition-colors flex items-center justify-between"
+                  className="rounded-lg border border-slate-200 bg-white overflow-hidden hover:border-blue-300 transition-colors"
                 >
-                  <span className="font-semibold text-slate-900">
-                    {item.name}
+                  <HeadingCardPhoto
+                    heading={item.name}
+                    heroKey={getHeroKeyForPath(item.href)}
+                  />
+                  <span className="p-4 flex items-center justify-between">
+                    <span className="font-semibold text-slate-900">
+                      {item.name}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-blue-600" />
                   </span>
-                  <ArrowRight className="h-4 w-4 text-blue-600" />
                 </Link>
               ))}
             </div>

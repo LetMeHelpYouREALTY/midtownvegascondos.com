@@ -669,7 +669,13 @@ export function getHeroImage(
 }
 
 export function getHeroKeyForPath(pathname: string): HeroImageKey {
-  return pageHeroByPath[pathname] ?? "homeSkylineDay";
+  if (pageHeroByPath[pathname]) return pageHeroByPath[pathname];
+  const neighborhoodMatch = pathname.match(/^\/neighborhoods\/([^/]+)$/);
+  const slug = neighborhoodMatch?.[1];
+  if (slug && neighborhoodHeroBySlug[slug]) {
+    return neighborhoodHeroBySlug[slug];
+  }
+  return "homeSkylineDay";
 }
 
 /**

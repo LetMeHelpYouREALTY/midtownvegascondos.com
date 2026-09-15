@@ -27,6 +27,19 @@ import {
 } from "@/lib/gbp-schema";
 import { officeInfo } from "@/lib/site-config";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
+
+const gbpServiceHero: Record<string, HeroImageKey> = {
+  "Buyer Representation": "buyersCondoTower",
+  "Seller Representation": "sellersHighrise",
+  "Luxury Condo Sales": "luxuryHomes",
+  "Downtown Las Vegas Condos": "artsDistrict",
+  "California Relocation Services": "buyersCaRelocator",
+  "First-Time Home Buyer Guidance": "buyersFirstTime",
+  "Investment Property Consulting": "investmentProperties",
+  "Online Appointments": "contactOffice",
+};
 
 export const metadata: Metadata = withPageHeroMetadata("/google-business", {
   title: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy | GBP",
@@ -303,6 +316,11 @@ export default function GoogleBusinessPage() {
                 <Users className="h-5 w-5 text-blue-600" />
                 Experience & Background
               </h3>
+              <HeadingCardPhoto
+                heading="Experience & Background"
+                sectionKey="aboutBio"
+                className="mb-4 max-w-3xl"
+              />
               <p className="text-slate-700 leading-relaxed">
                 {gbpDescription.whoWeAre}
               </p>
@@ -314,6 +332,11 @@ export default function GoogleBusinessPage() {
                 <Home className="h-5 w-5 text-blue-600" />
                 Services & Value
               </h3>
+              <HeadingCardPhoto
+                heading="Services & Value"
+                sectionKey="gbpServices"
+                className="mb-4 max-w-3xl"
+              />
               <p className="text-slate-700 leading-relaxed">
                 {gbpDescription.whatWeDo}
               </p>
@@ -325,6 +348,11 @@ export default function GoogleBusinessPage() {
                 <MapPin className="h-5 w-5 text-blue-600" />
                 Areas Served
               </h3>
+              <HeadingCardPhoto
+                heading="Areas Served"
+                sectionKey="aboutAreasServed"
+                className="mb-4 max-w-3xl"
+              />
               <p className="text-slate-700 leading-relaxed">
                 {gbpDescription.whereWeServe}
               </p>
@@ -347,6 +375,11 @@ export default function GoogleBusinessPage() {
                   key={service.name}
                   className="bg-white border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow"
                 >
+                  <HeadingCardPhoto
+                    heading={service.name}
+                    heroKey={gbpServiceHero[service.name] ?? "googleBusiness"}
+                    className="mb-3"
+                  />
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
                     <div>
@@ -379,6 +412,11 @@ export default function GoogleBusinessPage() {
                   <h3 className="font-bold text-slate-900 mb-3">
                     Primary Markets
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Primary Markets"
+                    heroKey="artsDistrict"
+                    className="mb-3"
+                  />
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-blue-600" /> Las Vegas, NV
@@ -392,6 +430,11 @@ export default function GoogleBusinessPage() {
                   <h3 className="font-bold text-slate-900 mb-3">
                     Secondary Markets
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Secondary Markets"
+                    heroKey="nbHenderson"
+                    className="mb-3"
+                  />
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-blue-600" /> Henderson, NV
@@ -406,6 +449,11 @@ export default function GoogleBusinessPage() {
                   <h3 className="font-bold text-slate-900 mb-3">
                     Full Coverage
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Full Coverage"
+                    heroKey="homeSkylineDay"
+                    className="mb-3"
+                  />
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
                       <MapPin className="h-4 w-4 text-blue-600" /> Clark County,
@@ -424,6 +472,11 @@ export default function GoogleBusinessPage() {
                 <h3 className="font-bold text-slate-900 mb-4">
                   Neighborhood Expertise
                 </h3>
+                <HeadingCardPhoto
+                  heading="Neighborhood Expertise"
+                  sectionKey="neighborhoods"
+                  className="mb-4 max-w-3xl"
+                />
                 <div className="flex flex-wrap gap-2">
                   {[
                     "Summerlin",

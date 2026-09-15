@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { midtownLifestylePages } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/neighborhood", {
   title:
@@ -73,6 +74,11 @@ export default function NeighborhoodLifestyleHubPage() {
                 href={page.path}
                 className="group rounded-xl border border-slate-200 bg-white p-6 hover:border-blue-300 hover:shadow-md transition-all"
               >
+                <HeadingCardPhoto
+                  heading={page.name}
+                  heroKey={page.heroKey}
+                  className="mb-4"
+                />
                 <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">
                   {page.badge}
                 </p>

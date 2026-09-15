@@ -7,6 +7,7 @@ import FAQSection from "@/components/sections/FAQSection";
 import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
 import FeaturedProperties from "@/components/sections/FeaturedProperties";
 import Link from "next/link";
@@ -249,24 +250,34 @@ export default function Home() {
                   icon: Shield,
                   title: "HOA Expertise",
                   desc: "CC&R review, rental caps, and special assessment checks on every building",
+                  sectionKey: "hoaReview" as const,
                 },
                 {
                   icon: Users,
                   title: "50K+ Network",
                   desc: "Global BHHS referral network for relocations to or from Las Vegas",
+                  heroKey: "whyBhhs" as const,
                 },
                 {
                   icon: TrendingUp,
                   title: "$127M+ Sold",
                   desc: "Proven midtown and valley-wide results since 2008",
+                  heroKey: "sellersHighrise" as const,
                 },
                 {
                   icon: HomeIcon,
                   title: "Condo Specialist",
                   desc: "High-rise towers, urban lofts, Arts District — one expert for all midtown condos",
+                  heroKey: "buyersCondoTower" as const,
                 },
-              ].map(({ icon: Icon, title, desc }) => (
+              ].map(({ icon: Icon, title, desc, sectionKey, heroKey }) => (
                 <div key={title} className="text-center p-6">
+                  <HeadingCardPhoto
+                    heading={title}
+                    sectionKey={sectionKey}
+                    heroKey={heroKey}
+                    className="mb-4"
+                  />
                   <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <Icon className="h-8 w-8 text-blue-600" />
                   </div>

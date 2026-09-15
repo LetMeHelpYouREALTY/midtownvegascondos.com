@@ -11,6 +11,8 @@ import { blogPosts } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import { getHeroKeyForPath } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/blog", {
   title:
@@ -97,6 +99,11 @@ export default function BlogPage() {
                     )}
                   </time>
                 </div>
+                <HeadingCardPhoto
+                  heading={post.title}
+                  heroKey={getHeroKeyForPath(post.href)}
+                  className="mb-4"
+                />
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">
                   <Link href={post.href} className="hover:text-blue-600">
                     {post.title}

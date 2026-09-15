@@ -2,9 +2,20 @@ import Link from "next/link";
 import { gbpPostTemplates } from "@/lib/gbp-posts";
 import { agentInfo } from "@/lib/site-config";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
 
 type GbpPostsSectionProps = {
   limit?: number;
+};
+
+const postHeroById: Record<string, HeroImageKey> = {
+  "market-update-jan-2026": "marketUpdate",
+  "california-relocation": "buyersCaRelocator",
+  "55-plus-spotlight": "fiftyFivePlus",
+  "first-time-buyer": "buyersFirstTime",
+  "seller-tips": "sellersHighrise",
+  "luxury-homes": "luxuryHomes",
 };
 
 /**
@@ -45,6 +56,11 @@ export default function GbpPostsSection({ limit = 3 }: GbpPostsSectionProps) {
               <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-blue-600">
                 {post.type} · {post.publishDate}
               </p>
+              <HeadingCardPhoto
+                heading={post.title}
+                heroKey={postHeroById[post.id] ?? "googleBusiness"}
+                className="mb-3"
+              />
               <h3 className="mb-3 text-lg font-bold text-slate-900">
                 {post.title}
               </h3>

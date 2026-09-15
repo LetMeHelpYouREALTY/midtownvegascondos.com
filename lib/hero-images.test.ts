@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { heroImages, pageHeroByPath } from "./hero-images";
+import { heroImages, pageHeroByPath, getHeroKeyForPath } from "./hero-images";
 
 describe("hero-images", () => {
   it("does not reference placeholder Unsplash or extra* filenames", () => {
@@ -22,5 +22,15 @@ describe("hero-images", () => {
 
   it("maps /security-policy to a unique hero", () => {
     expect(pageHeroByPath["/security-policy"]).toBe("securityPolicy");
+  });
+
+  it("resolves neighborhood slug heroes for blog and listing shortcut cards", () => {
+    expect(getHeroKeyForPath("/neighborhoods/the-english-residences")).toBe(
+      "englishResidences",
+    );
+    expect(getHeroKeyForPath("/neighborhoods/arts-district")).toBe(
+      "artsDistrict",
+    );
+    expect(getHeroKeyForPath("/market-update")).toBe("marketUpdate");
   });
 });
