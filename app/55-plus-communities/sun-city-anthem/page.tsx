@@ -402,10 +402,10 @@ export default function SunCityAnthemPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Sun City Anthem combines Henderson mountain views,
-                championship golf, and the Del Webb clubhouse lifestyle. The
-                views from the upper sections are spectacular, and the Anthem
-                Center rivals any resort clubhouse I've seen. As a{" "}
+                "Sun City Anthem combines Henderson mountain views, championship
+                golf, and the Del Webb clubhouse lifestyle. The views from the
+                upper sections are spectacular, and the Anthem Center rivals any
+                resort clubhouse I've seen. As a{" "}
                 <strong>Berkshire Hathaway HomeServices</strong> agent, I help
                 buyers find the right balance of views, price, and proximity to
                 amenities."
