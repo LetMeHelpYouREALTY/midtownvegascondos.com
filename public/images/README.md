@@ -35,6 +35,8 @@ Use **R2 S3 API tokens** instead (separate from Account API tokens):
 
 Rotate any Account API token that appeared in older public GitHub Actions logs.
 
+Production Vercel env (2026-09-15 pull) has `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_GLOBAL_API_TOKEN`, and `CLOUDFLARE_ORIGIN_CA_KEY`. It does **not** have `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY`. The Account API token 401/10000s on R2 REST; the sync prefers the Global API credential (`X-Auth-Email` + `X-Auth-Key`, then Bearer) and skips further calls with the failed token. If that still cannot write objects, create R2 S3 keys as above.
+
 If R2 S3 keys are not available, the sync next deploys `public/` to Cloudflare Pages/Workers (`midtownvegascondos-heading-photos`). Confirm `https://midtownvegascondos-heading-photos.pages.dev/images/hero/home-strip-dusk.webp` is HTTP 200, then set:
 
 - `NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true`

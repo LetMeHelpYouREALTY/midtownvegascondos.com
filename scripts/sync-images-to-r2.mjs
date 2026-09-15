@@ -3,8 +3,15 @@
  * Upload git-backed public/images to Cloudflare R2 (primary storage).
  *
  * Auth (either):
- *   CLOUDFLARE_API_TOKEN [+ CLOUDFLARE_ACCOUNT_ID]  → R2 REST or wrangler put
  *   R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY + account id → S3-compatible sync
+ *   CLOUDFLARE_GLOBAL_API_TOKEN + email → Account API (X-Auth or Bearer)
+ *   CLOUDFLARE_API_TOKEN [+ CLOUDFLARE_ACCOUNT_ID]  → R2 REST or wrangler put
+ *
+ * Per Cloudflare R2 docs (tokens page + upload-objects, 2026): object-scoped
+ * R2 tokens only work on the S3 API. REST PUT /accounts/.../r2/buckets/.../objects
+ * needs Admin Read & Write (or the legacy Global API Key). The Vercel
+ * CLOUDFLARE_API_TOKEN already 401/10000s — do not keep calling Account API
+ * with it when a Global API credential is present.
  *
  * Bucket: realestatedomains-assets (same public host as the agent headshot).
  *
@@ -27,6 +34,8 @@ const BUCKET = process.env.R2_BUCKET ?? "realestatedomains-assets";
 const PREFIX = process.env.NEXT_PUBLIC_R2_PREFIX ?? "midtownvegascondos";
 /** Invoice-verified dash account; not a secret. Env vars still override. */
 const DEFAULT_ACCOUNT_ID = "2cc579c1ec9e426ed585e933ebf4753b";
+/** Cloudflare invoice recipient 2026-09-14; used with the Global API Key. */
+const DEFAULT_CF_EMAIL = "drduffy@bhhsnv.com";
 const CACHE_CONTROL = "public, max-age=31536000, immutable";
 const ACCOUNT_ID_RE = /\b([a-f0-9]{32})\b/gi;
 
@@ -72,8 +81,65 @@ function setAccountId(id, label = "") {
 }
 
 function hasWranglerAuth() {
-  return isUsableSecret(process.env.CLOUDFLARE_API_TOKEN);
+  return Boolean(globalApiSecret() || isUsableSecret(process.env.CLOUDFLARE_API_TOKEN));
 }
+
+function cloudflareEmail() {
+  return (
+    firstUsableSecret(["CLOUDFLARE_EMAIL", "CF_API_EMAIL"]) || DEFAULT_CF_EMAIL
+  );
+}
+
+function globalApiSecret() {
+  return firstUsableSecret([
+    "CLOUDFLARE_GLOBAL_API_TOKEN",
+    "CLOUDFLARE_API_KEY",
+  ]);
+}
+
+/**
+ * Prefer the Global API credential (no IP allowlist) over the Account API
+ * token that already 401/429s. Cache the first set that succeeds.
+ */
+function cloudflareAuthAttempts() {
+  const attempts = [];
+  const global = globalApiSecret();
+  if (global) {
+    attempts.push({
+      label: "global-api-key",
+      headers: {
+        "X-Auth-Email": cloudflareEmail(),
+        "X-Auth-Key": global,
+      },
+    });
+    attempts.push({
+      label: "global-bearer",
+      headers: { Authorization: `Bearer ${global}` },
+    });
+    return attempts;
+  }
+  if (isUsableSecret(process.env.CLOUDFLARE_API_TOKEN)) {
+    attempts.push({
+      label: "account-api-token",
+      headers: {
+        Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
+      },
+    });
+  }
+  return attempts;
+}
+
+function wranglerAuthEnv() {
+  const global = globalApiSecret();
+  if (!global) return {};
+  return {
+    CLOUDFLARE_API_TOKEN: "",
+    CLOUDFLARE_API_KEY: global,
+    CLOUDFLARE_EMAIL: cloudflareEmail(),
+  };
+}
+
+let cachedCfAuth = null;
 
 /** Object Read & Write tokens only work on the S3 API (Cloudflare R2 token docs, Aug 2026). */
 function firstUsableSecret(keys) {
@@ -177,23 +243,80 @@ function locationBlockedError(detail = "") {
   return error;
 }
 
-async function lookupCloudflareAccounts(path) {
-  const token = process.env.CLOUDFLARE_API_TOKEN;
-  const response = await fetch(
-    `https://api.cloudflare.com/client/v4${path}?per_page=50`,
-    { headers: { Authorization: `Bearer ${token}` } },
-  );
-  const body = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    console.error(
-      `Cloudflare ${path} lookup HTTP ${response.status} — ${cloudflareError(body).message || "continuing"}`,
-    );
-    if (isTokenLocationBlocked(body)) {
-      throw locationBlockedError(cloudflareError(body).message);
+async function cloudflareFetch(url, init = {}) {
+  const attempts = cachedCfAuth ? [cachedCfAuth] : cloudflareAuthAttempts();
+  if (!attempts.length) {
+    throw r2WriteForbiddenError("no Cloudflare Account API credential");
+  }
+  let lastStatus = 0;
+  let lastText = "";
+  let lastParsed = {};
+  for (const attempt of attempts) {
+    const response = await fetch(url, {
+      ...init,
+      headers: { ...attempt.headers, ...(init.headers ?? {}) },
+    });
+    if (response.ok || response.status === 409) {
+      if (!cachedCfAuth && attempt.label !== "account-api-token") {
+        console.log(`Cloudflare Account API accepted ${attempt.label}`);
+      }
+      cachedCfAuth = attempt;
+      return response;
     }
+    const text = await response.text();
+    let parsed = {};
+    try {
+      parsed = JSON.parse(text);
+    } catch {
+      parsed = {};
+    }
+    lastStatus = response.status;
+    lastText = text;
+    lastParsed = parsed;
+    if (
+      isTokenLocationBlocked(parsed) ||
+      /cannot use the access token from location/i.test(text)
+    ) {
+      console.warn(`Cloudflare auth ${attempt.label} blocked from this IP (9109)`);
+      continue;
+    }
+    if (isR2WriteForbidden(parsed, response.status, text)) {
+      console.warn(
+        `Cloudflare auth ${attempt.label} HTTP ${response.status} — ${cloudflareError(parsed).message || "trying next credential"}`,
+      );
+      continue;
+    }
+    throw new Error(
+      `Cloudflare HTTP ${response.status}: ${text.slice(0, 400)}`,
+    );
+  }
+  if (
+    isTokenLocationBlocked(lastParsed) ||
+    /cannot use the access token from location/i.test(lastText)
+  ) {
+    throw locationBlockedError(
+      cloudflareError(lastParsed).message || lastText.slice(0, 120),
+    );
+  }
+  throw r2WriteForbiddenError(
+    cloudflareError(lastParsed).message || `HTTP ${lastStatus}`,
+  );
+}
+
+async function lookupCloudflareAccounts(path) {
+  try {
+    const response = await cloudflareFetch(
+      `https://api.cloudflare.com/client/v4${path}?per_page=50`,
+    );
+    const body = await response.json().catch(() => ({}));
+    return accountsFromCfBody(path, body);
+  } catch (error) {
+    if (error?.skipSync) throw error;
+    console.error(
+      `Cloudflare ${path} lookup failed — ${error instanceof Error ? error.message : error}`,
+    );
     return [];
   }
-  return accountsFromCfBody(path, body);
 }
 
 function runCapture(command, args, extraEnv = {}) {
@@ -224,12 +347,11 @@ function runCapture(command, args, extraEnv = {}) {
 }
 
 async function resolveAccountIdFromWhoami() {
-  const { stdout, stderr } = await runCapture("npx", [
-    "wrangler",
-    "whoami",
-    "--config",
-    WRANGLER_CONFIG,
-  ]);
+  const { stdout, stderr } = await runCapture(
+    "npx",
+    ["wrangler", "whoami", "--config", WRANGLER_CONFIG],
+    wranglerAuthEnv(),
+  );
   const text = `${stdout}\n${stderr}`;
   const ids = [...text.matchAll(ACCOUNT_ID_RE)].map((match) => match[1]);
   const id = ids.find(Boolean) ?? "";
@@ -302,21 +424,25 @@ function run(command, args, extraEnv = {}) {
 }
 
 function wranglerPut(localFile, objectKey) {
-  return run("npx", [
-    "wrangler",
-    "r2",
-    "object",
-    "put",
-    `${BUCKET}/${objectKey}`,
-    "--config",
-    WRANGLER_CONFIG,
-    "--file",
-    localFile,
-    "--content-type",
-    contentTypeFor(localFile),
-    "--cache-control",
-    CACHE_CONTROL,
-  ]);
+  return run(
+    "npx",
+    [
+      "wrangler",
+      "r2",
+      "object",
+      "put",
+      `${BUCKET}/${objectKey}`,
+      "--config",
+      WRANGLER_CONFIG,
+      "--file",
+      localFile,
+      "--content-type",
+      contentTypeFor(localFile),
+      "--cache-control",
+      CACHE_CONTROL,
+    ],
+    wranglerAuthEnv(),
+  );
 }
 
 async function restPut(localFile, objectKey) {
@@ -326,40 +452,14 @@ async function restPut(localFile, objectKey) {
   }
   const url = `https://api.cloudflare.com/client/v4/accounts/${id}/r2/buckets/${BUCKET}/objects/${objectKey}`;
   const body = await readFile(localFile);
-  const response = await fetch(url, {
+  await cloudflareFetch(url, {
     method: "PUT",
     headers: {
-      Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
       "Content-Type": contentTypeFor(localFile),
       "Cache-Control": CACHE_CONTROL,
     },
     body,
   });
-  if (!response.ok) {
-    const text = await response.text();
-    let body = {};
-    try {
-      body = JSON.parse(text);
-    } catch {
-      body = {};
-    }
-    if (
-      isTokenLocationBlocked(body) ||
-      /cannot use the access token from location/i.test(text)
-    ) {
-      throw locationBlockedError(
-        cloudflareError(body).message || text.slice(0, 120),
-      );
-    }
-    if (isR2WriteForbidden(body, response.status, text)) {
-      throw r2WriteForbiddenError(
-        cloudflareError(body).message || `HTTP ${response.status}`,
-      );
-    }
-    throw new Error(
-      `R2 REST put HTTP ${response.status}: ${text.slice(0, 400)}`,
-    );
-  }
 }
 
 async function s3Put(localFile, objectKey) {
@@ -403,11 +503,10 @@ async function imagesPut(localFile, objectKey) {
   );
   form.append("id", imageId);
   form.append("requireSignedURLs", "false");
-  const response = await fetch(
+  const response = await cloudflareFetch(
     `https://api.cloudflare.com/client/v4/accounts/${id}/images/v1`,
     {
       method: "POST",
-      headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}` },
       body: form,
     },
   );
@@ -453,15 +552,19 @@ async function deployCloudflareAssets() {
     "R2 and Cloudflare Images writes denied. Deploying heading photos as Cloudflare Pages / Workers static assets...",
   );
   try {
-    await run("npx", [
-      "wrangler",
-      "pages",
-      "deploy",
-      publicDir,
-      "--project-name",
-      PAGES_PROJECT,
-      "--commit-dirty=true",
-    ]);
+    await run(
+      "npx",
+      [
+        "wrangler",
+        "pages",
+        "deploy",
+        publicDir,
+        "--project-name",
+        PAGES_PROJECT,
+        "--commit-dirty=true",
+      ],
+      wranglerAuthEnv(),
+    );
     console.log(
       `Done via Cloudflare Pages. Probe https://${PAGES_PROJECT}.pages.dev/images/hero/home-strip-dusk.webp then set NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true and NEXT_PUBLIC_CF_PAGES_IMAGES_BASE=https://${PAGES_PROJECT}.pages.dev. Prefer R2 S3 keys when they exist.`,
     );
@@ -472,7 +575,11 @@ async function deployCloudflareAssets() {
       pagesError instanceof Error ? pagesError.message : pagesError,
     );
   }
-  await run("npx", ["wrangler", "deploy", "--config", ASSETS_CONFIG]);
+  await run(
+    "npx",
+    ["wrangler", "deploy", "--config", ASSETS_CONFIG],
+    wranglerAuthEnv(),
+  );
   console.log(
     "Done via Cloudflare Workers static assets. Confirm the workers.dev image URL is HTTP 200, then set NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true and NEXT_PUBLIC_CF_PAGES_IMAGES_BASE to that origin.",
   );
@@ -482,14 +589,14 @@ const IMAGE_EDGE_HOST = "img.midtownvegascondos.com";
 const IMAGE_EDGE_ORIGIN = "www.midtownvegascondos.com";
 
 async function cfJson(path, { method = "GET", json } = {}) {
-  const response = await fetch(`https://api.cloudflare.com/client/v4${path}`, {
-    method,
-    headers: {
-      Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
-      "Content-Type": "application/json",
+  const response = await cloudflareFetch(
+    `https://api.cloudflare.com/client/v4${path}`,
+    {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: json ? JSON.stringify(json) : undefined,
     },
-    body: json ? JSON.stringify(json) : undefined,
-  });
+  );
   const text = await response.text();
   let body = {};
   try {

@@ -47,6 +47,8 @@ jobs:
           ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || secrets.R2_ACCOUNT_ID }}
           R2_KEY: ${{ secrets.R2_ACCESS_KEY_ID || secrets.CLOUDFLARE_R2_ACCESS_KEY_ID || secrets.CF_R2_ACCESS_KEY_ID || secrets.AWS_ACCESS_KEY_ID }}
           R2_SECRET: ${{ secrets.R2_SECRET_ACCESS_KEY || secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY || secrets.CF_R2_SECRET_ACCESS_KEY || secrets.AWS_SECRET_ACCESS_KEY || secrets.R2_SECRET }}
+          GLOBAL: ${{ secrets.CLOUDFLARE_GLOBAL_API_TOKEN || secrets.CLOUDFLARE_API_KEY }}
+          EMAIL: ${{ secrets.CLOUDFLARE_EMAIL || secrets.CF_API_EMAIL }}
         run: |
           mask_export() {
             local key="$1"
@@ -56,20 +58,22 @@ jobs:
             printf '%s=%s\n' "$key" "$val" >> "$GITHUB_ENV"
           }
           mask_export CLOUDFLARE_API_TOKEN "$TOKEN"
+          mask_export CLOUDFLARE_GLOBAL_API_TOKEN "$GLOBAL"
+          mask_export CLOUDFLARE_API_KEY "$GLOBAL"
+          mask_export CLOUDFLARE_EMAIL "$EMAIL"
           if [ -n "$ACCOUNT" ]; then
             mask_export CLOUDFLARE_ACCOUNT_ID "$ACCOUNT"
             mask_export R2_ACCOUNT_ID "$ACCOUNT"
           fi
           mask_export R2_ACCESS_KEY_ID "$R2_KEY"
           mask_export R2_SECRET_ACCESS_KEY "$R2_SECRET"
-          if { [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; } || { [ -n "$R2_KEY" ] && [ -n "$R2_SECRET" ] && [ -n "$ACCOUNT" ]; }; then
+          if { [ -n "$TOKEN$GLOBAL" ] && [ -n "$ACCOUNT" ]; } || { [ -n "$R2_KEY" ] && [ -n "$R2_SECRET" ] && [ -n "$ACCOUNT" ]; }; then
             echo "configured=true" >> "$GITHUB_OUTPUT"
           else
             echo "configured=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Pull Cloudflare keys from Vercel production env
-        if: steps.gh.outputs.configured != 'true'
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
@@ -85,7 +89,7 @@ jobs:
           fi
           while IFS= read -r line || [ -n "$line" ]; do
             case "$line" in
-              CLOUDFLARE_API_TOKEN=*|CLOUDFLARE_ACCOUNT_ID=*|R2_ACCOUNT_ID=*|R2_ACCESS_KEY_ID=*|R2_SECRET_ACCESS_KEY=*|AWS_ACCESS_KEY_ID=*|AWS_SECRET_ACCESS_KEY=*|CLOUDFLARE_R2_ACCESS_KEY_ID=*|CLOUDFLARE_R2_SECRET_ACCESS_KEY=*|CF_R2_ACCESS_KEY_ID=*|CF_R2_SECRET_ACCESS_KEY=*|R2_SECRET=*)
+              CLOUDFLARE_API_TOKEN=*|CLOUDFLARE_ACCOUNT_ID=*|CLOUDFLARE_GLOBAL_API_TOKEN=*|CLOUDFLARE_API_KEY=*|CLOUDFLARE_EMAIL=*|CF_API_EMAIL=*|R2_ACCOUNT_ID=*|R2_ACCESS_KEY_ID=*|R2_SECRET_ACCESS_KEY=*|AWS_ACCESS_KEY_ID=*|AWS_SECRET_ACCESS_KEY=*|CLOUDFLARE_R2_ACCESS_KEY_ID=*|CLOUDFLARE_R2_SECRET_ACCESS_KEY=*|CF_R2_ACCESS_KEY_ID=*|CF_R2_SECRET_ACCESS_KEY=*|R2_SECRET=*)
                 key="${line%%=*}"
                 val="${line#*=}"
                 val="${val#\"}"
@@ -174,10 +178,13 @@ jobs:
         run: |
           TOKEN_OK=false
           S3_OK=false
+          GLOBAL_OK=false
           # Token-only is enough to attempt whoami / wrangler put; account id is resolved in the script.
-          [ -n "$CLOUDFLARE_API_TOKEN" ] && TOKEN_OK=true
+          [ -n "$CLOUDFLARE_API_TOKEN$CLOUDFLARE_GLOBAL_API_TOKEN$CLOUDFLARE_API_KEY" ] && TOKEN_OK=true
+          [ -n "$CLOUDFLARE_GLOBAL_API_TOKEN$CLOUDFLARE_API_KEY" ] && GLOBAL_OK=true
           [ -n "$R2_ACCESS_KEY_ID" ] && [ -n "$R2_SECRET_ACCESS_KEY" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID$R2_ACCOUNT_ID" ] && S3_OK=true
           echo "token_auth=$TOKEN_OK"
+          echo "global_auth=$GLOBAL_OK"
           echo "s3_auth=$S3_OK"
           if [ "$TOKEN_OK" = true ] || [ "$S3_OK" = true ]; then
             echo "configured=true" >> "$GITHUB_OUTPUT"

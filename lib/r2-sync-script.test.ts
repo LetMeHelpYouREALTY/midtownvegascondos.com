@@ -52,12 +52,20 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/AWS_SECRET_ACCESS_KEY/);
     expect(src).toMatch(/function normalizeS3Env/);
     expect(src).toMatch(/firstUsableSecret/);
+    expect(src).toMatch(/CLOUDFLARE_GLOBAL_API_TOKEN/);
+    expect(src).toMatch(/X-Auth-Email/);
+    expect(src).toMatch(/X-Auth-Key/);
+    expect(src).toMatch(/drduffy@bhhsnv.com/);
+    expect(src).toMatch(/global-api-key/);
+    expect(src).toMatch(/function wranglerAuthEnv/);
     const workflow = readFileSync(
       join(ROOT, ".github/workflows/cloudflare-r2-images.yml"),
       "utf8",
     );
     expect(workflow).toMatch(/CLOUDFLARE_R2_ACCESS_KEY_ID/);
     expect(workflow).toMatch(/AWS_SECRET_ACCESS_KEY/);
+    expect(workflow).toMatch(/CLOUDFLARE_GLOBAL_API_TOKEN/);
+    expect(workflow).toMatch(/global_auth=/);
     expect(workflow).toMatch(/Vercel env keys matching R2\/Cloudflare\/AWS/);
     expect(workflow).toMatch(/Vercel production env keys from env pull/);
   });
