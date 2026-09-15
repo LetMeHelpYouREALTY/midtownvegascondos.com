@@ -85,15 +85,15 @@ export const sectionImages = {
     "Read Google reviews for Las Vegas Arts District Condos | Homes by Dr. Jan Duffy.",
   ),
   aboutBio: fromHero(
-    "why-bhhs-brokerage.webp",
+    "gbp-arts-district-office.webp",
     "Dr. Jan Duffy",
-    "Berkshire Hathaway HomeServices Nevada Properties office where Dr. Jan Duffy meets Arts District and downtown buyers",
+    "Arts District Las Vegas office where Dr. Jan Duffy meets Arts District and downtown buyers",
     "Meet Dr. Jan Duffy, midtown condo specialist at BHHS Nevada Properties.",
   ),
   aboutSpecializations: fromHero(
-    "why-bhhs-brokerage.webp",
+    "gbp-arts-district-office.webp",
     "Areas of Specialization",
-    "Berkshire Hathaway HomeServices Nevada Properties office representing Dr. Jan Duffy specializations",
+    "Arts District Las Vegas office representing Dr. Jan Duffy specializations",
     "Midtown condos, luxury, 55+ communities, and California relocation.",
   ),
   buyersAgent: fromHero(
@@ -121,9 +121,9 @@ export const sectionImages = {
     "FHA, VA, conventional, and Nevada down-payment programs.",
   ),
   luxuryMarket: fromHero(
-    "luxury-interior.webp",
+    "one-las-vegas-highrise.webp",
     "Las Vegas Luxury Market Performance",
-    "Luxury Las Vegas condo interior used for high-end market performance photography",
+    "One Las Vegas high-rise used for high-end market performance photography",
     "Strip-view high-rises and gated-community alternatives.",
   ),
   sellersAdvantage: fromHero(
@@ -151,9 +151,9 @@ export const sectionImages = {
     "List locally and land with a BHHS agent in the next city.",
   ),
   sellersSensitive: fromHero(
-    "handshake-deal.webp",
+    "services-condo-consultation.webp",
     "Situations We Help Navigate",
-    "Professional real estate closing handshake for divorce and probate midtown Las Vegas condo sales",
+    "Condo consultation desk with Las Vegas Stratosphere view for divorce and probate midtown sales",
     "Discreet guidance for divorce, probate, and court-supervised sales.",
   ),
   contactTouch: fromHero(
@@ -169,9 +169,9 @@ export const sectionImages = {
     "Same name, address, and phone as Google Maps and reviews.",
   ),
   gbpHours: fromHero(
-    "agent-office.webp",
+    "gbp-arts-district-office.webp",
     "Business Hours",
-    "Dr. Jan Duffy real estate office workspace matching published Google Business Profile hours",
+    "Arts District Las Vegas office matching published Google Business Profile hours",
     "Sunday–Thursday 9:00 AM–5:00 PM. Friday–Saturday closed. Appointment required.",
   ),
   faqCategories: fromHero(
@@ -187,9 +187,9 @@ export const sectionImages = {
     "Buyer representation, listings, valuations, and relocation.",
   ),
   relocationWhy: fromHero(
-    "map-planning.webp",
+    "relocation-vegas-skyline.webp",
     "Why People Are Moving to Las Vegas",
-    "Relocation planning map for buyers moving to midtown Las Vegas condos from out of state",
+    "Las Vegas valley skyline for buyers moving to midtown condos from out of state",
     "No state income tax, urban amenities, and midtown condo inventory.",
   ),
   luxuryStats: fromHero(
@@ -235,9 +235,9 @@ export const sectionImages = {
     "Weekly pricing and inventory context for Arts District buyers.",
   ),
   whyBuffett: fromHero(
-    "why-bhhs-brokerage.webp",
+    "gbp-arts-district-office.webp",
     "Backed by Warren Buffett's Legacy",
-    "Berkshire Hathaway HomeServices Nevada Properties branding for BHHS brokerage trust photography",
+    "Arts District Las Vegas office representing Berkshire Hathaway HomeServices Nevada Properties",
     "Local condo expertise with Berkshire Hathaway brand resources.",
   ),
   blogHub: fromHero(
@@ -265,15 +265,15 @@ export const sectionImages = {
     "Run Club, EV program, and dining questions for condo buyers.",
   ),
   fiftyFiveWhy: fromHero(
-    "golf-community.webp",
+    "summerlin-community.webp",
     "Why Active Adults Choose Las Vegas",
-    "Las Vegas 55+ active adult photography for buyers comparing valley options",
+    "Summerlin desert homes with Red Rock backdrop for 55+ buyers comparing valley options",
     "Golf, rec centers, and maintenance-free living near midtown.",
   ),
   sunCitySummerlinAbout: fromHero(
-    "golf-community.webp",
+    "summerlin-community.webp",
     "About Sun City Summerlin",
-    "Sun City Summerlin golf community photography for 55+ golf and rec living",
+    "Sun City Summerlin homes with Red Rock backdrop for 55+ golf and rec living",
     "7,700+ homes, three golf courses, and four recreation centers.",
   ),
   trilogyAbout: fromHero(
@@ -373,9 +373,9 @@ export const sectionImages = {
     "Southwest valley lots with mountain backdrop and rec amenities.",
   ),
   securityCommitment: fromHero(
-    "handshake-deal.webp",
+    "services-condo-consultation.webp",
     "Our Commitment to Security",
-    "Professional closing handshake representing responsible security disclosure for midtownvegascondos.com",
+    "Condo consultation desk representing responsible security disclosure for midtownvegascondos.com",
     "Report vulnerabilities to Dr. Jan Duffy at (702) 500-1980.",
   ),
   listingDetails: fromHero(
@@ -385,9 +385,9 @@ export const sectionImages = {
     "Beds, baths, square footage, and building amenities from the listing.",
   ),
   listingsHowTo: fromHero(
-    "map-planning.webp",
+    "juhl-downtown-condo-tower.webp",
     "How to use this MLS search",
-    "Relocation planning map used to filter live MLS midtown Las Vegas condo search results",
+    "Downtown Las Vegas condo tower used to filter live MLS midtown condo search results",
     "Filter for condos, then match buildings to HOA dues and walkability.",
   ),
   listingsChecklist: fromHero(
@@ -409,9 +409,9 @@ export const sectionImages = {
     "921 South Main Street, Las Vegas, NV 89101 — same pin as Google Maps.",
   ),
   gbpAbout: fromHero(
-    "why-bhhs-brokerage.webp",
+    "gbp-arts-district-office.webp",
     "About Dr. Jan Duffy",
-    "Berkshire Hathaway HomeServices Nevada Properties office where Dr. Jan Duffy meets Arts District and downtown buyers",
+    "Arts District Las Vegas office where Dr. Jan Duffy meets Arts District and downtown buyers",
     "BHHS Nevada Properties condo specialist for downtown and the Arts District.",
   ),
   gbpServices: fromHero(
@@ -421,9 +421,9 @@ export const sectionImages = {
     "Buyer representation, listings, valuations, and relocation from the Arts District.",
   ),
   aboutBhhs: fromHero(
-    "handshake-deal.webp",
+    "gbp-arts-district-office.webp",
     "Why Berkshire Hathaway HomeServices?",
-    "Professional real estate closing handshake representing Berkshire Hathaway HomeServices Nevada Properties",
+    "Arts District Las Vegas office representing Berkshire Hathaway HomeServices Nevada Properties",
     "Local condo expertise with Berkshire Hathaway brand resources.",
   ),
   aboutAreasServed: fromHero(
@@ -451,9 +451,9 @@ export const sectionImages = {
     "Sun City, Del Webb, Trilogy, Solera, and Heritage at Stonebridge.",
   ),
   fiftyFiveAmenities: fromHero(
-    "golf-community.webp",
+    "sun-city-anthem-golf.webp",
     "What 55+ Community Amenities Include",
-    "Golf-course amenity photography for Las Vegas 55+ community rec centers",
+    "Desert golf-course homes representing Las Vegas 55+ community rec and golf amenities",
     "Pools, golf, clubhouses, and maintenance-free living near midtown.",
   ),
   neighborhoodMarket: fromHero(
@@ -493,9 +493,9 @@ export const sectionImages = {
     "Same name, address, and phone as Google Business Profile.",
   ),
   commuteTimes: fromHero(
-    "map-planning.webp",
+    "home-skyline-day.webp",
     "Check drive times from midtown Las Vegas condos",
-    "Relocation planning map used to compare drive times from midtown Las Vegas condos",
+    "City of Las Vegas gateway arch used to compare drive times from midtown condos",
     "Strip, airport, Downtown, Summerlin, and Henderson commute context.",
   ),
 } as const;

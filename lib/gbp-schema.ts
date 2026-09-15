@@ -234,8 +234,8 @@ const gbpPhotoObjects = [
     name: "Dr. Jan Duffy real estate office",
     caption:
       "Berkshire Hathaway HomeServices Nevada Properties workspace for Arts District condo consultations",
-    url: absoluteSiteImage("/images/hero/agent-office.webp"),
-    contentUrl: absoluteSiteImage("/images/hero/agent-office.webp"),
+    url: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
   },
   {
     "@type": "ImageObject" as const,

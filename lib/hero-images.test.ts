@@ -18,7 +18,7 @@ describe("hero-images", () => {
       "/images/hero/juhl-downtown-condo-tower.webp",
     );
     expect(heroImages.securityPolicy.src).toBe(
-      "/images/hero/why-bhhs-brokerage.webp",
+      "/images/hero/services-condo-consultation.webp",
     );
   });
 
@@ -55,7 +55,7 @@ describe("hero-images", () => {
 
   it("does not catalog wrong-city or off-subject stock filenames", () => {
     const banned =
-      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night/;
+      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night|handshake-deal|map-planning|luxury-interior|agent-office|golf-community|why-bhhs-brokerage/;
     for (const [key, img] of Object.entries(heroImages)) {
       expect(img.src, key).not.toMatch(banned);
     }

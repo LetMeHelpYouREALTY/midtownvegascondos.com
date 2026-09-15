@@ -19,7 +19,7 @@ describe("section-images", () => {
       "/images/hero/gbp-arts-district-office.webp",
     );
     expect(sectionImages.aboutBio.src).toBe(
-      "/images/hero/why-bhhs-brokerage.webp",
+      "/images/hero/gbp-arts-district-office.webp",
     );
   });
 
@@ -57,7 +57,7 @@ describe("section-images", () => {
       ["summerlinWhy", "summerlin"],
       ["ridgesWhy", "the-ridges"],
       ["northLasVegasWhy", "north-las-vegas"],
-      ["sunCitySummerlinAbout", "golf-community"],
+      ["sunCitySummerlinAbout", "summerlin-community"],
       ["trilogyAbout", "trilogy-summerlin"],
       ["soleraAbout", "solera-anthem"],
       ["sunCityAnthemAbout", "sun-city-anthem"],
@@ -80,7 +80,9 @@ describe("section-images", () => {
       "juhl-downtown-condo-tower",
     );
     expect(sectionImages.marketSnapshot.src).toContain("home-skyline-day");
-    expect(sectionImages.fiftyFiveAmenities.src).toContain("golf-community");
+    expect(sectionImages.fiftyFiveAmenities.src).toContain(
+      "sun-city-anthem-golf",
+    );
     for (const [key, slug] of pairs) {
       expect(sectionImages[key].src, key).toContain(slug);
     }
@@ -88,7 +90,7 @@ describe("section-images", () => {
 
   it("does not catalog wrong-city or off-subject stock filenames", () => {
     const banned =
-      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night/;
+      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night|handshake-deal|map-planning|luxury-interior|agent-office|golf-community|why-bhhs-brokerage/;
     for (const [key, img] of Object.entries(sectionImages)) {
       expect(img.src, key).not.toMatch(banned);
     }
