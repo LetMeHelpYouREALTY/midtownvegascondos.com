@@ -1,8 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
-import Link from "next/link";
-import { Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import SchemaScript from "@/components/SchemaScript";
@@ -17,6 +15,7 @@ import { hyperlocalMeta, midtownCondoFaqs } from "@/lib/hyperlocal-content";
 import { commonFAQs, agentInfo, officeInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import type { SectionImageKey } from "@/lib/section-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/faq", {
@@ -174,13 +173,7 @@ export default function FAQPage() {
               Dr. Jan Duffy is happy to answer questions about midtown Las Vegas
               condos, HOA review, and buying or selling downtown towers.
             </p>
-            <a
-              href="tel:+17025001980"
-              className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1980
-            </a>
+            <GbpEngageButtons onDark />
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>

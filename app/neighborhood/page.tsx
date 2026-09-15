@@ -4,12 +4,13 @@ import PageHero from "@/components/sections/PageHero";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
-import { Phone, ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { midtownLifestylePages } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 export const metadata: Metadata = withPageHeroMetadata("/neighborhood", {
   title:
@@ -107,13 +108,7 @@ export default function NeighborhoodLifestyleHubPage() {
                 Properties
               </p>
             </div>
-            <a
-              href={agentInfo.phoneTel}
-              className="inline-flex items-center justify-center rounded-md bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-500"
-            >
-              <Phone className="mr-2 h-4 w-4" />
-              {agentInfo.phone}
-            </a>
+            <GbpEngageButtons />
           </div>
         </div>
         <div className="mt-12">

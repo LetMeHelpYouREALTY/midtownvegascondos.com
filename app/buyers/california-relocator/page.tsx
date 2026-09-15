@@ -17,6 +17,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/buyers/california-relocator",
@@ -572,21 +573,14 @@ export default function CaliforniaRelocatorPage() {
               She'll show you exactly what your California equity buys in Las
               Vegas and help you find the perfect neighborhood.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call/Text (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
               >
                 Schedule Consultation
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="mt-6 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>

@@ -3,7 +3,6 @@ import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   MapPin,
   Home as HomeIcon,
   DollarSign,
@@ -21,6 +20,7 @@ import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { agentInfo } from "@/lib/site-config";
 
 const PATH = "/55-plus-communities/sun-city-summerlin";
@@ -463,21 +463,14 @@ export default function SunCitySummerlinPage() {
               offers private tours and expert guidance on finding your perfect
               Sun City Summerlin home.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-white text-amber-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-amber-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-amber-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-amber-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
               >
                 Schedule a Tour
               </Link>
-            </div>
+            </GbpEngageButtons>
           </section>
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">

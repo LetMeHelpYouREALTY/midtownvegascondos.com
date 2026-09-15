@@ -3,7 +3,6 @@ import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   TrendingUp,
   DollarSign,
   Building,
@@ -16,6 +15,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/investment-properties",
@@ -675,13 +675,7 @@ export default function InvestmentPropertiesPage() {
               Get expert guidance on Las Vegas investment properties from Dr.
               Jan Duffy and Berkshire Hathaway HomeServices.
             </p>
-            <a
-              href="tel:+17025001980"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1980
-            </a>
+            <GbpEngageButtons onDark />
             <p className="mt-4 text-slate-400 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>

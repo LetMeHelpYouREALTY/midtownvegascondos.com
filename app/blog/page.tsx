@@ -4,7 +4,7 @@ import PageHero from "@/components/sections/PageHero";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
-import { Phone, ArrowRight, Newspaper } from "lucide-react";
+import { ArrowRight, Newspaper } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { blogPosts } from "@/lib/gsc-recovery-pages";
@@ -12,6 +12,7 @@ import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { getHeroKeyForPath } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/blog", {
@@ -135,13 +136,7 @@ export default function BlogPage() {
               Call {agentInfo.name} at {agentInfo.phone} ·{" "}
               {officeInfo.address.full}
             </p>
-            <a
-              href={agentInfo.phoneTel}
-              className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500"
-            >
-              <Phone className="mr-2 h-4 w-4" />
-              Call now
-            </a>
+            <GbpEngageButtons onDark />
           </section>
         </div>
         <div className="mt-12">

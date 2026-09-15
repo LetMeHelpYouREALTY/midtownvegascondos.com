@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 export const metadata: Metadata = {
   ...withPageHeroMetadata("/listings", {
@@ -193,17 +194,11 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
                 <p className="text-sm text-slate-600 mb-6">
                   Berkshire Hathaway HomeServices Nevada Properties
                 </p>
-                <div className="space-y-3">
-                  <Button
-                    asChild
-                    className="w-full bg-blue-600 hover:bg-blue-700"
-                  >
-                    <a href="tel:+17025001980">Call (702) 500-1980</a>
-                  </Button>
-                  <Button asChild variant="outline" className="w-full">
+                <GbpEngageButtons className="mb-3">
+                  <Button asChild variant="outline">
                     <a href="/contact">Send Message</a>
                   </Button>
-                </div>
+                </GbpEngageButtons>
               </div>
             </div>
           </div>

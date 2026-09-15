@@ -3,7 +3,6 @@ import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   MapPin,
   Home as HomeIcon,
   Dumbbell,
@@ -17,6 +16,7 @@ import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 
 const PATH = "/55-plus-communities/heritage-stonebridge";
@@ -283,27 +283,20 @@ export default function HeritageStonebridgePage() {
               <MapPin className="w-4 h-4 mt-0.5 shrink-0" aria-hidden />
               {officeInfo.address.full}
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={`tel:${agentInfo.phone}`}
-                className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white hover:bg-blue-700"
-              >
-                <Phone className="w-4 h-4" aria-hidden />
-                Call {agentInfo.phoneFormatted}
-              </a>
+            <GbpEngageButtons>
               <Link
                 href="/contact"
-                className="rounded-lg border border-blue-600 px-5 py-2.5 font-semibold text-blue-700 hover:bg-blue-50"
+                className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
               >
                 Contact
               </Link>
               <Link
                 href="/55-plus-communities"
-                className="rounded-lg border border-slate-300 px-5 py-2.5 font-semibold text-slate-700 hover:bg-slate-50"
+                className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
               >
                 All 55+ communities
               </Link>
-            </div>
+            </GbpEngageButtons>
           </section>
         </div>
       </main>

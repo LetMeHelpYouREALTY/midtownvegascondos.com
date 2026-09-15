@@ -4,7 +4,7 @@ import PageHero from "@/components/sections/PageHero";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
-import { Phone, ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import {
@@ -16,6 +16,7 @@ import { agentInfo, officeInfo } from "@/lib/site-config";
 import { getHeroImage } from "@/lib/hero-images";
 import { notFound } from "next/navigation";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -174,21 +175,14 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
             <p className="text-slate-400 text-sm mb-6">
               {officeInfo.address.full}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={agentInfo.phoneTel}
-                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500"
-              >
-                <Phone className="mr-2 h-4 w-4" />
-                Call {agentInfo.phone}
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3 font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
               >
                 Schedule a showing
               </Link>
-            </div>
+            </GbpEngageButtons>
           </section>
         </div>
         <RealScoutListings />

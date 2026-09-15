@@ -3,7 +3,6 @@ import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   MapPin,
   Star,
   UtensilsCrossed,
@@ -21,6 +20,7 @@ import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { agentInfo } from "@/lib/site-config";
 
 const PATH = "/55-plus-communities/trilogy-summerlin";
@@ -515,21 +515,14 @@ export default function TrilogySummerlinPage() {
               resort-style 55+ living. Private tours available with Dr. Jan
               Duffy.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-white text-rose-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-rose-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-rose-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-rose-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
               >
                 Schedule a Tour
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="text-rose-200">
               Here to make your transition smooth, Dr. Jan{" "}
               <span role="img" aria-label="sunshine">

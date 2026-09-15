@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { generateLocalBusinessSchema } from "./gbp-schema";
 import { officeInfo, siteConfig } from "./site-config";
@@ -85,6 +85,35 @@ describe("generateLocalBusinessSchema", () => {
           true,
         );
       }
+    }
+  });
+});
+
+describe("GBP engage CTAs on live pages", () => {
+  const pages = [
+    "app/sellers/page.tsx",
+    "app/services/page.tsx",
+    "app/listings/page.tsx",
+    "app/buyers/page.tsx",
+    "app/relocation/page.tsx",
+    "app/investment-properties/page.tsx",
+    "app/luxury-homes/page.tsx",
+    "app/new-construction/page.tsx",
+    "app/faq/page.tsx",
+    "app/blog/page.tsx",
+    "app/contact/page.tsx",
+    "app/about/page.tsx",
+    "app/55-plus-communities/page.tsx",
+    "app/neighborhood/page.tsx",
+    "app/midtown-real-estate/page.tsx",
+  ];
+
+  it("includes Call, Directions, and Reviews on high-intent pages", () => {
+    for (const rel of pages) {
+      const text = readFileSync(join(process.cwd(), rel), "utf8");
+      const hasButtons = text.includes("GbpEngageButtons");
+      const hasReviews = text.includes("View Google Reviews");
+      expect(hasButtons || hasReviews).toBe(true);
     }
   });
 });

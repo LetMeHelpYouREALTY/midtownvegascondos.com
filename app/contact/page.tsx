@@ -25,6 +25,7 @@ import {
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 
 export const metadata: Metadata = withPageHeroMetadata("/contact", {
@@ -382,6 +383,7 @@ export default function ContactPage() {
                 </div>
               </a>
             </div>
+            <GbpEngageButtons className="mt-6" />
           </section>
 
           {/* FAQ Section */}
