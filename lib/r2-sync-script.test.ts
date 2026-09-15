@@ -71,10 +71,15 @@ describe("R2 image sync script", () => {
     expect(workflow).toMatch(/Vercel env keys matching R2\/Cloudflare\/AWS/);
     expect(workflow).toMatch(/Vercel production env keys from env pull/);
     expect(workflow).toMatch(/Pull R2 keys from sister Vercel projects/);
-    expect(workflow).toMatch(
-      /hertagestonebridge.com:prj_Egvst53Qns0tSJ0K5cqfbicv2MIj/,
+    expect(workflow).toMatch(/scripts\/scan-vercel-r2-keys.mjs/);
+    const scanner = readFileSync(
+      join(ROOT, "scripts/scan-vercel-r2-keys.mjs"),
+      "utf8",
     );
-    expect(workflow).toMatch(/copied \$key from \$source/);
+    expect(scanner).toMatch(/api.vercel.com\/v9\/projects/);
+    expect(scanner).toMatch(/api.vercel.com\/v8\/env/);
+    expect(scanner).toMatch(/R2_ACCESS_KEY_ID/);
+    expect(scanner).toMatch(/No pullable R2 S3 keys/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {
