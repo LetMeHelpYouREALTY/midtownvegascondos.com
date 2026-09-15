@@ -97,7 +97,7 @@ export default function SoleraAnthemPage() {
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="soleraAbout"
               heading="Solera at Anthem at a Glance"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark

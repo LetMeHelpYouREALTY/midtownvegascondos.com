@@ -237,7 +237,7 @@ export default function WhyBerkshireHathawayPage() {
           {/* Stats Section */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="whyBuffett"
               heading="Berkshire Hathaway HomeServices By The Numbers"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
@@ -329,7 +329,7 @@ export default function WhyBerkshireHathawayPage() {
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="aboutBhhs"
               heading="Frequently Asked Questions About BHHS"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

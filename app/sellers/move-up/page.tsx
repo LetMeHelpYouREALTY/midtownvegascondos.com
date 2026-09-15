@@ -487,7 +487,7 @@ export default function MoveUpSellerPage() {
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="sellersMoveUp"
               heading="Move-Up Seller FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

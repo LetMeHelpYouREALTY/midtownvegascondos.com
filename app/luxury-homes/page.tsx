@@ -502,7 +502,7 @@ export default function LuxuryHomesPage() {
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="luxuryMarket"
               heading="Frequently Asked Questions About Las Vegas Luxury Homes"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

@@ -523,7 +523,7 @@ export default function BuyersPage() {
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="buyersAgent"
               heading="Frequently Asked Questions About Buying in Las Vegas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

@@ -433,7 +433,7 @@ export default function ListingsPage() {
             aria-labelledby="listings-faq"
           >
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="listingsHowTo"
               heading="Listings FAQ"
               className="mb-6 text-left"
             />

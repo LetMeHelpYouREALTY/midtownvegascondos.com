@@ -149,7 +149,7 @@ export default function SunCityAnthemPage() {
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="sunCityAnthemAbout"
               heading="Sun City Anthem at a Glance"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark

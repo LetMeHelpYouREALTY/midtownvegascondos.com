@@ -109,7 +109,7 @@ export default function SouthernHighlandsPage() {
 
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="southernHighlandsWhy"
               heading="Southern Highlands market snapshot | mid-2026"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
@@ -293,7 +293,7 @@ export default function SouthernHighlandsPage() {
 
           <section className="mb-16 max-w-5xl mx-auto" aria-labelledby="sh-faq">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="southernHighlandsWhy"
               heading="Southern Highlands FAQ"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

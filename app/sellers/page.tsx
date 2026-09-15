@@ -506,7 +506,7 @@ export default function SellersPage() {
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="sellersAdvantage"
               heading="Frequently Asked Questions About Selling in Las Vegas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

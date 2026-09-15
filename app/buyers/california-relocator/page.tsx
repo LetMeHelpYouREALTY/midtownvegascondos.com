@@ -467,7 +467,7 @@ export default function CaliforniaRelocatorPage() {
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="caNumbers"
               heading="California Relocator FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

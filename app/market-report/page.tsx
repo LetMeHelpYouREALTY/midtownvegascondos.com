@@ -322,7 +322,7 @@ export default function MarketReportPage() {
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="marketSnapshot"
               heading="Market Questions We're Hearing"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

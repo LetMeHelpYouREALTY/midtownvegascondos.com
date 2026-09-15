@@ -158,7 +158,7 @@ export default function InvestmentPropertiesPage() {
           {/* Market Stats */}
           <section className="mb-16 max-w-6xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="investWhy"
               heading="Investment Property Markets | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
@@ -623,7 +623,7 @@ export default function InvestmentPropertiesPage() {
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="investWhy"
               heading="Investment Property FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

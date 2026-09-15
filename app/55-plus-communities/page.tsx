@@ -408,7 +408,7 @@ export default function FiftyFiveCommunitiesPage() {
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="fiftyFiveWhy"
               heading="Las Vegas 55+ Market Overview | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
@@ -795,7 +795,7 @@ export default function FiftyFiveCommunitiesPage() {
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="fiftyFiveWhy"
               heading="55+ Community Buying FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

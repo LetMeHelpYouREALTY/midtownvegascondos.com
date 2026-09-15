@@ -639,7 +639,7 @@ export default function HomeValuationPage() {
           {/* FAQ Section */}
           <section className="max-w-4xl mx-auto mb-16">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="valuationSchedule"
               heading="Frequently Asked Questions About Home Valuations"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

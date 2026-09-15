@@ -95,7 +95,7 @@ export default function InspiradaPage() {
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="inspiradaWhy"
               heading="Inspirada Real Estate Market | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
@@ -429,7 +429,7 @@ export default function InspiradaPage() {
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="inspiradaWhy"
               heading="Frequently Asked Questions About Inspirada"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

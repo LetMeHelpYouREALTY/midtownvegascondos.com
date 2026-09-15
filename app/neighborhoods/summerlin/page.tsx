@@ -111,7 +111,7 @@ export default function SummerlinPage() {
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="summerlinWhy"
               heading="Summerlin Real Estate Market | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
@@ -432,7 +432,7 @@ export default function SummerlinPage() {
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="summerlinWhy"
               heading="Frequently Asked Questions About Summerlin Real Estate"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

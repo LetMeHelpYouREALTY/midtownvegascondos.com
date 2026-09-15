@@ -96,7 +96,7 @@ export default function GreenValleyPage() {
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="greenValleyWhy"
               heading="Green Valley Real Estate Market | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
@@ -413,7 +413,7 @@ export default function GreenValleyPage() {
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="greenValleyWhy"
               heading="Frequently Asked Questions About Green Valley Real Estate"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

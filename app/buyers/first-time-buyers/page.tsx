@@ -553,7 +553,7 @@ export default function FirstTimeBuyersPage() {
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="firstTimeFinancing"
               heading="First-Time Buyer FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

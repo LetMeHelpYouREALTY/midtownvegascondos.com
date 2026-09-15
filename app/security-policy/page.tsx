@@ -287,8 +287,8 @@ export default function SecurityPolicyPage() {
             {/* Out of Scope */}
             <section className="mb-12">
               <SectionPhoto
-                imageKey="faqCategories"
-                heading="Out of Scope"
+              imageKey="securityCommitment"
+              heading="Out of Scope"
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">

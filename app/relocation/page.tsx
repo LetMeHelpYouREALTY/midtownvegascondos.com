@@ -355,7 +355,7 @@ export default function RelocationPage() {
           {/* School Information */}
           <section className="mb-16 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="neighborhoodMarket"
+              imageKey="commuteTimes"
               heading="Las Vegas Schools & Education"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
@@ -589,7 +589,7 @@ export default function RelocationPage() {
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="faqCategories"
+              imageKey="relocationWhy"
               heading="Relocation Frequently Asked Questions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

@@ -42,4 +42,63 @@ describe("live heading photography", () => {
 
     expect(gaps).toEqual([]);
   });
+
+  it("uses community-specific photos for named market and FAQ headings", () => {
+    const root = process.cwd();
+    const pairs: Array<[string, string, string]> = [
+      [
+        "app/neighborhoods/southern-highlands/page.tsx",
+        "Southern Highlands market snapshot",
+        "southernHighlandsWhy",
+      ],
+      [
+        "app/neighborhoods/southern-highlands/page.tsx",
+        "Southern Highlands FAQ",
+        "southernHighlandsWhy",
+      ],
+      [
+        "app/55-plus-communities/sun-city-summerlin/page.tsx",
+        "Sun City Summerlin at a Glance",
+        "sunCitySummerlinAbout",
+      ],
+      [
+        "app/55-plus-communities/trilogy-summerlin/page.tsx",
+        "Trilogy at Summerlin at a Glance",
+        "trilogyAbout",
+      ],
+      [
+        "app/55-plus-communities/solera-anthem/page.tsx",
+        "Solera at Anthem at a Glance",
+        "soleraAbout",
+      ],
+      [
+        "app/55-plus-communities/sun-city-anthem/page.tsx",
+        "Sun City Anthem at a Glance",
+        "sunCityAnthemAbout",
+      ],
+      [
+        "app/55-plus-communities/sun-city-aliante/page.tsx",
+        "Sun City Aliante at a Glance",
+        "sunCityAlianteAbout",
+      ],
+      [
+        "app/55-plus-communities/del-webb-lake-las-vegas/page.tsx",
+        "Del Webb at Lake Las Vegas at a Glance",
+        "delWebbAbout",
+      ],
+      [
+        "app/relocation/page.tsx",
+        "Las Vegas Schools & Education",
+        "commuteTimes",
+      ],
+    ];
+
+    for (const [rel, heading, key] of pairs) {
+      const text = readFileSync(join(root, rel), "utf8");
+      const idx = text.indexOf(heading);
+      expect(idx, `${rel} missing ${heading}`).toBeGreaterThan(-1);
+      const window = text.slice(Math.max(0, idx - 500), idx + heading.length);
+      expect(window, `${rel} ${heading}`).toContain(`imageKey="${key}"`);
+    }
+  });
 });
