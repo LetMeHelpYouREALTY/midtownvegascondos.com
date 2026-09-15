@@ -16,43 +16,97 @@ jobs:
   sync-r2-images:
     name: Sync git images to Cloudflare R2
     runs-on: ubuntu-latest
-    # Production GitHub Environment holds Cloudflare/R2 secrets (repo-level
-    # secrets were empty, which made earlier syncs skip).
     environment: Production
     permissions:
       contents: read
+    env:
+      R2_BUCKET: realestatedomains-assets
+      NEXT_PUBLIC_R2_PREFIX: midtownvegascondos
+      # Native Vercel GitHub project (repo VERCEL_PROJECT_ID secret is stale).
+      VERCEL_ORG_ID: team_EIbjFXaDDtGMTweb5Hvo3CG3
+      VERCEL_PROJECT_ID: prj_cgzb65mf2GDFh37vU9hPWQ2TGJ6m
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check Cloudflare credentials
-        id: cf
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Export GitHub Cloudflare secrets
+        id: gh
         env:
           TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || secrets.R2_ACCOUNT_ID }}
           R2_KEY: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         run: |
-          TOKEN_OK=false
-          S3_OK=false
-          [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ] && TOKEN_OK=true
-          [ -n "$R2_KEY" ] && [ -n "$R2_SECRET" ] && [ -n "$ACCOUNT" ] && S3_OK=true
-          echo "token_auth=$TOKEN_OK" >> "$GITHUB_OUTPUT"
-          echo "s3_auth=$S3_OK" >> "$GITHUB_OUTPUT"
-          if [ "$TOKEN_OK" = true ] || [ "$S3_OK" = true ]; then
+          if [ -n "$TOKEN" ]; then
+            echo "CLOUDFLARE_API_TOKEN=$TOKEN" >> "$GITHUB_ENV"
+          fi
+          if [ -n "$ACCOUNT" ]; then
+            echo "CLOUDFLARE_ACCOUNT_ID=$ACCOUNT" >> "$GITHUB_ENV"
+            echo "R2_ACCOUNT_ID=$ACCOUNT" >> "$GITHUB_ENV"
+          fi
+          if [ -n "$R2_KEY" ]; then
+            echo "R2_ACCESS_KEY_ID=$R2_KEY" >> "$GITHUB_ENV"
+          fi
+          if [ -n "$R2_SECRET" ]; then
+            echo "R2_SECRET_ACCESS_KEY=$R2_SECRET" >> "$GITHUB_ENV"
+          fi
+          if { [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; } || { [ -n "$R2_KEY" ] && [ -n "$R2_SECRET" ] && [ -n "$ACCOUNT" ]; }; then
             echo "configured=true" >> "$GITHUB_OUTPUT"
-            echo "Cloudflare R2 credentials found (token=$TOKEN_OK s3=$S3_OK)."
           else
             echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "Cloudflare R2 credentials are not in the Production environment. Skipping image sync."
           fi
 
-      - name: Setup Node.js
-        if: steps.cf.outputs.configured == 'true'
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: npm
+      - name: Pull Cloudflare keys from Vercel production env
+        if: steps.gh.outputs.configured != 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "No VERCEL_TOKEN; cannot pull Vercel env."
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          npm install -g vercel@latest
+          if ! vercel env pull /tmp/vercel-prod.env --environment=production --yes --token="$VERCEL_TOKEN"; then
+            echo "Vercel production env pull failed."
+            exit 0
+          fi
+          while IFS= read -r line || [ -n "$line" ]; do
+            case "$line" in
+              CLOUDFLARE_API_TOKEN=*|CLOUDFLARE_ACCOUNT_ID=*|R2_ACCOUNT_ID=*|R2_ACCESS_KEY_ID=*|R2_SECRET_ACCESS_KEY=*)
+                key="${line%%=*}"
+                val="${line#*=}"
+                val="${val#\"}"
+                val="${val%\"}"
+                printf '%s=%s\n' "$key" "$val" >> "$GITHUB_ENV"
+                echo "copied $key"
+                ;;
+            esac
+          done < /tmp/vercel-prod.env
+          rm -f /tmp/vercel-prod.env
+        id: vercelenv
+
+      - name: Resolve R2 auth
+        id: cf
+        run: |
+          TOKEN_OK=false
+          S3_OK=false
+          [ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID$R2_ACCOUNT_ID" ] && TOKEN_OK=true
+          [ -n "$R2_ACCESS_KEY_ID" ] && [ -n "$R2_SECRET_ACCESS_KEY" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID$R2_ACCOUNT_ID" ] && S3_OK=true
+          echo "token_auth=$TOKEN_OK"
+          echo "s3_auth=$S3_OK"
+          if [ "$TOKEN_OK" = true ] || [ "$S3_OK" = true ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare R2 credentials were not in GitHub Production secrets or Vercel production env."
+          fi
 
       - name: Install dependencies
         if: steps.cf.outputs.configured == 'true'
@@ -60,14 +114,6 @@ jobs:
 
       - name: Upload public/images to R2
         if: steps.cf.outputs.configured == 'true'
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET: realestatedomains-assets
-          NEXT_PUBLIC_R2_PREFIX: midtownvegascondos
         run: npm run cloudflare:images
 
       - name: Probe public R2 object
@@ -79,5 +125,5 @@ jobs:
           if [ "$CODE" = "200" ]; then
             echo "Site images are live on Cloudflare R2."
           else
-            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Put CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID (or R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_ACCOUNT_ID) on the Production GitHub Environment, re-run this workflow, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
+            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID (or R2 S3 keys) to the Production GitHub Environment or Vercel production env, re-run this workflow, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
           fi
