@@ -13,6 +13,12 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/const names = await readdir\(dir\)/);
   });
 
+  it("names Cloudflare IP allowlist error 9109 so CI can skip doomed uploads", () => {
+    const src = readFileSync(SCRIPT, "utf8");
+    expect(src).toMatch(/code === 9109/);
+    expect(src).toMatch(/skipSync/);
+  });
+
   it("skips cleanly when Cloudflare credentials are absent", () => {
     const result = spawnSync(process.execPath, [SCRIPT], {
       cwd: ROOT,

@@ -43,19 +43,20 @@ jobs:
           R2_KEY: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         run: |
-          if [ -n "$TOKEN" ]; then
-            echo "CLOUDFLARE_API_TOKEN=$TOKEN" >> "$GITHUB_ENV"
-          fi
+          mask_export() {
+            local key="$1"
+            local val="$2"
+            [ -z "$val" ] && return
+            echo "::add-mask::$val"
+            printf '%s=%s\n' "$key" "$val" >> "$GITHUB_ENV"
+          }
+          mask_export CLOUDFLARE_API_TOKEN "$TOKEN"
           if [ -n "$ACCOUNT" ]; then
-            echo "CLOUDFLARE_ACCOUNT_ID=$ACCOUNT" >> "$GITHUB_ENV"
-            echo "R2_ACCOUNT_ID=$ACCOUNT" >> "$GITHUB_ENV"
+            mask_export CLOUDFLARE_ACCOUNT_ID "$ACCOUNT"
+            mask_export R2_ACCOUNT_ID "$ACCOUNT"
           fi
-          if [ -n "$R2_KEY" ]; then
-            echo "R2_ACCESS_KEY_ID=$R2_KEY" >> "$GITHUB_ENV"
-          fi
-          if [ -n "$R2_SECRET" ]; then
-            echo "R2_SECRET_ACCESS_KEY=$R2_SECRET" >> "$GITHUB_ENV"
-          fi
+          mask_export R2_ACCESS_KEY_ID "$R2_KEY"
+          mask_export R2_SECRET_ACCESS_KEY "$R2_SECRET"
           if { [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ]; } || { [ -n "$R2_KEY" ] && [ -n "$R2_SECRET" ] && [ -n "$ACCOUNT" ]; }; then
             echo "configured=true" >> "$GITHUB_OUTPUT"
           else
@@ -88,6 +89,7 @@ jobs:
                   echo "skipped $key (not usable from vercel env pull)"
                   continue
                 fi
+                echo "::add-mask::$val"
                 printf '%s=%s\n' "$key" "$val" >> "$GITHUB_ENV"
                 echo "copied $key"
                 ;;
@@ -123,6 +125,11 @@ jobs:
 
       - name: Probe public R2 object
         if: always()
+        env:
+          # Do not inherit API tokens into this step's logged env dump.
+          CLOUDFLARE_API_TOKEN: ""
+          R2_ACCESS_KEY_ID: ""
+          R2_SECRET_ACCESS_KEY: ""
         run: |
           URL="https://pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/images/hero/home-strip-dusk.webp"
           CODE=$(curl -sS -o /dev/null -w "%{http_code}" "$URL")
@@ -130,5 +137,5 @@ jobs:
           if [ "$CODE" = "200" ]; then
             echo "Site images are live on Cloudflare R2."
           else
-            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID (or R2 S3 keys) to the Production GitHub Environment or Vercel production env, re-run this workflow, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
+            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Token IP allowlist (error 9109) blocks Vercel/GitHub, or CLOUDFLARE_ACCOUNT_ID / R2 S3 keys are missing. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname. Rotate any token that appeared unmasked in older workflow logs."
           fi

@@ -98,6 +98,30 @@ function accountsFromCfBody(path, body) {
   return result.filter((account) => account?.id);
 }
 
+function cloudflareError(body) {
+  const first = Array.isArray(body?.errors) ? body.errors[0] : undefined;
+  return {
+    code: first?.code,
+    message: String(first?.message ?? ""),
+  };
+}
+
+function isTokenLocationBlocked(body) {
+  const { code, message } = cloudflareError(body);
+  return (
+    code === 9109 ||
+    /cannot use the access token from location/i.test(message)
+  );
+}
+
+function locationBlockedError() {
+  const error = new Error(
+    "Cloudflare API token is blocked from this IP (error 9109). Vercel/GitHub runners cannot upload to R2 until the token IP allowlist includes those ranges, or R2 S3 keys without an IP allowlist are added. Git public/images remains the fallback.",
+  );
+  error.skipSync = true;
+  return error;
+}
+
 async function lookupCloudflareAccounts(path) {
   const token = process.env.CLOUDFLARE_API_TOKEN;
   const response = await fetch(
@@ -107,8 +131,9 @@ async function lookupCloudflareAccounts(path) {
   const body = await response.json().catch(() => ({}));
   if (!response.ok) {
     console.error(
-      `Cloudflare ${path} lookup HTTP ${response.status} — ${body?.errors?.[0]?.message ?? "continuing"}`,
+      `Cloudflare ${path} lookup HTTP ${response.status} — ${cloudflareError(body).message || "continuing"}`,
     );
+    if (isTokenLocationBlocked(body)) throw locationBlockedError();
     return [];
   }
   return accountsFromCfBody(path, body);
@@ -168,6 +193,7 @@ async function resolveAccountIdFromToken() {
         return String(preferred.id);
       }
     } catch (error) {
+      if (error?.skipSync) throw error;
       console.error(`Cloudflare ${path} lookup failed:`, error);
     }
   }
