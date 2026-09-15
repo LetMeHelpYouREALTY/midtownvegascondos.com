@@ -42,4 +42,19 @@ describe("section-images", () => {
       expect(img.alt.length, key).toBeGreaterThan(20);
     }
   });
+
+  it("matches community headings to that community's own photo file", () => {
+    const pairs: Array<[keyof typeof sectionImages, string]> = [
+      ["skyeCanyonWhy", "skye-canyon"],
+      ["centennialWhy", "centennial-hills"],
+      ["southernHighlandsWhy", "southern-highlands"],
+      ["mountainsEdgeWhy", "mountains-edge"],
+      ["greenValleyWhy", "green-valley"],
+      ["hendersonWhy", "henderson"],
+      ["inspiradaWhy", "inspirada"],
+    ];
+    for (const [key, slug] of pairs) {
+      expect(sectionImages[key].src, key).toContain(slug);
+    }
+  });
 });
