@@ -417,13 +417,11 @@ export default function SkyeCanyonPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Skye Canyon is where young families want to be right now. The
-                amenities are incredible, the homes are modern and
-                energy-efficient, and the community vibe is exactly what people
-                are looking for. As a Berkshire Hathaway HomeServices agent, I
-                make sure my clients get the best value—whether that's
-                negotiating builder upgrades or finding a resale with features
-                already included."
+                "Skye Canyon is drawing buyers who want newer floor plans now.
+                The amenities include parks, rec space, and energy-efficient
+                homes. As a Berkshire Hathaway HomeServices agent, I make sure
+                my clients get the best value—whether that's negotiating builder
+                upgrades or finding a resale with features already included."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada

@@ -18,6 +18,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/buyers/luxury-homes-las-vegas",
@@ -145,6 +146,12 @@ export default function LuxuryHomesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Premier Luxury Communities
             </h2>
+            <SectionPhoto
+              imageKey="ridgesWhy"
+              heading="Premier Luxury Communities"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-8">
               {/* The Ridges */}
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
@@ -332,7 +339,7 @@ export default function LuxuryHomesPage() {
                     </li>
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Top-rated schools
+                      15-minute airport commute
                     </li>
                   </ul>
                   <Link
@@ -354,6 +361,11 @@ export default function LuxuryHomesPage() {
                 Privacy & Discretion
               </h2>
             </div>
+            <SectionPhoto
+              imageKey="sellersSensitive"
+              heading="Privacy & Discretion"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-slate-700 mb-4">

@@ -418,9 +418,9 @@ export default function SummerlinPage() {
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Summerlin isn't just a neighborhood—it's a lifestyle. I've been
-                serving this area since 2008, and I can tell you exactly which
-                villages suit young families, which offer the best investment
-                potential, and where you'll find the hidden gems. That local
+                serving this area since 2008, and I can tell you which villages
+                have the shortest commute to Downtown Summerlin, the strongest
+                recent comps, and where inventory turns fastest. That local
                 knowledge is what sets Berkshire Hathaway HomeServices apart."
               </blockquote>
               <cite className="text-slate-900 font-semibold">

@@ -286,6 +286,12 @@ export default function TrilogySummerlinPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Contemporary Home Designs
             </h2>
+            <SectionPhoto
+              imageKey="trilogyAbout"
+              heading="Contemporary Home Designs"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-lg text-slate-600 text-center mb-8 max-w-3xl mx-auto">
               Trilogy homes break the mold of traditional 55+ construction with
               modern architecture, open layouts, and designer-selected finishes.
@@ -345,6 +351,12 @@ export default function TrilogySummerlinPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Why Buyers Choose Trilogy at Summerlin
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveAmenities"
+              heading="Why Buyers Choose Trilogy at Summerlin"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-4">
               <div className="flex items-start">
                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />

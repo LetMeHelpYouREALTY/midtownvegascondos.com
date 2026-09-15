@@ -240,6 +240,12 @@ export default function SunCitySummerlinPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Sun City Summerlin Neighborhoods
             </h2>
+            <SectionPhoto
+              imageKey="sunCitySummerlinAbout"
+              heading="Sun City Summerlin Neighborhoods"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <h3 className="font-bold text-slate-900 mb-2">The Highlands</h3>
@@ -292,6 +298,12 @@ export default function SunCitySummerlinPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Why Buyers Choose Sun City Summerlin
             </h2>
+            <SectionPhoto
+              imageKey="summerlinWhy"
+              heading="Why Buyers Choose Sun City Summerlin"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-4">
               <div className="flex items-start">
                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />

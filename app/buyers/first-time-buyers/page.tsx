@@ -170,6 +170,11 @@ export default function FirstTimeBuyersPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Best Neighborhoods for First-Time Buyers
             </h2>
+            <SectionPhoto
+              imageKey="northLasVegasWhy"
+              heading="Best Neighborhoods for First-Time Buyers"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center justify-between mb-4">
@@ -296,6 +301,12 @@ export default function FirstTimeBuyersPage() {
                 New Construction Incentives
               </h2>
             </div>
+            <SectionPhoto
+              imageKey="heritageWhy"
+              heading="New Construction Incentives"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <p className="text-center text-green-100 mb-8 max-w-2xl mx-auto">
               Las Vegas builders are offering incredible incentives that can
               make new homes more affordable than resale properties. These
@@ -339,6 +350,11 @@ export default function FirstTimeBuyersPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Rent vs. Buy in Las Vegas
             </h2>
+            <SectionPhoto
+              imageKey="marketSnapshot"
+              heading="Rent vs. Buy in Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                 <h3 className="font-bold text-lg text-red-900 mb-4 flex items-center">
@@ -377,6 +393,11 @@ export default function FirstTimeBuyersPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               First-Time Buyer Timeline
             </h2>
+            <SectionPhoto
+              imageKey="buyersProcess"
+              heading="First-Time Buyer Timeline"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">

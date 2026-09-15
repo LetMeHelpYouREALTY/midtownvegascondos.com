@@ -64,7 +64,7 @@ const faqSchema = {
       name: "Is Green Valley a good investment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Green Valley has shown consistent appreciation due to its prime Henderson location, established infrastructure, and ongoing demand from families seeking top schools and safety. BHHS agents can provide detailed market analysis.",
+        text: "Green Valley has shown consistent appreciation due to its prime Henderson location, established infrastructure, and ongoing demand from buyers seeking parks, trail systems, and Henderson inventory. BHHS agents can provide detailed market analysis.",
       },
     },
   ],
@@ -468,8 +468,9 @@ export default function GreenValleyPage() {
                 <p className="text-slate-600">
                   Green Valley has shown consistent appreciation due to its
                   prime Henderson location, established infrastructure, and
-                  ongoing demand from families seeking top schools and safety.
-                  BHHS agents can provide detailed market analysis.
+                  ongoing demand from buyers seeking parks, trail systems, and
+                  Henderson inventory. BHHS agents can provide detailed market
+                  analysis.
                 </p>
               </div>
             </div>

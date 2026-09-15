@@ -62,6 +62,13 @@ export default function MoveUpSellerPage() {
             <h2 className="text-3xl font-bold mb-8 text-center">
               Your Equity Position is Stronger Than You Think
             </h2>
+            <SectionPhoto
+              imageKey="sellersMoveUp"
+              heading="Your Equity Position is Stronger Than You Think"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="text-center bg-white/10 rounded-xl p-6">
                 <div className="text-4xl font-bold mb-2">$100K-$250K+</div>
@@ -97,6 +104,12 @@ export default function MoveUpSellerPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Common Upgrade Paths We Help With
             </h2>
+            <SectionPhoto
+              imageKey="sellersMoveUp"
+              heading="Common Upgrade Paths We Help With"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6 flex items-center">
                 <div className="flex-shrink-0 mr-6">
@@ -110,7 +123,7 @@ export default function MoveUpSellerPage() {
                   </h3>
                   <p className="text-slate-600 text-sm">
                     Upgrade from $450K starter to $650K+ in Downtown Summerlin
-                    area. Better schools, walkable amenities, Red Rock views.
+                    area. Walkable amenities and Red Rock views.
                   </p>
                 </div>
                 <ArrowRight className="h-6 w-6 text-blue-600 flex-shrink-0 ml-4" />
@@ -161,6 +174,12 @@ export default function MoveUpSellerPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               We Handle Both Transactions Seamlessly
             </h2>
+            <SectionPhoto
+              imageKey="sellersProcess"
+              heading="We Handle Both Transactions Seamlessly"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-bold text-lg text-slate-900 mb-4 flex items-center">
@@ -218,6 +237,12 @@ export default function MoveUpSellerPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Timing Your Move-Up: Three Proven Strategies
             </h2>
+            <SectionPhoto
+              imageKey="valuationSchedule"
+              heading="Timing Your Move-Up: Three Proven Strategies"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="prose prose-lg max-w-none text-slate-700 mb-8">
               <p>
                 The biggest concern move-up buyers have is timing. What happens
@@ -305,6 +330,13 @@ export default function MoveUpSellerPage() {
             <h2 className="text-3xl font-bold mb-8 text-center">
               Financing Your Move-Up Purchase
             </h2>
+            <SectionPhoto
+              imageKey="firstTimeFinancing"
+              heading="Financing Your Move-Up Purchase"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <p className="text-slate-300 text-center mb-8 max-w-3xl mx-auto">
               Understanding your financing options is crucial for a successful
               move-up transaction. Dr. Jan works with trusted local lenders who

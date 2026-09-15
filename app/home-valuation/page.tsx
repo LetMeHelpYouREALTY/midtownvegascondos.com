@@ -123,6 +123,13 @@ export default function HomeValuationPage() {
                 <h2 className="text-2xl font-bold mb-4">
                   Why Request a BHHS Valuation?
                 </h2>
+                <SectionPhoto
+                  imageKey="whyBuffett"
+                  heading="Why Request a BHHS Valuation?"
+                  className="mx-auto mb-8 max-w-4xl text-left"
+                  onDark
+                />
+
                 <p className="text-slate-300 mb-6">
                   Online estimators like Zillow's "Zestimate" can be off by 10%
                   or more—that's $45,000+ on a typical Las Vegas home. Dr. Jan
@@ -220,6 +227,12 @@ export default function HomeValuationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Why Online Home Value Estimates Often Miss the Mark
             </h2>
+            <SectionPhoto
+              imageKey="marketSnapshot"
+              heading="Why Online Home Value Estimates Often Miss the Mark"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="prose prose-lg max-w-none text-slate-700">
               <p>
                 If you've checked Zillow, Redfin, or other online home value
@@ -310,6 +323,12 @@ export default function HomeValuationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Key Factors That Affect Your Las Vegas Home's Value
             </h2>
+            <SectionPhoto
+              imageKey="listingsChecklist"
+              heading="Key Factors That Affect Your Las Vegas Home's Value"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <MapPin className="h-8 w-8 text-blue-600 mb-4" />
@@ -381,6 +400,12 @@ export default function HomeValuationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Las Vegas Neighborhood Home Values | January 2026
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="Las Vegas Neighborhood Home Values | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="overflow-x-auto">
               <table className="w-full bg-white border border-slate-200 rounded-lg">
                 <thead className="bg-slate-50">
@@ -466,6 +491,12 @@ export default function HomeValuationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               The BHHS Home Valuation Process
             </h2>
+            <SectionPhoto
+              imageKey="sellersProcess"
+              heading="The BHHS Home Valuation Process"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">

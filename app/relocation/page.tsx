@@ -201,6 +201,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Expert Relocation Guidance
             </h2>
+            <SectionPhoto
+              imageKey="whyJan"
+              heading="Expert Relocation Guidance"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Moving to a new city is stressful enough. I handle everything
@@ -223,6 +229,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Comprehensive Relocation Services
             </h2>
+            <SectionPhoto
+              imageKey="gbpServices"
+              heading="Comprehensive Relocation Services"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Relocating involves much more than just finding a home. Dr. Jan
               Duffy provides end-to-end relocation services that address every
@@ -247,6 +259,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Popular Relocation Destinations
             </h2>
+            <SectionPhoto
+              imageKey="contactAreas"
+              heading="Popular Relocation Destinations"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Choosing the right neighborhood is crucial for a successful
               relocation. Each Las Vegas community offers a unique lifestyle,
@@ -291,6 +309,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Las Vegas Schools & Education
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoodMarket"
+              heading="Las Vegas Schools & Education"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               For families with children, school quality is often the top
               priority when relocating. Las Vegas offers a range of public,
@@ -361,6 +385,13 @@ export default function RelocationPage() {
             <h2 className="text-2xl font-bold mb-4 text-center">
               Moving from California?
             </h2>
+            <SectionPhoto
+              imageKey="caNumbers"
+              heading="Moving from California?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
               California to Nevada is one of the most popular relocation routes
               in the country. Thousands of California families move to Las Vegas
@@ -430,6 +461,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               The Berkshire Hathaway HomeServices Advantage
             </h2>
+            <SectionPhoto
+              imageKey="aboutBhhs"
+              heading="The Berkshire Hathaway HomeServices Advantage"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               With 50,000+ agents in 1,500+ offices worldwide, Berkshire
               Hathaway HomeServices provides seamless coordination for

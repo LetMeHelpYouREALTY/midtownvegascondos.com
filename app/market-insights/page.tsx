@@ -361,7 +361,7 @@ export default function MarketInsightsPage() {
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Red Rock views, Downtown Summerlin, and top schools maintain
+                  Red Rock views, Downtown Summerlin, and trail access keep
                   premium positioning. Limited new inventory keeps values
                   strong.
                 </p>

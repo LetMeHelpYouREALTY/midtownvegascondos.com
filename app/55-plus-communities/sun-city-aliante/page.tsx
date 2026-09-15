@@ -281,6 +281,12 @@ export default function SunCityAliantePage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Location Advantages
             </h2>
+            <SectionPhoto
+              imageKey="sunCityAlianteAbout"
+              heading="Location Advantages"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-start">
@@ -346,6 +352,12 @@ export default function SunCityAliantePage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Why Buyers Choose Sun City Aliante
             </h2>
+            <SectionPhoto
+              imageKey="northLasVegasWhy"
+              heading="Why Buyers Choose Sun City Aliante"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-4">
               <div className="flex items-start">
                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />

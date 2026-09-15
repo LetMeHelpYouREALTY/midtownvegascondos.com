@@ -349,6 +349,11 @@ export default function NewConstructionPage() {
                   Limited Time Offers
                 </span>
               </div>
+              <SectionPhoto
+                imageKey="heritageWhy"
+                heading="January 2026 Builder Incentives"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white rounded-xl p-5 border border-green-100">
                   <div className="text-3xl font-bold text-green-600 mb-1">
@@ -397,6 +402,12 @@ export default function NewConstructionPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Las Vegas New Home Builders
             </h2>
+            <SectionPhoto
+              imageKey="sellersMoveUp"
+              heading="Las Vegas New Home Builders"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid lg:grid-cols-2 gap-6">
               {builders.map((builder) => (
                 <div
@@ -465,6 +476,12 @@ export default function NewConstructionPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               New Construction Buying Process with BHHS
             </h2>
+            <SectionPhoto
+              imageKey="buyersProcess"
+              heading="New Construction Buying Process with BHHS"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
@@ -674,6 +691,12 @@ export default function NewConstructionPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               What Dr. Jan Negotiates for New Construction Buyers
             </h2>
+            <SectionPhoto
+              imageKey="whyJan"
+              heading="What Dr. Jan Negotiates for New Construction Buyers"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 "Closing cost credits",

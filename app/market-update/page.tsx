@@ -277,6 +277,12 @@ export default function MarketUpdatePage() {
             <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
               What This Means for You
             </h2>
+            <SectionPhoto
+              imageKey="marketForces"
+              heading="What This Means for You"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-8">
               {/* For Buyers */}
               <div className="bg-white border-2 border-green-200 rounded-xl p-8">

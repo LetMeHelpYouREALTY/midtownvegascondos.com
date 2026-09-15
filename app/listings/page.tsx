@@ -279,6 +279,12 @@ export default function ListingsPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-3 text-center">
               Midtown search shortcuts
             </h2>
+            <SectionPhoto
+              imageKey="contactAreas"
+              heading="Midtown search shortcuts"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-2xl mx-auto mb-8">
               Jump to hyperlocal condo pages Google and buyers already care
               about — each has unique inventory notes and FAQs.

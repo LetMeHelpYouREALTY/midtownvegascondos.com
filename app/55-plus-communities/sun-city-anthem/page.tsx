@@ -317,6 +317,12 @@ export default function SunCityAnthemPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Sun City Anthem Neighborhoods
             </h2>
+            <SectionPhoto
+              imageKey="sunCityAnthemAbout"
+              heading="Sun City Anthem Neighborhoods"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <h3 className="font-bold text-slate-900 mb-2">Liberty</h3>

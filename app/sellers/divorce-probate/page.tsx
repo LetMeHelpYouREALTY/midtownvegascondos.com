@@ -67,6 +67,13 @@ export default function DivorceProbatePage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Situations We Help Navigate
             </h2>
+            <SectionPhoto
+              imageKey="sellersSensitive"
+              heading="Situations We Help Navigate"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <div className="flex items-center mb-4">
@@ -194,6 +201,12 @@ export default function DivorceProbatePage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Our Approach to Sensitive Transactions
             </h2>
+            <SectionPhoto
+              imageKey="sellersSensitive"
+              heading="Our Approach to Sensitive Transactions"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
@@ -289,6 +302,12 @@ export default function DivorceProbatePage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Nevada-Specific Considerations
             </h2>
+            <SectionPhoto
+              imageKey="hoaReview"
+              heading="Nevada-Specific Considerations"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="prose prose-lg max-w-none text-slate-700 mb-8">
               <p>
                 Nevada has unique laws that affect divorce and probate real
@@ -372,6 +391,12 @@ export default function DivorceProbatePage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               How We Handle Sensitive Transactions
             </h2>
+            <SectionPhoto
+              imageKey="sellersProcess"
+              heading="How We Handle Sensitive Transactions"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
@@ -510,6 +535,12 @@ export default function DivorceProbatePage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Why Berkshire Hathaway HomeServices for Sensitive Sales
             </h2>
+            <SectionPhoto
+              imageKey="aboutBhhs"
+              heading="Why Berkshire Hathaway HomeServices for Sensitive Sales"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
                 <Shield className="h-10 w-10 text-blue-600 mx-auto mb-4" />

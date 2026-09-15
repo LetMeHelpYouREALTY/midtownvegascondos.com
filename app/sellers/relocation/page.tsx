@@ -66,6 +66,12 @@ export default function RelocationPage() {
                 Berkshire Hathaway HomeServices Network
               </h2>
             </div>
+            <SectionPhoto
+              imageKey="sellersRelocation"
+              heading="Berkshire Hathaway HomeServices Network"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <p className="text-center text-slate-300 mb-8 max-w-2xl mx-auto">
               When you work with Dr. Jan, you're not just getting a Las Vegas
               agent—you're tapping into the most trusted real estate network in
@@ -100,6 +106,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               How We Handle Your Relocation Sale
             </h2>
+            <SectionPhoto
+              imageKey="sellersRelocation"
+              heading="How We Handle Your Relocation Sale"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-bold text-xl text-slate-900 mb-4 flex items-center">
@@ -225,6 +237,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Relocation Timeline Options
             </h2>
+            <SectionPhoto
+              imageKey="relocationWhy"
+              heading="Relocation Timeline Options"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <div className="flex items-center mb-4">
@@ -340,6 +358,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Popular Relocation Destinations from Las Vegas
             </h2>
+            <SectionPhoto
+              imageKey="contactAreas"
+              heading="Popular Relocation Destinations from Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center mb-8 max-w-3xl mx-auto">
               Whether you're relocating for tech jobs in the Bay Area, corporate
               opportunities in Texas, or sunshine in Florida, Dr. Jan connects
@@ -403,6 +427,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               The Relocation Process Step by Step
             </h2>
+            <SectionPhoto
+              imageKey="sellersProcess"
+              heading="The Relocation Process Step by Step"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
@@ -532,6 +562,12 @@ export default function RelocationPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Relocating TO Las Vegas?
             </h2>
+            <SectionPhoto
+              imageKey="caNumbers"
+              heading="Relocating TO Las Vegas?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="bg-green-50 border border-green-200 rounded-xl p-8">
               <p className="text-slate-700 mb-4">
                 If you're moving TO Las Vegas from another city, Dr. Jan

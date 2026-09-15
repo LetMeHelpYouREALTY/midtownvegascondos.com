@@ -95,6 +95,8 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
       <Navbar />
       <PageHero
         imageKey={heroKey}
+        leadSectionKey="searchMidtown"
+        leadSectionHeading={`${area.name} Condos for Sale`}
         pagePath={`/neighborhoods/${area.slug}`}
         badge="Midtown Las Vegas Condos"
         title={`${area.name} Condos for Sale`}
@@ -208,6 +210,13 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Search {area.name} Condos
             </h2>
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading={`Search ${area.name} Condos`}
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
               Dr. Jan Duffy knows every midtown building, floor plan, and HOA —
               get expert guidance on your {area.name} condo search.

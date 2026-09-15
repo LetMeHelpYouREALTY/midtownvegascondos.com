@@ -98,6 +98,13 @@ export default function NorthLasVegasPage() {
             <h2 className="text-2xl font-bold mb-8 text-center">
               North Las Vegas Market | January 2026
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoodMarket"
+              heading="North Las Vegas Market | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-400 mb-1">
@@ -182,10 +189,10 @@ export default function NorthLasVegasPage() {
                   <p className="text-slate-600">
                     North Las Vegas offers the lowest median home prices in the
                     Las Vegas Valley, making homeownership attainable for
-                    first-time buyers, young families, and investors.
-                    Entry-level homes start in the $320,000s, while new
-                    construction from quality builders ranges from $380,000 to
-                    $550,000—prices that would buy a condo elsewhere.
+                    first-time buyers and investors. Entry-level homes start in
+                    the $320,000s, while new construction from quality builders
+                    ranges from $380,000 to $550,000—prices that would buy a
+                    condo elsewhere.
                   </p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl">

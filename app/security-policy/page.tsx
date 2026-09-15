@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 
@@ -51,6 +52,12 @@ export default function SecurityPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Reporting Security Vulnerabilities
               </h2>
+              <SectionPhoto
+                imageKey="contactTouch"
+                heading="Reporting Security Vulnerabilities"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
+
               <p className="text-gray-700 leading-relaxed mb-4">
                 If you've discovered a security vulnerability, we appreciate
                 your help in disclosing it to us responsibly.
@@ -99,6 +106,12 @@ export default function SecurityPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Security Measures in Place
               </h2>
+              <SectionPhoto
+                imageKey="listingsChecklist"
+                heading="Security Measures in Place"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="font-semibold text-gray-900 mb-2">

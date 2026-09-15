@@ -181,6 +181,11 @@ export default function CaliforniaRelocatorPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               What Your California Equity Buys in Las Vegas
             </h2>
+            <SectionPhoto
+              imageKey="firstTimeFinancing"
+              heading="What Your California Equity Buys in Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                 <div className="flex items-center mb-4">
@@ -234,6 +239,11 @@ export default function CaliforniaRelocatorPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Top 3 Neighborhoods for California Relocators
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="Top 3 Neighborhoods for California Relocators"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <div className="bg-blue-600 text-white p-4">
@@ -242,18 +252,17 @@ export default function CaliforniaRelocatorPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    "The Irvine of Las Vegas" - Master-planned perfection with
-                    top schools, Downtown Summerlin shopping, and Red Rock
-                    Canyon views.
+                    Master-planned streets with Downtown Summerlin shopping,
+                    150+ parks and trails, and Red Rock Canyon access.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Best for:</strong> Families from Orange County,
+                    <strong>Best for:</strong> Buyers from Orange County and
                     coastal CA
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Top-rated schools
+                      Downtown Summerlin shopping
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -280,13 +289,12 @@ export default function CaliforniaRelocatorPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    Henderson = San Diego suburbs meets tech corridor. Google's
-                    data center, top schools, and "America's Safest City"
-                    accolades.
+                    Henderson sits on the tech corridor: Google's data center,
+                    trail systems, and new-construction inventory near I-215.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Best for:</strong> Tech workers, young families, San
-                    Diego relocators
+                    <strong>Best for:</strong> Tech workers and San Diego
+                    relocators
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
@@ -295,7 +303,7 @@ export default function CaliforniaRelocatorPage() {
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Lowest crime rates
+                      I-215 commute to midtown
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -358,6 +366,11 @@ export default function CaliforniaRelocatorPage() {
                 Remote Work, Vegas Lifestyle
               </h2>
             </div>
+            <SectionPhoto
+              imageKey="lifestyleHub"
+              heading="Remote Work, Vegas Lifestyle"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-slate-700 mb-4">

@@ -109,6 +109,12 @@ export default function WhyBerkshireHathawayPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">
               The BHHS Advantage
             </h2>
+            <SectionPhoto
+              imageKey="aboutBhhs"
+              heading="The BHHS Advantage"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
@@ -197,6 +203,13 @@ export default function WhyBerkshireHathawayPage() {
             <h2 className="text-3xl font-bold mb-8 text-center">
               Berkshire Hathaway HomeServices By The Numbers
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoodMarket"
+              heading="Berkshire Hathaway HomeServices By The Numbers"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold mb-2">50K+</div>
@@ -228,6 +241,12 @@ export default function WhyBerkshireHathawayPage() {
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                   Your Local BHHS Expert in Las Vegas
                 </h2>
+                <SectionPhoto
+                  imageKey="aboutBio"
+                  heading="Your Local BHHS Expert in Las Vegas"
+                  className="mx-auto mb-8 max-w-4xl text-left"
+                />
+
                 <p className="text-lg text-slate-700 mb-6">
                   Dr. Jan Duffy brings the power of{" "}
                   <strong>Berkshire Hathaway HomeServices</strong> to Las Vegas,

@@ -99,6 +99,13 @@ export default function MountainsEdgePage() {
             <h2 className="text-2xl font-bold mb-8 text-center">
               Mountains Edge Market | January 2026
             </h2>
+            <SectionPhoto
+              imageKey="neighborhoodMarket"
+              heading="Mountains Edge Market | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-400 mb-1">

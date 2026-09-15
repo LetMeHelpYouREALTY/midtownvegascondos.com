@@ -359,6 +359,12 @@ export default function SellersPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Expert Selling Advice
             </h2>
+            <SectionPhoto
+              imageKey="sellersAdvantage"
+              heading="Expert Selling Advice"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Pricing your home correctly from day one is the single most
@@ -381,6 +387,12 @@ export default function SellersPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               What's Included When You List with BHHS
             </h2>
+            <SectionPhoto
+              imageKey="aboutBhhs"
+              heading="What's Included When You List with BHHS"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               When you list with Dr. Jan Duffy at Berkshire Hathaway
               HomeServices, you receive comprehensive marketing and support

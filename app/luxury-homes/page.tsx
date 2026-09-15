@@ -239,6 +239,12 @@ export default function LuxuryHomesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Why Choose Berkshire Hathaway for Luxury Real Estate
             </h2>
+            <SectionPhoto
+              imageKey="whyBuffett"
+              heading="Why Choose Berkshire Hathaway for Luxury Real Estate"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               In luxury real estate, the agent you choose can impact both the
               sale price and the transaction experience. Berkshire Hathaway
@@ -290,6 +296,12 @@ export default function LuxuryHomesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Expert Luxury Real Estate Guidance
             </h2>
+            <SectionPhoto
+              imageKey="luxuryMarket"
+              heading="Expert Luxury Real Estate Guidance"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Luxury buyers expect discretion, market expertise, and flawless
@@ -313,6 +325,12 @@ export default function LuxuryHomesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Premier Las Vegas Luxury Communities
             </h2>
+            <SectionPhoto
+              imageKey="ridgesWhy"
+              heading="Premier Las Vegas Luxury Communities"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Las Vegas offers some of the most desirable luxury communities in
               the Southwest. From ultra-exclusive guard-gated enclaves to
@@ -370,6 +388,13 @@ export default function LuxuryHomesPage() {
             <h2 className="text-2xl font-bold mb-4 text-center">
               Luxury Home Marketing Services
             </h2>
+            <SectionPhoto
+              imageKey="sellersAdvantage"
+              heading="Luxury Home Marketing Services"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
               Selling a luxury home requires more than just an MLS listing. Dr.
               Jan Duffy provides comprehensive marketing services that showcase
@@ -394,6 +419,12 @@ export default function LuxuryHomesPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Luxury Buyer & Seller Services
             </h2>
+            <SectionPhoto
+              imageKey="buyersSpecialized"
+              heading="Luxury Buyer & Seller Services"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-slate-50 rounded-xl p-8">
                 <h3 className="font-bold text-xl text-slate-900 mb-4 flex items-center">

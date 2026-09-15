@@ -107,6 +107,12 @@ export default function DownsizingPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Popular Downsizing Destinations
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Popular Downsizing Destinations"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <div className="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
@@ -178,6 +184,12 @@ export default function DownsizingPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               We Handle Both Sides of Your Transition
             </h2>
+            <SectionPhoto
+              imageKey="sellersProcess"
+              heading="We Handle Both Sides of Your Transition"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-bold text-lg text-slate-900 mb-4">
@@ -275,6 +287,12 @@ export default function DownsizingPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Top 55+ Communities for Las Vegas Downsizers
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveAmenities"
+              heading="Top 55+ Communities for Las Vegas Downsizers"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-600 text-center mb-8 max-w-3xl mx-auto">
               Las Vegas offers some of the nation's best 55+ communities. Here's
               how the most popular options compare for downsizers looking to
@@ -367,6 +385,12 @@ export default function DownsizingPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Key Considerations When Downsizing
             </h2>
+            <SectionPhoto
+              imageKey="listingsChecklist"
+              heading="Key Considerations When Downsizing"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-bold text-lg text-slate-900 mb-4">
@@ -439,6 +463,12 @@ export default function DownsizingPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               The Downsizing Process with Dr. Jan Duffy
             </h2>
+            <SectionPhoto
+              imageKey="buyersProcess"
+              heading="The Downsizing Process with Dr. Jan Duffy"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">

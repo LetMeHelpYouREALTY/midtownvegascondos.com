@@ -277,6 +277,12 @@ export default function DelWebbLakeLasVegasPage() {
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Why Buyers Choose Del Webb Lake Las Vegas
             </h2>
+            <SectionPhoto
+              imageKey="delWebbAbout"
+              heading="Why Buyers Choose Del Webb Lake Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <div className="space-y-4">
               <div className="flex items-start">
                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />

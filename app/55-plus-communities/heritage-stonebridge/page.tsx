@@ -161,6 +161,12 @@ export default function HeritageStonebridgePage() {
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Heritage at Stonebridge vs Midtown condos
             </h2>
+            <SectionPhoto
+              imageKey="midtownHowTo"
+              heading="Heritage at Stonebridge vs Midtown condos"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+
             <p className="text-slate-700 leading-relaxed mb-4">
               <strong>Heritage at Stonebridge</strong> is a North Las Vegas 55+
               community built around golf and club living—not a Midtown
