@@ -47,13 +47,14 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Heritage at Stonebridge Homes for Sale | 55+ North Las Vegas",
     description:
-      "Heritage at Stonebridge 55+ homes in North Las Vegas — golf-course living, club amenities, single-story plans. Compare with Midtown condos. Dr. Jan Duffy. Call (702) 500-1980.",
+      "Heritage at Stonebridge 55+ homes in North Las Vegas — golf-course living, club amenities, single-story plans. Compare with Midtown condos. Dr. Jan Duffy, BHHS. Call (702) 500-1980.",
     keywords: [
       "Heritage at Stonebridge",
       "Stonebridge 55+",
       "North Las Vegas active adult",
       "55 plus golf community Las Vegas",
       "Heritage Stonebridge homes for sale",
+      "Berkshire Hathaway Heritage Stonebridge",
     ],
   }),
   robots: { index: true, follow: true },
@@ -83,6 +84,7 @@ export default function HeritageStonebridgePage() {
         leadSectionHeading="Why buyers look at Heritage at Stonebridge"
         pagePath={PATH}
         title="Heritage at Stonebridge homes for sale"
+        badge="Berkshire Hathaway HomeServices Nevada Properties"
         subtitle="55+ golf-course living in North Las Vegas — with a clear Midtown condo comparison from Dr. Jan Duffy."
         priority
       >
@@ -161,7 +163,9 @@ export default function HeritageStonebridgePage() {
             <p className="text-slate-700 leading-relaxed mb-4">
               <strong>Heritage at Stonebridge</strong> is a North Las Vegas 55+
               community built around golf and club living—not a Midtown
-              high-rise. Buyers often compare it with{" "}
+              high-rise.{" "}
+              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>{" "}
+              buyers often compare it with{" "}
               <Link href="/" className="text-blue-600 hover:underline">
                 Midtown Las Vegas Boulevard condos
               </Link>{" "}
@@ -219,7 +223,8 @@ export default function HeritageStonebridgePage() {
               Tour Heritage at Stonebridge or Midtown
             </h2>
             <p className="text-slate-700 mb-1">
-              Dr. Jan Duffy · License {agentInfo.license} · {officeInfo.name}
+              Dr. Jan Duffy · License {agentInfo.license} · Berkshire Hathaway
+              HomeServices Nevada Properties
             </p>
             <p className="text-sm text-slate-600 mb-4 flex items-start gap-2">
               <MapPin className="w-4 h-4 mt-0.5 shrink-0" aria-hidden />

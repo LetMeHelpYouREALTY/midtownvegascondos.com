@@ -24,9 +24,10 @@ describe("section-images", () => {
   it("points every catalog entry at a file that exists in git", () => {
     for (const [key, img] of Object.entries(sectionImages)) {
       const relative = img.src.replace(/^\//, "");
-      expect(existsSync(join(PUBLIC_ROOT, relative)), `${key}: ${img.src}`).toBe(
-        true,
-      );
+      expect(
+        existsSync(join(PUBLIC_ROOT, relative)),
+        `${key}: ${img.src}`,
+      ).toBe(true);
       expect(img.heading.length, key).toBeGreaterThan(2);
       expect(img.alt.length, key).toBeGreaterThan(20);
     }
