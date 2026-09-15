@@ -216,10 +216,14 @@ function isR2WriteForbidden(body, status, text = "") {
   const { code, message } = cloudflareError(body);
   return (
     status === 401 ||
+    status === 403 ||
     status === 429 ||
     code === 10000 ||
+    code === 9106 ||
     /authentication error/i.test(message) ||
+    /authentication failed/i.test(message) ||
     /authentication error/i.test(text) ||
+    /authentication failed/i.test(text) ||
     /too many authentication failures/i.test(message) ||
     /too many authentication failures/i.test(text)
   );
@@ -228,7 +232,7 @@ function isR2WriteForbidden(body, status, text = "") {
 function r2WriteForbiddenError(detail = "") {
   const where = detail ? ` (${detail})` : "";
   const error = new Error(
-    `Cloudflare Account API token cannot write R2 objects${where}. Create R2 S3 credentials instead: Cloudflare dashboard → R2 → Overview → Manage R2 API Tokens → Create API token with Object Read & Write on bucket realestatedomains-assets. Set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY on Vercel production and the Production GitHub Environment (account ${DEFAULT_ACCOUNT_ID} is already pinned). Re-run this sync, confirm the public object is HTTP 200, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback.`,
+    `Cloudflare Account API credentials cannot write R2 objects${where}. CLOUDFLARE_API_TOKEN 401/10000s and CLOUDFLARE_GLOBAL_API_TOKEN 403/9106s from GitHub Actions. Create R2 S3 credentials: Cloudflare dashboard → R2 → Overview → Manage R2 API Tokens → Create API token with Object Read & Write on bucket realestatedomains-assets. Set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY on Vercel production and the Production GitHub Environment (account ${DEFAULT_ACCOUNT_ID} is already pinned). Re-run this sync, confirm the public object is HTTP 200, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback.`,
   );
   error.skipSync = true;
   return error;

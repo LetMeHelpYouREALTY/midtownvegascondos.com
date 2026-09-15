@@ -37,6 +37,8 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/isTokenLocationBlocked\(body\)/);
     expect(src).toMatch(/isR2WriteForbidden/);
     expect(src).toMatch(/code === 10000/);
+    expect(src).toMatch(/code === 9106/);
+    expect(src).toMatch(/authentication failed/i);
     expect(src).toMatch(/Cloudflare Images/);
     expect(src).toMatch(/accounts\/\$\{id\}\/images\/v1/);
     expect(src).toMatch(/pages",\s*"deploy"/);
