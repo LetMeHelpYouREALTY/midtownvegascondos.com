@@ -231,6 +231,32 @@ const gbpPhotoObjects = [
     url: absoluteSiteImage("/images/hero/agent-office.webp"),
     contentUrl: absoluteSiteImage("/images/hero/agent-office.webp"),
   },
+  {
+    "@type": "ImageObject" as const,
+    name: "Arts District Las Vegas condo living",
+    caption:
+      "Arts District loft and condo photography for Downtown Las Vegas homebuyers",
+    url: absoluteSiteImage("/images/hero/highrise-windows.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/highrise-windows.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "One Las Vegas high-rise condos",
+    caption:
+      "One Las Vegas luxury high-rise condo tower for midtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/one-las-vegas-highrise.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/one-las-vegas-highrise.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Juhl downtown Las Vegas condos",
+    caption:
+      "Juhl downtown condo tower photography for midtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/juhl-downtown-condo-tower.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/juhl-downtown-condo-tower.webp",
+    ),
+  },
 ];
 
 // Generate LocalBusiness Schema
@@ -322,7 +348,20 @@ export function generateLocalBusinessSchema() {
       reviewCount: "500",
       bestRating: "5",
     },
-    sameAs: [...businessInfo.socialProfiles, officeInfo.maps.place],
+    identifier: {
+      "@type": "PropertyValue",
+      name: "Google Place ID",
+      value: officeInfo.googlePlace.placeId,
+    },
+    parentOrganization: {
+      "@type": "RealEstateAgent",
+      name: "Berkshire Hathaway HomeServices Nevada Properties",
+    },
+    sameAs: [
+      ...businessInfo.socialProfiles,
+      officeInfo.maps.place,
+      `https://www.google.com/maps/place/?q=place_id:${officeInfo.googlePlace.placeId}`,
+    ],
     potentialAction: [
       {
         "@type": "ReserveAction",
@@ -330,6 +369,18 @@ export function generateLocalBusinessSchema() {
         target: {
           "@type": "EntryPoint",
           urlTemplate: `${siteConfig.url}/contact`,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
+      {
+        "@type": "CallAction",
+        name: "Call Dr. Jan Duffy",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `tel:${businessInfo.phone.tel}`,
           actionPlatform: [
             "http://schema.org/DesktopWebPlatform",
             "http://schema.org/MobileWebPlatform",

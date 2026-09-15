@@ -64,7 +64,7 @@ const faqSchema = {
       name: "What neighborhoods are best for first-time buyers in Las Vegas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Top neighborhoods for first-time buyers include North Las Vegas ($350K-$450K), Mountains Edge ($380K-$480K), and Centennial Hills ($398K median). These areas offer new construction options, parks, and trail access.",
+        text: "On this midtown site, first-time condo price ranges include Fremont East (median $295K), the Arts District (median $325K), and Midtown Plaza (median $350K). Dr. Jan compares HOA fees, parking, and walkability before you write an offer. Call (702) 500-1980.",
       },
     },
     {
@@ -189,140 +189,140 @@ export default function FirstTimeBuyersPage() {
           {/* Top Neighborhoods */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="northLasVegasWhy"
-              heading="Best Neighborhoods for First-Time Buyers"
+              imageKey="neighborhoods"
+              heading="Midtown condos in first-time price ranges"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Best Neighborhoods for First-Time Buyers
+              Midtown condos in first-time price ranges
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <HeadingCardPhoto
-                  heading="North Las Vegas"
-                  heroKey="nbNorthLasVegas"
+                  heading="Fremont East"
+                  heroKey="fremontEast"
                   className="mb-4"
                 />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-lg text-slate-900">
-                    North Las Vegas
+                    Fremont East
                   </h3>
                   <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-semibold">
-                    Best Value
+                    Median $295K
                   </span>
                 </div>
                 <div className="text-2xl font-bold text-blue-600 mb-2">
-                  $350K - $450K
+                  $295K median
                 </div>
                 <p className="text-slate-600 text-sm mb-4">
-                  Most affordable new construction in the valley. Growing
-                  rapidly with shopping, parks, and infrastructure investments.
+                  Downtown corridor condos near dining and entertainment. Review
+                  HOA rental rules and parking before you write.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    New construction from $350K
+                    Walkable Fremont East blocks
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    FHA-friendly pricing
+                    Boutique downtown inventory
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Strong appreciation
+                    Live MLS on this site
                   </li>
                 </ul>
                 <Link
-                  href="/neighborhoods/north-las-vegas"
+                  href="/neighborhoods/fremont-east"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
-                  Explore North Las Vegas →
+                  Explore Fremont East condos →
                 </Link>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <HeadingCardPhoto
-                  heading="Mountains Edge"
-                  heroKey="nbMountainsEdge"
+                  heading="Arts District"
+                  heroKey="artsDistrict"
                   className="mb-4"
                 />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-lg text-slate-900">
-                    Mountains Edge
+                    Arts District
                   </h3>
                   <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-semibold">
-                    Great Parks
+                    Median $325K
                   </span>
                 </div>
                 <div className="text-2xl font-bold text-blue-600 mb-2">
-                  $380K - $480K
+                  $325K median
                 </div>
                 <p className="text-slate-600 text-sm mb-4">
-                  Southwest Las Vegas with the valley's largest park. Great
-                  community feel, mountain views, and easy freeway access.
+                  Loft conversions and boutique mid-rises near Gallery Row. Dr.
+                  Jan reviews HOA documents and reserve studies with you.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Exploration Peak Park
+                    Gallery Row and First Friday
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Mountain views
+                    Loft and mid-rise options
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Parks and rec centers
+                    921 South Main Street office nearby
                   </li>
                 </ul>
                 <Link
-                  href="/neighborhoods/mountains-edge"
+                  href="/neighborhoods/arts-district"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
-                  Explore Mountains Edge →
+                  Explore Arts District condos →
                 </Link>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <HeadingCardPhoto
-                  heading="Centennial Hills"
-                  heroKey="nbCentennialHills"
+                  heading="Midtown Plaza"
+                  heroKey="midtownPlaza"
                   className="mb-4"
                 />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-lg text-slate-900">
-                    Centennial Hills
+                    Midtown Plaza
                   </h3>
                   <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-semibold">
-                    Near hospital
+                    Median $350K
                   </span>
                 </div>
                 <div className="text-2xl font-bold text-blue-600 mb-2">
-                  $398K Median
+                  $350K median
                 </div>
                 <p className="text-slate-600 text-sm mb-4">
-                  Northwest Las Vegas near Centennial Hills Hospital. Parks, Red
-                  Rock Canyon access, and US-95 freeway proximity.
+                  Central midtown condos with dining and Las Vegas Boulevard
+                  access. Compare HOA dues and parking with Dr. Jan.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Centennial Hills Hospital nearby
+                    Walkable midtown core
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Near outdoor recreation
+                    Dining and culture nearby
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Medical facilities nearby
+                    HOA dues and parking compared before offer
                   </li>
                 </ul>
                 <Link
-                  href="/neighborhoods/centennial-hills"
+                  href="/neighborhoods/midtown-plaza"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
-                  Explore Centennial Hills →
+                  Explore Midtown Plaza condos →
                 </Link>
               </div>
             </div>

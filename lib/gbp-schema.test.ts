@@ -19,15 +19,25 @@ describe("generateLocalBusinessSchema", () => {
     expect(schema.hasMap).toContain(officeInfo.maps.reviews);
     expect(schema.sameAs).toContain(`${siteConfig.url}/google-business`);
     expect(schema.sameAs).toContain(officeInfo.maps.place);
+    expect(schema.sameAs).toContain(
+      `https://www.google.com/maps/place/?q=place_id:${officeInfo.googlePlace.placeId}`,
+    );
+    expect(schema.identifier.value).toBe(officeInfo.googlePlace.placeId);
     expect(schema.potentialAction[0]["@type"]).toBe("ReserveAction");
     expect(schema.potentialAction[0].target.urlTemplate).toBe(
       `${siteConfig.url}/contact`,
     );
+    expect(schema.potentialAction[1]["@type"]).toBe("CallAction");
+    expect(schema.potentialAction[1].target.urlTemplate).toBe(
+      "tel:+17025001980",
+    );
+    expect(officeInfo.maps.place).toContain(officeInfo.googlePlace.cid);
+    expect(officeInfo.maps.reviews).toContain(officeInfo.googlePlace.placeId);
   });
 
   it("includes heading-matched office photos as ImageObjects", () => {
     expect(Array.isArray(schema.image)).toBe(true);
-    expect(schema.image.length).toBeGreaterThanOrEqual(6);
+    expect(schema.image.length).toBeGreaterThanOrEqual(9);
     expect(schema.photo).toHaveLength(schema.image.length);
     for (const photo of schema.photo) {
       expect(photo["@type"]).toBe("ImageObject");
