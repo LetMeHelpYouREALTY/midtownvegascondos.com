@@ -112,10 +112,13 @@ export default function MoveUpSellerPage() {
             </h2>
 
             <div className="space-y-6">
-              <div className="bg-white border border-slate-200 rounded-xl p-6">
+              <Link
+                href="/neighborhoods/arts-district"
+                className="bg-white border border-slate-200 rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="Centennial Hills → Summerlin"
-                  heroKey="nbSummerlin"
+                  heading="Fremont East → Arts District"
+                  heroKey="artsDistrict"
                   className="mb-4"
                 />
                 <div className="flex items-center">
@@ -126,21 +129,25 @@ export default function MoveUpSellerPage() {
                   </div>
                   <div className="flex-grow">
                     <h3 className="font-bold text-slate-900 mb-1">
-                      Centennial Hills → Summerlin
+                      Fremont East → Arts District
                     </h3>
                     <p className="text-slate-600 text-sm">
-                      Upgrade from $450K starter to $650K+ in Downtown Summerlin
-                      area. Walkable amenities and Red Rock views.
+                      Move from Fremont East (median $295K) into Arts District
+                      lofts and mid-rises (median $325K). Dr. Jan&apos;s office
+                      is at 921 South Main Street.
                     </p>
                   </div>
                   <ArrowRight className="h-6 w-6 text-blue-600 flex-shrink-0 ml-4" />
                 </div>
-              </div>
+              </Link>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6">
+              <Link
+                href="/neighborhoods/one-las-vegas"
+                className="bg-white border border-slate-200 rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="Green Valley → MacDonald Ranch"
-                  heroKey="nbGreenValley"
+                  heading="Arts District → One Las Vegas"
+                  heroKey="oneLasVegas"
                   className="mb-4"
                 />
                 <div className="flex items-center">
@@ -151,21 +158,25 @@ export default function MoveUpSellerPage() {
                   </div>
                   <div className="flex-grow">
                     <h3 className="font-bold text-slate-900 mb-1">
-                      Green Valley → MacDonald Ranch
+                      Arts District → One Las Vegas
                     </h3>
                     <p className="text-slate-600 text-sm">
-                      Move from established Green Valley ($520K) to luxury
-                      Henderson ($800K+). Larger lots, custom features, mountain
-                      views.
+                      Step from Arts District lofts (median $325K) into
+                      Strip-corridor high-rise living (median $650K). Typical
+                      HOA $400–$1,200+/mo — Dr. Jan reviews docs before you
+                      write.
                     </p>
                   </div>
                   <ArrowRight className="h-6 w-6 text-green-600 flex-shrink-0 ml-4" />
                 </div>
-              </div>
+              </Link>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6">
+              <Link
+                href="/neighborhoods/southern-highlands"
+                className="bg-white border border-slate-200 rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="Inspirada → Southern Highlands"
+                  heading="Palms Place → Southern Highlands"
                   heroKey="nbSouthernHighlands"
                   className="mb-4"
                 />
@@ -177,17 +188,17 @@ export default function MoveUpSellerPage() {
                   </div>
                   <div className="flex-grow">
                     <h3 className="font-bold text-slate-900 mb-1">
-                      Inspirada → Southern Highlands
+                      Palms Place → Southern Highlands
                     </h3>
                     <p className="text-slate-600 text-sm">
-                      Graduate from master-planned ($525K) to golf community
-                      luxury ($750K+). Country club lifestyle, guard-gated
-                      options.
+                      Trade Palms Place condotel living (median $380K) for
+                      Southern Highlands golf-course homes ($750K+), about 15
+                      minutes from Harry Reid Airport.
                     </p>
                   </div>
                   <ArrowRight className="h-6 w-6 text-purple-600 flex-shrink-0 ml-4" />
                 </div>
-              </div>
+              </Link>
             </div>
           </section>
 

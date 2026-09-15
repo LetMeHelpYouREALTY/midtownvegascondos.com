@@ -441,6 +441,85 @@ export default function NewConstructionPage() {
             </div>
           </section>
 
+          {/* Midtown new-construction condos */}
+          <section className="mb-16 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="newConstructionAgent"
+              heading="Midtown new-construction condos"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Midtown new-construction condos
+            </h2>
+            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
+              Open a live midtown page for new inventory, then compare valley
+              production-builder incentives with Dr. Jan at (702) 500-1980.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link
+                href="/neighborhoods/symphony-park"
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow block"
+              >
+                <HeadingCardPhoto
+                  heading="Symphony Park"
+                  heroKey="symphonyPark"
+                  className="mb-4"
+                />
+                <h3 className="font-bold text-lg text-slate-900 mb-2">
+                  Symphony Park
+                </h3>
+                <p className="text-slate-600 text-sm mb-3">
+                  Smith Center mid-rises. Area median $410K (+5.2% YoY). Compare
+                  builder incentives and HOA reserves with Dr. Jan.
+                </p>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Explore Symphony Park →
+                </span>
+              </Link>
+              <Link
+                href="/neighborhoods/the-english-residences"
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow block"
+              >
+                <HeadingCardPhoto
+                  heading="The English Residences"
+                  heroKey="englishResidences"
+                  className="mb-4"
+                />
+                <h3 className="font-bold text-lg text-slate-900 mb-2">
+                  The English Residences
+                </h3>
+                <p className="text-slate-600 text-sm mb-3">
+                  Arts District condo-hotel (median $475K). Own, stay, or earn
+                  when you&apos;re away — Dr. Jan explains management
+                  agreements.
+                </p>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Explore English Residences →
+                </span>
+              </Link>
+              <Link
+                href="/neighborhoods/midtown-plaza"
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow block"
+              >
+                <HeadingCardPhoto
+                  heading="Midtown Plaza"
+                  heroKey="midtownPlaza"
+                  className="mb-4"
+                />
+                <h3 className="font-bold text-lg text-slate-900 mb-2">
+                  Midtown Plaza
+                </h3>
+                <p className="text-slate-600 text-sm mb-3">
+                  Central midtown address with newer inventory. Area median
+                  $350K (+4.5% YoY). Call (702) 500-1980 for live MLS.
+                </p>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Explore Midtown Plaza →
+                </span>
+              </Link>
+            </div>
+          </section>
+
           {/* Builders Grid */}
           <section className="mb-16 max-w-6xl mx-auto">
             <SectionPhoto
