@@ -39,6 +39,8 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/code === 10000/);
     expect(src).toMatch(/Cloudflare Images/);
     expect(src).toMatch(/accounts\/\$\{id\}\/images\/v1/);
+    expect(src).toMatch(/pages",\s*"deploy"/);
+    expect(src).toMatch(/wrangler.images-assets.toml/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {

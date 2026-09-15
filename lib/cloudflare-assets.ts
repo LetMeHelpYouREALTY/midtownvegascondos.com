@@ -4,6 +4,7 @@
  * Native products used (not a custom CDN wrapper):
  * - Cloudflare R2 public bucket (already hosts the agent headshot)
  * - Optional Cloudflare Images (imagedelivery.net) when account hash is set
+ * - Optional Cloudflare Pages / Workers static assets when R2/Images writes 401
  *
  * Do not orange-cloud the Vercel apex — R2 is object storage only.
  */
@@ -40,12 +41,32 @@ export function isR2DeliveryEnabled(): boolean {
   return process.env.NEXT_PUBLIC_R2_ENABLED === "true";
 }
 
+export function getCloudflarePagesImagesBase(): string {
+  return (process.env.NEXT_PUBLIC_CF_PAGES_IMAGES_BASE ?? "").replace(
+    /\/$/,
+    "",
+  );
+}
+
+export function isCloudflarePagesImagesEnabled(): boolean {
+  return (
+    process.env.NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED === "true" &&
+    /^https:\/\//.test(getCloudflarePagesImagesBase())
+  );
+}
+
+/** Public Pages/Workers URL for a same-origin image path. */
+export function getPagesImageUrl(src: string): string {
+  return `${getCloudflarePagesImagesBase()}${normalizeLocalPath(src)}`;
+}
+
 /**
  * Resolve the URL Next.js Image should request.
- * R2 when NEXT_PUBLIC_R2_ENABLED=true; otherwise the git-backed public/ file.
+ * R2 first, then Cloudflare Pages/Workers assets, otherwise git-backed public/.
  */
 export function getCdnImageSrc(src: string): string {
   if (isRemoteImageSrc(src)) return src;
   if (isR2DeliveryEnabled()) return getR2ObjectUrl(src);
+  if (isCloudflarePagesImagesEnabled()) return getPagesImageUrl(src);
   return normalizeLocalPath(src);
 }

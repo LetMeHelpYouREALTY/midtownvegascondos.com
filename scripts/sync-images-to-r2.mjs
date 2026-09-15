@@ -20,6 +20,9 @@ import { spawn } from "node:child_process";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const IMAGES_DIR = join(ROOT, "public", "images");
 const WRANGLER_CONFIG = join(ROOT, "scripts", "wrangler.r2.toml");
+const ASSETS_CONFIG = join(ROOT, "scripts", "wrangler.images-assets.toml");
+const PAGES_PROJECT =
+  process.env.CF_PAGES_IMAGES_PROJECT ?? "midtownvegascondos-heading-photos";
 const BUCKET = process.env.R2_BUCKET ?? "realestatedomains-assets";
 const PREFIX = process.env.NEXT_PUBLIC_R2_PREFIX ?? "midtownvegascondos";
 /** Invoice-verified dash account; not a secret. Env vars still override. */
@@ -413,6 +416,37 @@ async function imagesPut(localFile, objectKey) {
   return body;
 }
 
+async function deployCloudflareAssets() {
+  const publicDir = join(ROOT, "public");
+  console.log(
+    "R2 and Cloudflare Images writes denied. Deploying heading photos as Cloudflare Pages / Workers static assets...",
+  );
+  try {
+    await run("npx", [
+      "wrangler",
+      "pages",
+      "deploy",
+      publicDir,
+      "--project-name",
+      PAGES_PROJECT,
+      "--commit-dirty=true",
+    ]);
+    console.log(
+      `Done via Cloudflare Pages. Probe https://${PAGES_PROJECT}.pages.dev/images/hero/home-strip-dusk.webp then set NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true and NEXT_PUBLIC_CF_PAGES_IMAGES_BASE=https://${PAGES_PROJECT}.pages.dev. Prefer R2 S3 keys when they exist.`,
+    );
+    return;
+  } catch (pagesError) {
+    console.warn(
+      "Cloudflare Pages deploy failed:",
+      pagesError instanceof Error ? pagesError.message : pagesError,
+    );
+  }
+  await run("npx", ["wrangler", "deploy", "--config", ASSETS_CONFIG]);
+  console.log(
+    "Done via Cloudflare Workers static assets. Confirm the workers.dev image URL is HTTP 200, then set NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true and NEXT_PUBLIC_CF_PAGES_IMAGES_BASE to that origin.",
+  );
+}
+
 async function putObject(localFile, objectKey, mode) {
   switch (mode) {
     case "s3":
@@ -486,8 +520,16 @@ async function main() {
       console.warn(
         "R2 object write denied. Trying Cloudflare Images with the same Account API token...",
       );
-      await syncFiles(files, "images");
-      return;
+      try {
+        await syncFiles(files, "images");
+        return;
+      } catch (imagesError) {
+        if (imagesError?.skipSync) {
+          await deployCloudflareAssets();
+          return;
+        }
+        throw imagesError;
+      }
     }
     throw error;
   }

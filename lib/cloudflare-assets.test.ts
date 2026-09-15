@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   getCdnImageSrc,
   getGitBackupSrc,
+  getPagesImageUrl,
   getR2ObjectUrl,
   isRemoteImageSrc,
 } from "./cloudflare-assets";
@@ -36,6 +37,21 @@ describe("cloudflare-assets", () => {
     vi.stubEnv("NEXT_PUBLIC_R2_ENABLED", "true");
     expect(getCdnImageSrc("/images/hero/a.webp")).toContain(
       "/midtownvegascondos/images/hero/a.webp",
+    );
+  });
+
+  it("uses Cloudflare Pages/Workers assets when that host is enabled", () => {
+    vi.stubEnv("NEXT_PUBLIC_R2_ENABLED", "false");
+    vi.stubEnv("NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED", "true");
+    vi.stubEnv(
+      "NEXT_PUBLIC_CF_PAGES_IMAGES_BASE",
+      "https://midtownvegascondos-heading-photos.pages.dev",
+    );
+    expect(getPagesImageUrl("/images/hero/a.webp")).toBe(
+      "https://midtownvegascondos-heading-photos.pages.dev/images/hero/a.webp",
+    );
+    expect(getCdnImageSrc("/images/hero/a.webp")).toBe(
+      "https://midtownvegascondos-heading-photos.pages.dev/images/hero/a.webp",
     );
   });
 });

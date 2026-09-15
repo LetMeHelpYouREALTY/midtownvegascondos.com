@@ -141,5 +141,11 @@ jobs:
           if [ "$CODE" = "200" ]; then
             echo "Site images are live on Cloudflare R2."
           else
-            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). The Vercel Account API token is IP-restricted (error 9109); runner IPs change every job. Create R2 S3 keys (dashboard → R2 → Manage R2 API Tokens) and set R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, and CLOUDFLARE_ACCOUNT_ID on Vercel production + the Production GitHub Environment. Then re-run this workflow and set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname. Rotate any Account API token that appeared unmasked in older workflow logs."
+            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). The Account API token can reach Cloudflare but cannot write R2 or Images (401/10000). Sync next tries Cloudflare Pages/Workers static assets. Create R2 S3 keys (dashboard → R2 → Manage R2 API Tokens) and set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY on Vercel production + the Production GitHub Environment. Then re-run this workflow and set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
+          fi
+          PAGES_URL="https://midtownvegascondos-heading-photos.pages.dev/images/hero/home-strip-dusk.webp"
+          PAGES_CODE=$(curl -sS -o /dev/null -w "%{http_code}" "$PAGES_URL" || true)
+          echo "Cloudflare Pages image host HTTP ${PAGES_CODE:-000} for $PAGES_URL"
+          if [ "$PAGES_CODE" = "200" ]; then
+            echo "Heading photos are live on Cloudflare Pages. Set NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true and NEXT_PUBLIC_CF_PAGES_IMAGES_BASE=https://midtownvegascondos-heading-photos.pages.dev"
           fi

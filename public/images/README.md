@@ -35,6 +35,11 @@ Use **R2 S3 API tokens** instead (separate from Account API tokens):
 
 Rotate any Account API token that appeared in older public GitHub Actions logs.
 
+If R2 S3 keys are not available, the sync next deploys `public/` to Cloudflare Pages/Workers (`midtownvegascondos-heading-photos`). Confirm `https://midtownvegascondos-heading-photos.pages.dev/images/hero/home-strip-dusk.webp` is HTTP 200, then set:
+
+- `NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true`
+- `NEXT_PUBLIC_CF_PAGES_IMAGES_BASE=https://midtownvegascondos-heading-photos.pages.dev`
+
 Do **not** orange-cloud the Vercel production hostname. R2 is object storage only.
 
 ## Specs
