@@ -979,17 +979,24 @@ async function main() {
     await resolveAccountIdFromToken();
   }
   const useS3 = hasS3Auth();
-  const useRest = hasWranglerAuth() && Boolean(accountId());
-  const useWrangler = hasWranglerAuth();
-  if (!useS3 && !useWrangler) {
-    console.log(
-      "Skipping R2 image sync (no usable Cloudflare token/account or R2 S3 keys). Git public/images remains the fallback.",
+  if (!useS3) {
+    if (
+      !firstUsableSecret(["CLOUDFLARE_API_TOKEN"]) &&
+      !globalApiSecret()
+    ) {
+      console.log(
+        "Skipping R2 image sync (no usable Cloudflare token/account or R2 S3 keys). Git public/images remains the fallback.",
+      );
+      return;
+    }
+    console.warn(
+      "No usable R2 S3 credentials after token-id derivation. CLOUDFLARE_API_TOKEN fails GET /user/tokens/verify (Invalid API Token) and Account/Global REST already 401/403. Do not retry Images/Pages/Workers/DNS. Create R2 S3 credentials: Cloudflare dashboard → R2 → Overview → Manage R2 API Tokens → Object Read & Write on realestatedomains-assets. Set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY on Vercel production and the Production GitHub Environment. Git public/images remains the fallback.",
     );
     return;
   }
 
   const files = await walk(IMAGES_DIR);
-  const mode = useS3 ? "s3" : useRest ? "rest" : "wrangler";
+  const mode = "s3";
   try {
     await syncFiles(files, mode);
   } catch (error) {

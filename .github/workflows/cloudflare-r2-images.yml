@@ -226,7 +226,7 @@ jobs:
           if [ "$CODE" = "200" ]; then
             echo "Site images are live on Cloudflare R2."
           else
-            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). The Account API token cannot write R2 (401/10000). Do not retry Images/Pages/Workers/DNS with that token (it already hit 429 too-many-auth-failures). Create R2 S3 keys (dashboard → R2 → Manage R2 API Tokens) and set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY on Vercel production + the Production GitHub Environment. Then re-run this workflow and set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
+            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Vercel CLOUDFLARE_API_TOKEN fails GET /user/tokens/verify (Invalid API Token); Global API 403/400. Do not retry Account API Images/Pages/Workers/DNS. Create R2 S3 keys (dashboard → R2 → Manage R2 API Tokens) and set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY on Vercel production + the Production GitHub Environment. Then re-run this workflow and set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
           fi
           PAGES_URL="https://midtownvegascondos-heading-photos.pages.dev/images/hero/home-strip-dusk.webp"
           PAGES_CODE=$(curl -sS -o /dev/null -w "%{http_code}" "$PAGES_URL" || true)
