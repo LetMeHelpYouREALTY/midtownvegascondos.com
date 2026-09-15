@@ -122,9 +122,12 @@ function isR2WriteForbidden(body, status, text = "") {
   const { code, message } = cloudflareError(body);
   return (
     status === 401 ||
+    status === 429 ||
     code === 10000 ||
     /authentication error/i.test(message) ||
-    /authentication error/i.test(text)
+    /authentication error/i.test(text) ||
+    /too many authentication failures/i.test(message) ||
+    /too many authentication failures/i.test(text)
   );
 }
 
@@ -742,38 +745,51 @@ async function main() {
   try {
     await syncFiles(files, mode);
   } catch (error) {
-    if (error?.skipSync && mode === "rest" && hasWranglerAuth()) {
-      console.warn(
-        "R2 object write denied. Trying Cloudflare Images with the same Account API token...",
-      );
-      try {
-        await syncFiles(files, "images");
+    if (error?.skipSync) {
+      console.warn(error.message);
+      if (
+        process.env.CF_TRY_CLOUDFLARE_FALLBACKS === "true" &&
+        mode === "rest" &&
+        hasWranglerAuth()
+      ) {
+        await tryCloudflareAccountApiFallbacks(files);
         return;
-      } catch (imagesError) {
-        if (imagesError?.skipSync) {
-          try {
-            await deployCloudflareAssets();
-            return;
-          } catch (assetsError) {
-            console.warn(
-              "Cloudflare Pages/Workers image host failed:",
-              assetsError instanceof Error ? assetsError.message : assetsError,
-            );
-            try {
-              await ensureCloudflareImageHostname();
-            } catch (dnsError) {
-              console.warn(
-                "Cloudflare img hostname fallback failed:",
-                dnsError instanceof Error ? dnsError.message : dnsError,
-              );
-            }
-            return;
-          }
-        }
-        throw imagesError;
       }
+      console.warn(
+        "Stopping further Cloudflare Account API writes. R2/Images/Pages/Workers already returned 401/10000 and zone DNS then returned 429 too-many-auth-failures. Create R2 S3 keys (Manage R2 API Tokens) instead of retrying this Account API token.",
+      );
+      return;
     }
     throw error;
+  }
+}
+
+async function tryCloudflareAccountApiFallbacks(files) {
+  console.warn(
+    "CF_TRY_CLOUDFLARE_FALLBACKS=true: trying Images, Pages/Workers, then img.* DNS with the same Account API token...",
+  );
+  try {
+    await syncFiles(files, "images");
+    return;
+  } catch (imagesError) {
+    if (!imagesError?.skipSync) throw imagesError;
+    try {
+      await deployCloudflareAssets();
+      return;
+    } catch (assetsError) {
+      console.warn(
+        "Cloudflare Pages/Workers image host failed:",
+        assetsError instanceof Error ? assetsError.message : assetsError,
+      );
+      try {
+        await ensureCloudflareImageHostname();
+      } catch (dnsError) {
+        console.warn(
+          "Cloudflare img hostname fallback failed:",
+          dnsError instanceof Error ? dnsError.message : dnsError,
+        );
+      }
+    }
   }
 }
 

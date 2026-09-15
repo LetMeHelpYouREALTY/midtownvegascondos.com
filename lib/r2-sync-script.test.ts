@@ -46,6 +46,8 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/http_request_origin/);
     expect(src).toMatch(/host_header/);
     expect(src).toMatch(/img_midtown_origin_www/);
+    expect(src).toMatch(/too many authentication failures/i);
+    expect(src).toMatch(/CF_TRY_CLOUDFLARE_FALLBACKS/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {

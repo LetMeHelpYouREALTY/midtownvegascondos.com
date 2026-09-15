@@ -40,9 +40,7 @@ If R2 S3 keys are not available, the sync next deploys `public/` to Cloudflare P
 - `NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true`
 - `NEXT_PUBLIC_CF_PAGES_IMAGES_BASE=https://midtownvegascondos-heading-photos.pages.dev`
 
-If Pages/Workers also 401, the sync creates a **proxied** `img.midtownvegascondos.com` CNAME (www stays gray-cloud on Vercel) plus an Origin Rule so Cloudflare fetches `www.midtownvegascondos.com`. Confirm `https://img.midtownvegascondos.com/images/hero/home-strip-dusk.webp` is HTTP 200, then set:
-
-- `NEXT_PUBLIC_CF_EDGE_IMAGES_ENABLED=true`
+If Pages/Workers also 401, do **not** keep retrying the same Account API token — Cloudflare then returns **429 too many authentication failures**. The remaining write path is R2 S3 keys (above). A proxied `img.midtownvegascondos.com` fallback exists in the script behind `CF_TRY_CLOUDFLARE_FALLBACKS=true` only.
 
 Do **not** orange-cloud the Vercel production hostname. R2 is object storage only.
 
