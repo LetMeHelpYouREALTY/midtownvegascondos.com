@@ -9,6 +9,7 @@ import AgentPhoto from "@/components/shared/AgentPhoto";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import FeaturedProperties from "@/components/sections/FeaturedProperties";
 import Link from "next/link";
 import Image from "next/image";
@@ -161,30 +162,7 @@ export default function Home() {
             <p className="mt-6 text-sm text-white/80">
               {officeInfo.address.full}
             </p>
-            <div className="mt-3 flex flex-wrap justify-center gap-3">
-              <a
-                href={agentInfo.phoneTel}
-                className="inline-flex items-center rounded-md bg-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/25"
-              >
-                Call {agentInfo.phone}
-              </a>
-              <a
-                href={officeInfo.maps.directions}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-md bg-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/25"
-              >
-                Directions
-              </a>
-              <a
-                href={officeInfo.maps.reviews}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-md bg-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/25"
-              >
-                View Google Reviews
-              </a>
-            </div>
+            <GbpEngageButtons onDark className="mt-3" />
 
             <figure className="mt-10 mx-auto max-w-2xl border-t border-white/20 pt-4 text-left md:text-center">
               <figcaption

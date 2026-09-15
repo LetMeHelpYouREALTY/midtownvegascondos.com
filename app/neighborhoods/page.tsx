@@ -1,13 +1,13 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
-import { MapPin, Phone, Home, ArrowRight } from "lucide-react";
+import { MapPin, Home, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta, midtownNeighborhoods } from "@/lib/hyperlocal-content";
-import { agentInfo, officeInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import Image from "next/image";
 import { getHeroImage, neighborhoodHeroBySlug } from "@/lib/hero-images";
 
@@ -107,37 +107,14 @@ export default function NeighborhoodsPage() {
               Las Vegas. Get a personalized neighborhood match based on your
               lifestyle and budget.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={agentInfo.phoneTel}
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold"
-              >
-                <Phone className="h-4 w-4 mr-2" />
-                Call {agentInfo.phone}
-              </a>
-              <a
-                href={officeInfo.maps.directions}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-white text-slate-900 px-6 py-3 rounded-md font-semibold hover:bg-slate-100"
-              >
-                Directions
-              </a>
-              <a
-                href={officeInfo.maps.reviews}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border border-white text-white hover:bg-white/10 px-6 py-3 rounded-md font-semibold"
-              >
-                View Google Reviews
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center border border-white text-white hover:bg-white/10 px-6 py-3 rounded-md font-semibold"
+                className="inline-flex items-center justify-center rounded-md border border-white px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
                 Schedule Consultation
               </Link>
-            </div>
+            </GbpEngageButtons>
           </section>
         </div>
       </main>

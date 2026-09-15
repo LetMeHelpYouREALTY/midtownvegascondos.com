@@ -109,6 +109,9 @@ describe("GBP engage CTAs on live pages", () => {
     "app/google-business/page.tsx",
     "app/security-policy/page.tsx",
     "app/not-found.tsx",
+    "app/page.tsx",
+    "app/neighborhoods/page.tsx",
+    "app/neighborhoods/[slug]/page.tsx",
   ];
 
   it("includes Call, Directions, and Reviews on high-intent pages", () => {

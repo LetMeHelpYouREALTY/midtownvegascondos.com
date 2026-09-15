@@ -3,7 +3,7 @@ import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import PageHero from "@/components/sections/PageHero";
 import Link from "next/link";
-import { Phone, MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SchemaScript from "@/components/SchemaScript";
@@ -17,10 +17,11 @@ import {
   getMidtownNeighborhood,
   midtownNeighborhoods,
 } from "@/lib/hyperlocal-content";
-import { agentInfo, officeInfo } from "@/lib/site-config";
+import { agentInfo } from "@/lib/site-config";
 import { neighborhoodHeroBySlug, getHeroImage } from "@/lib/hero-images";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -169,22 +170,15 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
                 comps, and condo-specific guidance from a midtown specialist at
                 Berkshire Hathaway HomeServices Nevada Properties.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href={agentInfo.phoneTel}
-                  className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold"
-                >
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call {agentInfo.phone}
-                </a>
+              <GbpEngageButtons>
                 <Link
                   href="/buyers"
-                  className="inline-flex items-center justify-center border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-semibold"
+                  className="inline-flex items-center justify-center rounded-md border border-blue-600 px-6 py-3 text-sm font-semibold text-blue-600 hover:bg-blue-50"
                 >
                   Condo Buying Guide
-                  <ArrowRight className="h-4 w-4 ml-2" />
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </div>
+              </GbpEngageButtons>
             </div>
             <div className="flex flex-col items-center">
               <AgentPhoto size="lg" />
@@ -240,36 +234,14 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
               Dr. Jan Duffy knows every midtown building, floor plan, and HOA —
               get expert guidance on your {area.name} condo search.
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
-              <a
-                href={agentInfo.phoneTel}
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-semibold"
-              >
-                Call {agentInfo.phone}
-              </a>
-              <a
-                href={officeInfo.maps.directions}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-3 rounded-md font-semibold hover:bg-slate-100"
-              >
-                Directions
-              </a>
-              <a
-                href={officeInfo.maps.reviews}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border border-white/40 text-white px-8 py-3 rounded-md font-semibold hover:bg-white/10"
-              >
-                View Google Reviews
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center border border-white/40 text-white px-8 py-3 rounded-md font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-md border border-white/40 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
                 Schedule a Consultation
               </Link>
-            </div>
+            </GbpEngageButtons>
           </section>
         </div>
       </main>
