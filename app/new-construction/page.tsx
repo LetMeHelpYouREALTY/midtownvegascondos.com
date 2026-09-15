@@ -21,6 +21,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/new-construction", {
   title:
@@ -279,6 +280,11 @@ export default function NewConstructionPage() {
                   <DollarSign className="h-6 w-6 text-white" />
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="100% Free to You"
+                    heroKey="newConstruction"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-lg mb-2">100% Free to You</h3>
                   <p className="text-blue-100">
                     Builders pay the buyer's agent commission (2-3%) as part of
@@ -292,6 +298,11 @@ export default function NewConstructionPage() {
                   <FileText className="h-6 w-6 text-white" />
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Contract Review"
+                    heroKey="sellersDivorceProbate"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-lg mb-2">Contract Review</h3>
                   <p className="text-blue-100">
                     Builder contracts are 50+ pages of legal language favoring
@@ -305,6 +316,11 @@ export default function NewConstructionPage() {
                   <Shield className="h-6 w-6 text-white" />
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Your Advocate"
+                    heroKey="whyBhhs"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-lg mb-2">Your Advocate</h3>
                   <p className="text-blue-100">
                     The builder's sales rep works for the builder. You deserve
@@ -318,6 +334,11 @@ export default function NewConstructionPage() {
                   <Building2 className="h-6 w-6 text-white" />
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Construction Oversight"
+                    heroKey="fiftyFiveHeritage"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-lg mb-2">
                     Construction Oversight
                   </h3>

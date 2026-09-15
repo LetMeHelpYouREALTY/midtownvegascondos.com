@@ -16,6 +16,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/buyers/california-relocator",
@@ -44,7 +45,7 @@ const faqSchema = {
       name: "How much can I save moving from California to Nevada?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Nevada has zero state income tax, saving Californians 9.3%-13.3% depending on income bracket. Combined with 40-60% lower home prices, a family earning $200K buying a $600K home could save $150K+ over 5 years compared to staying in California.",
+        text: "Nevada has zero state income tax, saving Californians 9.3%-13.3% depending on income bracket. Combined with 40-60% lower home prices, a household earning $200K buying a $600K home could save $150K+ over 5 years compared to staying in California.",
       },
     },
     {
@@ -169,7 +170,7 @@ export default function CaliforniaRelocatorPage() {
             </div>
             <div className="text-center">
               <p className="text-green-100 text-lg">
-                A California family earning $250,000/year saves{" "}
+                A California household earning $250,000/year saves{" "}
                 <strong>$25,000+ annually</strong> in state income tax alone by
                 moving to Nevada.
               </p>
@@ -210,6 +211,11 @@ export default function CaliforniaRelocatorPage() {
                 </ul>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="In Las Vegas"
+                  heroKey="buyersCaRelocator"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <MapPin className="h-6 w-6 text-green-600 mr-2" />
                   <h3 className="font-bold text-lg text-green-900">
@@ -246,6 +252,11 @@ export default function CaliforniaRelocatorPage() {
             />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="Summerlin"
+                  heroKey="nbSummerlin"
+                  className="rounded-none"
+                />
                 <div className="bg-blue-600 text-white p-4">
                   <h3 className="font-bold text-xl">Summerlin</h3>
                   <p className="text-blue-100 text-sm">Median: $726K</p>
@@ -283,6 +294,11 @@ export default function CaliforniaRelocatorPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="Henderson / Inspirada"
+                  heroKey="nbInspirada"
+                  className="rounded-none"
+                />
                 <div className="bg-green-600 text-white p-4">
                   <h3 className="font-bold text-xl">Henderson / Inspirada</h3>
                   <p className="text-green-100 text-sm">Median: $530K</p>
@@ -320,6 +336,11 @@ export default function CaliforniaRelocatorPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="The Ridges"
+                  heroKey="nbRidges"
+                  className="rounded-none"
+                />
                 <div className="bg-purple-600 text-white p-4">
                   <h3 className="font-bold text-xl">The Ridges</h3>
                   <p className="text-purple-100 text-sm">$1.5M - $10M+</p>
@@ -403,6 +424,11 @@ export default function CaliforniaRelocatorPage() {
                 </ul>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Henderson Tech Corridor"
+                  heroKey="nbHenderson"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-4">
                   Henderson Tech Corridor
                 </h3>
@@ -440,8 +466,8 @@ export default function CaliforniaRelocatorPage() {
                 <p className="text-slate-600">
                   Nevada has zero state income tax, saving Californians
                   9.3%-13.3% depending on income bracket. Combined with 40-60%
-                  lower home prices, a family earning $200K buying a $600K home
-                  could save $150K+ over 5 years compared to staying in
+                  lower home prices, a household earning $200K buying a $600K
+                  home could save $150K+ over 5 years compared to staying in
                   California.
                 </p>
               </div>
@@ -481,14 +507,14 @@ export default function CaliforniaRelocatorPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  What about schools compared to California?
+                  How do I compare named campuses after a California move?
                 </h3>
                 <p className="text-slate-600">
-                  Nevada public schools overall rank lower than California's,
-                  but individual schools in Summerlin and Henderson rate highly.
-                  Many California families choose areas with top-rated schools
-                  or consider private options. Dr. Jan provides school-specific
-                  guidance for every neighborhood.
+                  Review CCSD zoning, magnet programs, and named campuses such
+                  as Palo Verde HS, Coronado HS, The Meadows, and Bishop Gorman
+                  by address. Dr. Jan provides school-name research so you can
+                  check commute times and enrollment rules before you write an
+                  offer.
                 </p>
               </div>
             </div>
@@ -498,7 +524,7 @@ export default function CaliforniaRelocatorPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "I've helped hundreds of California families make the move to
+                "I've helped hundreds of California relocators make the move to
                 Las Vegas. The most common reaction? 'Why didn't we do this
                 sooner?' Between the tax savings, the space, and the lifestyle,
                 most clients can't believe what their California equity buys

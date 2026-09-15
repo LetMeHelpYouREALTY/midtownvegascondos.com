@@ -19,6 +19,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/buyers/luxury-homes-las-vegas",
@@ -155,6 +156,11 @@ export default function LuxuryHomesPage() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* The Ridges */}
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
+                <HeadingCardPhoto
+                  heading="The Ridges"
+                  heroKey="nbRidges"
+                  className="rounded-none"
+                />
                 <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white p-6">
                   <h3 className="font-bold text-2xl mb-1">The Ridges</h3>
                   <p className="text-amber-100">
@@ -178,7 +184,7 @@ export default function LuxuryHomesPage() {
                   <ul className="space-y-2 mb-4">
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      24/7 guard-gated security
+                      24/7 staffed gate
                     </li>
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -204,6 +210,11 @@ export default function LuxuryHomesPage() {
 
               {/* MacDonald Highlands / Ascaya */}
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
+                <HeadingCardPhoto
+                  heading="MacDonald Highlands / Ascaya"
+                  heroKey="luxuryHomes"
+                  className="rounded-none"
+                />
                 <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white p-6">
                   <h3 className="font-bold text-2xl mb-1">
                     MacDonald Highlands / Ascaya
@@ -223,8 +234,8 @@ export default function LuxuryHomesPage() {
                   </div>
                   <p className="text-slate-600 mb-4">
                     Elevated luxury with dramatic Strip and valley views.
-                    DragonRidge Country Club, modern architecture, and
-                    Henderson's low crime rates create an unmatched combination.
+                    DragonRidge Country Club, modern architecture, and Henderson
+                    parks and trail systems.
                   </p>
                   <ul className="space-y-2 mb-4">
                     <li className="flex items-center text-sm text-slate-700">
@@ -255,6 +266,11 @@ export default function LuxuryHomesPage() {
 
               {/* Strip High-Rises */}
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
+                <HeadingCardPhoto
+                  heading="Strip High-Rise Residences"
+                  heroKey="oneLasVegas"
+                  className="rounded-none"
+                />
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
                   <h3 className="font-bold text-2xl mb-1">
                     Strip High-Rise Residences
@@ -304,6 +320,11 @@ export default function LuxuryHomesPage() {
 
               {/* Southern Highlands */}
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
+                <HeadingCardPhoto
+                  heading="Southern Highlands"
+                  heroKey="nbSouthernHighlands"
+                  className="rounded-none"
+                />
                 <div className="bg-gradient-to-r from-green-600 to-green-700 text-white p-6">
                   <h3 className="font-bold text-2xl mb-1">
                     Southern Highlands
@@ -401,6 +422,11 @@ export default function LuxuryHomesPage() {
                 </ul>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Wealth Management Coordination"
+                  heroKey="investmentProperties"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-4">
                   Wealth Management Coordination
                 </h3>
