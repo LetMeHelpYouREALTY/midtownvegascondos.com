@@ -10,31 +10,28 @@ import {
   Eye,
   CheckCircle,
   Home,
-  MapPin,
   DollarSign,
-  Award,
   ArrowRight,
-  Camera,
-  Users,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/luxury-homes", {
   title: "Las Vegas Luxury Homes for Sale | Berkshire Hathaway HomeServices",
   description:
-    "Discover Las Vegas luxury real estate with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. The Ridges, MacDonald Highlands, Summerlin, Southern Highlands. $1M+ homes. Call (702) 500-1980.",
+    "Discover Las Vegas luxury condos with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. One Las Vegas, Symphony Park, Palms Place, Southern Highlands. Call (702) 500-1980.",
   keywords: [
-    "Las Vegas luxury homes",
-    "The Ridges Las Vegas",
-    "Summerlin luxury real estate",
+    "Las Vegas luxury condos",
+    "One Las Vegas condos",
+    "Symphony Park residences",
+    "Palms Place condos",
     "Southern Highlands homes",
     "Berkshire Hathaway luxury",
-    "million dollar homes Las Vegas",
-    "MacDonald Highlands Henderson",
+    "midtown Las Vegas luxury",
     "luxury real estate agent Las Vegas",
   ],
 });
@@ -48,95 +45,79 @@ const luxurySchema = {
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     telephone: "+17025001980",
   },
-  areaServed: "Las Vegas, Henderson, Summerlin luxury communities",
+  areaServed: "Arts District, Downtown Las Vegas, Strip-corridor high-rises",
   serviceType: "Luxury Real Estate",
-  priceRange: "$1,000,000+",
+  priceRange: "$380,000+",
 };
 
-const luxuryNeighborhoods = [
+const luxuryNeighborhoods: {
+  name: string;
+  location: string;
+  slug: string;
+  priceRange: string;
+  description: string;
+  features: string[];
+  heroKey: HeroImageKey;
+}[] = [
   {
-    name: "The Ridges",
-    location: "Summerlin",
-    priceRange: "$2M - $15M+",
+    name: "One Las Vegas",
+    location: "Strip corridor",
+    slug: "one-las-vegas",
+    priceRange: "Median $650K",
     description:
-      "Ultra-exclusive guard-gated community with custom estates, celebrity residents, and Bear's Best Golf Club. One of the most prestigious addresses in Las Vegas with stunning Red Rock views.",
-    features: [
-      "Guard-gated",
-      "Custom estates",
-      "Celebrity homes",
-      "Golf course",
-    ],
-    heroKey: "nbRidges" as const,
+      "Luxury high-rise with Strip-corridor views, resort pool, and concierge. Typical HOA $400–$1,200+/mo. Dr. Jan reviews parking and CC&Rs before you write.",
+    features: ["Concierge", "Resort pool", "Strip views", "Live MLS page"],
+    heroKey: "oneLasVegas",
   },
   {
-    name: "MacDonald Highlands",
-    location: "Henderson",
-    priceRange: "$1.5M - $10M+",
+    name: "Symphony Park",
+    location: "Downtown / Smith Center",
+    slug: "symphony-park",
+    priceRange: "Median $410K",
     description:
-      "Prestigious hillside community with Dragon Ridge Country Club and panoramic Strip views. Features modern contemporary architecture and exclusive amenities.",
-    features: [
-      "Hillside location",
-      "Strip views",
-      "Country club",
-      "Private lots",
-    ],
-    heroKey: "luxuryHomes" as const,
+      "Residential-cultural district at the Smith Center — mid-rise condos without resort fees. Compare new-construction incentives and HOA reserves with Dr. Jan.",
+    features: ["Smith Center", "Mid-rise", "Downtown routes", "New inventory"],
+    heroKey: "symphonyPark",
+  },
+  {
+    name: "Palms Place",
+    location: "West of the Strip",
+    slug: "palms-place",
+    priceRange: "Median $380K",
+    description:
+      "High-rise condotel behind the Palms with valet, pool complex, and resort amenities. HOA typically covers utilities, cable, and internet.",
+    features: ["Condotel", "Valet", "Pool complex", "Utilities in HOA"],
+    heroKey: "palmsPlace",
+  },
+  {
+    name: "Juhl",
+    location: "Downtown Las Vegas",
+    slug: "juhl",
+    priceRange: "Median $520K",
+    description:
+      "Modern downtown loft-style condos with rooftop pool and walkable access to Fremont Street. Confirm parking and HOA docs per unit.",
+    features: ["Rooftop pool", "Loft layouts", "Downtown", "Modern design"],
+    heroKey: "juhl",
+  },
+  {
+    name: "The English Residences",
+    location: "Arts District",
+    slug: "the-english-residences",
+    priceRange: "Median $475K",
+    description:
+      "Condo-hotel residences in the Arts District — own, stay, or earn when you're away. Dr. Jan explains management agreements before you buy.",
+    features: ["Condo-hotel", "Arts District", "Rental program", "Boutique"],
+    heroKey: "englishResidences",
   },
   {
     name: "Southern Highlands",
-    location: "Las Vegas",
-    priceRange: "$800K - $5M+",
+    location: "South Las Vegas",
+    slug: "southern-highlands",
+    priceRange: "$750K - $3M+",
     description:
-      "Guard-gated luxury community featuring championship golf, stunning mountain views, and resort-style living. Multiple neighborhoods within the community.",
-    features: [
-      "Guard-gated",
-      "Golf community",
-      "Mountain views",
-      "Multiple villages",
-    ],
-    heroKey: "nbSouthernHighlands" as const,
-  },
-  {
-    name: "The Summit Club",
-    location: "Summerlin",
-    priceRange: "$3M - $20M+",
-    description:
-      "Ultra-private Tom Fazio golf community with only 250 homesites. Las Vegas's most exclusive address with membership by invitation only.",
-    features: [
-      "Private golf",
-      "250 homesites",
-      "Invitation only",
-      "Tom Fazio design",
-    ],
-    heroKey: "nbRidges" as const,
-  },
-  {
-    name: "Ascaya",
-    location: "Henderson",
-    priceRange: "$2M - $12M+",
-    description:
-      "Modern architectural community with panoramic views and contemporary custom homes. Known for innovative design and dramatic hillside settings.",
-    features: [
-      "Modern architecture",
-      "Panoramic views",
-      "Custom homes",
-      "Hillside lots",
-    ],
-    heroKey: "buyersLuxury" as const,
-  },
-  {
-    name: "Lake Las Vegas",
-    location: "Henderson",
-    priceRange: "$800K - $8M+",
-    description:
-      "Resort-style living on a 320-acre private lake with Mediterranean-inspired architecture. Golf, water sports, and a European village atmosphere.",
-    features: [
-      "Lakefront living",
-      "Resort amenities",
-      "Golf courses",
-      "Mediterranean style",
-    ],
-    heroKey: "fiftyFiveDelWebb" as const,
+      "Golf-course homes with mountain views and about a 15-minute drive to Harry Reid Airport. Guard-gated sections available.",
+    features: ["Golf", "Mountain views", "Airport commute", "Gated sections"],
+    heroKey: "nbSouthernHighlands",
   },
 ];
 
@@ -348,16 +329,16 @@ export default function LuxuryHomesPage() {
             </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Las Vegas offers some of the most desirable luxury communities in
-              the Southwest. From ultra-exclusive guard-gated enclaves to
-              lakefront estates, these premier neighborhoods attract discerning
-              buyers seeking the finest in design, amenities, and lifestyle.
+              Open a live midtown luxury condo page — One Las Vegas, Symphony
+              Park, Palms Place, Juhl — plus Southern Highlands golf-course
+              homes. Call (702) 500-1980 for current MLS comps.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {luxuryNeighborhoods.map((neighborhood) => (
-                <div
-                  key={neighborhood.name}
-                  className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                <Link
+                  key={neighborhood.slug}
+                  href={`/neighborhoods/${neighborhood.slug}`}
+                  className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow block"
                 >
                   <HeadingCardPhoto
                     heading={neighborhood.name}
@@ -390,7 +371,7 @@ export default function LuxuryHomesPage() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="text-center mt-8">

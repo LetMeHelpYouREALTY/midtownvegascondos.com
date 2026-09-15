@@ -4,8 +4,6 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
   Phone,
-  Plane,
-  MapPin,
   Users,
   CheckCircle,
   Sun,
@@ -14,7 +12,6 @@ import {
   Home,
   School,
   ArrowRight,
-  Car,
   Shield,
   Globe,
 } from "lucide-react";
@@ -23,6 +20,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/relocation", {
   title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
@@ -53,53 +51,67 @@ const relocationSchema = {
   serviceType: "Relocation Services",
 };
 
-const popularRelocationAreas = [
+const popularRelocationAreas: {
+  name: string;
+  slug: string;
+  best: string;
+  highlights: string;
+  from: string;
+  heroKey: HeroImageKey;
+}[] = [
   {
-    name: "Summerlin",
-    best: "Park-and-trail buyers",
+    name: "Arts District",
+    slug: "arts-district",
+    best: "Walkable loft and gallery-row buyers",
     highlights:
-      "150+ parks, Red Rock Canyon proximity, master-planned villages",
-    from: "$500K",
-    heroKey: "nbSummerlin" as const,
+      "Loft conversions, First Friday, and Dr. Jan's office at 921 South Main Street",
+    from: "$325K",
+    heroKey: "artsDistrict",
   },
   {
-    name: "Henderson",
-    best: "Master-planned village buyers",
-    highlights: "Parks, trail systems, Green Valley and Anthem amenities",
-    from: "$450K",
-    heroKey: "nbHenderson" as const,
+    name: "Symphony Park",
+    slug: "symphony-park",
+    best: "Culture-district and downtown commuters",
+    highlights:
+      "Smith Center residences, mid-rise inventory, I-15 and airport routes",
+    from: "$410K",
+    heroKey: "symphonyPark",
   },
   {
-    name: "Green Valley",
-    best: "Trail-and-golf buyers",
+    name: "Fremont East",
+    slug: "fremont-east",
+    best: "Downtown entertainment-corridor buyers",
     highlights:
-      "Mature landscaping, championship golf, shopping and dining, Henderson location",
-    from: "$480K",
-    heroKey: "nbGreenValley" as const,
+      "Boutique condos near Fremont East dining. Confirm STR rules per building.",
+    from: "$295K",
+    heroKey: "fremontEast",
   },
   {
-    name: "Skye Canyon",
-    best: "New-construction buyers",
+    name: "One Las Vegas",
+    slug: "one-las-vegas",
+    best: "High-rise and lock-and-leave buyers",
     highlights:
-      "Newest construction, mountain trail access, modern amenities, growing area",
-    from: "$500K",
-    heroKey: "nbSkyeCanyon" as const,
+      "Strip-corridor views, concierge, resort pool. Typical HOA $400–$1,200+/mo",
+    from: "$650K",
+    heroKey: "oneLasVegas",
+  },
+  {
+    name: "Palms Place",
+    slug: "palms-place",
+    best: "Condotel and resort-amenity buyers",
+    highlights:
+      "Valet, pool complex, HOA that typically covers utilities. Review rental-program CC&Rs",
+    from: "$380K",
+    heroKey: "palmsPlace",
   },
   {
     name: "Southern Highlands",
+    slug: "southern-highlands",
     best: "Golf-course and gated-village buyers",
     highlights:
-      "Guard-gated sections, championship golf, mountain views, resort living",
-    from: "$700K",
-    heroKey: "nbSouthernHighlands" as const,
-  },
-  {
-    name: "Inspirada",
-    best: "Walkable-village and amenity buyers",
-    highlights:
-      "Resort-style pools, extensive trails, new homes, Henderson convenience",
-    from: "$450K",
-    heroKey: "nbInspirada" as const,
+      "Championship golf, mountain views, about 15 minutes to Harry Reid Airport",
+    from: "$750K",
+    heroKey: "nbSouthernHighlands",
   },
 ];
 
@@ -299,17 +311,16 @@ export default function RelocationPage() {
             </h2>
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Choosing the right neighborhood is crucial for a successful
-              relocation. Each Las Vegas community offers a unique lifestyle,
-              price point, and amenities. Dr. Jan helps you identify which area
-              matches your priorities—whether that's commute times, outdoor
-              access, or HOA amenities.
+              Open a live midtown condo page that matches commute time, HOA
+              dues, and floor-plan size. Dr. Jan maps Harry Reid Airport routes
+              and parking before you write.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {popularRelocationAreas.map((area) => (
-                <div
-                  key={area.name}
-                  className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                <Link
+                  key={area.slug}
+                  href={`/neighborhoods/${area.slug}`}
+                  className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow block"
                 >
                   <HeadingCardPhoto
                     heading={area.name}
@@ -328,7 +339,7 @@ export default function RelocationPage() {
                     Best for: {area.best}
                   </p>
                   <p className="text-slate-600 text-sm">{area.highlights}</p>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="text-center mt-8">

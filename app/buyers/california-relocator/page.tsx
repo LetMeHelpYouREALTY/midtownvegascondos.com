@@ -53,7 +53,7 @@ const faqSchema = {
       name: "What neighborhoods do California relocators prefer in Las Vegas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "California buyers typically compare Summerlin (master-planned villages near Red Rock), Henderson (Green Valley parks and trail systems), and The Ridges (custom lots comparable to coastal luxury price bands). These areas offer the square footage and amenities California buyers expect.",
+        text: "On this midtown site, California relocators compare Arts District lofts (median $325K), Symphony Park residences (median $410K), and One Las Vegas high-rise condos (median $650K). Dr. Jan reviews HOA fees, parking, and commute times to Harry Reid Airport before you write. Call (702) 500-1980.",
       },
     },
     {
@@ -96,7 +96,10 @@ const realEstateAgentSchema = {
     addressRegion: "NV",
     postalCode: "89101",
   },
-  areaServed: ["Las Vegas", "Henderson", "Summerlin", "North Las Vegas"],
+  areaServed: [
+    "Arts District, Las Vegas, NV",
+    "Downtown Las Vegas, Las Vegas, NV",
+  ],
   priceRange: "$350,000 - $10,000,000+",
 };
 
@@ -255,135 +258,138 @@ export default function CaliforniaRelocatorPage() {
           <section className="mb-16 max-w-5xl mx-auto">
             <SectionPhoto
               imageKey="neighborhoods"
-              heading="Top 3 Neighborhoods for California Relocators"
+              heading="Midtown condo neighborhoods for California relocators"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Top 3 Neighborhoods for California Relocators
+              Midtown condo neighborhoods for California relocators
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <HeadingCardPhoto
-                  heading="Summerlin"
-                  heroKey="nbSummerlin"
+                  heading="Arts District"
+                  heroKey="artsDistrict"
                   className="rounded-none"
                 />
                 <div className="bg-blue-600 text-white p-4">
-                  <h3 className="font-bold text-xl">Summerlin</h3>
-                  <p className="text-blue-100 text-sm">Median: $726K</p>
+                  <h3 className="font-bold text-xl">Arts District</h3>
+                  <p className="text-blue-100 text-sm">Median: $325K</p>
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    Master-planned streets with Downtown Summerlin shopping,
-                    150+ parks and trails, and Red Rock Canyon access.
+                    Loft conversions and boutique mid-rises near Gallery Row.
+                    California equity often covers more square footage plus
+                    parking. Dr. Jan&apos;s office is at 921 South Main Street.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Best for:</strong> Buyers from Orange County and
-                    coastal CA
+                    Walkable dining, First Friday, and midtown condo inventory
+                    on this site.
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Downtown Summerlin shopping
+                      Gallery Row lofts and mid-rises
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      150+ parks & trails
+                      HOA and parking reviewed before offer
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Upscale dining & shopping
+                      Live MLS on this site
                     </li>
                   </ul>
                   <Link
-                    href="/neighborhoods/summerlin"
+                    href="/neighborhoods/arts-district"
                     className="block mt-4 text-blue-600 font-semibold hover:text-blue-700"
                   >
-                    Explore Summerlin →
+                    Explore Arts District condos →
                   </Link>
                 </div>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <HeadingCardPhoto
-                  heading="Henderson / Inspirada"
-                  heroKey="nbInspirada"
+                  heading="Symphony Park"
+                  heroKey="symphonyPark"
                   className="rounded-none"
                 />
                 <div className="bg-green-600 text-white p-4">
-                  <h3 className="font-bold text-xl">Henderson / Inspirada</h3>
-                  <p className="text-green-100 text-sm">Median: $530K</p>
+                  <h3 className="font-bold text-xl">Symphony Park</h3>
+                  <p className="text-green-100 text-sm">Median: $410K</p>
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    Henderson sits on the tech corridor: Google's data center,
-                    trail systems, and new-construction inventory near I-215.
+                    Residential-cultural district at the Smith Center. Mid-rise
+                    condos with performing-arts access and I-15 / downtown
+                    commute options.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Best for:</strong> Tech workers and San Diego
-                    relocators
+                    Compare HOA dues, new-construction incentives, and parking
+                    with Dr. Jan.
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Tech job growth
+                      Smith Center cultural district
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      I-215 commute to midtown
+                      Mid-rise and new inventory
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      New construction options
+                      Downtown and airport routes
                     </li>
                   </ul>
                   <Link
-                    href="/neighborhoods/henderson"
+                    href="/neighborhoods/symphony-park"
                     className="block mt-4 text-blue-600 font-semibold hover:text-blue-700"
                   >
-                    Explore Henderson →
+                    Explore Symphony Park condos →
                   </Link>
                 </div>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                 <HeadingCardPhoto
-                  heading="The Ridges"
-                  heroKey="nbRidges"
+                  heading="One Las Vegas"
+                  heroKey="oneLasVegas"
                   className="rounded-none"
                 />
                 <div className="bg-purple-600 text-white p-4">
-                  <h3 className="font-bold text-xl">The Ridges</h3>
-                  <p className="text-purple-100 text-sm">$1.5M - $10M+</p>
+                  <h3 className="font-bold text-xl">One Las Vegas</h3>
+                  <p className="text-purple-100 text-sm">Median: $650K</p>
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    Newport Coast quality, Vegas prices. Guard-gated luxury with
-                    Strip views, celebrity neighbors, and custom estates.
+                    Luxury high-rise with Strip-corridor views, concierge, and
+                    resort-style amenities. Review HOA ranges ($400–$1,200+/mo)
+                    before you write.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Best for:</strong> Beverly Hills/Newport Beach
-                    luxury buyers
+                    Lock-and-leave floor plans for California second-home and
+                    relocation buyers.
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Guard-gated privacy
+                      Concierge and resort pool
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Custom home sites
+                      Strip-corridor views
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Red Rock Canyon access
+                      Airport commute mapped with Dr. Jan
                     </li>
                   </ul>
                   <Link
-                    href="/neighborhoods/the-ridges"
+                    href="/neighborhoods/one-las-vegas"
                     className="block mt-4 text-blue-600 font-semibold hover:text-blue-700"
                   >
-                    Explore The Ridges →
+                    Explore One Las Vegas condos →
                   </Link>
                 </div>
               </div>
@@ -487,11 +493,10 @@ export default function CaliforniaRelocatorPage() {
                   What neighborhoods do California relocators prefer?
                 </h3>
                 <p className="text-slate-600">
-                  California buyers typically compare Summerlin (master-planned
-                  villages near Red Rock), Henderson (Green Valley parks and
-                  trail systems), and The Ridges (custom lots at
-                  coastal-comparable price bands). These areas offer the square
-                  footage and amenities California buyers expect.
+                  California relocators on this site compare Arts District lofts
+                  (median $325K), Symphony Park residences (median $410K), and
+                  One Las Vegas high-rises (median $650K). Dr. Jan reviews HOA
+                  fees, parking, and airport commute times before you write.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">

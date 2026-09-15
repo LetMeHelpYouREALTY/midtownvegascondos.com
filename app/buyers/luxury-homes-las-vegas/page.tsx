@@ -6,12 +6,8 @@ import {
   Phone,
   Shield,
   Eye,
-  Building,
-  TrendingUp,
   Lock,
   Star,
-  Home as HomeIcon,
-  MapPin,
   CheckCircle,
   DollarSign,
 } from "lucide-react";
@@ -28,11 +24,11 @@ export const metadata: Metadata = withPageHeroMetadata(
     description:
       "Las Vegas luxury real estate from $1.2M to $10M+. Guard-gated estates, Strip penthouses, and custom homes. Dr. Jan Duffy provides discrete, expert representation. Call (702) 500-1980.",
     keywords: [
-      "luxury homes Las Vegas",
-      "The Ridges Las Vegas",
-      "MacDonald Highlands",
-      "luxury real estate Henderson",
-      "guard gated communities Las Vegas",
+      "luxury condos Las Vegas",
+      "One Las Vegas condos",
+      "Symphony Park residences",
+      "Palms Place condos",
+      "midtown Las Vegas luxury",
       "Berkshire Hathaway luxury homes",
     ],
   },
@@ -52,10 +48,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What are the most exclusive luxury communities in Las Vegas?",
+      name: "Which Las Vegas condos have resort amenities and larger floor plans?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Ridges in Summerlin ($1.5M-$10M+) is the valley's most prestigious address. MacDonald Highlands and Ascaya in Henderson ($2M-$15M) offer Strip views. For high-rise luxury, Waldorf Astoria, Veer Towers, and Panorama Towers dominate the Strip corridor.",
+        text: "On this midtown site, compare One Las Vegas (median $650K, high-rise HOA typically $400–$1,200+/mo), Symphony Park residences (median $410K), Palms Place condotel units (median $380K), and Southern Highlands golf-course homes. Call (702) 500-1980 for live MLS comps.",
       },
     },
     {
@@ -160,166 +156,165 @@ export default function LuxuryHomesPage() {
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {/* The Ridges */}
+              {/* One Las Vegas */}
               <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
                 <HeadingCardPhoto
-                  heading="The Ridges"
-                  heroKey="nbRidges"
-                  className="rounded-none"
-                />
-                <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white p-6">
-                  <h3 className="font-bold text-2xl mb-1">The Ridges</h3>
-                  <p className="text-amber-100">
-                    Summerlin's Most Prestigious Address
-                  </p>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-bold text-slate-900">
-                      $1.5M - $10M+
-                    </span>
-                    <span className="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-semibold">
-                      Guard-Gated
-                    </span>
-                  </div>
-                  <p className="text-slate-600 mb-4">
-                    The valley's most exclusive enclave, home to celebrities,
-                    executives, and those who demand absolute privacy. Custom
-                    estates, Bear's Best Golf Club, and Red Rock views.
-                  </p>
-                  <ul className="space-y-2 mb-4">
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      24/7 staffed gate
-                    </li>
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Custom home sites available
-                    </li>
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Red Rock Canyon access
-                    </li>
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Celebrity neighborhood
-                    </li>
-                  </ul>
-                  <Link
-                    href="/neighborhoods/the-ridges"
-                    className="text-blue-600 font-semibold hover:text-blue-700"
-                  >
-                    Explore The Ridges →
-                  </Link>
-                </div>
-              </div>
-
-              {/* MacDonald Highlands / Ascaya */}
-              <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
-                <HeadingCardPhoto
-                  heading="MacDonald Highlands / Ascaya"
-                  heroKey="luxuryHomes"
-                  className="rounded-none"
-                />
-                <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white p-6">
-                  <h3 className="font-bold text-2xl mb-1">
-                    MacDonald Highlands / Ascaya
-                  </h3>
-                  <p className="text-purple-100">
-                    Henderson's Finest Addresses
-                  </p>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-bold text-slate-900">
-                      $2M - $15M+
-                    </span>
-                    <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-semibold">
-                      Strip Views
-                    </span>
-                  </div>
-                  <p className="text-slate-600 mb-4">
-                    Elevated luxury with dramatic Strip and valley views.
-                    DragonRidge Country Club, modern architecture, and Henderson
-                    parks and trail systems.
-                  </p>
-                  <ul className="space-y-2 mb-4">
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Panoramic Strip views
-                    </li>
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      DragonRidge Country Club
-                    </li>
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Modern architecture
-                    </li>
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Henderson rec centers and named campuses
-                    </li>
-                  </ul>
-                  <Link
-                    href="/neighborhoods/henderson"
-                    className="text-blue-600 font-semibold hover:text-blue-700"
-                  >
-                    Explore Henderson Luxury →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Strip High-Rises */}
-              <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
-                <HeadingCardPhoto
-                  heading="Strip High-Rise Residences"
+                  heading="One Las Vegas"
                   heroKey="oneLasVegas"
                   className="rounded-none"
                 />
-                <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
-                  <h3 className="font-bold text-2xl mb-1">
-                    Strip High-Rise Residences
-                  </h3>
-                  <p className="text-blue-100">Lock-and-Leave Luxury Living</p>
+                <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white p-6">
+                  <h3 className="font-bold text-2xl mb-1">One Las Vegas</h3>
+                  <p className="text-amber-100">
+                    Strip-corridor luxury high-rise
+                  </p>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-2xl font-bold text-slate-900">
-                      $1M - $15M+
+                      Median $650K
                     </span>
-                    <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">
-                      Full Service
+                    <span className="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-semibold">
+                      Concierge
                     </span>
                   </div>
                   <p className="text-slate-600 mb-4">
-                    Waldorf Astoria, Veer Towers, Panorama Towers—full-service
-                    luxury for those who want turnkey living with world-class
-                    amenities and zero maintenance.
+                    High-rise floor plans with Strip-corridor views, resort
+                    pool, and concierge. Dr. Jan reviews HOA docs and parking
+                    before you write.
                   </p>
                   <ul className="space-y-2 mb-4">
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Concierge & valet services
+                      Resort pool and fitness
                     </li>
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Strip & mountain views
+                      Typical HOA $400–$1,200+/mo
                     </li>
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Pool, spa, fitness
+                      Airport and midtown commute mapped
                     </li>
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Perfect for part-time residents
+                      Live page on this site
                     </li>
                   </ul>
                   <Link
-                    href="/contact"
+                    href="/neighborhoods/one-las-vegas"
                     className="text-blue-600 font-semibold hover:text-blue-700"
                   >
-                    Request High-Rise Portfolio →
+                    Explore One Las Vegas →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Symphony Park */}
+              <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
+                <HeadingCardPhoto
+                  heading="Symphony Park"
+                  heroKey="symphonyPark"
+                  className="rounded-none"
+                />
+                <div className="bg-gradient-to-r from-purple-600 to-purple-700 text-white p-6">
+                  <h3 className="font-bold text-2xl mb-1">Symphony Park</h3>
+                  <p className="text-purple-100">
+                    Smith Center cultural district
+                  </p>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-2xl font-bold text-slate-900">
+                      Median $410K
+                    </span>
+                    <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-semibold">
+                      Mid-rise
+                    </span>
+                  </div>
+                  <p className="text-slate-600 mb-4">
+                    Residential-cultural district at the Smith Center — mid-rise
+                    condos without resort fees. Compare new-construction
+                    incentives and HOA reserves with Dr. Jan.
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center text-sm text-slate-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      Performing arts at the Smith Center
+                    </li>
+                    <li className="flex items-center text-sm text-slate-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      Walkable downtown / midtown routes
+                    </li>
+                    <li className="flex items-center text-sm text-slate-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      New-construction inventory
+                    </li>
+                    <li className="flex items-center text-sm text-slate-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      HOA docs before offer
+                    </li>
+                  </ul>
+                  <Link
+                    href="/neighborhoods/symphony-park"
+                    className="text-blue-600 font-semibold hover:text-blue-700"
+                  >
+                    Explore Symphony Park →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Palms Place */}
+              <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
+                <HeadingCardPhoto
+                  heading="Palms Place"
+                  heroKey="palmsPlace"
+                  className="rounded-none"
+                />
+                <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
+                  <h3 className="font-bold text-2xl mb-1">Palms Place</h3>
+                  <p className="text-blue-100">
+                    Strip-adjacent condotel high-rise
+                  </p>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-2xl font-bold text-slate-900">
+                      Median $380K
+                    </span>
+                    <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">
+                      Condotel
+                    </span>
+                  </div>
+                  <p className="text-slate-600 mb-4">
+                    High-rise condotel behind the Palms with valet, pool
+                    complex, and resort amenities. HOA typically covers
+                    utilities, cable, and internet — Dr. Jan breaks out optional
+                    valet and restaurant fees before you write.
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center text-sm text-slate-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      Valet parking
+                    </li>
+                    <li className="flex items-center text-sm text-slate-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      Pool, spa, and fitness
+                    </li>
+                    <li className="flex items-center text-sm text-slate-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      HOA typically includes utilities
+                    </li>
+                    <li className="flex items-center text-sm text-slate-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                      Rental-program rules in the CC&amp;Rs
+                    </li>
+                  </ul>
+                  <Link
+                    href="/neighborhoods/palms-place"
+                    className="text-blue-600 font-semibold hover:text-blue-700"
+                  >
+                    Explore Palms Place →
                   </Link>
                 </div>
               </div>
@@ -362,11 +357,7 @@ export default function LuxuryHomesPage() {
                     </li>
                     <li className="flex items-center text-sm text-slate-700">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Near airport (15 min)
-                    </li>
-                    <li className="flex items-center text-sm text-slate-700">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      15-minute airport commute
+                      About 15 minutes to Harry Reid Airport
                     </li>
                   </ul>
                   <Link

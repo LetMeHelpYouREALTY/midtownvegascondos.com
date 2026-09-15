@@ -9,7 +9,6 @@ import {
   Award,
   Users,
   Home,
-  TrendingUp,
   CheckCircle,
   MapPin,
   Shield,
@@ -29,6 +28,7 @@ import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import type { HeroImageKey } from "@/lib/hero-images";
+import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 
 export const metadata: Metadata = withPageHeroMetadata("/about", {
   title: "About Dr. Jan Duffy | Midtown Las Vegas Condo Specialist",
@@ -127,18 +127,8 @@ const specializations: {
 ];
 
 const areasServed = [
-  "Las Vegas",
-  "Henderson",
-  "Summerlin",
-  "Green Valley",
-  "North Las Vegas",
-  "Southern Highlands",
-  "Skye Canyon",
-  "Centennial Hills",
-  "The Ridges",
-  "Inspirada",
-  "Mountains Edge",
-  "Spring Valley",
+  ...midtownNeighborhoods.map((n) => ({ name: n.name, slug: n.slug })),
+  { name: "Southern Highlands", slug: "southern-highlands" },
 ];
 
 export default function AboutPage() {
@@ -482,21 +472,22 @@ export default function AboutPage() {
               Areas Served by BHHS Nevada Properties
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Dr. Jan Duffy serves the entire Las Vegas Valley with specialized
-              knowledge of each neighborhood's unique characteristics, price
-              points, and lifestyle offerings. From luxury estates in The Ridges
-              to affordable new construction in North Las Vegas, she provides
-              expert guidance wherever you want to buy or sell.
+              This site&apos;s live pages cover midtown Las Vegas condos — Arts
+              District, Symphony Park, One Las Vegas, Palms Place, and more.
+              Call (702) 500-1980 for inventory anywhere in the valley.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {areasServed.map((area) => (
-                <div
-                  key={area}
+                <Link
+                  key={area.slug}
+                  href={`/neighborhoods/${area.slug}`}
                   className="bg-slate-50 rounded-lg p-4 text-center hover:bg-blue-50 transition-colors"
                 >
                   <Home className="h-5 w-5 mx-auto mb-2 text-blue-600" />
-                  <span className="text-slate-700 font-medium">{area}</span>
-                </div>
+                  <span className="text-slate-700 font-medium">
+                    {area.name}
+                  </span>
+                </Link>
               ))}
             </div>
             <div className="text-center mt-6">

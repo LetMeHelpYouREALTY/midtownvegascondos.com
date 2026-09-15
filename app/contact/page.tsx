@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import Link from "next/link";
 import {
   Phone,
   Mail,
@@ -24,6 +25,7 @@ import {
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 
 export const metadata: Metadata = withPageHeroMetadata("/contact", {
   title: "Contact Dr. Jan Duffy | Las Vegas Arts District Condos",
@@ -315,34 +317,30 @@ export default function ContactPage() {
               Areas We Serve
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Dr. Jan Duffy provides expert real estate services throughout the
-              Las Vegas Valley. Whether you're buying, selling, or investing in
-              any of these communities, contact us for personalized guidance
-              backed by Berkshire Hathaway HomeServices.
+              Open a live midtown condo page below, or call (702) 500-1980 for
+              guidance anywhere in the Las Vegas Valley. Berkshire Hathaway
+              HomeServices Nevada Properties.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                "Las Vegas",
-                "Henderson",
-                "Summerlin",
-                "Green Valley",
-                "North Las Vegas",
-                "Southern Highlands",
-                "Skye Canyon",
-                "Centennial Hills",
-                "The Ridges",
-                "Inspirada",
-                "Mountains Edge",
-                "Spring Valley",
+                ...midtownNeighborhoods.map((n) => ({
+                  name: n.name,
+                  slug: n.slug,
+                })),
+                {
+                  name: "Southern Highlands",
+                  slug: "southern-highlands",
+                },
               ].map((area) => (
-                <div
-                  key={area}
+                <Link
+                  key={area.slug}
+                  href={`/neighborhoods/${area.slug}`}
                   className="bg-slate-50 rounded-lg p-3 text-center hover:bg-blue-50 transition-colors"
                 >
                   <span className="text-slate-700 font-medium text-sm">
-                    {area}
+                    {area.name}
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
           </section>

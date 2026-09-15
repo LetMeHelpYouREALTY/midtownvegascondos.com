@@ -26,6 +26,7 @@ import {
   generateFAQSchema,
 } from "@/lib/gbp-schema";
 import { officeInfo } from "@/lib/site-config";
+import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import type { HeroImageKey } from "@/lib/hero-images";
@@ -476,32 +477,30 @@ export default function GoogleBusinessPage() {
               {/* Neighborhood Specialties */}
               <div className="mt-8 pt-8 border-t border-blue-200">
                 <HeadingCardPhoto
-                  heading="Neighborhood Expertise"
+                  heading="Midtown condo neighborhoods"
                   sectionKey="neighborhoods"
                   className="mb-4 max-w-3xl"
                 />
                 <h3 className="font-bold text-slate-900 mb-4">
-                  Neighborhood Expertise
+                  Midtown condo neighborhoods
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    "Summerlin",
-                    "Henderson",
-                    "Green Valley",
-                    "The Ridges",
-                    "Southern Highlands",
-                    "Centennial Hills",
-                    "Skye Canyon",
-                    "Inspirada",
-                    "Mountains Edge",
-                    "North Las Vegas",
+                    ...midtownNeighborhoods.map((n) => ({
+                      name: n.name,
+                      slug: n.slug,
+                    })),
+                    {
+                      name: "Southern Highlands",
+                      slug: "southern-highlands",
+                    },
                   ].map((area) => (
                     <Link
-                      key={area}
-                      href={`/neighborhoods/${area.toLowerCase().replace(/\s+/g, "-")}`}
+                      key={area.slug}
+                      href={`/neighborhoods/${area.slug}`}
                       className="bg-white px-3 py-1 rounded-full text-sm text-slate-700 hover:bg-blue-100 transition-colors"
                     >
-                      {area}
+                      {area.name}
                     </Link>
                   ))}
                 </div>
