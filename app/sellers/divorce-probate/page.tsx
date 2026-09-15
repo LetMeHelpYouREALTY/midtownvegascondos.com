@@ -454,6 +454,11 @@ export default function DivorceProbatePage() {
                   1
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Confidential Initial Consultation"
+                    heroKey="contactOffice"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Confidential Initial Consultation
                   </h3>
@@ -470,6 +475,11 @@ export default function DivorceProbatePage() {
                   2
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Professional Valuation & Documentation"
+                    heroKey="homeValuation"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Professional Valuation & Documentation
                   </h3>
@@ -486,6 +496,11 @@ export default function DivorceProbatePage() {
                   3
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Coordinated Listing Strategy"
+                    heroKey="sellersHighrise"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Coordinated Listing Strategy
                   </h3>
@@ -502,6 +517,11 @@ export default function DivorceProbatePage() {
                   4
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Multi-Party Communication"
+                    heroKey="whyBhhs"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Multi-Party Communication
                   </h3>
@@ -518,6 +538,11 @@ export default function DivorceProbatePage() {
                   5
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Clean Closing & Distribution"
+                    heroKey="sellersDivorceProbate"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Clean Closing & Distribution
                   </h3>

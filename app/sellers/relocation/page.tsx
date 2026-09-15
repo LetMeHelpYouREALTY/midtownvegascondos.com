@@ -481,6 +481,11 @@ export default function RelocationPage() {
                   1
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Initial Consultation"
+                    heroKey="aboutAgent"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Initial Consultation
                   </h3>
@@ -496,6 +501,11 @@ export default function RelocationPage() {
                   2
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Destination Agent Connection"
+                    heroKey="relocationHub"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Destination Agent Connection
                   </h3>
@@ -511,6 +521,11 @@ export default function RelocationPage() {
                   3
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Las Vegas Home Preparation"
+                    heroKey="sellersHighrise"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Las Vegas Home Preparation
                   </h3>
@@ -526,6 +541,11 @@ export default function RelocationPage() {
                   4
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Coordinated Sale & Purchase"
+                    heroKey="sellersMoveUp"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Coordinated Sale & Purchase
                   </h3>
@@ -541,6 +561,11 @@ export default function RelocationPage() {
                   5
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Remote Closing"
+                    heroKey="sellersDivorceProbate"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Remote Closing
                   </h3>

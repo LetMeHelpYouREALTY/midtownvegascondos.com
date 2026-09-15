@@ -532,6 +532,11 @@ export default function DownsizingPage() {
                   1
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Discovery Conversation"
+                    heroKey="aboutAgent"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Discovery Conversation
                   </h3>
@@ -548,6 +553,11 @@ export default function DownsizingPage() {
                   2
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Equity Analysis & Options Review"
+                    heroKey="homeValuation"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Equity Analysis & Options Review
                   </h3>
@@ -564,6 +574,11 @@ export default function DownsizingPage() {
                   3
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Tour & Compare"
+                    heroKey="sellersDownsizing"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Tour & Compare
                   </h3>
@@ -580,6 +595,11 @@ export default function DownsizingPage() {
                   4
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Coordinated Transaction"
+                    heroKey="sellersMoveUp"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Coordinated Transaction
                   </h3>
