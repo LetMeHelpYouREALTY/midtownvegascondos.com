@@ -146,7 +146,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80">
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-white">500+</span>
-                <span>Families Helped</span>
+                <span>Clients Helped</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-white">30+ Years</span>
