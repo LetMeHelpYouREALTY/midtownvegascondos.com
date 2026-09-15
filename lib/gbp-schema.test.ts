@@ -123,6 +123,17 @@ describe("GBP engage CTAs on live pages", () => {
     }
   });
 
+  it("does not advertise hours that contradict the GBP Sunday–Thursday 9–5 listing", () => {
+    const text = readFileSync(
+      join(process.cwd(), "app/contact/page.tsx"),
+      "utf8",
+    );
+    expect(text).not.toMatch(/9am-6pm daily/i);
+    expect(text).toMatch(
+      /Sunday–Thursday 9:00 AM–5:00 PM; Friday–Saturday closed/,
+    );
+  });
+
   it("keeps GBP service-card photos matched to each service heading", () => {
     const text = readFileSync(
       join(process.cwd(), "app/google-business/page.tsx"),
