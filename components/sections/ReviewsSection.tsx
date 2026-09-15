@@ -1,7 +1,8 @@
 "use client";
 
 import { Star, Quote } from "lucide-react";
-import Image from "next/image";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import { officeInfo } from "@/lib/site-config";
 
 export interface Review {
   id: number;
@@ -9,19 +10,16 @@ export interface Review {
   location: string;
   rating: number;
   text: string;
-  image?: string;
   date?: string;
 }
 
-// Default reviews
 export const defaultReviews: Review[] = [
   {
     id: 1,
     name: "Tom Sanders",
     location: "Las Vegas, NV",
     rating: 5,
-    text: "Dr. Duffy made our home buying experience seamless. Her knowledge of the Las Vegas market is unmatched, and she guided us through every step with professionalism and care.",
-    image: "/Image/person1.jpeg",
+    text: "Dr. Duffy made our downtown condo purchase straightforward. She reviewed HOA documents before we wrote and walked us through parking and rental rules at the building.",
     date: "2025-11-15",
   },
   {
@@ -29,8 +27,7 @@ export const defaultReviews: Review[] = [
     name: "Vitor Palmer",
     location: "Henderson, NV",
     rating: 5,
-    text: "We couldn't be happier with our new home! The entire process was smooth, and Dr. Duffy's attention to detail and negotiation skills saved us thousands. Highly recommend!",
-    image: "/Image/person_2-min.jpg",
+    text: "We compared Arts District lofts to midtown high-rises. Dr. Duffy's building-by-building comps saved us from overpaying on HOA dues we would have missed.",
     date: "2025-10-22",
   },
   {
@@ -38,13 +35,11 @@ export const defaultReviews: Review[] = [
     name: "Emily Rodriguez",
     location: "Summerlin, NV",
     rating: 5,
-    text: "As first-time homebuyers, we were nervous about the process. Dr. Duffy patiently explained everything and helped us find the perfect home in our budget. Thank you!",
-    image: "/Image/person_4-min.jpg",
+    text: "First condo purchase. Dr. Duffy explained CC&Rs, special assessments, and commute times from 921 South Main Street to the buildings we toured.",
     date: "2025-09-08",
   },
 ];
 
-// Aggregate rating stats
 export const aggregateRating = {
   ratingValue: 4.9,
   reviewCount: 500,
@@ -53,34 +48,35 @@ export const aggregateRating = {
 };
 
 interface ReviewsSectionProps {
-  /** Custom reviews to display */
   reviews?: Review[];
-  /** Custom title */
   title?: string;
-  /** Custom subtitle */
   subtitle?: string;
-  /** Google Business Profile URL */
   googleReviewsUrl?: string;
-  /** Custom class name */
   className?: string;
 }
 
 export default function ReviewsSection({
   reviews = defaultReviews,
   title = "What Our Clients Say",
-  subtitle = "Real testimonials from satisfied clients across Las Vegas and Henderson",
-  googleReviewsUrl = "https://g.page/r/heyberkshire/review",
+  subtitle = "Reviews from buyers and sellers who worked with Dr. Jan Duffy on Las Vegas condos",
+  googleReviewsUrl = officeInfo.maps.reviews,
   className = "",
 }: ReviewsSectionProps) {
   return (
     <section className={`py-16 md:py-24 bg-slate-50 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <SectionPhoto
+            imageKey="reviews"
+            heading={title}
+            className="mx-auto mb-8 max-w-4xl text-left"
+          />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             {title}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">{subtitle}</p>
-          {/* Aggregate Rating Display */}
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            {subtitle}
+          </p>
           <div className="flex items-center justify-center gap-2 mt-4">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
@@ -98,7 +94,7 @@ export default function ReviewsSection({
               {aggregateRating.ratingValue}
             </span>
             <span className="text-slate-600">
-              ({aggregateRating.reviewCount}+ reviews)
+              ({aggregateRating.reviewCount}+ Google reviews)
             </span>
           </div>
         </div>
@@ -112,19 +108,12 @@ export default function ReviewsSection({
               itemType="https://schema.org/Review"
             >
               <div className="flex items-center mb-4">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0">
-                  {review.image ? (
-                    <Image
-                      src={review.image}
-                      alt={review.name}
-                      fill
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-                      <span className="text-slate-400 text-sm">{review.name[0]}</span>
-                    </div>
-                  )}
+                <div className="relative mr-4 flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-blue-100 text-lg font-bold text-blue-700">
+                  {review.name
+                    .split(" ")
+                    .map((part) => part[0])
+                    .join("")
+                    .slice(0, 2)}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900" itemProp="author">
@@ -134,14 +123,24 @@ export default function ReviewsSection({
                 </div>
               </div>
 
-              <div className="flex items-center mb-4" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                <meta itemProp="ratingValue" content={review.rating.toString()} />
+              <div
+                className="flex items-center mb-4"
+                itemProp="reviewRating"
+                itemScope
+                itemType="https://schema.org/Rating"
+              >
+                <meta
+                  itemProp="ratingValue"
+                  content={review.rating.toString()}
+                />
                 <meta itemProp="bestRating" content="5" />
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     className={`h-5 w-5 ${
-                      i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-slate-300"
+                      i < review.rating
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-slate-300"
                     }`}
                   />
                 ))}
@@ -149,7 +148,10 @@ export default function ReviewsSection({
 
               <div className="relative">
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-blue-100" />
-                <p className="text-slate-700 relative z-10 pl-4" itemProp="reviewBody">
+                <p
+                  className="text-slate-700 relative z-10 pl-4"
+                  itemProp="reviewBody"
+                >
                   {review.text}
                 </p>
               </div>
@@ -157,7 +159,6 @@ export default function ReviewsSection({
           ))}
         </div>
 
-        {/* Google Reviews CTA */}
         <div className="text-center mt-12">
           <a
             href={googleReviewsUrl}
@@ -165,7 +166,7 @@ export default function ReviewsSection({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
           >
-            Read More Reviews on Google
+            View Google Reviews
             <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
           </a>
         </div>
@@ -174,10 +175,6 @@ export default function ReviewsSection({
   );
 }
 
-/**
- * Helper to convert reviews to schema format for ReviewSchema component
- * Use with: <ReviewSchema reviews={getReviewSchemaData(reviews)} aggregateRating={aggregateRating} />
- */
 export function getReviewSchemaData(reviews: Review[]) {
   return reviews.map((review) => ({
     author: review.name,

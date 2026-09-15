@@ -1,10 +1,9 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
-import { Phone, ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import {
@@ -13,7 +12,10 @@ import {
   type MidtownLifestyleSlug,
 } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo } from "@/lib/site-config";
+import { getHeroImage } from "@/lib/hero-images";
 import { notFound } from "next/navigation";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -25,7 +27,9 @@ export function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const page = midtownLifestylePages[slug as MidtownLifestyleSlug];
   if (!page) return {};
@@ -43,10 +47,15 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
 
   return (
     <>
-      <SchemaScript schema={generateLifestylePageSchema(page.slug)} id={`${page.slug}-schema`} />
+      <SchemaScript
+        schema={generateLifestylePageSchema(page.slug)}
+        id={`${page.slug}-schema`}
+      />
       <Navbar />
       <PageHero
         imageKey={page.heroKey}
+        leadSectionKey="lifestyleFaq"
+        leadSectionHeading="FAQ"
         pagePath={page.path}
         badge={page.badge}
         title={page.headline}
@@ -71,30 +80,70 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
             ))}
           </ul>
 
-          <article className="prose prose-slate max-w-none mb-12">
-            {page.body.map((para) => (
-              <p key={para.slice(0, 40)} className="text-slate-700 leading-relaxed mb-4">
-                {para}
-              </p>
-            ))}
-          </article>
+          <section className="mb-12" aria-labelledby="lifestyle-overview">
+            <SectionPhoto
+              src={getHeroImage(page.heroKey).src}
+              heading={page.headline}
+              alt={getHeroImage(page.heroKey).alt}
+              caption={getHeroImage(page.heroKey).caption}
+              className="mb-6 text-left"
+            />
+            <h2
+              id="lifestyle-overview"
+              className="text-2xl font-bold text-slate-900 mb-4"
+            >
+              {page.headline}
+            </h2>
+            <article className="prose prose-slate max-w-none mb-12">
+              {page.body.map((para) => (
+                <p
+                  key={para.slice(0, 40)}
+                  className="text-slate-700 leading-relaxed mb-4"
+                >
+                  {para}
+                </p>
+              ))}
+            </article>
+          </section>
 
           <section className="mb-12" aria-labelledby="lifestyle-faq">
-            <h2 id="lifestyle-faq" className="text-2xl font-bold text-slate-900 mb-4">
+            <SectionPhoto
+              imageKey="lifestyleFaq"
+              heading="FAQ"
+              className="mb-6 text-left"
+            />
+            <h2
+              id="lifestyle-faq"
+              className="text-2xl font-bold text-slate-900 mb-4"
+            >
               FAQ
             </h2>
             <dl className="space-y-4">
               {page.faqs.map((faq) => (
-                <div key={faq.question} className="rounded-lg border border-slate-200 p-4">
-                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
-                  <dd className="mt-2 text-slate-600 text-sm leading-relaxed">{faq.answer}</dd>
+                <div
+                  key={faq.question}
+                  className="rounded-lg border border-slate-200 p-4"
+                >
+                  <dt className="font-semibold text-slate-900">
+                    {faq.question}
+                  </dt>
+                  <dd className="mt-2 text-slate-600 text-sm leading-relaxed">
+                    {faq.answer}
+                  </dd>
                 </div>
               ))}
             </dl>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-xl font-bold text-slate-900 mb-4">Related midtown pages</h2>
+            <SectionPhoto
+              imageKey="lifestyleHub"
+              heading="Related midtown pages"
+              className="mb-6 text-left"
+            />
+            <h2 className="text-xl font-bold text-slate-900 mb-4">
+              Related midtown pages
+            </h2>
             <div className="flex flex-wrap gap-3">
               {page.relatedLinks.map((link) => (
                 <Link
@@ -110,29 +159,31 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
           </section>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 text-center mb-12">
-            <h2 className="text-2xl font-bold mb-3">Tour midtown condos with Dr. Jan Duffy</h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Tour midtown condos with Dr. Jan Duffy"
+              className="mx-auto mb-6 max-w-3xl text-left"
+              onDark
+            />
+            <h2 className="text-2xl font-bold mb-3">
+              Tour midtown condos with Dr. Jan Duffy
+            </h2>
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>
-            <p className="text-slate-400 text-sm mb-6">{officeInfo.address.full}</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={agentInfo.phoneTel}
-                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500"
-              >
-                <Phone className="mr-2 h-4 w-4" />
-                Call {agentInfo.phone}
-              </a>
+            <p className="text-slate-400 text-sm mb-6">
+              {officeInfo.address.full}
+            </p>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3 font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
               >
                 Schedule a showing
               </Link>
-            </div>
+            </GbpEngageButtons>
           </section>
         </div>
-        <RealScoutListings />
       </main>
       <Footer />
     </>

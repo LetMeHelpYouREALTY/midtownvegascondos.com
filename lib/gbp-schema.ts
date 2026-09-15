@@ -1,7 +1,13 @@
 // Google Business Profile Schema Data
 // NAP / hours / categories must match GBP exactly for midtownvegascondos.com
 
-import { getAgentImageSrc, officeInfo, siteConfig } from "./site-config";
+import { midtownNeighborhoods } from "./hyperlocal-content";
+import {
+  agentInfo,
+  getAgentImageSrc,
+  officeInfo,
+  siteConfig,
+} from "./site-config";
 
 export const businessInfo = {
   // NAP - Must match GBP exactly
@@ -62,14 +68,38 @@ export const businessInfo = {
 
   // Services - Each creates searchable fields in GBP
   services: [
-    { name: "Buyer Representation", description: "Full-service home buying assistance" },
-    { name: "Seller Representation", description: "List and sell your home for top dollar" },
-    { name: "Luxury Condo Sales", description: "High-rise and Arts District condominiums" },
-    { name: "Downtown Las Vegas Condos", description: "Downtown and Arts District condo expertise" },
-    { name: "California Relocation Services", description: "Helping CA buyers transition to Las Vegas" },
-    { name: "First-Time Home Buyer Guidance", description: "FHA, VA, down payment assistance" },
-    { name: "Investment Property Consulting", description: "Rental properties and investment analysis" },
-    { name: "Online Appointments", description: "Schedule consultations and showings online" },
+    {
+      name: "Buyer Representation",
+      description: "Full-service home buying assistance",
+    },
+    {
+      name: "Seller Representation",
+      description: "List and sell your home for top dollar",
+    },
+    {
+      name: "Luxury Condo Sales",
+      description: "High-rise and Arts District condominiums",
+    },
+    {
+      name: "Downtown Las Vegas Condos",
+      description: "Downtown and Arts District condo expertise",
+    },
+    {
+      name: "California Relocation Services",
+      description: "Helping CA buyers transition to Las Vegas",
+    },
+    {
+      name: "First-Time Home Buyer Guidance",
+      description: "FHA, VA, down payment assistance",
+    },
+    {
+      name: "Investment Property Consulting",
+      description: "Rental properties and investment analysis",
+    },
+    {
+      name: "Online Appointments",
+      description: "Schedule consultations and showings online",
+    },
   ],
 
   // Attributes for GBP - Match profile
@@ -90,9 +120,10 @@ export const businessInfo = {
     planning: ["Appointment required"],
   },
 
-  // Social profiles for sameAs schema
+  // Social profiles + Maps / GBP page for local-pack entity matching
   socialProfiles: [
     "https://www.linkedin.com/company/downtown-las-vegas-condos-and-homes-for-sale",
+    "https://www.midtownvegascondos.com/google-business",
   ],
 
   // Languages spoken
@@ -114,7 +145,8 @@ export const gbpDescription = {
 // FAQ Schema for GBP Q&A section
 export const gbpFAQs = [
   {
-    question: "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
+    question:
+      "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
     answer:
       "Our business location is 921 South Main Street, Las Vegas, NV 89101 in the Arts District / Downtown Las Vegas corridor. Call (702) 500-1980 for directions or to schedule an appointment.",
   },
@@ -145,6 +177,180 @@ export const gbpFAQs = [
   },
 ];
 
+function absoluteSiteImage(path: string): string {
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  return `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+const gbpPhotoObjects = [
+  {
+    "@type": "ImageObject" as const,
+    name: "921 South Main Street Arts District office",
+    caption:
+      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy at 921 South Main Street",
+    url: absoluteSiteImage(
+      "/images/hero/contact-arts-district-main-street.webp",
+    ),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/contact-arts-district-main-street.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Arts District Las Vegas office street",
+    caption:
+      "Google Business Profile office photography for Downtown Las Vegas condo tours",
+    url: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Dr. Jan Duffy, REALTOR®",
+    caption:
+      "Dr. Jan Duffy, midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties",
+    url: absoluteSiteImage(getAgentImageSrc()),
+    contentUrl: absoluteSiteImage(getAgentImageSrc()),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Las Vegas Strip skyline near midtown condos",
+    caption:
+      "Twilight Strip skyline used by homebuyers comparing midtown and downtown Las Vegas condos",
+    url: absoluteSiteImage("/images/hero/home-strip-dusk.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/home-strip-dusk.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Midtown Las Vegas loft interior",
+    caption:
+      "Arts District and midtown condo interior photography for Downtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/faq-midtown-loft-interior.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/faq-midtown-loft-interior.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Dr. Jan Duffy real estate office",
+    caption:
+      "Berkshire Hathaway HomeServices Nevada Properties workspace for Arts District condo consultations",
+    url: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Arts District Las Vegas condo living",
+    caption:
+      "Arts District loft and condo photography for Downtown Las Vegas homebuyers",
+    url: absoluteSiteImage("/images/hero/arts-district-galleries.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/arts-district-galleries.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "One Las Vegas high-rise condos",
+    caption:
+      "One Las Vegas luxury high-rise condo tower for midtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/one-las-vegas-highrise.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/one-las-vegas-highrise.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Juhl downtown Las Vegas condos",
+    caption:
+      "Juhl downtown condo tower photography for midtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/juhl-downtown-condo-tower.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/juhl-downtown-condo-tower.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Fremont East downtown condos",
+    caption:
+      "Fremont East entertainment-district condo corridor for downtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/fremont-east-daytime.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/fremont-east-daytime.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Symphony Park Las Vegas condos",
+    caption:
+      "Symphony Park midtown residences near the Smith Center for downtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/symphony-park-midrise.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/symphony-park-midrise.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "The English Residences midtown condos",
+    caption:
+      "The English Residences boutique condo building in midtown Las Vegas",
+    url: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Palms Place Strip-adjacent condos",
+    caption:
+      "Palms Place Strip-adjacent high-rise condo photography for midtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/palms-place-condotel.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/palms-place-condotel.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Midtown Plaza Las Vegas condos",
+    caption:
+      "Walkable Midtown Plaza condo residences near the Arts District office",
+    url: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/midtown-plaza-walkable.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Search Midtown Vegas condos",
+    caption:
+      "Juhl downtown Las Vegas condo tower representing live midtown condo search photography",
+    url: absoluteSiteImage("/images/hero/juhl-downtown-condo-tower.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/juhl-downtown-condo-tower.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Why work with Dr. Jan Duffy",
+    caption:
+      "Arts District Las Vegas office street for Dr. Jan Duffy buyer matching",
+    url: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/gbp-arts-district-office.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "HOA document review",
+    caption:
+      "Condo floor plans and keys with the Las Vegas Stratosphere outside the window",
+    url: absoluteSiteImage("/images/hero/services-condo-consultation.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/services-condo-consultation.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Arts District gallery street",
+    caption:
+      "Las Vegas Arts District galleries and murals near downtown condo buildings",
+    url: absoluteSiteImage("/images/sections/arts-district-galleries.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/sections/arts-district-galleries.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Client reviews conference room",
+    caption:
+      "Las Vegas real estate conference room representing Google reviews for this GBP",
+    url: absoluteSiteImage("/images/sections/client-reviews.webp"),
+    contentUrl: absoluteSiteImage("/images/sections/client-reviews.webp"),
+  },
+];
+
 // Generate LocalBusiness Schema
 export function generateLocalBusinessSchema() {
   return {
@@ -158,12 +364,15 @@ export function generateLocalBusinessSchema() {
       "Berkshire Hathaway HomeServices Nevada Properties",
     ],
     description: businessInfo.description,
-    image: getAgentImageSrc(),
+    image: gbpPhotoObjects.map((photo) => photo.contentUrl),
+    photo: gbpPhotoObjects,
+    logo: absoluteSiteImage(getAgentImageSrc()),
     url: businessInfo.url,
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,
     priceRange: businessInfo.priceRange,
     foundingDate: businessInfo.foundingDate,
+    openingHours: ["Su-Th 09:00-17:00"],
     address: {
       "@type": "PostalAddress",
       ...businessInfo.address,
@@ -173,7 +382,11 @@ export function generateLocalBusinessSchema() {
       latitude: businessInfo.geo.latitude,
       longitude: businessInfo.geo.longitude,
     },
-    hasMap: [officeInfo.maps.place, officeInfo.maps.directions, officeInfo.maps.reviews],
+    hasMap: [
+      officeInfo.maps.place,
+      officeInfo.maps.directions,
+      officeInfo.maps.reviews,
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -206,10 +419,54 @@ export function generateLocalBusinessSchema() {
         closes: "17:00",
       },
     ],
-    areaServed: businessInfo.serviceAreas.map((area) => ({
-      "@type": "Place",
-      name: area,
+    amenityFeature: [
+      ...businessInfo.attributes.amenities,
+      ...businessInfo.attributes.accessibility,
+    ].map((name) => ({
+      "@type": "LocationFeatureSpecification",
+      name,
+      value: true,
     })),
+    areaServed: [
+      {
+        "@type": "GeoCircle",
+        name: "Arts District and Downtown Las Vegas",
+        geoMidpoint: {
+          "@type": "GeoCoordinates",
+          latitude: businessInfo.geo.latitude,
+          longitude: businessInfo.geo.longitude,
+        },
+        geoRadius: 8000,
+      },
+      ...businessInfo.serviceAreas.map((area) => ({
+        "@type": "Place",
+        name: area,
+      })),
+      ...midtownNeighborhoods.map((area) => ({
+        "@type": "Place",
+        name: `${area.name}, Las Vegas, NV`,
+        url: `${siteConfig.url}/neighborhoods/${area.slug}`,
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: area.latitude,
+          longitude: area.longitude,
+        },
+      })),
+    ],
+    knowsAbout: midtownNeighborhoods.map((area) => `${area.name} condos`),
+    employee: {
+      "@type": "Person",
+      name: agentInfo.name,
+      jobTitle: agentInfo.title,
+      identifier: agentInfo.license,
+      telephone: businessInfo.phone.tel,
+      url: `${siteConfig.url}/about`,
+      image: absoluteSiteImage(getAgentImageSrc()),
+      worksFor: {
+        "@type": "RealEstateAgent",
+        name: agentInfo.brokerage,
+      },
+    },
     knowsLanguage: businessInfo.languages,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -229,7 +486,58 @@ export function generateLocalBusinessSchema() {
       reviewCount: "500",
       bestRating: "5",
     },
-    sameAs: businessInfo.socialProfiles,
+    identifier: {
+      "@type": "PropertyValue",
+      name: "Google Place ID",
+      value: officeInfo.googlePlace.placeId,
+    },
+    parentOrganization: {
+      "@type": "RealEstateAgent",
+      name: "Berkshire Hathaway HomeServices Nevada Properties",
+    },
+    sameAs: [
+      ...businessInfo.socialProfiles,
+      officeInfo.maps.place,
+      `https://www.google.com/maps/place/?q=place_id:${officeInfo.googlePlace.placeId}`,
+    ],
+    potentialAction: [
+      {
+        "@type": "ReserveAction",
+        name: "Schedule a condo consultation",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${siteConfig.url}/contact`,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
+      {
+        "@type": "CallAction",
+        name: "Call Dr. Jan Duffy",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `tel:${businessInfo.phone.tel}`,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
+      {
+        "@type": "FindAction",
+        name: "Search midtown Las Vegas condos",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${siteConfig.url}/listings`,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
+    ],
   };
 }
 

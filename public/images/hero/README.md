@@ -28,4 +28,4 @@ Each WebP is assigned to exactly one route via `lib/hero-images.ts`.
 ### Sitemap images
 - `app/sitemap.ts` includes `images: [absolute hero URL]` per Next.js `MetadataRoute.Sitemap`
 
-Sources: Unsplash License (free commercial use).
+Sources: original heading-matched photography stored in git; Cloudflare R2 is primary CDN when `NEXT_PUBLIC_R2_ENABLED=true`.

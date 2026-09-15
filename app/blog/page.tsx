@@ -1,17 +1,22 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
-import { Phone, ArrowRight, Newspaper } from "lucide-react";
+import { ArrowRight, Newspaper } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { blogPosts } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
+import GbpPostsSection from "@/components/sections/GbpPostsSection";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
+import { getHeroKeyForPath } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/blog", {
-  title: "Midtown Las Vegas Condo Blog | Market & Lifestyle Guides | Dr. Jan Duffy",
+  title:
+    "Midtown Las Vegas Condo Blog | Market & Lifestyle Guides | Dr. Jan Duffy",
   description:
     "Midtown Las Vegas condo blog — market updates, building guides, Run Club, EV living, and Arts District tips from Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 500-1980.",
   keywords: [
@@ -48,7 +53,9 @@ const blogSchema = {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    url: post.href.startsWith("http") ? post.href : `${siteConfig.url}${post.href}`,
+    url: post.href.startsWith("http")
+      ? post.href
+      : `${siteConfig.url}${post.href}`,
     author: { "@type": "Person", name: agentInfo.name },
   })),
 };
@@ -60,6 +67,8 @@ export default function BlogPage() {
       <Navbar />
       <PageHero
         imageKey="homeSkylineDay"
+        leadSectionKey="blogHub"
+        leadSectionHeading="Midtown Las Vegas condo insights"
         pagePath="/blog"
         badge="Guides & market notes"
         title="Midtown Vegas Condos Blog"
@@ -80,13 +89,21 @@ export default function BlogPage() {
                     {post.category}
                   </span>
                   <time dateTime={post.date}>
-                    {new Date(post.date + "T12:00:00").toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
+                    {new Date(post.date + "T12:00:00").toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      },
+                    )}
                   </time>
                 </div>
+                <HeadingCardPhoto
+                  heading={post.title}
+                  heroKey={getHeroKeyForPath(post.href)}
+                  className="mb-4"
+                />
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">
                   <Link href={post.href} className="hover:text-blue-600">
                     {post.title}
@@ -105,21 +122,24 @@ export default function BlogPage() {
           </div>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 text-center">
-            <h2 className="text-2xl font-bold mb-3">Want a custom midtown shortlist?</h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Want a custom midtown shortlist?"
+              className="mx-auto mb-6 max-w-3xl text-left"
+              onDark
+            />
+            <h2 className="text-2xl font-bold mb-3">
+              Want a custom midtown shortlist?
+            </h2>
             <p className="text-slate-300 mb-6">
-              Call {agentInfo.name} at {agentInfo.phone} · {officeInfo.address.full}
+              Call {agentInfo.name} at {agentInfo.phone} ·{" "}
+              {officeInfo.address.full}
             </p>
-            <a
-              href={agentInfo.phoneTel}
-              className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500"
-            >
-              <Phone className="mr-2 h-4 w-4" />
-              Call now
-            </a>
+            <GbpEngageButtons onDark />
           </section>
         </div>
         <div className="mt-12">
-          <RealScoutListings />
+          <GbpPostsSection />
         </div>
       </main>
       <Footer />

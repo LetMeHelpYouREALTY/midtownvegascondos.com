@@ -4,6 +4,7 @@
  * Homepage uses `homeStripDusk` (best hero).
  */
 
+import { getCdnImageSrc } from "./cloudflare-assets";
 import { siteConfig, agentInfo, officeInfo } from "./site-config";
 
 export type HeroImageMeta = {
@@ -31,10 +32,10 @@ function hero(
   lng: number,
   keywords: string[],
   width = 1920,
-  height = 1080
+  height = 1080,
 ): HeroImageMeta {
   return {
-    src: `/images/hero/${file}`,
+    src: getCdnImageSrc(`/images/hero/${file}`),
     alt,
     caption,
     geoName,
@@ -61,7 +62,7 @@ export const heroImages = {
     STRIP.lng,
     ["Las Vegas Strip", "midtown condos", "high-rise", "twilight skyline"],
     1920,
-    1143
+    1143,
   ),
   homeSkylineDay: hero(
     "home-skyline-day.webp",
@@ -70,52 +71,52 @@ export const heroImages = {
     "Downtown Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["downtown Las Vegas", "midtown skyline", "condo towers"]
+    ["downtown Las Vegas", "midtown skyline", "condo towers"],
   ),
   homeStripNight: hero(
-    "home-strip-night.webp",
-    "Las Vegas Strip illuminated at night with high-rise towers and urban condo skyline",
-    "Night view of Las Vegas high-rises popular with midtown condo buyers.",
+    "home-strip-dusk.webp",
+    "Las Vegas Strip dusk skyline with high-rise towers used for midtown condo market photography",
+    "Color Strip skyline for midtown condo buyers — not a distant black-and-white stock shot.",
     "Las Vegas Strip, Las Vegas, NV",
     STRIP.lat,
     STRIP.lng,
-    ["Las Vegas night skyline", "high-rise living"]
+    ["Las Vegas dusk skyline", "high-rise living"],
   ),
   buyersCondoTower: hero(
-    "condo-balconies.webp",
+    "juhl-downtown-condo-tower.webp",
     "Modern midtown Las Vegas condo tower with glass balconies for sale — Dr. Jan Duffy buyer representation",
     "A modern condo tower with balconies in midtown Las Vegas.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["buy midtown condo", "condo tower", "balconies"]
+    ["buy midtown condo", "condo tower", "balconies"],
   ),
   buyersCaRelocator: hero(
-    "desert-skyline.webp",
+    "relocation-vegas-skyline.webp",
     "Las Vegas valley skyline for California relocators buying midtown condos with lower taxes and urban amenities",
     "Las Vegas valley view for California buyers relocating to midtown condos.",
     "Las Vegas Valley, NV",
     36.1699,
     -115.1398,
-    ["California relocation", "Las Vegas condo move"]
+    ["California relocation", "Las Vegas condo move"],
   ),
   buyersFirstTime: hero(
-    "bright-living.webp",
-    "Bright midtown Las Vegas condo living room for first-time buyers — walkable urban lifestyle",
-    "A bright condo living space suited to first-time midtown buyers.",
+    "faq-midtown-loft-interior.webp",
+    "Bright midtown Las Vegas loft living room for first-time buyers — walkable urban lifestyle",
+    "A bright loft living space suited to first-time midtown buyers.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["first-time condo buyers", "midtown living room"]
+    ["first-time condo buyers", "midtown living room"],
   ),
   buyersLuxury: hero(
-    "penthouse.webp",
-    "Luxury midtown Las Vegas condo living with designer interiors near Strip-view high-rises",
-    "Luxury condo interior for high-end midtown Las Vegas buyers.",
+    "one-las-vegas-highrise.webp",
+    "Luxury midtown Las Vegas high-rise condo living near Strip-view towers",
+    "Luxury high-rise condo living for high-end midtown Las Vegas buyers.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["luxury condos Las Vegas", "penthouse style"]
+    ["luxury condos Las Vegas", "penthouse style"],
   ),
   sellersHighrise: hero(
     "tower-look-up.webp",
@@ -124,43 +125,43 @@ export const heroImages = {
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["sell midtown condo", "high-rise listing"]
+    ["sell midtown condo", "high-rise listing"],
   ),
   sellersDownsizing: hero(
-    "open-plan.webp",
-    "Open-plan midtown Las Vegas condo ideal for downsizers seeking low-maintenance urban living",
-    "Open-plan condo living for Las Vegas downsizers.",
+    "faq-midtown-loft-interior.webp",
+    "Open-plan midtown Las Vegas loft interior for downsizers seeking low-maintenance urban living",
+    "Open-plan loft living for Las Vegas downsizers.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["downsizing condo", "low maintenance living"]
+    ["downsizing condo", "low maintenance living"],
   ),
   sellersMoveUp: hero(
-    "luxury-interior.webp",
-    "Upgraded midtown Las Vegas condo interior for move-up sellers and trade-up buyers",
-    "An upgraded condo interior for move-up Las Vegas sellers.",
+    "one-las-vegas-highrise.webp",
+    "Upgraded midtown Las Vegas condo tower for move-up sellers and trade-up buyers",
+    "A Strip-adjacent high-rise for move-up Las Vegas sellers.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["move-up home", "condo upgrade"]
+    ["move-up home", "condo upgrade"],
   ),
   sellersRelocation: hero(
-    "map-planning.webp",
-    "Relocation planning map for sellers leaving Las Vegas midtown condo markets",
-    "Relocation planning for midtown Las Vegas condo sellers.",
+    "relocation-vegas-skyline.webp",
+    "Las Vegas valley skyline for sellers relocating from midtown condo markets",
+    "Valley skyline for midtown Las Vegas condo sellers relocating.",
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["condo relocation", "sell and move"]
+    ["condo relocation", "sell and move"],
   ),
   sellersDivorceProbate: hero(
-    "handshake-deal.webp",
-    "Professional real estate closing for divorce and probate midtown Las Vegas condo sales",
+    "services-condo-consultation.webp",
+    "Condo consultation desk with Las Vegas Stratosphere view for divorce and probate midtown sales",
     "Professional guidance for divorce and probate condo sales.",
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["probate real estate", "divorce property sale"]
+    ["probate real estate", "divorce property sale"],
   ),
   neighborhoodsHub: hero(
     "home-skyline-day.webp",
@@ -171,19 +172,19 @@ export const heroImages = {
     MIDTOWN.lng,
     ["midtown neighborhoods", "condo districts"],
     1920,
-    1280
+    1280,
   ),
   artsDistrict: hero(
-    "highrise-windows.webp",
-    "Arts District Las Vegas loft and condo living near Gallery Row midtown",
-    "Arts District midtown loft-style condo atmosphere.",
+    "arts-district-galleries.webp",
+    "Arts District Las Vegas mural street near Gallery Row loft and condo buildings",
+    "Arts District mural corridor for loft and condo buyers near Gallery Row.",
     "Arts District, Las Vegas, NV",
     36.1589,
     -115.1534,
-    ["Arts District condos", "Gallery Row lofts"]
+    ["Arts District condos", "Gallery Row lofts"],
   ),
   fremontEast: hero(
-    "wiki-fremont.webp",
+    "fremont-east-daytime.webp",
     "Fremont East Entertainment District Las Vegas — boutique downtown condo corridor",
     "Fremont East downtown corridor for boutique condo living.",
     "Fremont East, Las Vegas, NV",
@@ -191,19 +192,19 @@ export const heroImages = {
     -115.1398,
     ["Fremont East condos", "downtown entertainment"],
     1920,
-    1440
+    1440,
   ),
   symphonyPark: hero(
-    "sky-terrace.webp",
+    "symphony-park-midrise.webp",
     "Symphony Park midtown Las Vegas cultural district condo residences near the Smith Center",
     "Symphony Park urban district living near cultural venues.",
     "Symphony Park, Las Vegas, NV",
     36.1712,
     -115.1495,
-    ["Symphony Park condos", "Smith Center"]
+    ["Symphony Park condos", "Smith Center"],
   ),
   oneLasVegas: hero(
-    "unsplash-jlT.webp",
+    "one-las-vegas-highrise.webp",
     "One Las Vegas luxury high-rise condo tower with Strip views and resort amenities",
     "Luxury high-rise condo living associated with One Las Vegas.",
     "One Las Vegas, Las Vegas, NV",
@@ -211,376 +212,385 @@ export const heroImages = {
     -115.172,
     ["One Las Vegas condos", "Strip view high-rise"],
     1920,
-    1143
+    1143,
   ),
   englishResidences: hero(
-    "apartment-row.webp",
-    "The English Residences midtown Las Vegas boutique condo building exterior",
-    "Boutique midtown condo building exterior.",
+    "midtown-plaza-walkable.webp",
+    "The English Residences midtown Las Vegas boutique condo courtyard and walkable plaza",
+    "Walkable midtown plaza condo courtyard for boutique residences.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["English Residences", "boutique condos"]
+    ["English Residences", "boutique condos"],
   ),
   juhl: hero(
-    "extra01.webp",
+    "juhl-downtown-condo-tower.webp",
     "Juhl downtown midtown Las Vegas condo tower urban lifestyle",
     "Urban condo lifestyle near Juhl downtown Las Vegas.",
     "Juhl, Las Vegas, NV",
     36.1676,
     -115.141,
-    ["Juhl condos", "downtown high-rise"]
+    ["Juhl condos", "downtown high-rise"],
   ),
   palmsPlace: hero(
-    "home-strip-night.webp",
-    "Palms Place Strip-adjacent high-rise condo tower Las Vegas nightlife skyline",
-    "Strip-adjacent condo skyline near Palms Place.",
+    "palms-place-condotel.webp",
+    "Palms Place Strip-adjacent condotel lifestyle with high-rise balcony and resort pool views",
+    "Strip and resort-pool view from a high-rise balcony — Palms Place condotel living.",
     "Palms Place, Las Vegas, NV",
     36.1156,
     -115.186,
-    ["Palms Place condos", "Strip adjacent"]
+    ["Palms Place condos", "Strip adjacent"],
   ),
   midtownPlaza: hero(
-    "extra06.webp",
+    "midtown-plaza-walkable.webp",
     "Midtown Plaza Las Vegas condo residences in the walkable urban core",
     "Walkable midtown plaza condo environment.",
     "Midtown Plaza, Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["Midtown Plaza", "urban core condos"]
+    ["Midtown Plaza", "urban core condos"],
   ),
   listingsSearch: hero(
-    "glass-facade.webp",
-    "Glass high-rise condo facades for Midtown Las Vegas MLS condo search listings",
-    "Contemporary glass condo facades in midtown Las Vegas.",
+    "juhl-downtown-condo-tower.webp",
+    "Downtown Las Vegas condo tower used to search live midtown MLS listings",
+    "A downtown Las Vegas condo tower representing live MLS search inventory.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["condo listings", "MLS search"]
+    ["condo listings", "MLS search"],
   ),
   listingDetail: hero(
-    "balcony-city.webp",
+    "strip-view-condo-balcony.webp",
     "Midtown Las Vegas condo balcony city view for active MLS property detail pages",
-    "City-view condo balcony representing midtown listings.",
+    "Strip-view condo balcony representing midtown listings.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["property detail", "condo balcony view"]
+    ["property detail", "condo balcony view"],
   ),
   aboutAgent: hero(
-    "agent-office.webp",
-    "Professional real estate office of Dr. Jan Duffy — midtown Las Vegas condo specialist BHHS Nevada",
-    "Professional real estate workspace for Dr. Jan Duffy.",
+    "gbp-arts-district-office.webp",
+    "Arts District Las Vegas office of Dr. Jan Duffy — midtown condo specialist at BHHS Nevada",
+    "Arts District office street for Dr. Jan Duffy condo consultations.",
     officeInfo.address.city + ", NV",
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["Dr Jan Duffy", "BHHS Nevada Properties"]
+    ["Dr Jan Duffy", "BHHS Nevada Properties"],
   ),
   contactOffice: hero(
-    "extra07.webp",
+    "contact-arts-district-main-street.webp",
     "Contact Dr. Jan Duffy midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties",
     "Reach Dr. Jan Duffy for midtown Las Vegas condo help.",
     officeInfo.address.full,
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["contact realtor", "Las Vegas condo agent"]
+    ["contact realtor", "Las Vegas condo agent"],
   ),
   faqLoft: hero(
-    "extra08.webp",
+    "faq-midtown-loft-interior.webp",
     "Midtown Las Vegas condo FAQ — HOA fees, rental rules, and high-rise living questions answered",
     "FAQ visual for midtown Las Vegas condo buyers and sellers.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["condo FAQ", "HOA questions"]
+    ["condo FAQ", "HOA questions"],
   ),
   servicesHub: hero(
-    "extra09.webp",
+    "services-condo-consultation.webp",
     "Full-service midtown Las Vegas condo real estate services from BHHS Nevada Properties",
     "Comprehensive condo real estate services in midtown Las Vegas.",
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["real estate services", "condo specialist"]
+    ["real estate services", "condo specialist"],
   ),
   relocationHub: hero(
-    "extra10.webp",
+    "relocation-vegas-skyline.webp",
     "Relocation to midtown Las Vegas condos — experts guiding out-of-state and California movers",
     "Relocation support for buyers moving to midtown Las Vegas.",
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["Las Vegas relocation", "out of state buyers"]
+    ["Las Vegas relocation", "out of state buyers"],
   ),
   luxuryHomes: hero(
-    "pool-amenity.webp",
-    "Luxury midtown and Strip-adjacent Las Vegas condo resort-style amenities and high-rise living",
-    "Resort-style amenities for luxury Las Vegas condo living.",
+    "one-las-vegas-highrise.webp",
+    "Luxury midtown and Strip-adjacent Las Vegas condo high-rise living",
+    "High-rise amenities for luxury Las Vegas condo living.",
     "Las Vegas, NV",
     STRIP.lat,
     STRIP.lng,
-    ["luxury condo amenities", "resort living"]
+    ["luxury condo amenities", "resort living"],
   ),
   investmentProperties: hero(
-    "extra11.webp",
+    "investment-downtown-condos.webp",
     "Midtown Las Vegas condo investment properties — rental yields, STR rules, and HOA reserves",
     "Investment-focused midtown Las Vegas condo opportunities.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["condo investing", "rental property Las Vegas"]
+    ["condo investing", "rental property Las Vegas"],
   ),
   homeValuation: hero(
-    "extra12.webp",
+    "services-condo-consultation.webp",
     "Free midtown Las Vegas condo valuation — comparable sales and price-per-square-foot analysis",
-    "Condo valuation based on midtown Las Vegas comps.",
+    "Condo floor plans and keys with the Stratosphere for a midtown Las Vegas valuation.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["condo valuation", "home value estimate"]
+    ["condo valuation", "home value estimate"],
   ),
   newConstruction: hero(
-    "new-construction.webp",
-    "New construction midtown Las Vegas condominiums and contemporary residential architecture",
-    "New-construction condo architecture in Las Vegas.",
+    "heritage-stonebridge-new.webp",
+    "New construction Las Vegas homes and contemporary residential architecture",
+    "New-construction residential architecture in Las Vegas.",
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["new construction condos", "modern builds"]
+    ["new construction condos", "modern builds"],
   ),
   marketReport: hero(
-    "night-city.webp",
+    "home-skyline-day.webp",
     "Midtown Las Vegas condo market report — median prices, days on market, and inventory trends",
-    "Market report skyline for midtown Las Vegas condos.",
-    "Las Vegas, NV",
+    "City of Las Vegas gateway arch and downtown towers for the condo market report.",
+    "Downtown Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["condo market report", "Las Vegas housing data"]
+    ["condo market report", "Las Vegas housing data"],
   ),
   marketInsights: hero(
-    "night-neon.webp",
-    "Las Vegas condo market insights and urban high-rise pricing trends for midtown buyers",
+    "home-strip-dusk.webp",
+    "Las Vegas Strip dusk skyline for condo market insights and midtown pricing trends",
     "Market insights for urban Las Vegas condo buyers.",
     "Las Vegas, NV",
     LV.lat,
     LV.lng,
-    ["market insights", "condo pricing trends"]
+    ["market insights", "condo pricing trends"],
   ),
   marketUpdate: hero(
-    "extra14.webp",
+    "home-skyline-day.webp",
     "Latest midtown Las Vegas condo market update with neighborhood-level pricing data",
-    "Current market update for midtown Las Vegas condos.",
-    "Midtown Las Vegas, NV",
+    "Downtown Las Vegas gateway arch for the current midtown condo market update.",
+    "Downtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["market update", "condo inventory"]
+    ["market update", "condo inventory"],
   ),
   whyBhhs: hero(
-    "extra17.webp",
-    "Why Berkshire Hathaway HomeServices — trusted brokerage behind Dr. Jan Duffy midtown condo practice",
-    "Berkshire Hathaway HomeServices brand trust for condo clients.",
+    "gbp-arts-district-office.webp",
+    "Why Berkshire Hathaway HomeServices — Arts District office behind Dr. Jan Duffy midtown condo practice",
+    "Arts District office representing BHHS Nevada Properties for condo clients.",
     "Las Vegas, NV",
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["Berkshire Hathaway HomeServices", "trusted brokerage"]
+    ["Berkshire Hathaway HomeServices", "trusted brokerage"],
   ),
   googleBusiness: hero(
-    "extra18.webp",
+    "gbp-arts-district-office.webp",
     "Google Business Profile for Dr. Jan Duffy midtown Las Vegas condo specialist — NAP matching GBP",
     "Local Google Business Profile visibility for midtown condo clients.",
     officeInfo.address.full,
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["Google Business Profile", "local SEO realtor"]
+    ["Google Business Profile", "local SEO realtor"],
   ),
   fiftyFivePlus: hero(
-    "active-adult.webp",
+    "trilogy-summerlin-villas.webp",
     "55+ active adult communities near Las Vegas — Sun City, Del Webb, and maintenance-free condo options",
     "Active adult living options near Las Vegas condo markets.",
     "Las Vegas, NV",
     36.0411,
     -115.165,
-    ["55+ communities", "active adult living"]
+    ["55+ communities", "active adult living"],
   ),
   fiftyFiveSunCitySummerlin: hero(
-    "golf-community.webp",
-    "Sun City Summerlin 55+ community Las Vegas — golf lifestyle and maintenance-free living",
-    "Sun City Summerlin active adult community lifestyle.",
+    "summerlin-community.webp",
+    "Sun City Summerlin 55+ community Las Vegas — Red Rock backdrop and maintenance-free living",
+    "Sun City Summerlin active adult community near Red Rock.",
     "Sun City Summerlin, Las Vegas, NV",
     36.204,
     -115.295,
-    ["Sun City Summerlin", "55+ golf community"]
+    ["Sun City Summerlin", "55+ golf community"],
   ),
   fiftyFiveTrilogy: hero(
-    "extra21.webp",
+    "trilogy-summerlin-villas.webp",
     "Trilogy Summerlin 55+ homes and villas in Las Vegas western valley",
     "Trilogy at Summerlin active adult residences.",
     "Trilogy Summerlin, Las Vegas, NV",
     36.21,
     -115.32,
-    ["Trilogy Summerlin", "55+ villas"]
+    ["Trilogy Summerlin", "55+ villas"],
   ),
   fiftyFiveSolera: hero(
-    "extra23.webp",
+    "solera-anthem-villas.webp",
     "Solera at Anthem 55+ community Henderson Nevada near Las Vegas midtown buyers downsizing",
     "Solera Anthem active adult community in Henderson.",
     "Solera at Anthem, Henderson, NV",
     35.966,
     -115.09,
-    ["Solera Anthem", "Henderson 55+"]
+    ["Solera Anthem", "Henderson 55+"],
   ),
   fiftyFiveSunCityAnthem: hero(
-    "extra24.webp",
+    "sun-city-anthem-golf.webp",
     "Sun City Anthem Henderson 55+ community with resort amenities near Las Vegas",
     "Sun City Anthem Henderson active adult living.",
     "Sun City Anthem, Henderson, NV",
     35.96,
     -115.08,
-    ["Sun City Anthem", "Henderson 55+"]
+    ["Sun City Anthem", "Henderson 55+"],
   ),
   fiftyFiveSunCityAliante: hero(
-    "extra26.webp",
+    "sun-city-aliante-homes.webp",
     "Sun City Aliante North Las Vegas 55+ community for active adult homebuyers",
     "Sun City Aliante active adult community.",
     "Sun City Aliante, North Las Vegas, NV",
     36.319,
     -115.192,
-    ["Sun City Aliante", "North Las Vegas 55+"]
+    ["Sun City Aliante", "North Las Vegas 55+"],
   ),
   fiftyFiveDelWebb: hero(
-    "extra27.webp",
+    "del-webb-lake-las-vegas.webp",
     "Del Webb Lake Las Vegas 55+ community Henderson waterfront lifestyle",
     "Del Webb at Lake Las Vegas active adult residences.",
     "Lake Las Vegas, Henderson, NV",
     36.12,
     -114.92,
-    ["Del Webb Lake Las Vegas", "55+ waterfront"]
+    ["Del Webb Lake Las Vegas", "55+ waterfront"],
   ),
   fiftyFiveHeritage: hero(
-    "extra28.webp",
+    "heritage-stonebridge-new.webp",
     "Heritage at Stonebridge Las Vegas 55+ community new construction active adult homes",
     "Heritage Stonebridge 55+ community homes.",
     "Heritage at Stonebridge, Las Vegas, NV",
     36.25,
     -115.28,
-    ["Heritage Stonebridge", "55+ new construction"]
+    ["Heritage Stonebridge", "55+ new construction"],
   ),
   nbSummerlin: hero(
-    "modern-home-front.webp",
+    "summerlin-community.webp",
     "Summerlin Las Vegas master-planned community homes near midtown condo alternatives",
     "Summerlin residential lifestyle west of midtown Las Vegas.",
     "Summerlin, Las Vegas, NV",
     36.1467,
     -115.332,
-    ["Summerlin homes", "master planned"]
+    ["Summerlin homes", "master planned"],
   ),
   nbHenderson: hero(
-    "extra29.webp",
+    "henderson-valley-homes.webp",
     "Henderson Nevada homes and condo alternatives for midtown Las Vegas buyers comparing markets",
     "Henderson residential market near Las Vegas.",
     "Henderson, NV",
     36.0395,
     -114.9817,
-    ["Henderson real estate", "Las Vegas suburb"]
+    ["Henderson real estate", "Las Vegas suburb"],
   ),
   nbGreenValley: hero(
-    "condo-lobby.webp",
+    "green-valley-henderson.webp",
     "Green Valley Henderson condo and townhome living near midtown Las Vegas",
     "Green Valley residential living in Henderson.",
     "Green Valley, Henderson, NV",
     36.027,
     -115.08,
-    ["Green Valley homes", "Henderson condos"]
+    ["Green Valley homes", "Henderson condos"],
   ),
   nbRidges: hero(
-    "unsplash-yFD.webp",
+    "the-ridges-luxury-estate.webp",
     "The Ridges Summerlin luxury homes — premium alternative to midtown high-rise condos",
     "The Ridges luxury residential enclave in Summerlin.",
     "The Ridges, Summerlin, Las Vegas, NV",
     36.126,
     -115.35,
-    ["The Ridges Summerlin", "luxury homes"]
+    ["The Ridges Summerlin", "luxury homes"],
   ),
   nbSouthernHighlands: hero(
-    "modern-bath.webp",
+    "southern-highlands-golf.webp",
     "Southern Highlands Las Vegas golf community homes southwest of midtown",
     "Southern Highlands golf community residences.",
     "Southern Highlands, Las Vegas, NV",
     35.995,
     -115.21,
-    ["Southern Highlands", "golf community"]
+    ["Southern Highlands", "golf community"],
   ),
   nbNorthLasVegas: hero(
-    "extra30.webp",
+    "north-las-vegas-homes.webp",
     "North Las Vegas homes and emerging condo inventory north of midtown Las Vegas",
     "North Las Vegas residential growth market.",
     "North Las Vegas, NV",
     36.1989,
     -115.1175,
-    ["North Las Vegas real estate"]
+    ["North Las Vegas real estate"],
   ),
   nbSkyeCanyon: hero(
-    "unsplash-FNZ.webp",
+    "skye-canyon-community.webp",
     "Skye Canyon northwest Las Vegas master-planned community homes",
     "Skye Canyon master-planned community.",
     "Skye Canyon, Las Vegas, NV",
     36.32,
     -115.3,
-    ["Skye Canyon homes"]
+    ["Skye Canyon homes"],
   ),
   nbCentennialHills: hero(
-    "unsplash-NY8.webp",
-    "Centennial Hills northwest Las Vegas family homes near Red Rock views",
+    "centennial-hills-homes.webp",
+    "Centennial Hills northwest Las Vegas homes near Red Rock views",
     "Centennial Hills residential neighborhood.",
     "Centennial Hills, Las Vegas, NV",
     36.29,
     -115.28,
-    ["Centennial Hills homes"]
+    ["Centennial Hills homes"],
   ),
   nbInspirada: hero(
-    "unsplash-QAg.webp",
+    "inspirada-henderson-village.webp",
     "Inspirada Henderson walkable village homes south of Las Vegas midtown",
     "Inspirada walkable village in Henderson.",
     "Inspirada, Henderson, NV",
     35.93,
     -115.15,
-    ["Inspirada Henderson"]
+    ["Inspirada Henderson"],
   ),
   nbMountainsEdge: hero(
-    "unsplash-Rz5.webp",
+    "mountains-edge-homes.webp",
     "Mountain's Edge southwest Las Vegas community homes",
     "Mountain's Edge southwest Las Vegas residences.",
     "Mountain's Edge, Las Vegas, NV",
     36.0,
     -115.26,
-    ["Mountains Edge homes"]
+    ["Mountains Edge homes"],
   ),
   featuredStripView: hero(
-    "unsplash-eOp.webp",
+    "strip-view-condo-balcony.webp",
     "Strip-view midtown Las Vegas high-rise condo listing featured property",
     "Featured Strip-view condo listing imagery.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,
-    ["featured condo", "Strip view"]
+    ["featured condo", "Strip view"],
   ),
   featuredArtsLoft: hero(
-    "city-avenue.webp",
-    "Arts District urban loft condo featured listing midtown Las Vegas",
+    "arts-district-galleries.webp",
+    "Arts District Gallery Row mural street for featured loft listings in midtown Las Vegas",
     "Featured Arts District loft-style condo imagery.",
     "Arts District, Las Vegas, NV",
     36.1589,
     -115.1534,
-    ["featured loft", "Arts District listing"]
+    ["featured loft", "Arts District listing"],
   ),
   featuredSymphony: hero(
-    "extra02.webp",
+    "symphony-park-midrise.webp",
     "Symphony Park mid-rise condo featured listing downtown Las Vegas",
     "Featured Symphony Park mid-rise condo imagery.",
     "Symphony Park, Las Vegas, NV",
     36.1712,
     -115.1495,
-    ["featured midrise", "Symphony Park"]
+    ["featured midrise", "Symphony Park"],
+  ),
+  securityPolicy: hero(
+    "services-condo-consultation.webp",
+    "Security policy for midtownvegascondos.com — Berkshire Hathaway HomeServices Nevada Properties",
+    "Responsible disclosure and client-data security for the midtown condo site.",
+    officeInfo.address.full,
+    officeInfo.coordinates.lat,
+    officeInfo.coordinates.lng,
+    ["security policy", "responsible disclosure"],
   ),
 } as const;
 
@@ -615,7 +625,7 @@ export const pageHeroByPath: Record<string, HeroImageKey> = {
   "/why-berkshire-hathaway": "whyBhhs",
   "/google-business": "googleBusiness",
   "/blog": "homeSkylineDay",
-  "/midtown-real-estate": "homeStripNight",
+  "/midtown-real-estate": "buyersCondoTower",
   "/neighborhood": "juhl",
   "/neighborhood/run-club": "featuredArtsLoft",
   "/neighborhood/ev-program": "featuredSymphony",
@@ -638,6 +648,7 @@ export const pageHeroByPath: Record<string, HeroImageKey> = {
   "/neighborhoods/centennial-hills": "nbCentennialHills",
   "/neighborhoods/inspirada": "nbInspirada",
   "/neighborhoods/mountains-edge": "nbMountainsEdge",
+  "/security-policy": "securityPolicy",
 };
 
 export const neighborhoodHeroBySlug: Record<string, HeroImageKey> = {
@@ -651,12 +662,20 @@ export const neighborhoodHeroBySlug: Record<string, HeroImageKey> = {
   "midtown-plaza": "midtownPlaza",
 };
 
-export function getHeroImage(key: HeroImageKey = "homeStripDusk"): HeroImageMeta {
+export function getHeroImage(
+  key: HeroImageKey = "homeStripDusk",
+): HeroImageMeta {
   return heroImages[key];
 }
 
 export function getHeroKeyForPath(pathname: string): HeroImageKey {
-  return pageHeroByPath[pathname] ?? "homeSkylineDay";
+  if (pageHeroByPath[pathname]) return pageHeroByPath[pathname];
+  const neighborhoodMatch = pathname.match(/^\/neighborhoods\/([^/]+)$/);
+  const slug = neighborhoodMatch?.[1];
+  if (slug && neighborhoodHeroBySlug[slug]) {
+    return neighborhoodHeroBySlug[slug];
+  }
+  return "homeSkylineDay";
 }
 
 /**
@@ -665,7 +684,7 @@ export function getHeroKeyForPath(pathname: string): HeroImageKey {
 export function generateHeroImageSchema(
   key: HeroImageKey,
   pageUrl: string,
-  pageName: string
+  pageName: string,
 ): Record<string, unknown> {
   const img = getHeroImage(key);
   const absoluteUrl = img.src.startsWith("http")

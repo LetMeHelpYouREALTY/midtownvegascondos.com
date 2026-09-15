@@ -10,6 +10,7 @@ import {
   generateCommutesMapSchemaGraph,
 } from "@/lib/commutes-map";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 type CommutesMapSectionProps = {
   /** Optional compact height for nested layouts */
@@ -41,6 +42,12 @@ export default function CommutesMapSection({
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-blue-300">
               Las Vegas commute planner
             </p>
+            <SectionPhoto
+              imageKey="commuteTimes"
+              heading="Check drive times from midtown Las Vegas condos"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2
               id="commutes-map-heading"
               data-commute-heading
@@ -54,14 +61,20 @@ export default function CommutesMapSection({
               className="mt-4 text-base text-slate-300 md:text-lg"
               itemProp="description"
             >
-              Live Google Commute Times for midtown high-rises, the Strip, Harry Reid
-              Airport, Downtown, Summerlin, and Henderson — plan showings with{" "}
-              {agentInfo.name} at {siteConfig.name}.
+              Live Google Commute Times for midtown high-rises, the Strip, Harry
+              Reid Airport, Downtown, Summerlin, and Henderson — plan showings
+              with {agentInfo.name} at {siteConfig.name}.
             </p>
             <p className="mt-3 text-sm text-slate-400">
               <span itemScope itemType="https://schema.org/PostalAddress">
-                <span itemProp="streetAddress">{officeInfo.address.street}</span>,{" "}
-                <span itemProp="addressLocality">{officeInfo.address.city}</span>,{" "}
+                <span itemProp="streetAddress">
+                  {officeInfo.address.street}
+                </span>
+                ,{" "}
+                <span itemProp="addressLocality">
+                  {officeInfo.address.city}
+                </span>
+                ,{" "}
                 <span itemProp="addressRegion">{officeInfo.address.state}</span>{" "}
                 <span itemProp="postalCode">{officeInfo.address.zip}</span>
               </span>
@@ -82,10 +95,15 @@ export default function CommutesMapSection({
                 className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-left"
               >
                 <div className="flex items-start gap-2">
-                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" aria-hidden />
+                  <Clock
+                    className="mt-0.5 h-4 w-4 shrink-0 text-blue-300"
+                    aria-hidden
+                  />
                   <div>
                     <p className="font-medium text-white">{dest.name}</p>
-                    <p className="mt-1 text-sm text-slate-400">{dest.description}</p>
+                    <p className="mt-1 text-sm text-slate-400">
+                      {dest.description}
+                    </p>
                   </div>
                 </div>
               </li>
@@ -142,7 +160,8 @@ export default function CommutesMapSection({
             </Link>
           </div>
           <p className="text-sm text-slate-400">
-            Ask {agentInfo.name} to compare routes before your midtown condo tour.
+            Ask {agentInfo.name} to compare routes before your midtown condo
+            tour.
           </p>
         </div>
 

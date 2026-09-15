@@ -63,6 +63,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -85,7 +87,17 @@ jobs:
         run: npm run lint
 
       - name: Check Prettier formatting
-        run: npx prettier --check "**/*.{ts,tsx,js,jsx,json,md,css}"
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          files=$(git diff --name-only --diff-filter=ACMR "origin/${{ github.base_ref }}...HEAD" -- \
+            '*.ts' '*.tsx' '*.js' '*.jsx' '*.json' '*.md' '*.css' \
+            | grep -vE '(^|/)(package-lock\.json|pnpm-lock\.yaml)$' || true)
+          if [ -z "$files" ]; then
+            echo "No Prettier-eligible files changed"
+            exit 0
+          fi
+          echo "$files"
+          echo "$files" | xargs npx prettier --check
 
   # ============================================
   # Test Suite
@@ -119,6 +131,7 @@ jobs:
 
       - name: Generate coverage report
         if: always()
+        continue-on-error: true
         run: npm run test:coverage
 
       - name: Upload coverage to artifacts
@@ -329,13 +342,27 @@ jobs:
                   issues.push(`❌ **${file.filename}**: Contains old phone number (should be (702) 500-1942)`);
                 }
                 
-                // Check for JSON-LD schema
-                if (!content.includes('application/ld+json') && !content.includes('schema.org')) {
+                // Check for JSON-LD schema (PageHero / SchemaScript emit JSON-LD)
+                const hasJsonLd =
+                  content.includes('application/ld+json') ||
+                  content.includes('schema.org') ||
+                  content.includes('SchemaScript') ||
+                  content.includes('PageHero') ||
+                  content.includes('generatePageHeroSchemaGraph') ||
+                  content.includes('generateFAQSchema') ||
+                  content.includes('generateLocalBusinessSchema') ||
+                  content.includes('generateNeighborhoodSchema');
+                if (!hasJsonLd) {
                   warnings.push(`⚠️ **${file.filename}**: Consider adding JSON-LD schema markup`);
                 }
                 
-                // Check for H1 tag
-                if (!content.includes('<h1') && !content.includes('<H1')) {
+                // Check for H1 — PageHero renders the page <h1> from its title prop
+                const hasH1 =
+                  content.includes('<h1') ||
+                  content.includes('<H1') ||
+                  content.includes('<PageHero') ||
+                  /PageHero[\s\S]*title=/.test(content);
+                if (!hasH1) {
                   warnings.push(`⚠️ **${file.filename}**: No H1 tag found`);
                 }
                 

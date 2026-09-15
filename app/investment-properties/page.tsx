@@ -1,25 +1,37 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { Phone, TrendingUp, DollarSign, Building, BarChart, CheckCircle, Calculator } from "lucide-react";
+import {
+  TrendingUp,
+  DollarSign,
+  Building,
+  BarChart,
+  CheckCircle,
+  Calculator,
+} from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
-export const metadata: Metadata = withPageHeroMetadata("/investment-properties", {
-  title: "Las Vegas Investment Properties | Berkshire Hathaway HomeServices",
-  description:
-    "Invest in Las Vegas real estate with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Rental properties, ROI analysis, 1031 exchanges. No state income tax. Call (702) 500-1980.",
-  keywords: [
-    "Las Vegas investment property",
-    "Las Vegas rental property",
-    "Henderson real estate investing",
-    "Nevada investment homes",
-    "1031 exchange Las Vegas",
-    "cash flow properties Las Vegas",
-  ],
-});
+export const metadata: Metadata = withPageHeroMetadata(
+  "/investment-properties",
+  {
+    title: "Las Vegas Investment Properties | Berkshire Hathaway HomeServices",
+    description:
+      "Invest in Las Vegas real estate with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Rental properties, ROI analysis, 1031 exchanges. No state income tax. Call (702) 500-1980.",
+    keywords: [
+      "Las Vegas investment property",
+      "Las Vegas rental property",
+      "Henderson real estate investing",
+      "Nevada investment homes",
+      "1031 exchange Las Vegas",
+      "cash flow properties Las Vegas",
+    ],
+  },
+);
 
 const investmentAreas = [
   {
@@ -72,37 +84,70 @@ export default function InvestmentPropertiesPage() {
       <Navbar />
       <PageHero
         imageKey="investmentProperties"
+        leadSectionKey="investWhy"
+        leadSectionHeading="Why Invest in Las Vegas?"
         pagePath="/investment-properties"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Las Vegas Investment Properties"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">No state income tax, strong appreciation, and excellent rental yields. Discover why
-              investors choose Las Vegas—with guidance from{" "}
-              <strong>Berkshire Hathaway HomeServices</strong>.</p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
+          No state income tax, strong appreciation, and excellent rental yields.
+          Discover why investors choose Las Vegas—with guidance from{" "}
+          <strong>Berkshire Hathaway HomeServices</strong>.
+        </p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
-
           {/* Why Las Vegas */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">Why Invest in Las Vegas?</h2>
+            <SectionPhoto
+              imageKey="investWhy"
+              heading="Why Invest in Las Vegas?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              Why Invest in Las Vegas?
+            </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="No State Income Tax"
+                  heroKey="buyersCaRelocator"
+                  className="mb-3"
+                />
                 <DollarSign className="h-12 w-12 text-green-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">No State Income Tax</h3>
-                <p className="text-slate-400 text-sm">Keep more of your rental income</p>
+                <p className="text-slate-400 text-sm">
+                  Keep more of your rental income
+                </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Strong Appreciation"
+                  heroKey="marketReport"
+                  className="mb-3"
+                />
                 <TrendingUp className="h-12 w-12 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Strong Appreciation</h3>
                 <p className="text-slate-400 text-sm">+4.2% YoY in 2025</p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Growing Population"
+                  heroKey="relocationHub"
+                  className="mb-3"
+                />
                 <Building className="h-12 w-12 text-purple-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Growing Population</h3>
                 <p className="text-slate-400 text-sm">Constant rental demand</p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Strong Cap Rates"
+                  heroKey="investmentProperties"
+                  className="mb-3"
+                />
                 <BarChart className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Strong Cap Rates</h3>
                 <p className="text-slate-400 text-sm">4-6% typical returns</p>
@@ -112,9 +157,15 @@ export default function InvestmentPropertiesPage() {
 
           {/* Market Stats */}
           <section className="mb-16 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="investWhy"
+              heading="Investment Property Markets | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Investment Property Markets | January 2026
             </h2>
+
             <div className="overflow-x-auto">
               <table className="w-full bg-white border border-slate-200 rounded-lg">
                 <thead className="bg-slate-50">
@@ -142,18 +193,29 @@ export default function InvestmentPropertiesPage() {
                       key={area.area}
                       className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}
                     >
-                      <td className="px-6 py-4 font-medium text-slate-900">{area.area}</td>
-                      <td className="px-6 py-4 text-slate-700">{area.avgPrice}</td>
-                      <td className="px-6 py-4 text-slate-700">{area.avgRent}/mo</td>
-                      <td className="px-6 py-4 text-green-600 font-medium">{area.capRate}</td>
-                      <td className="px-6 py-4 text-blue-600 font-medium">{area.appreciation}</td>
+                      <td className="px-6 py-4 font-medium text-slate-900">
+                        {area.area}
+                      </td>
+                      <td className="px-6 py-4 text-slate-700">
+                        {area.avgPrice}
+                      </td>
+                      <td className="px-6 py-4 text-slate-700">
+                        {area.avgRent}/mo
+                      </td>
+                      <td className="px-6 py-4 text-green-600 font-medium">
+                        {area.capRate}
+                      </td>
+                      <td className="px-6 py-4 text-blue-600 font-medium">
+                        {area.appreciation}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p className="text-center text-slate-500 text-sm mt-4">
-              Data represents single-family rental properties. Actual returns vary by property.
+              Data represents single-family rental properties. Actual returns
+              vary by property.
             </p>
           </section>
 
@@ -161,10 +223,11 @@ export default function InvestmentPropertiesPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Las Vegas rental yields are among the best in the country right now. But you need
-                to know which neighborhoods are appreciating and which have peaked. Not all zip
-                codes perform equally—I help investors identify the properties with the best
-                combination of cash flow and appreciation potential."
+                "Las Vegas rental yields are among the best in the country right
+                now. But you need to know which neighborhoods are appreciating
+                and which have peaked. Not all zip codes perform equally—I help
+                investors identify the properties with the best combination of
+                cash flow and appreciation potential."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, BHHS Nevada Properties
@@ -174,9 +237,15 @@ export default function InvestmentPropertiesPage() {
 
           {/* Investment Services */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="gbpServices"
+              heading="Investment Property Services"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Investment Property Services
             </h2>
+
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 "Property identification based on your criteria",
@@ -190,7 +259,10 @@ export default function InvestmentPropertiesPage() {
                 "Portfolio building strategy",
                 "Out-of-state investor support",
               ].map((service) => (
-                <div key={service} className="flex items-center bg-white p-4 rounded-lg border border-slate-200">
+                <div
+                  key={service}
+                  className="flex items-center bg-white p-4 rounded-lg border border-slate-200"
+                >
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                   <span className="text-slate-700">{service}</span>
                 </div>
@@ -200,29 +272,52 @@ export default function InvestmentPropertiesPage() {
 
           {/* Investment Types */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="marketSnapshot"
+              heading="Investment Strategies We Support"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-2xl font-bold mb-8 text-center">
               Investment Strategies We Support
             </h2>
+
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-blue-700 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="Buy & Hold Rentals"
+                  heroKey="nbNorthLasVegas"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-2">Buy & Hold Rentals</h3>
                 <p className="text-blue-200 text-sm">
-                  Long-term wealth building through rental income and appreciation. Ideal for
-                  passive investors seeking steady cash flow.
+                  Long-term wealth building through rental income and
+                  appreciation. Ideal for passive investors seeking steady cash
+                  flow.
                 </p>
               </div>
               <div className="bg-blue-700 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="Fix & Flip"
+                  heroKey="sellersMoveUp"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-2">Fix & Flip</h3>
                 <p className="text-blue-200 text-sm">
-                  Value-add opportunities for active investors. We identify underpriced properties
-                  with renovation potential.
+                  Value-add opportunities for active investors. We identify
+                  underpriced properties with renovation potential.
                 </p>
               </div>
               <div className="bg-blue-700 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="Short-Term Rentals"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-2">Short-Term Rentals</h3>
                 <p className="text-blue-200 text-sm">
-                  Vacation rental opportunities in tourist-friendly areas. Higher yields with
-                  active management.
+                  Vacation rental opportunities in tourist-friendly areas.
+                  Higher yields with active management.
                 </p>
               </div>
             </div>
@@ -230,59 +325,103 @@ export default function InvestmentPropertiesPage() {
 
           {/* Detailed Investment Analysis */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="marketStats"
+              heading="Understanding Las Vegas Investment Metrics"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Understanding Las Vegas Investment Metrics
             </h2>
+
             <div className="prose prose-lg max-w-none text-slate-700 mb-8">
               <p>
-                Successful real estate investing requires understanding key metrics and how they apply
-                to the Las Vegas market specifically. Dr. Jan Duffy provides detailed analysis on every
-                property, helping you make data-driven decisions rather than emotional ones.
+                Successful real estate investing requires understanding key
+                metrics and how they apply to the Las Vegas market specifically.
+                Dr. Jan Duffy provides detailed analysis on every property,
+                helping you make data-driven decisions rather than emotional
+                ones.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Cap Rate (Capitalization Rate)"
+                  heroKey="investmentProperties"
+                  className="mb-4"
+                />
                 <Calculator className="h-8 w-8 text-blue-600 mb-4" />
-                <h3 className="font-bold text-lg text-slate-900 mb-2">Cap Rate (Capitalization Rate)</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">
+                  Cap Rate (Capitalization Rate)
+                </h3>
                 <p className="text-slate-600 text-sm mb-4">
-                  Net Operating Income ÷ Property Value. Las Vegas cap rates range from 4-6%,
-                  competitive with major metros. Higher cap rates typically mean higher risk neighborhoods.
+                  Net Operating Income ÷ Property Value. Las Vegas cap rates
+                  range from 4-6%, competitive with major metros. Higher cap
+                  rates typically mean higher risk neighborhoods.
                 </p>
                 <div className="bg-slate-50 rounded p-3 text-sm">
-                  <strong>Example:</strong> $485K Henderson home renting at $2,300/mo = ~4.5% cap rate
+                  <strong>Example:</strong> $485K Henderson home renting at
+                  $2,300/mo = ~4.5% cap rate
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Cash-on-Cash Return"
+                  heroKey="marketReport"
+                  className="mb-4"
+                />
                 <TrendingUp className="h-8 w-8 text-green-600 mb-4" />
-                <h3 className="font-bold text-lg text-slate-900 mb-2">Cash-on-Cash Return</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">
+                  Cash-on-Cash Return
+                </h3>
                 <p className="text-slate-600 text-sm mb-4">
-                  Annual cash flow ÷ Cash invested. With 25% down payment and financing, Las Vegas
-                  properties often achieve 8-12% cash-on-cash returns through leverage.
+                  Annual cash flow ÷ Cash invested. With 25% down payment and
+                  financing, Las Vegas properties often achieve 8-12%
+                  cash-on-cash returns through leverage.
                 </p>
                 <div className="bg-slate-50 rounded p-3 text-sm">
-                  <strong>Example:</strong> $121K down on $485K property with $400/mo net = 4% cash-on-cash
+                  <strong>Example:</strong> $121K down on $485K property with
+                  $400/mo net = 4% cash-on-cash
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Total Return"
+                  heroKey="marketInsights"
+                  className="mb-4"
+                />
                 <BarChart className="h-8 w-8 text-purple-600 mb-4" />
-                <h3 className="font-bold text-lg text-slate-900 mb-2">Total Return</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">
+                  Total Return
+                </h3>
                 <p className="text-slate-600 text-sm mb-4">
-                  Cash flow + appreciation + loan paydown + tax benefits. Las Vegas's strong appreciation
-                  (4-6% annually) combined with rental income creates total returns of 12-18%.
+                  Cash flow + appreciation + loan paydown + tax benefits. Las
+                  Vegas's strong appreciation (4-6% annually) combined with
+                  rental income creates total returns of 12-18%.
                 </p>
                 <div className="bg-slate-50 rounded p-3 text-sm">
-                  <strong>Note:</strong> Tax benefits include depreciation, mortgage interest, and expense deductions
+                  <strong>Note:</strong> Tax benefits include depreciation,
+                  mortgage interest, and expense deductions
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Price-to-Rent Ratio"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <DollarSign className="h-8 w-8 text-amber-600 mb-4" />
-                <h3 className="font-bold text-lg text-slate-900 mb-2">Price-to-Rent Ratio</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-2">
+                  Price-to-Rent Ratio
+                </h3>
                 <p className="text-slate-600 text-sm mb-4">
-                  Property price ÷ Annual rent. Las Vegas ratios of 15-18 indicate healthy investment
-                  potential. Ratios above 20 suggest overpriced markets.
+                  Property price ÷ Annual rent. Las Vegas ratios of 15-18
+                  indicate healthy investment potential. Ratios above 20 suggest
+                  overpriced markets.
                 </p>
                 <div className="bg-slate-50 rounded p-3 text-sm">
-                  <strong>Example:</strong> $385K ÷ $23,400/year = 16.5 ratio (favorable)
+                  <strong>Example:</strong> $385K ÷ $23,400/year = 16.5 ratio
+                  (favorable)
                 </div>
               </div>
             </div>
@@ -290,84 +429,172 @@ export default function InvestmentPropertiesPage() {
 
           {/* Neighborhood Deep Dives */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="Midtown condo investment buildings"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Las Vegas Investment Neighborhoods: Deep Dive
+              Midtown condo investment buildings
             </h2>
+
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-slate-900 mb-2">North Las Vegas</h3>
+              <Link
+                href="/neighborhoods/fremont-east"
+                className="bg-white rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
+                <HeadingCardPhoto
+                  heading="Fremont East"
+                  heroKey="fremontEast"
+                  className="mb-4"
+                />
+                <h3 className="font-bold text-xl text-slate-900 mb-2">
+                  Fremont East
+                </h3>
                 <p className="text-slate-600 mb-4">
-                  <strong>Best for: Cash flow investors.</strong> Highest cap rates in the valley (5.2%+)
-                  with lower entry prices. Growing population as Amazon, Fanatics, and other employers
-                  expand. School quality varies by area—research specific zones.
+                  <strong>Best for: Downtown rental-demand buyers.</strong> Area
+                  median $295K (+3.5% YoY). STR and lease-minimum rules vary by
+                  building — Dr. Jan reviews CC&amp;Rs before you write. Call
+                  (702) 500-1980 for live rent comps.
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div><span className="font-medium">Entry:</span> $350K-$450K</div>
-                  <div><span className="font-medium">Rent:</span> $1,800-$2,200</div>
-                  <div><span className="font-medium">Tenant Pool:</span> Working families, warehouse workers</div>
+                  <div>
+                    <span className="font-medium">Median:</span> $295K
+                  </div>
+                  <div>
+                    <span className="font-medium">YoY:</span> +3.5%
+                  </div>
+                  <div>
+                    <span className="font-medium">Check:</span> HOA rental caps
+                  </div>
                 </div>
-              </div>
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-slate-900 mb-2">Henderson</h3>
+              </Link>
+              <Link
+                href="/neighborhoods/palms-place"
+                className="bg-white rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
+                <HeadingCardPhoto
+                  heading="Palms Place"
+                  heroKey="palmsPlace"
+                  className="mb-4"
+                />
+                <h3 className="font-bold text-xl text-slate-900 mb-2">
+                  Palms Place
+                </h3>
                 <p className="text-slate-600 mb-4">
-                  <strong>Best for: Balanced investors.</strong> Premium tenant quality, excellent schools,
-                  and steady appreciation. Lower vacancy rates and longer tenant retention offset
-                  slightly lower cap rates.
+                  <strong>Best for: Condotel / hotel-program investors.</strong>{" "}
+                  Area median $380K (+2.8% YoY). Self-rental vs. hotel program
+                  participation changes fees and income. Dr. Jan breaks down
+                  what HOA covers vs. optional valet.
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div><span className="font-medium">Entry:</span> $450K-$600K</div>
-                  <div><span className="font-medium">Rent:</span> $2,100-$2,800</div>
-                  <div><span className="font-medium">Tenant Pool:</span> Professionals, families, retirees</div>
+                  <div>
+                    <span className="font-medium">Median:</span> $380K
+                  </div>
+                  <div>
+                    <span className="font-medium">YoY:</span> +2.8%
+                  </div>
+                  <div>
+                    <span className="font-medium">Check:</span> Rental program
+                    CC&amp;Rs
+                  </div>
                 </div>
-              </div>
-              <div className="bg-white rounded-xl p-6">
-                <h3 className="font-bold text-xl text-slate-900 mb-2">Summerlin</h3>
+              </Link>
+              <Link
+                href="/neighborhoods/one-las-vegas"
+                className="bg-white rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
+                <HeadingCardPhoto
+                  heading="One Las Vegas"
+                  heroKey="oneLasVegas"
+                  className="mb-4"
+                />
+                <h3 className="font-bold text-xl text-slate-900 mb-2">
+                  One Las Vegas
+                </h3>
                 <p className="text-slate-600 mb-4">
-                  <strong>Best for: Appreciation investors.</strong> Premium neighborhood with strongest
-                  appreciation (6.8% YoY). Lower cap rates but exceptional tenant quality and
-                  very low vacancy. Best-in-class schools and amenities.
+                  <strong>Best for: High-rise lock-and-leave buyers.</strong>{" "}
+                  Area median $650K (+4.8% YoY). Some units allow long-term or
+                  restricted rentals. Confirm lease minimums and special
+                  assessments in writing.
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
-                  <div><span className="font-medium">Entry:</span> $550K-$800K</div>
-                  <div><span className="font-medium">Rent:</span> $2,500-$3,500</div>
-                  <div><span className="font-medium">Tenant Pool:</span> Executives, tech workers, medical professionals</div>
+                  <div>
+                    <span className="font-medium">Median:</span> $650K
+                  </div>
+                  <div>
+                    <span className="font-medium">YoY:</span> +4.8%
+                  </div>
+                  <div>
+                    <span className="font-medium">HOA:</span> typically
+                    $400–$1,200+/mo
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </section>
 
           {/* 1031 Exchange Section */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="sellersProcess"
+              heading="1031 Exchanges in Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               1031 Exchanges in Las Vegas
             </h2>
+
             <div className="bg-white border border-slate-200 rounded-xl p-8">
               <p className="text-slate-700 mb-6">
-                A 1031 exchange lets you defer capital gains taxes by reinvesting proceeds from
-                a sold investment property into a "like-kind" replacement property. Las Vegas is a
-                popular destination for 1031 exchanges due to no state income tax, strong cash flow,
-                and appreciation potential.
+                A 1031 exchange lets you defer capital gains taxes by
+                reinvesting proceeds from a sold investment property into a
+                "like-kind" replacement property. Las Vegas is a popular
+                destination for 1031 exchanges due to no state income tax,
+                strong cash flow, and appreciation potential.
               </p>
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-3">Key Deadlines</h3>
+                  <HeadingCardPhoto
+                    heading="Key Deadlines"
+                    heroKey="marketReport"
+                    className="mb-4"
+                  />
+                  <h3 className="font-bold text-slate-900 mb-3">
+                    Key Deadlines
+                  </h3>
                   <ul className="space-y-2 text-slate-700">
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <div><strong>45 days:</strong> Identify replacement properties</div>
+                      <div>
+                        <strong>45 days:</strong> Identify replacement
+                        properties
+                      </div>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <div><strong>180 days:</strong> Close on replacement property</div>
+                      <div>
+                        <strong>180 days:</strong> Close on replacement property
+                      </div>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <div><strong>Day 1:</strong> Begin with qualified intermediary</div>
+                      <div>
+                        <strong>Day 1:</strong> Begin with qualified
+                        intermediary
+                      </div>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-3">Why Las Vegas for 1031s?</h3>
+                  <HeadingCardPhoto
+                    heading="Why Las Vegas for 1031s?"
+                    heroKey="investmentProperties"
+                    className="mb-4"
+                  />
+                  <h3 className="font-bold text-slate-900 mb-3">
+                    Why Las Vegas for 1031s?
+                  </h3>
                   <ul className="space-y-2 text-slate-700">
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
@@ -385,8 +612,9 @@ export default function InvestmentPropertiesPage() {
                 </div>
               </div>
               <p className="text-slate-600 text-sm">
-                Dr. Jan works with qualified intermediaries and can help identify replacement properties
-                within the 45-day window. Berkshire Hathaway's nationwide network is invaluable for
+                Dr. Jan works with qualified intermediaries and can help
+                identify replacement properties within the 45-day window.
+                Berkshire Hathaway's nationwide network is invaluable for
                 clients exchanging into or out of Las Vegas.
               </p>
             </div>
@@ -394,9 +622,15 @@ export default function InvestmentPropertiesPage() {
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="investWhy"
+              heading="Investment Property FAQs"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Investment Property FAQs
             </h2>
+
             <div className="space-y-4">
               {[
                 {
@@ -426,20 +660,21 @@ export default function InvestmentPropertiesPage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="investWhy"
+              heading="Ready to Invest in Las Vegas?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Invest in Las Vegas?
             </h2>
+
             <p className="text-xl text-slate-300 mb-8">
-              Get expert guidance on Las Vegas investment properties from Dr. Jan Duffy and
-              Berkshire Hathaway HomeServices.
+              Get expert guidance on Las Vegas investment properties from Dr.
+              Jan Duffy and Berkshire Hathaway HomeServices.
             </p>
-            <a
-              href="tel:+17025001980"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1980
-            </a>
+            <GbpEngageButtons onDark />
             <p className="mt-4 text-slate-400 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>
@@ -447,9 +682,10 @@ export default function InvestmentPropertiesPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: September 2026
+        </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

@@ -1,58 +1,57 @@
 # Image Assets Guide
 
+Primary delivery: **Cloudflare R2** (`pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/...`).
+Git copies in this folder are the **backup** and the Vercel fallback until `NEXT_PUBLIC_R2_ENABLED=true`.
+
 ## Folder Structure
 
 ```
 images/
-├── hero/           # Homepage hero backgrounds
+├── hero/           # H1 page heroes (unique per route)
+├── sections/       # H2 / H3 heading-matched photos
 ├── agent/          # Dr. Jan Duffy photos
 ├── properties/     # Listing photos
 ├── neighborhoods/  # Area/community photos
-├── testimonials/   # Client headshots
+├── testimonials/   # Unused — reviews use initials (no fake headshots)
 └── logos/          # Brand assets
 ```
 
-## Recommended Specifications
+## Sync to Cloudflare R2
 
-| Folder | Size | Format | Notes |
-|--------|------|--------|-------|
-| hero/ | 1920x1080+ | WebP, JPG | 16:9 ratio, compress <200KB |
-| agent/ | 400x400+ | WebP, JPG | Square, professional headshot |
-| properties/ | 1200x800+ | WebP, JPG | Landscape, MLS-quality |
-| neighborhoods/ | 1200x800+ | WebP, JPG | Scenic community shots |
-| testimonials/ | 200x200 | WebP, JPG | Square, optional |
-| logos/ | Various | PNG, SVG | Transparent background |
+The Vercel `CLOUDFLARE_API_TOKEN` is an **Account API token with an IP allowlist**. Vercel and GitHub Actions IPs change every job, so that token returns Cloudflare error **9109** from CI (`Cannot use the access token from location`). Do not try to pin runner IPs.
 
-## Naming Conventions
+Use **R2 S3 API tokens** instead (separate from Account API tokens):
 
-- Use lowercase with hyphens: `summerlin-aerial.webp`
-- Be descriptive: `dr-jan-duffy-headshot.jpg`
-- Include size if multiple: `hero-desktop.webp`, `hero-mobile.webp`
+1. Cloudflare dashboard → **R2** → **Manage R2 API Tokens** → Create API token.
+2. Permission: Object Read & Write on bucket `realestatedomains-assets`.
+3. Copy Access Key ID, Secret Access Key, and the account ID shown on the R2 overview.
+4. Set on **Vercel production** and the GitHub **Production** environment:
+   - `R2_ACCESS_KEY_ID`
+   - `R2_SECRET_ACCESS_KEY`
+   - `CLOUDFLARE_ACCOUNT_ID` is already known (`2cc579c1ec9e426ed585e933ebf4753b` in `scripts/wrangler.r2.toml`); still set it on Vercel if you want an override.
+5. Re-run `npm run cloudflare:images` (Vercel postbuild or the R2 GitHub workflow).
+6. Confirm `https://pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/images/hero/home-strip-dusk.webp` returns HTTP 200.
+7. Set `NEXT_PUBLIC_R2_ENABLED=true` on Vercel.
 
-## Image Optimization
+Rotate any Account API token that appeared in older public GitHub Actions logs.
 
-Before uploading, optimize images:
+Production Vercel env (2026-09-15 pull) has `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_GLOBAL_API_TOKEN`, and `CLOUDFLARE_ORIGIN_CA_KEY`. It does **not** have `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY`. The Account API token 401/10000s on R2 REST; the sync prefers the Global API credential (`X-Auth-Email` + `X-Auth-Key`, then Bearer) and skips further calls with the failed token. If that still cannot write objects, create R2 S3 keys as above.
 
-1. **Online tools**: [Squoosh](https://squoosh.app), [TinyPNG](https://tinypng.com)
-2. **CLI**: `npx @squoosh/cli --webp '{"quality":80}' image.jpg`
-3. **Target**: <200KB for hero, <100KB for thumbnails
+If R2 S3 keys are not available, the sync next deploys `public/` to Cloudflare Pages/Workers (`midtownvegascondos-heading-photos`). Confirm `https://midtownvegascondos-heading-photos.pages.dev/images/hero/home-strip-dusk.webp` is HTTP 200, then set:
 
-## Usage in Code
+- `NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED=true`
+- `NEXT_PUBLIC_CF_PAGES_IMAGES_BASE=https://midtownvegascondos-heading-photos.pages.dev`
 
-```tsx
-import Image from 'next/image'
+If Pages/Workers also 401, do **not** keep retrying the same Account API token — Cloudflare then returns **429 too many authentication failures**. The remaining write path is R2 S3 keys (above). A proxied `img.midtownvegascondos.com` fallback exists in the script behind `CF_TRY_CLOUDFLARE_FALLBACKS=true` only.
 
-<Image 
-  src="/images/hero/las-vegas-skyline.webp"
-  alt="Las Vegas skyline at sunset"
-  width={1920}
-  height={1080}
-  priority // for above-fold images
-/>
-```
+Do **not** orange-cloud the Vercel production hostname. R2 is object storage only.
 
-## Notes
+## Specs
 
-- Next.js auto-optimizes images via `next/image`
-- WebP preferred for web (30% smaller than JPEG)
-- Always include descriptive alt text for SEO/accessibility
+| Folder | Size | Format |
+|--------|------|--------|
+| hero/ | 1920px wide | WebP, typically 90–250KB |
+| sections/ | 1920px wide | WebP |
+| agent/ | 800px square | JPG/WebP |
+
+Alt text includes location + property type. No Unsplash filenames in production routes.

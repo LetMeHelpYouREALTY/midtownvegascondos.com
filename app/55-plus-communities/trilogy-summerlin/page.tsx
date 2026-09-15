@@ -1,9 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   MapPin,
   Star,
   UtensilsCrossed,
@@ -18,14 +16,18 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { agentInfo } from "@/lib/site-config";
 
 const PATH = "/55-plus-communities/trilogy-summerlin";
 
 const faqs = [
   {
-    question: "What makes Trilogy at Summerlin different from Sun City Summerlin?",
+    question:
+      "What makes Trilogy at Summerlin different from Sun City Summerlin?",
     answer:
       "Trilogy is a newer Shea Homes 55+ community with resort-style amenities, contemporary floor plans, an on-site restaurant concept, and spa facilities. Pricing typically runs higher than many Sun City Summerlin models.",
   },
@@ -77,14 +79,16 @@ export default function TrilogySummerlinPage() {
       <Navbar />
       <PageHero
         imageKey="fiftyFiveTrilogy"
+        leadSectionKey="trilogyAbout"
+        leadSectionHeading="About Trilogy at Summerlin"
         pagePath={PATH}
         title="Trilogy at Summerlin homes for sale"
         subtitle="Resort-style 55+ living with spa amenities and contemporary homes — represented by Dr. Jan Duffy."
         priority
       >
         <p data-community-summary className="text-white/85 max-w-3xl mx-auto">
-          Shea Homes active adult community in Summerlin. Call {agentInfo.phone} to compare Trilogy
-          vs Sun City Summerlin floor plans and HOA dues.
+          Shea Homes active adult community in Summerlin. Call {agentInfo.phone}{" "}
+          to compare Trilogy vs Sun City Summerlin floor plans and HOA dues.
         </p>
       </PageHero>
       <main className="pb-16">
@@ -103,11 +107,18 @@ export default function TrilogySummerlinPage() {
               <span className="text-slate-900">Trilogy at Summerlin</span>
             </nav>
           </div>
-{/* Quick Stats */}
+          {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="trilogyAbout"
+              heading="Trilogy at Summerlin at a Glance"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-2xl font-bold mb-8 text-center">
               Trilogy at Summerlin at a Glance
             </h2>
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-rose-400 mb-1">
@@ -136,6 +147,11 @@ export default function TrilogySummerlinPage() {
 
           {/* About */}
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="trilogyAbout"
+              heading="About Trilogy at Summerlin"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
                 About Trilogy at Summerlin
@@ -155,7 +171,9 @@ export default function TrilogySummerlinPage() {
                 plans, designer finishes, and modern smart home technology.
               </p>
               <p>
-                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>{" "}
+                <strong>
+                  Berkshire Hathaway HomeServices Nevada Properties
+                </strong>{" "}
                 serves discerning buyers seeking luxury 55+ options. Dr. Jan
                 Duffy understands why buyers choose Trilogy's resort experience
                 over traditional active adult communities.
@@ -169,13 +187,18 @@ export default function TrilogySummerlinPage() {
               <div className="flex items-start">
                 <Star className="h-8 w-8 text-rose-600 mr-4 flex-shrink-0 mt-1" />
                 <div>
+                  <HeadingCardPhoto
+                    heading="The Trilogy Difference: Resort-Style Living"
+                    heroKey="fiftyFiveTrilogy"
+                    className="mb-4"
+                  />
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
                     The Trilogy Difference: Resort-Style Living
                   </h3>
                   <p className="text-slate-700 mb-4">
-                    Trilogy isn't just a 55+ community with a nice clubhouse—it's
-                    a resort experience you happen to live in. The difference is
-                    in the details.
+                    Trilogy isn't just a 55+ community with a nice
+                    clubhouse—it's a resort experience you happen to live in.
+                    The difference is in the details.
                   </p>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="bg-white rounded-lg p-4 text-center">
@@ -213,11 +236,22 @@ export default function TrilogySummerlinPage() {
 
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="trilogyAbout"
+              heading="Luxury Amenities"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Luxury Amenities
             </h2>
+
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Farm-to-Table Dining"
+                  heroKey="fiftyFiveTrilogy"
+                  className="mb-4"
+                />
                 <div className="bg-rose-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <UtensilsCrossed className="h-6 w-6 text-rose-600" />
                 </div>
@@ -232,6 +266,11 @@ export default function TrilogySummerlinPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Spa & Wellness Center"
+                  heroKey="luxuryHomes"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Sparkles className="h-6 w-6 text-purple-600" />
                 </div>
@@ -246,6 +285,11 @@ export default function TrilogySummerlinPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Fitness & Recreation"
+                  sectionKey="fiftyFiveAmenities"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Dumbbell className="h-6 w-6 text-blue-600" />
                 </div>
@@ -264,15 +308,26 @@ export default function TrilogySummerlinPage() {
 
           {/* Home Features */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="trilogyAbout"
+              heading="Contemporary Home Designs"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Contemporary Home Designs
             </h2>
+
             <p className="text-lg text-slate-600 text-center mb-8 max-w-3xl mx-auto">
               Trilogy homes break the mold of traditional 55+ construction with
               modern architecture, open layouts, and designer-selected finishes.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Architecture & Design"
+                  heroKey="newConstruction"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-3">
                   Architecture & Design
                 </h3>
@@ -296,6 +351,11 @@ export default function TrilogySummerlinPage() {
                 </ul>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Features & Finishes"
+                  heroKey="buyersLuxury"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-3">
                   Features & Finishes
                 </h3>
@@ -323,9 +383,15 @@ export default function TrilogySummerlinPage() {
 
           {/* Why Choose Trilogy */}
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="trilogyAbout"
+              heading="Why Buyers Choose Trilogy at Summerlin"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Why Buyers Choose Trilogy at Summerlin
             </h2>
+
             <div className="space-y-4">
               <div className="flex items-start">
                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -334,8 +400,8 @@ export default function TrilogySummerlinPage() {
                     True resort lifestyle, not just amenities
                   </strong>
                   <p className="text-slate-600 text-sm">
-                    On-site restaurant, full-service spa, and hospitality-trained
-                    staff create a resort experience
+                    On-site restaurant, full-service spa, and
+                    hospitality-trained staff create a resort experience
                   </p>
                 </div>
               </div>
@@ -358,8 +424,8 @@ export default function TrilogySummerlinPage() {
                     Boutique community size
                   </strong>
                   <p className="text-slate-600 text-sm">
-                    800+ homes—large enough for vibrant programming, small enough
-                    for genuine community
+                    800+ homes—large enough for vibrant programming, small
+                    enough for genuine community
                   </p>
                 </div>
               </div>
@@ -383,23 +449,36 @@ export default function TrilogySummerlinPage() {
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Trilogy at Summerlin is for buyers who want more than a 55+
-                community—they want a lifestyle. The on-site restaurant, spa, and
-                contemporary homes create an experience you simply can't find
-                elsewhere. As a{" "}
+                community—they want a lifestyle. The on-site restaurant, spa,
+                and contemporary homes create an experience you simply can't
+                find elsewhere. As a{" "}
                 <strong>Berkshire Hathaway HomeServices</strong> agent serving
                 luxury 55+ buyers, I recommend Trilogy to those who appreciate
                 quality and won't settle for ordinary."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada
+                Properties
               </cite>
             </div>
           </section>
 
-          <section className="mb-16 max-w-4xl mx-auto" aria-labelledby="trilogy-faq">
-            <h2 id="trilogy-faq" className="text-2xl font-bold text-slate-900 mb-4">
+          <section
+            className="mb-16 max-w-4xl mx-auto"
+            aria-labelledby="trilogy-faq"
+          >
+            <SectionPhoto
+              imageKey="trilogyAbout"
+              heading="Trilogy at Summerlin FAQ"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
+            <h2
+              id="trilogy-faq"
+              className="text-2xl font-bold text-slate-900 mb-4"
+            >
               Trilogy at Summerlin FAQ
             </h2>
+
             <dl className="space-y-4">
               {faqs.map((faq) => (
                 <div
@@ -407,8 +486,12 @@ export default function TrilogySummerlinPage() {
                   data-community-faq
                   className="rounded-lg border border-slate-200 p-4"
                 >
-                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
-                  <dd className="mt-2 text-sm text-slate-600 leading-relaxed">{faq.answer}</dd>
+                  <dt className="font-semibold text-slate-900">
+                    {faq.question}
+                  </dt>
+                  <dd className="mt-2 text-sm text-slate-600 leading-relaxed">
+                    {faq.answer}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -416,28 +499,29 @@ export default function TrilogySummerlinPage() {
 
           {/* CTA */}
           <section className="text-center bg-gradient-to-r from-rose-600 to-pink-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Experience Luxury 55+ Living"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Experience Luxury 55+ Living
             </h2>
+
             <p className="text-xl text-rose-100 mb-8">
-              Discover why Trilogy at Summerlin sets the standard for resort-style
-              55+ living. Private tours available with Dr. Jan Duffy.
+              Discover why Trilogy at Summerlin sets the standard for
+              resort-style 55+ living. Private tours available with Dr. Jan
+              Duffy.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-white text-rose-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-rose-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-rose-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-rose-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
               >
                 Schedule a Tour
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="text-rose-200">
               Here to make your transition smooth, Dr. Jan{" "}
               <span role="img" aria-label="sunshine">
@@ -447,10 +531,9 @@ export default function TrilogySummerlinPage() {
           </section>
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
+          Last Updated: September 2026
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

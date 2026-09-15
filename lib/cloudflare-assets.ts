@@ -1,0 +1,85 @@
+/**
+ * Cloudflare R2 is primary image storage; git copies under /public/images are the backup.
+ *
+ * Native products used (not a custom CDN wrapper):
+ * - Cloudflare R2 public bucket (already hosts the agent headshot)
+ * - Optional Cloudflare Images (imagedelivery.net) when account hash is set
+ * - Optional Cloudflare Pages / Workers static assets when R2/Images writes 401
+ * - Optional proxied img.midtownvegascondos.com CDN (www stays gray-cloud on Vercel)
+ *
+ * Do not orange-cloud the Vercel apex — R2 is object storage only.
+ */
+
+export const R2_PUBLIC_HOST = "pub-720ca9b7443b47be981def05abd3d7f0.r2.dev";
+export const R2_PUBLIC_BASE =
+  process.env.NEXT_PUBLIC_R2_PUBLIC_BASE_URL ?? `https://${R2_PUBLIC_HOST}`;
+export const R2_SITE_PREFIX =
+  process.env.NEXT_PUBLIC_R2_PREFIX ?? "midtownvegascondos";
+
+export function isRemoteImageSrc(src: string): boolean {
+  return src.startsWith("http://") || src.startsWith("https://");
+}
+
+export function normalizeLocalPath(src: string): string {
+  if (isRemoteImageSrc(src)) return src;
+  return src.startsWith("/") ? src : `/${src}`;
+}
+
+/** Git backup path, always same-origin. */
+export function getGitBackupSrc(src: string): string {
+  return normalizeLocalPath(src);
+}
+
+/**
+ * Public R2 object URL for a same-origin image path like `/images/hero/foo.webp`.
+ */
+export function getR2ObjectUrl(src: string): string {
+  const local = normalizeLocalPath(src).replace(/^\//, "");
+  return `${R2_PUBLIC_BASE.replace(/\/$/, "")}/${R2_SITE_PREFIX}/${local}`;
+}
+
+export function isR2DeliveryEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_R2_ENABLED === "true";
+}
+
+export function getCloudflarePagesImagesBase(): string {
+  return (process.env.NEXT_PUBLIC_CF_PAGES_IMAGES_BASE ?? "").replace(
+    /\/$/,
+    "",
+  );
+}
+
+export function isCloudflarePagesImagesEnabled(): boolean {
+  return (
+    process.env.NEXT_PUBLIC_CF_PAGES_IMAGES_ENABLED === "true" &&
+    /^https:\/\//.test(getCloudflarePagesImagesBase())
+  );
+}
+
+/** Public Pages/Workers URL for a same-origin image path. */
+export function getPagesImageUrl(src: string): string {
+  return `${getCloudflarePagesImagesBase()}${normalizeLocalPath(src)}`;
+}
+
+/**
+ * Resolve the URL Next.js Image should request.
+ * R2 first, then Cloudflare Pages/Workers assets, then proxied img.* CDN,
+ * otherwise git-backed public/.
+ */
+export function getCdnImageSrc(src: string): string {
+  if (isRemoteImageSrc(src)) return src;
+  if (isR2DeliveryEnabled()) return getR2ObjectUrl(src);
+  if (isCloudflarePagesImagesEnabled()) return getPagesImageUrl(src);
+  if (isCloudflareEdgeImagesEnabled()) return getEdgeImageUrl(src);
+  return normalizeLocalPath(src);
+}
+
+export function isCloudflareEdgeImagesEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_CF_EDGE_IMAGES_ENABLED === "true";
+}
+
+export const CF_EDGE_IMAGES_HOST = "img.midtownvegascondos.com";
+
+export function getEdgeImageUrl(src: string): string {
+  return `https://${CF_EDGE_IMAGES_HOST}${normalizeLocalPath(src)}`;
+}

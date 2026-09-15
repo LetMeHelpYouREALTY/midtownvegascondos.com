@@ -13,17 +13,9 @@
 
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 
-export const COMMUTES_MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(
-  `${officeInfo.name}, ${officeInfo.address.full}`
-)}&ll=${officeInfo.coordinates.lat},${officeInfo.coordinates.lng}&z=12&output=embed`;
-
-export const COMMUTES_MAP_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-  officeInfo.address.full
-)}`;
-
-export const COMMUTES_MAP_PLACE_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  `${officeInfo.name} ${officeInfo.address.full}`
-)}`;
+export const COMMUTES_MAP_EMBED_URL = officeInfo.maps.embed;
+export const COMMUTES_MAP_DIRECTIONS_URL = officeInfo.maps.directions;
+export const COMMUTES_MAP_PLACE_URL = officeInfo.maps.place;
 
 /** Destinations shoppers commonly check from midtown / office (AEO answer fodder). */
 export const commuteDestinations = [
@@ -56,21 +48,25 @@ export const commuteDestinations = [
 
 export const commuteFaqs = [
   {
-    question: "How long is the commute from midtown Las Vegas condos to the Strip?",
+    question:
+      "How long is the commute from midtown Las Vegas condos to the Strip?",
     answer:
       "Most midtown Las Vegas condo locations reach the Las Vegas Strip in about 10–20 minutes by car. Use the live commute map on midtownvegascondos.com to check drive times for your exact tower and departure time.",
   },
   {
-    question: "How far is Harry Reid International Airport from midtown Las Vegas?",
+    question:
+      "How far is Harry Reid International Airport from midtown Las Vegas?",
     answer:
       "Harry Reid International Airport (LAS) is typically a 15–25 minute drive from midtown Las Vegas condo areas, subject to traffic. Enter LAS on the commute map for live estimates.",
   },
   {
-    question: "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
+    question:
+      "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
     answer: `The business location is ${officeInfo.address.full} in the Arts District / Downtown Las Vegas corridor. Call ${agentInfo.phone} for directions or to schedule an appointment.`,
   },
   {
-    question: "Can I check commute times before buying a midtown Las Vegas condo?",
+    question:
+      "Can I check commute times before buying a midtown Las Vegas condo?",
     answer:
       "Yes. The on-site Google Commute Times map lets you compare drive times from midtown Las Vegas to work, school campuses, the airport, and other destinations before you write an offer. Ask Dr. Jan Duffy to walk through routes on a showing.",
   },
@@ -113,6 +109,7 @@ export function generateCommutesMapSchemaGraph(): Record<string, unknown> {
         description:
           "Berkshire Hathaway HomeServices Nevada Properties office serving midtown Las Vegas condo buyers and sellers.",
         hasMap: COMMUTES_MAP_PLACE_URL,
+        identifier: officeInfo.googlePlace.placeId,
         geo: {
           "@type": "GeoCoordinates",
           latitude: officeInfo.coordinates.lat,

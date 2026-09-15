@@ -6,7 +6,13 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
-import { siteConfig, agentInfo, officeInfo, agentStats, getAgentImageSrc } from "./site-config";
+import {
+  siteConfig,
+  agentInfo,
+  officeInfo,
+  agentStats,
+  getAgentImageSrc,
+} from "./site-config";
 
 // ============================================================================
 // Types
@@ -280,7 +286,7 @@ export function generateAggregateRatingSchema(
   ratingValue: number,
   reviewCount: number,
   bestRating = 5,
-  worstRating = 1
+  worstRating = 1,
 ) {
   return {
     "@type": "AggregateRating",
@@ -302,7 +308,7 @@ export function generateReviewSchema(reviews: ReviewItem[]) {
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     aggregateRating: generateAggregateRatingSchema(
       agentStats.averageRating,
-      agentStats.reviewCount
+      agentStats.reviewCount,
     ),
     review: reviews.map((review) => ({
       "@type": "Review",
@@ -317,7 +323,8 @@ export function generateReviewSchema(reviews: ReviewItem[]) {
         worstRating: "1",
       },
       reviewBody: review.reviewBody,
-      datePublished: review.datePublished || new Date().toISOString().split("T")[0],
+      datePublished:
+        review.datePublished || new Date().toISOString().split("T")[0],
     })),
   };
 }
@@ -336,6 +343,11 @@ export function generateNeighborhoodSchema(neighborhood: NeighborhoodData) {
     "@id": `${BASE_URL}/neighborhoods/${neighborhood.slug}#place`,
     name: `${neighborhood.name}, Las Vegas`,
     description: neighborhood.description,
+    url: `${BASE_URL}/neighborhoods/${neighborhood.slug}`,
+    telephone: agentInfo.phoneTel.replace("tel:", ""),
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${neighborhood.name} Las Vegas NV`,
+    )}`,
     address: {
       "@type": "PostalAddress",
       addressLocality: neighborhood.containedIn || "Las Vegas",
@@ -456,7 +468,9 @@ export function generateRealEstateListingSchema(listing: {
     "@type": "RealEstateListing",
     name: listing.name,
     description: listing.description,
-    url: listing.url.startsWith("http") ? listing.url : `${BASE_URL}${listing.url}`,
+    url: listing.url.startsWith("http")
+      ? listing.url
+      : `${BASE_URL}${listing.url}`,
     offers: {
       "@type": "Offer",
       price: listing.price,
@@ -482,7 +496,7 @@ export function generateRealEstateListingSchema(listing: {
     ...(listing.images &&
       listing.images.length > 0 && {
         image: listing.images.map((img) =>
-          img.startsWith("http") ? img : `${BASE_URL}${img}`
+          img.startsWith("http") ? img : `${BASE_URL}${img}`,
         ),
       }),
   };
@@ -506,11 +520,18 @@ export function generateServiceSchema(service: {
     "@type": "Service",
     name: service.name,
     description: service.description,
-    url: service.url.startsWith("http") ? service.url : `${BASE_URL}${service.url}`,
+    url: service.url.startsWith("http")
+      ? service.url
+      : `${BASE_URL}${service.url}`,
     provider: {
       "@id": `${BASE_URL}#organization`,
     },
-    areaServed: service.areaServed || ["Las Vegas", "Henderson", "Summerlin", "North Las Vegas"],
+    areaServed: service.areaServed || [
+      "Las Vegas",
+      "Henderson",
+      "Summerlin",
+      "North Las Vegas",
+    ],
     serviceType: "Real Estate Services",
   };
 }

@@ -1,9 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   MapPin,
   Home as HomeIcon,
   Dumbbell,
@@ -14,7 +12,10 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 
 const PATH = "/55-plus-communities/heritage-stonebridge";
@@ -36,7 +37,8 @@ const faqs = [
       "Expect golf-course living, clubhouse programming, fitness, and single-story or low-maintenance homes aimed at 55+ buyers. Tour current inventory and confirm age restrictions, HOA dues, and membership rules with listing documents. Call (702) 500-1980 for live MLS comps.",
   },
   {
-    question: "How does Heritage at Stonebridge compare to Midtown for investors?",
+    question:
+      "How does Heritage at Stonebridge compare to Midtown for investors?",
     answer:
       "Heritage at Stonebridge is typically owner-occupied 55+ housing. Midtown condo towers often allow short-term or long-term rental strategies depending on HOA rules. Match the property type to your hold period and income goals with Dr. Jan Duffy.",
   },
@@ -46,13 +48,14 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Heritage at Stonebridge Homes for Sale | 55+ North Las Vegas",
     description:
-      "Heritage at Stonebridge 55+ homes in North Las Vegas — golf-course living, club amenities, single-story plans. Compare with Midtown condos. Dr. Jan Duffy. Call (702) 500-1980.",
+      "Heritage at Stonebridge 55+ homes in North Las Vegas — golf-course living, club amenities, single-story plans. Compare with Midtown condos. Dr. Jan Duffy, BHHS. Call (702) 500-1980.",
     keywords: [
       "Heritage at Stonebridge",
       "Stonebridge 55+",
       "North Las Vegas active adult",
       "55 plus golf community Las Vegas",
       "Heritage Stonebridge homes for sale",
+      "Berkshire Hathaway Heritage Stonebridge",
     ],
   }),
   robots: { index: true, follow: true },
@@ -78,8 +81,11 @@ export default function HeritageStonebridgePage() {
       <Navbar />
       <PageHero
         imageKey="fiftyFiveHeritage"
+        leadSectionKey="heritageWhy"
+        leadSectionHeading="Why buyers look at Heritage at Stonebridge"
         pagePath={PATH}
         title="Heritage at Stonebridge homes for sale"
+        badge="Berkshire Hathaway HomeServices Nevada Properties"
         subtitle="55+ golf-course living in North Las Vegas — with a clear Midtown condo comparison from Dr. Jan Duffy."
         priority
       >
@@ -106,50 +112,96 @@ export default function HeritageStonebridgePage() {
           </div>
 
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="heritageWhy"
+              heading="Why buyers look at Heritage at Stonebridge"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-2xl md:text-3xl font-bold mb-6">
               Why buyers look at Heritage at Stonebridge
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="flex gap-3">
-                <Trophy className="w-8 h-8 text-amber-400 shrink-0" aria-hidden />
-                <div>
-                  <h3 className="font-semibold mb-1">Golf-course living</h3>
-                  <p className="text-slate-300 text-sm">
-                    Fairway proximity and club programming for active adult
-                    routines.
-                  </p>
+              <div>
+                <HeadingCardPhoto
+                  heading="Golf-course living"
+                  heroKey="fiftyFiveHeritage"
+                  className="mb-3"
+                />
+                <div className="flex gap-3">
+                  <Trophy
+                    className="w-8 h-8 text-amber-400 shrink-0"
+                    aria-hidden
+                  />
+                  <div>
+                    <h3 className="font-semibold mb-1">Golf-course living</h3>
+                    <p className="text-slate-300 text-sm">
+                      Fairway proximity and club programming for active adult
+                      routines.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <Dumbbell className="w-8 h-8 text-amber-400 shrink-0" aria-hidden />
-                <div>
-                  <h3 className="font-semibold mb-1">Club amenities</h3>
-                  <p className="text-slate-300 text-sm">
-                    Fitness, social spaces, and community events aimed at 55+
-                    residents.
-                  </p>
+              <div>
+                <HeadingCardPhoto
+                  heading="Club amenities"
+                  heroKey="luxuryHomes"
+                  className="mb-3"
+                />
+                <div className="flex gap-3">
+                  <Dumbbell
+                    className="w-8 h-8 text-amber-400 shrink-0"
+                    aria-hidden
+                  />
+                  <div>
+                    <h3 className="font-semibold mb-1">Club amenities</h3>
+                    <p className="text-slate-300 text-sm">
+                      Fitness, social spaces, and community events aimed at 55+
+                      residents.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <HomeIcon className="w-8 h-8 text-amber-400 shrink-0" aria-hidden />
-                <div>
-                  <h3 className="font-semibold mb-1">Low-maintenance homes</h3>
-                  <p className="text-slate-300 text-sm">
-                    Single-story and lock-and-leave floor plans on many lots.
-                  </p>
+              <div>
+                <HeadingCardPhoto
+                  heading="Low-maintenance homes"
+                  heroKey="sellersDownsizing"
+                  className="mb-3"
+                />
+                <div className="flex gap-3">
+                  <HomeIcon
+                    className="w-8 h-8 text-amber-400 shrink-0"
+                    aria-hidden
+                  />
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Low-maintenance homes
+                    </h3>
+                    <p className="text-slate-300 text-sm">
+                      Single-story and lock-and-leave floor plans on many lots.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="midtownHowTo"
+              heading="Heritage at Stonebridge vs Midtown condos"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
               Heritage at Stonebridge vs Midtown condos
             </h2>
+
             <p className="text-slate-700 leading-relaxed mb-4">
               <strong>Heritage at Stonebridge</strong> is a North Las Vegas 55+
-              community built around golf and club living—not a Midtown high-rise.
-              Buyers often compare it with{" "}
+              community built around golf and club living—not a Midtown
+              high-rise.{" "}
+              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>{" "}
+              buyers often compare it with{" "}
               <Link href="/" className="text-blue-600 hover:underline">
                 Midtown Las Vegas Boulevard condos
               </Link>{" "}
@@ -175,61 +227,90 @@ export default function HeritageStonebridgePage() {
           </section>
 
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="heritageWhy"
+              heading="Current Heritage at Stonebridge listings"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
               Current Heritage at Stonebridge listings
             </h2>
-            <RealScoutListings />
+            <p className="text-slate-700 leading-relaxed mb-4">
+              Live MLS inventory is in the Featured Properties section at the
+              top of this page. For a full midtown and valley search, open{" "}
+              <Link href="/listings" className="font-medium text-blue-600">
+                condos for sale
+              </Link>{" "}
+              or call {agentInfo.phone}.
+            </p>
+            <p className="text-center">
+              <Link
+                href="#featured-properties"
+                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                Jump to live MLS inventory
+              </Link>
+            </p>
           </section>
 
           <section className="mb-16 max-w-4xl mx-auto" data-community-faq>
+            <SectionPhoto
+              imageKey="heritageWhy"
+              heading="Frequently asked questions"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
               Frequently asked questions
             </h2>
+
             <div className="space-y-4">
               {faqs.map((faq) => (
                 <div
                   key={faq.question}
                   className="rounded-xl border border-slate-200 p-5"
                 >
-                  <h3 className="font-semibold text-slate-900">{faq.question}</h3>
-                  <p className="mt-2 text-slate-700 leading-relaxed">{faq.answer}</p>
+                  <h3 className="font-semibold text-slate-900">
+                    {faq.question}
+                  </h3>
+                  <p className="mt-2 text-slate-700 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               ))}
             </div>
           </section>
 
           <section className="max-w-4xl mx-auto rounded-2xl bg-blue-50 p-8">
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Tour Heritage at Stonebridge or Midtown"
+              className="mb-6 text-left"
+            />
             <h2 className="text-xl font-bold text-slate-900 mb-2">
               Tour Heritage at Stonebridge or Midtown
             </h2>
             <p className="text-slate-700 mb-1">
-              Dr. Jan Duffy · License {agentInfo.license} · {officeInfo.name}
+              Dr. Jan Duffy · License {agentInfo.license} · Berkshire Hathaway
+              HomeServices Nevada Properties
             </p>
             <p className="text-sm text-slate-600 mb-4 flex items-start gap-2">
               <MapPin className="w-4 h-4 mt-0.5 shrink-0" aria-hidden />
               {officeInfo.address.full}
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={`tel:${agentInfo.phone}`}
-                className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white hover:bg-blue-700"
-              >
-                <Phone className="w-4 h-4" aria-hidden />
-                Call {agentInfo.phoneFormatted}
-              </a>
+            <GbpEngageButtons>
               <Link
                 href="/contact"
-                className="rounded-lg border border-blue-600 px-5 py-2.5 font-semibold text-blue-700 hover:bg-blue-50"
+                className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
               >
                 Contact
               </Link>
               <Link
                 href="/55-plus-communities"
-                className="rounded-lg border border-slate-300 px-5 py-2.5 font-semibold text-slate-700 hover:bg-slate-50"
+                className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
               >
                 All 55+ communities
               </Link>
-            </div>
+            </GbpEngageButtons>
           </section>
         </div>
       </main>

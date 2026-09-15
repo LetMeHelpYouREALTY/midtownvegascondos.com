@@ -16,6 +16,9 @@ jobs:
   deploy-preview:
     name: Deploy to Vercel Preview
     runs-on: ubuntu-latest
+    # Native Vercel GitHub integration owns preview deploys. This duplicate
+    # workflow fails when repo secrets point at a missing project.
+    continue-on-error: true
     outputs:
       preview-url: ${{ steps.deploy.outputs.url }}
     steps:
@@ -32,12 +35,20 @@ jobs:
         run: npm install -g vercel@latest
 
       - name: Pull Vercel Environment Information
+        continue-on-error: true
+        id: pull
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
+      - name: Skip remaining steps when Vercel project secrets are invalid
+        if: steps.pull.outcome != 'success'
+        run: echo "Vercel preview workflow secrets do not match a project. Using the native Vercel GitHub integration instead."
+
       - name: Build Project Artifacts
+        if: steps.pull.outcome == 'success'
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel
+        if: steps.pull.outcome == 'success'
         id: deploy
         run: |
           url=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
@@ -45,6 +56,7 @@ jobs:
           echo "Deployed to: $url"
 
       - name: Comment PR with Preview URL
+        if: steps.pull.outcome == 'success'
         uses: actions/github-script@v7
         with:
           script: |

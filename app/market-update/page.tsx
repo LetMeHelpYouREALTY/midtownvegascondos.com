@@ -1,9 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   TrendingUp,
   TrendingDown,
   Home as HomeIcon,
@@ -16,9 +14,13 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-update", {
-  title: "Berkshire Hathaway HomeServices Las Vegas Market Update | January 2026",
+  title:
+    "Berkshire Hathaway HomeServices Las Vegas Market Update | January 2026",
   description:
     "Weekly Las Vegas real estate market update from Berkshire Hathaway HomeServices Nevada Properties. Get the latest stats, notable sales, and expert analysis from Dr. Jan Duffy. Call (702) 500-1980.",
   keywords: [
@@ -50,7 +52,7 @@ const articleSchema = {
   publisher: {
     "@type": "Organization",
     name: "Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://heyberkshire.com",
+    url: "https://www.midtownvegascondos.com",
   },
 };
 
@@ -64,26 +66,33 @@ export default function MarketUpdatePage() {
       <Navbar />
       <PageHero
         imageKey="marketUpdate"
+        leadSectionKey="marketWeek"
+        leadSectionHeading="5 Key Statistics This Week"
         pagePath="/market-update"
         title="Berkshire Hathaway HomeServices Las Vegas Market Update"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Your weekly insider report on Las Vegas Valley real estate from{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong></p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
+          Your weekly insider report on Las Vegas Valley real estate from{" "}
+          <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>
+        </p>
         <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Calendar className="h-4 w-4 mr-2" />
-              Week of January 20, 2026
-            </div>
-            
-            
-            <div className="flex items-center justify-center mt-6 text-white/80 text-sm">
-              <span>By Dr. Jan Duffy, REALTOR® | BHHS Nevada Properties</span>
-            </div>
+          <Calendar className="h-4 w-4 mr-2" />
+          Week of January 20, 2026
+        </div>
+
+        <div className="flex items-center justify-center mt-6 text-white/80 text-sm">
+          <span>By Dr. Jan Duffy, REALTOR® | BHHS Nevada Properties</span>
+        </div>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
-
           {/* Key Statistics */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="marketWeek"
+              heading="5 Key Statistics This Week"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
               5 Key Statistics This Week
             </h2>
@@ -93,8 +102,12 @@ export default function MarketUpdatePage() {
                 <div className="flex items-center justify-center mb-3">
                   <DollarSign className="h-6 w-6 text-blue-600" />
                 </div>
-                <div className="text-3xl font-bold text-slate-900 mb-1">$452,500</div>
-                <div className="text-sm text-slate-500 mb-2">Median Sale Price</div>
+                <div className="text-3xl font-bold text-slate-900 mb-1">
+                  $452,500
+                </div>
+                <div className="text-sm text-slate-500 mb-2">
+                  Median Sale Price
+                </div>
                 <div className="flex items-center justify-center text-green-600 text-sm font-medium">
                   <TrendingUp className="h-4 w-4 mr-1" />
                   +1.2% vs last week
@@ -106,7 +119,9 @@ export default function MarketUpdatePage() {
                 <div className="flex items-center justify-center mb-3">
                   <HomeIcon className="h-6 w-6 text-blue-600" />
                 </div>
-                <div className="text-3xl font-bold text-slate-900 mb-1">847</div>
+                <div className="text-3xl font-bold text-slate-900 mb-1">
+                  847
+                </div>
                 <div className="text-sm text-slate-500 mb-2">Homes Sold</div>
                 <div className="flex items-center justify-center text-green-600 text-sm font-medium">
                   <TrendingUp className="h-4 w-4 mr-1" />
@@ -119,8 +134,12 @@ export default function MarketUpdatePage() {
                 <div className="flex items-center justify-center mb-3">
                   <BarChart3 className="h-6 w-6 text-blue-600" />
                 </div>
-                <div className="text-3xl font-bold text-slate-900 mb-1">4,892</div>
-                <div className="text-sm text-slate-500 mb-2">Active Listings</div>
+                <div className="text-3xl font-bold text-slate-900 mb-1">
+                  4,892
+                </div>
+                <div className="text-sm text-slate-500 mb-2">
+                  Active Listings
+                </div>
                 <div className="flex items-center justify-center text-red-600 text-sm font-medium">
                   <TrendingDown className="h-4 w-4 mr-1" />
                   -2.1% vs last week
@@ -133,7 +152,9 @@ export default function MarketUpdatePage() {
                   <Clock className="h-6 w-6 text-blue-600" />
                 </div>
                 <div className="text-3xl font-bold text-slate-900 mb-1">26</div>
-                <div className="text-sm text-slate-500 mb-2">Avg. Days on Market</div>
+                <div className="text-sm text-slate-500 mb-2">
+                  Avg. Days on Market
+                </div>
                 <div className="flex items-center justify-center text-green-600 text-sm font-medium">
                   <TrendingDown className="h-4 w-4 mr-1" />
                   -2 days vs last week
@@ -145,8 +166,12 @@ export default function MarketUpdatePage() {
                 <div className="flex items-center justify-center mb-3">
                   <TrendingUp className="h-6 w-6 text-blue-600" />
                 </div>
-                <div className="text-3xl font-bold text-slate-900 mb-1">98.2%</div>
-                <div className="text-sm text-slate-500 mb-2">List-to-Sale Ratio</div>
+                <div className="text-3xl font-bold text-slate-900 mb-1">
+                  98.2%
+                </div>
+                <div className="text-sm text-slate-500 mb-2">
+                  List-to-Sale Ratio
+                </div>
                 <div className="flex items-center justify-center text-green-600 text-sm font-medium">
                   <TrendingUp className="h-4 w-4 mr-1" />
                   +0.4% vs last week
@@ -157,27 +182,42 @@ export default function MarketUpdatePage() {
 
           {/* Notable Sale */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Notable Sale of the Week</h2>
+            <SectionPhoto
+              imageKey="listingDetails"
+              heading="Notable Sale of the Week"
+              className="mb-6 text-left"
+            />
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              Notable Sale of the Week
+            </h2>
             <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl p-8">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
-                  <div className="text-blue-400 text-sm font-semibold mb-2">THE RIDGES, SUMMERLIN</div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2">$4.2 Million | Custom Estate</h3>
+                  <div className="text-blue-400 text-sm font-semibold mb-2">
+                    THE RIDGES, SUMMERLIN
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                    $4.2 Million | Custom Estate
+                  </h3>
                   <p className="text-slate-300 mb-4 md:mb-0">
                     6 Bed | 7 Bath | 8,400 SF | Strip & Mountain Views
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-4xl font-bold text-green-400">12 Days</div>
+                  <div className="text-4xl font-bold text-green-400">
+                    12 Days
+                  </div>
                   <div className="text-slate-400">On Market</div>
                 </div>
               </div>
               <div className="mt-6 pt-6 border-t border-slate-700">
                 <p className="text-slate-300">
-                  <strong className="text-white">Why it matters:</strong> This sale demonstrates
-                  continued strength in the luxury market. The property sold at 97% of asking price
-                  after just 12 days—well below the luxury segment's 67-day average. California
-                  relocators continue to drive demand for premium properties in guard-gated communities.
+                  <strong className="text-white">Why it matters:</strong> This
+                  sale demonstrates continued strength in the luxury market. The
+                  property sold at 97% of asking price after just 12 days—well
+                  below the luxury segment's 67-day average. California
+                  relocators continue to drive demand for premium properties in
+                  guard-gated communities.
                 </p>
               </div>
             </div>
@@ -185,28 +225,41 @@ export default function MarketUpdatePage() {
 
           {/* Expert Analysis */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Dr. Jan Duffy's Expert Analysis</h2>
+            <SectionPhoto
+              imageKey="whyJan"
+              heading="Dr. Jan Duffy's Expert Analysis"
+              className="mb-6 text-left"
+            />
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              Dr. Jan Duffy's Expert Analysis
+            </h2>
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <div className="prose prose-lg max-w-none text-slate-700">
                 <p>
-                  "This week's data tells an important story: <strong>the Las Vegas market is
-                  finding its balance</strong>. We're seeing modest price appreciation (+1.2%),
-                  healthy sales volume (+8.3%), and tightening inventory (-2.1%)—classic signs
+                  "This week's data tells an important story:{" "}
+                  <strong>the Las Vegas market is finding its balance</strong>.
+                  We're seeing modest price appreciation (+1.2%), healthy sales
+                  volume (+8.3%), and tightening inventory (-2.1%)—classic signs
                   of a market favoring sellers without pricing out buyers.
                 </p>
                 <p>
-                  The drop in average days on market from 28 to 26 days signals increasing buyer
-                  urgency. Combined with the list-to-sale ratio climbing to 98.2%, sellers are
-                  achieving near-asking prices consistently. This is notably different from the
-                  pandemic frenzy when homes routinely sold above asking—today's market rewards
-                  realistic pricing while still delivering strong results.
+                  The drop in average days on market from 28 to 26 days signals
+                  increasing buyer urgency. Combined with the list-to-sale ratio
+                  climbing to 98.2%, sellers are achieving near-asking prices
+                  consistently. This is notably different from the pandemic
+                  frenzy when homes routinely sold above asking—today's market
+                  rewards realistic pricing while still delivering strong
+                  results.
                 </p>
                 <p>
-                  What I'm watching closely: <strong>new listing activity</strong>. If inventory
-                  continues declining while sales remain strong, we could see more competitive
-                  conditions by spring. <strong>Berkshire Hathaway HomeServices</strong> buyers
-                  should be prepared to move quickly on desirable properties, while sellers should
-                  consider listing before the traditional spring rush creates more competition."
+                  What I'm watching closely:{" "}
+                  <strong>new listing activity</strong>. If inventory continues
+                  declining while sales remain strong, we could see more
+                  competitive conditions by spring.{" "}
+                  <strong>Berkshire Hathaway HomeServices</strong> buyers should
+                  be prepared to move quickly on desirable properties, while
+                  sellers should consider listing before the traditional spring
+                  rush creates more competition."
                 </p>
               </div>
               <div className="mt-6 flex items-center">
@@ -216,7 +269,8 @@ export default function MarketUpdatePage() {
                 <div>
                   <div className="font-bold text-slate-900">Dr. Jan Duffy</div>
                   <div className="text-slate-500 text-sm">
-                    REALTOR® | Berkshire Hathaway HomeServices Nevada Properties
+                    REALTOR® | Berkshire Hathaway HomeServices Nevada
+                    Properties
                   </div>
                 </div>
               </div>
@@ -225,45 +279,62 @@ export default function MarketUpdatePage() {
 
           {/* What This Means */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="marketForces"
+              heading="What This Means for You"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
               What This Means for You
             </h2>
+
             <div className="grid md:grid-cols-2 gap-8">
               {/* For Buyers */}
               <div className="bg-white border-2 border-green-200 rounded-xl p-8">
+                <HeadingCardPhoto
+                  heading="For Buyers"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <div className="bg-green-100 p-3 rounded-full mr-4">
                     <HomeIcon className="h-6 w-6 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">For Buyers</h3>
+                  <h3 className="text-xl font-bold text-slate-900">
+                    For Buyers
+                  </h3>
                 </div>
                 <ul className="space-y-4 text-slate-700">
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Get pre-approved now.</strong> With homes selling in 26 days average,
-                      you need to be ready to make offers immediately.
+                      <strong>Get pre-approved now.</strong> With homes selling
+                      in 26 days average, you need to be ready to make offers
+                      immediately.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Expect to pay close to asking.</strong> The 98.2% list-to-sale ratio
-                      means significant discounts are rare in this market.
+                      <strong>Expect to pay close to asking.</strong> The 98.2%
+                      list-to-sale ratio means significant discounts are rare in
+                      this market.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Consider acting before spring.</strong> Declining inventory suggests
-                      more competition ahead. January/February can offer less crowded conditions.
+                      <strong>Consider acting before spring.</strong> Declining
+                      inventory suggests more competition ahead.
+                      January/February can offer less crowded conditions.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Work with an expert.</strong> A Berkshire Hathaway HomeServices agent
-                      can identify properties before they hit the market and negotiate effectively.
+                      <strong>Work with an expert.</strong> A Berkshire Hathaway
+                      HomeServices agent can identify properties before they hit
+                      the market and negotiate effectively.
                     </span>
                   </li>
                 </ul>
@@ -271,39 +342,51 @@ export default function MarketUpdatePage() {
 
               {/* For Sellers */}
               <div className="bg-white border-2 border-blue-200 rounded-xl p-8">
+                <HeadingCardPhoto
+                  heading="For Sellers"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
                     <DollarSign className="h-6 w-6 text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">For Sellers</h3>
+                  <h3 className="text-xl font-bold text-slate-900">
+                    For Sellers
+                  </h3>
                 </div>
                 <ul className="space-y-4 text-slate-700">
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Price strategically.</strong> Homes priced at market value are selling
-                      quickly at near-asking prices. Overpricing will cost you time and money.
+                      <strong>Price strategically.</strong> Homes priced at
+                      market value are selling quickly at near-asking prices.
+                      Overpricing will cost you time and money.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>List before the spring rush.</strong> Less competition now means more
-                      buyer attention on your property. Spring brings more listings competing for buyers.
+                      <strong>List before the spring rush.</strong> Less
+                      competition now means more buyer attention on your
+                      property. Spring brings more listings competing for
+                      buyers.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Presentation matters.</strong> With multiple options available, buyers
-                      are selective. Professional photos and staging deliver measurable ROI.
+                      <strong>Presentation matters.</strong> With multiple
+                      options available, buyers are selective. Professional
+                      photos and staging deliver measurable ROI.
                     </span>
                   </li>
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Leverage the BHHS brand.</strong> Berkshire Hathaway HomeServices
-                      marketing reaches qualified buyers locally, nationally, and internationally.
+                      <strong>Leverage the BHHS brand.</strong> Berkshire
+                      Hathaway HomeServices marketing reaches qualified buyers
+                      locally, nationally, and internationally.
                     </span>
                   </li>
                 </ul>
@@ -313,51 +396,88 @@ export default function MarketUpdatePage() {
 
           {/* Market by Area */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">This Week by Area</h2>
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="This Week by Area"
+              className="mb-6 text-left"
+            />
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              This Week by Area
+            </h2>
             <div className="overflow-x-auto">
               <table className="w-full bg-white border border-slate-200 rounded-xl overflow-hidden">
                 <thead className="bg-slate-50">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Area</th>
-                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">Median Price</th>
-                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">Week Δ</th>
-                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">Homes Sold</th>
-                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">Avg. DOM</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">
+                      Area
+                    </th>
+                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">
+                      Median Price
+                    </th>
+                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">
+                      Week Δ
+                    </th>
+                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">
+                      Homes Sold
+                    </th>
+                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">
+                      Avg. DOM
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
                   <tr>
-                    <td className="px-6 py-4 font-medium text-slate-900">Summerlin</td>
+                    <td className="px-6 py-4 font-medium text-slate-900">
+                      Summerlin
+                    </td>
                     <td className="px-6 py-4 text-right">$628,000</td>
-                    <td className="px-6 py-4 text-right text-green-600">+1.8%</td>
+                    <td className="px-6 py-4 text-right text-green-600">
+                      +1.8%
+                    </td>
                     <td className="px-6 py-4 text-right">142</td>
                     <td className="px-6 py-4 text-right">21 days</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 font-medium text-slate-900">Henderson</td>
+                    <td className="px-6 py-4 font-medium text-slate-900">
+                      Henderson
+                    </td>
                     <td className="px-6 py-4 text-right">$487,500</td>
-                    <td className="px-6 py-4 text-right text-green-600">+1.1%</td>
+                    <td className="px-6 py-4 text-right text-green-600">
+                      +1.1%
+                    </td>
                     <td className="px-6 py-4 text-right">198</td>
                     <td className="px-6 py-4 text-right">23 days</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 font-medium text-slate-900">Las Vegas (Central)</td>
+                    <td className="px-6 py-4 font-medium text-slate-900">
+                      Las Vegas (Central)
+                    </td>
                     <td className="px-6 py-4 text-right">$425,000</td>
-                    <td className="px-6 py-4 text-right text-green-600">+0.8%</td>
+                    <td className="px-6 py-4 text-right text-green-600">
+                      +0.8%
+                    </td>
                     <td className="px-6 py-4 text-right">287</td>
                     <td className="px-6 py-4 text-right">28 days</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 font-medium text-slate-900">North Las Vegas</td>
+                    <td className="px-6 py-4 font-medium text-slate-900">
+                      North Las Vegas
+                    </td>
                     <td className="px-6 py-4 text-right">$387,000</td>
-                    <td className="px-6 py-4 text-right text-green-600">+0.5%</td>
+                    <td className="px-6 py-4 text-right text-green-600">
+                      +0.5%
+                    </td>
                     <td className="px-6 py-4 text-right">156</td>
                     <td className="px-6 py-4 text-right">31 days</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 font-medium text-slate-900">Southwest (Mountains Edge)</td>
+                    <td className="px-6 py-4 font-medium text-slate-900">
+                      Southwest (Mountains Edge)
+                    </td>
                     <td className="px-6 py-4 text-right">$478,000</td>
-                    <td className="px-6 py-4 text-right text-green-600">+1.3%</td>
+                    <td className="px-6 py-4 text-right text-green-600">
+                      +1.3%
+                    </td>
                     <td className="px-6 py-4 text-right">64</td>
                     <td className="px-6 py-4 text-right">26 days</td>
                   </tr>
@@ -368,28 +488,29 @@ export default function MarketUpdatePage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="marketSnapshot"
+              heading="Get Personalized Market Insights"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Get Personalized Market Insights
             </h2>
+
             <p className="text-xl text-blue-100 mb-8">
               Want to know what these trends mean for your specific situation?
-              Contact Dr. Jan Duffy for a free consultation tailored to your goals.
+              Contact Dr. Jan Duffy for a free consultation tailored to your
+              goals.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/home-valuation"
-                className="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-400 transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-blue-500 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-400"
               >
                 Get Free Home Valuation
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="mt-6 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>
@@ -397,12 +518,17 @@ export default function MarketUpdatePage() {
 
           {/* Newsletter Signup */}
           <section className="mt-16 max-w-2xl mx-auto text-center">
+            <HeadingCardPhoto
+              heading="Get Weekly Market Updates in Your Inbox"
+              heroKey="marketUpdate"
+              className="mb-4"
+            />
             <h3 className="text-xl font-bold text-slate-900 mb-4">
               Get Weekly Market Updates in Your Inbox
             </h3>
             <p className="text-slate-600 mb-6">
-              Join 2,500+ Las Vegas homeowners and investors who receive Dr. Jan's weekly market
-              analysis every Monday morning.
+              Join 2,500+ Las Vegas homeowners and investors who receive Dr.
+              Jan's weekly market analysis every Monday morning.
             </p>
             <div className="flex gap-2 max-w-md mx-auto">
               <input
@@ -423,7 +549,6 @@ export default function MarketUpdatePage() {
           Last Updated: January 24, 2026 | Data Source: Las Vegas REALTORS® MLS
         </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

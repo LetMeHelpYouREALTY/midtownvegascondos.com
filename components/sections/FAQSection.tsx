@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { defaultFaqs, type FAQ } from "@/lib/faqs";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 
 interface FAQSectionProps {
   /** Custom FAQs to display (defaults to defaultFaqs) */
@@ -31,10 +32,17 @@ export default function FAQSection({
     <section className={`py-16 md:py-24 bg-white ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <SectionPhoto
+            imageKey="faqCategories"
+            heading={title}
+            className="mx-auto mb-8 max-w-3xl text-left"
+          />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             {title}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">{subtitle}</p>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            {subtitle}
+          </p>
         </div>
 
         <div className="max-w-3xl mx-auto">
@@ -47,7 +55,9 @@ export default function FAQSection({
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-50 transition-colors"
               >
-                <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
+                <span className="font-semibold text-slate-900 pr-4">
+                  {faq.question}
+                </span>
                 {openIndex === index ? (
                   <ChevronUp className="h-5 w-5 text-blue-600 flex-shrink-0" />
                 ) : (

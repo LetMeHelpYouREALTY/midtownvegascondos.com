@@ -1,0 +1,9 @@
+# Isolated Wrangler config for R2 object uploads only.
+# Do not inherit the heyberkshire worker wrangler.toml (empty account_id).
+# Do not orange-cloud the Vercel hostname — this file never deploys a Worker.
+#
+# Account ID verified 2026-09-15 from Cloudflare invoice email to
+# drduffy@bhhsnv.com (dash.cloudflare.com/<id>/home). Not a secret.
+name = "midtownvegascondos-r2-images"
+account_id = "2cc579c1ec9e426ed585e933ebf4753b"
+compatibility_date = "2026-09-15"

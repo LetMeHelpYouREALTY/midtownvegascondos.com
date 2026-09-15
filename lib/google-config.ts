@@ -28,27 +28,32 @@ function officeQuery(includeName = true): string {
 }
 
 /**
- * Build map / place / directions / reviews URLs pinned to the GBP office.
+ * Map / place / directions / reviews URLs pinned to the GBP office.
+ * Place ID / CID come from a verified GBP read for this listing only.
+ * Directions always include destination_place_id so Maps clicks stay on this entity.
  */
 export function getOfficeGoogleMapsLinks() {
   const query = officeQuery(true);
   const addressOnly = officeInfo.address.full;
   const { lat, lng } = officeInfo.coordinates;
+  const { placeId, cid } = officeInfo.googlePlace;
 
   return {
-    /** iframe embed — business name + office street address */
-    embed: `https://www.google.com/maps?q=${encodeURIComponent(query)}&ll=${lat},${lng}&z=16&output=embed`,
-    /** Open in Google Maps */
-    place: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`,
-    /** Driving directions to the office */
-    directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addressOnly)}`,
-    /** Reviews / GBP listing search at the office address */
-    reviews: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`,
+    /** iframe embed — Maps CID for this GBP listing */
+    embed: officeInfo.maps.embed,
+    /** Open the Google Maps listing */
+    place: officeInfo.maps.place,
+    /** Driving directions pinned to this Place ID */
+    directions: officeInfo.maps.directions,
+    /** Google reviews for this Place ID */
+    reviews: officeInfo.maps.reviews,
     /** Coordinates pin (fallback) */
     coordinatesEmbed: `https://www.google.com/maps?q=${lat},${lng}&z=16&output=embed`,
     query,
     address: addressOnly,
     coordinates: { lat, lng },
+    placeId,
+    cid,
   };
 }
 

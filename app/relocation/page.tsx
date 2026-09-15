@@ -1,26 +1,25 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { 
-  Phone, 
-  Plane, 
-  MapPin, 
-  Users, 
-  CheckCircle, 
-  Sun, 
-  DollarSign, 
+import {
+  Users,
+  CheckCircle,
+  Sun,
+  DollarSign,
   Building,
   Home,
   School,
   ArrowRight,
-  Car,
   Shield,
   Globe,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
+import type { HeroImageKey } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/relocation", {
   title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
@@ -51,42 +50,67 @@ const relocationSchema = {
   serviceType: "Relocation Services",
 };
 
-const popularRelocationAreas = [
+const popularRelocationAreas: {
+  name: string;
+  slug: string;
+  best: string;
+  highlights: string;
+  from: string;
+  heroKey: HeroImageKey;
+}[] = [
   {
-    name: "Summerlin",
-    best: "Families, professionals",
-    highlights: "Top-rated schools, 150+ parks, Red Rock Canyon proximity, master-planned living",
-    from: "$500K",
+    name: "Arts District",
+    slug: "arts-district",
+    best: "Walkable loft and gallery-row buyers",
+    highlights:
+      "Loft conversions, First Friday, and Dr. Jan's office at 921 South Main Street",
+    from: "$325K",
+    heroKey: "artsDistrict",
   },
   {
-    name: "Henderson",
-    best: "Families, retirees",
-    highlights: "Lowest crime rates, excellent schools, community feel, diverse neighborhoods",
-    from: "$450K",
+    name: "Symphony Park",
+    slug: "symphony-park",
+    best: "Culture-district and downtown commuters",
+    highlights:
+      "Smith Center residences, mid-rise inventory, I-15 and airport routes",
+    from: "$410K",
+    heroKey: "symphonyPark",
   },
   {
-    name: "Green Valley",
-    best: "Established families",
-    highlights: "Mature landscaping, championship golf, shopping and dining, Henderson location",
-    from: "$480K",
+    name: "Fremont East",
+    slug: "fremont-east",
+    best: "Downtown entertainment-corridor buyers",
+    highlights:
+      "Boutique condos near Fremont East dining. Confirm STR rules per building.",
+    from: "$295K",
+    heroKey: "fremontEast",
   },
   {
-    name: "Skye Canyon",
-    best: "Young families",
-    highlights: "Newest construction, mountain trail access, modern amenities, growing area",
-    from: "$500K",
+    name: "One Las Vegas",
+    slug: "one-las-vegas",
+    best: "High-rise and lock-and-leave buyers",
+    highlights:
+      "Strip-corridor views, concierge, resort pool. Typical HOA $400–$1,200+/mo",
+    from: "$650K",
+    heroKey: "oneLasVegas",
+  },
+  {
+    name: "Palms Place",
+    slug: "palms-place",
+    best: "Condotel and resort-amenity buyers",
+    highlights:
+      "Valet, pool complex, HOA that typically covers utilities. Review rental-program CC&Rs",
+    from: "$380K",
+    heroKey: "palmsPlace",
   },
   {
     name: "Southern Highlands",
-    best: "Luxury buyers, golfers",
-    highlights: "Guard-gated sections, championship golf, mountain views, resort living",
-    from: "$700K",
-  },
-  {
-    name: "Inspirada",
-    best: "Families, active adults",
-    highlights: "Resort-style pools, extensive trails, new homes, Henderson convenience",
-    from: "$450K",
+    slug: "southern-highlands",
+    best: "Golf-course and gated-village buyers",
+    highlights:
+      "Championship golf, mountain views, about 15 minutes to Harry Reid Airport",
+    from: "$750K",
+    heroKey: "nbSouthernHighlands",
   },
 ];
 
@@ -115,87 +139,158 @@ export default function RelocationPage() {
       <Navbar />
       <PageHero
         imageKey="relocationHub"
+        leadSectionKey="relocationWhy"
+        leadSectionHeading="Why People Are Moving to Las Vegas"
         pagePath="/relocation"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Relocating to Las Vegas?"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto"><strong>Berkshire Hathaway HomeServices</strong> makes your move seamless. With
-              50,000+ agents nationwide, we coordinate your relocation from anywhere in the country.
-              Whether you're moving from California, the Midwest, or across the globe, Dr. Jan Duffy 
-              provides comprehensive relocation services to ensure your transition is stress-free.</p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
+          <strong>Berkshire Hathaway HomeServices</strong> makes your move
+          seamless. With 50,000+ agents nationwide, we coordinate your
+          relocation from anywhere in the country. Whether you're moving from
+          California, the Midwest, or across the globe, Dr. Jan Duffy provides
+          comprehensive relocation services to ensure your transition is
+          stress-free.
+        </p>
         <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> 50,000+ Agent Network</span>
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Virtual Home Tours</span>
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> School Research</span>
-            </div>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> 50,000+
+            Agent Network
+          </span>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Virtual Home
+            Tours
+          </span>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> School
+            Research
+          </span>
+        </div>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
-
           {/* Why Las Vegas */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">Why People Are Moving to Las Vegas</h2>
+            <SectionPhoto
+              imageKey="relocationWhy"
+              heading="Why People Are Moving to Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+            <h2 className="text-2xl font-bold mb-4 text-center">
+              Why People Are Moving to Las Vegas
+            </h2>
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
-              Las Vegas has become one of the fastest-growing cities in America, attracting 
-              families, professionals, and retirees from across the country. Here's why so 
-              many people are making the move to Southern Nevada.
+              Las Vegas has become one of the fastest-growing cities in America,
+              attracting relocators, professionals, and retirees from across the
+              country. Here's why so many people are making the move to Southern
+              Nevada.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="No State Income Tax"
+                  heroKey="buyersCaRelocator"
+                  className="mb-3"
+                />
                 <DollarSign className="h-12 w-12 text-green-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">No State Income Tax</h3>
-                <p className="text-slate-400 text-sm">Keep more of what you earn—California residents can save 10%+ on taxes</p>
+                <p className="text-slate-400 text-sm">
+                  Keep more of what you earn—California residents can save 10%+
+                  on taxes
+                </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="300+ Days of Sunshine"
+                  heroKey="fiftyFiveSunCitySummerlin"
+                  className="mb-3"
+                />
                 <Sun className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">300+ Days of Sunshine</h3>
-                <p className="text-slate-400 text-sm">Year-round outdoor lifestyle with golf, hiking, and recreation</p>
+                <p className="text-slate-400 text-sm">
+                  Year-round outdoor lifestyle with golf, hiking, and recreation
+                </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Affordable Housing"
+                  heroKey="buyersFirstTime"
+                  className="mb-3"
+                />
                 <Building className="h-12 w-12 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Affordable Housing</h3>
-                <p className="text-slate-400 text-sm">40-60% lower home prices than California coastal cities</p>
+                <p className="text-slate-400 text-sm">
+                  40-60% lower home prices than California coastal cities
+                </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Growing Economy"
+                  heroKey="marketInsights"
+                  className="mb-3"
+                />
                 <Users className="h-12 w-12 text-purple-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Growing Economy</h3>
-                <p className="text-slate-400 text-sm">Sports, tech, healthcare, and entertainment job growth</p>
+                <p className="text-slate-400 text-sm">
+                  Sports, tech, healthcare, and entertainment job growth
+                </p>
               </div>
             </div>
           </section>
 
           {/* Expert Quote */}
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="whyJan"
+              heading="Expert Relocation Guidance"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Expert Relocation Guidance
             </h2>
+
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Moving to a new city is stressful enough. I handle everything from neighborhood
-                tours to school research to contractor referrals so you can focus on your new
-                beginning. And because Berkshire Hathaway HomeServices has agents nationwide, I can
-                coordinate with your agent back home to make the transition seamless. My goal is to 
-                make Las Vegas feel like home before you even arrive."
+                "Moving to a new city is stressful enough. I handle everything
+                from neighborhood tours to school research to contractor
+                referrals so you can focus on your new beginning. And because
+                Berkshire Hathaway HomeServices has agents nationwide, I can
+                coordinate with your agent back home to make the transition
+                seamless. My goal is to make Las Vegas feel like home before you
+                even arrive."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas Since 2008
+                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas
+                Since 2008
               </cite>
             </div>
           </section>
 
           {/* Relocation Services */}
           <section className="mb-16 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="gbpServices"
+              heading="Comprehensive Relocation Services"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Comprehensive Relocation Services
             </h2>
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Relocating involves much more than just finding a home. Dr. Jan Duffy provides 
-              end-to-end relocation services that address every aspect of your move, from 
-              neighborhood selection to utility setup and local provider recommendations.
+              Relocating involves much more than just finding a home. Dr. Jan
+              Duffy provides end-to-end relocation services that address every
+              aspect of your move, from neighborhood selection to utility setup
+              and local provider recommendations.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {relocationServices.map((service) => (
-                <div key={service} className="flex items-center bg-white p-4 rounded-lg border border-slate-200">
+                <div
+                  key={service}
+                  className="flex items-center bg-white p-4 rounded-lg border border-slate-200"
+                >
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                   <span className="text-slate-700 text-sm">{service}</span>
                 </div>
@@ -205,71 +300,116 @@ export default function RelocationPage() {
 
           {/* Neighborhoods */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="contactAreas"
+              heading="Popular Relocation Destinations"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Popular Relocation Destinations
             </h2>
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Choosing the right neighborhood is crucial for a successful relocation. Each Las 
-              Vegas community offers a unique lifestyle, price point, and amenities. Dr. Jan 
-              helps you identify which area matches your priorities—whether that's schools, 
-              commute times, outdoor access, or community feel.
+              Open a live midtown condo page that matches commute time, HOA
+              dues, and floor-plan size. Dr. Jan maps Harry Reid Airport routes
+              and parking before you write.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {popularRelocationAreas.map((area) => (
-                <div
-                  key={area.name}
-                  className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                <Link
+                  key={area.slug}
+                  href={`/neighborhoods/${area.slug}`}
+                  className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow block"
                 >
+                  <HeadingCardPhoto
+                    heading={area.name}
+                    heroKey={area.heroKey}
+                    className="mb-4"
+                  />
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-bold text-lg text-slate-900">{area.name}</h3>
+                    <h3 className="font-bold text-lg text-slate-900">
+                      {area.name}
+                    </h3>
                     <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">
                       From {area.from}
                     </span>
                   </div>
-                  <p className="text-sm text-blue-600 mb-3">Best for: {area.best}</p>
+                  <p className="text-sm text-blue-600 mb-3">
+                    Best for: {area.best}
+                  </p>
                   <p className="text-slate-600 text-sm">{area.highlights}</p>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="text-center mt-8">
-              <Link href="/neighborhoods" className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center">
-                Explore All Neighborhoods <ArrowRight className="h-4 w-4 ml-2" />
+              <Link
+                href="/neighborhoods"
+                className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center"
+              >
+                Explore All Neighborhoods{" "}
+                <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
             </div>
           </section>
 
           {/* School Information */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="commuteTimes"
+              heading="Las Vegas Schools & Education"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Las Vegas Schools & Education
             </h2>
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              For families with children, school quality is often the top priority when 
-              relocating. Las Vegas offers a range of public, charter, and private school 
-              options. Dr. Jan provides detailed school research to help you make informed decisions.
+              Compare named campuses, CCSD zoning, magnet programs, and private
+              options by address. Dr. Jan provides school-name research so you
+              can review commute times and enrollment rules before you write an
+              offer.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Named campuses by area"
+                  heroKey="nbSummerlin"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4 flex items-center">
                   <School className="h-5 w-5 text-blue-600 mr-2" />
-                  Top-Rated School Areas
+                  Named Campuses by Area
                 </h3>
                 <ul className="space-y-2 text-slate-700">
                   <li className="flex items-start">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                    <span><strong>Summerlin:</strong> Palo Verde HS, West Career & Tech Academy</span>
+                    <span>
+                      <strong>Summerlin:</strong> Palo Verde HS, West Career &
+                      Tech Academy
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                    <span><strong>Henderson:</strong> Coronado HS, Green Valley HS, The Meadows</span>
+                    <span>
+                      <strong>Henderson:</strong> Coronado HS, Green Valley HS,
+                      The Meadows
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                    <span><strong>Private:</strong> The Meadows, Bishop Gorman, Faith Lutheran</span>
+                    <span>
+                      <strong>Private:</strong> The Meadows, Bishop Gorman,
+                      Faith Lutheran
+                    </span>
                   </li>
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="School Research Services"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4 flex items-center">
                   <Home className="h-5 w-5 text-blue-600 mr-2" />
                   School Research Services
@@ -281,7 +421,9 @@ export default function RelocationPage() {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                    <span>Zoned school identification for specific addresses</span>
+                    <span>
+                      Zoned school identification for specific addresses
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
@@ -298,74 +440,147 @@ export default function RelocationPage() {
 
           {/* Coming From California */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">Moving from California?</h2>
+            <SectionPhoto
+              imageKey="caNumbers"
+              heading="Moving from California?"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
+            <h2 className="text-2xl font-bold mb-4 text-center">
+              Moving from California?
+            </h2>
+
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
-              California to Nevada is one of the most popular relocation routes in the country. 
-              Thousands of California families move to Las Vegas each year seeking lower costs, 
-              no state income tax, and a better quality of life. Here's what the numbers look like.
+              California to Nevada is one of the most popular relocation routes
+              in the country. Thousands of California relocators move to Las
+              Vegas each year seeking lower costs, no state income tax, and a
+              better quality of life. Here's what the numbers look like.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
+                <HeadingCardPhoto
+                  heading="What You'll Save"
+                  heroKey="buyersCaRelocator"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-3">What You'll Save</h3>
                 <ul className="space-y-2 text-blue-100">
-                  <li>• <strong>State income tax:</strong> 0% vs CA's up to 13.3%</li>
-                  <li>• <strong>Home prices:</strong> 40-60% lower than LA/SF</li>
-                  <li>• <strong>Property taxes:</strong> Typically lower rates</li>
-                  <li>• <strong>Cost of living:</strong> 30-40% less overall</li>
-                  <li>• <strong>Example:</strong> $200K earner saves $20K+ in taxes annually</li>
+                  <li>
+                    • <strong>State income tax:</strong> 0% vs CA's up to 13.3%
+                  </li>
+                  <li>
+                    • <strong>Home prices:</strong> 40-60% lower than LA/SF
+                  </li>
+                  <li>
+                    • <strong>Property taxes:</strong> Typically lower rates
+                  </li>
+                  <li>
+                    • <strong>Cost of living:</strong> 30-40% less overall
+                  </li>
+                  <li>
+                    • <strong>Example:</strong> $200K earner saves $20K+ in
+                    taxes annually
+                  </li>
                 </ul>
               </div>
               <div>
+                <HeadingCardPhoto
+                  heading="What You'll Gain"
+                  heroKey="nbSummerlin"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-3">What You'll Gain</h3>
                 <ul className="space-y-2 text-blue-100">
-                  <li>• <strong>More home:</strong> 50%+ more space for your budget</li>
-                  <li>• <strong>Short commutes:</strong> 20-30 min vs 60+ in CA</li>
-                  <li>• <strong>Outdoor recreation:</strong> Red Rock, Lake Mead, skiing</li>
-                  <li>• <strong>Entertainment:</strong> World-class dining, shows, sports</li>
-                  <li>• <strong>Easy visits back:</strong> 4-hour drive, 1-hour flight to SoCal</li>
+                  <li>
+                    • <strong>More home:</strong> 50%+ more space for your
+                    budget
+                  </li>
+                  <li>
+                    • <strong>Short commutes:</strong> 20-30 min vs 60+ in CA
+                  </li>
+                  <li>
+                    • <strong>Outdoor recreation:</strong> Red Rock, Lake Mead,
+                    skiing
+                  </li>
+                  <li>
+                    • <strong>Entertainment:</strong> World-class dining, shows,
+                    sports
+                  </li>
+                  <li>
+                    • <strong>Easy visits back:</strong> 4-hour drive, 1-hour
+                    flight to SoCal
+                  </li>
                 </ul>
               </div>
             </div>
             <div className="text-center mt-8">
-              <Link 
-                href="/buyers/california-relocator" 
+              <Link
+                href="/buyers/california-relocator"
                 className="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
-                California Relocator Guide <ArrowRight className="h-4 w-4 ml-2" />
+                California Relocator Guide{" "}
+                <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
             </div>
           </section>
 
           {/* BHHS Network */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="aboutBhhs"
+              heading="The Berkshire Hathaway HomeServices Advantage"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               The Berkshire Hathaway HomeServices Advantage
             </h2>
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              With 50,000+ agents in 1,500+ offices worldwide, Berkshire Hathaway HomeServices 
-              provides seamless coordination for relocations. Your agent back home can connect 
-              directly with Dr. Jan to ensure a smooth transition—no gaps, no miscommunication.
+              With 50,000+ agents in 1,500+ offices worldwide, Berkshire
+              Hathaway HomeServices provides seamless coordination for
+              relocations. Your agent back home can connect directly with Dr.
+              Jan to ensure a smooth transition—no gaps, no miscommunication.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center p-6 bg-slate-50 rounded-xl">
+                <HeadingCardPhoto
+                  heading="Nationwide Network"
+                  heroKey="whyBhhs"
+                  className="mb-4"
+                />
                 <Globe className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">Nationwide Network</h3>
                 <p className="text-slate-600 text-sm">
-                  Seamless referrals from any BHHS agent in the country directly to Dr. Jan
+                  Seamless referrals from any BHHS agent in the country directly
+                  to Dr. Jan
                 </p>
               </div>
               <div className="text-center p-6 bg-slate-50 rounded-xl">
+                <HeadingCardPhoto
+                  heading="Coordinated Transactions"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <Shield className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Coordinated Transactions</h3>
+                <h3 className="font-bold text-lg mb-2">
+                  Coordinated Transactions
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  Sell your current home and buy in Las Vegas with coordinated timelines
+                  Sell your current home and buy in Las Vegas with coordinated
+                  timelines
                 </p>
               </div>
               <div className="text-center p-6 bg-slate-50 rounded-xl">
+                <HeadingCardPhoto
+                  heading="Trusted Referrals"
+                  heroKey="aboutAgent"
+                  className="mb-4"
+                />
                 <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">Trusted Referrals</h3>
                 <p className="text-slate-600 text-sm">
-                  Not using BHHS? Dr. Jan can recommend a trusted agent in your area
+                  Not using BHHS? Dr. Jan can recommend a trusted agent in your
+                  area
                 </p>
               </div>
             </div>
@@ -373,12 +588,18 @@ export default function RelocationPage() {
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="relocationWhy"
+              heading="Relocation Frequently Asked Questions"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Relocation Frequently Asked Questions
             </h2>
+
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Moving to a new city raises many questions. Here are answers to the most common 
-              concerns from people relocating to Las Vegas.
+              Moving to a new city raises many questions. Here are answers to
+              the most common concerns from people relocating to Las Vegas.
             </p>
             <div className="space-y-4">
               {[
@@ -387,12 +608,12 @@ export default function RelocationPage() {
                   a: "Absolutely. Dr. Jan provides virtual tours, video walkthroughs, and detailed neighborhood analysis so you can purchase confidently before relocating. Many clients buy their Las Vegas home without ever visiting in person until closing day.",
                 },
                 {
-                  q: "What are the best areas for families relocating to Las Vegas?",
-                  a: "Summerlin, Henderson (especially Green Valley and Inspirada), and Skye Canyon consistently rank highest for families due to excellent schools, low crime, and family-friendly amenities. Dr. Jan can match you with the right area based on your specific priorities—schools, commute, budget, and lifestyle.",
+                  q: "Which areas fit a commute-and-amenities search when relocating to Las Vegas?",
+                  a: "Summerlin, Henderson (especially Green Valley and Inspirada), and Skye Canyon are common matches for parks, trail systems, and published school campus names. Dr. Jan can match you by commute, budget, HOA amenities, and square footage.",
                 },
                 {
                   q: "How does the cost of living compare to California?",
-                  a: "Las Vegas costs about 30-40% less than LA/Orange County and 50%+ less than San Francisco. The biggest savings come from no state income tax (California charges up to 13.3%) and significantly lower housing costs. A family earning $200K in California could save $20,000+ annually just in state taxes.",
+                  a: "Las Vegas costs about 30-40% less than LA/Orange County and 50%+ less than San Francisco. The biggest savings come from no state income tax (California charges up to 13.3%) and significantly lower housing costs. A $200K earner in California could save $20,000+ annually just in state taxes.",
                 },
                 {
                   q: "Do you help coordinate the sale of my current home too?",
@@ -403,8 +624,8 @@ export default function RelocationPage() {
                   a: "Las Vegas has diversified beyond gaming and hospitality. Major growth sectors include healthcare (Intermountain Health, UMC), technology (Switch, various startups), sports (Raiders, Golden Knights, Aces), logistics (Amazon), and professional services. The economy is growing faster than the national average.",
                 },
                 {
-                  q: "Is Las Vegas safe for families?",
-                  a: "Yes, particularly in the suburban communities. Henderson consistently ranks as one of America's safest cities. Summerlin, Green Valley, and Inspirada also have very low crime rates. Dr. Jan can provide detailed crime statistics for any neighborhood you're considering.",
+                  q: "How do commute times compare across Las Vegas areas?",
+                  a: "Henderson is about 16 miles from the Arts District office. Summerlin, Green Valley, and Inspirada each have different Strip and downtown drive times. Dr. Jan can map commute options for any address you are considering.",
                 },
               ].map((faq, index) => (
                 <div key={index} className="bg-slate-50 rounded-lg p-6">
@@ -417,27 +638,30 @@ export default function RelocationPage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Planning Your Move to Las Vegas?</h2>
+            <SectionPhoto
+              imageKey="relocationWhy"
+              heading="Planning Your Move to Las Vegas?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Planning Your Move to Las Vegas?
+            </h2>
+
             <p className="text-xl text-slate-300 mb-8">
-              Let Dr. Jan Duffy and Berkshire Hathaway HomeServices make your relocation stress-free.
-              Whether you're moving next month or exploring options, a free consultation can help 
-              you understand the Las Vegas market and plan your transition.
+              Let Dr. Jan Duffy and Berkshire Hathaway HomeServices make your
+              relocation stress-free. Whether you're moving next month or
+              exploring options, a free consultation can help you understand the
+              Las Vegas market and plan your transition.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-slate-700 hover:bg-slate-600 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
               >
                 Schedule Consultation
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="mt-4 text-slate-400 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>
@@ -445,9 +669,10 @@ export default function RelocationPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: September 2026
+        </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

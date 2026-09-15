@@ -1,9 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
-  Phone,
   Search,
   FileText,
   Home,
@@ -20,8 +18,17 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
-import { hyperlocalMeta, midtownNeighborhoods, midtownServiceSchema } from "@/lib/hyperlocal-content";
+import {
+  hyperlocalMeta,
+  midtownNeighborhoods,
+  midtownServiceSchema,
+} from "@/lib/hyperlocal-content";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
+import { neighborhoodHeroBySlug, type HeroImageKey } from "@/lib/hero-images";
+import type { SectionImageKey } from "@/lib/section-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/buyers", {
   title: hyperlocalMeta.buyers.title,
@@ -31,39 +38,50 @@ export const metadata: Metadata = withPageHeroMetadata("/buyers", {
 
 const buyerSchema = midtownServiceSchema(
   "Midtown Las Vegas Condo Buying Services",
-  "Condo Buyer Representation"
+  "Condo Buyer Representation",
 );
 
-const buyingSteps = [
+const buyingSteps: {
+  icon: typeof DollarSign;
+  title: string;
+  description: string;
+  heroKey?: HeroImageKey;
+  sectionKey?: SectionImageKey;
+}[] = [
   {
     icon: DollarSign,
     title: "Get Pre-Approved for Condo Financing",
     description:
       "Know your budget before touring midtown towers. Dr. Jan connects you with lenders experienced in high-rise and condo financing — including FHA-approved buildings, VA loans, and conventional programs.",
+    heroKey: "homeValuation" as const,
   },
   {
     icon: Search,
     title: "Choose Your Building & Neighborhood",
     description:
       "Compare Arts District lofts, Fremont East boutiques, and Strip-view high-rises. Dr. Jan reviews HOA fees, rental rules, parking deeded rights, and building amenities so you find the right midtown fit.",
+    heroKey: "artsDistrict" as const,
   },
   {
     icon: FileText,
     title: "Tour Units & Make an Offer",
     description:
       "Dr. Jan's midtown condo expertise ensures your offer is competitive. She negotiates price, closing costs, and HOA document review periods — protecting you in every high-rise transaction.",
+    heroKey: "buyersCondoTower" as const,
   },
   {
     icon: Home,
     title: "HOA Review & Inspections",
     description:
       "Review HOA budgets, reserve studies, special assessments, and CC&Rs before you commit. Dr. Jan coordinates inspections and helps negotiate credits if issues arise during due diligence.",
+    sectionKey: "hoaReview" as const,
   },
   {
     icon: Key,
     title: "Close on Your Midtown Condo",
     description:
       "Dr. Jan coordinates with lenders, title, and escrow for a smooth closing — typically 30–45 days for financed purchases. Then you get the keys to your midtown Las Vegas condo.",
+    heroKey: "sellersHighrise" as const,
   },
 ];
 
@@ -84,33 +102,56 @@ export default function BuyersPage() {
       <Navbar />
       <PageHero
         imageKey="buyersCondoTower"
+        leadSectionKey="buyersAgent"
+        leadSectionHeading="Why You Need a Buyer's Agent"
         pagePath="/buyers"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Buy Your Midtown Las Vegas Condo with Confidence"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">When you work with Dr. Jan Duffy, a midtown condo specialist at{" "}
-              <strong>Berkshire Hathaway HomeServices</strong>, you get HOA expertise, building
-              comparisons, and expert negotiation — and buyer representation costs you nothing.</p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
+          When you work with Dr. Jan Duffy, a midtown condo specialist at{" "}
+          <strong>Berkshire Hathaway HomeServices</strong>, you get HOA
+          expertise, building comparisons, and expert negotiation — and buyer
+          representation costs you nothing.
+        </p>
         <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Buyer Representation</span>
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Full MLS Access</span>
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Expert Negotiation</span>
-            </div>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Buyer
+            Representation
+          </span>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Full MLS
+            Access
+          </span>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Expert
+            Negotiation
+          </span>
+        </div>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
-
           {/* Value Prop */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="buyersAgent"
+              heading="Why You Need a Buyer's Agent"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-4">Why You Need a Buyer's Agent</h2>
+                <h2 className="text-3xl font-bold mb-4">
+                  Why You Need a Buyer's Agent
+                </h2>
                 <p className="text-slate-300 mb-6">
-                  Here's what many buyers don't know: having your own agent costs you nothing. The
-                  seller pays the commission, but the representation is yours.{" "}
-                  <strong>Berkshire Hathaway HomeServices</strong> agents protect your interests,
-                  not the seller's. In a competitive market like Las Vegas, having expert 
-                  representation can mean the difference between winning your dream home and losing out.
+                  Here's what many buyers don't know: having your own agent
+                  costs you nothing. The seller pays the commission, but the
+                  representation is yours.{" "}
+                  <strong>Berkshire Hathaway HomeServices</strong> agents
+                  protect your interests, not the seller's. In a competitive
+                  market like Las Vegas, having expert representation can mean
+                  the difference between winning your dream home and losing out.
                 </p>
                 <ul className="space-y-2">
                   {[
@@ -130,10 +171,13 @@ export default function BuyersPage() {
               </div>
               <div className="bg-slate-800 rounded-lg p-8 text-center">
                 <Shield className="h-16 w-16 text-blue-400 mx-auto mb-4" />
-                <p className="text-2xl font-bold mb-2">Your Agent, Your Advocate</p>
+                <p className="text-2xl font-bold mb-2">
+                  Your Agent, Your Advocate
+                </p>
                 <p className="text-slate-400 mb-4">
-                  Dr. Jan Duffy works exclusively for your interests throughout the entire
-                  transaction—from the first showing to the closing table and beyond.
+                  Dr. Jan Duffy works exclusively for your interests throughout
+                  the entire transaction—from the first showing to the closing
+                  table and beyond.
                 </p>
                 <div className="text-sm text-slate-500">
                   Serving Las Vegas since 2008 | $127M+ in transactions
@@ -144,13 +188,19 @@ export default function BuyersPage() {
 
           {/* Buying Process */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="buyersProcess"
+              heading="The Midtown Condo Buying Process"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               The Midtown Condo Buying Process
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Buying a midtown condo means reviewing HOA documents, rental restrictions, and
-              building-specific comps — not just square footage. Here&apos;s what to expect when
-              purchasing a condo in midtown Las Vegas with Dr. Jan Duffy.
+              Buying a midtown condo means reviewing HOA documents, rental
+              restrictions, and building-specific comps — not just square
+              footage. Here&apos;s what to expect when purchasing a condo in
+              midtown Las Vegas with Dr. Jan Duffy.
             </p>
             <div className="space-y-6">
               {buyingSteps.map((step, index) => {
@@ -158,21 +208,31 @@ export default function BuyersPage() {
                 return (
                   <div
                     key={step.title}
-                    className="flex gap-6 items-start bg-white border border-slate-200 rounded-lg p-6"
+                    className="bg-white border border-slate-200 rounded-lg p-6"
                   >
-                    <div className="flex-shrink-0">
-                      <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center">
-                        <Icon className="h-8 w-8 text-blue-600" />
+                    <HeadingCardPhoto
+                      heading={step.title}
+                      heroKey={step.heroKey}
+                      sectionKey={step.sectionKey}
+                      className="mb-4 w-full max-w-xl"
+                    />
+                    <div className="flex gap-6 items-start">
+                      <div className="flex-shrink-0">
+                        <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center">
+                          <Icon className="h-8 w-8 text-blue-600" />
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
-                          Step {index + 1}
-                        </span>
-                        <h3 className="text-xl font-bold text-slate-900">{step.title}</h3>
+                      <div>
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            Step {index + 1}
+                          </span>
+                          <h3 className="text-xl font-bold text-slate-900">
+                            {step.title}
+                          </h3>
+                        </div>
+                        <p className="text-slate-600">{step.description}</p>
                       </div>
-                      <p className="text-slate-600">{step.description}</p>
                     </div>
                   </div>
                 );
@@ -182,13 +242,19 @@ export default function BuyersPage() {
 
           {/* Neighborhood Guide */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="Midtown Las Vegas Condo Neighborhoods"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Midtown Las Vegas Condo Neighborhoods
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Midtown offers walkable urban living from Arts District lofts to Strip-view high-rises.
-              Dr. Jan helps you compare buildings by HOA fees, rental rules, amenities, and
-              walkability — so you buy in the right tower for your lifestyle.
+              Midtown offers walkable urban living from Arts District lofts to
+              Strip-view high-rises. Dr. Jan helps you compare buildings by HOA
+              fees, rental rules, amenities, and walkability — so you buy in the
+              right tower for your lifestyle.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {neighborhoods.map((neighborhood) => (
@@ -197,11 +263,25 @@ export default function BuyersPage() {
                   href={`/neighborhoods/${neighborhood.slug}`}
                   className="bg-white rounded-lg p-4 border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all"
                 >
+                  <HeadingCardPhoto
+                    heading={neighborhood.name}
+                    heroKey={
+                      neighborhoodHeroBySlug[neighborhood.slug] ??
+                      "homeSkylineDay"
+                    }
+                    className="mb-3"
+                  />
                   <div className="flex justify-between items-center mb-2">
-                    <h3 className="font-bold text-slate-900">{neighborhood.name}</h3>
-                    <span className="text-blue-600 font-semibold">{neighborhood.price}</span>
+                    <h3 className="font-bold text-slate-900">
+                      {neighborhood.name}
+                    </h3>
+                    <span className="text-blue-600 font-semibold">
+                      {neighborhood.price}
+                    </span>
                   </div>
-                  <p className="text-slate-600 text-sm">{neighborhood.description}</p>
+                  <p className="text-slate-600 text-sm">
+                    {neighborhood.description}
+                  </p>
                 </Link>
               ))}
             </div>
@@ -210,81 +290,120 @@ export default function BuyersPage() {
                 href="/neighborhoods"
                 className="text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center"
               >
-                Explore All Neighborhoods <ArrowRight className="h-4 w-4 ml-2" />
+                Explore All Neighborhoods{" "}
+                <ArrowRight className="h-4 w-4 ml-2" />
               </Link>
             </div>
           </section>
 
           {/* Buyer Types */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="buyersSpecialized"
+              heading="Specialized Guidance for Every Buyer"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Specialized Guidance for Every Buyer
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Different buyers have different needs. A first-time buyer needs education and 
-              hand-holding through the process. A California relocator needs tax guidance and 
-              neighborhood matching. A luxury buyer needs discretion and access. Dr. Jan Duffy 
-              tailors her approach to match your specific situation and goals.
+              Different buyers have different needs. A first-time buyer needs
+              education and hand-holding through the process. A California
+              relocator needs tax guidance and neighborhood matching. A luxury
+              buyer needs discretion and access. Dr. Jan Duffy tailors her
+              approach to match your specific situation and goals.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <Link
                 href="/buyers/california-relocator"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">🌴</div>
+                <HeadingCardPhoto
+                  heading="California Relocators"
+                  heroKey="buyersCaRelocator"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   California Relocators
                 </h3>
                 <p className="text-slate-600 text-sm mb-3">
-                  0% state income tax, 40-60% lower home prices. See what your CA equity buys in 
-                  Las Vegas. Dr. Jan specializes in helping California families transition to Nevada.
+                  0% state income tax, 40-60% lower home prices. See what your
+                  CA equity buys in Las Vegas. Dr. Jan specializes in helping
+                  California families transition to Nevada.
                 </p>
-                <span className="text-blue-600 font-semibold text-sm">Learn More →</span>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Learn More →
+                </span>
               </Link>
               <Link
                 href="/buyers/first-time-buyers"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">🔑</div>
+                <HeadingCardPhoto
+                  heading="First-Time Buyers"
+                  heroKey="buyersFirstTime"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   First-Time Buyers
                 </h3>
                 <p className="text-slate-600 text-sm mb-3">
-                  Down payment assistance programs, FHA/VA loans, and builder incentives explained. 
-                  Step-by-step guidance through your first home purchase.
+                  Down payment assistance programs, FHA/VA loans, and builder
+                  incentives explained. Step-by-step guidance through your first
+                  home purchase.
                 </p>
-                <span className="text-blue-600 font-semibold text-sm">Learn More →</span>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Learn More →
+                </span>
               </Link>
               <Link
                 href="/buyers/luxury-homes-las-vegas"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">💎</div>
+                <HeadingCardPhoto
+                  heading="Luxury Home Buyers"
+                  heroKey="buyersLuxury"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   Luxury Home Buyers
                 </h3>
                 <p className="text-slate-600 text-sm mb-3">
-                  $1M+ properties with discrete service. The Ridges, MacDonald Highlands, Southern 
-                  Highlands, and Las Vegas Strip views. Off-market opportunities available.
+                  $1M+ properties with discrete service. The Ridges, MacDonald
+                  Highlands, Southern Highlands, and Las Vegas Strip views.
+                  Off-market opportunities available.
                 </p>
-                <span className="text-blue-600 font-semibold text-sm">Learn More →</span>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Learn More →
+                </span>
               </Link>
             </div>
           </section>
 
           {/* Why BHHS */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="whyBuffett"
+              heading="Why Buy with Berkshire Hathaway HomeServices"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Why Buy with Berkshire Hathaway HomeServices
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Not all real estate agents are created equal. When you choose a Berkshire Hathaway 
-              HomeServices agent, you're choosing the only real estate brand backed by Warren 
-              Buffett's Berkshire Hathaway Inc.—a name synonymous with trust, ethical standards, 
-              and financial strength.
+              Not all real estate agents are created equal. When you choose a
+              Berkshire Hathaway HomeServices agent, you're choosing the only
+              real estate brand backed by Warren Buffett's Berkshire Hathaway
+              Inc.—a name synonymous with trust, ethical standards, and
+              financial strength.
             </p>
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Trusted Brand"
+                  heroKey="whyBhhs"
+                  className="mb-3"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Award className="h-7 w-7 text-blue-600" />
                 </div>
@@ -294,28 +413,51 @@ export default function BuyersPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Global Network"
+                  heroKey="relocationHub"
+                  className="mb-3"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Users className="h-7 w-7 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">Global Network</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Global Network
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  50,000+ agents worldwide for seamless relocations and referrals
+                  50,000+ agents worldwide for seamless relocations and
+                  referrals
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Local Expertise"
+                  heroKey="artsDistrict"
+                  className="mb-3"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <MapPin className="h-7 w-7 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">Local Expertise</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Local Expertise
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  Dr. Jan has served Las Vegas since 2008 with $127M+ in transactions
+                  Dr. Jan has served Las Vegas since 2008 with $127M+ in
+                  transactions
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Expert Negotiation"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-3"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <TrendingUp className="h-7 w-7 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">Expert Negotiation</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Expert Negotiation
+                </h3>
                 <p className="text-slate-600 text-sm">
                   500+ successful transactions mean proven negotiation skills
                 </p>
@@ -327,26 +469,36 @@ export default function BuyersPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "My job isn't just to show you houses—it's to make sure you don't overpay, that you
-                understand what you're buying, and that you're protected through every step of the
-                transaction. That's what Berkshire Hathaway HomeServices representation means. I treat 
-                every client like family and won't stop until we find the right home for your needs."
+                "My job isn't just to show you houses—it's to make sure you
+                don't overpay, that you understand what you're buying, and that
+                you're protected through every step of the transaction. That's
+                what Berkshire Hathaway HomeServices representation means. I
+                treat every client like family and won't stop until we find the
+                right home for your needs."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas Since 2008
+                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas
+                Since 2008
               </cite>
             </div>
           </section>
 
           {/* Market Stats */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="marketSnapshot"
+              heading="Las Vegas Buyer Market Statistics | January 2026"
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-2xl font-bold mb-4 text-center">
               Las Vegas Buyer Market Statistics | January 2026
             </h2>
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
-              Understanding the current market helps you make informed decisions about timing, 
-              pricing, and negotiation strategies. Here's a snapshot of what buyers are facing 
-              in the Las Vegas market right now.
+              Understanding the current market helps you make informed decisions
+              about timing, pricing, and negotiation strategies. Here's a
+              snapshot of what buyers are facing in the Las Vegas market right
+              now.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
@@ -370,12 +522,18 @@ export default function BuyersPage() {
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="buyersAgent"
+              heading="Frequently Asked Questions About Buying in Las Vegas"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Frequently Asked Questions About Buying in Las Vegas
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Get answers to the most common questions from Las Vegas home buyers. If you don't 
-              see your question here, call Dr. Jan Duffy at (702) 500-1980 for a free consultation.
+              Get answers to the most common questions from Las Vegas home
+              buyers. If you don't see your question here, call Dr. Jan Duffy at
+              (702) 500-1980 for a free consultation.
             </p>
             <div className="space-y-4">
               {[
@@ -414,26 +572,29 @@ export default function BuyersPage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Find Your Midtown Condo?</h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Ready to Find Your Midtown Condo?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Find Your Midtown Condo?
+            </h2>
+
             <p className="text-xl text-slate-300 mb-8">
-              Questions about buying a midtown Las Vegas condo? Call Dr. Jan Duffy for a free
-              consultation — HOA review, building comparisons, and expert negotiation included.
+              Questions about buying a midtown Las Vegas condo? Call Dr. Jan
+              Duffy for a free consultation — HOA review, building comparisons,
+              and expert negotiation included.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001980"
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1980
-              </a>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-slate-700 hover:bg-slate-600 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
+                className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
               >
                 Schedule Consultation
               </Link>
-            </div>
+            </GbpEngageButtons>
             <p className="mt-4 text-slate-400 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>
@@ -441,9 +602,10 @@ export default function BuyersPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: September 2026
+        </div>
       </main>
-      <RealScoutListings />
       <Footer />
     </>
   );

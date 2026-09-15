@@ -1,10 +1,9 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import PageHero from "@/components/sections/PageHero";
 import Link from "next/link";
-import { Phone, MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SchemaScript from "@/components/SchemaScript";
@@ -17,11 +16,12 @@ import {
 import {
   getMidtownNeighborhood,
   midtownNeighborhoods,
-  type MidtownNeighborhoodSlug,
 } from "@/lib/hyperlocal-content";
-import { agentInfo, siteConfig } from "@/lib/site-config";
-import { neighborhoodHeroBySlug } from "@/lib/hero-images";
+import { agentInfo } from "@/lib/site-config";
+import { neighborhoodHeroBySlug, getHeroImage } from "@/lib/hero-images";
 import { withPageHeroMetadata } from "@/lib/image-seo";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -31,7 +31,9 @@ export async function generateStaticParams() {
   return midtownNeighborhoods.map((n) => ({ slug: n.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const area = getMidtownNeighborhood(slug);
   if (!area) return {};
@@ -51,7 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           "Dr Jan Duffy condo agent",
         ],
       },
-      imageKey
+      imageKey,
     ),
     robots: { index: true, follow: true },
   };
@@ -93,6 +95,10 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
       <Navbar />
       <PageHero
         imageKey={heroKey}
+        leadSrc={getHeroImage(heroKey).src}
+        leadAlt={getHeroImage(heroKey).alt}
+        leadCaption={getHeroImage(heroKey).caption}
+        leadSectionHeading={`${area.name} Condos for Sale`}
         pagePath={`/neighborhoods/${area.slug}`}
         badge="Midtown Las Vegas Condos"
         title={`${area.name} Condos for Sale`}
@@ -101,11 +107,15 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
       >
         <div className="flex flex-wrap justify-center gap-4 mb-6">
           <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/20">
-            <div className="text-2xl font-bold text-white">{area.medianPrice}</div>
+            <div className="text-2xl font-bold text-white">
+              {area.medianPrice}
+            </div>
             <div className="text-sm text-white/70">Median condo price</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/20">
-            <div className="text-2xl font-bold text-green-400">{area.priceChange}</div>
+            <div className="text-2xl font-bold text-green-400">
+              {area.priceChange}
+            </div>
             <div className="text-sm text-white/70">Year over year</div>
           </div>
         </div>
@@ -137,28 +147,38 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
             <span className="text-slate-900">{area.name}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-start max-w-6xl mx-auto mb-12">
+          <section
+            className="grid lg:grid-cols-[1fr_auto] gap-10 items-start max-w-6xl mx-auto mb-12"
+            aria-labelledby="explore-neighborhood"
+          >
             <div>
+              <SectionPhoto
+                src={getHeroImage(heroKey).src}
+                heading={`Explore ${area.name}`}
+                alt={getHeroImage(heroKey).alt}
+                caption={getHeroImage(heroKey).caption}
+                className="mb-6 text-left"
+              />
+              <h2
+                id="explore-neighborhood"
+                className="text-2xl font-bold text-slate-900 mb-4"
+              >
+                Explore {area.name}
+              </h2>
               <p className="text-slate-700 mb-6">
-                Explore {area.name} with Dr. Jan Duffy — HOA review, building comps, and condo-specific
-                guidance from a midtown specialist at Berkshire Hathaway HomeServices Nevada Properties.
+                Explore {area.name} with Dr. Jan Duffy — HOA review, building
+                comps, and condo-specific guidance from a midtown specialist at
+                Berkshire Hathaway HomeServices Nevada Properties.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href={agentInfo.phoneTel}
-                  className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold"
-                >
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call {agentInfo.phone}
-                </a>
+              <GbpEngageButtons>
                 <Link
                   href="/buyers"
-                  className="inline-flex items-center justify-center border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-semibold"
+                  className="inline-flex items-center justify-center rounded-md border border-blue-600 px-6 py-3 text-sm font-semibold text-blue-600 hover:bg-blue-50"
                 >
                   Condo Buying Guide
-                  <ArrowRight className="h-4 w-4 ml-2" />
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-              </div>
+              </GbpEngageButtons>
             </div>
             <div className="flex flex-col items-center">
               <AgentPhoto size="lg" />
@@ -168,17 +188,29 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
                 Midtown condo specialist
               </p>
             </div>
-          </div>
+          </section>
 
           {area.faqs.length > 0 && (
             <section className="max-w-3xl mx-auto mb-16">
+              <SectionPhoto
+                src={getHeroImage(heroKey).src}
+                heading={`${area.name} Condo FAQs`}
+                alt={getHeroImage(heroKey).alt}
+                caption={getHeroImage(heroKey).caption}
+                className="mb-8"
+              />
               <h2 className="text-2xl font-bold text-slate-900 mb-6">
                 {area.name} Condo FAQs
               </h2>
               <div className="space-y-4">
                 {area.faqs.map((faq) => (
-                  <div key={faq.question} className="border border-slate-200 rounded-lg p-5">
-                    <h3 className="font-semibold text-slate-900 mb-2">{faq.question}</h3>
+                  <div
+                    key={faq.question}
+                    className="border border-slate-200 rounded-lg p-5"
+                  >
+                    <h3 className="font-semibold text-slate-900 mb-2">
+                      {faq.question}
+                    </h3>
                     <p className="text-slate-600 text-sm">{faq.answer}</p>
                   </div>
                 ))}
@@ -188,22 +220,32 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
 
           <section className="bg-slate-900 text-white rounded-2xl p-8 md:p-12 text-center mb-12">
             <MapPin className="h-10 w-10 text-blue-400 mx-auto mb-4" />
+            <SectionPhoto
+              src={getHeroImage(heroKey).src}
+              heading={`Search ${area.name} Condos`}
+              alt={getHeroImage(heroKey).alt}
+              caption={getHeroImage(heroKey).caption}
+              className="mx-auto mb-8 max-w-4xl text-left"
+              onDark
+            />
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Search {area.name} Condos
             </h2>
+
             <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-              Dr. Jan Duffy knows every midtown building, floor plan, and HOA — get expert guidance
-              on your {area.name} condo search.
+              Dr. Jan Duffy knows every midtown building, floor plan, and HOA —
+              get expert guidance on your {area.name} condo search.
             </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-semibold"
-            >
-              Schedule a Consultation
-            </Link>
+            <GbpEngageButtons onDark>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-md border border-white/40 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              >
+                Schedule a Consultation
+              </Link>
+            </GbpEngageButtons>
           </section>
         </div>
-        <RealScoutListings />
       </main>
       <Footer />
     </>

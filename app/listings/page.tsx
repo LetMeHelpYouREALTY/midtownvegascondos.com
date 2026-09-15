@@ -1,12 +1,10 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
-import DeferredRealScoutWidget from "@/components/realscout/DeferredRealScoutWidget";
 import SchemaScript from "@/components/SchemaScript";
 import PageHero from "@/components/sections/PageHero";
+import Image from "next/image";
 import Link from "next/link";
 import {
-  Phone,
   CheckCircle,
   ArrowRight,
   Building2,
@@ -16,7 +14,20 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
-import { agentInfo, officeInfo, marketStats, siteConfig } from "@/lib/site-config";
+import {
+  agentInfo,
+  officeInfo,
+  marketStats,
+  siteConfig,
+} from "@/lib/site-config";
+import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
+import {
+  getHeroImage,
+  getHeroKeyForPath,
+  neighborhoodHeroBySlug,
+} from "@/lib/hero-images";
 
 const PATH = "/listings";
 
@@ -44,7 +55,8 @@ const faqs = [
 
 export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
-    title: "Midtown Las Vegas Condos for Sale | Live MLS Listings | Dr. Jan Duffy",
+    title:
+      "Midtown Las Vegas Condos for Sale | Live MLS Listings | Dr. Jan Duffy",
     description:
       "Search live MLS midtown Las Vegas condos for sale — Arts District lofts, high-rises, The English Residences, and downtown inventory. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1980.",
     keywords: [
@@ -97,7 +109,12 @@ const listingsSchema = {
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteConfig.url,
+        },
         {
           "@type": "ListItem",
           position: 2,
@@ -125,7 +142,10 @@ const listingsSchema = {
 
 const searchPaths = [
   { name: "Arts District lofts", href: "/neighborhoods/arts-district" },
-  { name: "The English Residences", href: "/neighborhoods/the-english-residences" },
+  {
+    name: "The English Residences",
+    href: "/neighborhoods/the-english-residences",
+  },
   { name: "Symphony Park", href: "/neighborhoods/symphony-park" },
   { name: "One Las Vegas", href: "/neighborhoods/one-las-vegas" },
   { name: "Juhl", href: "/neighborhoods/juhl" },
@@ -150,32 +170,43 @@ export default function ListingsPage() {
       <PageHero
         imageKey="listingsSearch"
         pagePath={PATH}
+        leadSectionKey="listingsHowTo"
+        leadSectionHeading="How to use this MLS search"
         badge="Live MLS · Berkshire Hathaway HomeServices Nevada Properties"
         title="Midtown Las Vegas condos for sale"
         subtitle="Search active MLS inventory, then shortlist Arts District lofts and downtown high-rises with Dr. Jan Duffy."
         priority
       >
-        <p data-listings-summary className="text-lg text-white/85 max-w-3xl mx-auto mb-6">
+        <p
+          data-listings-summary
+          className="text-lg text-white/85 max-w-3xl mx-auto mb-6"
+        >
           Midtown median about {marketStats.midtown.medianPriceFormatted} (
-          {marketStats.lastUpdated}). Use the live search below, then call {agentInfo.phone} for
-          building-level comps.
+          {marketStats.lastUpdated}). Use the live search below, then call{" "}
+          {agentInfo.phone} for building-level comps.
         </p>
         <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
           <span className="flex items-center">
-            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Live MLS feed
+            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Live MLS
+            feed
           </span>
           <span className="flex items-center">
-            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Condo specialist
+            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Condo
+            specialist
           </span>
           <span className="flex items-center">
-            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> HOA & CC&R review
+            <CheckCircle className="h-4 w-4 text-green-400 mr-1" /> HOA & CC&R
+            review
           </span>
         </div>
       </PageHero>
 
       <main className="pb-16">
         <div className="container mx-auto px-4">
-          <nav className="max-w-6xl mx-auto mb-8 pt-6 text-sm text-slate-500" aria-label="Breadcrumb">
+          <nav
+            className="max-w-6xl mx-auto mb-8 pt-6 text-sm text-slate-500"
+            aria-label="Breadcrumb"
+          >
             <Link href="/" className="hover:text-blue-600">
               Home
             </Link>
@@ -184,19 +215,30 @@ export default function ListingsPage() {
           </nav>
 
           <section className="mb-14 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="listingsHowTo"
+              heading="How to use this MLS search"
+              className="mb-6 text-left"
+            />
             <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
               <Search className="h-6 w-6 text-blue-600" />
               How to use this MLS search
             </h2>
             <p className="text-slate-700 leading-relaxed mb-4">
-              This page is your midtown condo search hub — not a generic valley dump. Start with
-              for-sale inventory, then filter toward condominiums and townhomes. When a building
-              looks right, open the neighborhood guide for HOA context and walkability notes, then
-              book a showing with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.
+              This page is your midtown condo search hub — not a generic valley
+              dump. Start with for-sale inventory, then filter toward
+              condominiums and townhomes. When a building looks right, open the
+              neighborhood guide for HOA context and walkability notes, then
+              book a showing with Dr. Jan Duffy at Berkshire Hathaway
+              HomeServices Nevada Properties.
             </p>
             <p className="text-slate-700 leading-relaxed">
-              Office: {officeInfo.address.full}. License {agentInfo.license}. Also explore{" "}
-              <Link href="/midtown-real-estate" className="text-blue-600 font-medium">
+              Office: {officeInfo.address.full}. License {agentInfo.license}.
+              Also explore{" "}
+              <Link
+                href="/midtown-real-estate"
+                className="text-blue-600 font-medium"
+              >
                 midtown real estate
               </Link>{" "}
               and the{" "}
@@ -207,108 +249,172 @@ export default function ListingsPage() {
             </p>
           </section>
 
-          {/* Live MLS — keep widget, surround with crawlable copy */}
           <section className="mb-16" aria-labelledby="live-mls">
-            <h2 id="live-mls" className="text-3xl font-bold text-slate-900 mb-4 text-center">
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading="Live MLS listings"
+              className="mx-auto mb-8 max-w-4xl"
+            />
+            <h2
+              id="live-mls"
+              className="text-3xl font-bold text-slate-900 mb-4 text-center"
+            >
               Live MLS listings
             </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Active for-sale properties via RealScout. Prices and status update with the MLS —
-              treat this as your discovery layer, then verify details before offers.
+            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-6">
+              Active for-sale properties via RealScout. Prices and status update
+              with the MLS — treat this as your discovery layer, then verify
+              details before offers.
             </p>
-            <div className="max-w-7xl mx-auto">
-              <DeferredRealScoutWidget
-                html={`<realscout-office-listings 
-                    agent-encoded-id="QWdlbnQtMjI1MDUw" 
-                    sort-order="NEWEST" 
-                    listing-status="For Sale" 
-                    property-types=",SFR,MF,TC,CND"
-                  ></realscout-office-listings>`}
-                minHeight="480px"
-              />
-            </div>
+            <p className="text-center">
+              <Link
+                href="#featured-properties"
+                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                Jump to live MLS inventory
+              </Link>
+            </p>
           </section>
 
           <section className="mb-16 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="contactAreas"
+              heading="Midtown search shortcuts"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-3 text-center">
               Midtown search shortcuts
             </h2>
+
             <p className="text-slate-600 text-center max-w-2xl mx-auto mb-8">
-              Jump to hyperlocal condo pages Google and buyers already care about — each has unique
-              inventory notes and FAQs.
+              Jump to hyperlocal condo pages Google and buyers already care
+              about — each has unique inventory notes and FAQs.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {searchPaths.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-lg border border-slate-200 bg-white p-4 hover:border-blue-300 transition-colors flex items-center justify-between"
+                  className="rounded-lg border border-slate-200 bg-white overflow-hidden hover:border-blue-300 transition-colors"
                 >
-                  <span className="font-semibold text-slate-900">{item.name}</span>
-                  <ArrowRight className="h-4 w-4 text-blue-600" />
+                  <HeadingCardPhoto
+                    heading={item.name}
+                    heroKey={getHeroKeyForPath(item.href)}
+                  />
+                  <span className="p-4 flex items-center justify-between">
+                    <span className="font-semibold text-slate-900">
+                      {item.name}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-blue-600" />
+                  </span>
                 </Link>
               ))}
             </div>
           </section>
 
-          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">Midtown market snapshot</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-bold text-blue-400 mb-1">
-                  {marketStats.midtown.medianPriceFormatted}
+          <section className="mb-16 max-w-5xl mx-auto">
+            <div className="bg-slate-900 text-white rounded-2xl p-8 md:p-12">
+              <SectionPhoto
+                imageKey="marketSnapshot"
+                heading="Midtown market snapshot"
+                className="mb-8 text-left"
+                onDark
+              />
+              <h2 className="text-2xl font-bold mb-8 text-center">
+                Midtown market snapshot
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                  <div className="text-3xl font-bold text-blue-400 mb-1">
+                    {marketStats.midtown.medianPriceFormatted}
+                  </div>
+                  <div className="text-slate-300 text-sm">Midtown median</div>
                 </div>
-                <div className="text-slate-300 text-sm">Midtown median</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-green-400 mb-1">
-                  {marketStats.midtown.yearOverYearChange}
+                <div>
+                  <div className="text-3xl font-bold text-green-400 mb-1">
+                    {marketStats.midtown.yearOverYearChange}
+                  </div>
+                  <div className="text-slate-300 text-sm">YoY change</div>
                 </div>
-                <div className="text-slate-300 text-sm">YoY change</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-1">{marketStats.midtown.daysOnMarket}</div>
-                <div className="text-slate-300 text-sm">Days on market</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-amber-400 mb-1">
-                  ${marketStats.midtown.pricePerSqFt}
+                <div>
+                  <div className="text-3xl font-bold mb-1">
+                    {marketStats.midtown.daysOnMarket}
+                  </div>
+                  <div className="text-slate-300 text-sm">Days on market</div>
                 </div>
-                <div className="text-slate-300 text-sm">Approx. $/sq ft</div>
+                <div>
+                  <div className="text-3xl font-bold text-amber-400 mb-1">
+                    ${marketStats.midtown.pricePerSqFt}
+                  </div>
+                  <div className="text-slate-300 text-sm">Approx. $/sq ft</div>
+                </div>
               </div>
+              <p className="text-center text-slate-400 text-xs mt-6">
+                Updated {marketStats.lastUpdated}. Call {agentInfo.phone} for
+                MLS-verified building comps.
+              </p>
             </div>
-            <p className="text-center text-slate-400 text-xs mt-6">
-              Updated {marketStats.lastUpdated}. Call {agentInfo.phone} for MLS-verified building comps.
-            </p>
           </section>
 
           <section className="mb-16 max-w-6xl mx-auto">
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="Midtown condo neighborhoods"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center flex items-center justify-center gap-2">
               <Building2 className="h-7 w-7 text-blue-600" />
               Midtown condo neighborhoods
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
-              {midtownNeighborhoods.map((area) => (
-                <Link
-                  key={area.slug}
-                  href={`/neighborhoods/${area.slug}`}
-                  className="rounded-xl border border-slate-200 p-5 hover:border-blue-300 transition-colors"
-                >
-                  <div className="flex justify-between gap-3 mb-2">
-                    <h3 className="font-bold text-slate-900">{area.name}</h3>
-                    <span className="text-sm font-semibold text-blue-600">{area.medianPrice}</span>
-                  </div>
-                  <p className="text-sm text-slate-600 mb-2">{area.description}</p>
-                  <p className="text-xs text-slate-500 flex items-center gap-1">
-                    <MapPin className="h-3.5 w-3.5" />
-                    {area.priceChange} YoY · View condos
-                  </p>
-                </Link>
-              ))}
+              {midtownNeighborhoods.map((area) => {
+                const heroKey =
+                  neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub";
+                const img = getHeroImage(heroKey);
+                return (
+                  <Link
+                    key={area.slug}
+                    href={`/neighborhoods/${area.slug}`}
+                    className="rounded-xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors bg-white"
+                  >
+                    <div className="relative h-40">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-5">
+                      <div className="flex justify-between gap-3 mb-2">
+                        <h3 className="font-bold text-slate-900">
+                          {area.name}
+                        </h3>
+                        <span className="text-sm font-semibold text-blue-600">
+                          {area.medianPrice}
+                        </span>
+                      </div>
+                      <p className="text-sm text-slate-600 mb-2">
+                        {area.description}
+                      </p>
+                      <p className="text-xs text-slate-500 flex items-center gap-1">
+                        <MapPin className="h-3.5 w-3.5" />
+                        {area.priceChange} YoY · View condos
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </section>
 
           <section className="mb-16 max-w-4xl mx-auto">
+            <SectionPhoto
+              imageKey="listingsChecklist"
+              heading="Condo buyer checklist before you offer"
+              className="mb-6 text-left"
+            />
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
               Condo buyer checklist before you offer
             </h2>
@@ -322,8 +428,19 @@ export default function ListingsPage() {
             </ul>
           </section>
 
-          <section className="mb-16 max-w-4xl mx-auto" aria-labelledby="listings-faq">
-            <h2 id="listings-faq" className="text-2xl font-bold text-slate-900 mb-4">
+          <section
+            className="mb-16 max-w-4xl mx-auto"
+            aria-labelledby="listings-faq"
+          >
+            <SectionPhoto
+              imageKey="listingsHowTo"
+              heading="Listings FAQ"
+              className="mb-6 text-left"
+            />
+            <h2
+              id="listings-faq"
+              className="text-2xl font-bold text-slate-900 mb-4"
+            >
               Listings FAQ
             </h2>
             <dl className="space-y-4">
@@ -333,37 +450,43 @@ export default function ListingsPage() {
                   data-listings-faq
                   className="rounded-lg border border-slate-200 p-4"
                 >
-                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
-                  <dd className="mt-2 text-sm text-slate-600 leading-relaxed">{faq.answer}</dd>
+                  <dt className="font-semibold text-slate-900">
+                    {faq.question}
+                  </dt>
+                  <dd className="mt-2 text-sm text-slate-600 leading-relaxed">
+                    {faq.answer}
+                  </dd>
                 </div>
               ))}
             </dl>
           </section>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 md:p-12 max-w-4xl mx-auto text-center mb-8">
-            <h2 className="text-2xl font-bold mb-3">Get a curated midtown shortlist</h2>
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading="Get a curated midtown shortlist"
+              className="mx-auto mb-6 max-w-3xl text-left"
+              onDark
+            />
+            <h2 className="text-2xl font-bold mb-3">
+              Get a curated midtown shortlist
+            </h2>
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>
-            <p className="text-slate-400 text-sm mb-6">{officeInfo.address.full}</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={agentInfo.phoneTel}
-                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-500"
-              >
-                <Phone className="mr-2 h-4 w-4" />
-                Call {agentInfo.phone}
-              </a>
+            <p className="text-slate-400 text-sm mb-6">
+              {officeInfo.address.full}
+            </p>
+            <GbpEngageButtons onDark>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3 font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3 text-sm font-semibold hover:bg-white/10"
               >
                 Schedule a consultation
               </Link>
-            </div>
+            </GbpEngageButtons>
           </section>
         </div>
-        <RealScoutListings />
       </main>
       <Footer />
     </>

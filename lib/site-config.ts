@@ -76,21 +76,29 @@ export const officeInfo = {
     "Friday – Saturday: Closed",
   ],
   foundingDate: "2009-09-20",
-  serviceAreas: ["Arts District, Las Vegas, NV", "Downtown Las Vegas, Las Vegas, NV"],
+  serviceAreas: [
+    "Arts District, Las Vegas, NV",
+    "Downtown Las Vegas, Las Vegas, NV",
+  ],
+  /**
+   * Verified 2026-09-15 via Google Business Profile Business Information API
+   * (read-only) for this listing — name, phone, address, and website match NAP.
+   * Do not reuse Place IDs from other Dr. Jan Duffy GBPs.
+   */
+  googlePlace: {
+    placeId: "ChIJiembhLDDyIARk7jrJaU1dfs",
+    cid: "18119447659217139859",
+  },
   maps: {
-    // Always pin GBP office — name + 921 South Main Street (see lib/google-config.ts)
-    embed: `https://www.google.com/maps?q=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
-    )}&ll=36.1612394,-115.1522884&z=16&output=embed`,
-    place: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
-    )}`,
+    // CID pin is the Maps listing Google already associates with this GBP.
+    embed: "https://www.google.com/maps?cid=18119447659217139859&output=embed",
+    place: "https://maps.google.com/maps?cid=18119447659217139859",
+    // Place ID destination keeps Directions clicks on this GBP entity.
     directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-      "921 South Main Street, Las Vegas, NV 89101"
-    )}`,
-    reviews: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
-    )}`,
+      "921 South Main Street, Las Vegas, NV 89101",
+    )}&destination_place_id=ChIJiembhLDDyIARk7jrJaU1dfs`,
+    reviews:
+      "https://search.google.com/local/reviews?placeid=ChIJiembhLDDyIARk7jrJaU1dfs",
   },
 };
 
@@ -139,26 +147,43 @@ export const midtownAreas = [
   {
     name: "One Las Vegas",
     slug: "one-las-vegas",
-    description: "Luxury high-rise tower with Strip views and resort-style amenities",
+    description:
+      "Luxury high-rise tower with Strip views and resort-style amenities",
     highlights: ["Strip views", "Resort pool", "Concierge", "High-rise living"],
   },
   {
     name: "Arts District",
     slug: "arts-district",
-    description: "Walkable urban core with galleries, dining, and loft-style condos",
-    highlights: ["Walkability", "Gallery Row", "Urban lofts", "Downtown proximity"],
+    description:
+      "Walkable urban core with galleries, dining, and loft-style condos",
+    highlights: [
+      "Walkability",
+      "Gallery Row",
+      "Urban lofts",
+      "Downtown proximity",
+    ],
   },
   {
     name: "Fremont East",
     slug: "fremont-east",
     description: "Revitalized downtown corridor with boutique condo options",
-    highlights: ["Entertainment", "Restaurants", "Urban lifestyle", "Investment potential"],
+    highlights: [
+      "Entertainment",
+      "Restaurants",
+      "Urban lifestyle",
+      "Investment potential",
+    ],
   },
   {
     name: "Symphony Park",
     slug: "symphony-park",
     description: "Master-planned urban district near the Smith Center",
-    highlights: ["Smith Center", "New construction", "Walkable", "Cultural district"],
+    highlights: [
+      "Smith Center",
+      "New construction",
+      "Walkable",
+      "Cultural district",
+    ],
   },
 ];
 
@@ -167,37 +192,43 @@ export const services = [
   {
     name: "Condo Buying",
     slug: "buyers",
-    description: "Expert guidance through HOA reviews, financing, and midtown condo purchases",
+    description:
+      "Expert guidance through HOA reviews, financing, and midtown condo purchases",
     icon: "Home",
   },
   {
     name: "Condo Selling",
     slug: "sellers",
-    description: "Maximize your condo's value with professional marketing and negotiation",
+    description:
+      "Maximize your condo's value with professional marketing and negotiation",
     icon: "TrendingUp",
   },
   {
     name: "High-Rise Living",
     slug: "luxury-homes",
-    description: "Specialized expertise in Las Vegas high-rise and luxury condo properties",
+    description:
+      "Specialized expertise in Las Vegas high-rise and luxury condo properties",
     icon: "Star",
   },
   {
     name: "Investment Condos",
     slug: "investment-properties",
-    description: "Rental yield analysis and STR regulations for midtown condo investors",
+    description:
+      "Rental yield analysis and STR regulations for midtown condo investors",
     icon: "DollarSign",
   },
   {
     name: "California Relocation",
     slug: "relocation",
-    description: "Help California buyers find urban Las Vegas condo living with Nevada tax advantages",
+    description:
+      "Help California buyers find urban Las Vegas condo living with Nevada tax advantages",
     icon: "Truck",
   },
   {
     name: "Condo Valuation",
     slug: "home-valuation",
-    description: "Free condo valuations using current midtown market data and comparable sales",
+    description:
+      "Free condo valuations using current midtown market data and comparable sales",
     icon: "Calculator",
   },
 ];
@@ -214,12 +245,14 @@ export const expertQuotes = {
 export const commonFAQs = {
   general: [
     {
-      question: "What midtown Las Vegas condo buildings does Dr. Jan Duffy specialize in?",
+      question:
+        "What midtown Las Vegas condo buildings does Dr. Jan Duffy specialize in?",
       answer:
         "Dr. Jan Duffy specializes in midtown and downtown Las Vegas condos including One Las Vegas, The Martin, Ogden, Juhl, and Arts District loft conversions. She reviews HOA documents, rental restrictions, and comparable sales for every building.",
     },
     {
-      question: "Why choose a Berkshire Hathaway HomeServices agent for midtown condos?",
+      question:
+        "Why choose a Berkshire Hathaway HomeServices agent for midtown condos?",
       answer:
         "Berkshire Hathaway HomeServices is backed by Warren Buffett's Berkshire Hathaway Inc. You get a global network of 50,000+ agents, world-class marketing, and a brand synonymous with trust — plus Dr. Jan's specialized midtown condo expertise since 2008.",
     },

@@ -21,8 +21,9 @@ export default function Navbar() {
 
   const mainNavLinks = [
     { href: "/", label: "Home", external: false },
-    { href: "http://drjanduffy.realscout.com/", label: "Properties", external: true },
+    { href: "/listings", label: "Listings", external: false },
     { href: "/neighborhoods", label: "Neighborhoods", external: false },
+    { href: "/google-business", label: "Visit Us", external: false },
     { href: "/about", label: "About", external: false },
     { href: "/contact", label: "Contact", external: false },
   ];
@@ -50,7 +51,9 @@ export default function Navbar() {
             <span className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors leading-tight">
               {siteConfig.shortBrand}
             </span>
-            <span className="text-xs text-slate-500 hidden sm:block">{siteConfig.tagline}</span>
+            <span className="text-xs text-slate-500 hidden sm:block">
+              {siteConfig.tagline}
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -74,7 +77,7 @@ export default function Navbar() {
                 >
                   {link.label}
                 </Link>
-              )
+              ),
             )}
 
             {/* Services Dropdown */}
@@ -84,10 +87,10 @@ export default function Navbar() {
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     setIsServicesOpen(!isServicesOpen);
-                  } else if (e.key === 'Escape') {
+                  } else if (e.key === "Escape") {
                     setIsServicesOpen(false);
                   }
                 }}
@@ -122,7 +125,10 @@ export default function Navbar() {
             </div>
 
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href={agentInfo.phoneTel} className="flex items-center gap-2">
+              <Link
+                href={agentInfo.phoneTel}
+                className="flex items-center gap-2"
+              >
                 <Phone className="h-4 w-4" />
                 <span className="hidden xl:inline">{agentInfo.phone}</span>
                 <span className="xl:hidden">Call</span>
@@ -143,7 +149,11 @@ export default function Navbar() {
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+              {isMobileMenuOpen ? (
+                <X size={24} aria-hidden="true" />
+              ) : (
+                <Menu size={24} aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
@@ -173,7 +183,7 @@ export default function Navbar() {
                   >
                     {link.label}
                   </Link>
-                )
+                ),
               )}
 
               {/* Services Section */}
@@ -194,7 +204,10 @@ export default function Navbar() {
               </div>
 
               <div className="pt-4">
-                <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full">
+                <Button
+                  asChild
+                  className="bg-blue-600 hover:bg-blue-700 w-full"
+                >
                   <Link
                     href={agentInfo.phoneTel}
                     className="flex items-center justify-center gap-2"

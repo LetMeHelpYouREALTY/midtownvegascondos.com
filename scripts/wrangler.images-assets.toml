@@ -1,0 +1,15 @@
+# Isolated Wrangler config for heading-photo static hosting.
+# Used only after R2 REST and Cloudflare Images writes 401.
+# Do not inherit root wrangler.toml (heyberkshire worker).
+# Do not orange-cloud the Vercel hostname.
+#
+# Account ID verified 2026-09-15 from Cloudflare invoice email.
+name = "midtownvegascondos-heading-photos"
+account_id = "2cc579c1ec9e426ed585e933ebf4753b"
+compatibility_date = "2026-09-15"
+workers_dev = true
+
+[assets]
+directory = "../public"
+html_handling = "none"
+not_found_handling = "none"

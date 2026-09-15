@@ -7,6 +7,7 @@
     "next-dev": "next dev",
     "dev": "concurrently \"pnpm run next-dev\" \"pnpm run flask-dev\"",
     "build": "next build",
+    "postbuild": "node scripts/sync-images-to-r2.mjs",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
@@ -30,6 +31,7 @@
     "cloudflare:deploy": "wrangler deploy",
     "cloudflare:pages": "npx @cloudflare/next-on-pages",
     "cloudflare:build": "npm run cloudflare:pages",
+    "cloudflare:images": "node scripts/sync-images-to-r2.mjs",
     "build:cloudflare": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
@@ -59,10 +61,11 @@
     "@cloudflare/next-on-pages": "1.13.15",
     "@cloudflare/workers-types": "^4.20240806.0",
     "@lhci/cli": "^0.13.0",
+    "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "20.11.24",
+    "@types/node": "^20.19.43",
     "@types/react": "18.2.63",
     "@types/react-dom": "18.2.20",
     "@vitejs/plugin-react": "^5.1.4",
