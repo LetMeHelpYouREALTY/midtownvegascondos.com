@@ -452,6 +452,12 @@ export default function NewConstructionPage() {
                   key={builder.name}
                   className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
                 >
+                  <HeadingCardPhoto
+                    heading={builder.name}
+                    heroKey={
+                      builderHeroByName[builder.name] ?? "newConstruction"
+                    }
+                  />
                   <div className="bg-slate-900 text-white p-5 flex justify-between items-center">
                     <div>
                       <h3 className="text-xl font-bold">{builder.name}</h3>
@@ -466,13 +472,6 @@ export default function NewConstructionPage() {
                     </div>
                   </div>
                   <div className="p-5">
-                    <HeadingCardPhoto
-                      heading={builder.name}
-                      heroKey={
-                        builderHeroByName[builder.name] ?? "newConstruction"
-                      }
-                      className="mb-4"
-                    />
                     <div className="mb-4">
                       <div className="text-xs text-slate-500 uppercase tracking-wide mb-2">
                         Current Communities

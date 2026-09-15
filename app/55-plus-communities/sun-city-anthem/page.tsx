@@ -129,7 +129,7 @@ export default function SunCityAnthemPage() {
         leadSectionHeading="About Sun City Anthem"
         pagePath="/55-plus-communities/sun-city-anthem"
         title="Sun City Anthem"
-        subtitle="7,100+ homes. Mountain views. Henderson safety. Championship golf."
+        subtitle="7,100+ homes. Mountain views. Championship golf. Anthem Center clubhouse."
       />
       <main className="pb-16">
         <div className="container mx-auto px-4">
@@ -402,11 +402,11 @@ export default function SunCityAnthemPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Sun City Anthem combines everything Henderson is known
-                for—safety, quality, and stunning scenery—with the Del Webb
-                lifestyle. The views from the upper sections are spectacular,
-                and the Anthem Center rivals any resort clubhouse I've seen. As
-                a <strong>Berkshire Hathaway HomeServices</strong> agent, I help
+                "Sun City Anthem combines Henderson mountain views,
+                championship golf, and the Del Webb clubhouse lifestyle. The
+                views from the upper sections are spectacular, and the Anthem
+                Center rivals any resort clubhouse I've seen. As a{" "}
+                <strong>Berkshire Hathaway HomeServices</strong> agent, I help
                 buyers find the right balance of views, price, and proximity to
                 amenities."
               </blockquote>

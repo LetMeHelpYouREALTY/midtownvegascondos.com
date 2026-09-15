@@ -288,6 +288,11 @@ export default function DivorceProbatePage() {
           {/* Legal Coordination */}
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
+              <HeadingCardPhoto
+                heading="We Work With Your Legal Team"
+                heroKey="sellersDivorceProbate"
+                className="mb-4"
+              />
               <div className="flex items-center mb-4">
                 <FileText className="h-6 w-6 text-blue-600 mr-2" />
                 <h3 className="font-bold text-xl text-slate-900">

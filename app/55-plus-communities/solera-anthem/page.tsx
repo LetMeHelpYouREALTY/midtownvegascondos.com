@@ -38,7 +38,7 @@ export const metadata: Metadata = withPageHeroMetadata(
     openGraph: {
       title: "Solera at Anthem - Intimate Guard-Gated 55+ in Henderson",
       description:
-        "Close-knit community with guard-gated security. Lower HOA fees, Henderson safety. From $380K. Dr. Jan Duffy, BHHS.",
+        "Guard-gated 55+ community with lower HOA fees and Anthem trail access. From $380K. Dr. Jan Duffy, BHHS.",
       type: "website",
     },
   },

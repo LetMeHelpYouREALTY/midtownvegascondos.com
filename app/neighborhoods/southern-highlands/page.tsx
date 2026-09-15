@@ -197,6 +197,13 @@ export default function SouthernHighlandsPage() {
                 on the same tour day.
               </p>
 
+              <SectionPhoto
+                src="/images/hero/southern-highlands-golf.webp"
+                alt="Southern Highlands Las Vegas golf community homes and course views"
+                caption="Golf-course villages, gated estates, and southwest valley access."
+                heading="Community highlights"
+                className="not-prose mx-auto mb-8 max-w-4xl text-left"
+              />
               <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
                 Community highlights
               </h3>

@@ -297,6 +297,11 @@ export default function DownsizingPage() {
           {/* Emotional Support */}
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
+              <HeadingCardPhoto
+                heading="We Understand This Is Emotional"
+                heroKey="sellersDownsizing"
+                className="mb-4"
+              />
               <div className="flex items-center mb-4">
                 <Heart className="h-6 w-6 text-blue-600 mr-2" />
                 <h3 className="font-bold text-lg text-slate-900">
