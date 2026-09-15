@@ -13,6 +13,7 @@ import {
   type MidtownLifestyleSlug,
 } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo } from "@/lib/site-config";
+import { getHeroImage } from "@/lib/hero-images";
 import { notFound } from "next/navigation";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 
@@ -79,16 +80,31 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
             ))}
           </ul>
 
-          <article className="prose prose-slate max-w-none mb-12">
-            {page.body.map((para) => (
-              <p
-                key={para.slice(0, 40)}
-                className="text-slate-700 leading-relaxed mb-4"
-              >
-                {para}
-              </p>
-            ))}
-          </article>
+          <section className="mb-12" aria-labelledby="lifestyle-overview">
+            <SectionPhoto
+              src={getHeroImage(page.heroKey).src}
+              heading={page.headline}
+              alt={getHeroImage(page.heroKey).alt}
+              caption={getHeroImage(page.heroKey).caption}
+              className="mb-6 text-left"
+            />
+            <h2
+              id="lifestyle-overview"
+              className="text-2xl font-bold text-slate-900 mb-4"
+            >
+              {page.headline}
+            </h2>
+            <article className="prose prose-slate max-w-none mb-12">
+              {page.body.map((para) => (
+                <p
+                  key={para.slice(0, 40)}
+                  className="text-slate-700 leading-relaxed mb-4"
+                >
+                  {para}
+                </p>
+              ))}
+            </article>
+          </section>
 
           <section className="mb-12" aria-labelledby="lifestyle-faq">
             <SectionPhoto

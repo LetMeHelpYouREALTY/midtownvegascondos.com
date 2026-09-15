@@ -205,6 +205,32 @@ const gbpPhotoObjects = [
     url: absoluteSiteImage(getAgentImageSrc()),
     contentUrl: absoluteSiteImage(getAgentImageSrc()),
   },
+  {
+    "@type": "ImageObject" as const,
+    name: "Las Vegas Strip skyline near midtown condos",
+    caption:
+      "Twilight Strip skyline used by homebuyers comparing midtown and downtown Las Vegas condos",
+    url: absoluteSiteImage("/images/hero/home-strip-dusk.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/home-strip-dusk.webp"),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Midtown Las Vegas loft interior",
+    caption:
+      "Arts District and midtown condo interior photography for Downtown Las Vegas buyers",
+    url: absoluteSiteImage("/images/hero/faq-midtown-loft-interior.webp"),
+    contentUrl: absoluteSiteImage(
+      "/images/hero/faq-midtown-loft-interior.webp",
+    ),
+  },
+  {
+    "@type": "ImageObject" as const,
+    name: "Dr. Jan Duffy real estate office",
+    caption:
+      "Berkshire Hathaway HomeServices Nevada Properties workspace for Arts District condo consultations",
+    url: absoluteSiteImage("/images/hero/agent-office.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/agent-office.webp"),
+  },
 ];
 
 // Generate LocalBusiness Schema

@@ -538,6 +538,11 @@ export default function NewConstructionPage() {
                   1
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Register Dr. Jan Duffy as Your Agent BEFORE Visiting"
+                    heroKey="aboutAgent"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Register Dr. Jan Duffy as Your Agent BEFORE Visiting
                   </h3>
@@ -560,6 +565,11 @@ export default function NewConstructionPage() {
                   2
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Explore Communities & Compare Builders"
+                    heroKey="newConstruction"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Explore Communities & Compare Builders
                   </h3>
@@ -575,6 +585,11 @@ export default function NewConstructionPage() {
                   3
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Negotiate Contract & Design Center Selections"
+                    heroKey="homeValuation"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Negotiate Contract & Design Center Selections
                   </h3>
@@ -590,6 +605,11 @@ export default function NewConstructionPage() {
                   4
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Monitor Construction & Conduct Walkthroughs"
+                    heroKey="fiftyFiveHeritage"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Monitor Construction & Conduct Walkthroughs
                   </h3>
@@ -605,6 +625,11 @@ export default function NewConstructionPage() {
                   5
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Final Walkthrough & Closing"
+                    heroKey="sellersHighrise"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Final Walkthrough & Closing
                   </h3>

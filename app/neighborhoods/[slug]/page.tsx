@@ -19,7 +19,7 @@ import {
   midtownNeighborhoods,
 } from "@/lib/hyperlocal-content";
 import { agentInfo } from "@/lib/site-config";
-import { neighborhoodHeroBySlug } from "@/lib/hero-images";
+import { neighborhoodHeroBySlug, getHeroImage } from "@/lib/hero-images";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 
@@ -145,8 +145,24 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
             <span className="text-slate-900">{area.name}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-start max-w-6xl mx-auto mb-12">
+          <section
+            className="grid lg:grid-cols-[1fr_auto] gap-10 items-start max-w-6xl mx-auto mb-12"
+            aria-labelledby="explore-neighborhood"
+          >
             <div>
+              <SectionPhoto
+                src={getHeroImage(heroKey).src}
+                heading={`Explore ${area.name}`}
+                alt={getHeroImage(heroKey).alt}
+                caption={getHeroImage(heroKey).caption}
+                className="mb-6 text-left"
+              />
+              <h2
+                id="explore-neighborhood"
+                className="text-2xl font-bold text-slate-900 mb-4"
+              >
+                Explore {area.name}
+              </h2>
               <p className="text-slate-700 mb-6">
                 Explore {area.name} with Dr. Jan Duffy — HOA review, building
                 comps, and condo-specific guidance from a midtown specialist at
@@ -177,7 +193,7 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
                 Midtown condo specialist
               </p>
             </div>
-          </div>
+          </section>
 
           {area.faqs.length > 0 && (
             <section className="max-w-3xl mx-auto mb-16">

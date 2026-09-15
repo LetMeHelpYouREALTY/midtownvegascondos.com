@@ -28,7 +28,8 @@ import {
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
-import { neighborhoodHeroBySlug } from "@/lib/hero-images";
+import { neighborhoodHeroBySlug, type HeroImageKey } from "@/lib/hero-images";
+import type { SectionImageKey } from "@/lib/section-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/buyers", {
   title: hyperlocalMeta.buyers.title,
@@ -41,36 +42,47 @@ const buyerSchema = midtownServiceSchema(
   "Condo Buyer Representation",
 );
 
-const buyingSteps = [
+const buyingSteps: {
+  icon: typeof DollarSign;
+  title: string;
+  description: string;
+  heroKey?: HeroImageKey;
+  sectionKey?: SectionImageKey;
+}[] = [
   {
     icon: DollarSign,
     title: "Get Pre-Approved for Condo Financing",
     description:
       "Know your budget before touring midtown towers. Dr. Jan connects you with lenders experienced in high-rise and condo financing — including FHA-approved buildings, VA loans, and conventional programs.",
+    heroKey: "homeValuation" as const,
   },
   {
     icon: Search,
     title: "Choose Your Building & Neighborhood",
     description:
       "Compare Arts District lofts, Fremont East boutiques, and Strip-view high-rises. Dr. Jan reviews HOA fees, rental rules, parking deeded rights, and building amenities so you find the right midtown fit.",
+    heroKey: "artsDistrict" as const,
   },
   {
     icon: FileText,
     title: "Tour Units & Make an Offer",
     description:
       "Dr. Jan's midtown condo expertise ensures your offer is competitive. She negotiates price, closing costs, and HOA document review periods — protecting you in every high-rise transaction.",
+    heroKey: "buyersCondoTower" as const,
   },
   {
     icon: Home,
     title: "HOA Review & Inspections",
     description:
       "Review HOA budgets, reserve studies, special assessments, and CC&Rs before you commit. Dr. Jan coordinates inspections and helps negotiate credits if issues arise during due diligence.",
+    sectionKey: "hoaReview" as const,
   },
   {
     icon: Key,
     title: "Close on Your Midtown Condo",
     description:
       "Dr. Jan coordinates with lenders, title, and escrow for a smooth closing — typically 30–45 days for financed purchases. Then you get the keys to your midtown Las Vegas condo.",
+    heroKey: "sellersHighrise" as const,
   },
 ];
 
@@ -197,23 +209,31 @@ export default function BuyersPage() {
                 return (
                   <div
                     key={step.title}
-                    className="flex gap-6 items-start bg-white border border-slate-200 rounded-lg p-6"
+                    className="bg-white border border-slate-200 rounded-lg p-6"
                   >
-                    <div className="flex-shrink-0">
-                      <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center">
-                        <Icon className="h-8 w-8 text-blue-600" />
+                    <HeadingCardPhoto
+                      heading={step.title}
+                      heroKey={step.heroKey}
+                      sectionKey={step.sectionKey}
+                      className="mb-4 w-full max-w-xl"
+                    />
+                    <div className="flex gap-6 items-start">
+                      <div className="flex-shrink-0">
+                        <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center">
+                          <Icon className="h-8 w-8 text-blue-600" />
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
-                          Step {index + 1}
-                        </span>
-                        <h3 className="text-xl font-bold text-slate-900">
-                          {step.title}
-                        </h3>
+                      <div>
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            Step {index + 1}
+                          </span>
+                          <h3 className="text-xl font-bold text-slate-900">
+                            {step.title}
+                          </h3>
+                        </div>
+                        <p className="text-slate-600">{step.description}</p>
                       </div>
-                      <p className="text-slate-600">{step.description}</p>
                     </div>
                   </div>
                 );

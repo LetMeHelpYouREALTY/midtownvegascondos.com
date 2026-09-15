@@ -23,7 +23,7 @@ describe("generateLocalBusinessSchema", () => {
 
   it("includes heading-matched office photos as ImageObjects", () => {
     expect(Array.isArray(schema.image)).toBe(true);
-    expect(schema.image.length).toBeGreaterThanOrEqual(2);
+    expect(schema.image.length).toBeGreaterThanOrEqual(6);
     expect(schema.photo).toHaveLength(schema.image.length);
     for (const photo of schema.photo) {
       expect(photo["@type"]).toBe("ImageObject");
