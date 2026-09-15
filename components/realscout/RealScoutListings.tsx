@@ -13,7 +13,11 @@ const LISTINGS_HTML = `<realscout-office-listings
 /** Server Component — RealScout script loads only when this section nears the viewport. */
 export default function RealScoutListings() {
   return (
-    <section className="bg-slate-50 py-16 md:py-24">
+    <section
+      id="featured-properties"
+      className="bg-slate-50 py-16 md:py-24"
+      data-realscout-office-listings
+    >
       <div className="container mx-auto px-4">
         <SectionPhoto
           imageKey="featuredAreas"

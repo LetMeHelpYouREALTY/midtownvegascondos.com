@@ -203,6 +203,8 @@ export default function Home() {
           </div>
         </section>
 
+        <RealScoutListings />
+
         {/* RealScout search — below hero so LCP is not blocked by the UMD widget */}
         <section className="border-b border-slate-200 bg-white py-10">
           <div className="container mx-auto px-4 text-center">
@@ -407,7 +409,6 @@ export default function Home() {
         </section>
 
         <FeaturedProperties />
-        <RealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
         <GbpPostsSection />

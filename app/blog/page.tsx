@@ -1,7 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
 import { ArrowRight, Newspaper } from "lucide-react";
@@ -141,7 +140,6 @@ export default function BlogPage() {
         </div>
         <div className="mt-12">
           <GbpPostsSection />
-          <RealScoutListings />
         </div>
       </main>
       <Footer />

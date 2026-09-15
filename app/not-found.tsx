@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
@@ -45,6 +46,7 @@ export default function NotFound() {
             </Link>
           </GbpEngageButtons>
         </div>
+        <RealScoutListings />
       </main>
       <Footer />
     </>

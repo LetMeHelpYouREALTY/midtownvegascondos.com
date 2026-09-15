@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { MapPin, Phone, Home, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
@@ -141,7 +140,6 @@ export default function NeighborhoodsPage() {
             </div>
           </section>
         </div>
-        <RealScoutListings />
       </main>
       <Footer />
     </>

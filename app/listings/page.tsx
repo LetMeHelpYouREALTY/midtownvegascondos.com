@@ -1,7 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
-import DeferredRealScoutWidget from "@/components/realscout/DeferredRealScoutWidget";
 import SchemaScript from "@/components/SchemaScript";
 import PageHero from "@/components/sections/PageHero";
 import Image from "next/image";
@@ -251,7 +249,6 @@ export default function ListingsPage() {
             </p>
           </section>
 
-          {/* Live MLS — keep widget, surround with crawlable copy */}
           <section className="mb-16" aria-labelledby="live-mls">
             <SectionPhoto
               imageKey="searchMidtown"
@@ -264,22 +261,19 @@ export default function ListingsPage() {
             >
               Live MLS listings
             </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
+            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-6">
               Active for-sale properties via RealScout. Prices and status update
               with the MLS — treat this as your discovery layer, then verify
               details before offers.
             </p>
-            <div className="max-w-7xl mx-auto">
-              <DeferredRealScoutWidget
-                html={`<realscout-office-listings 
-                    agent-encoded-id="QWdlbnQtMjI1MDUw" 
-                    sort-order="NEWEST" 
-                    listing-status="For Sale" 
-                    property-types=",SFR,MF,TC,CND"
-                  ></realscout-office-listings>`}
-                minHeight="480px"
-              />
-            </div>
+            <p className="text-center">
+              <Link
+                href="#featured-properties"
+                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                Jump to live MLS inventory
+              </Link>
+            </p>
           </section>
 
           <section className="mb-16 max-w-6xl mx-auto">
@@ -493,7 +487,6 @@ export default function ListingsPage() {
             </GbpEngageButtons>
           </section>
         </div>
-        <RealScoutListings />
       </main>
       <Footer />
     </>

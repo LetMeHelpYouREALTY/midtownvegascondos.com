@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import {
   MapPin,
@@ -236,7 +235,22 @@ export default function HeritageStonebridgePage() {
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
               Current Heritage at Stonebridge listings
             </h2>
-            <RealScoutListings />
+            <p className="text-slate-700 leading-relaxed mb-4">
+              Live MLS inventory is in the Featured Properties section at the
+              top of this page. For a full midtown and valley search, open{" "}
+              <Link href="/listings" className="font-medium text-blue-600">
+                condos for sale
+              </Link>{" "}
+              or call {agentInfo.phone}.
+            </p>
+            <p className="text-center">
+              <Link
+                href="#featured-properties"
+                className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                Jump to live MLS inventory
+              </Link>
+            </p>
           </section>
 
           <section className="mb-16 max-w-4xl mx-auto" data-community-faq>

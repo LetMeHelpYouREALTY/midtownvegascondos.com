@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SchemaScript from "@/components/SchemaScript";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import { getHeroImage, type HeroImageKey } from "@/lib/hero-images";
 import { type SectionImageKey } from "@/lib/section-images";
@@ -140,6 +141,7 @@ export default function PageHero({
           />
         </div>
       ) : null}
+      <RealScoutListings />
     </>
   );
 }

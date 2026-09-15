@@ -1,7 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
@@ -185,7 +184,6 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
             </GbpEngageButtons>
           </section>
         </div>
-        <RealScoutListings />
       </main>
       <Footer />
     </>

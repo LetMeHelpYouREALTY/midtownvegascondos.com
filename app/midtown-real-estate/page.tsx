@@ -2,7 +2,6 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
 import { ArrowRight, Building2, CheckCircle } from "lucide-react";
@@ -244,9 +243,6 @@ export default function MidtownRealEstatePage() {
               </Link>
             </GbpEngageButtons>
           </section>
-        </div>
-        <div className="mt-12">
-          <RealScoutListings />
         </div>
       </main>
       <Footer />

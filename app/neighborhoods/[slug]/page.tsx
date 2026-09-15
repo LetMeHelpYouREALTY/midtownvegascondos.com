@@ -1,6 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import PageHero from "@/components/sections/PageHero";
 import Link from "next/link";
@@ -273,7 +272,6 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
             </div>
           </section>
         </div>
-        <RealScoutListings />
       </main>
       <Footer />
     </>
