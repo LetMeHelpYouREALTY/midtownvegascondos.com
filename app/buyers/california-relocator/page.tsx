@@ -189,6 +189,11 @@ export default function CaliforniaRelocatorPage() {
             />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="In California"
+                  heroKey="buyersCaRelocator"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <MapPin className="h-6 w-6 text-red-600 mr-2" />
                   <h3 className="font-bold text-lg text-red-900">

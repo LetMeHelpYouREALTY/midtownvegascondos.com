@@ -137,6 +137,11 @@ export default function MarketInsightsPage() {
                 <h3 className="text-xl font-bold text-slate-900 mt-6 mb-3">
                   Data Center Corridor
                 </h3>
+                <HeadingCardPhoto
+                  heading="Data Center Corridor"
+                  heroKey="nbHenderson"
+                  className="mb-4"
+                />
                 <p>
                   Henderson's data center corridor now hosts Google, Amazon Web
                   Services, Switch, and other major operators. These facilities

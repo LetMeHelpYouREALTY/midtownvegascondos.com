@@ -589,6 +589,11 @@ export default function DivorceProbatePage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
+                <HeadingCardPhoto
+                  heading="Credibility & Trust"
+                  heroKey="whyBhhs"
+                  className="mb-4"
+                />
                 <Shield className="h-10 w-10 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">
                   Credibility & Trust
@@ -600,6 +605,11 @@ export default function DivorceProbatePage() {
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
+                <HeadingCardPhoto
+                  heading="Professional Standards"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-4"
+                />
                 <Scale className="h-10 w-10 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">
                   Professional Standards
@@ -611,6 +621,11 @@ export default function DivorceProbatePage() {
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
+                <HeadingCardPhoto
+                  heading="Expert Network"
+                  heroKey="aboutAgent"
+                  className="mb-4"
+                />
                 <Users className="h-10 w-10 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">
                   Expert Network

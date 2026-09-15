@@ -392,6 +392,11 @@ export default function FirstTimeBuyersPage() {
             />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Renting: $1,800/month"
+                  heroKey="buyersFirstTime"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-red-900 mb-4 flex items-center">
                   <HomeIcon className="h-5 w-5 mr-2" />
                   Renting: $1,800/month
@@ -405,6 +410,11 @@ export default function FirstTimeBuyersPage() {
                 </ul>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Buying: $1,900/month*"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-green-900 mb-4 flex items-center">
                   <Key className="h-5 w-5 mr-2" />
                   Buying: $1,900/month*
