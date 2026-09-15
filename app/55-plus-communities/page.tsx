@@ -574,14 +574,14 @@ export default function FiftyFiveCommunitiesPage() {
 
           {/* Communities Grid */}
           <section id="communities" className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Las Vegas 55+ Communities
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveCommunities"
               heading="Las Vegas 55+ Communities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Las Vegas 55+ Communities
+            </h2>
             <p className="text-lg text-slate-600 text-center mb-8">
               Click "View Homes" to explore each community in detail
             </p>
@@ -695,14 +695,14 @@ export default function FiftyFiveCommunitiesPage() {
 
           {/* Amenities Overview */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              What 55+ Community Amenities Include
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveAmenities"
               heading="What 55+ Community Amenities Include"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              What 55+ Community Amenities Include
+            </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <HeadingCardPhoto
@@ -789,14 +789,14 @@ export default function FiftyFiveCommunitiesPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              55+ Community Buying FAQs
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="55+ Community Buying FAQs"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              55+ Community Buying FAQs
+            </h2>
             <div className="space-y-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2 flex items-center">
@@ -868,14 +868,14 @@ export default function FiftyFiveCommunitiesPage() {
 
           {/* Why BHHS */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Why Choose Dr. Jan Duffy for 55+ Communities?
-            </h2>
             <SectionPhoto
               imageKey="whyJan"
               heading="Why Choose Dr. Jan Duffy for 55+ Communities?"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Why Choose Dr. Jan Duffy for 55+ Communities?
+            </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start">
                 <div className="bg-blue-100 p-2 rounded-full mr-4 flex-shrink-0">
@@ -962,15 +962,15 @@ export default function FiftyFiveCommunitiesPage() {
 
           {/* Final CTA */}
           <section className="text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Let's Find Your Ideal Lifestyle Match
-            </h2>
             <SectionPhoto
               imageKey="fiftyFiveCommunities"
               heading="Let's Find Your Ideal Lifestyle Match"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Let's Find Your Ideal Lifestyle Match
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Ready to explore active adult living in Las Vegas? Contact Dr. Jan

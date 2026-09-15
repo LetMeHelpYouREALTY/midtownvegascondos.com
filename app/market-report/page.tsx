@@ -125,14 +125,14 @@ export default function MarketReportPage() {
 
           {/* Area Breakdown */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Market Data by Area
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="Market Data by Area"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Market Data by Area
+            </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
@@ -225,14 +225,14 @@ export default function MarketReportPage() {
 
           {/* Expert Analysis */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Expert Market Analysis
-            </h2>
             <SectionPhoto
               imageKey="whyJan"
               heading="Expert Market Analysis"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Expert Market Analysis
+            </h2>
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-6">
                 "The Las Vegas market remains strong heading into 2026. We're
@@ -288,14 +288,14 @@ export default function MarketReportPage() {
 
           {/* Market Trends */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Key Market Trends to Watch
-            </h2>
             <SectionPhoto
               imageKey="marketForces"
               heading="Key Market Trends to Watch"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Key Market Trends to Watch
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <HeadingCardPhoto
@@ -349,14 +349,14 @@ export default function MarketReportPage() {
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Market Questions We're Hearing
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Market Questions We're Hearing"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Market Questions We're Hearing
+            </h2>
             <div className="space-y-4">
               {[
                 {
@@ -386,15 +386,15 @@ export default function MarketReportPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Get Personalized Market Insights
-            </h2>
             <SectionPhoto
               imageKey="marketSnapshot"
               heading="Get Personalized Market Insights"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Get Personalized Market Insights
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Want to know what these numbers mean for your specific

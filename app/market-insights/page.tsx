@@ -121,17 +121,17 @@ export default function MarketInsightsPage() {
 
           {/* Tech Transformation */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="buyersSpecialized"
+              heading="Las Vegas Tech Transformation"
+              className="mb-8 max-w-4xl text-left"
+            />
             <div className="flex items-center mb-6">
               <Cpu className="h-8 w-8 text-purple-600 mr-3" />
               <h2 className="text-3xl font-bold text-slate-900">
                 Las Vegas Tech Transformation
               </h2>
             </div>
-            <SectionPhoto
-              imageKey="buyersSpecialized"
-              heading="Las Vegas Tech Transformation"
-              className="mb-8 max-w-4xl text-left"
-            />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="prose prose-lg max-w-none text-slate-700">
                 <p>
@@ -193,18 +193,18 @@ export default function MarketInsightsPage() {
 
           {/* California Migration Deep Dive */}
           <section className="mb-16 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <div className="flex items-center mb-6">
-              <Globe className="h-8 w-8 mr-3" />
-              <h2 className="text-3xl font-bold">
-                California Migration Analysis
-              </h2>
-            </div>
             <SectionPhoto
               imageKey="caNumbers"
               heading="California Migration Analysis"
               className="mb-8 max-w-4xl text-left"
               onDark
             />
+            <div className="flex items-center mb-6">
+              <Globe className="h-8 w-8 mr-3" />
+              <h2 className="text-3xl font-bold">
+                California Migration Analysis
+              </h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-blue-100 mb-6">
@@ -293,17 +293,17 @@ export default function MarketInsightsPage() {
 
           {/* Economic Diversification */}
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="marketStats"
+              heading="Economic Diversification"
+              className="mb-8 max-w-4xl text-left"
+            />
             <div className="flex items-center mb-6">
               <Building2 className="h-8 w-8 text-green-600 mr-3" />
               <h2 className="text-3xl font-bold text-slate-900">
                 Economic Diversification
               </h2>
             </div>
-            <SectionPhoto
-              imageKey="marketStats"
-              heading="Economic Diversification"
-              className="mb-8 max-w-4xl text-left"
-            />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <HeadingCardPhoto
@@ -363,17 +363,17 @@ export default function MarketInsightsPage() {
 
           {/* Neighborhood Forecasts */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="neighborhoods"
+              heading="2026 Neighborhood Outlook"
+              className="mb-8 max-w-4xl text-left"
+            />
             <div className="flex items-center mb-6">
               <BarChart3 className="h-8 w-8 text-blue-600 mr-3" />
               <h2 className="text-3xl font-bold text-slate-900">
                 2026 Neighborhood Outlook
               </h2>
             </div>
-            <SectionPhoto
-              imageKey="neighborhoods"
-              heading="2026 Neighborhood Outlook"
-              className="mb-8 max-w-4xl text-left"
-            />
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <HeadingCardPhoto
@@ -464,14 +464,14 @@ export default function MarketInsightsPage() {
 
           {/* What This Means */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              What This Means for You
-            </h2>
             <SectionPhoto
               imageKey="whyJan"
               heading="What This Means for You"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              What This Means for You
+            </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-green-50 border border-green-200 rounded-xl p-6">
                 <HeadingCardPhoto
