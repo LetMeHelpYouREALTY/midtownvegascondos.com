@@ -3,6 +3,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 
@@ -67,6 +68,11 @@ export default function SecurityPolicyPage() {
                 <h3 className="font-semibold text-blue-900 mb-3">
                   How to Report
                 </h3>
+                <HeadingCardPhoto
+                  heading="How to Report"
+                  sectionKey="contactTouch"
+                  className="mb-3"
+                />
                 <ul className="space-y-2 text-blue-800">
                   <li>
                     <strong>Email:</strong>{" "}
@@ -92,6 +98,11 @@ export default function SecurityPolicyPage() {
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 What to Include
               </h3>
+              <HeadingCardPhoto
+                heading="What to Include"
+                sectionKey="listingsChecklist"
+                className="mb-4 max-w-3xl"
+              />
               <ul className="list-disc pl-6 text-gray-700 space-y-2">
                 <li>Description of the vulnerability</li>
                 <li>Steps to reproduce the issue</li>
@@ -117,6 +128,11 @@ export default function SecurityPolicyPage() {
                   <h3 className="font-semibold text-gray-900 mb-2">
                     🛡️ Protection
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Protection"
+                    sectionKey="listingsChecklist"
+                    className="mb-3"
+                  />
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Cloudflare Turnstile CAPTCHA</li>
                     <li>• Rate limiting (Upstash)</li>
@@ -130,6 +146,11 @@ export default function SecurityPolicyPage() {
                   <h3 className="font-semibold text-gray-900 mb-2">
                     📊 Monitoring
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Monitoring"
+                    heroKey="marketUpdate"
+                    className="mb-3"
+                  />
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Sentry error tracking</li>
                     <li>• Vercel Analytics</li>
@@ -143,6 +164,11 @@ export default function SecurityPolicyPage() {
                   <h3 className="font-semibold text-gray-900 mb-2">
                     🔐 Data Protection
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Data Protection"
+                    heroKey="contactOffice"
+                    className="mb-3"
+                  />
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• Encrypted connections (TLS 1.3)</li>
                     <li>• Secure API integrations</li>
@@ -156,6 +182,11 @@ export default function SecurityPolicyPage() {
                   <h3 className="font-semibold text-gray-900 mb-2">
                     ✅ Compliance
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Compliance"
+                    heroKey="sellersDivorceProbate"
+                    className="mb-3"
+                  />
                   <ul className="text-gray-700 space-y-1 text-sm">
                     <li>• GDPR ready</li>
                     <li>• CCPA compliant</li>
@@ -172,6 +203,11 @@ export default function SecurityPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Third-Party Services
               </h2>
+              <SectionPhoto
+                imageKey="servicesCore"
+                heading="Third-Party Services"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <p className="text-gray-700 mb-4">
                 We use trusted third-party services to provide the best
                 experience:
@@ -213,10 +249,20 @@ export default function SecurityPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Responsible Disclosure Policy
               </h2>
+              <SectionPhoto
+                imageKey="aboutBhhs"
+                heading="Responsible Disclosure Policy"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <div className="bg-green-50 border-l-4 border-green-500 p-6">
                 <h3 className="font-semibold text-green-900 mb-3">
                   We Promise
                 </h3>
+                <HeadingCardPhoto
+                  heading="We Promise"
+                  heroKey="whyBhhs"
+                  className="mb-3"
+                />
                 <ul className="text-green-800 space-y-2">
                   <li>✅ We will respond within 48 hours</li>
                   <li>✅ We will keep you updated on our progress</li>
@@ -237,6 +283,11 @@ export default function SecurityPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Out of Scope
               </h2>
+              <SectionPhoto
+                imageKey="faqCategories"
+                heading="Out of Scope"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <p className="text-gray-700 mb-4">
                 Please do not report the following (not considered
                 vulnerabilities):
@@ -260,6 +311,11 @@ export default function SecurityPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Your Security
               </h2>
+              <SectionPhoto
+                imageKey="securityCommitment"
+                heading="Your Security"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <p className="text-gray-700 mb-4">
                 To protect your information when using our site:
               </p>
@@ -281,6 +337,11 @@ export default function SecurityPolicyPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Questions?
               </h2>
+              <SectionPhoto
+                imageKey="contactTouch"
+                heading="Questions?"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <p className="text-gray-700 mb-4">
                 For general questions about our security practices:
               </p>

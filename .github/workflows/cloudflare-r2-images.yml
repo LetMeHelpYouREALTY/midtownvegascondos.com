@@ -54,3 +54,15 @@ jobs:
           R2_BUCKET: realestatedomains-assets
           NEXT_PUBLIC_R2_PREFIX: midtownvegascondos
         run: npm run cloudflare:images
+
+      - name: Probe public R2 object
+        if: always()
+        run: |
+          URL="https://pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/images/hero/home-strip-dusk.webp"
+          CODE=$(curl -sS -o /dev/null -w "%{http_code}" "$URL")
+          echo "R2 public object HTTP $CODE for $URL"
+          if [ "$CODE" = "200" ]; then
+            echo "Site images are live on Cloudflare R2."
+          else
+            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID, re-run this workflow, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname."
+          fi

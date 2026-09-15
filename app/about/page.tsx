@@ -27,6 +27,8 @@ import {
 } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/about", {
   title: "About Dr. Jan Duffy | Midtown Las Vegas Condo Specialist",
@@ -81,36 +83,46 @@ const personSchema = {
   ],
 };
 
-const specializations = [
+const specializations: {
+  title: string;
+  description: string;
+  heroKey: HeroImageKey;
+}[] = [
   {
     title: "Midtown Condo Sales",
     description:
       "High-rise towers, loft conversions, and condotels across midtown and downtown Las Vegas",
+    heroKey: "buyersCondoTower",
   },
   {
     title: "Luxury Properties ($1M+)",
     description:
       "The Ridges, MacDonald Highlands, Southern Highlands, and exclusive communities",
+    heroKey: "luxuryHomes",
   },
   {
     title: "New Construction",
     description:
       "Free buyer representation with Toll Brothers, Lennar, Century Communities, and more",
+    heroKey: "newConstruction",
   },
   {
     title: "Investment Properties",
     description:
       "Rental properties, fix-and-flip opportunities, and portfolio building",
+    heroKey: "investmentProperties",
   },
   {
     title: "55+ Active Adult Communities",
     description:
       "Sun City Summerlin, Sun City Anthem, Del Webb Lake Las Vegas expertise",
+    heroKey: "fiftyFivePlus",
   },
   {
     title: "California Relocation",
     description:
       "Helping CA families transition to Nevada's tax advantages and lower costs",
+    heroKey: "buyersCaRelocator",
   },
 ];
 
@@ -213,6 +225,11 @@ export default function AboutPage() {
                   <h3 className="font-bold text-slate-900 mb-4">
                     Contact Dr. Jan Duffy
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Contact Dr. Jan Duffy"
+                    heroKey="contactOffice"
+                    className="mb-4"
+                  />
                   <div className="space-y-3">
                     <a
                       href="tel:+17025001980"
@@ -297,6 +314,11 @@ export default function AboutPage() {
                 {/* Quick Services */}
                 <div className="bg-white border border-slate-200 rounded-lg p-6">
                   <h3 className="font-bold text-slate-900 mb-4">Quick Links</h3>
+                  <HeadingCardPhoto
+                    heading="Quick Links"
+                    heroKey="buyersCondoTower"
+                    className="mb-4"
+                  />
                   <div className="space-y-2">
                     <Link
                       href="/buyers"
@@ -357,6 +379,11 @@ export default function AboutPage() {
                   key={spec.title}
                   className="bg-white rounded-lg p-6 border border-slate-200"
                 >
+                  <HeadingCardPhoto
+                    heading={spec.title}
+                    heroKey={spec.heroKey}
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2 flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
                     {spec.title}
@@ -390,6 +417,11 @@ export default function AboutPage() {
                   <Award className="h-8 w-8" />
                 </div>
                 <h3 className="font-bold text-xl mb-2">Trusted Brand</h3>
+                <HeadingCardPhoto
+                  heading="Trusted Brand"
+                  heroKey="whyBhhs"
+                  className="mb-3"
+                />
                 <p className="text-slate-300 text-sm">
                   The only real estate brand backed by Warren Buffett's
                   Berkshire Hathaway Inc.—a name synonymous with trust and
@@ -401,6 +433,11 @@ export default function AboutPage() {
                   <Users className="h-8 w-8" />
                 </div>
                 <h3 className="font-bold text-xl mb-2">Global Network</h3>
+                <HeadingCardPhoto
+                  heading="Global Network"
+                  heroKey="relocationHub"
+                  className="mb-3"
+                />
                 <p className="text-slate-300 text-sm">
                   50,000+ agents worldwide for seamless referrals and
                   relocations. Whether you're moving from California or anywhere
@@ -412,6 +449,11 @@ export default function AboutPage() {
                   <Shield className="h-8 w-8" />
                 </div>
                 <h3 className="font-bold text-xl mb-2">Ethical Standards</h3>
+                <HeadingCardPhoto
+                  heading="Ethical Standards"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-3"
+                />
                 <p className="text-slate-300 text-sm">
                   Rigorous ethical guidelines ensure your interests always come
                   first. No pressure, no games—just honest advice and expert
