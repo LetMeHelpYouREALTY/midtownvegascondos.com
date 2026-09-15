@@ -42,20 +42,54 @@ function contentTypeFor(file) {
   }
 }
 
+function isUsableSecret(value) {
+  if (!value) return false;
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+  if (trimmed === "[SENSITIVE]" || trimmed === "SENSITIVE") return false;
+  return true;
+}
+
 function accountId() {
   return process.env.R2_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID || "";
 }
 
 function hasWranglerAuth() {
-  return Boolean(process.env.CLOUDFLARE_API_TOKEN && accountId());
+  return Boolean(isUsableSecret(process.env.CLOUDFLARE_API_TOKEN) && accountId());
 }
 
 function hasS3Auth() {
   return Boolean(
-    process.env.R2_ACCESS_KEY_ID &&
-      process.env.R2_SECRET_ACCESS_KEY &&
+    isUsableSecret(process.env.R2_ACCESS_KEY_ID) &&
+      isUsableSecret(process.env.R2_SECRET_ACCESS_KEY) &&
       accountId(),
   );
+}
+
+async function resolveAccountIdFromToken() {
+  if (accountId()) return accountId();
+  const token = process.env.CLOUDFLARE_API_TOKEN;
+  if (!isUsableSecret(token)) return "";
+  const response = await fetch("https://api.cloudflare.com/client/v4/accounts", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!response.ok) {
+    console.error(`Cloudflare accounts lookup HTTP ${response.status}`);
+    return "";
+  }
+  const body = await response.json();
+  const accounts = Array.isArray(body?.result) ? body.result : [];
+  const preferred =
+    accounts.find((account) =>
+      /real.?estate|duffy/i.test(String(account?.name ?? "")),
+    ) ?? accounts[0];
+  const id = preferred?.id ? String(preferred.id) : "";
+  if (id) {
+    process.env.CLOUDFLARE_ACCOUNT_ID = id;
+    process.env.R2_ACCOUNT_ID = id;
+    console.log(`Resolved Cloudflare account ${preferred.name ?? id}`);
+  }
+  return id;
 }
 
 async function walk(dir) {
@@ -127,13 +161,16 @@ async function s3Put(localFile, objectKey) {
 }
 
 async function main() {
+  if (isUsableSecret(process.env.CLOUDFLARE_API_TOKEN) && !accountId()) {
+    await resolveAccountIdFromToken();
+  }
   const useS3 = hasS3Auth();
   const useWrangler = hasWranglerAuth();
   if (!useS3 && !useWrangler) {
-    console.error(
-      "Need CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID, or R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY + account id.",
+    console.log(
+      "Skipping R2 image sync (no usable Cloudflare token/account or R2 S3 keys). Git public/images remains the fallback.",
     );
-    process.exit(2);
+    return;
   }
 
   const files = await walk(IMAGES_DIR);

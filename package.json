@@ -7,6 +7,7 @@
     "next-dev": "next dev",
     "dev": "concurrently \"pnpm run next-dev\" \"pnpm run flask-dev\"",
     "build": "next build",
+    "postbuild": "node scripts/sync-images-to-r2.mjs",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
