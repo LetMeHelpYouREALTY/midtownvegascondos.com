@@ -32,6 +32,8 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/2cc579c1ec9e426ed585e933ebf4753b/);
     expect(wrangler).toMatch(/account_id = "2cc579c1ec9e426ed585e933ebf4753b"/);
     expect(src).toMatch(/isTokenLocationBlocked\(body\)/);
+    expect(src).toMatch(/isR2WriteForbidden/);
+    expect(src).toMatch(/code === 10000/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {

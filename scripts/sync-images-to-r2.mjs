@@ -116,6 +116,25 @@ function isTokenLocationBlocked(body) {
   );
 }
 
+function isR2WriteForbidden(body, status, text = "") {
+  const { code, message } = cloudflareError(body);
+  return (
+    status === 401 ||
+    code === 10000 ||
+    /authentication error/i.test(message) ||
+    /authentication error/i.test(text)
+  );
+}
+
+function r2WriteForbiddenError(detail = "") {
+  const where = detail ? ` (${detail})` : "";
+  const error = new Error(
+    `Cloudflare Account API token cannot write R2 objects${where}. Create R2 S3 credentials instead: Cloudflare dashboard → R2 → Overview → Manage R2 API Tokens → Create API token with Object Read & Write on bucket realestatedomains-assets. Set R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY on Vercel production and the Production GitHub Environment (account ${DEFAULT_ACCOUNT_ID} is already pinned). Re-run this sync, confirm the public object is HTTP 200, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback.`,
+  );
+  error.skipSync = true;
+  return error;
+}
+
 function locationBlockedError(detail = "") {
   const where = detail ? ` (${detail})` : "";
   const error = new Error(
@@ -297,6 +316,11 @@ async function restPut(localFile, objectKey) {
     ) {
       throw locationBlockedError(
         cloudflareError(body).message || text.slice(0, 120),
+      );
+    }
+    if (isR2WriteForbidden(body, response.status, text)) {
+      throw r2WriteForbiddenError(
+        cloudflareError(body).message || `HTTP ${response.status}`,
       );
     }
     throw new Error(
