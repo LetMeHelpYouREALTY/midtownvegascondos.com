@@ -22,6 +22,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/relocation", {
   title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
@@ -59,12 +60,14 @@ const popularRelocationAreas = [
     highlights:
       "150+ parks, Red Rock Canyon proximity, master-planned villages",
     from: "$500K",
+    heroKey: "nbSummerlin" as const,
   },
   {
     name: "Henderson",
     best: "Master-planned village buyers",
     highlights: "Parks, trail systems, Green Valley and Anthem amenities",
     from: "$450K",
+    heroKey: "nbHenderson" as const,
   },
   {
     name: "Green Valley",
@@ -72,6 +75,7 @@ const popularRelocationAreas = [
     highlights:
       "Mature landscaping, championship golf, shopping and dining, Henderson location",
     from: "$480K",
+    heroKey: "nbGreenValley" as const,
   },
   {
     name: "Skye Canyon",
@@ -79,20 +83,23 @@ const popularRelocationAreas = [
     highlights:
       "Newest construction, mountain trail access, modern amenities, growing area",
     from: "$500K",
+    heroKey: "nbSkyeCanyon" as const,
   },
   {
     name: "Southern Highlands",
-    best: "Luxury buyers, golfers",
+    best: "Golf-course and gated-village buyers",
     highlights:
       "Guard-gated sections, championship golf, mountain views, resort living",
     from: "$700K",
+    heroKey: "nbSouthernHighlands" as const,
   },
   {
     name: "Inspirada",
-    best: "Families, active adults",
+    best: "Walkable-village and amenity buyers",
     highlights:
       "Resort-style pools, extensive trails, new homes, Henderson convenience",
     from: "$450K",
+    heroKey: "nbInspirada" as const,
   },
 ];
 
@@ -165,6 +172,11 @@ export default function RelocationPage() {
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="No State Income Tax"
+                  heroKey="buyersCaRelocator"
+                  className="mb-3"
+                />
                 <DollarSign className="h-12 w-12 text-green-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">No State Income Tax</h3>
                 <p className="text-slate-400 text-sm">
@@ -173,6 +185,11 @@ export default function RelocationPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="300+ Days of Sunshine"
+                  heroKey="fiftyFiveSunCitySummerlin"
+                  className="mb-3"
+                />
                 <Sun className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">300+ Days of Sunshine</h3>
                 <p className="text-slate-400 text-sm">
@@ -180,6 +197,11 @@ export default function RelocationPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Affordable Housing"
+                  heroKey="buyersFirstTime"
+                  className="mb-3"
+                />
                 <Building className="h-12 w-12 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Affordable Housing</h3>
                 <p className="text-slate-400 text-sm">
@@ -187,6 +209,11 @@ export default function RelocationPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Growing Economy"
+                  heroKey="marketInsights"
+                  className="mb-3"
+                />
                 <Users className="h-12 w-12 text-purple-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Growing Economy</h3>
                 <p className="text-slate-400 text-sm">
@@ -269,8 +296,8 @@ export default function RelocationPage() {
               Choosing the right neighborhood is crucial for a successful
               relocation. Each Las Vegas community offers a unique lifestyle,
               price point, and amenities. Dr. Jan helps you identify which area
-              matches your priorities—whether that's schools, commute times,
-              outdoor access, or community feel.
+              matches your priorities—whether that's commute times, outdoor
+              access, or HOA amenities.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {popularRelocationAreas.map((area) => (
@@ -278,6 +305,11 @@ export default function RelocationPage() {
                   key={area.name}
                   className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
                 >
+                  <HeadingCardPhoto
+                    heading={area.name}
+                    heroKey={area.heroKey}
+                    className="mb-4"
+                  />
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="font-bold text-lg text-slate-900">
                       {area.name}
@@ -316,16 +348,21 @@ export default function RelocationPage() {
             />
 
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              For families with children, school quality is often the top
-              priority when relocating. Las Vegas offers a range of public,
-              charter, and private school options. Dr. Jan provides detailed
-              school research to help you make informed decisions.
+              Compare named campuses, CCSD zoning, magnet programs, and private
+              options by address. Dr. Jan provides school-name research so you
+              can review commute times and enrollment rules before you write an
+              offer.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Named campuses by area"
+                  heroKey="nbSummerlin"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4 flex items-center">
                   <School className="h-5 w-5 text-blue-600 mr-2" />
-                  Top-Rated School Areas
+                  Named Campuses by Area
                 </h3>
                 <ul className="space-y-2 text-slate-700">
                   <li className="flex items-start">
@@ -352,6 +389,11 @@ export default function RelocationPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="School Research Services"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4 flex items-center">
                   <Home className="h-5 w-5 text-blue-600 mr-2" />
                   School Research Services

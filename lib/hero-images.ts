@@ -531,7 +531,7 @@ export const heroImages = {
   ),
   nbCentennialHills: hero(
     "centennial-hills-homes.webp",
-    "Centennial Hills northwest Las Vegas family homes near Red Rock views",
+    "Centennial Hills northwest Las Vegas homes near Red Rock views",
     "Centennial Hills residential neighborhood.",
     "Centennial Hills, Las Vegas, NV",
     36.29,

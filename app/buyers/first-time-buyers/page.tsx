@@ -20,6 +20,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/buyers/first-time-buyers",
@@ -115,6 +116,11 @@ export default function FirstTimeBuyersPage() {
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
+                <HeadingCardPhoto
+                  heading="FHA Loans"
+                  sectionKey="firstTimeFinancing"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-blue-600">3.5%</span>
                 </div>
@@ -127,6 +133,11 @@ export default function FirstTimeBuyersPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
+                <HeadingCardPhoto
+                  heading="VA Loans"
+                  heroKey="whyBhhs"
+                  className="mb-4"
+                />
                 <div className="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-green-600">0%</span>
                 </div>
@@ -137,6 +148,11 @@ export default function FirstTimeBuyersPage() {
                 <div className="text-xs text-slate-500">No PMI required</div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
+                <HeadingCardPhoto
+                  heading="Conventional"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-purple-600">3%</span>
                 </div>
@@ -149,6 +165,11 @@ export default function FirstTimeBuyersPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
+                <HeadingCardPhoto
+                  heading="Down Payment Help"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <div className="bg-amber-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
                   <DollarSign className="h-8 w-8 text-amber-600" />
                 </div>
@@ -177,6 +198,11 @@ export default function FirstTimeBuyersPage() {
             />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="North Las Vegas"
+                  heroKey="nbNorthLasVegas"
+                  className="mb-4"
+                />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-lg text-slate-900">
                     North Las Vegas
@@ -190,8 +216,7 @@ export default function FirstTimeBuyersPage() {
                 </div>
                 <p className="text-slate-600 text-sm mb-4">
                   Most affordable new construction in the valley. Growing
-                  rapidly with new schools, shopping, and infrastructure
-                  investments.
+                  rapidly with shopping, parks, and infrastructure investments.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
@@ -216,6 +241,11 @@ export default function FirstTimeBuyersPage() {
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Mountains Edge"
+                  heroKey="nbMountainsEdge"
+                  className="mb-4"
+                />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-lg text-slate-900">
                     Mountains Edge
@@ -254,6 +284,11 @@ export default function FirstTimeBuyersPage() {
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Centennial Hills"
+                  heroKey="nbCentennialHills"
+                  className="mb-4"
+                />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-lg text-slate-900">
                     Centennial Hills

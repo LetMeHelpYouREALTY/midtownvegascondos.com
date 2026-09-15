@@ -16,6 +16,7 @@ import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 
 const PATH = "/55-plus-communities/heritage-stonebridge";
@@ -116,42 +117,65 @@ export default function HeritageStonebridgePage() {
               Why buyers look at Heritage at Stonebridge
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="flex gap-3">
-                <Trophy
-                  className="w-8 h-8 text-amber-400 shrink-0"
-                  aria-hidden
+              <div>
+                <HeadingCardPhoto
+                  heading="Golf-course living"
+                  heroKey="fiftyFiveHeritage"
+                  className="mb-3"
                 />
-                <div>
-                  <h3 className="font-semibold mb-1">Golf-course living</h3>
-                  <p className="text-slate-300 text-sm">
-                    Fairway proximity and club programming for active adult
-                    routines.
-                  </p>
+                <div className="flex gap-3">
+                  <Trophy
+                    className="w-8 h-8 text-amber-400 shrink-0"
+                    aria-hidden
+                  />
+                  <div>
+                    <h3 className="font-semibold mb-1">Golf-course living</h3>
+                    <p className="text-slate-300 text-sm">
+                      Fairway proximity and club programming for active adult
+                      routines.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <Dumbbell
-                  className="w-8 h-8 text-amber-400 shrink-0"
-                  aria-hidden
+              <div>
+                <HeadingCardPhoto
+                  heading="Club amenities"
+                  heroKey="luxuryHomes"
+                  className="mb-3"
                 />
-                <div>
-                  <h3 className="font-semibold mb-1">Club amenities</h3>
-                  <p className="text-slate-300 text-sm">
-                    Fitness, social spaces, and community events aimed at 55+
-                    residents.
-                  </p>
+                <div className="flex gap-3">
+                  <Dumbbell
+                    className="w-8 h-8 text-amber-400 shrink-0"
+                    aria-hidden
+                  />
+                  <div>
+                    <h3 className="font-semibold mb-1">Club amenities</h3>
+                    <p className="text-slate-300 text-sm">
+                      Fitness, social spaces, and community events aimed at 55+
+                      residents.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <HomeIcon
-                  className="w-8 h-8 text-amber-400 shrink-0"
-                  aria-hidden
+              <div>
+                <HeadingCardPhoto
+                  heading="Low-maintenance homes"
+                  heroKey="sellersDownsizing"
+                  className="mb-3"
                 />
-                <div>
-                  <h3 className="font-semibold mb-1">Low-maintenance homes</h3>
-                  <p className="text-slate-300 text-sm">
-                    Single-story and lock-and-leave floor plans on many lots.
-                  </p>
+                <div className="flex gap-3">
+                  <HomeIcon
+                    className="w-8 h-8 text-amber-400 shrink-0"
+                    aria-hidden
+                  />
+                  <div>
+                    <h3 className="font-semibold mb-1">
+                      Low-maintenance homes
+                    </h3>
+                    <p className="text-slate-300 text-sm">
+                      Single-story and lock-and-leave floor plans on many lots.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

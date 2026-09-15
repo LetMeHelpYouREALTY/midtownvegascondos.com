@@ -22,6 +22,8 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta, midtownServiceSchema } from "@/lib/hyperlocal-content";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/sellers", {
   title: hyperlocalMeta.sellers.title,
@@ -34,28 +36,37 @@ const sellerSchema = midtownServiceSchema(
   "Condo Seller Representation",
 );
 
-const sellingBenefits = [
+const sellingBenefits: {
+  icon: typeof Globe;
+  title: string;
+  heroKey: HeroImageKey;
+  description: string;
+}[] = [
   {
     icon: Globe,
     title: "World-Class Marketing",
+    heroKey: "sellersHighrise",
     description:
       "Your home gets exposure through the most recognized real estate brand in the world. Professional photography, virtual tours, drone video, and syndication to 100+ websites ensures maximum visibility to qualified buyers.",
   },
   {
     icon: Users,
     title: "Global Buyer Network",
+    heroKey: "relocationHub",
     description:
       "Berkshire Hathaway's 50,000+ agents worldwide means your listing reaches qualified buyers from across the globe—especially important for Las Vegas's strong relocation and international buyer markets.",
   },
   {
     icon: BarChart,
     title: "Building-Specific Pricing Strategy",
+    heroKey: "homeValuation",
     description:
       "Midtown condo pricing depends on your building's recent sales, active competition, and price per square foot — not just valley-wide averages. Dr. Jan uses tower-specific comps so your unit is priced to sell without leaving money on the table.",
   },
   {
     icon: DollarSign,
     title: "Skilled Negotiation",
+    heroKey: "sellersDivorceProbate",
     description:
       "From offer review to closing negotiations, Dr. Jan protects your interests and maximizes your net proceeds. $127M+ in closed transactions means she knows how to handle any situation and close deals successfully.",
   },
@@ -221,6 +232,11 @@ export default function SellersPage() {
                     key={benefit.title}
                     className="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-shadow"
                   >
+                    <HeadingCardPhoto
+                      heading={benefit.title}
+                      heroKey={benefit.heroKey}
+                      className="mb-4"
+                    />
                     <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                       <Icon className="h-8 w-8 text-blue-600" />
                     </div>
@@ -291,7 +307,11 @@ export default function SellersPage() {
                 href="/sellers/move-up"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">🏡</div>
+                <HeadingCardPhoto
+                  heading="Move-Up Sellers"
+                  heroKey="sellersMoveUp"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   Move-Up Sellers
                 </h3>
@@ -307,7 +327,11 @@ export default function SellersPage() {
                 href="/sellers/downsizing"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">🌴</div>
+                <HeadingCardPhoto
+                  heading="Downsizing"
+                  heroKey="sellersDownsizing"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   Downsizing
                 </h3>
@@ -323,7 +347,11 @@ export default function SellersPage() {
                 href="/sellers/divorce-probate"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">⚖️</div>
+                <HeadingCardPhoto
+                  heading="Divorce & Probate"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   Divorce & Probate
                 </h3>
@@ -339,7 +367,11 @@ export default function SellersPage() {
                 href="/sellers/relocation"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">✈️</div>
+                <HeadingCardPhoto
+                  heading="Relocation"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   Relocation
                 </h3>

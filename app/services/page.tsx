@@ -23,6 +23,8 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/services", {
   title: "Real Estate Services Las Vegas | Berkshire Hathaway HomeServices",
@@ -65,6 +67,7 @@ const coreServices = [
       "Closing coordination",
     ],
     stats: { label: "Buyers Helped", value: "300+" },
+    heroKey: "buyersCondoTower" as const,
   },
   {
     icon: TrendingUp,
@@ -79,6 +82,7 @@ const coreServices = [
       "Staging guidance",
     ],
     stats: { label: "Homes Sold", value: "500+" },
+    heroKey: "sellersHighrise" as const,
   },
   {
     icon: Star,
@@ -93,6 +97,7 @@ const coreServices = [
       "Premium marketing",
     ],
     stats: { label: "Luxury Volume", value: "$45M+" },
+    heroKey: "luxuryHomes" as const,
   },
   {
     icon: Building,
@@ -107,6 +112,7 @@ const coreServices = [
       "Construction oversight",
     ],
     stats: { label: "New Builds", value: "150+" },
+    heroKey: "newConstruction" as const,
   },
 ];
 
@@ -123,6 +129,7 @@ const specializedServices = [
       "1031 exchange help",
       "Property management referrals",
     ],
+    heroKey: "investmentProperties" as const,
   },
   {
     icon: Plane,
@@ -136,6 +143,7 @@ const specializedServices = [
       "Remote buying",
       "Moving coordination",
     ],
+    heroKey: "relocationHub" as const,
   },
   {
     icon: Users,
@@ -149,6 +157,7 @@ const specializedServices = [
       "Amenity comparisons",
       "Resale insights",
     ],
+    heroKey: "fiftyFivePlus" as const,
   },
   {
     icon: Calculator,
@@ -162,54 +171,72 @@ const specializedServices = [
       "Detailed analysis",
       "Market trends",
     ],
+    heroKey: "homeValuation" as const,
   },
 ];
 
-const buyerTypes = [
+const buyerTypes: {
+  title: string;
+  href: string;
+  description: string;
+  heroKey: HeroImageKey;
+}[] = [
   {
     title: "California Relocators",
     href: "/buyers/california-relocator",
     description:
       "Moving from CA? Save on state income tax and enjoy 40-60% lower home prices.",
+    heroKey: "buyersCaRelocator",
   },
   {
     title: "First-Time Home Buyers",
     href: "/buyers/first-time-buyers",
     description:
       "FHA, VA, down payment assistance, and step-by-step guidance for your first purchase.",
+    heroKey: "buyersFirstTime",
   },
   {
     title: "Luxury Home Buyers",
     href: "/buyers/luxury-homes-las-vegas",
     description:
       "Guard-gated estates, Strip views, custom builds, and discrete representation.",
+    heroKey: "buyersLuxury",
   },
 ];
 
-const sellerTypes = [
+const sellerTypes: {
+  title: string;
+  href: string;
+  description: string;
+  heroKey: HeroImageKey;
+}[] = [
   {
     title: "Move-Up Sellers",
     href: "/sellers/move-up",
     description:
       "Leverage your equity to upgrade your lifestyle with coordinated buy-and-sell.",
+    heroKey: "sellersMoveUp",
   },
   {
     title: "Downsizing Sellers",
     href: "/sellers/downsizing",
     description:
       "Extract equity and transition to low-maintenance living in 55+ communities.",
+    heroKey: "sellersDownsizing",
   },
   {
     title: "Divorce & Probate Sales",
     href: "/sellers/divorce-probate",
     description:
       "Sensitive situations handled with discretion, fairness, and legal coordination.",
+    heroKey: "sellersDivorceProbate",
   },
   {
     title: "Relocation Sellers",
     href: "/sellers/relocation",
     description:
       "Selling from out of state? Remote coordination with BHHS network support.",
+    heroKey: "sellersRelocation",
   },
 ];
 
@@ -274,6 +301,11 @@ export default function ServicesPage() {
                     href={`/${service.slug}`}
                     className="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg hover:border-blue-300 transition-all group"
                   >
+                    <HeadingCardPhoto
+                      heading={service.title}
+                      heroKey={service.heroKey}
+                      className="mb-4"
+                    />
                     <div className="flex items-start gap-4">
                       <div className="bg-blue-100 rounded-lg p-3 group-hover:bg-blue-600 transition-colors flex-shrink-0">
                         <Icon className="h-6 w-6 text-blue-600 group-hover:text-white transition-colors" />
@@ -321,8 +353,8 @@ export default function ServicesPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Beyond traditional buying and selling, Dr. Jan Duffy offers
               specialized services for unique situations. Whether you're an
-              investor building a rental portfolio, a California family
-              relocating for tax savings, or a retiree seeking the perfect 55+
+              investor building a rental portfolio, a California relocator
+              moving for tax savings, or a retiree seeking the perfect 55+
               community, these focused services ensure you receive expert
               guidance tailored to your specific needs.
             </p>
@@ -335,6 +367,11 @@ export default function ServicesPage() {
                     href={`/${service.slug}`}
                     className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg hover:border-blue-300 transition-all group"
                   >
+                    <HeadingCardPhoto
+                      heading={service.title}
+                      heroKey={service.heroKey}
+                      className="mb-4"
+                    />
                     <div className="flex items-start gap-4">
                       <div className="bg-slate-100 rounded-lg p-3 group-hover:bg-blue-600 transition-colors flex-shrink-0">
                         <Icon className="h-5 w-5 text-slate-600 group-hover:text-white transition-colors" />
@@ -388,6 +425,11 @@ export default function ServicesPage() {
                   href={type.href}
                   className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg hover:border-blue-300 transition-all group"
                 >
+                  <HeadingCardPhoto
+                    heading={type.title}
+                    heroKey={type.heroKey}
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2 group-hover:text-blue-600">
                     {type.title}
                   </h3>
@@ -426,6 +468,11 @@ export default function ServicesPage() {
                   href={type.href}
                   className="bg-white border border-slate-200 rounded-lg p-5 hover:shadow-lg hover:border-blue-300 transition-all group"
                 >
+                  <HeadingCardPhoto
+                    heading={type.title}
+                    heroKey={type.heroKey}
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2 group-hover:text-blue-600 text-sm">
                     {type.title}
                   </h3>
@@ -486,6 +533,11 @@ export default function ServicesPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Financial Strength"
+                  heroKey="investmentProperties"
+                  className="mb-3"
+                />
                 <Shield className="h-10 w-10 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-2">Financial Strength</h3>
                 <p className="text-slate-400 text-sm">
@@ -494,6 +546,11 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Ethical Standards"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-3"
+                />
                 <Award className="h-10 w-10 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-2">Ethical Standards</h3>
                 <p className="text-slate-400 text-sm">
@@ -502,6 +559,11 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Global Network"
+                  heroKey="relocationHub"
+                  className="mb-3"
+                />
                 <Users className="h-10 w-10 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-2">Global Network</h3>
                 <p className="text-slate-400 text-sm">

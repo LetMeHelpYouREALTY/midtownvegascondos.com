@@ -21,6 +21,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/luxury-homes", {
   title: "Las Vegas Luxury Homes for Sale | Berkshire Hathaway HomeServices",
@@ -65,6 +66,7 @@ const luxuryNeighborhoods = [
       "Celebrity homes",
       "Golf course",
     ],
+    heroKey: "nbRidges" as const,
   },
   {
     name: "MacDonald Highlands",
@@ -78,6 +80,7 @@ const luxuryNeighborhoods = [
       "Country club",
       "Private lots",
     ],
+    heroKey: "luxuryHomes" as const,
   },
   {
     name: "Southern Highlands",
@@ -91,6 +94,7 @@ const luxuryNeighborhoods = [
       "Mountain views",
       "Multiple villages",
     ],
+    heroKey: "nbSouthernHighlands" as const,
   },
   {
     name: "The Summit Club",
@@ -104,6 +108,7 @@ const luxuryNeighborhoods = [
       "Invitation only",
       "Tom Fazio design",
     ],
+    heroKey: "nbRidges" as const,
   },
   {
     name: "Ascaya",
@@ -117,6 +122,7 @@ const luxuryNeighborhoods = [
       "Custom homes",
       "Hillside lots",
     ],
+    heroKey: "buyersLuxury" as const,
   },
   {
     name: "Lake Las Vegas",
@@ -130,6 +136,7 @@ const luxuryNeighborhoods = [
       "Golf courses",
       "Mediterranean style",
     ],
+    heroKey: "fiftyFiveDelWebb" as const,
   },
 ];
 
@@ -257,21 +264,25 @@ export default function LuxuryHomesPage() {
                   icon: Shield,
                   title: "Trusted Brand",
                   desc: "The Berkshire Hathaway name commands respect and attracts serious, qualified buyers to your property",
+                  heroKey: "whyBhhs" as const,
                 },
                 {
                   icon: Globe,
                   title: "Global Reach",
                   desc: "50,000+ agents worldwide connecting your property to affluent buyers in every major market",
+                  heroKey: "relocationHub" as const,
                 },
                 {
                   icon: Eye,
                   title: "Discretion",
                   desc: "Privacy-focused marketing for clients who value confidentiality. Off-market sales available.",
+                  heroKey: "buyersLuxury" as const,
                 },
                 {
                   icon: Star,
                   title: "White Glove",
                   desc: "Concierge-level service for luxury transactions from first showing to closing and beyond",
+                  heroKey: "luxuryHomes" as const,
                 },
               ].map((item) => {
                 const Icon = item.icon;
@@ -280,6 +291,11 @@ export default function LuxuryHomesPage() {
                     key={item.title}
                     className="text-center p-6 bg-slate-50 rounded-xl"
                   >
+                    <HeadingCardPhoto
+                      heading={item.title}
+                      heroKey={item.heroKey}
+                      className="mb-4"
+                    />
                     <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                       <Icon className="h-8 w-8 text-blue-600" />
                     </div>
@@ -343,6 +359,11 @@ export default function LuxuryHomesPage() {
                   key={neighborhood.name}
                   className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
                 >
+                  <HeadingCardPhoto
+                    heading={neighborhood.name}
+                    heroKey={neighborhood.heroKey}
+                    className="mb-4"
+                  />
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <h3 className="font-bold text-lg text-slate-900">
@@ -427,6 +448,11 @@ export default function LuxuryHomesPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-slate-50 rounded-xl p-8">
+                <HeadingCardPhoto
+                  heading="For Luxury Buyers"
+                  heroKey="buyersLuxury"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl text-slate-900 mb-4 flex items-center">
                   <Home className="h-6 w-6 text-blue-600 mr-2" />
                   For Luxury Buyers
@@ -457,6 +483,11 @@ export default function LuxuryHomesPage() {
                 </ul>
               </div>
               <div className="bg-slate-50 rounded-xl p-8">
+                <HeadingCardPhoto
+                  heading="For Luxury Sellers"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl text-slate-900 mb-4 flex items-center">
                   <DollarSign className="h-6 w-6 text-blue-600 mr-2" />
                   For Luxury Sellers

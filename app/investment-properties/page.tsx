@@ -15,6 +15,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/investment-properties",
@@ -105,6 +106,11 @@ export default function InvestmentPropertiesPage() {
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="No State Income Tax"
+                  heroKey="buyersCaRelocator"
+                  className="mb-3"
+                />
                 <DollarSign className="h-12 w-12 text-green-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">No State Income Tax</h3>
                 <p className="text-slate-400 text-sm">
@@ -112,16 +118,31 @@ export default function InvestmentPropertiesPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Strong Appreciation"
+                  heroKey="marketReport"
+                  className="mb-3"
+                />
                 <TrendingUp className="h-12 w-12 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Strong Appreciation</h3>
                 <p className="text-slate-400 text-sm">+4.2% YoY in 2025</p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Growing Population"
+                  heroKey="relocationHub"
+                  className="mb-3"
+                />
                 <Building className="h-12 w-12 text-purple-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Growing Population</h3>
                 <p className="text-slate-400 text-sm">Constant rental demand</p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Strong Cap Rates"
+                  heroKey="investmentProperties"
+                  className="mb-3"
+                />
                 <BarChart className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-1">Strong Cap Rates</h3>
                 <p className="text-slate-400 text-sm">4-6% typical returns</p>

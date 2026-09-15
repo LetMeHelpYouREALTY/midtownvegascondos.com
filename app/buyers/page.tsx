@@ -27,6 +27,8 @@ import {
 } from "@/lib/hyperlocal-content";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import { neighborhoodHeroBySlug } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/buyers", {
   title: hyperlocalMeta.buyers.title,
@@ -236,6 +238,14 @@ export default function BuyersPage() {
                   href={`/neighborhoods/${neighborhood.slug}`}
                   className="bg-white rounded-lg p-4 border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all"
                 >
+                  <HeadingCardPhoto
+                    heading={neighborhood.name}
+                    heroKey={
+                      neighborhoodHeroBySlug[neighborhood.slug] ??
+                      "homeSkylineDay"
+                    }
+                    className="mb-3"
+                  />
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="font-bold text-slate-900">
                       {neighborhood.name}
@@ -283,7 +293,11 @@ export default function BuyersPage() {
                 href="/buyers/california-relocator"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">🌴</div>
+                <HeadingCardPhoto
+                  heading="California Relocators"
+                  heroKey="buyersCaRelocator"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   California Relocators
                 </h3>
@@ -300,7 +314,11 @@ export default function BuyersPage() {
                 href="/buyers/first-time-buyers"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">🔑</div>
+                <HeadingCardPhoto
+                  heading="First-Time Buyers"
+                  heroKey="buyersFirstTime"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   First-Time Buyers
                 </h3>
@@ -317,7 +335,11 @@ export default function BuyersPage() {
                 href="/buyers/luxury-homes-las-vegas"
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow group"
               >
-                <div className="text-3xl mb-4">💎</div>
+                <HeadingCardPhoto
+                  heading="Luxury Home Buyers"
+                  heroKey="buyersLuxury"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600">
                   Luxury Home Buyers
                 </h3>
@@ -352,6 +374,11 @@ export default function BuyersPage() {
             </p>
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Trusted Brand"
+                  heroKey="whyBhhs"
+                  className="mb-3"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Award className="h-7 w-7 text-blue-600" />
                 </div>
@@ -361,6 +388,11 @@ export default function BuyersPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Global Network"
+                  heroKey="relocationHub"
+                  className="mb-3"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Users className="h-7 w-7 text-blue-600" />
                 </div>
@@ -373,6 +405,11 @@ export default function BuyersPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Local Expertise"
+                  heroKey="artsDistrict"
+                  className="mb-3"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <MapPin className="h-7 w-7 text-blue-600" />
                 </div>
@@ -385,6 +422,11 @@ export default function BuyersPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Expert Negotiation"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-3"
+                />
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <TrendingUp className="h-7 w-7 text-blue-600" />
                 </div>

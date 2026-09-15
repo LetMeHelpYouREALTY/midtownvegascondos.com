@@ -26,6 +26,8 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import type { HeroImageKey } from "@/lib/hero-images";
 
 export const metadata: Metadata = withPageHeroMetadata("/55-plus-communities", {
   title:
@@ -150,6 +152,7 @@ const communities = [
     description:
       "Nevada's largest 55+ community with unparalleled amenities against the backdrop of the Spring Mountains.",
     color: "amber",
+    heroKey: "fiftyFiveSunCitySummerlin" as const,
   },
   {
     name: "Sun City Anthem",
@@ -169,6 +172,7 @@ const communities = [
     description:
       "Henderson's premier 55+ community with stunning mountain views and championship golf.",
     color: "green",
+    heroKey: "fiftyFiveSunCityAnthem" as const,
   },
   {
     name: "Sun City Aliante",
@@ -188,6 +192,7 @@ const communities = [
     description:
       "The most affordable Sun City in Las Vegas with full amenities and great value.",
     color: "blue",
+    heroKey: "fiftyFiveSunCityAliante" as const,
   },
   {
     name: "Del Webb at Lake Las Vegas",
@@ -206,7 +211,8 @@ const communities = [
     ],
     description:
       "The newest Del Webb community combines modern construction with stunning Lake Las Vegas setting.",
-    color: "blue",
+    color: "cyan",
+    heroKey: "fiftyFiveDelWebb" as const,
   },
   {
     name: "Heritage at Stonebridge",
@@ -226,6 +232,7 @@ const communities = [
     description:
       "A boutique 55+ community offering guard-gated privacy in the heart of Summerlin.",
     color: "purple",
+    heroKey: "fiftyFiveHeritage" as const,
   },
   {
     name: "Solera at Anthem",
@@ -245,6 +252,7 @@ const communities = [
     description:
       "A more intimate alternative to larger 55+ communities with guard-gated security.",
     color: "teal",
+    heroKey: "fiftyFiveSolera" as const,
   },
   {
     name: "Trilogy at Summerlin",
@@ -264,6 +272,7 @@ const communities = [
     description:
       "Luxury resort-style 55+ living with upscale amenities and contemporary designs.",
     color: "rose",
+    heroKey: "fiftyFiveTrilogy" as const,
   },
   {
     name: "Siena",
@@ -283,45 +292,57 @@ const communities = [
     description:
       "Siena offers the Summerlin lifestyle at more accessible price points.",
     color: "slate",
+    heroKey: "nbSummerlin" as const,
   },
 ];
 
-const lifestyleBenefits = [
+const lifestyleBenefits: {
+  icon: typeof HomeIcon;
+  title: string;
+  description: string;
+  heroKey: HeroImageKey;
+}[] = [
   {
     icon: HomeIcon,
     title: "Low-Maintenance Living",
     description:
       "Exterior maintenance handled by HOA. Spend time enjoying life, not maintaining your home.",
+    heroKey: "sellersDownsizing",
   },
   {
     icon: Star,
     title: "Resort-Style Amenities",
     description:
       "Golf courses, pools, fitness centers, spas, and clubhouses rivaling luxury resorts.",
+    heroKey: "luxuryHomes",
   },
   {
     icon: Calendar,
     title: "Active Social Calendar",
     description:
       "100+ clubs, organized travel, classes, events, and built-in community of like-minded neighbors.",
+    heroKey: "fiftyFivePlus",
   },
   {
     icon: Shield,
-    title: "Gated Security",
+    title: "Gated Entries",
     description:
-      "Many communities offer guard-gated entries for added peace of mind and privacy.",
+      "Many communities offer guard-gated entries and HOA-managed common areas.",
+    heroKey: "fiftyFiveSolera",
   },
   {
     icon: DollarSign,
     title: "Nevada Tax Advantages",
     description:
       "No state income tax means more money in your pocket. Social Security, pensions, and investments tax-free.",
+    heroKey: "buyersCaRelocator",
   },
   {
     icon: Sun,
     title: "300+ Days of Sunshine",
     description:
-      "Perfect weather for golf, hiking, and outdoor activities year-round.",
+      "Year-round golf, hiking, and outdoor recreation in Southern Nevada.",
+    heroKey: "fiftyFiveSunCitySummerlin",
   },
 ];
 
@@ -432,6 +453,11 @@ export default function FiftyFiveCommunitiesPage() {
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">
                     Relocating from California?
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Relocating from California?"
+                    heroKey="buyersCaRelocator"
+                    className="mb-4"
+                  />
                   <p className="text-lg text-slate-700 mb-4">
                     Many of our 55+ buyers are relocating from California—and
                     for good reason.{" "}
@@ -489,6 +515,11 @@ export default function FiftyFiveCommunitiesPage() {
                   key={benefit.title}
                   className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow"
                 >
+                  <HeadingCardPhoto
+                    heading={benefit.title}
+                    heroKey={benefit.heroKey}
+                    className="mb-4"
+                  />
                   <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <benefit.icon className="h-6 w-6 text-blue-600" />
                   </div>
@@ -512,6 +543,11 @@ export default function FiftyFiveCommunitiesPage() {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
                     Understanding 55+ Age Requirements
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Understanding 55+ Age Requirements"
+                    sectionKey="fiftyFiveWhy"
+                    className="mb-4"
+                  />
                   <div className="text-slate-700 space-y-3">
                     <p>
                       <strong>Federal HOPA Guidelines:</strong> At least 80% of
@@ -555,6 +591,11 @@ export default function FiftyFiveCommunitiesPage() {
                   key={community.name}
                   className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
                 >
+                  <HeadingCardPhoto
+                    heading={community.name}
+                    heroKey={community.heroKey}
+                    className="rounded-none"
+                  />
                   <div className="bg-slate-900 text-white p-6">
                     <h3 className="text-xl font-bold mb-1">{community.name}</h3>
                     <div className="flex items-center text-slate-300 text-sm">
@@ -664,6 +705,11 @@ export default function FiftyFiveCommunitiesPage() {
             />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Fitness & Recreation"
+                  sectionKey="fiftyFiveAmenities"
+                  className="mb-4"
+                />
                 <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Dumbbell className="h-6 w-6 text-green-600" />
                 </div>
@@ -679,6 +725,11 @@ export default function FiftyFiveCommunitiesPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Social & Activities"
+                  heroKey="fiftyFivePlus"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Calendar className="h-6 w-6 text-blue-600" />
                 </div>
@@ -694,11 +745,16 @@ export default function FiftyFiveCommunitiesPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Convenience & HOA Services"
+                  heroKey="fiftyFiveSolera"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Shield className="h-6 w-6 text-purple-600" />
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">
-                  Convenience & Security
+                  Convenience & HOA Services
                 </h3>
                 <ul className="text-slate-600 text-sm space-y-1">
                   <li>• Guard-gated entries (many)</li>
@@ -826,6 +882,11 @@ export default function FiftyFiveCommunitiesPage() {
                   <Heart className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Specialized Expertise"
+                    heroKey="fiftyFivePlus"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-slate-900 mb-1">
                     Specialized Expertise
                   </h3>
@@ -841,6 +902,11 @@ export default function FiftyFiveCommunitiesPage() {
                   <Users className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Relocation Support"
+                    heroKey="relocationHub"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-slate-900 mb-1">
                     Relocation Support
                   </h3>
@@ -856,6 +922,11 @@ export default function FiftyFiveCommunitiesPage() {
                   <Shield className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Trusted Brand"
+                    heroKey="whyBhhs"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-slate-900 mb-1">
                     Trusted Brand
                   </h3>
@@ -871,6 +942,11 @@ export default function FiftyFiveCommunitiesPage() {
                   <DollarSign className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="No-Pressure Approach"
+                    heroKey="aboutAgent"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-slate-900 mb-1">
                     No-Pressure Approach
                   </h3>

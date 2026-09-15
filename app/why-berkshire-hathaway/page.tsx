@@ -15,6 +15,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/why-berkshire-hathaway",
@@ -80,6 +81,12 @@ export default function WhyBerkshireHathawayPage() {
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
                   Backed by Warren Buffett's Legacy
                 </h2>
+                <SectionPhoto
+                  imageKey="whyBuffett"
+                  heading="Backed by Warren Buffett's Legacy"
+                  className="mb-6 text-left"
+                  onDark
+                />
                 <p className="text-slate-300 mb-6">
                   <strong>Berkshire Hathaway HomeServices</strong> is the only
                   real estate brand backed by Berkshire Hathaway Inc., Warren
@@ -117,6 +124,11 @@ export default function WhyBerkshireHathawayPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="Unmatched Trust"
+                  heroKey="whyBhhs"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Shield className="h-8 w-8 text-blue-600" />
                 </div>
@@ -131,6 +143,11 @@ export default function WhyBerkshireHathawayPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="Global Network"
+                  heroKey="relocationHub"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Users className="h-8 w-8 text-blue-600" />
                 </div>
@@ -144,6 +161,11 @@ export default function WhyBerkshireHathawayPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="World-Class Marketing"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Globe className="h-8 w-8 text-blue-600" />
                 </div>
@@ -158,6 +180,11 @@ export default function WhyBerkshireHathawayPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="Ethical Standards"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Award className="h-8 w-8 text-blue-600" />
                 </div>
@@ -171,6 +198,11 @@ export default function WhyBerkshireHathawayPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="Financial Strength"
+                  heroKey="investmentProperties"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <TrendingUp className="h-8 w-8 text-blue-600" />
                 </div>
@@ -184,6 +216,11 @@ export default function WhyBerkshireHathawayPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
+                <HeadingCardPhoto
+                  heading="Proven Results"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <CheckCircle className="h-8 w-8 text-blue-600" />
                 </div>
