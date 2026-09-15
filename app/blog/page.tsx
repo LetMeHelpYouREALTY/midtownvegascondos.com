@@ -64,6 +64,8 @@ export default function BlogPage() {
       <Navbar />
       <PageHero
         imageKey="homeSkylineDay"
+        leadSectionKey="blogHub"
+        leadSectionHeading="Midtown Las Vegas condo insights"
         pagePath="/blog"
         badge="Guides & market notes"
         title="Midtown Vegas Condos Blog"

@@ -30,7 +30,7 @@ export const metadata: Metadata = withPageHeroMetadata("/sellers", {
 
 const sellerSchema = midtownServiceSchema(
   "Midtown Las Vegas Condo Selling Services",
-  "Condo Seller Representation"
+  "Condo Seller Representation",
 );
 
 const sellingBenefits = [
@@ -64,32 +64,38 @@ const sellingProcess = [
   {
     step: 1,
     title: "Free Home Valuation",
-    description: "Dr. Jan analyzes comparable sales, market conditions, and your home's unique features to determine optimal pricing. You'll understand exactly what your home could sell for before making any decisions.",
+    description:
+      "Dr. Jan analyzes comparable sales, market conditions, and your home's unique features to determine optimal pricing. You'll understand exactly what your home could sell for before making any decisions.",
   },
   {
     step: 2,
     title: "Preparation & Staging",
-    description: "Receive a customized preparation checklist to maximize your home's appeal. Dr. Jan provides staging consultations and can recommend contractors for any needed repairs or updates.",
+    description:
+      "Receive a customized preparation checklist to maximize your home's appeal. Dr. Jan provides staging consultations and can recommend contractors for any needed repairs or updates.",
   },
   {
     step: 3,
     title: "Professional Marketing",
-    description: "Your home is photographed professionally, with virtual tours and drone video. It's listed on the MLS and syndicated to 100+ websites, plus promoted through BHHS's global network and targeted digital advertising.",
+    description:
+      "Your home is photographed professionally, with virtual tours and drone video. It's listed on the MLS and syndicated to 100+ websites, plus promoted through BHHS's global network and targeted digital advertising.",
   },
   {
     step: 4,
     title: "Showings & Open Houses",
-    description: "Dr. Jan coordinates all showings and open houses, gathering feedback from every visit. You'll receive regular updates on activity and market response.",
+    description:
+      "Dr. Jan coordinates all showings and open houses, gathering feedback from every visit. You'll receive regular updates on activity and market response.",
   },
   {
     step: 5,
     title: "Offer Review & Negotiation",
-    description: "When offers come in, Dr. Jan analyzes each one for price, terms, contingencies, and buyer qualification. She negotiates on your behalf to get the best possible outcome.",
+    description:
+      "When offers come in, Dr. Jan analyzes each one for price, terms, contingencies, and buyer qualification. She negotiates on your behalf to get the best possible outcome.",
   },
   {
     step: 6,
     title: "Contract to Close",
-    description: "Dr. Jan manages every detail from accepted offer to closing—inspections, appraisals, repairs, and coordination with title, escrow, and the buyer's agent. You'll close with confidence.",
+    description:
+      "Dr. Jan manages every detail from accepted offer to closing—inspections, appraisals, repairs, and coordination with title, escrow, and the buyer's agent. You'll close with confidence.",
   },
 ];
 
@@ -118,49 +124,73 @@ export default function SellersPage() {
       <Navbar />
       <PageHero
         imageKey="sellersHighrise"
+        leadSectionKey="sellersAdvantage"
+        leadSectionHeading="The Berkshire Hathaway HomeServices Selling Advantage"
         pagePath="/sellers"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Sell Your Midtown Las Vegas Condo for Top Dollar"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Listing a midtown condo requires building-specific comps, HOA-aware buyers, and
-              urban marketing expertise. Dr. Jan Duffy at{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> has sold condos across One Las Vegas,
-              Juhl, Arts District, and downtown towers since 2008.</p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
+          Listing a midtown condo requires building-specific comps, HOA-aware
+          buyers, and urban marketing expertise. Dr. Jan Duffy at{" "}
+          <strong>Berkshire Hathaway HomeServices</strong> has sold condos
+          across One Las Vegas, Juhl, Arts District, and downtown towers since
+          2008.
+        </p>
         <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Condo Valuation</span>
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> World-Class Marketing</span>
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Expert Negotiation</span>
-            </div>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Condo
+            Valuation
+          </span>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> World-Class
+            Marketing
+          </span>
+          <span className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Expert
+            Negotiation
+          </span>
+        </div>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
-
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-4 text-center">
               Las Vegas Seller Market Statistics | January 2026
             </h2>
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
-              The Las Vegas housing market remains favorable for sellers with low inventory and 
-              steady demand. Well-priced homes are selling quickly, and appreciation continues 
-              to outpace national averages. Here's what sellers need to know about current conditions.
+              The Las Vegas housing market remains favorable for sellers with
+              low inventory and steady demand. Well-priced homes are selling
+              quickly, and appreciation continues to outpace national averages.
+              Here's what sellers need to know about current conditions.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">+4.2%</div>
-                <div className="text-slate-300 text-sm">Year-Over-Year Appreciation</div>
+                <div className="text-3xl font-bold text-green-400 mb-1">
+                  +4.2%
+                </div>
+                <div className="text-slate-300 text-sm">
+                  Year-Over-Year Appreciation
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold mb-1">28 Days</div>
-                <div className="text-slate-300 text-sm">Avg. Days on Market</div>
+                <div className="text-slate-300 text-sm">
+                  Avg. Days on Market
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold mb-1">2.1 Mo</div>
-                <div className="text-slate-300 text-sm">Inventory (Seller's Market)</div>
+                <div className="text-slate-300 text-sm">
+                  Inventory (Seller's Market)
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold mb-1">98.5%</div>
-                <div className="text-slate-300 text-sm">List-to-Sale Price Ratio</div>
+                <div className="text-slate-300 text-sm">
+                  List-to-Sale Price Ratio
+                </div>
               </div>
             </div>
           </section>
@@ -171,9 +201,10 @@ export default function SellersPage() {
               The Berkshire Hathaway HomeServices Selling Advantage
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Not all real estate agents can deliver the same results. When you choose a 
-              Berkshire Hathaway HomeServices agent, you're choosing world-class marketing, 
-              a global network of buyers, and the most trusted name in real estate.
+              Not all real estate agents can deliver the same results. When you
+              choose a Berkshire Hathaway HomeServices agent, you're choosing
+              world-class marketing, a global network of buyers, and the most
+              trusted name in real estate.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               {sellingBenefits.map((benefit) => {
@@ -186,7 +217,9 @@ export default function SellersPage() {
                     <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                       <Icon className="h-8 w-8 text-blue-600" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{benefit.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                      {benefit.title}
+                    </h3>
                     <p className="text-slate-600">{benefit.description}</p>
                   </div>
                 );
@@ -200,9 +233,10 @@ export default function SellersPage() {
               The Home Selling Process
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Selling a home involves many steps, but you don't have to navigate them alone. 
-              Dr. Jan Duffy manages every detail from initial valuation to closing day, keeping 
-              you informed and in control throughout the process.
+              Selling a home involves many steps, but you don't have to navigate
+              them alone. Dr. Jan Duffy manages every detail from initial
+              valuation to closing day, keeping you informed and in control
+              throughout the process.
             </p>
             <div className="space-y-6">
               {sellingProcess.map((item) => (
@@ -214,7 +248,9 @@ export default function SellersPage() {
                     {item.step}
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                    <h3 className="font-bold text-slate-900 mb-2">
+                      {item.title}
+                    </h3>
                     <p className="text-slate-600 text-sm">{item.description}</p>
                   </div>
                 </div>
@@ -228,9 +264,10 @@ export default function SellersPage() {
               Specialized Services for Every Seller
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Every seller's situation is unique. Whether you're upgrading, downsizing, dealing 
-              with a life change, or relocating for work, Dr. Jan provides customized strategies 
-              that address your specific needs and timeline.
+              Every seller's situation is unique. Whether you're upgrading,
+              downsizing, dealing with a life change, or relocating for work,
+              Dr. Jan provides customized strategies that address your specific
+              needs and timeline.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Link
@@ -242,9 +279,12 @@ export default function SellersPage() {
                   Move-Up Sellers
                 </h3>
                 <p className="text-slate-600 text-sm mb-3">
-                  Leverage your equity into your dream home. Coordinated buy & sell strategies.
+                  Leverage your equity into your dream home. Coordinated buy &
+                  sell strategies.
                 </p>
-                <span className="text-blue-600 font-semibold text-sm">Learn More →</span>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Learn More →
+                </span>
               </Link>
               <Link
                 href="/sellers/downsizing"
@@ -255,9 +295,12 @@ export default function SellersPage() {
                   Downsizing
                 </h3>
                 <p className="text-slate-600 text-sm mb-3">
-                  Extract equity, simplify life. 55+ communities and low-maintenance options.
+                  Extract equity, simplify life. 55+ communities and
+                  low-maintenance options.
                 </p>
-                <span className="text-blue-600 font-semibold text-sm">Learn More →</span>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Learn More →
+                </span>
               </Link>
               <Link
                 href="/sellers/divorce-probate"
@@ -268,9 +311,12 @@ export default function SellersPage() {
                   Divorce & Probate
                 </h3>
                 <p className="text-slate-600 text-sm mb-3">
-                  Sensitive situations handled with discretion and professionalism.
+                  Sensitive situations handled with discretion and
+                  professionalism.
                 </p>
-                <span className="text-blue-600 font-semibold text-sm">Learn More →</span>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Learn More →
+                </span>
               </Link>
               <Link
                 href="/sellers/relocation"
@@ -281,9 +327,12 @@ export default function SellersPage() {
                   Relocation
                 </h3>
                 <p className="text-slate-600 text-sm mb-3">
-                  Moving for work? BHHS nationwide network coordinates both ends.
+                  Moving for work? BHHS nationwide network coordinates both
+                  ends.
                 </p>
-                <span className="text-blue-600 font-semibold text-sm">Learn More →</span>
+                <span className="text-blue-600 font-semibold text-sm">
+                  Learn More →
+                </span>
               </Link>
             </div>
           </section>
@@ -295,14 +344,17 @@ export default function SellersPage() {
             </h2>
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Pricing your home correctly from day one is the single most important factor in
-                getting top dollar. Overpriced homes sit on the market, and every day on market costs 
-                you money—both in carrying costs and buyer perception. That's why I use comprehensive 
-                market analysis and my experience serving Las Vegas since 2008 to price homes right 
-                the first time. The result? My listings typically sell within 2% of asking price."
+                "Pricing your home correctly from day one is the single most
+                important factor in getting top dollar. Overpriced homes sit on
+                the market, and every day on market costs you money—both in
+                carrying costs and buyer perception. That's why I use
+                comprehensive market analysis and my experience serving Las
+                Vegas since 2008 to price homes right the first time. The
+                result? My listings typically sell within 2% of asking price."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas Since 2008
+                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas
+                Since 2008
               </cite>
             </div>
           </section>
@@ -313,13 +365,16 @@ export default function SellersPage() {
               What's Included When You List with BHHS
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              When you list with Dr. Jan Duffy at Berkshire Hathaway HomeServices, you receive 
-              comprehensive marketing and support services designed to maximize your home's 
-              exposure and sale price.
+              When you list with Dr. Jan Duffy at Berkshire Hathaway
+              HomeServices, you receive comprehensive marketing and support
+              services designed to maximize your home's exposure and sale price.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {includedServices.map((item) => (
-                <div key={item} className="flex items-center bg-white p-4 rounded-lg border border-slate-200">
+                <div
+                  key={item}
+                  className="flex items-center bg-white p-4 rounded-lg border border-slate-200"
+                >
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
                   <span className="text-slate-700 text-sm">{item}</span>
                 </div>
@@ -331,12 +386,15 @@ export default function SellersPage() {
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-4">What's Your Home Worth?</h2>
+                <h2 className="text-3xl font-bold mb-4">
+                  What's Your Home Worth?
+                </h2>
                 <p className="text-blue-100 mb-6">
-                  Get a free, no-obligation home valuation from Dr. Jan Duffy. Using current MLS
-                  data and expertise serving Las Vegas since 2008, you'll know exactly what your 
-                  home could sell for in today's market. No algorithms—just real analysis from 
-                  a local expert.
+                  Get a free, no-obligation home valuation from Dr. Jan Duffy.
+                  Using current MLS data and expertise serving Las Vegas since
+                  2008, you'll know exactly what your home could sell for in
+                  today's market. No algorithms—just real analysis from a local
+                  expert.
                 </p>
                 <Link
                   href="/home-valuation"
@@ -349,7 +407,9 @@ export default function SellersPage() {
                 <TrendingUp className="h-24 w-24 text-blue-200 mx-auto mb-4" />
                 <p className="text-2xl font-bold">$450,000</p>
                 <p className="text-blue-200">Median Home Price (Jan 2026)</p>
-                <p className="text-blue-300 text-sm mt-2">Up 4.2% from last year</p>
+                <p className="text-blue-300 text-sm mt-2">
+                  Up 4.2% from last year
+                </p>
               </div>
             </div>
           </section>
@@ -360,8 +420,8 @@ export default function SellersPage() {
               Frequently Asked Questions About Selling in Las Vegas
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Selling your home raises many questions. Here are answers to the most common 
-              concerns from Las Vegas home sellers.
+              Selling your home raises many questions. Here are answers to the
+              most common concerns from Las Vegas home sellers.
             </p>
             <div className="space-y-4">
               {[
@@ -400,11 +460,14 @@ export default function SellersPage() {
 
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Sell Your Las Vegas Home?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Sell Your Las Vegas Home?
+            </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Schedule a free listing consultation with Dr. Jan Duffy and discover what your home
-              could sell for with Berkshire Hathaway HomeServices. No obligation, no pressure—just 
-              honest advice and expert analysis.
+              Schedule a free listing consultation with Dr. Jan Duffy and
+              discover what your home could sell for with Berkshire Hathaway
+              HomeServices. No obligation, no pressure—just honest advice and
+              expert analysis.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -428,7 +491,9 @@ export default function SellersPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <RealScoutListings />
       <Footer />

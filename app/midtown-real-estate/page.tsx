@@ -8,7 +8,12 @@ import { Phone, ArrowRight, Building2, CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
-import { agentInfo, officeInfo, marketStats, siteConfig } from "@/lib/site-config";
+import {
+  agentInfo,
+  officeInfo,
+  marketStats,
+  siteConfig,
+} from "@/lib/site-config";
 
 export const metadata: Metadata = withPageHeroMetadata("/midtown-real-estate", {
   title: "Midtown Real Estate Las Vegas | Condos for Sale | Dr. Jan Duffy",
@@ -91,6 +96,8 @@ export default function MidtownRealEstatePage() {
       <Navbar />
       <PageHero
         imageKey="homeStripNight"
+        leadSectionKey="midtownHowTo"
+        leadSectionHeading="How to buy midtown real estate"
         pagePath="/midtown-real-estate"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Midtown real estate in Las Vegas"
@@ -99,10 +106,14 @@ export default function MidtownRealEstatePage() {
       />
       <main className="pb-16">
         <div className="container mx-auto px-4 max-w-5xl">
-          <p data-midtown-summary className="text-lg text-slate-700 mb-10 max-w-3xl">
-            Midtown real estate means walkable ownership: gallery nights, Main Street dining,
-            Strip-adjacent high-rises, and new residences at 921 S Main St. Median midtown condo
-            price sits near {marketStats.midtown.medianPriceFormatted} (
+          <p
+            data-midtown-summary
+            className="text-lg text-slate-700 mb-10 max-w-3xl"
+          >
+            Midtown real estate means walkable ownership: gallery nights, Main
+            Street dining, Strip-adjacent high-rises, and new residences at 921
+            S Main St. Median midtown condo price sits near{" "}
+            {marketStats.midtown.medianPriceFormatted} (
             {marketStats.lastUpdated}).
           </p>
 
@@ -119,23 +130,32 @@ export default function MidtownRealEstatePage() {
                   className="rounded-lg border border-slate-200 p-4 hover:border-blue-300 transition-colors"
                 >
                   <div className="flex justify-between gap-2 mb-1">
-                    <h3 className="font-semibold text-slate-900">{area.name}</h3>
-                    <span className="text-sm text-blue-600">{area.medianPrice}</span>
+                    <h3 className="font-semibold text-slate-900">
+                      {area.name}
+                    </h3>
+                    <span className="text-sm text-blue-600">
+                      {area.medianPrice}
+                    </span>
                   </div>
-                  <p className="text-sm text-slate-600 line-clamp-2">{area.description}</p>
+                  <p className="text-sm text-slate-600 line-clamp-2">
+                    {area.description}
+                  </p>
                 </Link>
               ))}
             </div>
           </section>
 
           <section className="mb-14">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">How to buy midtown real estate</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              How to buy midtown real estate
+            </h2>
             <ol className="space-y-3">
               {buyingSteps.map((step, i) => (
                 <li key={step} className="flex gap-3 text-slate-700">
                   <CheckCircle className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
                   <span>
-                    <strong className="text-slate-900">Step {i + 1}.</strong> {step}
+                    <strong className="text-slate-900">Step {i + 1}.</strong>{" "}
+                    {step}
                   </span>
                 </li>
               ))}
@@ -143,12 +163,20 @@ export default function MidtownRealEstatePage() {
           </section>
 
           <section className="mb-14">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Lifestyle that sells midtown</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Lifestyle that sells midtown
+            </h2>
             <div className="flex flex-wrap gap-3">
               {[
                 { href: "/neighborhood/run-club", label: "Midtown Run Club" },
-                { href: "/neighborhood/ev-program", label: "EV Vehicle Program" },
-                { href: "/neighborhood/pepper-club", label: "Pepper Club dining" },
+                {
+                  href: "/neighborhood/ev-program",
+                  label: "EV Vehicle Program",
+                },
+                {
+                  href: "/neighborhood/pepper-club",
+                  label: "Pepper Club dining",
+                },
                 { href: "/blog", label: "Condo blog" },
                 { href: "/listings", label: "Search listings" },
               ].map((link) => (
@@ -165,11 +193,15 @@ export default function MidtownRealEstatePage() {
           </section>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 text-center">
-            <h2 className="text-2xl font-bold mb-3">Work with a midtown condo specialist</h2>
+            <h2 className="text-2xl font-bold mb-3">
+              Work with a midtown condo specialist
+            </h2>
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>
-            <p className="text-slate-400 text-sm mb-6">{officeInfo.address.full}</p>
+            <p className="text-slate-400 text-sm mb-6">
+              {officeInfo.address.full}
+            </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href={agentInfo.phoneTel}

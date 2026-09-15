@@ -51,7 +51,7 @@ const faqSchema = {
       name: "What neighborhoods do California relocators prefer in Las Vegas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "California buyers typically gravitate toward Summerlin (similar to Irvine/coastal communities), Henderson (family-friendly like San Diego suburbs), and The Ridges (comparable to Newport Coast luxury). These areas offer the quality and amenities California buyers expect.",
+        text: "California buyers typically compare Summerlin (master-planned villages near Red Rock), Henderson (Green Valley parks and trail systems), and The Ridges (custom lots comparable to coastal luxury price bands). These areas offer the square footage and amenities California buyers expect.",
       },
     },
     {
@@ -114,6 +114,8 @@ export default function CaliforniaRelocatorPage() {
       <Navbar />
       <PageHero
         imageKey="buyersCaRelocator"
+        leadSectionKey="caNumbers"
+        leadSectionHeading="California vs. Nevada: The Numbers"
         pagePath="/buyers/california-relocator"
         title="Relocating from California? Welcome Home to Las Vegas"
         subtitle="Zero state income tax. 40-60% lower home prices. Same sunshine."
@@ -428,11 +430,11 @@ export default function CaliforniaRelocatorPage() {
                   What neighborhoods do California relocators prefer?
                 </h3>
                 <p className="text-slate-600">
-                  California buyers typically gravitate toward Summerlin
-                  (similar to Irvine/coastal communities), Henderson
-                  (family-friendly like San Diego suburbs), and The Ridges
-                  (comparable to Newport Coast luxury). These areas offer the
-                  quality and amenities California buyers expect.
+                  California buyers typically compare Summerlin (master-planned
+                  villages near Red Rock), Henderson (Green Valley parks and
+                  trail systems), and The Ridges (custom lots at
+                  coastal-comparable price bands). These areas offer the square
+                  footage and amenities California buyers expect.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">

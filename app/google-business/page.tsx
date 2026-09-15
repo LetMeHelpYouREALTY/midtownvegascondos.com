@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import PageHero from "@/components/sections/PageHero";
+import SectionPhoto from "@/components/sections/SectionPhoto";
 import Link from "next/link";
 import {
   Phone,
@@ -66,6 +67,8 @@ export default function GoogleBusinessPage() {
       <Navbar />
       <PageHero
         imageKey="googleBusiness"
+        leadSectionKey="gbpNap"
+        leadSectionHeading="Las Vegas Arts District Condos | Homes by Dr. Jan Duffy"
         pagePath="/google-business"
         badge="Berkshire Hathaway HomeServices"
         title="Dr. Jan Duffy"
@@ -163,6 +166,11 @@ export default function GoogleBusinessPage() {
 
           {/* Business Hours */}
           <section className="max-w-5xl mx-auto mb-16">
+            <SectionPhoto
+              imageKey="gbpHours"
+              heading="Business Hours"
+              className="mb-6 text-left"
+            />
             <div className="bg-slate-50 rounded-xl p-6">
               <div className="flex items-center gap-2 mb-4">
                 <Clock className="h-5 w-5 text-blue-600" />

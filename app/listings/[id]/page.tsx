@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
 import Image from "next/image";
+import Link from "next/link";
 import { Bed, Bath, Square, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
@@ -51,6 +52,8 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
       <Navbar />
       <PageHero
         imageKey="listingDetail"
+        leadSectionKey="listingDetails"
+        leadSectionHeading="Property Details"
         pagePath="/listings"
         imageSrc={property.image}
         imageAlt={`${property.name} in ${property.location}`}
@@ -72,9 +75,9 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
               </li>
               <li>/</li>
               <li>
-                <a href="http://drjanduffy.realscout.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+                <Link href="/listings" className="hover:text-blue-600">
                   Properties
-                </a>
+                </Link>
               </li>
               <li>/</li>
               <li className="text-slate-900">{property.name}</li>
@@ -87,7 +90,9 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
               <MapPin className="h-5 w-5 mr-2" />
               {property.location}
             </div>
-            <div className="text-3xl font-bold text-blue-600">{property.price}</div>
+            <div className="text-3xl font-bold text-blue-600">
+              {property.price}
+            </div>
           </div>
 
           {/* Main Image */}
@@ -105,19 +110,27 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* Main Content */}
             <div className="md:col-span-2">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">Property Details</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">
+                Property Details
+              </h2>
               <p className="text-slate-700 mb-6">{property.description}</p>
 
               <div className="bg-slate-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Features</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  Features
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center">
                     <Bed className="h-5 w-5 text-blue-600 mr-2" />
-                    <span className="text-slate-700">{property.bedrooms} Bedrooms</span>
+                    <span className="text-slate-700">
+                      {property.bedrooms} Bedrooms
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <Bath className="h-5 w-5 text-blue-600 mr-2" />
-                    <span className="text-slate-700">{property.bathrooms} Bathrooms</span>
+                    <span className="text-slate-700">
+                      {property.bathrooms} Bathrooms
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <Square className="h-5 w-5 text-blue-600 mr-2" />
@@ -127,14 +140,18 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
                   </div>
                   <div className="flex items-center">
                     <Calendar className="h-5 w-5 text-blue-600 mr-2" />
-                    <span className="text-slate-700">Built {property.yearBuilt}</span>
+                    <span className="text-slate-700">
+                      Built {property.yearBuilt}
+                    </span>
                   </div>
                 </div>
               </div>
 
               {/* RealScout Widget Integration Point */}
               <div className="bg-blue-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Schedule a Showing</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  Schedule a Showing
+                </h3>
                 <p className="text-slate-700 mb-4">
                   Contact us to schedule a private viewing of this property.
                 </p>
@@ -147,13 +164,18 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
             {/* Sidebar */}
             <div className="md:col-span-1">
               <div className="bg-white border border-slate-200 rounded-lg p-6 sticky top-24">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Contact Agent</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  Contact Agent
+                </h3>
                 <p className="text-slate-600 mb-4">Dr. Jan Duffy</p>
                 <p className="text-sm text-slate-600 mb-6">
                   Berkshire Hathaway HomeServices Nevada Properties
                 </p>
                 <div className="space-y-3">
-                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
+                  <Button
+                    asChild
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                  >
                     <a href="tel:+17025001980">Call (702) 500-1980</a>
                   </Button>
                   <Button asChild variant="outline" className="w-full">

@@ -36,7 +36,8 @@ const faqs = [
       "Expect golf-course living, clubhouse programming, fitness, and single-story or low-maintenance homes aimed at 55+ buyers. Tour current inventory and confirm age restrictions, HOA dues, and membership rules with listing documents. Call (702) 500-1980 for live MLS comps.",
   },
   {
-    question: "How does Heritage at Stonebridge compare to Midtown for investors?",
+    question:
+      "How does Heritage at Stonebridge compare to Midtown for investors?",
     answer:
       "Heritage at Stonebridge is typically owner-occupied 55+ housing. Midtown condo towers often allow short-term or long-term rental strategies depending on HOA rules. Match the property type to your hold period and income goals with Dr. Jan Duffy.",
   },
@@ -78,6 +79,8 @@ export default function HeritageStonebridgePage() {
       <Navbar />
       <PageHero
         imageKey="fiftyFiveHeritage"
+        leadSectionKey="heritageWhy"
+        leadSectionHeading="Why buyers look at Heritage at Stonebridge"
         pagePath={PATH}
         title="Heritage at Stonebridge homes for sale"
         subtitle="55+ golf-course living in North Las Vegas — with a clear Midtown condo comparison from Dr. Jan Duffy."
@@ -111,7 +114,10 @@ export default function HeritageStonebridgePage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="flex gap-3">
-                <Trophy className="w-8 h-8 text-amber-400 shrink-0" aria-hidden />
+                <Trophy
+                  className="w-8 h-8 text-amber-400 shrink-0"
+                  aria-hidden
+                />
                 <div>
                   <h3 className="font-semibold mb-1">Golf-course living</h3>
                   <p className="text-slate-300 text-sm">
@@ -121,7 +127,10 @@ export default function HeritageStonebridgePage() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <Dumbbell className="w-8 h-8 text-amber-400 shrink-0" aria-hidden />
+                <Dumbbell
+                  className="w-8 h-8 text-amber-400 shrink-0"
+                  aria-hidden
+                />
                 <div>
                   <h3 className="font-semibold mb-1">Club amenities</h3>
                   <p className="text-slate-300 text-sm">
@@ -131,7 +140,10 @@ export default function HeritageStonebridgePage() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <HomeIcon className="w-8 h-8 text-amber-400 shrink-0" aria-hidden />
+                <HomeIcon
+                  className="w-8 h-8 text-amber-400 shrink-0"
+                  aria-hidden
+                />
                 <div>
                   <h3 className="font-semibold mb-1">Low-maintenance homes</h3>
                   <p className="text-slate-300 text-sm">
@@ -148,8 +160,8 @@ export default function HeritageStonebridgePage() {
             </h2>
             <p className="text-slate-700 leading-relaxed mb-4">
               <strong>Heritage at Stonebridge</strong> is a North Las Vegas 55+
-              community built around golf and club living—not a Midtown high-rise.
-              Buyers often compare it with{" "}
+              community built around golf and club living—not a Midtown
+              high-rise. Buyers often compare it with{" "}
               <Link href="/" className="text-blue-600 hover:underline">
                 Midtown Las Vegas Boulevard condos
               </Link>{" "}
@@ -191,8 +203,12 @@ export default function HeritageStonebridgePage() {
                   key={faq.question}
                   className="rounded-xl border border-slate-200 p-5"
                 >
-                  <h3 className="font-semibold text-slate-900">{faq.question}</h3>
-                  <p className="mt-2 text-slate-700 leading-relaxed">{faq.answer}</p>
+                  <h3 className="font-semibold text-slate-900">
+                    {faq.question}
+                  </h3>
+                  <p className="mt-2 text-slate-700 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               ))}
             </div>

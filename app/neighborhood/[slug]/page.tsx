@@ -25,7 +25,9 @@ export function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const page = midtownLifestylePages[slug as MidtownLifestyleSlug];
   if (!page) return {};
@@ -43,10 +45,15 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
 
   return (
     <>
-      <SchemaScript schema={generateLifestylePageSchema(page.slug)} id={`${page.slug}-schema`} />
+      <SchemaScript
+        schema={generateLifestylePageSchema(page.slug)}
+        id={`${page.slug}-schema`}
+      />
       <Navbar />
       <PageHero
         imageKey={page.heroKey}
+        leadSectionKey="lifestyleFaq"
+        leadSectionHeading="FAQ"
         pagePath={page.path}
         badge={page.badge}
         title={page.headline}
@@ -73,28 +80,43 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
 
           <article className="prose prose-slate max-w-none mb-12">
             {page.body.map((para) => (
-              <p key={para.slice(0, 40)} className="text-slate-700 leading-relaxed mb-4">
+              <p
+                key={para.slice(0, 40)}
+                className="text-slate-700 leading-relaxed mb-4"
+              >
                 {para}
               </p>
             ))}
           </article>
 
           <section className="mb-12" aria-labelledby="lifestyle-faq">
-            <h2 id="lifestyle-faq" className="text-2xl font-bold text-slate-900 mb-4">
+            <h2
+              id="lifestyle-faq"
+              className="text-2xl font-bold text-slate-900 mb-4"
+            >
               FAQ
             </h2>
             <dl className="space-y-4">
               {page.faqs.map((faq) => (
-                <div key={faq.question} className="rounded-lg border border-slate-200 p-4">
-                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
-                  <dd className="mt-2 text-slate-600 text-sm leading-relaxed">{faq.answer}</dd>
+                <div
+                  key={faq.question}
+                  className="rounded-lg border border-slate-200 p-4"
+                >
+                  <dt className="font-semibold text-slate-900">
+                    {faq.question}
+                  </dt>
+                  <dd className="mt-2 text-slate-600 text-sm leading-relaxed">
+                    {faq.answer}
+                  </dd>
                 </div>
               ))}
             </dl>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-xl font-bold text-slate-900 mb-4">Related midtown pages</h2>
+            <h2 className="text-xl font-bold text-slate-900 mb-4">
+              Related midtown pages
+            </h2>
             <div className="flex flex-wrap gap-3">
               {page.relatedLinks.map((link) => (
                 <Link
@@ -110,11 +132,15 @@ export default async function NeighborhoodLifestylePage({ params }: PageProps) {
           </section>
 
           <section className="rounded-2xl bg-slate-900 text-white p-8 text-center mb-12">
-            <h2 className="text-2xl font-bold mb-3">Tour midtown condos with Dr. Jan Duffy</h2>
+            <h2 className="text-2xl font-bold mb-3">
+              Tour midtown condos with Dr. Jan Duffy
+            </h2>
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>
-            <p className="text-slate-400 text-sm mb-6">{officeInfo.address.full}</p>
+            <p className="text-slate-400 text-sm mb-6">
+              {officeInfo.address.full}
+            </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href={agentInfo.phoneTel}

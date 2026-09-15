@@ -11,7 +11,8 @@ import { midtownLifestylePages } from "@/lib/gsc-recovery-pages";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = withPageHeroMetadata("/neighborhood", {
-  title: "Midtown Las Vegas Neighborhood Lifestyle | Run Club, EV, Dining | Dr. Jan Duffy",
+  title:
+    "Midtown Las Vegas Neighborhood Lifestyle | Run Club, EV, Dining | Dr. Jan Duffy",
   description:
     "Explore Midtown Las Vegas lifestyle — Run Club, EV Vehicle Program, and Pepper Club dining near Arts District condos. Call Dr. Jan Duffy at (702) 500-1980.",
   keywords: [
@@ -42,6 +43,8 @@ export default function NeighborhoodLifestyleHubPage() {
       <Navbar />
       <PageHero
         imageKey="juhl"
+        leadSectionKey="lifestyleHub"
+        leadSectionHeading="Midtown neighborhood lifestyle"
         pagePath="/neighborhood"
         badge="Midtown Las Vegas"
         title="Midtown neighborhood lifestyle"
@@ -51,9 +54,13 @@ export default function NeighborhoodLifestyleHubPage() {
       <main className="pb-16">
         <div className="container mx-auto px-4 max-w-5xl">
           <p className="text-slate-600 mb-8 max-w-3xl">
-            Google indexed these Midtown lifestyle URLs — they now resolve here with full guides
-            for condo buyers. Looking for building-by-building inventory? See{" "}
-            <Link href="/neighborhoods" className="text-blue-600 font-medium hover:underline">
+            Google indexed these Midtown lifestyle URLs — they now resolve here
+            with full guides for condo buyers. Looking for building-by-building
+            inventory? See{" "}
+            <Link
+              href="/neighborhoods"
+              className="text-blue-600 font-medium hover:underline"
+            >
               midtown condo neighborhoods
             </Link>
             .
@@ -72,7 +79,9 @@ export default function NeighborhoodLifestyleHubPage() {
                 <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 mb-2">
                   {page.name}
                 </h2>
-                <p className="text-sm text-slate-600 mb-4 line-clamp-3">{page.summary}</p>
+                <p className="text-sm text-slate-600 mb-4 line-clamp-3">
+                  {page.summary}
+                </p>
                 <span className="inline-flex items-center text-sm font-medium text-blue-600">
                   Read guide
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -88,7 +97,8 @@ export default function NeighborhoodLifestyleHubPage() {
                 {officeInfo.address.full}
               </p>
               <p className="text-sm text-slate-600 mt-1">
-                {agentInfo.name} · Berkshire Hathaway HomeServices Nevada Properties
+                {agentInfo.name} · Berkshire Hathaway HomeServices Nevada
+                Properties
               </p>
             </div>
             <a

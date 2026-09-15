@@ -46,14 +46,12 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="http://drjanduffy.realscout.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/listings"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
                   All Properties
-                </a>
+                </Link>
               </li>
               <li>
                 <Link

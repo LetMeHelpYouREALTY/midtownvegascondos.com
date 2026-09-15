@@ -85,7 +85,7 @@ const allFaqs = faqCategories.flatMap((category) =>
   category.faqs.map((faq) => ({
     question: faq.q,
     answer: faq.a,
-  }))
+  })),
 );
 
 // Combined page schemas including all FAQs
@@ -98,7 +98,7 @@ const pageSchemas = combineSchemas(
     url: "/faq",
     dateModified: "2026-01-25",
   }),
-  generateFAQSchema(allFaqs)
+  generateFAQSchema(allFaqs),
 );
 
 export default function FAQPage() {
@@ -109,16 +109,20 @@ export default function FAQPage() {
       <Navbar />
       <PageHero
         imageKey="faqLoft"
+        leadSectionKey="faqCategories"
+        leadSectionHeading="Midtown Condo FAQs"
         pagePath="/faq"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Frequently Asked Questions"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Midtown Las Vegas condo questions — HOA fees, rental rules, buildings, and working
-              with <strong>Dr. Jan Duffy</strong> at Berkshire Hathaway HomeServices</p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
+          Midtown Las Vegas condo questions — HOA fees, rental rules, buildings,
+          and working with <strong>Dr. Jan Duffy</strong> at Berkshire Hathaway
+          HomeServices
+        </p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
-
           {/* FAQ Categories */}
           <div className="max-w-4xl mx-auto space-y-12">
             {faqCategories.map((category) => (
@@ -140,10 +144,12 @@ export default function FAQPage() {
 
           {/* CTA */}
           <section className="mt-16 text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Still Have Questions?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Still Have Questions?
+            </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Dr. Jan Duffy is happy to answer questions about midtown Las Vegas condos, HOA
-              review, and buying or selling downtown towers.
+              Dr. Jan Duffy is happy to answer questions about midtown Las Vegas
+              condos, HOA review, and buying or selling downtown towers.
             </p>
             <a
               href="tel:+17025001980"
@@ -159,7 +165,9 @@ export default function FAQPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <RealScoutListings />
       <Footer />

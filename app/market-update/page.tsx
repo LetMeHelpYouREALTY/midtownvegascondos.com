@@ -65,6 +65,8 @@ export default function MarketUpdatePage() {
       <Navbar />
       <PageHero
         imageKey="marketUpdate"
+        leadSectionKey="marketWeek"
+        leadSectionHeading="5 Key Statistics This Week"
         pagePath="/market-update"
         title="Berkshire Hathaway HomeServices Las Vegas Market Update"
       >

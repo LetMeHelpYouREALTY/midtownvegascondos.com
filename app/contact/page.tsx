@@ -66,6 +66,8 @@ export default function ContactPage() {
       <Navbar />
       <PageHero
         imageKey="contactOffice"
+        leadSectionKey="contactTouch"
+        leadSectionHeading="Get In Touch"
         pagePath="/contact"
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Contact Dr. Jan Duffy"

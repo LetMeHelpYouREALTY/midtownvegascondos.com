@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { heroImages } from "./hero-images";
+import { heroImages, pageHeroByPath } from "./hero-images";
 
 describe("hero-images", () => {
   it("does not reference placeholder Unsplash or extra* filenames", () => {
@@ -17,5 +17,10 @@ describe("hero-images", () => {
     expect(heroImages.juhl.src).toBe(
       "/images/hero/juhl-downtown-condo-tower.webp",
     );
+    expect(heroImages.securityPolicy.src).toBe("/images/hero/condo-lobby.webp");
+  });
+
+  it("maps /security-policy to a unique hero", () => {
+    expect(pageHeroByPath["/security-policy"]).toBe("securityPolicy");
   });
 });

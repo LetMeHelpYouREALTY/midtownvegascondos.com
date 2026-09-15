@@ -583,6 +583,15 @@ export const heroImages = {
     -115.1495,
     ["featured midrise", "Symphony Park"],
   ),
+  securityPolicy: hero(
+    "condo-lobby.webp",
+    "Security policy for midtownvegascondos.com — Berkshire Hathaway HomeServices Nevada Properties",
+    "Responsible disclosure and client-data security for the midtown condo site.",
+    officeInfo.address.full,
+    officeInfo.coordinates.lat,
+    officeInfo.coordinates.lng,
+    ["security policy", "responsible disclosure"],
+  ),
 } as const;
 
 export type HeroImageKey = keyof typeof heroImages;
@@ -639,6 +648,7 @@ export const pageHeroByPath: Record<string, HeroImageKey> = {
   "/neighborhoods/centennial-hills": "nbCentennialHills",
   "/neighborhoods/inspirada": "nbInspirada",
   "/neighborhoods/mountains-edge": "nbMountainsEdge",
+  "/security-policy": "securityPolicy",
 };
 
 export const neighborhoodHeroBySlug: Record<string, HeroImageKey> = {
