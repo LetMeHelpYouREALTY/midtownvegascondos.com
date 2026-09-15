@@ -526,6 +526,12 @@ export default function HendersonPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Find Your Henderson Home Today
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Find Your Henderson Home Today"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy, your Berkshire Hathaway HomeServices
               Henderson expert, for personalized guidance and local market

@@ -394,8 +394,9 @@ export default function MarketInsightsPage() {
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Family-friendly community with the valley's largest park. New
-                  construction competing with resales. Solid appreciation.
+                  Southwest area with Exploration Peak Park, the valley's
+                  largest park. New construction competing with resales. Solid
+                  appreciation.
                 </p>
                 <div className="text-sm text-slate-500">
                   Hot areas: Exploration Peak, Southern Highlands adjacent

@@ -242,7 +242,7 @@ export default function FirstTimeBuyersPage() {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Family-friendly
+                    Parks and rec centers
                   </li>
                 </ul>
                 <Link
@@ -259,20 +259,20 @@ export default function FirstTimeBuyersPage() {
                     Centennial Hills
                   </h3>
                   <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-semibold">
-                    Top Schools
+                    Near hospital
                   </span>
                 </div>
                 <div className="text-2xl font-bold text-blue-600 mb-2">
                   $398K Median
                 </div>
                 <p className="text-slate-600 text-sm mb-4">
-                  Northwest Las Vegas near Centennial Hills Hospital. Excellent
-                  schools, family parks, and Red Rock Canyon proximity.
+                  Northwest Las Vegas near Centennial Hills Hospital. Parks, Red
+                  Rock Canyon access, and US-95 freeway proximity.
                 </p>
                 <ul className="text-sm space-y-1 text-slate-700">
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Highly-rated schools
+                    Centennial Hills Hospital nearby
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />

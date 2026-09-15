@@ -22,7 +22,7 @@ export function absoluteImageUrl(src: string): string {
 /** Open Graph / Twitter / geo metadata for a hero key */
 export function heroImageMetadata(
   imageKey: HeroImageKey,
-  opts?: { title?: string; description?: string; path?: string }
+  opts?: { title?: string; description?: string; path?: string },
 ): Pick<Metadata, "openGraph" | "twitter" | "other"> {
   const img = getHeroImage(imageKey);
   const url = absoluteImageUrl(img.src);
@@ -66,10 +66,11 @@ export function heroImageMetadata(
 export function withPageHeroMetadata(
   path: string,
   base: Metadata,
-  imageKey?: HeroImageKey
+  imageKey?: HeroImageKey,
 ): Metadata {
   const key = imageKey ?? getHeroKeyForPath(path);
-  const normalizedPath = path === "" ? "/" : path.startsWith("/") ? path : `/${path}`;
+  const normalizedPath =
+    path === "" ? "/" : path.startsWith("/") ? path : `/${path}`;
   const canonicalUrl =
     normalizedPath === "/"
       ? siteConfig.url
@@ -77,7 +78,8 @@ export function withPageHeroMetadata(
 
   const imgMeta = heroImageMetadata(key, {
     title: typeof base.title === "string" ? base.title : undefined,
-    description: typeof base.description === "string" ? base.description : undefined,
+    description:
+      typeof base.description === "string" ? base.description : undefined,
     path: normalizedPath,
   });
 
@@ -120,7 +122,11 @@ export function generatePageHeroSchemaGraph(opts: {
 }): Record<string, unknown> {
   const pageUrl = `${siteConfig.url}${opts.pagePath === "/" ? "" : opts.pagePath}`;
   const img = getHeroImage(opts.imageKey);
-  const imageObject = generateHeroImageSchema(opts.imageKey, pageUrl, opts.pageName);
+  const imageObject = generateHeroImageSchema(
+    opts.imageKey,
+    pageUrl,
+    opts.pageName,
+  );
   // Drop top-level @context when nesting in @graph
   const { "@context": _c, ...imageNode } = imageObject;
 
@@ -185,7 +191,7 @@ export function sitemapImageEntries(): Array<{
         caption: img.caption,
         geoLocation: img.geoName,
       };
-    }
+    },
   );
 
   const byPage = new Map<string, (typeof fromPaths)[number]>();
@@ -198,7 +204,14 @@ export function sitemapImageEntries(): Array<{
 /** Look up hero image URL(s) for a sitemap page URL */
 export function imagesForSitemapPage(pageUrl: string): string[] {
   const entry = sitemapImageEntries().find((e) => e.pageUrl === pageUrl);
-  return entry ? [entry.imageUrl] : [];
+  const urls = entry ? [entry.imageUrl] : [];
+  if (pageUrl === `${siteConfig.url}/google-business`) {
+    urls.push(
+      absoluteImageUrl("/images/hero/contact-arts-district-main-street.webp"),
+      absoluteImageUrl("/images/hero/gbp-arts-district-office.webp"),
+    );
+  }
+  return [...new Set(urls)];
 }
 
 export function getDefaultSocialImage() {

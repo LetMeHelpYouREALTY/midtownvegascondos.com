@@ -56,7 +56,7 @@ const faqSchema = {
       name: "What makes Green Valley different from newer Henderson communities?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Green Valley, established in 1988, offers what newer communities can't: mature trees, established schools with proven track records, larger lots, and a genuine sense of community built over 35+ years.",
+        text: "Green Valley, established in 1988, offers mature trees, larger lots, Green Valley Parkway retail, and 35+ years of landscaping that newer Henderson master-plans have not had time to grow.",
       },
     },
     {
@@ -147,19 +147,16 @@ export default function GreenValleyPage() {
                 concept of thoughtfully designed neighborhoods in Southern
                 Nevada—long before master-planned communities became the norm.
                 Today, <strong>Berkshire Hathaway HomeServices</strong>
-                continues to serve Green Valley families, helping new
-                generations discover what long-time residents already know: this
-                is one of the best places to live in Nevada.
+                continues to serve Green Valley buyers and sellers comparing
+                Henderson inventory, lot size, and Green Valley Parkway retail.
               </p>
               <p>
                 What makes Green Valley unique is something that can't be
                 replicated: time. Over three decades, the community has matured
-                into a verdant oasis with towering trees, established
-                landscaping, and a genuine neighborhood feel. While newer
-                communities offer shiny amenities, Green Valley offers something
-                more valuable—proven schools with track records of excellence,
-                neighbors who've built lifelong friendships, and the kind of
-                community cohesion that only develops over generations.
+                into a verdant oasis with towering trees and established
+                landscaping. While newer communities offer newer rec centers,
+                Green Valley offers mature trees, 35 years of landscaping, and
+                walkable retail along Green Valley Parkway.
               </p>
               <p>
                 <strong>
@@ -167,9 +164,9 @@ export default function GreenValleyPage() {
                 </strong>{" "}
                 agents have been selling homes in Green Valley since the
                 beginning. Dr. Jan Duffy knows which streets offer the best
-                mountain views, which school zones are most sought-after, and
-                which HOAs maintain their communities to the highest standards.
-                This institutional knowledge, combined with the resources and
+                mountain views, typical commute times to the Strip and airport,
+                and which HOAs maintain landscaping and reserves. This
+                institutional knowledge, combined with the resources and
                 reputation of BHHS, gives Green Valley buyers and sellers a
                 distinct advantage.
               </p>
@@ -402,11 +399,10 @@ export default function GreenValleyPage() {
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Green Valley offers something newer communities can't
-                replicate—35 years of established neighborhoods, proven schools,
-                and a real sense of community. When clients tell me they want
-                tree-lined streets and neighbors who know each other's names, I
-                show them Green Valley. It's the original, and still one of the
-                best."
+                replicate—35 years of mature landscaping, tree-lined streets,
+                and Green Valley Parkway retail. When clients want established
+                streetscapes and a short drive to Henderson amenities, I show
+                them Green Valley."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada
