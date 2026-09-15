@@ -52,6 +52,16 @@ describe("section-images", () => {
       ["greenValleyWhy", "green-valley"],
       ["hendersonWhy", "henderson"],
       ["inspiradaWhy", "inspirada"],
+      ["summerlinWhy", "summerlin"],
+      ["ridgesWhy", "the-ridges"],
+      ["northLasVegasWhy", "north-las-vegas"],
+      ["sunCitySummerlinAbout", "golf-community"],
+      ["trilogyAbout", "trilogy-summerlin"],
+      ["soleraAbout", "solera-anthem"],
+      ["sunCityAnthemAbout", "sun-city-anthem"],
+      ["sunCityAlianteAbout", "sun-city-aliante"],
+      ["delWebbAbout", "del-webb-lake-las-vegas"],
+      ["heritageWhy", "heritage-stonebridge"],
     ];
     for (const [key, slug] of pairs) {
       expect(sectionImages[key].src, key).toContain(slug);
