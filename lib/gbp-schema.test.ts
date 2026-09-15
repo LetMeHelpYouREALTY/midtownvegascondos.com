@@ -71,7 +71,9 @@ describe("generateLocalBusinessSchema", () => {
     expect(schema.image).toEqual(
       expect.arrayContaining([
         expect.stringContaining("/images/sections/search-midtown-condos.webp"),
-        expect.stringContaining("/images/sections/arts-district-galleries.webp"),
+        expect.stringContaining(
+          "/images/sections/arts-district-galleries.webp",
+        ),
       ]),
     );
     expect(schema.photo).toHaveLength(schema.image.length);

@@ -28,7 +28,10 @@ describe("R2 image sync script", () => {
 
   it("pins the invoice-verified Cloudflare account id so REST/S3 skip /accounts", () => {
     const src = readFileSync(SCRIPT, "utf8");
-    const wrangler = readFileSync(join(ROOT, "scripts/wrangler.r2.toml"), "utf8");
+    const wrangler = readFileSync(
+      join(ROOT, "scripts/wrangler.r2.toml"),
+      "utf8",
+    );
     expect(src).toMatch(/2cc579c1ec9e426ed585e933ebf4753b/);
     expect(wrangler).toMatch(/account_id = "2cc579c1ec9e426ed585e933ebf4753b"/);
     expect(src).toMatch(/isTokenLocationBlocked\(body\)/);

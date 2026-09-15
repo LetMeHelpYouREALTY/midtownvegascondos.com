@@ -111,8 +111,7 @@ function cloudflareError(body) {
 function isTokenLocationBlocked(body) {
   const { code, message } = cloudflareError(body);
   return (
-    code === 9109 ||
-    /cannot use the access token from location/i.test(message)
+    code === 9109 || /cannot use the access token from location/i.test(message)
   );
 }
 
