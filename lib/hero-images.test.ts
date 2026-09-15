@@ -33,4 +33,14 @@ describe("hero-images", () => {
     );
     expect(getHeroKeyForPath("/market-update")).toBe("marketUpdate");
   });
+
+  it("uses Las Vegas heading photos instead of off-market stock for named buildings", () => {
+    expect(heroImages.artsDistrict.src).toContain("arts-district-galleries");
+    expect(heroImages.palmsPlace.src).toContain("palms-place-condotel");
+    expect(heroImages.listingsSearch.src).not.toMatch(/glass-facade/i);
+    expect(heroImages.artsDistrict.src).not.toMatch(/highrise-windows/i);
+    expect(heroImages.listingsSearch.src).toContain(
+      "juhl-downtown-condo-tower",
+    );
+  });
 });

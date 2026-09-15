@@ -242,8 +242,8 @@ const gbpPhotoObjects = [
     name: "Arts District Las Vegas condo living",
     caption:
       "Arts District loft and condo photography for Downtown Las Vegas homebuyers",
-    url: absoluteSiteImage("/images/hero/highrise-windows.webp"),
-    contentUrl: absoluteSiteImage("/images/hero/highrise-windows.webp"),
+    url: absoluteSiteImage("/images/hero/arts-district-galleries.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/arts-district-galleries.webp"),
   },
   {
     "@type": "ImageObject" as const,
@@ -292,8 +292,8 @@ const gbpPhotoObjects = [
     name: "Palms Place Strip-adjacent condos",
     caption:
       "Palms Place Strip-adjacent high-rise condo photography for midtown Las Vegas buyers",
-    url: absoluteSiteImage("/images/hero/home-strip-night.webp"),
-    contentUrl: absoluteSiteImage("/images/hero/home-strip-night.webp"),
+    url: absoluteSiteImage("/images/hero/palms-place-condotel.webp"),
+    contentUrl: absoluteSiteImage("/images/hero/palms-place-condotel.webp"),
   },
   {
     "@type": "ImageObject" as const,

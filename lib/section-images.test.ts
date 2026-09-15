@@ -63,6 +63,16 @@ describe("section-images", () => {
       ["delWebbAbout", "del-webb-lake-las-vegas"],
       ["heritageWhy", "heritage-stonebridge"],
     ];
+    expect(sectionImages.buyersAgent.src).not.toMatch(/glass-facade/i);
+    expect(sectionImages.listingsChecklist.src).not.toMatch(
+      /highrise-windows/i,
+    );
+    expect(sectionImages.buyersAgent.src).toContain(
+      "juhl-downtown-condo-tower",
+    );
+    expect(sectionImages.listingsChecklist.src).toContain(
+      "faq-midtown-loft-interior",
+    );
     for (const [key, slug] of pairs) {
       expect(sectionImages[key].src, key).toContain(slug);
     }

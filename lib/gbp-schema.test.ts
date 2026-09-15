@@ -82,6 +82,8 @@ describe("generateLocalBusinessSchema", () => {
         expect.stringContaining("/images/hero/fremont-east-daytime.webp"),
         expect.stringContaining("/images/hero/symphony-park-midrise.webp"),
         expect.stringContaining("/images/hero/midtown-plaza-walkable.webp"),
+        expect.stringContaining("/images/hero/palms-place-condotel.webp"),
+        expect.stringContaining("/images/hero/arts-district-galleries.webp"),
       ]),
     );
     for (const photo of schema.photo) {

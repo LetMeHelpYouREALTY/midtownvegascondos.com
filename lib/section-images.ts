@@ -97,9 +97,9 @@ export const sectionImages = {
     "Midtown condos, luxury, 55+ communities, and California relocation.",
   ),
   buyersAgent: fromHero(
-    "glass-facade.webp",
+    "juhl-downtown-condo-tower.webp",
     "Why You Need a Buyer's Agent",
-    "Glass midtown Las Vegas condo facades representing buyer-agent representation for tower purchases",
+    "Downtown Las Vegas condo tower representing buyer-agent representation for midtown purchases",
     "Seller-paid representation for midtown Las Vegas condo buyers.",
   ),
   buyersProcess: fromHero(
@@ -391,9 +391,9 @@ export const sectionImages = {
     "Filter for condos, then match buildings to HOA dues and walkability.",
   ),
   listingsChecklist: fromHero(
-    "highrise-windows.webp",
+    "faq-midtown-loft-interior.webp",
     "Condo buyer checklist before you offer",
-    "Midtown Las Vegas high-rise windows representing HOA, reserve, and parking checks before an offer",
+    "Midtown Las Vegas loft interior representing HOA, reserve, and parking checks before an offer",
     "Review CC&Rs, reserves, rental caps, and parking before you write.",
   ),
   contactAreas: fromHero(
