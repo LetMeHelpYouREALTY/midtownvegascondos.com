@@ -449,6 +449,11 @@ export default function FirstTimeBuyersPage() {
                   1
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Get Pre-Approved (1-3 days)"
+                    heroKey="homeValuation"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Get Pre-Approved (1-3 days)
                   </h3>
@@ -464,6 +469,11 @@ export default function FirstTimeBuyersPage() {
                   2
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Find Your Home (2-8 weeks)"
+                    heroKey="artsDistrict"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Find Your Home (2-8 weeks)
                   </h3>
@@ -479,6 +489,11 @@ export default function FirstTimeBuyersPage() {
                   3
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Make an Offer & Negotiate (1-5 days)"
+                    heroKey="buyersCondoTower"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Make an Offer & Negotiate (1-5 days)
                   </h3>
@@ -494,6 +509,11 @@ export default function FirstTimeBuyersPage() {
                   4
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Inspections & Due Diligence (10-14 days)"
+                    sectionKey="hoaReview"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Inspections & Due Diligence (10-14 days)
                   </h3>
@@ -508,6 +528,11 @@ export default function FirstTimeBuyersPage() {
                   5
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Close & Get Your Keys (30-45 days total)"
+                    heroKey="sellersHighrise"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Close & Get Your Keys (30-45 days total)
                   </h3>

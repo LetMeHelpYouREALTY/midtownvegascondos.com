@@ -72,42 +72,53 @@ const sellingBenefits: {
   },
 ];
 
-const sellingProcess = [
+const sellingProcess: {
+  step: number;
+  title: string;
+  description: string;
+  heroKey: HeroImageKey;
+}[] = [
   {
     step: 1,
     title: "Free Home Valuation",
     description:
       "Dr. Jan analyzes comparable sales, market conditions, and your home's unique features to determine optimal pricing. You'll understand exactly what your home could sell for before making any decisions.",
+    heroKey: "homeValuation",
   },
   {
     step: 2,
     title: "Preparation & Staging",
     description:
       "Receive a customized preparation checklist to maximize your home's appeal. Dr. Jan provides staging consultations and can recommend contractors for any needed repairs or updates.",
+    heroKey: "sellersHighrise",
   },
   {
     step: 3,
     title: "Professional Marketing",
     description:
       "Your home is photographed professionally, with virtual tours and drone video. It's listed on the MLS and syndicated to 100+ websites, plus promoted through BHHS's global network and targeted digital advertising.",
+    heroKey: "whyBhhs",
   },
   {
     step: 4,
     title: "Showings & Open Houses",
     description:
       "Dr. Jan coordinates all showings and open houses, gathering feedback from every visit. You'll receive regular updates on activity and market response.",
+    heroKey: "contactOffice",
   },
   {
     step: 5,
     title: "Offer Review & Negotiation",
     description:
       "When offers come in, Dr. Jan analyzes each one for price, terms, contingencies, and buyer qualification. She negotiates on your behalf to get the best possible outcome.",
+    heroKey: "sellersDivorceProbate",
   },
   {
     step: 6,
     title: "Contract to Close",
     description:
       "Dr. Jan manages every detail from accepted offer to closing—inspections, appraisals, repairs, and coordination with title, escrow, and the buyer's agent. You'll close with confidence.",
+    heroKey: "buyersCondoTower",
   },
 ];
 
@@ -270,16 +281,25 @@ export default function SellersPage() {
               {sellingProcess.map((item) => (
                 <div
                   key={item.step}
-                  className="flex gap-6 items-start bg-white rounded-lg p-6 border border-slate-200"
+                  className="bg-white rounded-lg p-6 border border-slate-200"
                 >
-                  <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                    {item.step}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-600 text-sm">{item.description}</p>
+                  <HeadingCardPhoto
+                    heading={item.title}
+                    heroKey={item.heroKey}
+                    className="mb-4 w-full max-w-xl"
+                  />
+                  <div className="flex gap-6 items-start">
+                    <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-slate-600 text-sm">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}

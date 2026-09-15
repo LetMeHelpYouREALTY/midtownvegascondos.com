@@ -549,6 +549,11 @@ export default function HomeValuationPage() {
                   1
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Share Your Property Details"
+                    heroKey="contactOffice"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Share Your Property Details
                   </h3>
@@ -565,6 +570,11 @@ export default function HomeValuationPage() {
                   2
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Comprehensive Market Analysis"
+                    heroKey="marketReport"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Comprehensive Market Analysis
                   </h3>
@@ -581,6 +591,11 @@ export default function HomeValuationPage() {
                   3
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Feature Adjustments"
+                    heroKey="sellersHighrise"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Feature Adjustments
                   </h3>
@@ -597,6 +612,11 @@ export default function HomeValuationPage() {
                   4
                 </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
+                  <HeadingCardPhoto
+                    heading="Pricing Strategy Consultation"
+                    heroKey="homeValuation"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">
                     Pricing Strategy Consultation
                   </h3>

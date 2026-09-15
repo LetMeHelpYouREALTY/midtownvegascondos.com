@@ -597,6 +597,11 @@ export default function ServicesPage() {
                   1
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Free Consultation"
+                    heroKey="contactOffice"
+                    className="mb-3 max-w-xl"
+                  />
                   <h3 className="font-bold text-slate-900 mb-1">
                     Free Consultation
                   </h3>
@@ -612,6 +617,11 @@ export default function ServicesPage() {
                   2
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Customized Strategy"
+                    heroKey="marketInsights"
+                    className="mb-3 max-w-xl"
+                  />
                   <h3 className="font-bold text-slate-900 mb-1">
                     Customized Strategy
                   </h3>
@@ -627,6 +637,11 @@ export default function ServicesPage() {
                   3
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Expert Execution"
+                    heroKey="whyBhhs"
+                    className="mb-3 max-w-xl"
+                  />
                   <h3 className="font-bold text-slate-900 mb-1">
                     Expert Execution
                   </h3>
@@ -642,6 +657,11 @@ export default function ServicesPage() {
                   4
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Successful Closing & Beyond"
+                    heroKey="sellersHighrise"
+                    className="mb-3 max-w-xl"
+                  />
                   <h3 className="font-bold text-slate-900 mb-1">
                     Successful Closing & Beyond
                   </h3>

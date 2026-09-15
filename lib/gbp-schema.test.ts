@@ -19,6 +19,10 @@ describe("generateLocalBusinessSchema", () => {
     expect(schema.hasMap).toContain(officeInfo.maps.reviews);
     expect(schema.sameAs).toContain(`${siteConfig.url}/google-business`);
     expect(schema.sameAs).toContain(officeInfo.maps.place);
+    expect(schema.potentialAction[0]["@type"]).toBe("ReserveAction");
+    expect(schema.potentialAction[0].target.urlTemplate).toBe(
+      `${siteConfig.url}/contact`,
+    );
   });
 
   it("includes heading-matched office photos as ImageObjects", () => {

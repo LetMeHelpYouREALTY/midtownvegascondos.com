@@ -323,6 +323,20 @@ export function generateLocalBusinessSchema() {
       bestRating: "5",
     },
     sameAs: [...businessInfo.socialProfiles, officeInfo.maps.place],
+    potentialAction: [
+      {
+        "@type": "ReserveAction",
+        name: "Schedule a condo consultation",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${siteConfig.url}/contact`,
+          actionPlatform: [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
+    ],
   };
 }
 
