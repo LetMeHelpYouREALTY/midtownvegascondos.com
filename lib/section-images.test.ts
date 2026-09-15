@@ -21,6 +21,12 @@ describe("section-images", () => {
     expect(sectionImages.aboutBio.src).toBe(
       "/images/hero/gbp-arts-district-office.webp",
     );
+    expect(sectionImages.valuationSchedule.src).toContain(
+      "services-condo-consultation",
+    );
+    expect(sectionImages.sellersProcess.src).toContain(
+      "services-condo-consultation",
+    );
   });
 
   it("does not use Fair Housing proxies in heading-matched captions", () => {
@@ -90,7 +96,7 @@ describe("section-images", () => {
 
   it("does not catalog wrong-city or off-subject stock filenames", () => {
     const banned =
-      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night|handshake-deal|map-planning|luxury-interior|agent-office|golf-community|why-bhhs-brokerage/;
+      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night|handshake-deal|map-planning|luxury-interior|agent-office|golf-community|why-bhhs-brokerage|home-valuation-keys/;
     for (const [key, img] of Object.entries(sectionImages)) {
       expect(img.src, key).not.toMatch(banned);
     }

@@ -332,9 +332,9 @@ export const heroImages = {
     ["condo investing", "rental property Las Vegas"],
   ),
   homeValuation: hero(
-    "home-valuation-keys.webp",
+    "services-condo-consultation.webp",
     "Free midtown Las Vegas condo valuation — comparable sales and price-per-square-foot analysis",
-    "Condo valuation based on midtown Las Vegas comps.",
+    "Condo floor plans and keys with the Stratosphere for a midtown Las Vegas valuation.",
     "Midtown Las Vegas, NV",
     MIDTOWN.lat,
     MIDTOWN.lng,

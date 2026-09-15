@@ -208,7 +208,7 @@ describe("live heading photography", () => {
       ...walkTsx(join(root, "components")),
     ];
     const banned =
-      /\/images\/(?:hero|sections)\/(?:night-neon|city-avenue|sky-terrace|modern-home-front|new-construction|condo-balconies|apartment-row|bright-living|penthouse|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night|handshake-deal|map-planning|luxury-interior|agent-office|golf-community|why-bhhs-brokerage)\.webp/;
+      /\/images\/(?:hero|sections)\/(?:night-neon|city-avenue|sky-terrace|modern-home-front|new-construction|condo-balconies|apartment-row|bright-living|penthouse|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night|handshake-deal|map-planning|luxury-interior|agent-office|golf-community|why-bhhs-brokerage|home-valuation-keys)\.webp/;
     const hits: string[] = [];
     for (const file of files) {
       const rel = file.slice(root.length + 1);

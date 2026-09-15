@@ -205,9 +205,9 @@ export const sectionImages = {
     "Review HOA rental caps, reserves, and STR rules before you buy.",
   ),
   valuationSchedule: fromHero(
-    "home-valuation-keys.webp",
+    "services-condo-consultation.webp",
     "Schedule Your Free Valuation",
-    "House keys on a listing folder for a free midtown Las Vegas condo valuation appointment",
+    "Condo floor plans and keys with the Stratosphere for a free midtown Las Vegas valuation",
     "Building-level comps beat automated estimates on high-rises.",
   ),
   newConstructionAgent: fromHero(
@@ -439,9 +439,9 @@ export const sectionImages = {
     "First-time, luxury, and California relocator condo guidance.",
   ),
   sellersProcess: fromHero(
-    "home-valuation-keys.webp",
+    "services-condo-consultation.webp",
     "The Home Selling Process",
-    "House keys on a listing folder for the midtown Las Vegas condo selling process",
+    "Condo floor plans and keys with the Stratosphere for the midtown Las Vegas selling process",
     "Pricing, staging, MLS exposure, and closing with BHHS Nevada.",
   ),
   fiftyFiveCommunities: fromHero(
