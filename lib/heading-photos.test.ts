@@ -106,6 +106,11 @@ describe("live heading photography", () => {
         "Sun City Anthem Amenities",
         "sunCityAnthemAbout",
       ],
+      [
+        "app/55-plus-communities/heritage-stonebridge/page.tsx",
+        "Current Heritage at Stonebridge listings",
+        "heritageWhy",
+      ],
     ];
 
     for (const [rel, heading, key] of pairs) {
@@ -136,5 +141,14 @@ describe("live heading photography", () => {
     expect(highlands).toMatch(
       /heading="Southwest valley access"[\s\S]{0,80}sectionKey="commuteTimes"/,
     );
+    const midtown = readFileSync(
+      join(root, "app/neighborhoods/[slug]/page.tsx"),
+      "utf8",
+    );
+    expect(midtown).not.toMatch(
+      /heading=\{`Search \$\{area\.name\} Condos`\}[\s\S]{0,200}imageKey="searchMidtown"/,
+    );
+    expect(midtown).toMatch(/heading=\{`Search \$\{area\.name\} Condos`\}/);
+    expect(midtown).toMatch(/src=\{getHeroImage\(heroKey\)\.src\}/);
   });
 });

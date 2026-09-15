@@ -221,8 +221,10 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
           <section className="bg-slate-900 text-white rounded-2xl p-8 md:p-12 text-center mb-12">
             <MapPin className="h-10 w-10 text-blue-400 mx-auto mb-4" />
             <SectionPhoto
-              imageKey="searchMidtown"
+              src={getHeroImage(heroKey).src}
               heading={`Search ${area.name} Condos`}
+              alt={getHeroImage(heroKey).alt}
+              caption={getHeroImage(heroKey).caption}
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
