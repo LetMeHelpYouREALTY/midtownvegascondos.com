@@ -30,6 +30,7 @@ import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
+import GbpListingPhotos from "@/components/sections/GbpListingPhotos";
 import type { HeroImageKey } from "@/lib/hero-images";
 
 const gbpServiceHero: Record<string, HeroImageKey> = {
@@ -286,7 +287,7 @@ export default function GoogleBusinessPage() {
                 className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-3 font-medium text-white hover:bg-blue-700"
               >
                 <MapPin className="mr-2 h-4 w-4" />
-                Get Directions
+                Directions
               </a>
               <a
                 href={officeInfo.maps.reviews}
@@ -306,6 +307,8 @@ export default function GoogleBusinessPage() {
               </a>
             </div>
           </section>
+
+          <GbpListingPhotos />
 
           {/* About - GBP Description Structure */}
           <section className="max-w-4xl mx-auto mb-16">
@@ -601,7 +604,7 @@ export default function GoogleBusinessPage() {
           </section>
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
+          Last Updated: September 2026
         </div>
       </main>
       <Footer />
