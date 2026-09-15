@@ -432,97 +432,106 @@ export default function InvestmentPropertiesPage() {
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
               imageKey="neighborhoods"
-              heading="Las Vegas Investment Neighborhoods: Deep Dive"
+              heading="Midtown condo investment buildings"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Las Vegas Investment Neighborhoods: Deep Dive
+              Midtown condo investment buildings
             </h2>
 
             <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6">
+              <Link
+                href="/neighborhoods/fremont-east"
+                className="bg-white rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="North Las Vegas"
-                  heroKey="nbNorthLasVegas"
+                  heading="Fremont East"
+                  heroKey="fremontEast"
                   className="mb-4"
                 />
                 <h3 className="font-bold text-xl text-slate-900 mb-2">
-                  North Las Vegas
+                  Fremont East
                 </h3>
                 <p className="text-slate-600 mb-4">
-                  <strong>Best for: Cash flow investors.</strong> Highest cap
-                  rates in the valley (5.2%+) with lower entry prices. Growing
-                  population as Amazon, Fanatics, and other employers expand.
-                  Confirm commute times and HOA rules for each address.
+                  <strong>Best for: Downtown rental-demand buyers.</strong> Area
+                  median $295K (+3.5% YoY). STR and lease-minimum rules vary by
+                  building — Dr. Jan reviews CC&amp;Rs before you write. Call
+                  (702) 500-1980 for live rent comps.
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
-                    <span className="font-medium">Entry:</span> $350K-$450K
+                    <span className="font-medium">Median:</span> $295K
                   </div>
                   <div>
-                    <span className="font-medium">Rent:</span> $1,800-$2,200
+                    <span className="font-medium">YoY:</span> +3.5%
                   </div>
                   <div>
-                    <span className="font-medium">Tenant Pool:</span> Warehouse
-                    and logistics workers, commuting professionals
+                    <span className="font-medium">Check:</span> HOA rental caps
                   </div>
                 </div>
-              </div>
-              <div className="bg-white rounded-xl p-6">
+              </Link>
+              <Link
+                href="/neighborhoods/palms-place"
+                className="bg-white rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="Henderson"
-                  heroKey="nbHenderson"
+                  heading="Palms Place"
+                  heroKey="palmsPlace"
                   className="mb-4"
                 />
                 <h3 className="font-bold text-xl text-slate-900 mb-2">
-                  Henderson
+                  Palms Place
                 </h3>
                 <p className="text-slate-600 mb-4">
-                  <strong>Best for: Balanced investors.</strong> Parks, rec
-                  centers, and steady tenant demand. Lower vacancy rates and
-                  longer tenant retention offset slightly lower cap rates.
+                  <strong>Best for: Condotel / hotel-program investors.</strong>{" "}
+                  Area median $380K (+2.8% YoY). Self-rental vs. hotel program
+                  participation changes fees and income. Dr. Jan breaks down
+                  what HOA covers vs. optional valet.
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
-                    <span className="font-medium">Entry:</span> $450K-$600K
+                    <span className="font-medium">Median:</span> $380K
                   </div>
                   <div>
-                    <span className="font-medium">Rent:</span> $2,100-$2,800
+                    <span className="font-medium">YoY:</span> +2.8%
                   </div>
                   <div>
-                    <span className="font-medium">Tenant Pool:</span>{" "}
-                    Professionals, medical staff, retirees
+                    <span className="font-medium">Check:</span> Rental program
+                    CC&amp;Rs
                   </div>
                 </div>
-              </div>
-              <div className="bg-white rounded-xl p-6">
+              </Link>
+              <Link
+                href="/neighborhoods/one-las-vegas"
+                className="bg-white rounded-xl p-6 block hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="Summerlin"
-                  heroKey="nbSummerlin"
+                  heading="One Las Vegas"
+                  heroKey="oneLasVegas"
                   className="mb-4"
                 />
                 <h3 className="font-bold text-xl text-slate-900 mb-2">
-                  Summerlin
+                  One Las Vegas
                 </h3>
                 <p className="text-slate-600 mb-4">
-                  <strong>Best for: Appreciation investors.</strong> Premium
-                  neighborhood with strongest appreciation (6.8% YoY). Lower cap
-                  rates but exceptional tenant quality and very low vacancy.
-                  Trail systems, Downtown Summerlin, and Red Rock access.
+                  <strong>Best for: High-rise lock-and-leave buyers.</strong>{" "}
+                  Area median $650K (+4.8% YoY). Some units allow long-term or
+                  restricted rentals. Confirm lease minimums and special
+                  assessments in writing.
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
-                    <span className="font-medium">Entry:</span> $550K-$800K
+                    <span className="font-medium">Median:</span> $650K
                   </div>
                   <div>
-                    <span className="font-medium">Rent:</span> $2,500-$3,500
+                    <span className="font-medium">YoY:</span> +4.8%
                   </div>
                   <div>
-                    <span className="font-medium">Tenant Pool:</span>{" "}
-                    Executives, tech workers, medical professionals
+                    <span className="font-medium">HOA:</span> typically
+                    $400–$1,200+/mo
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </section>
 

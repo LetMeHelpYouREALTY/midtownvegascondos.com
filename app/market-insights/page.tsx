@@ -365,100 +365,110 @@ export default function MarketInsightsPage() {
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <SectionPhoto
               imageKey="neighborhoods"
-              heading="2026 Neighborhood Outlook"
+              heading="2026 Midtown Condo Outlook"
               className="mb-8 max-w-4xl text-left"
             />
             <div className="flex items-center mb-6">
               <BarChart3 className="h-8 w-8 text-blue-600 mr-3" />
               <h2 className="text-3xl font-bold text-slate-900">
-                2026 Neighborhood Outlook
+                2026 Midtown Condo Outlook
               </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 border border-slate-200">
+              <Link
+                href="/neighborhoods/arts-district"
+                className="bg-white rounded-xl p-6 border border-slate-200 hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="Henderson"
-                  heroKey="nbHenderson"
+                  heading="Arts District"
+                  heroKey="artsDistrict"
                   className="mb-4"
                 />
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-slate-900">Henderson</h3>
+                  <h3 className="font-bold text-slate-900">Arts District</h3>
                   <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-semibold">
-                    Strong Buy
+                    Median $325K
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Tech corridor growth, trail systems, and rec-center access
-                  driving consistent demand. Expect continued 4-6% appreciation.
+                  Loft conversions and boutique mid-rises near Gallery Row. Area
+                  median $325K (+4.1% YoY). Dr. Jan&apos;s office is at 921
+                  South Main Street.
                 </p>
                 <div className="text-sm text-slate-500">
-                  Hot areas: Inspirada, MacDonald Highlands, Green Valley Ranch
+                  Open the live Arts District page for MLS and HOA notes
                 </div>
-              </div>
-              <div className="bg-white rounded-xl p-6 border border-slate-200">
+              </Link>
+              <Link
+                href="/neighborhoods/symphony-park"
+                className="bg-white rounded-xl p-6 border border-slate-200 hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="Summerlin"
-                  heroKey="nbSummerlin"
+                  heading="Symphony Park"
+                  heroKey="symphonyPark"
                   className="mb-4"
                 />
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-slate-900">Summerlin</h3>
+                  <h3 className="font-bold text-slate-900">Symphony Park</h3>
                   <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-semibold">
-                    Strong Buy
+                    Median $410K
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Red Rock views, Downtown Summerlin, and trail access keep
-                  premium positioning. Limited new inventory keeps values
-                  strong.
+                  Smith Center cultural district mid-rises. Area median $410K
+                  (+5.2% YoY). Compare new-construction incentives and HOA
+                  reserves with Dr. Jan.
                 </p>
                 <div className="text-sm text-slate-500">
-                  Hot areas: The Ridges, Regency at Summerlin, Paseos
+                  Open the live Symphony Park page for current inventory
                 </div>
-              </div>
-              <div className="bg-white rounded-xl p-6 border border-slate-200">
+              </Link>
+              <Link
+                href="/neighborhoods/one-las-vegas"
+                className="bg-white rounded-xl p-6 border border-slate-200 hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="North Las Vegas"
-                  heroKey="nbNorthLasVegas"
+                  heading="One Las Vegas"
+                  heroKey="oneLasVegas"
                   className="mb-4"
                 />
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-slate-900">North Las Vegas</h3>
+                  <h3 className="font-bold text-slate-900">One Las Vegas</h3>
                   <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-semibold">
-                    Value Play
+                    Median $650K
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Best affordability in the valley. Infrastructure investment
-                  and new retail improving area. First-time buyer sweet spot.
+                  Strip-corridor high-rise with concierge and resort pool.
+                  Typical HOA $400–$1,200+/mo. Area median $650K (+4.8% YoY).
                 </p>
                 <div className="text-sm text-slate-500">
-                  Hot areas: Aliante, Elkhorn, Valley Vista
+                  Confirm rental caps and parking before you write
                 </div>
-              </div>
-              <div className="bg-white rounded-xl p-6 border border-slate-200">
+              </Link>
+              <Link
+                href="/neighborhoods/palms-place"
+                className="bg-white rounded-xl p-6 border border-slate-200 hover:shadow-md transition-shadow"
+              >
                 <HeadingCardPhoto
-                  heading="Southwest (Mountains Edge)"
-                  heroKey="nbMountainsEdge"
+                  heading="Palms Place"
+                  heroKey="palmsPlace"
                   className="mb-4"
                 />
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-slate-900">
-                    Southwest (Mountains Edge)
-                  </h3>
+                  <h3 className="font-bold text-slate-900">Palms Place</h3>
                   <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-semibold">
-                    Steady Growth
+                    Median $380K
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Southwest area with Exploration Peak Park, the valley's
-                  largest park. New construction competing with resales. Solid
-                  appreciation.
+                  Strip-adjacent condotel with valet and pool complex. Area
+                  median $380K (+2.8% YoY). HOA typically covers utilities.
                 </p>
                 <div className="text-sm text-slate-500">
-                  Hot areas: Exploration Peak, Southern Highlands adjacent
+                  Review hotel-program vs. self-rental CC&amp;Rs with Dr. Jan
                 </div>
-              </div>
+              </Link>
             </div>
           </section>
 
@@ -494,8 +504,9 @@ export default function MarketInsightsPage() {
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Consider tech corridors:</strong> Henderson and
-                      west Summerlin positioned for continued job growth
+                      <strong>Compare midtown buildings:</strong> Arts District
+                      lofts, Symphony Park mid-rises, and One Las Vegas
+                      high-rises have live pages on this site
                     </span>
                   </li>
                   <li className="flex items-start">
