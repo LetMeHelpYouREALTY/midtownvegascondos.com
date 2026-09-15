@@ -2,6 +2,7 @@ import Image from "next/image";
 import SchemaScript from "@/components/SchemaScript";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { getHeroImage, type HeroImageKey } from "@/lib/hero-images";
 import { type SectionImageKey } from "@/lib/section-images";
 import { generatePageHeroSchemaGraph } from "@/lib/image-seo";
@@ -35,6 +36,8 @@ type PageHeroProps = {
   leadSrc?: string;
   leadAlt?: string;
   leadCaption?: string;
+  /** Call / Directions / Reviews in the first viewport (GBP local-pack) */
+  showGbpActions?: boolean;
 };
 
 /**
@@ -58,6 +61,7 @@ export default function PageHero({
   leadSrc,
   leadAlt,
   leadCaption,
+  showGbpActions = true,
 }: PageHeroProps) {
   const meta = getHeroImage(imageKey);
   const src = imageSrc ?? meta.src;
@@ -111,6 +115,7 @@ export default function PageHero({
             </p>
           ) : null}
           {children}
+          {showGbpActions ? <GbpEngageButtons onDark className="mt-6" /> : null}
           {showCaption ? (
             <figure className="mt-10 mx-auto max-w-2xl border-t border-white/20 pt-4 text-left md:text-center">
               <figcaption

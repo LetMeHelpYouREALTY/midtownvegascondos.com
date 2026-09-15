@@ -70,7 +70,7 @@ describe("generateLocalBusinessSchema", () => {
     expect(schema.image.length).toBeGreaterThanOrEqual(19);
     expect(schema.image).toEqual(
       expect.arrayContaining([
-        expect.stringContaining("/images/sections/search-midtown-condos.webp"),
+        expect.stringContaining("/images/hero/juhl-downtown-condo-tower.webp"),
         expect.stringContaining(
           "/images/sections/arts-district-galleries.webp",
         ),

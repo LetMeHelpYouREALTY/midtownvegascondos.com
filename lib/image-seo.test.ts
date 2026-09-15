@@ -30,7 +30,7 @@ describe("imagesForSitemapPage", () => {
   it("lists heading-matched section photos on the homepage for Google Images", () => {
     const urls = imagesForSitemapPage(siteConfig.url);
     expect(urls.some((url) => url.includes("home-strip-dusk"))).toBe(true);
-    expect(urls.some((url) => url.includes("search-midtown-condos"))).toBe(
+    expect(urls.some((url) => url.includes("juhl-downtown-condo-tower"))).toBe(
       true,
     );
     for (const url of urls) {

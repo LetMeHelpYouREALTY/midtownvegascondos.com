@@ -43,6 +43,15 @@ describe("live heading photography", () => {
     expect(gaps).toEqual([]);
   });
 
+  it("puts Call / Directions / Reviews in every PageHero first viewport", () => {
+    const src = readFileSync(
+      join(process.cwd(), "components/sections/PageHero.tsx"),
+      "utf8",
+    );
+    expect(src).toMatch(/GbpEngageButtons/);
+    expect(src).toMatch(/showGbpActions = true/);
+  });
+
   it("uses community-specific photos for named market and FAQ headings", () => {
     const root = process.cwd();
     const pairs: Array<[string, string, string]> = [
@@ -199,7 +208,7 @@ describe("live heading photography", () => {
       ...walkTsx(join(root, "components")),
     ];
     const banned =
-      /\/images\/(?:hero|sections)\/(?:night-neon|city-avenue|sky-terrace|modern-home-front|new-construction|condo-balconies|apartment-row|bright-living|penthouse|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan)\.webp/;
+      /\/images\/(?:hero|sections)\/(?:night-neon|city-avenue|sky-terrace|modern-home-front|new-construction|condo-balconies|apartment-row|bright-living|penthouse|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night)\.webp/;
     const hits: string[] = [];
     for (const file of files) {
       const rel = file.slice(root.length + 1);

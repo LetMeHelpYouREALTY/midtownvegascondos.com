@@ -10,6 +10,7 @@ import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
 import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
+import GbpListingPhotos from "@/components/sections/GbpListingPhotos";
 import FeaturedProperties from "@/components/sections/FeaturedProperties";
 import Link from "next/link";
 import Image from "next/image";
@@ -389,6 +390,11 @@ export default function Home() {
         <FeaturedProperties />
         <WhyChooseUs />
         <ReviewsSection />
+        <section className="bg-white py-8 md:py-12">
+          <div className="container mx-auto px-4">
+            <GbpListingPhotos />
+          </div>
+        </section>
         <GbpPostsSection />
         <FAQSection
           title="Midtown Las Vegas Condo FAQs"

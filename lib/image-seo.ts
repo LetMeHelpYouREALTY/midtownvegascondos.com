@@ -202,7 +202,7 @@ export function sitemapImageEntries(): Array<{
 }
 
 const HEADING_SECTION_PHOTOS = [
-  "/images/sections/search-midtown-condos.webp",
+  "/images/hero/juhl-downtown-condo-tower.webp",
   "/images/hero/gbp-arts-district-office.webp",
   "/images/hero/services-condo-consultation.webp",
   "/images/sections/market-stats-skyline.webp",
@@ -225,7 +225,7 @@ export function imagesForSitemapPage(pageUrl: string): string[] {
     urls.push(...HEADING_SECTION_PHOTOS.map((path) => absoluteImageUrl(path)));
   }
   if (pageUrl === `${siteConfig.url}/listings`) {
-    urls.push(absoluteImageUrl("/images/sections/search-midtown-condos.webp"));
+    urls.push(absoluteImageUrl("/images/hero/juhl-downtown-condo-tower.webp"));
   }
   return urls.filter((url, index) => urls.indexOf(url) === index);
 }

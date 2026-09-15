@@ -49,11 +49,13 @@ describe("hero-images", () => {
       "heritage-stonebridge-new",
     );
     expect(heroImages.marketInsights.src).toContain("home-strip-dusk");
+    expect(heroImages.marketUpdate.src).toContain("home-skyline-day");
+    expect(heroImages.marketReport.src).toContain("home-skyline-day");
   });
 
   it("does not catalog wrong-city or off-subject stock filenames", () => {
     const banned =
-      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan/;
+      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night/;
     for (const [key, img] of Object.entries(heroImages)) {
       expect(img.src, key).not.toMatch(banned);
     }

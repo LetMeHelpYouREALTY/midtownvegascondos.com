@@ -307,10 +307,10 @@ const gbpPhotoObjects = [
     "@type": "ImageObject" as const,
     name: "Search Midtown Vegas condos",
     caption:
-      "Laptop on a midtown Las Vegas condo island used to search live Arts District listings",
-    url: absoluteSiteImage("/images/sections/search-midtown-condos.webp"),
+      "Juhl downtown Las Vegas condo tower representing live midtown condo search photography",
+    url: absoluteSiteImage("/images/hero/juhl-downtown-condo-tower.webp"),
     contentUrl: absoluteSiteImage(
-      "/images/sections/search-midtown-condos.webp",
+      "/images/hero/juhl-downtown-condo-tower.webp",
     ),
   },
   {

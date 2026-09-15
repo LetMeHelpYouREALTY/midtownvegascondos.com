@@ -98,7 +98,7 @@ export default function MidtownRealEstatePage() {
       <SchemaScript schema={schema} id="midtown-re-schema" />
       <Navbar />
       <PageHero
-        imageKey="homeStripNight"
+        imageKey="buyersCondoTower"
         leadSectionKey="midtownHowTo"
         leadSectionHeading="How to buy midtown real estate"
         pagePath="/midtown-real-estate"

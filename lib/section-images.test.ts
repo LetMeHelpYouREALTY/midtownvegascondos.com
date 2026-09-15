@@ -76,6 +76,10 @@ describe("section-images", () => {
       "faq-midtown-loft-interior",
     );
     expect(sectionImages.marketForces.src).toContain("home-strip-dusk");
+    expect(sectionImages.searchMidtown.src).toContain(
+      "juhl-downtown-condo-tower",
+    );
+    expect(sectionImages.marketSnapshot.src).toContain("home-skyline-day");
     expect(sectionImages.fiftyFiveAmenities.src).toContain("golf-community");
     for (const [key, slug] of pairs) {
       expect(sectionImages[key].src, key).toContain(slug);
@@ -84,7 +88,7 @@ describe("section-images", () => {
 
   it("does not catalog wrong-city or off-subject stock filenames", () => {
     const banned =
-      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan/;
+      /night-neon|city-avenue|sky-terrace|modern-home-front|new-construction\.webp|condo-balconies|apartment-row|bright-living|penthouse\.webp|pool-amenity|balcony-city|glass-facade|highrise-windows|night-city|open-plan|desert-skyline|condo-lobby|active-adult|modern-bath|hoa-review|why-choose-jan|market-update-downtown-night|home-strip-night/;
     for (const [key, img] of Object.entries(sectionImages)) {
       expect(img.src, key).not.toMatch(banned);
     }

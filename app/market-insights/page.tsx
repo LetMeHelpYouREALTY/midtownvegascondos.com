@@ -306,7 +306,7 @@ export default function MarketInsightsPage() {
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <HeadingCardPhoto
                   heading="Raiders & Sports"
-                  heroKey="homeStripNight"
+                  heroKey="homeStripDusk"
                   className="mb-4"
                 />
                 <h3 className="font-bold text-slate-900 mb-3">
@@ -324,7 +324,7 @@ export default function MarketInsightsPage() {
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <HeadingCardPhoto
                   heading="Healthcare Growth"
-                  heroKey="fiftyFivePlus"
+                  heroKey="homeSkylineDay"
                   className="mb-4"
                 />
                 <h3 className="font-bold text-slate-900 mb-3">

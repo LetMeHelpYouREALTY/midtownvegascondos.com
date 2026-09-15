@@ -48,10 +48,10 @@ function fromHero(
 }
 
 export const sectionImages = {
-  searchMidtown: section(
-    "search-midtown-condos.webp",
+  searchMidtown: fromHero(
+    "juhl-downtown-condo-tower.webp",
     "Search Midtown Vegas Condos",
-    "Laptop on a midtown Las Vegas condo island used to search live Arts District and downtown listings",
+    "Juhl downtown Las Vegas condo tower representing live midtown condo search photography",
     "Search live MLS condo inventory with Dr. Jan Duffy.",
   ),
   whyJan: fromHero(
@@ -223,15 +223,15 @@ export const sectionImages = {
     "Inventory, rates, relocation, and downtown condo demand.",
   ),
   marketSnapshot: fromHero(
-    "market-update-downtown-night.webp",
+    "home-skyline-day.webp",
     "Midtown Condo Market Snapshot",
-    "Downtown Las Vegas night skyline used for the midtown condo market snapshot",
+    "City of Las Vegas gateway arch and downtown towers for the midtown condo market snapshot",
     "Median price, days on market, and active condo inventory.",
   ),
   marketWeek: fromHero(
-    "market-update-downtown-night.webp",
+    "home-skyline-day.webp",
     "5 Key Statistics This Week",
-    "Downtown Las Vegas night skyline for this week's midtown condo market statistics",
+    "Downtown Las Vegas gateway arch for this week's midtown condo market statistics",
     "Weekly pricing and inventory context for Arts District buyers.",
   ),
   whyBuffett: fromHero(
@@ -457,9 +457,9 @@ export const sectionImages = {
     "Pools, golf, clubhouses, and maintenance-free living near midtown.",
   ),
   neighborhoodMarket: fromHero(
-    "market-update-downtown-night.webp",
+    "home-skyline-day.webp",
     "Neighborhood Real Estate Market",
-    "Downtown Las Vegas night skyline used for neighborhood market snapshot photography",
+    "City of Las Vegas gateway arch used for neighborhood market snapshot photography",
     "Median price, days on market, and inventory context by area.",
   ),
   communityFaq: fromHero(
