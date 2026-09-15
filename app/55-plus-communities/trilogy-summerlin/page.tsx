@@ -237,7 +237,7 @@ export default function TrilogySummerlinPage() {
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="fiftyFiveAmenities"
+              imageKey="trilogyAbout"
               heading="Luxury Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
@@ -468,7 +468,7 @@ export default function TrilogySummerlinPage() {
             aria-labelledby="trilogy-faq"
           >
             <SectionPhoto
-              imageKey="communityFaq"
+              imageKey="trilogyAbout"
               heading="Trilogy at Summerlin FAQ"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

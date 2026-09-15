@@ -384,7 +384,7 @@ export default function DelWebbLakeLasVegasPage() {
             aria-labelledby="del-webb-faq"
           >
             <SectionPhoto
-              imageKey="communityFaq"
+              imageKey="delWebbAbout"
               heading="Del Webb Lake Las Vegas FAQ"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

@@ -232,7 +232,7 @@ export default function SunCityAliantePage() {
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="fiftyFiveAmenities"
+              imageKey="sunCityAlianteAbout"
               heading="Full Sun City Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

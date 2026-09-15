@@ -186,7 +186,7 @@ export default function SunCitySummerlinPage() {
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="fiftyFiveAmenities"
+              imageKey="sunCitySummerlinAbout"
               heading="World-Class Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
@@ -420,7 +420,7 @@ export default function SunCitySummerlinPage() {
             aria-labelledby="scs-faq"
           >
             <SectionPhoto
-              imageKey="communityFaq"
+              imageKey="sunCitySummerlinAbout"
               heading="Sun City Summerlin FAQ"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

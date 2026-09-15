@@ -75,7 +75,35 @@ function hasWranglerAuth() {
   return isUsableSecret(process.env.CLOUDFLARE_API_TOKEN);
 }
 
+/** Object Read & Write tokens only work on the S3 API (Cloudflare R2 token docs, Aug 2026). */
+function firstUsableSecret(keys) {
+  for (const key of keys) {
+    const value = process.env[key];
+    if (isUsableSecret(value)) return value.trim();
+  }
+  return "";
+}
+
+function normalizeS3Env() {
+  const accessKey = firstUsableSecret([
+    "R2_ACCESS_KEY_ID",
+    "CLOUDFLARE_R2_ACCESS_KEY_ID",
+    "CF_R2_ACCESS_KEY_ID",
+    "AWS_ACCESS_KEY_ID",
+  ]);
+  const secretKey = firstUsableSecret([
+    "R2_SECRET_ACCESS_KEY",
+    "CLOUDFLARE_R2_SECRET_ACCESS_KEY",
+    "CF_R2_SECRET_ACCESS_KEY",
+    "AWS_SECRET_ACCESS_KEY",
+    "R2_SECRET",
+  ]);
+  if (accessKey) process.env.R2_ACCESS_KEY_ID = accessKey;
+  if (secretKey) process.env.R2_SECRET_ACCESS_KEY = secretKey;
+}
+
 function hasS3Auth() {
+  normalizeS3Env();
   return Boolean(
     isUsableSecret(process.env.R2_ACCESS_KEY_ID) &&
       isUsableSecret(process.env.R2_SECRET_ACCESS_KEY) &&
@@ -722,6 +750,7 @@ async function syncFiles(files, mode) {
 }
 
 async function main() {
+  normalizeS3Env();
   const s3Ready = hasS3Auth();
   if (
     !s3Ready &&

@@ -111,6 +111,46 @@ describe("live heading photography", () => {
         "Current Heritage at Stonebridge listings",
         "heritageWhy",
       ],
+      [
+        "app/55-plus-communities/heritage-stonebridge/page.tsx",
+        "Frequently asked questions",
+        "heritageWhy",
+      ],
+      [
+        "app/55-plus-communities/sun-city-summerlin/page.tsx",
+        "Sun City Summerlin FAQ",
+        "sunCitySummerlinAbout",
+      ],
+      [
+        "app/55-plus-communities/sun-city-summerlin/page.tsx",
+        "World-Class Amenities",
+        "sunCitySummerlinAbout",
+      ],
+      [
+        "app/55-plus-communities/trilogy-summerlin/page.tsx",
+        "Trilogy at Summerlin FAQ",
+        "trilogyAbout",
+      ],
+      [
+        "app/55-plus-communities/trilogy-summerlin/page.tsx",
+        "Luxury Amenities",
+        "trilogyAbout",
+      ],
+      [
+        "app/55-plus-communities/del-webb-lake-las-vegas/page.tsx",
+        "Del Webb Lake Las Vegas FAQ",
+        "delWebbAbout",
+      ],
+      [
+        "app/55-plus-communities/sun-city-aliante/page.tsx",
+        "Full Sun City Amenities",
+        "sunCityAlianteAbout",
+      ],
+      [
+        "app/55-plus-communities/solera-anthem/page.tsx",
+        "Community Amenities",
+        "soleraAbout",
+      ],
     ];
 
     for (const [rel, heading, key] of pairs) {

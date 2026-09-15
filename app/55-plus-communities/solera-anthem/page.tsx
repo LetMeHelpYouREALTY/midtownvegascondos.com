@@ -217,7 +217,7 @@ export default function SoleraAnthemPage() {
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="fiftyFiveAmenities"
+              imageKey="soleraAbout"
               heading="Community Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

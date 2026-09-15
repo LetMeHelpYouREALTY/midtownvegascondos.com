@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getCdnImageSrc } from "@/lib/cloudflare-assets";
 import { getHeroImage, type HeroImageKey } from "@/lib/hero-images";
 import { getSectionImage, type SectionImageKey } from "@/lib/section-images";
 
@@ -6,6 +7,8 @@ type HeadingCardPhotoProps = {
   heading: string;
   heroKey?: HeroImageKey;
   sectionKey?: SectionImageKey;
+  src?: string;
+  alt?: string;
   className?: string;
 };
 
@@ -16,11 +19,15 @@ export default function HeadingCardPhoto({
   heading,
   heroKey,
   sectionKey,
+  src,
+  alt,
   className = "",
 }: HeadingCardPhotoProps) {
   const catalog = sectionKey
     ? getSectionImage(sectionKey)
     : getHeroImage(heroKey ?? "homeSkylineDay");
+  const resolvedSrc = getCdnImageSrc(src ?? catalog.src);
+  const resolvedAlt = alt ?? catalog.alt;
 
   return (
     <div
@@ -28,8 +35,8 @@ export default function HeadingCardPhoto({
     >
       <div className="relative aspect-[16/9] w-full">
         <Image
-          src={catalog.src}
-          alt={catalog.alt}
+          src={resolvedSrc}
+          alt={resolvedAlt}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover"

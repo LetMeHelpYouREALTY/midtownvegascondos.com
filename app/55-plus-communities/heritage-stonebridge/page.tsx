@@ -255,7 +255,7 @@ export default function HeritageStonebridgePage() {
 
           <section className="mb-16 max-w-4xl mx-auto" data-community-faq>
             <SectionPhoto
-              imageKey="communityFaq"
+              imageKey="heritageWhy"
               heading="Frequently asked questions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

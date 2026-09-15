@@ -48,6 +48,16 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/img_midtown_origin_www/);
     expect(src).toMatch(/too many authentication failures/i);
     expect(src).toMatch(/CF_TRY_CLOUDFLARE_FALLBACKS/);
+    expect(src).toMatch(/CLOUDFLARE_R2_ACCESS_KEY_ID/);
+    expect(src).toMatch(/AWS_SECRET_ACCESS_KEY/);
+    expect(src).toMatch(/function normalizeS3Env/);
+    expect(src).toMatch(/firstUsableSecret/);
+    const workflow = readFileSync(
+      join(ROOT, ".github/workflows/cloudflare-r2-images.yml"),
+      "utf8",
+    );
+    expect(workflow).toMatch(/CLOUDFLARE_R2_ACCESS_KEY_ID/);
+    expect(workflow).toMatch(/AWS_SECRET_ACCESS_KEY/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {
