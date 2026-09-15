@@ -228,6 +228,11 @@ export default function HeritageStonebridgePage() {
           </section>
 
           <section className="mb-16 max-w-5xl mx-auto">
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading="Current Heritage at Stonebridge listings"
+              className="mx-auto mb-8 max-w-4xl text-left"
+            />
             <h2 className="text-2xl font-bold text-slate-900 mb-4">
               Current Heritage at Stonebridge listings
             </h2>

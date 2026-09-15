@@ -37,6 +37,11 @@ export default function SecurityPolicyPage() {
           <div className="prose prose-lg max-w-none">
             {/* Overview */}
             <section className="mb-12">
+              <SectionPhoto
+                imageKey="securityCommitment"
+                heading="Our Commitment to Security"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Our Commitment to Security
               </h2>
@@ -50,14 +55,14 @@ export default function SecurityPolicyPage() {
 
             {/* Reporting Vulnerabilities */}
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Reporting Security Vulnerabilities
-              </h2>
               <SectionPhoto
                 imageKey="contactTouch"
                 heading="Reporting Security Vulnerabilities"
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Reporting Security Vulnerabilities
+              </h2>
 
               <p className="text-gray-700 leading-relaxed mb-4">
                 If you've discovered a security vulnerability, we appreciate
@@ -114,14 +119,14 @@ export default function SecurityPolicyPage() {
 
             {/* Security Measures */}
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Security Measures in Place
-              </h2>
               <SectionPhoto
                 imageKey="listingsChecklist"
                 heading="Security Measures in Place"
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Security Measures in Place
+              </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -200,14 +205,14 @@ export default function SecurityPolicyPage() {
 
             {/* Third-Party Services */}
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Third-Party Services
-              </h2>
               <SectionPhoto
                 imageKey="servicesCore"
                 heading="Third-Party Services"
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Third-Party Services
+              </h2>
               <p className="text-gray-700 mb-4">
                 We use trusted third-party services to provide the best
                 experience:
@@ -246,14 +251,14 @@ export default function SecurityPolicyPage() {
 
             {/* Responsible Disclosure */}
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Responsible Disclosure Policy
-              </h2>
               <SectionPhoto
                 imageKey="aboutBhhs"
                 heading="Responsible Disclosure Policy"
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Responsible Disclosure Policy
+              </h2>
               <div className="bg-green-50 border-l-4 border-green-500 p-6">
                 <HeadingCardPhoto
                   heading="We Promise"
@@ -280,14 +285,14 @@ export default function SecurityPolicyPage() {
 
             {/* Out of Scope */}
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Out of Scope
-              </h2>
               <SectionPhoto
                 imageKey="faqCategories"
                 heading="Out of Scope"
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Out of Scope
+              </h2>
               <p className="text-gray-700 mb-4">
                 Please do not report the following (not considered
                 vulnerabilities):
@@ -308,14 +313,14 @@ export default function SecurityPolicyPage() {
 
             {/* Security Best Practices */}
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Your Security
-              </h2>
               <SectionPhoto
                 imageKey="securityCommitment"
                 heading="Your Security"
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Your Security
+              </h2>
               <p className="text-gray-700 mb-4">
                 To protect your information when using our site:
               </p>
@@ -334,14 +339,14 @@ export default function SecurityPolicyPage() {
 
             {/* Contact */}
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Questions?
-              </h2>
               <SectionPhoto
                 imageKey="contactTouch"
                 heading="Questions?"
                 className="mx-auto mb-8 max-w-4xl text-left"
               />
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Questions?
+              </h2>
               <p className="text-gray-700 mb-4">
                 For general questions about our security practices:
               </p>

@@ -139,14 +139,14 @@ export default function FAQPage() {
           <div className="max-w-4xl mx-auto space-y-12">
             {faqCategories.map((category) => (
               <section key={category.title}>
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">
-                  {category.title}
-                </h2>
                 <SectionPhoto
                   imageKey={category.imageKey}
                   heading={category.title}
                   className="mb-6 text-left"
                 />
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">
+                  {category.title}
+                </h2>
                 <div className="space-y-4">
                   {category.faqs.map((faq, index) => (
                     <div key={index} className="bg-slate-50 rounded-lg p-6">
@@ -161,15 +161,15 @@ export default function FAQPage() {
 
           {/* CTA */}
           <section className="mt-16 text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Still Have Questions?
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Still Have Questions?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Still Have Questions?
+            </h2>
             <p className="text-xl text-blue-100 mb-8">
               Dr. Jan Duffy is happy to answer questions about midtown Las Vegas
               condos, HOA review, and buying or selling downtown towers.
