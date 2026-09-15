@@ -5,6 +5,7 @@
  * - Cloudflare R2 public bucket (already hosts the agent headshot)
  * - Optional Cloudflare Images (imagedelivery.net) when account hash is set
  * - Optional Cloudflare Pages / Workers static assets when R2/Images writes 401
+ * - Optional proxied img.midtownvegascondos.com CDN (www stays gray-cloud on Vercel)
  *
  * Do not orange-cloud the Vercel apex — R2 is object storage only.
  */
@@ -62,11 +63,23 @@ export function getPagesImageUrl(src: string): string {
 
 /**
  * Resolve the URL Next.js Image should request.
- * R2 first, then Cloudflare Pages/Workers assets, otherwise git-backed public/.
+ * R2 first, then Cloudflare Pages/Workers assets, then proxied img.* CDN,
+ * otherwise git-backed public/.
  */
 export function getCdnImageSrc(src: string): string {
   if (isRemoteImageSrc(src)) return src;
   if (isR2DeliveryEnabled()) return getR2ObjectUrl(src);
   if (isCloudflarePagesImagesEnabled()) return getPagesImageUrl(src);
+  if (isCloudflareEdgeImagesEnabled()) return getEdgeImageUrl(src);
   return normalizeLocalPath(src);
+}
+
+export function isCloudflareEdgeImagesEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_CF_EDGE_IMAGES_ENABLED === "true";
+}
+
+export const CF_EDGE_IMAGES_HOST = "img.midtownvegascondos.com";
+
+export function getEdgeImageUrl(src: string): string {
+  return `https://${CF_EDGE_IMAGES_HOST}${normalizeLocalPath(src)}`;
 }

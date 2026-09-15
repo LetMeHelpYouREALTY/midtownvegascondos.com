@@ -447,6 +447,232 @@ async function deployCloudflareAssets() {
   );
 }
 
+const IMAGE_EDGE_HOST = "img.midtownvegascondos.com";
+const IMAGE_EDGE_ORIGIN = "www.midtownvegascondos.com";
+
+async function cfJson(path, { method = "GET", json } = {}) {
+  const response = await fetch(`https://api.cloudflare.com/client/v4${path}`, {
+    method,
+    headers: {
+      Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: json ? JSON.stringify(json) : undefined,
+  });
+  const text = await response.text();
+  let body = {};
+  try {
+    body = JSON.parse(text);
+  } catch {
+    body = {};
+  }
+  return { response, body, text };
+}
+
+async function addVercelImageDomain() {
+  const token = process.env.VERCEL_TOKEN;
+  const projectId =
+    process.env.VERCEL_PROJECT_ID || "prj_cgzb65mf2GDFh37vU9hPWQ2TGJ6m";
+  const teamId = process.env.VERCEL_ORG_ID || "team_EIbjFXaDDtGMTweb5Hvo3CG3";
+  if (!isUsableSecret(token)) {
+    console.warn(
+      "No VERCEL_TOKEN — origin Host override should still serve git images from www without adding img.* on Vercel.",
+    );
+    return;
+  }
+  const response = await fetch(
+    `https://api.vercel.com/v10/projects/${projectId}/domains?teamId=${teamId}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name: IMAGE_EDGE_HOST }),
+    },
+  );
+  const text = await response.text();
+  if (response.ok || response.status === 409) {
+    console.log(`Vercel project has ${IMAGE_EDGE_HOST} (${response.status})`);
+    return;
+  }
+  console.warn(
+    `Vercel domain add HTTP ${response.status}: ${text.slice(0, 240)}`,
+  );
+}
+
+async function ensureOriginHostOverride(zoneId) {
+  const listed = await cfJson(`/zones/${zoneId}/rulesets`);
+  if (!listed.response.ok) {
+    throw r2WriteForbiddenError(
+      `origin rulesets HTTP ${listed.response.status} ${cloudflareError(listed.body).message || listed.text.slice(0, 120)}`,
+    );
+  }
+  const rulesets = Array.isArray(listed.body?.result) ? listed.body.result : [];
+  const origin = rulesets.find((item) => item.phase === "http_request_origin");
+  const ourRule = {
+    ref: "img_midtown_origin_www",
+    expression: `http.host eq "${IMAGE_EDGE_HOST}"`,
+    description:
+      "img.* fetches www on Vercel so Cloudflare can cache heading photos without orange-clouding the production hostname",
+    action: "route",
+    action_parameters: {
+      host_header: IMAGE_EDGE_ORIGIN,
+      origin: { host: IMAGE_EDGE_ORIGIN },
+    },
+  };
+
+  if (!origin?.id) {
+    const created = await cfJson(`/zones/${zoneId}/rulesets`, {
+      method: "POST",
+      json: {
+        name: "Origin Rules ruleset",
+        kind: "zone",
+        phase: "http_request_origin",
+        rules: [ourRule],
+      },
+    });
+    if (!created.response.ok) {
+      throw r2WriteForbiddenError(
+        `origin ruleset create HTTP ${created.response.status} ${cloudflareError(created.body).message || created.text.slice(0, 160)}`,
+      );
+    }
+    console.log(
+      `Created origin rule: ${IMAGE_EDGE_HOST} Host/SNI → ${IMAGE_EDGE_ORIGIN}`,
+    );
+    return;
+  }
+
+  const current = await cfJson(`/zones/${zoneId}/rulesets/${origin.id}`);
+  if (!current.response.ok) {
+    throw r2WriteForbiddenError(
+      `origin ruleset get HTTP ${current.response.status} ${cloudflareError(current.body).message || current.text.slice(0, 120)}`,
+    );
+  }
+  const rules = Array.isArray(current.body?.result?.rules)
+    ? current.body.result.rules
+    : [];
+  const nextRules = [];
+  let replaced = false;
+  for (const rule of rules) {
+    if (rule.ref === ourRule.ref) {
+      nextRules.push({ ...rule, ...ourRule });
+      replaced = true;
+    } else {
+      nextRules.push(rule);
+    }
+  }
+  if (!replaced) nextRules.push(ourRule);
+
+  const updated = await cfJson(`/zones/${zoneId}/rulesets/${origin.id}`, {
+    method: "PUT",
+    json: { rules: nextRules },
+  });
+  if (!updated.response.ok) {
+    throw r2WriteForbiddenError(
+      `origin ruleset update HTTP ${updated.response.status} ${cloudflareError(updated.body).message || updated.text.slice(0, 160)}`,
+    );
+  }
+  console.log(
+    `Origin rule ${replaced ? "updated" : "added"}: ${IMAGE_EDGE_HOST} Host/SNI → ${IMAGE_EDGE_ORIGIN}`,
+  );
+}
+
+/**
+ * www stays gray-cloud on Vercel. img.* is a separate Cloudflare-proxied
+ * hostname so heading photos can be cached on Cloudflare's network with git
+ * as the origin/backup. Requires Zone DNS Edit on the Account API token.
+ * An origin Host override keeps TLS on the www certificate (no Vercel SSL
+ * fight on img.*). Per Cloudflare Origin Rules API as of 2026.
+ */
+async function ensureCloudflareImageHostname() {
+  console.log(
+    `R2/Images/Pages/Workers writes denied. Creating proxied ${IMAGE_EDGE_HOST} on the Cloudflare DNS zone (www stays on Vercel, not orange-clouded)...`,
+  );
+  const { response, body, text } = await cfJson(
+    "/zones?name=midtownvegascondos.com",
+  );
+  if (
+    isTokenLocationBlocked(body) ||
+    /cannot use the access token from location/i.test(text)
+  ) {
+    throw locationBlockedError(cloudflareError(body).message);
+  }
+  if (!response.ok) {
+    throw r2WriteForbiddenError(
+      `zones lookup HTTP ${response.status} ${cloudflareError(body).message || text.slice(0, 120)}`,
+    );
+  }
+  const zone = Array.isArray(body?.result) ? body.result[0] : undefined;
+  if (!zone?.id) {
+    throw r2WriteForbiddenError(
+      "Cloudflare zone midtownvegascondos.com not in this token's account",
+    );
+  }
+  console.log(`Cloudflare zone ${zone.id} (${zone.name})`);
+
+  const existing = await cfJson(
+    `/zones/${zone.id}/dns_records?type=CNAME&name=${IMAGE_EDGE_HOST}`,
+  );
+  const record = Array.isArray(existing.body?.result)
+    ? existing.body.result[0]
+    : undefined;
+  if (!record) {
+    const created = await cfJson(`/zones/${zone.id}/dns_records`, {
+      method: "POST",
+      json: {
+        type: "CNAME",
+        name: "img",
+        content: IMAGE_EDGE_ORIGIN,
+        proxied: true,
+        ttl: 1,
+      },
+    });
+    if (!created.response.ok) {
+      throw r2WriteForbiddenError(
+        `DNS create HTTP ${created.response.status} ${cloudflareError(created.body).message || created.text.slice(0, 160)}`,
+      );
+    }
+    console.log(
+      `Created proxied CNAME ${IMAGE_EDGE_HOST} → ${IMAGE_EDGE_ORIGIN}`,
+    );
+  } else if (!record.proxied || record.content !== IMAGE_EDGE_ORIGIN) {
+    const patched = await cfJson(`/zones/${zone.id}/dns_records/${record.id}`, {
+      method: "PATCH",
+      json: {
+        proxied: true,
+        content: IMAGE_EDGE_ORIGIN,
+        ttl: 1,
+      },
+    });
+    if (!patched.response.ok) {
+      throw r2WriteForbiddenError(
+        `DNS patch HTTP ${patched.response.status} ${cloudflareError(patched.body).message || patched.text.slice(0, 160)}`,
+      );
+    }
+    console.log(
+      `Updated proxied CNAME ${IMAGE_EDGE_HOST} → ${IMAGE_EDGE_ORIGIN}`,
+    );
+  } else {
+    console.log(
+      `DNS record exists for ${IMAGE_EDGE_HOST} proxied=${record.proxied}`,
+    );
+  }
+
+  try {
+    await ensureOriginHostOverride(zone.id);
+  } catch (originError) {
+    console.warn(
+      "Origin Host override failed; adding img.* on Vercel as a fallback:",
+      originError instanceof Error ? originError.message : originError,
+    );
+    await addVercelImageDomain();
+  }
+  console.log(
+    `Probe https://${IMAGE_EDGE_HOST}/images/hero/home-strip-dusk.webp — if HTTP 200, set NEXT_PUBLIC_CF_EDGE_IMAGES_ENABLED=true. Prefer R2 S3 keys when they exist.`,
+  );
+}
+
 async function putObject(localFile, objectKey, mode) {
   switch (mode) {
     case "s3":
@@ -525,8 +751,24 @@ async function main() {
         return;
       } catch (imagesError) {
         if (imagesError?.skipSync) {
-          await deployCloudflareAssets();
-          return;
+          try {
+            await deployCloudflareAssets();
+            return;
+          } catch (assetsError) {
+            console.warn(
+              "Cloudflare Pages/Workers image host failed:",
+              assetsError instanceof Error ? assetsError.message : assetsError,
+            );
+            try {
+              await ensureCloudflareImageHostname();
+            } catch (dnsError) {
+              console.warn(
+                "Cloudflare img hostname fallback failed:",
+                dnsError instanceof Error ? dnsError.message : dnsError,
+              );
+            }
+            return;
+          }
         }
         throw imagesError;
       }

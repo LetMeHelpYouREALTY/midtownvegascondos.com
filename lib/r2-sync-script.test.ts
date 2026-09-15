@@ -41,6 +41,11 @@ describe("R2 image sync script", () => {
     expect(src).toMatch(/accounts\/\$\{id\}\/images\/v1/);
     expect(src).toMatch(/pages",\s*"deploy"/);
     expect(src).toMatch(/wrangler.images-assets.toml/);
+    expect(src).toMatch(/zones\?name=midtownvegascondos.com/);
+    expect(src).toMatch(/img.midtownvegascondos.com/);
+    expect(src).toMatch(/http_request_origin/);
+    expect(src).toMatch(/host_header/);
+    expect(src).toMatch(/img_midtown_origin_www/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {
