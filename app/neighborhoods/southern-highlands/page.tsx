@@ -252,7 +252,7 @@ export default function SouthernHighlandsPage() {
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <HeadingCardPhoto
                     heading="Southwest valley access"
-                    heroKey="nbMountainsEdge"
+                    sectionKey="commuteTimes"
                     className="mb-4"
                   />
                   <div className="flex items-center mb-4">

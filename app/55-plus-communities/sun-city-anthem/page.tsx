@@ -268,7 +268,7 @@ export default function SunCityAnthemPage() {
           {/* Amenities */}
           <section className="mb-16 max-w-5xl mx-auto">
             <SectionPhoto
-              imageKey="fiftyFiveAmenities"
+              imageKey="sunCityAnthemAbout"
               heading="Sun City Anthem Amenities"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
@@ -299,7 +299,7 @@ export default function SunCityAnthemPage() {
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <HeadingCardPhoto
                   heading="Anthem Center (64,000 sf)"
-                  sectionKey="fiftyFiveAmenities"
+                  heroKey="fiftyFiveSunCityAnthem"
                   className="mb-4"
                 />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
@@ -364,7 +364,7 @@ export default function SunCityAnthemPage() {
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <HeadingCardPhoto
                   heading="Independence"
-                  heroKey="nbHenderson"
+                  heroKey="fiftyFiveSunCityAnthem"
                   className="mb-4"
                 />
                 <h3 className="font-bold text-slate-900 mb-2">Independence</h3>

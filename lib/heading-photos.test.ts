@@ -91,6 +91,21 @@ describe("live heading photography", () => {
         "Las Vegas Schools & Education",
         "commuteTimes",
       ],
+      [
+        "app/55-plus-communities/sun-city-summerlin/page.tsx",
+        "Why Buyers Choose Sun City Summerlin",
+        "sunCitySummerlinAbout",
+      ],
+      [
+        "app/55-plus-communities/trilogy-summerlin/page.tsx",
+        "Why Buyers Choose Trilogy at Summerlin",
+        "trilogyAbout",
+      ],
+      [
+        "app/55-plus-communities/sun-city-anthem/page.tsx",
+        "Sun City Anthem Amenities",
+        "sunCityAnthemAbout",
+      ],
     ];
 
     for (const [rel, heading, key] of pairs) {
@@ -100,5 +115,26 @@ describe("live heading photography", () => {
       const window = text.slice(Math.max(0, idx - 500), idx + heading.length);
       expect(window, `${rel} ${heading}`).toContain(`imageKey="${key}"`);
     }
+  });
+
+  it("keeps move-up and commute cards on the named community photo", () => {
+    const root = process.cwd();
+    const moveUp = readFileSync(
+      join(root, "app/sellers/move-up/page.tsx"),
+      "utf8",
+    );
+    expect(moveUp).toMatch(
+      /heading="Fremont East → Arts District"[\s\S]{0,80}heroKey="fremontEast"/,
+    );
+    expect(moveUp).toMatch(
+      /heading="Palms Place → Southern Highlands"[\s\S]{0,80}heroKey="palmsPlace"/,
+    );
+    const highlands = readFileSync(
+      join(root, "app/neighborhoods/southern-highlands/page.tsx"),
+      "utf8",
+    );
+    expect(highlands).toMatch(
+      /heading="Southwest valley access"[\s\S]{0,80}sectionKey="commuteTimes"/,
+    );
   });
 });

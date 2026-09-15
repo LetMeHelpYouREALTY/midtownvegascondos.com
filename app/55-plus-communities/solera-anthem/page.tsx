@@ -324,7 +324,7 @@ export default function SoleraAnthemPage() {
                   <div>
                     <HeadingCardPhoto
                       heading="Anthem Master-Planned Community"
-                      heroKey="nbHenderson"
+                      heroKey="fiftyFiveSolera"
                       className="mb-3"
                     />
                     <h3 className="font-bold text-slate-900 mb-2">

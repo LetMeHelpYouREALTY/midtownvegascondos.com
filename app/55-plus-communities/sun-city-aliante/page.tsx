@@ -338,7 +338,7 @@ export default function SunCityAliantePage() {
                   <div>
                     <HeadingCardPhoto
                       heading="Aliante Casino & Hotel"
-                      heroKey="homeStripNight"
+                      heroKey="fiftyFiveSunCityAliante"
                       className="mb-3"
                     />
                     <h3 className="font-bold text-slate-900 mb-2">

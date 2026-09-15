@@ -118,7 +118,7 @@ export default function MoveUpSellerPage() {
               >
                 <HeadingCardPhoto
                   heading="Fremont East → Arts District"
-                  heroKey="artsDistrict"
+                  heroKey="fremontEast"
                   className="mb-4"
                 />
                 <div className="flex items-center">
@@ -177,7 +177,7 @@ export default function MoveUpSellerPage() {
               >
                 <HeadingCardPhoto
                   heading="Palms Place → Southern Highlands"
-                  heroKey="nbSouthernHighlands"
+                  heroKey="palmsPlace"
                   className="mb-4"
                 />
                 <div className="flex items-center">

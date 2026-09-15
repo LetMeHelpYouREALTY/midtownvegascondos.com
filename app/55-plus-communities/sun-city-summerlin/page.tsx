@@ -316,7 +316,7 @@ export default function SunCitySummerlinPage() {
               <div className="bg-white rounded-xl p-6 border border-slate-200">
                 <HeadingCardPhoto
                   heading="Pinnacle/Del Webb"
-                  heroKey="buyersLuxury"
+                  heroKey="fiftyFiveSunCitySummerlin"
                   className="mb-4"
                 />
                 <h3 className="font-bold text-slate-900 mb-2">
@@ -336,7 +336,7 @@ export default function SunCitySummerlinPage() {
           {/* Why Choose */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="summerlinWhy"
+              imageKey="sunCitySummerlinAbout"
               heading="Why Buyers Choose Sun City Summerlin"
               className="mx-auto mb-8 max-w-4xl text-left"
             />

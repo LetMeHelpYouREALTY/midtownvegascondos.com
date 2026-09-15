@@ -384,7 +384,7 @@ export default function TrilogySummerlinPage() {
           {/* Why Choose Trilogy */}
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionPhoto
-              imageKey="fiftyFiveAmenities"
+              imageKey="trilogyAbout"
               heading="Why Buyers Choose Trilogy at Summerlin"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
