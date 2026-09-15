@@ -342,14 +342,14 @@ export default function ServicesPage() {
 
           {/* Specialized Services Section */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Specialized Real Estate Services
-            </h2>
             <SectionPhoto
               imageKey="buyersSpecialized"
               heading="Specialized Real Estate Services"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Specialized Real Estate Services
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Beyond traditional buying and selling, Dr. Jan Duffy offers
               specialized services for unique situations. Whether you're an
@@ -403,14 +403,14 @@ export default function ServicesPage() {
 
           {/* Buyer Types */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Services for Every Type of Buyer
-            </h2>
             <SectionPhoto
               imageKey="buyersAgent"
               heading="Services for Every Type of Buyer"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Services for Every Type of Buyer
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Different buyers have different needs. A first-time buyer needs
               education and hand-holding through the process. A California
@@ -446,14 +446,14 @@ export default function ServicesPage() {
 
           {/* Seller Types */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Services for Every Type of Seller
-            </h2>
             <SectionPhoto
               imageKey="sellersProcess"
               heading="Services for Every Type of Seller"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Services for Every Type of Seller
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Selling a home involves more than just listing it on the MLS. Your
               situation—whether you're upgrading, downsizing, dealing with a
@@ -576,14 +576,14 @@ export default function ServicesPage() {
 
           {/* Service Process */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              How Our Real Estate Services Work
-            </h2>
             <SectionPhoto
               imageKey="hoaReview"
               heading="How Our Real Estate Services Work"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              How Our Real Estate Services Work
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Whether you're buying or selling, the process begins with a free
               consultation to understand your goals, timeline, and unique
@@ -657,15 +657,15 @@ export default function ServicesPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Get Started?
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Ready to Get Started?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
 
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy for a free consultation about any of our

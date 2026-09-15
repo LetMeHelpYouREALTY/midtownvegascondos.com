@@ -358,14 +358,14 @@ export default function AboutPage() {
 
           {/* Specializations Section */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
-              Areas of Specialization
-            </h2>
             <SectionPhoto
               imageKey="aboutSpecializations"
               heading="Areas of Specialization"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
+              Areas of Specialization
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Dr. Jan Duffy brings specialized expertise across multiple real
               estate categories. Whether you're a first-time buyer, luxury home
@@ -473,14 +473,14 @@ export default function AboutPage() {
 
           {/* Areas Served */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
-              Areas Served by BHHS Nevada Properties
-            </h2>
             <SectionPhoto
               imageKey="aboutAreasServed"
               heading="Areas Served by BHHS Nevada Properties"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
+              Areas Served by BHHS Nevada Properties
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Dr. Jan Duffy serves the entire Las Vegas Valley with specialized
               knowledge of each neighborhood's unique characteristics, price
@@ -512,14 +512,14 @@ export default function AboutPage() {
 
           {/* Client Testimonials */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
-              What Clients Say About Dr. Jan Duffy
-            </h2>
             <SectionPhoto
               imageKey="reviews"
               heading="What Clients Say About Dr. Jan Duffy"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
+              What Clients Say About Dr. Jan Duffy
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               With a 4.9-star rating and hundreds of satisfied clients, Dr. Jan
               has built a reputation for excellence, integrity, and personalized
@@ -566,15 +566,15 @@ export default function AboutPage() {
 
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Get Started?
-            </h2>
             <SectionPhoto
               imageKey="homeCta"
               heading="Ready to Get Started?"
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-xl text-blue-100 mb-8">
               Questions about buying or selling in Las Vegas? Call or text Dr.
               Jan Duffy today for a free consultation. Whether you're ready to

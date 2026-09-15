@@ -306,14 +306,14 @@ export default function ContactPage() {
 
           {/* Service Areas Section */}
           <section className="max-w-5xl mx-auto mt-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Areas We Serve
-            </h2>
             <SectionPhoto
               imageKey="contactAreas"
               heading="Areas We Serve"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Areas We Serve
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Dr. Jan Duffy provides expert real estate services throughout the
               Las Vegas Valley. Whether you're buying, selling, or investing in
@@ -349,14 +349,14 @@ export default function ContactPage() {
 
           {/* Quick Contact Options */}
           <section className="max-w-4xl mx-auto mt-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Prefer to Reach Out Directly?
-            </h2>
             <SectionPhoto
               imageKey="contactTouch"
               heading="Prefer to Reach Out Directly?"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Prefer to Reach Out Directly?
+            </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <a
                 href="tel:+17025001980"
@@ -383,14 +383,14 @@ export default function ContactPage() {
 
           {/* FAQ Section */}
           <section className="max-w-4xl mx-auto mt-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
             <div className="space-y-4">
               {[
                 {
