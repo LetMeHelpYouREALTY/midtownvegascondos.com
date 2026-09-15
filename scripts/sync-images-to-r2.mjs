@@ -114,9 +114,10 @@ function isTokenLocationBlocked(body) {
   );
 }
 
-function locationBlockedError() {
+function locationBlockedError(detail = "") {
+  const where = detail ? ` (${detail})` : "";
   const error = new Error(
-    "Cloudflare API token is blocked from this IP (error 9109). Vercel/GitHub runners cannot upload to R2 until the token IP allowlist includes those ranges, or R2 S3 keys without an IP allowlist are added. Git public/images remains the fallback.",
+    `Cloudflare Account API token is blocked from this IP (error 9109)${where}. Vercel and GitHub runner addresses change every job, so adding one IP to the token allowlist will not keep working. Create R2 S3 credentials instead: Cloudflare dashboard → R2 → Overview → Manage R2 API Tokens → Create API token with Object Read & Write on bucket realestatedomains-assets. Set R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, and CLOUDFLARE_ACCOUNT_ID on Vercel production env and the Production GitHub Environment. Re-run this sync, confirm the public object is HTTP 200, then set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback.`,
   );
   error.skipSync = true;
   return error;
@@ -133,7 +134,9 @@ async function lookupCloudflareAccounts(path) {
     console.error(
       `Cloudflare ${path} lookup HTTP ${response.status} — ${cloudflareError(body).message || "continuing"}`,
     );
-    if (isTokenLocationBlocked(body)) throw locationBlockedError();
+    if (isTokenLocationBlocked(body)) {
+      throw locationBlockedError(cloudflareError(body).message);
+    }
     return [];
   }
   return accountsFromCfBody(path, body);

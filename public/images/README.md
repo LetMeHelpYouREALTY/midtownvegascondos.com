@@ -18,12 +18,22 @@ images/
 
 ## Sync to Cloudflare R2
 
-```bash
-npx wrangler login   # or CLOUDFLARE_API_TOKEN
-npm run cloudflare:images
-```
+The Vercel `CLOUDFLARE_API_TOKEN` is an **Account API token with an IP allowlist**. Vercel and GitHub Actions IPs change every job, so that token returns Cloudflare error **9109** from CI (`Cannot use the access token from location`). Do not try to pin runner IPs.
 
-Then set `NEXT_PUBLIC_R2_ENABLED=true` in Vercel.
+Use **R2 S3 API tokens** instead (separate from Account API tokens):
+
+1. Cloudflare dashboard → **R2** → **Manage R2 API Tokens** → Create API token.
+2. Permission: Object Read & Write on bucket `realestatedomains-assets`.
+3. Copy Access Key ID, Secret Access Key, and the account ID shown on the R2 overview.
+4. Set on **Vercel production** and the GitHub **Production** environment:
+   - `R2_ACCESS_KEY_ID`
+   - `R2_SECRET_ACCESS_KEY`
+   - `CLOUDFLARE_ACCOUNT_ID` (or `R2_ACCOUNT_ID`)
+5. Re-run `npm run cloudflare:images` (Vercel postbuild or the R2 GitHub workflow).
+6. Confirm `https://pub-720ca9b7443b47be981def05abd3d7f0.r2.dev/midtownvegascondos/images/hero/home-strip-dusk.webp` returns HTTP 200.
+7. Set `NEXT_PUBLIC_R2_ENABLED=true` on Vercel.
+
+Rotate any Account API token that appeared in older public GitHub Actions logs.
 
 Do **not** orange-cloud the Vercel production hostname. R2 is object storage only.
 

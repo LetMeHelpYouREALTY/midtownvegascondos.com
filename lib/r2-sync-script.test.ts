@@ -16,7 +16,7 @@ describe("R2 image sync script", () => {
   it("names Cloudflare IP allowlist error 9109 so CI can skip doomed uploads", () => {
     const src = readFileSync(SCRIPT, "utf8");
     expect(src).toMatch(/code === 9109/);
-    expect(src).toMatch(/skipSync/);
+    expect(src).toMatch(/Manage R2 API Tokens/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {

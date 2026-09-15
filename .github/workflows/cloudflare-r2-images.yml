@@ -137,5 +137,5 @@ jobs:
           if [ "$CODE" = "200" ]; then
             echo "Site images are live on Cloudflare R2."
           else
-            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). Token IP allowlist (error 9109) blocks Vercel/GitHub, or CLOUDFLARE_ACCOUNT_ID / R2 S3 keys are missing. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname. Rotate any token that appeared unmasked in older workflow logs."
+            echo "::warning::Cloudflare R2 site images are not live (HTTP $CODE). The Vercel Account API token is IP-restricted (error 9109); runner IPs change every job. Create R2 S3 keys (dashboard → R2 → Manage R2 API Tokens) and set R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, and CLOUDFLARE_ACCOUNT_ID on Vercel production + the Production GitHub Environment. Then re-run this workflow and set NEXT_PUBLIC_R2_ENABLED=true. Git public/images remains the fallback. Do not orange-cloud the Vercel hostname. Rotate any Account API token that appeared unmasked in older workflow logs."
           fi
