@@ -18,6 +18,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-insights", {
   title:
@@ -144,6 +145,11 @@ export default function MarketInsightsPage() {
                 </p>
               </div>
               <div className="bg-slate-50 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Tech Impact on Real Estate"
+                  heroKey="marketInsights"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-4">
                   Tech Impact on Real Estate
                 </h3>
@@ -217,6 +223,11 @@ export default function MarketInsightsPage() {
                 </div>
               </div>
               <div>
+                <HeadingCardPhoto
+                  heading="Why Californians Choose Las Vegas"
+                  heroKey="buyersCaRelocator"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-4">
                   Why Californians Choose Las Vegas
                 </h3>
@@ -284,6 +295,11 @@ export default function MarketInsightsPage() {
             />
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Raiders & Sports"
+                  heroKey="homeStripNight"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-3">
                   Raiders & Sports
                 </h3>
@@ -297,6 +313,11 @@ export default function MarketInsightsPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Healthcare Growth"
+                  heroKey="fiftyFivePlus"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-3">
                   Healthcare Growth
                 </h3>
@@ -309,6 +330,11 @@ export default function MarketInsightsPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Film & Production"
+                  heroKey="fremontEast"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-3">
                   Film & Production
                 </h3>
@@ -339,6 +365,11 @@ export default function MarketInsightsPage() {
             />
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Henderson"
+                  heroKey="nbHenderson"
+                  className="mb-4"
+                />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-slate-900">Henderson</h3>
                   <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-semibold">
@@ -346,7 +377,7 @@ export default function MarketInsightsPage() {
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Tech corridor growth, safety rankings, and quality of life
+                  Tech corridor growth, trail systems, and rec-center access
                   driving consistent demand. Expect continued 4-6% appreciation.
                 </p>
                 <div className="text-sm text-slate-500">
@@ -354,6 +385,11 @@ export default function MarketInsightsPage() {
                 </div>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Summerlin"
+                  heroKey="nbSummerlin"
+                  className="mb-4"
+                />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-slate-900">Summerlin</h3>
                   <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-semibold">
@@ -370,6 +406,11 @@ export default function MarketInsightsPage() {
                 </div>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="North Las Vegas"
+                  heroKey="nbNorthLasVegas"
+                  className="mb-4"
+                />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-slate-900">North Las Vegas</h3>
                   <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-semibold">
@@ -385,6 +426,11 @@ export default function MarketInsightsPage() {
                 </div>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Southwest (Mountains Edge)"
+                  heroKey="nbMountainsEdge"
+                  className="mb-4"
+                />
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-bold text-slate-900">
                     Southwest (Mountains Edge)
@@ -417,6 +463,11 @@ export default function MarketInsightsPage() {
             />
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="For Buyers"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-green-900 text-xl mb-4 flex items-center">
                   <Users className="h-6 w-6 mr-2" />
                   For Buyers
@@ -446,6 +497,11 @@ export default function MarketInsightsPage() {
                 </ul>
               </div>
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="For Sellers"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-blue-900 text-xl mb-4 flex items-center">
                   <DollarSign className="h-6 w-6 mr-2" />
                   For Sellers

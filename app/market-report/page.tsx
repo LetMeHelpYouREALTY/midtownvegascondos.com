@@ -17,6 +17,7 @@ import { hyperlocalMeta } from "@/lib/hyperlocal-content";
 import { marketStats, agentInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-report", {
   title: hyperlocalMeta.marketReport.title,
@@ -134,6 +135,7 @@ export default function MarketReportPage() {
                   change: "+4.2%",
                   dom: 28,
                   trend: "up",
+                  heroKey: "homeSkylineDay" as const,
                 },
                 {
                   area: "Henderson",
@@ -141,6 +143,7 @@ export default function MarketReportPage() {
                   change: "+5.1%",
                   dom: 24,
                   trend: "up",
+                  heroKey: "nbHenderson" as const,
                 },
                 {
                   area: "Summerlin",
@@ -148,6 +151,7 @@ export default function MarketReportPage() {
                   change: "+6.8%",
                   dom: 22,
                   trend: "up",
+                  heroKey: "nbSummerlin" as const,
                 },
                 {
                   area: "North Las Vegas",
@@ -155,6 +159,7 @@ export default function MarketReportPage() {
                   change: "+3.2%",
                   dom: 32,
                   trend: "up",
+                  heroKey: "nbNorthLasVegas" as const,
                 },
                 {
                   area: "Southern Highlands",
@@ -162,6 +167,7 @@ export default function MarketReportPage() {
                   change: "+7.2%",
                   dom: 35,
                   trend: "up",
+                  heroKey: "nbSouthernHighlands" as const,
                 },
                 {
                   area: "Luxury ($1M+)",
@@ -169,12 +175,18 @@ export default function MarketReportPage() {
                   change: "+8.5%",
                   dom: 45,
                   trend: "up",
+                  heroKey: "luxuryHomes" as const,
                 },
               ].map((item) => (
                 <div
                   key={item.area}
                   className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
                 >
+                  <HeadingCardPhoto
+                    heading={item.area}
+                    heroKey={item.heroKey}
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-lg text-slate-900 mb-4">
                     {item.area}
                   </h3>
@@ -232,6 +244,11 @@ export default function MarketReportPage() {
 
             <div className="mt-8 grid md:grid-cols-2 gap-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="For Buyers"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-4 flex items-center">
                   <Home className="h-5 w-5 text-blue-600 mr-2" />
                   For Buyers
@@ -244,6 +261,11 @@ export default function MarketReportPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="For Sellers"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-4 flex items-center">
                   <DollarSign className="h-5 w-5 text-green-600 mr-2" />
                   For Sellers
@@ -270,6 +292,11 @@ export default function MarketReportPage() {
             />
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="California Migration"
+                  heroKey="buyersCaRelocator"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <TrendingUp className="h-8 w-8 text-blue-600" />
                 </div>
@@ -281,6 +308,11 @@ export default function MarketReportPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="New Construction"
+                  heroKey="newConstruction"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <Home className="h-8 w-8 text-blue-600" />
                 </div>
@@ -292,6 +324,11 @@ export default function MarketReportPage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Luxury Strength"
+                  heroKey="luxuryHomes"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <BarChart className="h-8 w-8 text-blue-600" />
                 </div>

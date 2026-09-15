@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/home-valuation", {
   title:
@@ -254,6 +255,11 @@ export default function HomeValuationPage() {
 
             <div className="grid md:grid-cols-2 gap-6 mt-8">
               <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="What Online Estimates Miss"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-red-800 mb-4">
                   What Online Estimates Miss
                 </h3>
@@ -285,6 +291,11 @@ export default function HomeValuationPage() {
                 </ul>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="What a BHHS CMA Includes"
+                  heroKey="whyBhhs"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-green-800 mb-4">
                   What a BHHS CMA Includes
                 </h3>
@@ -331,6 +342,11 @@ export default function HomeValuationPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6 shadow-sm">
+                <HeadingCardPhoto
+                  heading="Location & Neighborhood"
+                  heroKey="artsDistrict"
+                  className="mb-4"
+                />
                 <MapPin className="h-8 w-8 text-blue-600 mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">
                   Location & Neighborhood
@@ -342,6 +358,11 @@ export default function HomeValuationPage() {
                 </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
+                <HeadingCardPhoto
+                  heading="Size & Layout"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <Home className="h-8 w-8 text-blue-600 mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">Size & Layout</h3>
                 <p className="text-slate-600 text-sm">
@@ -351,6 +372,11 @@ export default function HomeValuationPage() {
                 </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
+                <HeadingCardPhoto
+                  heading="Upgrades & Condition"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <TrendingUp className="h-8 w-8 text-blue-600 mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">
                   Upgrades & Condition
@@ -362,6 +388,11 @@ export default function HomeValuationPage() {
                 </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
+                <HeadingCardPhoto
+                  heading="Market Conditions"
+                  heroKey="marketInsights"
+                  className="mb-4"
+                />
                 <DollarSign className="h-8 w-8 text-blue-600 mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">
                   Market Conditions
@@ -373,6 +404,11 @@ export default function HomeValuationPage() {
                 </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
+                <HeadingCardPhoto
+                  heading="Lot Characteristics"
+                  heroKey="luxuryHomes"
+                  className="mb-4"
+                />
                 <Calculator className="h-8 w-8 text-blue-600 mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">
                   Lot Characteristics
@@ -384,6 +420,11 @@ export default function HomeValuationPage() {
                 </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
+                <HeadingCardPhoto
+                  heading="Age & Systems"
+                  heroKey="newConstruction"
+                  className="mb-4"
+                />
                 <Clock className="h-8 w-8 text-blue-600 mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">Age & Systems</h3>
                 <p className="text-slate-600 text-sm">

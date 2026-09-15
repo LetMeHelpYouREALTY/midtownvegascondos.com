@@ -9,6 +9,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 
 const PATH = "/neighborhoods/southern-highlands";
@@ -201,6 +202,11 @@ export default function SouthernHighlandsPage() {
               </h3>
               <div className="grid md:grid-cols-2 gap-8 not-prose">
                 <div className="bg-slate-50 p-6 rounded-xl">
+                  <HeadingCardPhoto
+                    heading="Championship golf course"
+                    heroKey="nbSouthernHighlands"
+                    className="mb-4"
+                  />
                   <div className="flex items-center mb-4">
                     <Star className="h-8 w-8 text-blue-600 mr-3" />
                     <h4 className="font-bold text-slate-900 text-lg">
@@ -214,6 +220,11 @@ export default function SouthernHighlandsPage() {
                   </p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl">
+                  <HeadingCardPhoto
+                    heading="Gated estate sections"
+                    heroKey="nbRidges"
+                    className="mb-4"
+                  />
                   <div className="flex items-center mb-4">
                     <Shield className="h-8 w-8 text-blue-600 mr-3" />
                     <h4 className="font-bold text-slate-900 text-lg">
@@ -227,6 +238,11 @@ export default function SouthernHighlandsPage() {
                   </p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl">
+                  <HeadingCardPhoto
+                    heading="Southwest valley access"
+                    heroKey="nbMountainsEdge"
+                    className="mb-4"
+                  />
                   <div className="flex items-center mb-4">
                     <Mountain className="h-8 w-8 text-blue-600 mr-3" />
                     <h4 className="font-bold text-slate-900 text-lg">
@@ -240,6 +256,11 @@ export default function SouthernHighlandsPage() {
                   </p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl">
+                  <HeadingCardPhoto
+                    heading="Nearby schools (names only)"
+                    heroKey="nbInspirada"
+                    className="mb-4"
+                  />
                   <div className="flex items-center mb-4">
                     <MapPin className="h-8 w-8 text-blue-600 mr-3" />
                     <h4 className="font-bold text-slate-900 text-lg">

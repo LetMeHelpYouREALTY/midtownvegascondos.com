@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/market-update", {
   title:
@@ -286,6 +287,11 @@ export default function MarketUpdatePage() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* For Buyers */}
               <div className="bg-white border-2 border-green-200 rounded-xl p-8">
+                <HeadingCardPhoto
+                  heading="For Buyers"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <div className="bg-green-100 p-3 rounded-full mr-4">
                     <HomeIcon className="h-6 w-6 text-green-600" />
@@ -332,6 +338,11 @@ export default function MarketUpdatePage() {
 
               {/* For Sellers */}
               <div className="bg-white border-2 border-blue-200 rounded-xl p-8">
+                <HeadingCardPhoto
+                  heading="For Sellers"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <div className="bg-blue-100 p-3 rounded-full mr-4">
                     <DollarSign className="h-6 w-6 text-blue-600" />
@@ -510,6 +521,11 @@ export default function MarketUpdatePage() {
 
           {/* Newsletter Signup */}
           <section className="mt-16 max-w-2xl mx-auto text-center">
+            <HeadingCardPhoto
+              heading="Get Weekly Market Updates in Your Inbox"
+              heroKey="marketUpdate"
+              className="mb-4"
+            />
             <h3 className="text-xl font-bold text-slate-900 mb-4">
               Get Weekly Market Updates in Your Inbox
             </h3>

@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/sellers/divorce-probate",
@@ -76,6 +77,11 @@ export default function DivorceProbatePage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Divorce Sales"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <div className="bg-blue-100 rounded-full p-3 mr-4">
                     <Scale className="h-6 w-6 text-blue-600" />
@@ -106,6 +112,11 @@ export default function DivorceProbatePage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Probate & Estate Sales"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <div className="bg-purple-100 rounded-full p-3 mr-4">
                     <FileText className="h-6 w-6 text-purple-600" />
@@ -136,6 +147,11 @@ export default function DivorceProbatePage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Urgent Sales"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <div className="bg-amber-100 rounded-full p-3 mr-4">
                     <Clock className="h-6 w-6 text-amber-600" />
@@ -166,6 +182,11 @@ export default function DivorceProbatePage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Multi-Party Sales"
+                  heroKey="whyBhhs"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <div className="bg-green-100 rounded-full p-3 mr-4">
                     <Users className="h-6 w-6 text-green-600" />
@@ -209,6 +230,11 @@ export default function DivorceProbatePage() {
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Confidentiality First"
+                  heroKey="contactOffice"
+                  className="mb-4"
+                />
                 <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <Lock className="h-8 w-8 text-blue-600" />
                 </div>
@@ -222,6 +248,11 @@ export default function DivorceProbatePage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Neutral & Professional"
+                  heroKey="whyBhhs"
+                  className="mb-4"
+                />
                 <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <Scale className="h-8 w-8 text-blue-600" />
                 </div>
@@ -235,6 +266,11 @@ export default function DivorceProbatePage() {
                 </p>
               </div>
               <div className="text-center">
+                <HeadingCardPhoto
+                  heading="Compassionate Guidance"
+                  heroKey="aboutAgent"
+                  className="mb-4"
+                />
                 <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <Heart className="h-8 w-8 text-blue-600" />
                 </div>
@@ -318,6 +354,11 @@ export default function DivorceProbatePage() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Nevada Divorce Sales"
+                  heroKey="sellersDivorceProbate"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4">
                   Nevada Divorce Sales
                 </h3>
@@ -351,6 +392,11 @@ export default function DivorceProbatePage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Nevada Probate Sales"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4">
                   Nevada Probate Sales
                 </h3>

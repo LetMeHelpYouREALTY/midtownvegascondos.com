@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/sellers/relocation", {
   title: "Relocation Home Sales Las Vegas | Berkshire Hathaway HomeServices",
@@ -114,6 +115,11 @@ export default function RelocationPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
+                <HeadingCardPhoto
+                  heading="Selling Your Las Vegas Home"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl text-slate-900 mb-4 flex items-center">
                   <HomeIcon className="h-6 w-6 text-blue-600 mr-2" />
                   Selling Your Las Vegas Home
@@ -172,6 +178,11 @@ export default function RelocationPage() {
               </div>
 
               <div>
+                <HeadingCardPhoto
+                  heading="Buying in Your New City"
+                  heroKey="relocationHub"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl text-slate-900 mb-4 flex items-center">
                   <MapPin className="h-6 w-6 text-green-600 mr-2" />
                   Buying in Your New City
@@ -245,6 +256,11 @@ export default function RelocationPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Urgent (2-4 weeks)"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <Clock className="h-6 w-6 text-red-600 mr-2" />
                   <h3 className="font-bold text-slate-900">
@@ -263,6 +279,11 @@ export default function RelocationPage() {
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Standard (30-60 days)"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <Calendar className="h-6 w-6 text-amber-600 mr-2" />
                   <h3 className="font-bold text-slate-900">
@@ -281,6 +302,11 @@ export default function RelocationPage() {
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Flexible (60-90 days)"
+                  heroKey="luxuryHomes"
+                  className="mb-4"
+                />
                 <div className="flex items-center mb-4">
                   <Briefcase className="h-6 w-6 text-green-600 mr-2" />
                   <h3 className="font-bold text-slate-900">
@@ -376,42 +402,53 @@ export default function RelocationPage() {
                   insight:
                     "Closer to family, lower cost than California. Strong job market in healthcare and tech.",
                   time: "4-5 hour drive",
+                  heroKey: "nbHenderson" as const,
                 },
                 {
                   city: "Dallas/Fort Worth, TX",
                   insight:
                     "No state income tax, booming corporate relocation hub. Major employers: AT&T, Toyota, CBRE.",
                   time: "3-hour flight",
+                  heroKey: "relocationHub" as const,
                 },
                 {
                   city: "Los Angeles, CA",
                   insight:
                     "Entertainment, aerospace, tech. Higher cost but familiar Southwest climate.",
                   time: "4-hour drive",
+                  heroKey: "buyersCaRelocator" as const,
                 },
                 {
                   city: "Denver, CO",
                   insight:
                     "Outdoor lifestyle, growing tech hub. Higher altitude, four seasons.",
                   time: "2-hour flight",
+                  heroKey: "nbRidges" as const,
                 },
                 {
                   city: "Austin, TX",
                   insight:
                     "Tech boom, no state income tax. Tesla, Oracle, Apple campuses.",
                   time: "2.5-hour flight",
+                  heroKey: "newConstruction" as const,
                 },
                 {
                   city: "Seattle, WA",
                   insight:
                     "Amazon, Microsoft, Boeing. Rainy but vibrant tech scene.",
                   time: "2.5-hour flight",
+                  heroKey: "homeSkylineDay" as const,
                 },
               ].map((dest) => (
                 <div
                   key={dest.city}
                   className="bg-white border border-slate-200 rounded-xl p-6"
                 >
+                  <HeadingCardPhoto
+                    heading={dest.city}
+                    heroKey={dest.heroKey}
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-2">{dest.city}</h3>
                   <p className="text-slate-600 text-sm mb-3">{dest.insight}</p>
                   <p className="text-blue-600 text-xs font-medium">

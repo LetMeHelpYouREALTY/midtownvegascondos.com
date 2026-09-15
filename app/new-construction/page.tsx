@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
+import { type HeroImageKey } from "@/lib/hero-images";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
@@ -225,6 +226,17 @@ const builders = [
     ],
   },
 ];
+
+const builderHeroByName: Record<string, HeroImageKey> = {
+  "Toll Brothers": "nbRidges",
+  Lennar: "nbInspirada",
+  "KB Home": "nbNorthLasVegas",
+  "Taylor Morrison": "nbHenderson",
+  "Pulte Homes": "nbMountainsEdge",
+  "Richmond American": "nbCentennialHills",
+  "Shea Homes": "fiftyFiveTrilogy",
+  "Century Communities": "buyersFirstTime",
+};
 
 export default function NewConstructionPage() {
   return (
@@ -449,6 +461,13 @@ export default function NewConstructionPage() {
                     </div>
                   </div>
                   <div className="p-5">
+                    <HeadingCardPhoto
+                      heading={builder.name}
+                      heroKey={
+                        builderHeroByName[builder.name] ?? "newConstruction"
+                      }
+                      className="mb-4"
+                    />
                     <div className="mb-4">
                       <div className="text-xs text-slate-500 uppercase tracking-wide mb-2">
                         Current Communities

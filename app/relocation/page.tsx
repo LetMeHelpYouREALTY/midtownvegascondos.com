@@ -166,7 +166,7 @@ export default function RelocationPage() {
             </h2>
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
               Las Vegas has become one of the fastest-growing cities in America,
-              attracting families, professionals, and retirees from across the
+              attracting relocators, professionals, and retirees from across the
               country. Here's why so many people are making the move to Southern
               Nevada.
             </p>
@@ -436,12 +436,17 @@ export default function RelocationPage() {
 
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
               California to Nevada is one of the most popular relocation routes
-              in the country. Thousands of California families move to Las Vegas
-              each year seeking lower costs, no state income tax, and a better
-              quality of life. Here's what the numbers look like.
+              in the country. Thousands of California relocators move to Las
+              Vegas each year seeking lower costs, no state income tax, and a
+              better quality of life. Here's what the numbers look like.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
+                <HeadingCardPhoto
+                  heading="What You'll Save"
+                  heroKey="buyersCaRelocator"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-3">What You'll Save</h3>
                 <ul className="space-y-2 text-blue-100">
                   <li>
@@ -463,6 +468,11 @@ export default function RelocationPage() {
                 </ul>
               </div>
               <div>
+                <HeadingCardPhoto
+                  heading="What You'll Gain"
+                  heroKey="nbSummerlin"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-3">What You'll Gain</h3>
                 <ul className="space-y-2 text-blue-100">
                   <li>
@@ -517,6 +527,11 @@ export default function RelocationPage() {
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center p-6 bg-slate-50 rounded-xl">
+                <HeadingCardPhoto
+                  heading="Nationwide Network"
+                  heroKey="whyBhhs"
+                  className="mb-4"
+                />
                 <Globe className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">Nationwide Network</h3>
                 <p className="text-slate-600 text-sm">
@@ -525,6 +540,11 @@ export default function RelocationPage() {
                 </p>
               </div>
               <div className="text-center p-6 bg-slate-50 rounded-xl">
+                <HeadingCardPhoto
+                  heading="Coordinated Transactions"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <Shield className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">
                   Coordinated Transactions
@@ -535,6 +555,11 @@ export default function RelocationPage() {
                 </p>
               </div>
               <div className="text-center p-6 bg-slate-50 rounded-xl">
+                <HeadingCardPhoto
+                  heading="Trusted Referrals"
+                  heroKey="aboutAgent"
+                  className="mb-4"
+                />
                 <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">Trusted Referrals</h3>
                 <p className="text-slate-600 text-sm">
@@ -572,7 +597,7 @@ export default function RelocationPage() {
                 },
                 {
                   q: "How does the cost of living compare to California?",
-                  a: "Las Vegas costs about 30-40% less than LA/Orange County and 50%+ less than San Francisco. The biggest savings come from no state income tax (California charges up to 13.3%) and significantly lower housing costs. A family earning $200K in California could save $20,000+ annually just in state taxes.",
+                  a: "Las Vegas costs about 30-40% less than LA/Orange County and 50%+ less than San Francisco. The biggest savings come from no state income tax (California charges up to 13.3%) and significantly lower housing costs. A $200K earner in California could save $20,000+ annually just in state taxes.",
                 },
                 {
                   q: "Do you help coordinate the sale of my current home too?",

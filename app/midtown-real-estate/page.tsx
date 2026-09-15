@@ -9,6 +9,8 @@ import { Phone, ArrowRight, Building2, CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
+import { neighborhoodHeroBySlug } from "@/lib/hero-images";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import {
   agentInfo,
   officeInfo,
@@ -135,6 +137,13 @@ export default function MidtownRealEstatePage() {
                   href={`/neighborhoods/${area.slug}`}
                   className="rounded-lg border border-slate-200 p-4 hover:border-blue-300 transition-colors"
                 >
+                  <HeadingCardPhoto
+                    heading={area.name}
+                    heroKey={
+                      neighborhoodHeroBySlug[area.slug] ?? "neighborhoodsHub"
+                    }
+                    className="mb-3"
+                  />
                   <div className="flex justify-between gap-2 mb-1">
                     <h3 className="font-semibold text-slate-900">
                       {area.name}

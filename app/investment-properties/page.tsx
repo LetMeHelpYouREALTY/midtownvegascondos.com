@@ -279,6 +279,11 @@ export default function InvestmentPropertiesPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-blue-700 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="Buy & Hold Rentals"
+                  heroKey="nbNorthLasVegas"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-2">Buy & Hold Rentals</h3>
                 <p className="text-blue-200 text-sm">
                   Long-term wealth building through rental income and
@@ -287,6 +292,11 @@ export default function InvestmentPropertiesPage() {
                 </p>
               </div>
               <div className="bg-blue-700 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="Fix & Flip"
+                  heroKey="sellersMoveUp"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-2">Fix & Flip</h3>
                 <p className="text-blue-200 text-sm">
                   Value-add opportunities for active investors. We identify
@@ -294,6 +304,11 @@ export default function InvestmentPropertiesPage() {
                 </p>
               </div>
               <div className="bg-blue-700 rounded-lg p-6">
+                <HeadingCardPhoto
+                  heading="Short-Term Rentals"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg mb-2">Short-Term Rentals</h3>
                 <p className="text-blue-200 text-sm">
                   Vacation rental opportunities in tourist-friendly areas.
@@ -325,6 +340,11 @@ export default function InvestmentPropertiesPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Cap Rate (Capitalization Rate)"
+                  heroKey="investmentProperties"
+                  className="mb-4"
+                />
                 <Calculator className="h-8 w-8 text-blue-600 mb-4" />
                 <h3 className="font-bold text-lg text-slate-900 mb-2">
                   Cap Rate (Capitalization Rate)
@@ -340,6 +360,11 @@ export default function InvestmentPropertiesPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Cash-on-Cash Return"
+                  heroKey="marketReport"
+                  className="mb-4"
+                />
                 <TrendingUp className="h-8 w-8 text-green-600 mb-4" />
                 <h3 className="font-bold text-lg text-slate-900 mb-2">
                   Cash-on-Cash Return
@@ -355,6 +380,11 @@ export default function InvestmentPropertiesPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Total Return"
+                  heroKey="marketInsights"
+                  className="mb-4"
+                />
                 <BarChart className="h-8 w-8 text-purple-600 mb-4" />
                 <h3 className="font-bold text-lg text-slate-900 mb-2">
                   Total Return
@@ -370,6 +400,11 @@ export default function InvestmentPropertiesPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Price-to-Rent Ratio"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <DollarSign className="h-8 w-8 text-amber-600 mb-4" />
                 <h3 className="font-bold text-lg text-slate-900 mb-2">
                   Price-to-Rent Ratio
@@ -400,6 +435,11 @@ export default function InvestmentPropertiesPage() {
 
             <div className="space-y-6">
               <div className="bg-white rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="North Las Vegas"
+                  heroKey="nbNorthLasVegas"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl text-slate-900 mb-2">
                   North Las Vegas
                 </h3>
@@ -407,7 +447,7 @@ export default function InvestmentPropertiesPage() {
                   <strong>Best for: Cash flow investors.</strong> Highest cap
                   rates in the valley (5.2%+) with lower entry prices. Growing
                   population as Amazon, Fanatics, and other employers expand.
-                  School quality varies by area—research specific zones.
+                  Confirm commute times and HOA rules for each address.
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
@@ -417,12 +457,17 @@ export default function InvestmentPropertiesPage() {
                     <span className="font-medium">Rent:</span> $1,800-$2,200
                   </div>
                   <div>
-                    <span className="font-medium">Tenant Pool:</span> Working
-                    families, warehouse workers
+                    <span className="font-medium">Tenant Pool:</span> Warehouse
+                    and logistics workers, commuting professionals
                   </div>
                 </div>
               </div>
               <div className="bg-white rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Henderson"
+                  heroKey="nbHenderson"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl text-slate-900 mb-2">
                   Henderson
                 </h3>
@@ -440,11 +485,16 @@ export default function InvestmentPropertiesPage() {
                   </div>
                   <div>
                     <span className="font-medium">Tenant Pool:</span>{" "}
-                    Professionals, families, retirees
+                    Professionals, medical staff, retirees
                   </div>
                 </div>
               </div>
               <div className="bg-white rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Summerlin"
+                  heroKey="nbSummerlin"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl text-slate-900 mb-2">
                   Summerlin
                 </h3>
@@ -452,7 +502,7 @@ export default function InvestmentPropertiesPage() {
                   <strong>Best for: Appreciation investors.</strong> Premium
                   neighborhood with strongest appreciation (6.8% YoY). Lower cap
                   rates but exceptional tenant quality and very low vacancy.
-                  Best-in-class schools and amenities.
+                  Trail systems, Downtown Summerlin, and Red Rock access.
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
@@ -491,6 +541,11 @@ export default function InvestmentPropertiesPage() {
               </p>
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
+                  <HeadingCardPhoto
+                    heading="Key Deadlines"
+                    heroKey="marketReport"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-3">
                     Key Deadlines
                   </h3>
@@ -518,6 +573,11 @@ export default function InvestmentPropertiesPage() {
                   </ul>
                 </div>
                 <div>
+                  <HeadingCardPhoto
+                    heading="Why Las Vegas for 1031s?"
+                    heroKey="investmentProperties"
+                    className="mb-4"
+                  />
                   <h3 className="font-bold text-slate-900 mb-3">
                     Why Las Vegas for 1031s?
                   </h3>

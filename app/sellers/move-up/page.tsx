@@ -16,6 +16,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/sellers/move-up", {
   title: "Move-Up Sellers Las Vegas | Berkshire Hathaway HomeServices",
@@ -111,60 +112,81 @@ export default function MoveUpSellerPage() {
             />
 
             <div className="space-y-6">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 flex items-center">
-                <div className="flex-shrink-0 mr-6">
-                  <div className="bg-blue-100 rounded-full p-3">
-                    <HomeIcon className="h-6 w-6 text-blue-600" />
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Centennial Hills → Summerlin"
+                  heroKey="nbSummerlin"
+                  className="mb-4"
+                />
+                <div className="flex items-center">
+                  <div className="flex-shrink-0 mr-6">
+                    <div className="bg-blue-100 rounded-full p-3">
+                      <HomeIcon className="h-6 w-6 text-blue-600" />
+                    </div>
                   </div>
+                  <div className="flex-grow">
+                    <h3 className="font-bold text-slate-900 mb-1">
+                      Centennial Hills → Summerlin
+                    </h3>
+                    <p className="text-slate-600 text-sm">
+                      Upgrade from $450K starter to $650K+ in Downtown Summerlin
+                      area. Walkable amenities and Red Rock views.
+                    </p>
+                  </div>
+                  <ArrowRight className="h-6 w-6 text-blue-600 flex-shrink-0 ml-4" />
                 </div>
-                <div className="flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-1">
-                    Centennial Hills → Summerlin
-                  </h3>
-                  <p className="text-slate-600 text-sm">
-                    Upgrade from $450K starter to $650K+ in Downtown Summerlin
-                    area. Walkable amenities and Red Rock views.
-                  </p>
-                </div>
-                <ArrowRight className="h-6 w-6 text-blue-600 flex-shrink-0 ml-4" />
               </div>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6 flex items-center">
-                <div className="flex-shrink-0 mr-6">
-                  <div className="bg-green-100 rounded-full p-3">
-                    <HomeIcon className="h-6 w-6 text-green-600" />
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Green Valley → MacDonald Ranch"
+                  heroKey="nbGreenValley"
+                  className="mb-4"
+                />
+                <div className="flex items-center">
+                  <div className="flex-shrink-0 mr-6">
+                    <div className="bg-green-100 rounded-full p-3">
+                      <HomeIcon className="h-6 w-6 text-green-600" />
+                    </div>
                   </div>
+                  <div className="flex-grow">
+                    <h3 className="font-bold text-slate-900 mb-1">
+                      Green Valley → MacDonald Ranch
+                    </h3>
+                    <p className="text-slate-600 text-sm">
+                      Move from established Green Valley ($520K) to luxury
+                      Henderson ($800K+). Larger lots, custom features, mountain
+                      views.
+                    </p>
+                  </div>
+                  <ArrowRight className="h-6 w-6 text-green-600 flex-shrink-0 ml-4" />
                 </div>
-                <div className="flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-1">
-                    Green Valley → MacDonald Ranch
-                  </h3>
-                  <p className="text-slate-600 text-sm">
-                    Move from established Green Valley ($520K) to luxury
-                    Henderson ($800K+). Larger lots, custom features, mountain
-                    views.
-                  </p>
-                </div>
-                <ArrowRight className="h-6 w-6 text-green-600 flex-shrink-0 ml-4" />
               </div>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6 flex items-center">
-                <div className="flex-shrink-0 mr-6">
-                  <div className="bg-purple-100 rounded-full p-3">
-                    <HomeIcon className="h-6 w-6 text-purple-600" />
+              <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Inspirada → Southern Highlands"
+                  heroKey="nbSouthernHighlands"
+                  className="mb-4"
+                />
+                <div className="flex items-center">
+                  <div className="flex-shrink-0 mr-6">
+                    <div className="bg-purple-100 rounded-full p-3">
+                      <HomeIcon className="h-6 w-6 text-purple-600" />
+                    </div>
                   </div>
+                  <div className="flex-grow">
+                    <h3 className="font-bold text-slate-900 mb-1">
+                      Inspirada → Southern Highlands
+                    </h3>
+                    <p className="text-slate-600 text-sm">
+                      Graduate from master-planned ($525K) to golf community
+                      luxury ($750K+). Country club lifestyle, guard-gated
+                      options.
+                    </p>
+                  </div>
+                  <ArrowRight className="h-6 w-6 text-purple-600 flex-shrink-0 ml-4" />
                 </div>
-                <div className="flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-1">
-                    Inspirada → Southern Highlands
-                  </h3>
-                  <p className="text-slate-600 text-sm">
-                    Graduate from master-planned ($525K) to golf community
-                    luxury ($750K+). Country club lifestyle, guard-gated
-                    options.
-                  </p>
-                </div>
-                <ArrowRight className="h-6 w-6 text-purple-600 flex-shrink-0 ml-4" />
               </div>
             </div>
           </section>
@@ -182,6 +204,11 @@ export default function MoveUpSellerPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
+                <HeadingCardPhoto
+                  heading="The Sell Side"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4 flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
                   The Sell Side
@@ -206,6 +233,11 @@ export default function MoveUpSellerPage() {
                 </ul>
               </div>
               <div>
+                <HeadingCardPhoto
+                  heading="The Buy Side"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4 flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
                   The Buy Side
@@ -255,6 +287,11 @@ export default function MoveUpSellerPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Sell First, Then Buy"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <span className="text-blue-600 font-bold text-xl">1</span>
                 </div>
@@ -277,6 +314,11 @@ export default function MoveUpSellerPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Buy First, Then Sell"
+                  heroKey="sellersMoveUp"
+                  className="mb-4"
+                />
                 <div className="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <span className="text-green-600 font-bold text-xl">2</span>
                 </div>
@@ -300,6 +342,11 @@ export default function MoveUpSellerPage() {
                 </div>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Simultaneous Close"
+                  heroKey="sellersRelocation"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <span className="text-purple-600 font-bold text-xl">3</span>
                 </div>
@@ -345,6 +392,11 @@ export default function MoveUpSellerPage() {
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white/10 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Bridge Loans"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <DollarSign className="h-8 w-8 text-green-400 mb-4" />
                 <h3 className="font-bold text-lg mb-2">Bridge Loans</h3>
                 <p className="text-slate-300 text-sm">
@@ -355,6 +407,11 @@ export default function MoveUpSellerPage() {
                 </p>
               </div>
               <div className="bg-white/10 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Home Equity Line of Credit (HELOC)"
+                  heroKey="sellersMoveUp"
+                  className="mb-4"
+                />
                 <DollarSign className="h-8 w-8 text-blue-400 mb-4" />
                 <h3 className="font-bold text-lg mb-2">
                   Home Equity Line of Credit (HELOC)
@@ -366,6 +423,11 @@ export default function MoveUpSellerPage() {
                 </p>
               </div>
               <div className="bg-white/10 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Sale Contingency"
+                  heroKey="buyersFirstTime"
+                  className="mb-4"
+                />
                 <Shield className="h-8 w-8 text-purple-400 mb-4" />
                 <h3 className="font-bold text-lg mb-2">Sale Contingency</h3>
                 <p className="text-slate-300 text-sm">
@@ -376,6 +438,11 @@ export default function MoveUpSellerPage() {
                 </p>
               </div>
               <div className="bg-white/10 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Rent-Back Agreement"
+                  heroKey="sellersDownsizing"
+                  className="mb-4"
+                />
                 <Calendar className="h-8 w-8 text-amber-400 mb-4" />
                 <h3 className="font-bold text-lg mb-2">Rent-Back Agreement</h3>
                 <p className="text-slate-300 text-sm">

@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata("/sellers/downsizing", {
   title: "Downsizing in Las Vegas | Berkshire Hathaway HomeServices",
@@ -26,7 +27,7 @@ export const metadata: Metadata = withPageHeroMetadata("/sellers/downsizing", {
     "downsizing Las Vegas",
     "sell large home Las Vegas",
     "55 plus communities Las Vegas",
-    "empty nester Las Vegas",
+    "downsizing Las Vegas",
     "Berkshire Hathaway HomeServices downsizing",
   ],
 });
@@ -65,20 +66,30 @@ export default function DownsizingPage() {
             </h2>
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-white/10 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Your Current Home"
+                  heroKey="sellersMoveUp"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl mb-4 flex items-center">
                   <HomeIcon className="h-6 w-6 mr-2 text-blue-400" />
                   Your Current Home
                 </h3>
                 <p className="text-slate-300 mb-4">
-                  Large family home you've owned for 15+ years. 4-5 bedrooms,
-                  big yard, endless maintenance. Kids are gone, and it's more
-                  space than you need.
+                  A 4-5 bedroom home you've owned for 15+ years. Large yard and
+                  more maintenance than you want. More square footage than you
+                  use day to day.
                 </p>
                 <div className="text-2xl font-bold text-blue-400">
                   Value: $650K-$900K
                 </div>
               </div>
               <div className="bg-white/10 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Your New Life"
+                  heroKey="sellersDownsizing"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-xl mb-4 flex items-center">
                   <ArrowDownRight className="h-6 w-6 mr-2 text-green-400" />
                   Your New Life
@@ -115,6 +126,11 @@ export default function DownsizingPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="55+ Communities"
+                  heroKey="fiftyFivePlus"
+                  className="mb-4"
+                />
                 <div className="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Sun className="h-6 w-6 text-amber-600" />
                 </div>
@@ -136,6 +152,11 @@ export default function DownsizingPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Single-Story Homes"
+                  heroKey="nbHenderson"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <HomeIcon className="h-6 w-6 text-blue-600" />
                 </div>
@@ -143,9 +164,9 @@ export default function DownsizingPage() {
                   Single-Story Homes
                 </h3>
                 <p className="text-slate-600 text-sm mb-4">
-                  Right-sized single-story in established neighborhoods. No
-                  stairs, smaller yard, lower utility costs. Age-in-place
-                  features available.
+                  Right-sized single-story homes with smaller yards and lower
+                  utility costs. Single-level floor plans and HOA options
+                  available.
                 </p>
                 <div className="text-blue-600 font-semibold">$400K - $600K</div>
                 <Link
@@ -157,6 +178,11 @@ export default function DownsizingPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Lock-and-Leave Condos"
+                  heroKey="buyersCondoTower"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Shield className="h-6 w-6 text-purple-600" />
                 </div>
@@ -192,8 +218,13 @@ export default function DownsizingPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
+                <HeadingCardPhoto
+                  heading="Selling Your Current Home"
+                  heroKey="sellersHighrise"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4">
-                  Selling Your Large Home
+                  Selling Your Current Home
                 </h3>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start">
@@ -224,6 +255,11 @@ export default function DownsizingPage() {
                 </ul>
               </div>
               <div>
+                <HeadingCardPhoto
+                  heading="Finding Your Right-Sized Home"
+                  heroKey="fiftyFiveHeritage"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4">
                   Finding Your Right-Sized Home
                 </h3>
@@ -393,6 +429,11 @@ export default function DownsizingPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div>
+                <HeadingCardPhoto
+                  heading="Financial Factors"
+                  heroKey="homeValuation"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4">
                   Financial Factors
                 </h3>
@@ -424,6 +465,11 @@ export default function DownsizingPage() {
                 </ul>
               </div>
               <div>
+                <HeadingCardPhoto
+                  heading="Lifestyle Factors"
+                  heroKey="fiftyFivePlus"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-lg text-slate-900 mb-4">
                   Lifestyle Factors
                 </h3>
@@ -553,7 +599,7 @@ export default function DownsizingPage() {
               {[
                 {
                   q: "How much can I expect to pocket when downsizing?",
-                  a: "Most downsizers moving from large family homes ($650K-$900K) to 55+ communities or condos ($400K-$550K) walk away with $150,000-$350,000+ in net equity after all costs. Dr. Jan provides a detailed projection based on your specific situation.",
+                  a: "Most downsizers moving from larger homes ($650K-$900K) to 55+ communities or condos ($400K-$550K) walk away with $150,000-$350,000+ in net equity after all costs. Dr. Jan provides a detailed projection based on your specific situation.",
                 },
                 {
                   q: "What if my home needs repairs before selling?",

@@ -123,14 +123,14 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
               <p className="text-slate-700 mb-6">{property.description}</p>
 
               <div className="bg-slate-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  Features
-                </h3>
                 <HeadingCardPhoto
                   heading="Features"
                   sectionKey="listingDetails"
                   className="mb-4"
                 />
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  Features
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center">
                     <Bed className="h-5 w-5 text-blue-600 mr-2" />
@@ -161,14 +161,14 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
 
               {/* RealScout Widget Integration Point */}
               <div className="bg-blue-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  Schedule a Showing
-                </h3>
                 <HeadingCardPhoto
                   heading="Schedule a Showing"
                   sectionKey="contactTouch"
                   className="mb-4"
                 />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  Schedule a Showing
+                </h3>
                 <p className="text-slate-700 mb-4">
                   Contact us to schedule a private viewing of this property.
                 </p>
@@ -181,14 +181,14 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
             {/* Sidebar */}
             <div className="md:col-span-1">
               <div className="bg-white border border-slate-200 rounded-lg p-6 sticky top-24">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">
-                  Contact Agent
-                </h3>
                 <HeadingCardPhoto
                   heading="Contact Agent"
                   sectionKey="aboutBio"
                   className="mb-4"
                 />
+                <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  Contact Agent
+                </h3>
                 <p className="text-slate-600 mb-4">Dr. Jan Duffy</p>
                 <p className="text-sm text-slate-600 mb-6">
                   Berkshire Hathaway HomeServices Nevada Properties
