@@ -70,6 +70,9 @@ describe("R2 image sync script", () => {
     expect(workflow).toMatch(/global_auth=/);
     expect(workflow).toMatch(/Vercel env keys matching R2\/Cloudflare\/AWS/);
     expect(workflow).toMatch(/Vercel production env keys from env pull/);
+    expect(workflow).toMatch(/Pull R2 keys from sister Vercel projects/);
+    expect(workflow).toMatch(/hertagestonebridge.com:prj_Egvst53Qns0tSJ0K5cqfbicv2MIj/);
+    expect(workflow).toMatch(/copied \$key from \$source/);
   });
 
   it("skips cleanly when Cloudflare credentials are absent", () => {
