@@ -39,7 +39,7 @@ export default function FAQSection({
             {subtitle}
           </p>
           <SectionPhoto
-            imageKey="hoaReview"
+            imageKey="faqCategories"
             heading={title}
             className="mx-auto max-w-3xl text-left"
           />
