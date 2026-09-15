@@ -8,7 +8,6 @@ import {
   Building2,
   Cpu,
   Globe,
-  Zap,
   BarChart3,
   Users,
   DollarSign,
