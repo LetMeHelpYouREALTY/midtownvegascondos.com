@@ -17,6 +17,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import SchemaScript from "@/components/SchemaScript";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import {
   generateBreadcrumbSchema,
   generateSeniorCommunitySchema,
@@ -223,6 +224,11 @@ export default function SunCityAnthemPage() {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
                     Why Henderson Matters
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Why Henderson Matters"
+                    heroKey="nbHenderson"
+                    className="mb-4"
+                  />
                   <p className="text-slate-700 mb-4">
                     Henderson sits about 16 miles from the Arts District office,
                     with parks, trail systems, and championship golf inside the
@@ -268,6 +274,11 @@ export default function SunCityAnthemPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Championship Golf"
+                  heroKey="fiftyFiveSunCityAnthem"
+                  className="mb-4"
+                />
                 <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Trophy className="h-6 w-6 text-green-600" />
                 </div>
@@ -282,6 +293,11 @@ export default function SunCityAnthemPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Anthem Center (64,000 sf)"
+                  sectionKey="fiftyFiveAmenities"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Dumbbell className="h-6 w-6 text-blue-600" />
                 </div>
@@ -296,6 +312,11 @@ export default function SunCityAnthemPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Active Lifestyle"
+                  heroKey="fiftyFivePlus"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Users className="h-6 w-6 text-purple-600" />
                 </div>
@@ -325,6 +346,11 @@ export default function SunCityAnthemPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Liberty"
+                  heroKey="fiftyFiveSunCityAnthem"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-2">Liberty</h3>
                 <p className="text-slate-600 text-sm mb-3">
                   Original phase with established landscaping. Close to Anthem
@@ -332,6 +358,11 @@ export default function SunCityAnthemPage() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Independence"
+                  heroKey="nbHenderson"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-2">Independence</h3>
                 <p className="text-slate-600 text-sm mb-3">
                   Mid-range pricing with mountain views. Popular floor plans and
@@ -339,6 +370,11 @@ export default function SunCityAnthemPage() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Heritage"
+                  heroKey="fiftyFiveHeritage"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-2">Heritage</h3>
                 <p className="text-slate-600 text-sm mb-3">
                   Premium section with larger custom homes. Best views, largest
@@ -346,6 +382,11 @@ export default function SunCityAnthemPage() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Eagle's Landing"
+                  heroKey="buyersLuxury"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-2">
                   Eagle's Landing
                 </h3>

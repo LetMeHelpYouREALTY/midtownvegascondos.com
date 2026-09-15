@@ -20,6 +20,7 @@ import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import { agentInfo } from "@/lib/site-config";
 
 const PATH = "/55-plus-communities/trilogy-summerlin";
@@ -185,6 +186,11 @@ export default function TrilogySummerlinPage() {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
                     The Trilogy Difference: Resort-Style Living
                   </h3>
+                  <HeadingCardPhoto
+                    heading="The Trilogy Difference: Resort-Style Living"
+                    heroKey="fiftyFiveTrilogy"
+                    className="mb-4"
+                  />
                   <p className="text-slate-700 mb-4">
                     Trilogy isn't just a 55+ community with a nice
                     clubhouse—it's a resort experience you happen to live in.
@@ -237,6 +243,11 @@ export default function TrilogySummerlinPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Farm-to-Table Dining"
+                  heroKey="fiftyFiveTrilogy"
+                  className="mb-4"
+                />
                 <div className="bg-rose-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <UtensilsCrossed className="h-6 w-6 text-rose-600" />
                 </div>
@@ -251,6 +262,11 @@ export default function TrilogySummerlinPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Spa & Wellness Center"
+                  heroKey="luxuryHomes"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Sparkles className="h-6 w-6 text-purple-600" />
                 </div>
@@ -265,6 +281,11 @@ export default function TrilogySummerlinPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Fitness & Recreation"
+                  sectionKey="fiftyFiveAmenities"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Dumbbell className="h-6 w-6 text-blue-600" />
                 </div>
@@ -298,6 +319,11 @@ export default function TrilogySummerlinPage() {
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Architecture & Design"
+                  heroKey="newConstruction"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-3">
                   Architecture & Design
                 </h3>
@@ -321,6 +347,11 @@ export default function TrilogySummerlinPage() {
                 </ul>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <HeadingCardPhoto
+                  heading="Features & Finishes"
+                  heroKey="buyersLuxury"
+                  className="mb-4"
+                />
                 <h3 className="font-bold text-slate-900 mb-3">
                   Features & Finishes
                 </h3>

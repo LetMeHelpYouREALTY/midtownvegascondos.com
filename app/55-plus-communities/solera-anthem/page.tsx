@@ -18,6 +18,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/55-plus-communities/solera-anthem",
@@ -174,6 +175,11 @@ export default function SoleraAnthemPage() {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
                     All Residents 55+
                   </h3>
+                  <HeadingCardPhoto
+                    heading="All Residents 55+"
+                    heroKey="fiftyFiveSolera"
+                    className="mb-4"
+                  />
                   <p className="text-slate-700 mb-4">
                     Most 55+ communities allow younger spouses under the 80/20
                     HOPA rule. Solera is different—
@@ -217,20 +223,30 @@ export default function SoleraAnthemPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Guard-Gated Entry"
+                  heroKey="fiftyFiveSolera"
+                  className="mb-4"
+                />
                 <div className="bg-teal-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Shield className="h-6 w-6 text-teal-600" />
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">
-                  Guard-Gated Security
+                  Guard-Gated Entry
                 </h3>
                 <ul className="text-slate-600 text-sm space-y-1">
                   <li>• 24/7 manned gate</li>
                   <li>• Visitor verification</li>
                   <li>• Community patrol</li>
-                  <li>• Peace of mind</li>
+                  <li>• HOA-managed common areas</li>
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Clubhouse & Fitness"
+                  sectionKey="fiftyFiveAmenities"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Dumbbell className="h-6 w-6 text-blue-600" />
                 </div>
@@ -245,6 +261,11 @@ export default function SoleraAnthemPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Tennis & Recreation"
+                  heroKey="fiftyFiveSunCityAnthem"
+                  className="mb-4"
+                />
                 <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <HomeIcon className="h-6 w-6 text-green-600" />
                 </div>
@@ -277,6 +298,11 @@ export default function SoleraAnthemPage() {
                 <div className="flex items-start">
                   <Shield className="h-6 w-6 text-teal-600 mr-3 flex-shrink-0" />
                   <div>
+                    <HeadingCardPhoto
+                      heading="Guard-Gated Anthem Location"
+                      heroKey="fiftyFiveSolera"
+                      className="mb-3"
+                    />
                     <h3 className="font-bold text-slate-900 mb-2">
                       Guard-Gated Anthem Location
                     </h3>
@@ -292,6 +318,11 @@ export default function SoleraAnthemPage() {
                 <div className="flex items-start">
                   <Mountain className="h-6 w-6 text-teal-600 mr-3 flex-shrink-0" />
                   <div>
+                    <HeadingCardPhoto
+                      heading="Anthem Master-Planned Community"
+                      heroKey="nbHenderson"
+                      className="mb-3"
+                    />
                     <h3 className="font-bold text-slate-900 mb-2">
                       Anthem Master-Planned Community
                     </h3>
@@ -306,6 +337,11 @@ export default function SoleraAnthemPage() {
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-teal-600 mr-3 flex-shrink-0" />
                   <div>
+                    <HeadingCardPhoto
+                      heading="Near Sun City Anthem"
+                      heroKey="fiftyFiveSunCityAnthem"
+                      className="mb-3"
+                    />
                     <h3 className="font-bold text-slate-900 mb-2">
                       Near Sun City Anthem
                     </h3>
@@ -320,6 +356,11 @@ export default function SoleraAnthemPage() {
                 <div className="flex items-start">
                   <DollarSign className="h-6 w-6 text-teal-600 mr-3 flex-shrink-0" />
                   <div>
+                    <HeadingCardPhoto
+                      heading="Lower HOA Than Larger Communities"
+                      heroKey="homeValuation"
+                      className="mb-3"
+                    />
                     <h3 className="font-bold text-slate-900 mb-2">
                       Lower HOA Than Larger Communities
                     </h3>

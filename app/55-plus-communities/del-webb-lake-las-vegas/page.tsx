@@ -17,6 +17,7 @@ import { generateCommunityPageSchema } from "@/lib/community-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import SchemaScript from "@/components/SchemaScript";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 import { agentInfo } from "@/lib/site-config";
 
 const PATH = "/55-plus-communities/del-webb-lake-las-vegas";
@@ -185,6 +186,11 @@ export default function DelWebbLakeLasVegasPage() {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
                     The Lake Las Vegas Experience
                   </h3>
+                  <HeadingCardPhoto
+                    heading="The Lake Las Vegas Experience"
+                    heroKey="fiftyFiveDelWebb"
+                    className="mb-4"
+                  />
                   <p className="text-slate-700 mb-4">
                     Lake Las Vegas is a 320-acre private lake surrounded by
                     luxury resorts, golf courses, and residential communities.
@@ -230,6 +236,11 @@ export default function DelWebbLakeLasVegasPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Fitness & Pools"
+                  sectionKey="fiftyFiveAmenities"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Dumbbell className="h-6 w-6 text-blue-600" />
                 </div>
@@ -244,6 +255,11 @@ export default function DelWebbLakeLasVegasPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Courts & Sports"
+                  heroKey="fiftyFiveSunCityAnthem"
+                  className="mb-4"
+                />
                 <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Star className="h-6 w-6 text-green-600" />
                 </div>
@@ -258,6 +274,11 @@ export default function DelWebbLakeLasVegasPage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Modern Homes"
+                  heroKey="newConstruction"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <HomeIcon className="h-6 w-6 text-purple-600" />
                 </div>

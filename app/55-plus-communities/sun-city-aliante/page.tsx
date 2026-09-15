@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
+import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
 
 export const metadata: Metadata = withPageHeroMetadata(
   "/55-plus-communities/sun-city-aliante",
@@ -174,10 +175,15 @@ export default function SunCityAliantePage() {
                   <h3 className="text-xl font-bold text-slate-900 mb-4">
                     Why Sun City Aliante Is the Best Value
                   </h3>
+                  <HeadingCardPhoto
+                    heading="Why Sun City Aliante Is the Best Value"
+                    heroKey="fiftyFiveSunCityAliante"
+                    className="mb-4"
+                  />
                   <p className="text-slate-700 mb-4">
                     Compare Sun City Aliante to other Sun City communities and
-                    the value becomes clear. You get the same lifestyle,
-                    amenities, and community feel—at significantly lower prices.
+                    the value becomes clear. You get the same lifestyle and
+                    amenities at significantly lower prices.
                   </p>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="bg-white rounded-lg p-4">
@@ -232,6 +238,11 @@ export default function SunCityAliantePage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="18-Hole Golf Course"
+                  heroKey="fiftyFiveSunCityAliante"
+                  className="mb-4"
+                />
                 <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Trophy className="h-6 w-6 text-green-600" />
                 </div>
@@ -246,6 +257,11 @@ export default function SunCityAliantePage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="Recreation Center (42,000 sf)"
+                  sectionKey="fiftyFiveAmenities"
+                  className="mb-4"
+                />
                 <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Dumbbell className="h-6 w-6 text-blue-600" />
                 </div>
@@ -260,6 +276,11 @@ export default function SunCityAliantePage() {
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
+                <HeadingCardPhoto
+                  heading="100+ Clubs & Activities"
+                  heroKey="fiftyFivePlus"
+                  className="mb-4"
+                />
                 <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                   <Users className="h-6 w-6 text-purple-600" />
                 </div>
@@ -292,6 +313,11 @@ export default function SunCityAliantePage() {
                 <div className="flex items-start">
                   <Car className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" />
                   <div>
+                    <HeadingCardPhoto
+                      heading="Easy Freeway Access"
+                      heroKey="nbNorthLasVegas"
+                      className="mb-3"
+                    />
                     <h3 className="font-bold text-slate-900 mb-2">
                       Easy Freeway Access
                     </h3>
@@ -306,6 +332,11 @@ export default function SunCityAliantePage() {
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" />
                   <div>
+                    <HeadingCardPhoto
+                      heading="Aliante Casino & Hotel"
+                      heroKey="homeStripNight"
+                      className="mb-3"
+                    />
                     <h3 className="font-bold text-slate-900 mb-2">
                       Aliante Casino & Hotel
                     </h3>
@@ -320,6 +351,11 @@ export default function SunCityAliantePage() {
                 <div className="flex items-start">
                   <DollarSign className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" />
                   <div>
+                    <HeadingCardPhoto
+                      heading="Lower Property Taxes"
+                      heroKey="buyersCaRelocator"
+                      className="mb-3"
+                    />
                     <h3 className="font-bold text-slate-900 mb-2">
                       Lower Property Taxes
                     </h3>
@@ -334,6 +370,11 @@ export default function SunCityAliantePage() {
                 <div className="flex items-start">
                   <TrendingUp className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" />
                   <div>
+                    <HeadingCardPhoto
+                      heading="Growing Area"
+                      heroKey="nbNorthLasVegas"
+                      className="mb-3"
+                    />
                     <h3 className="font-bold text-slate-900 mb-2">
                       Growing Area
                     </h3>
