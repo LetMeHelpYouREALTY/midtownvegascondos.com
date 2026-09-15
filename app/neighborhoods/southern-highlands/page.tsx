@@ -290,6 +290,13 @@ export default function SouthernHighlandsPage() {
             <h2 className="text-2xl font-bold mb-3">
               Tour Southern Highlands with Dr. Jan Duffy
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Tour Southern Highlands with Dr. Jan Duffy"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>

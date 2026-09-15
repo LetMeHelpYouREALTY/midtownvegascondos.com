@@ -476,6 +476,13 @@ export default function MarketUpdatePage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Get Personalized Market Insights
             </h2>
+            <SectionPhoto
+              imageKey="marketSnapshot"
+              heading="Get Personalized Market Insights"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Want to know what these trends mean for your specific situation?
               Contact Dr. Jan Duffy for a free consultation tailored to your

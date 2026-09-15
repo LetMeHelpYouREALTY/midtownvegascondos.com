@@ -608,6 +608,13 @@ export default function DownsizingPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Simplify Your Life?
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Ready to Simplify Your Life?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Get a free home valuation and explore your downsizing options. Dr.
               Jan will show you what's possible without any pressure.

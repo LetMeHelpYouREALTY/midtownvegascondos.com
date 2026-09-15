@@ -615,6 +615,13 @@ export default function HomeValuationPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Know What Your Home Is Worth?
             </h2>
+            <SectionPhoto
+              imageKey="valuationSchedule"
+              heading="Ready to Know What Your Home Is Worth?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Get a free, no-obligation home valuation from Dr. Jan Duffy and
               Berkshire Hathaway HomeServices Nevada Properties. Accurate

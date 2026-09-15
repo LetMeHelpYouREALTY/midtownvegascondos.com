@@ -558,6 +558,13 @@ export default function RelocationPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Planning Your Move to Las Vegas?
             </h2>
+            <SectionPhoto
+              imageKey="relocationWhy"
+              heading="Planning Your Move to Las Vegas?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-slate-300 mb-8">
               Let Dr. Jan Duffy and Berkshire Hathaway HomeServices make your
               relocation stress-free. Whether you're moving next month or

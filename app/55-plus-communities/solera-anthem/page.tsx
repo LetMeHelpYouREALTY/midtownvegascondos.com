@@ -419,6 +419,13 @@ export default function SoleraAnthemPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Experience Intimate 55+ Living
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Experience Intimate 55+ Living"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-teal-100 mb-8">
               Discover why Solera at Anthem offers the close-knit community
               experience larger developments can't match. Tour with Dr. Jan

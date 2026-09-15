@@ -562,6 +562,13 @@ export default function FirstTimeBuyersPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Stop Renting?
             </h2>
+            <SectionPhoto
+              imageKey="firstTimeFinancing"
+              heading="Ready to Stop Renting?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Let's talk about your options. Dr. Jan Duffy will help you
               understand what you can afford and create a plan to make

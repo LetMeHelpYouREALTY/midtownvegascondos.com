@@ -333,6 +333,13 @@ export default function WhyBerkshireHathawayPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Experience the Berkshire Hathaway Difference
             </h2>
+            <SectionPhoto
+              imageKey="whyBuffett"
+              heading="Experience the Berkshire Hathaway Difference"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-slate-300 mb-8">
               Ready to work with the most trusted name in real estate? Contact
               Dr. Jan Duffy today.

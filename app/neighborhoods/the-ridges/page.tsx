@@ -509,6 +509,13 @@ export default function TheRidgesPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Experience The Ridges Luxury
             </h2>
+            <SectionPhoto
+              imageKey="luxuryStats"
+              heading="Experience The Ridges Luxury"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy for a confidential consultation about buying
               or selling in Las Vegas's most prestigious community.

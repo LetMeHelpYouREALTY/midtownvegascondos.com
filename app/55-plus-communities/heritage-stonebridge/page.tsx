@@ -235,6 +235,11 @@ export default function HeritageStonebridgePage() {
             <h2 className="text-xl font-bold text-slate-900 mb-2">
               Tour Heritage at Stonebridge or Midtown
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Tour Heritage at Stonebridge or Midtown"
+              className="mb-6 text-left"
+            />
             <p className="text-slate-700 mb-1">
               Dr. Jan Duffy · License {agentInfo.license} · Berkshire Hathaway
               HomeServices Nevada Properties

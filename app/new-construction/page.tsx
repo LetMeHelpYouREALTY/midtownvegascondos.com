@@ -728,6 +728,13 @@ export default function NewConstructionPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Tour New Construction?
             </h2>
+            <SectionPhoto
+              imageKey="newConstructionAgent"
+              heading="Ready to Tour New Construction?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Call <strong>(702) 500-1980</strong> to register Dr. Jan Duffy as
               your buyer's agent

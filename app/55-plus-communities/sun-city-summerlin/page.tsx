@@ -411,6 +411,12 @@ export default function SunCitySummerlinPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Explore Sun City Summerlin
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Explore Sun City Summerlin"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <p className="text-xl text-amber-100 mb-8">
               Ready to experience Nevada's premier 55+ community? Dr. Jan Duffy
               offers private tours and expert guidance on finding your perfect

@@ -413,11 +413,15 @@ export default function SellersPage() {
 
           {/* Home Valuation CTA */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">What's Your Home Worth?</h2>
+            <SectionPhoto
+              imageKey="valuationSchedule"
+              heading="What's Your Home Worth?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-4">
-                  What's Your Home Worth?
-                </h2>
                 <p className="text-blue-100 mb-6">
                   Get a free, no-obligation home valuation from Dr. Jan Duffy.
                   Using current MLS data and expertise serving Las Vegas since
@@ -497,6 +501,13 @@ export default function SellersPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Sell Your Las Vegas Home?
             </h2>
+            <SectionPhoto
+              imageKey="valuationSchedule"
+              heading="Ready to Sell Your Las Vegas Home?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-slate-300 mb-8">
               Schedule a free listing consultation with Dr. Jan Duffy and
               discover what your home could sell for with Berkshire Hathaway

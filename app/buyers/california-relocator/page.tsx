@@ -518,6 +518,13 @@ export default function CaliforniaRelocatorPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Start Your Tax-Free Life?
             </h2>
+            <SectionPhoto
+              imageKey="relocationWhy"
+              heading="Ready to Start Your Tax-Free Life?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Get a personalized relocation consultation with Dr. Jan Duffy.
               She'll show you exactly what your California equity buys in Las

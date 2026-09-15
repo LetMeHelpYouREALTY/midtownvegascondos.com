@@ -889,6 +889,13 @@ export default function FiftyFiveCommunitiesPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Let's Find Your Ideal Lifestyle Match
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Let's Find Your Ideal Lifestyle Match"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Ready to explore active adult living in Las Vegas? Contact Dr. Jan
               Duffy for a free consultation and personalized community

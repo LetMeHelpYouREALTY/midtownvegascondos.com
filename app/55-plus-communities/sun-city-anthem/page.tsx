@@ -381,6 +381,13 @@ export default function SunCityAnthemPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Discover Sun City Anthem
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Discover Sun City Anthem"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-green-100 mb-8">
               Experience Henderson's premier 55+ community. Dr. Jan Duffy
               provides tours and expert guidance for Sun City Anthem home

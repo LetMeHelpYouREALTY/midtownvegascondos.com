@@ -207,6 +207,13 @@ export default function MidtownRealEstatePage() {
             <h2 className="text-2xl font-bold mb-3">
               Work with a midtown condo specialist
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Work with a midtown condo specialist"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-slate-300 mb-2">
               {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
             </p>

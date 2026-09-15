@@ -433,6 +433,13 @@ export default function SunCityAliantePage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Discover Sun City Aliante's Value
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Discover Sun City Aliante's Value"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-green-100 mb-8">
               See why Sun City Aliante offers the best value in Las Vegas 55+
               living. Tour the community with Dr. Jan Duffy.

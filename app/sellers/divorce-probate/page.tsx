@@ -604,6 +604,13 @@ export default function DivorceProbatePage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Confidential Consultation
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Confidential Consultation"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-slate-300 mb-8">
               Discuss your situation privately with Dr. Jan. No pressure, no
               judgment—just professional guidance to help you move forward.

@@ -444,6 +444,13 @@ export default function LuxuryHomesPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Experience Las Vegas Luxury
             </h2>
+            <SectionPhoto
+              imageKey="luxuryStats"
+              heading="Experience Las Vegas Luxury"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-slate-300 mb-8">
               Schedule a private consultation to discuss your requirements. Dr.
               Jan Duffy provides confidential, expert guidance for discerning

@@ -456,6 +456,13 @@ export default function MoveUpSellerPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               What's Your Home Worth Today?
             </h2>
+            <SectionPhoto
+              imageKey="valuationSchedule"
+              heading="What's Your Home Worth Today?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-blue-100 mb-8">
               Get a free equity analysis and see what your next home could look
               like. Dr. Jan will show you the numbers and create a strategic

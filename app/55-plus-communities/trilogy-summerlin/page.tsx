@@ -467,6 +467,13 @@ export default function TrilogySummerlinPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Experience Luxury 55+ Living
             </h2>
+            <SectionPhoto
+              imageKey="fiftyFiveCommunities"
+              heading="Experience Luxury 55+ Living"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-rose-100 mb-8">
               Discover why Trilogy at Summerlin sets the standard for
               resort-style 55+ living. Private tours available with Dr. Jan

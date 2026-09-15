@@ -544,6 +544,13 @@ export default function LuxuryHomesPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Discover Las Vegas Luxury Living
             </h2>
+            <SectionPhoto
+              imageKey="luxuryStats"
+              heading="Discover Las Vegas Luxury Living"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-slate-300 mb-8">
               Whether buying or selling a luxury property, Dr. Jan Duffy
               provides the expertise and Berkshire Hathaway prestige your

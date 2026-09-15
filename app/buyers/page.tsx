@@ -508,6 +508,13 @@ export default function BuyersPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Find Your Midtown Condo?
             </h2>
+            <SectionPhoto
+              imageKey="homeCta"
+              heading="Ready to Find Your Midtown Condo?"
+              className="mx-auto mb-8 max-w-3xl text-left"
+              onDark
+            />
+
             <p className="text-xl text-slate-300 mb-8">
               Questions about buying a midtown Las Vegas condo? Call Dr. Jan
               Duffy for a free consultation — HOA review, building comparisons,
