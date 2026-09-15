@@ -84,6 +84,10 @@ jobs:
                 val="${line#*=}"
                 val="${val#\"}"
                 val="${val%\"}"
+                if [ "$val" = "[SENSITIVE]" ] || [ -z "$val" ]; then
+                  echo "skipped $key (not usable from vercel env pull)"
+                  continue
+                fi
                 printf '%s=%s\n' "$key" "$val" >> "$GITHUB_ENV"
                 echo "copied $key"
                 ;;
