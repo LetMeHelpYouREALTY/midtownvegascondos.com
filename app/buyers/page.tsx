@@ -177,14 +177,14 @@ export default function BuyersPage() {
 
           {/* Buying Process */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              The Midtown Condo Buying Process
-            </h2>
             <SectionPhoto
               imageKey="buyersProcess"
               heading="The Midtown Condo Buying Process"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              The Midtown Condo Buying Process
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Buying a midtown condo means reviewing HOA documents, rental
               restrictions, and building-specific comps — not just square
@@ -223,14 +223,14 @@ export default function BuyersPage() {
 
           {/* Neighborhood Guide */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Midtown Las Vegas Condo Neighborhoods
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="Midtown Las Vegas Condo Neighborhoods"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Midtown Las Vegas Condo Neighborhoods
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Midtown offers walkable urban living from Arts District lofts to
               Strip-view high-rises. Dr. Jan helps you compare buildings by HOA
@@ -279,14 +279,14 @@ export default function BuyersPage() {
 
           {/* Buyer Types */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Specialized Guidance for Every Buyer
-            </h2>
             <SectionPhoto
               imageKey="buyersSpecialized"
               heading="Specialized Guidance for Every Buyer"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Specialized Guidance for Every Buyer
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Different buyers have different needs. A first-time buyer needs
               education and hand-holding through the process. A California
@@ -363,14 +363,14 @@ export default function BuyersPage() {
 
           {/* Why BHHS */}
           <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Why Buy with Berkshire Hathaway HomeServices
-            </h2>
             <SectionPhoto
               imageKey="whyBuffett"
               heading="Why Buy with Berkshire Hathaway HomeServices"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Why Buy with Berkshire Hathaway HomeServices
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Not all real estate agents are created equal. When you choose a
               Berkshire Hathaway HomeServices agent, you're choosing the only
@@ -466,15 +466,15 @@ export default function BuyersPage() {
 
           {/* Market Stats */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">
-              Las Vegas Buyer Market Statistics | January 2026
-            </h2>
             <SectionPhoto
               imageKey="marketSnapshot"
               heading="Las Vegas Buyer Market Statistics | January 2026"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-2xl font-bold mb-4 text-center">
+              Las Vegas Buyer Market Statistics | January 2026
+            </h2>
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
               Understanding the current market helps you make informed decisions
               about timing, pricing, and negotiation strategies. Here's a
@@ -503,14 +503,14 @@ export default function BuyersPage() {
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Frequently Asked Questions About Buying in Las Vegas
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions About Buying in Las Vegas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Frequently Asked Questions About Buying in Las Vegas
+            </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Get answers to the most common questions from Las Vegas home
               buyers. If you don't see your question here, call Dr. Jan Duffy at

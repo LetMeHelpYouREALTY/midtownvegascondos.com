@@ -251,14 +251,14 @@ export default function GoogleBusinessPage() {
 
           {/* GBP map pin */}
           <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
-              Business Location
-            </h2>
             <SectionPhoto
               imageKey="gbpLocation"
               heading="Business Location"
               className="mb-6 text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Business Location
+            </h2>
             <p className="text-slate-600 mb-4">
               {officeInfo.address.full} · Arts District & Downtown Las Vegas
               service area
@@ -307,14 +307,14 @@ export default function GoogleBusinessPage() {
 
           {/* About - GBP Description Structure */}
           <section className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              About Dr. Jan Duffy
-            </h2>
             <SectionPhoto
               imageKey="gbpAbout"
               heading="About Dr. Jan Duffy"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              About Dr. Jan Duffy
+            </h2>
 
             {/* Section 1: Who We Are */}
             <div className="mb-8">
@@ -367,14 +367,14 @@ export default function GoogleBusinessPage() {
 
           {/* Services - Each creates searchable GBP field */}
           <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Real Estate Services
-            </h2>
             <SectionPhoto
               imageKey="gbpServices"
               heading="Real Estate Services"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Real Estate Services
+            </h2>
             <div className="grid md:grid-cols-3 gap-4">
               {businessInfo.services.map((service) => (
                 <div
@@ -409,14 +409,14 @@ export default function GoogleBusinessPage() {
 
           {/* Service Areas - Distance factor */}
           <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Service Areas
-            </h2>
             <SectionPhoto
               imageKey="contactAreas"
               heading="Service Areas"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Service Areas
+            </h2>
             <div className="bg-blue-50 rounded-xl p-8">
               <div className="grid md:grid-cols-3 gap-8">
                 <div>
@@ -511,14 +511,14 @@ export default function GoogleBusinessPage() {
 
           {/* FAQ Section - Extra ranking boost */}
           <section className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
             <div className="space-y-4">
               {gbpFAQs.map((faq, index) => (
                 <div
@@ -539,14 +539,14 @@ export default function GoogleBusinessPage() {
           <section className="max-w-4xl mx-auto mb-16">
             <div className="bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200 rounded-xl p-8 text-center">
               <Star className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">
-                Your Review Helps Others Find Quality Service
-              </h2>
               <SectionPhoto
                 imageKey="reviews"
                 heading="Your Review Helps Others Find Quality Service"
                 className="mx-auto mb-6 max-w-3xl text-left"
               />
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">
+                Your Review Helps Others Find Quality Service
+              </h2>
               <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
                 If Dr. Jan helped you buy or sell a home, please consider
                 sharing your experience. Mention your neighborhood, type of

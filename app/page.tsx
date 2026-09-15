@@ -206,6 +206,11 @@ export default function Home() {
         {/* RealScout search — below hero so LCP is not blocked by the UMD widget */}
         <section className="border-b border-slate-200 bg-white py-10">
           <div className="container mx-auto px-4 text-center">
+            <SectionPhoto
+              imageKey="searchMidtown"
+              heading="Search Midtown Vegas Condos"
+              className="mx-auto mb-8 max-w-3xl text-left"
+            />
             <h2 className="mb-2 text-2xl font-bold text-slate-900 md:text-3xl">
               Search Midtown Vegas Condos
             </h2>
@@ -213,11 +218,6 @@ export default function Home() {
               Live MLS results with Dr. Jan Duffy — filter by price, beds, and
               building.
             </p>
-            <SectionPhoto
-              imageKey="searchMidtown"
-              heading="Search Midtown Vegas Condos"
-              className="mx-auto mb-8 max-w-3xl text-left"
-            />
             <div className="mx-auto flex max-w-2xl justify-center">
               <RealScoutSimpleSearch
                 agentEncodedId={config.realscoutAgentId}
@@ -231,6 +231,11 @@ export default function Home() {
         <section className="bg-white py-16 md:py-20">
           <div className="container mx-auto px-4">
             <div className="mx-auto mb-12 max-w-4xl text-center">
+              <SectionPhoto
+                imageKey="whyJan"
+                heading="Why Work With Dr. Jan Duffy?"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
                 Why Work With Dr. Jan Duffy?
               </h2>
@@ -238,11 +243,6 @@ export default function Home() {
                 Midtown Las Vegas condo specialist at Berkshire Hathaway
                 HomeServices Nevada Properties.
               </p>
-              <SectionPhoto
-                imageKey="whyJan"
-                heading="Why Work With Dr. Jan Duffy?"
-                className="mx-auto max-w-4xl text-left"
-              />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[
@@ -355,6 +355,11 @@ export default function Home() {
         <section className="py-16 md:py-20 bg-slate-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
+              <SectionPhoto
+                imageKey="neighborhoods"
+                heading="Midtown Las Vegas Condo Neighborhoods"
+                className="mx-auto mb-8 max-w-4xl text-left"
+              />
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                 Midtown Las Vegas Condo Neighborhoods
               </h2>
@@ -362,11 +367,6 @@ export default function Home() {
                 From Strip-adjacent high-rises to Arts District lofts — explore
                 Las Vegas urban living.
               </p>
-              <SectionPhoto
-                imageKey="neighborhoods"
-                heading="Midtown Las Vegas Condo Neighborhoods"
-                className="mx-auto max-w-4xl text-left"
-              />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {midtownNeighborhoods.slice(0, 8).map((area) => {
@@ -419,18 +419,18 @@ export default function Home() {
         {/* Domain-Specific CTA */}
         <section className="py-16 md:py-20 bg-blue-600 text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {config.ctaHeadline}
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              {config.ctaSubheadline}
-            </p>
             <SectionPhoto
               imageKey="homeCta"
               heading={config.ctaHeadline}
               className="mx-auto mb-8 max-w-3xl text-left"
               onDark
             />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {config.ctaHeadline}
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              {config.ctaSubheadline}
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={agentInfo.phoneTel}

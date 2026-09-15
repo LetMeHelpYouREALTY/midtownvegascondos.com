@@ -283,14 +283,14 @@ export default function ListingsPage() {
           </section>
 
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3 text-center">
-              Midtown search shortcuts
-            </h2>
             <SectionPhoto
               imageKey="contactAreas"
               heading="Midtown search shortcuts"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 text-center">
+              Midtown search shortcuts
+            </h2>
 
             <p className="text-slate-600 text-center max-w-2xl mx-auto mb-8">
               Jump to hyperlocal condo pages Google and buyers already care
@@ -363,15 +363,15 @@ export default function ListingsPage() {
           </section>
 
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center flex items-center justify-center gap-2">
-              <Building2 className="h-7 w-7 text-blue-600" />
-              Midtown condo neighborhoods
-            </h2>
             <SectionPhoto
               imageKey="neighborhoods"
               heading="Midtown condo neighborhoods"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center flex items-center justify-center gap-2">
+              <Building2 className="h-7 w-7 text-blue-600" />
+              Midtown condo neighborhoods
+            </h2>
             <div className="grid md:grid-cols-2 gap-4">
               {midtownNeighborhoods.map((area) => {
                 const heroKey =
@@ -416,14 +416,14 @@ export default function ListingsPage() {
           </section>
 
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">
-              Condo buyer checklist before you offer
-            </h2>
             <SectionPhoto
               imageKey="listingsChecklist"
               heading="Condo buyer checklist before you offer"
               className="mb-6 text-left"
             />
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Condo buyer checklist before you offer
+            </h2>
             <ul className="space-y-3">
               {buyingTips.map((tip) => (
                 <li key={tip} className="flex gap-3 text-slate-700">
@@ -438,17 +438,17 @@ export default function ListingsPage() {
             className="mb-16 max-w-4xl mx-auto"
             aria-labelledby="listings-faq"
           >
+            <SectionPhoto
+              imageKey="faqCategories"
+              heading="Listings FAQ"
+              className="mb-6 text-left"
+            />
             <h2
               id="listings-faq"
               className="text-2xl font-bold text-slate-900 mb-4"
             >
               Listings FAQ
             </h2>
-            <SectionPhoto
-              imageKey="faqCategories"
-              heading="Listings FAQ"
-              className="mb-6 text-left"
-            />
             <dl className="space-y-4">
               {faqs.map((faq) => (
                 <div

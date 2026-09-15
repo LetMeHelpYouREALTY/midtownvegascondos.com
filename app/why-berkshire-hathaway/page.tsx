@@ -113,14 +113,14 @@ export default function WhyBerkshireHathawayPage() {
 
           {/* Key Benefits */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">
-              The BHHS Advantage
-            </h2>
             <SectionPhoto
               imageKey="aboutBhhs"
               heading="The BHHS Advantage"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">
+              The BHHS Advantage
+            </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
@@ -237,15 +237,15 @@ export default function WhyBerkshireHathawayPage() {
 
           {/* Stats Section */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Berkshire Hathaway HomeServices By The Numbers
-            </h2>
             <SectionPhoto
               imageKey="neighborhoodMarket"
               heading="Berkshire Hathaway HomeServices By The Numbers"
               className="mx-auto mb-8 max-w-4xl text-left"
               onDark
             />
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Berkshire Hathaway HomeServices By The Numbers
+            </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
@@ -275,14 +275,14 @@ export default function WhyBerkshireHathawayPage() {
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  Your Local BHHS Expert in Las Vegas
-                </h2>
                 <SectionPhoto
                   imageKey="aboutBio"
                   heading="Your Local BHHS Expert in Las Vegas"
                   className="mx-auto mb-8 max-w-4xl text-left"
                 />
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                  Your Local BHHS Expert in Las Vegas
+                </h2>
 
                 <p className="text-lg text-slate-700 mb-6">
                   Dr. Jan Duffy brings the power of{" "}
@@ -329,14 +329,14 @@ export default function WhyBerkshireHathawayPage() {
 
           {/* FAQ Section */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions About BHHS
-            </h2>
             <SectionPhoto
               imageKey="faqCategories"
               heading="Frequently Asked Questions About BHHS"
               className="mx-auto mb-8 max-w-4xl text-left"
             />
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Frequently Asked Questions About BHHS
+            </h2>
 
             <div className="space-y-4">
               {[
