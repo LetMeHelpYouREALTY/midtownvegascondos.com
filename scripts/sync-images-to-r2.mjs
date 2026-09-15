@@ -55,7 +55,7 @@ function accountId() {
 }
 
 function hasWranglerAuth() {
-  return Boolean(isUsableSecret(process.env.CLOUDFLARE_API_TOKEN) && accountId());
+  return isUsableSecret(process.env.CLOUDFLARE_API_TOKEN);
 }
 
 function hasS3Auth() {
@@ -74,7 +74,9 @@ async function resolveAccountIdFromToken() {
     headers: { Authorization: `Bearer ${token}` },
   });
   if (!response.ok) {
-    console.error(`Cloudflare accounts lookup HTTP ${response.status}`);
+    console.error(
+      `Cloudflare accounts lookup HTTP ${response.status} — continuing with token-only wrangler auth`,
+    );
     return "";
   }
   const body = await response.json();
