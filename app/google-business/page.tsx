@@ -29,6 +29,7 @@ import { officeInfo } from "@/lib/site-config";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import GbpPostsSection from "@/components/sections/GbpPostsSection";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import type { HeroImageKey } from "@/lib/hero-images";
 
 const gbpServiceHero: Record<string, HeroImageKey> = {
@@ -390,11 +391,6 @@ export default function GoogleBusinessPage() {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
                     <div>
-                      <HeadingCardPhoto
-                        heading="Primary Markets"
-                        heroKey="artsDistrict"
-                        className="mb-3"
-                      />
                       <h3 className="font-semibold text-slate-900">
                         {service.name}
                       </h3>
@@ -421,22 +417,29 @@ export default function GoogleBusinessPage() {
             <div className="bg-blue-50 rounded-xl p-8">
               <div className="grid md:grid-cols-3 gap-8">
                 <div>
+                  <HeadingCardPhoto
+                    heading="Primary Markets"
+                    heroKey="artsDistrict"
+                    className="mb-3"
+                  />
                   <h3 className="font-bold text-slate-900 mb-3">
                     Primary Markets
                   </h3>
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> Las Vegas, NV
+                      <MapPin className="h-4 w-4 text-blue-600" /> Arts
+                      District, Las Vegas
                     </li>
                     <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> Summerlin, NV
+                      <MapPin className="h-4 w-4 text-blue-600" /> Downtown Las
+                      Vegas
                     </li>
                   </ul>
                 </div>
                 <div>
                   <HeadingCardPhoto
                     heading="Secondary Markets"
-                    heroKey="nbHenderson"
+                    heroKey="symphonyPark"
                     className="mb-3"
                   />
                   <h3 className="font-bold text-slate-900 mb-3">
@@ -444,11 +447,10 @@ export default function GoogleBusinessPage() {
                   </h3>
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> Henderson, NV
+                      <MapPin className="h-4 w-4 text-blue-600" /> Symphony Park
                     </li>
                     <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> North Las
-                      Vegas, NV
+                      <MapPin className="h-4 w-4 text-blue-600" /> Fremont East
                     </li>
                   </ul>
                 </div>
@@ -581,22 +583,14 @@ export default function GoogleBusinessPage() {
                 Contact Dr. Jan Duffy for a free consultation about buying or
                 selling in Las Vegas.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={`tel:${businessInfo.phone.tel}`}
-                  className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
-                >
-                  <Phone className="h-5 w-5 mr-2" />
-                  {businessInfo.phone.display}
-                </a>
+              <GbpEngageButtons onDark>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center rounded-md bg-slate-700 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-600"
                 >
-                  <Mail className="h-5 w-5 mr-2" />
                   Send Message
                 </Link>
-              </div>
+              </GbpEngageButtons>
               <p className="text-slate-400 text-sm mt-6">
                 {businessInfo.address.streetAddress},{" "}
                 {businessInfo.address.addressLocality},{" "}

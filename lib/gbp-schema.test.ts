@@ -106,6 +106,9 @@ describe("GBP engage CTAs on live pages", () => {
     "app/55-plus-communities/page.tsx",
     "app/neighborhood/page.tsx",
     "app/midtown-real-estate/page.tsx",
+    "app/google-business/page.tsx",
+    "app/security-policy/page.tsx",
+    "app/not-found.tsx",
   ];
 
   it("includes Call, Directions, and Reviews on high-intent pages", () => {
@@ -115,5 +118,16 @@ describe("GBP engage CTAs on live pages", () => {
       const hasReviews = text.includes("View Google Reviews");
       expect(hasButtons || hasReviews).toBe(true);
     }
+  });
+
+  it("keeps GBP service-card photos matched to each service heading", () => {
+    const text = readFileSync(
+      join(process.cwd(), "app/google-business/page.tsx"),
+      "utf8",
+    );
+    expect(text.split('heading="Primary Markets"').length - 1).toBe(1);
+    expect(text).toContain("Arts District");
+    expect(text).toContain("Symphony Park");
+    expect(text).not.toContain('heroKey="nbHenderson"');
   });
 });

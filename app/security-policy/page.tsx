@@ -4,6 +4,7 @@ import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
 import SectionPhoto from "@/components/sections/SectionPhoto";
 import HeadingCardPhoto from "@/components/sections/HeadingCardPhoto";
+import GbpEngageButtons from "@/components/sections/GbpEngageButtons";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 
@@ -375,6 +376,7 @@ export default function SecurityPolicyPage() {
                   </a>
                 </p>
               </div>
+              <GbpEngageButtons className="mt-6 justify-start" />
             </section>
 
             <p className="border-t pt-6 mt-12 text-sm text-gray-500">
