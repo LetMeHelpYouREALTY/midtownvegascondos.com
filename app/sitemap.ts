@@ -35,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/faq", priority: 0.8, changeFrequency: "monthly" },
     { path: "/blog", priority: 0.8, changeFrequency: "weekly" },
     { path: "/midtown-real-estate", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/amenities", priority: 0.85, changeFrequency: "monthly" },
     { path: "/security-policy", priority: 0.3, changeFrequency: "yearly" },
 
     // Midtown lifestyle (GSC recovery — singular /neighborhood paths)

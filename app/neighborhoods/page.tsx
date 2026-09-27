@@ -8,6 +8,7 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import { hyperlocalMeta, midtownNeighborhoods } from "@/lib/hyperlocal-content";
 import { agentInfo } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
+import AmenityMapSection from "@/components/sections/AmenityMapSection";
 
 export const metadata: Metadata = withPageHeroMetadata("/neighborhoods", {
   title: hyperlocalMeta.neighborhoods.title,
@@ -84,6 +85,7 @@ export default function NeighborhoodsPage() {
             </div>
           </section>
         </div>
+        <AmenityMapSection compact />
         <RealScoutListings />
       </main>
       <Footer />

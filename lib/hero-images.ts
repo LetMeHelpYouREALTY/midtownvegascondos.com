@@ -616,6 +616,7 @@ export const pageHeroByPath: Record<string, HeroImageKey> = {
   "/google-business": "googleBusiness",
   "/blog": "homeSkylineDay",
   "/midtown-real-estate": "homeStripNight",
+  "/amenities": "neighborhoodsHub",
   "/neighborhood": "juhl",
   "/neighborhood/run-club": "featuredArtsLoft",
   "/neighborhood/ev-program": "featuredSymphony",

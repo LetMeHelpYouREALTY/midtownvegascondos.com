@@ -4,6 +4,7 @@ import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch"
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
+import AmenityMapSection from "@/components/sections/AmenityMapSection";
 import Footer from "@/components/layouts/Footer";
 import AgentPhoto from "@/components/shared/AgentPhoto";
 import Link from "next/link";
@@ -264,6 +265,7 @@ export default function Home() {
           </div>
         </section>
 
+        <AmenityMapSection compact />
         <RealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
