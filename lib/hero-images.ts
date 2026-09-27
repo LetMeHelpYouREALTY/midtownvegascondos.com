@@ -689,10 +689,7 @@ export function generateHeroImageSchema(
     creditText: `${agentInfo.name}, ${agentInfo.brokerage}`,
     copyrightNotice: `© ${new Date().getFullYear()} ${siteConfig.fullName}`,
     creator: {
-      "@type": "RealEstateAgent",
-      name: agentInfo.name,
-      url: siteConfig.url,
-      telephone: agentInfo.phoneTel.replace("tel:", ""),
+      "@id": `${siteConfig.url}#organization`,
     },
     contentLocation: {
       "@type": "Place",
@@ -710,9 +707,7 @@ export function generateHeroImageSchema(
       },
     },
     about: {
-      "@type": "RealEstateAgent",
       "@id": `${siteConfig.url}#organization`,
-      name: `${agentInfo.name} - ${siteConfig.name}`,
     },
   };
 }

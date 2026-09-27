@@ -16,6 +16,12 @@ export const siteConfig = {
     "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, a real estate expert with 30+ years of experience. Personalized service guaranteed!",
 };
 
+/** Homepage & default document title (30–60 chars for SERP display). */
+export const homePageTitle = "Las Vegas Arts District Condos | Dr. Jan Duffy";
+
+/** Canonical RealEstateAgent @id — reference from other JSON-LD nodes. */
+export const organizationSchemaId = `${siteConfig.url}#organization`;
+
 export const agentInfo = {
   name: "Dr. Jan Duffy",
   title: "REALTOR®",

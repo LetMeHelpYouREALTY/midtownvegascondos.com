@@ -7,7 +7,7 @@ import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
-import { agentInfo, getAgentImageSrc, officeInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo, officeInfo, organizationSchemaId, siteConfig } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = withPageHeroMetadata("/contact", {
@@ -25,22 +25,7 @@ export const metadata: Metadata = withPageHeroMetadata("/contact", {
 const contactSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  mainEntity: {
-    "@type": "RealEstateAgent",
-    name: siteConfig.name,
-    telephone: agentInfo.phoneTel.replace("tel:", ""),
-    email: agentInfo.email,
-    image: getAgentImageSrc(),
-    url: `${siteConfig.url}/contact`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: officeInfo.address.street,
-      addressLocality: officeInfo.address.city,
-      addressRegion: officeInfo.address.state,
-      postalCode: officeInfo.address.zip,
-      addressCountry: "US",
-    },
-  },
+  mainEntity: { "@id": organizationSchemaId },
 };
 
 export default function ContactPage() {

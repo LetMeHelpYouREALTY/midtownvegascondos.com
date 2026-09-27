@@ -1,7 +1,7 @@
 // Google Business Profile Schema Data
 // NAP / hours / categories must match GBP exactly for midtownvegascondos.com
 
-import { getAgentImageSrc, officeInfo, siteConfig } from "./site-config";
+import { agentInfo, getAgentImageSrc, officeInfo, organizationSchemaId, siteConfig } from "./site-config";
 
 export const businessInfo = {
   // NAP - Must match GBP exactly
@@ -150,11 +150,15 @@ export function generateLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": ["RealEstateAgent", "LocalBusiness"],
-    "@id": `${siteConfig.url}/#organization`,
-    name: businessInfo.name,
+    "@id": organizationSchemaId,
+    name: agentInfo.name,
+    jobTitle: agentInfo.title,
     alternateName: [
+      businessInfo.name,
+      siteConfig.name,
       "Las Vegas Arts District Condos",
       "Homes by Dr. Jan Duffy",
+      "Midtown Las Vegas Condo Specialist",
       "Berkshire Hathaway HomeServices Nevada Properties",
     ],
     description: businessInfo.description,

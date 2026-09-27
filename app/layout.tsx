@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { DEFAULT_CONFIG } from "@/lib/domain-config";
-import { siteConfig } from "@/lib/site-config";
+import { homePageTitle, siteConfig } from "@/lib/site-config";
 import { getDefaultSocialImage, heroImageMetadata } from "@/lib/image-seo";
 import { getSearchConsoleVerification } from "@/lib/search-console";
 import { generateLocalBusinessSchema } from "@/lib/gbp-schema";
@@ -19,7 +19,7 @@ import Script from "next/script";
 export const metadata: Metadata = (() => {
   const config = DEFAULT_CONFIG;
   const siteUrl = siteConfig.url;
-  const title = `${config.heroHeadline} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`;
+  const title = homePageTitle;
   const description = config.description;
   const social = getDefaultSocialImage();
   const geoMeta = heroImageMetadata("homeStripDusk", {

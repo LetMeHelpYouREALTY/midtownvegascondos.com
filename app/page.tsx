@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { DEFAULT_CONFIG } from "@/lib/domain-config";
-import { agentInfo, agentStats, getAgentImageSrc, marketStats, midtownAreas, officeInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo, homePageTitle, marketStats, midtownAreas, siteConfig } from "@/lib/site-config";
 import { defaultFaqs } from "@/lib/faqs";
 import { getHeroImage } from "@/lib/hero-images";
 import {
@@ -26,13 +26,12 @@ export const revalidate = 3600;
 const config = DEFAULT_CONFIG;
 
 export const metadata: Metadata = withPageHeroMetadata("/", {
-  title: `${config.heroHeadline} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`,
+  title: homePageTitle,
   description: config.description,
   keywords: config.keywords,
 });
 
 export default function Home() {
-  const siteUrl = siteConfig.url;
   const homeHero = getHeroImage("homeStripDusk");
 
   const heroPageSchema = generatePageHeroSchemaGraph({
@@ -42,33 +41,8 @@ export default function Home() {
     pageDescription: config.description,
   });
 
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "@id": `${siteUrl}#organization`,
-    name: `${agentInfo.name} - ${config.neighborhood} Condo Specialist`,
-    url: siteUrl,
-    image: getAgentImageSrc(),
-    telephone: agentInfo.phoneTel.replace("tel:", ""),
-    email: agentInfo.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: officeInfo.address.street,
-      addressLocality: officeInfo.address.city,
-      addressRegion: officeInfo.address.state,
-      postalCode: officeInfo.address.zip,
-      addressCountry: "US",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: agentStats.averageRating.toString(),
-      reviewCount: agentStats.reviewCount.toString(),
-    },
-  };
-
   return (
     <>
-      <SchemaScript schema={organizationSchema} id="home-org-schema" />
       <SchemaScript schema={heroPageSchema} id="home-hero-schema" />
       <FAQSchema faqs={defaultFaqs} />
       <Navbar />

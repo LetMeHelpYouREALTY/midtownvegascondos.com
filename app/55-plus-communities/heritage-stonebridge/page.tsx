@@ -79,6 +79,7 @@ export default function HeritageStonebridgePage() {
       <PageHero
         imageKey="fiftyFiveHeritage"
         pagePath={PATH}
+        includeBreadcrumb={false}
         title="Heritage at Stonebridge homes for sale"
         subtitle="55+ golf-course living in North Las Vegas — with a clear Midtown condo comparison from Dr. Jan Duffy."
         priority

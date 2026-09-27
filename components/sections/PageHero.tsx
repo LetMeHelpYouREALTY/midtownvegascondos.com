@@ -19,6 +19,8 @@ type PageHeroProps = {
   imageAlt?: string;
   /** Canonical page path for ImageObject @id (e.g. /buyers) */
   pagePath?: string;
+  /** Set false when the page emits BreadcrumbList elsewhere */
+  includeBreadcrumb?: boolean;
   /** Extra content under subtitle (CTAs, search widgets) */
   children?: React.ReactNode;
   /** Tight padding for secondary pages */
@@ -41,6 +43,7 @@ export default function PageHero({
   imageSrc,
   imageAlt,
   pagePath,
+  includeBreadcrumb,
   children,
   compact = false,
   priority = false,
@@ -56,6 +59,7 @@ export default function PageHero({
     pagePath: path,
     pageName: title,
     pageDescription: subtitle,
+    includeBreadcrumb,
   });
 
   return (

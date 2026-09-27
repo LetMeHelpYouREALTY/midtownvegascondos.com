@@ -16,7 +16,7 @@ import {
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
-import { agentInfo, officeInfo, marketStats, siteConfig } from "@/lib/site-config";
+import { agentInfo, marketStats, officeInfo, organizationSchemaId, siteConfig } from "@/lib/site-config";
 
 const PATH = "/listings";
 
@@ -106,20 +106,7 @@ const listingsSchema = {
         },
       ],
     },
-    {
-      "@type": "RealEstateAgent",
-      name: agentInfo.name,
-      telephone: agentInfo.phoneTel.replace("tel:", ""),
-      url: siteConfig.url,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: officeInfo.address.street,
-        addressLocality: officeInfo.address.city,
-        addressRegion: officeInfo.address.state,
-        postalCode: officeInfo.address.zip,
-        addressCountry: "US",
-      },
-    },
+    { "@id": organizationSchemaId },
   ],
 };
 
@@ -150,6 +137,7 @@ export default function ListingsPage() {
       <PageHero
         imageKey="listingsSearch"
         pagePath={PATH}
+        includeBreadcrumb={false}
         badge="Live MLS · Berkshire Hathaway HomeServices Nevada Properties"
         title="Midtown Las Vegas condos for sale"
         subtitle="Search active MLS inventory, then shortlist Arts District lofts and downtown high-rises with Dr. Jan Duffy."

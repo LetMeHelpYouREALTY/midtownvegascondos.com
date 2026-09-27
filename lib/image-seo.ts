@@ -12,7 +12,8 @@ import {
   pageHeroByPath,
   type HeroImageKey,
 } from "@/lib/hero-images";
-import { siteConfig, agentInfo } from "@/lib/site-config";
+import { generateBreadcrumbListNode } from "@/lib/schema";
+import { agentInfo, organizationSchemaId, siteConfig } from "@/lib/site-config";
 
 export function absoluteImageUrl(src: string): string {
   if (src.startsWith("http")) return src;
@@ -117,6 +118,7 @@ export function generatePageHeroSchemaGraph(opts: {
   pagePath: string;
   pageName: string;
   pageDescription?: string;
+  includeBreadcrumb?: boolean;
 }): Record<string, unknown> {
   const pageUrl = `${siteConfig.url}${opts.pagePath === "/" ? "" : opts.pagePath}`;
   const img = getHeroImage(opts.imageKey);
@@ -124,34 +126,41 @@ export function generatePageHeroSchemaGraph(opts: {
   // Drop top-level @context when nesting in @graph
   const { "@context": _c, ...imageNode } = imageObject;
 
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: opts.pageName,
+      description: opts.pageDescription ?? img.alt,
+      isPartOf: { "@id": `${siteConfig.url}#website` },
+      about: { "@id": organizationSchemaId },
+      primaryImageOfPage: { "@id": `${pageUrl}#hero-image` },
+      image: { "@id": `${pageUrl}#hero-image` },
+      inLanguage: "en-US",
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", "[data-hero-caption]"],
+      },
+    },
+    {
+      ...imageNode,
+      license: `${siteConfig.url}/security-policy`,
+      acquireLicensePage: `${siteConfig.url}/contact`,
+      usageInfo: `${siteConfig.url}/contact`,
+      isPartOf: { "@id": `${pageUrl}#webpage` },
+      mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+    },
+  ];
+
+  const includeBreadcrumb = opts.includeBreadcrumb ?? opts.pagePath !== "/";
+  if (includeBreadcrumb && opts.pagePath !== "/") {
+    graph.push(generateBreadcrumbListNode(opts.pagePath, opts.pageName));
+  }
+
   return {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${pageUrl}#webpage`,
-        url: pageUrl,
-        name: opts.pageName,
-        description: opts.pageDescription ?? img.alt,
-        isPartOf: { "@id": `${siteConfig.url}#website` },
-        about: { "@id": `${siteConfig.url}#organization` },
-        primaryImageOfPage: { "@id": `${pageUrl}#hero-image` },
-        image: { "@id": `${pageUrl}#hero-image` },
-        inLanguage: "en-US",
-        speakable: {
-          "@type": "SpeakableSpecification",
-          cssSelector: ["h1", "[data-hero-caption]"],
-        },
-      },
-      {
-        ...imageNode,
-        license: `${siteConfig.url}/security-policy`,
-        acquireLicensePage: `${siteConfig.url}/contact`,
-        usageInfo: `${siteConfig.url}/contact`,
-        isPartOf: { "@id": `${pageUrl}#webpage` },
-        mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-      },
-    ],
+    "@graph": graph,
   };
 }
 

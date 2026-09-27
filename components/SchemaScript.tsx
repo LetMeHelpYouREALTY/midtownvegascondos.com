@@ -8,7 +8,7 @@
  */
 
 import { combineSchemas, schemaToJsonLd } from "@/lib/schema";
-import { siteConfig } from "@/lib/site-config";
+import { agentInfo, organizationSchemaId, siteConfig } from "@/lib/site-config";
 
 interface SchemaScriptProps {
   /** Single schema object */
@@ -119,8 +119,8 @@ export function ReviewSchema({
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": `${siteConfig.url}#organization`,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    "@id": organizationSchemaId,
+    name: agentInfo.name,
   };
 
   if (aggregateRating) {
