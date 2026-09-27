@@ -8,7 +8,7 @@ import { Phone, ArrowRight, Newspaper } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { blogPosts } from "@/lib/gsc-recovery-pages";
-import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo, officeInfo, organizationSchemaId, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = withPageHeroMetadata("/blog", {
   title: "Midtown Las Vegas Condo Blog | Market & Lifestyle Guides | Dr. Jan Duffy",
@@ -29,20 +29,7 @@ const blogSchema = {
   url: `${siteConfig.url}/blog`,
   description:
     "Market updates and lifestyle guides for midtown Las Vegas condominium buyers and sellers.",
-  publisher: {
-    "@type": "RealEstateAgent",
-    name: agentInfo.name,
-    url: siteConfig.url,
-    telephone: agentInfo.phoneTel.replace("tel:", ""),
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: officeInfo.address.street,
-      addressLocality: officeInfo.address.city,
-      addressRegion: officeInfo.address.state,
-      postalCode: officeInfo.address.zip,
-      addressCountry: "US",
-    },
-  },
+  publisher: { "@id": organizationSchemaId },
   blogPost: blogPosts.map((post) => ({
     "@type": "BlogPosting",
     headline: post.title,

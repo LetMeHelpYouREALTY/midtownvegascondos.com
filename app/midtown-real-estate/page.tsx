@@ -9,7 +9,8 @@ import { Phone, ArrowRight, Building2, CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
 import { midtownNeighborhoods } from "@/lib/hyperlocal-content";
-import { agentInfo, officeInfo, marketStats, siteConfig } from "@/lib/site-config";
+import { agentInfo, marketStats, officeInfo, siteConfig } from "@/lib/site-config";
+import { generateBreadcrumbListNode } from "@/lib/schema";
 
 export const metadata: Metadata = withPageHeroMetadata("/midtown-real-estate", {
   title: "Midtown Real Estate Las Vegas | Condos for Sale | Dr. Jan Duffy",
@@ -39,21 +40,7 @@ const schema = {
         cssSelector: ["h1", "[data-midtown-summary]"],
       },
     },
-    {
-      "@type": "RealEstateAgent",
-      name: agentInfo.name,
-      telephone: agentInfo.phoneTel.replace("tel:", ""),
-      url: siteConfig.url,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: officeInfo.address.street,
-        addressLocality: officeInfo.address.city,
-        addressRegion: officeInfo.address.state,
-        postalCode: officeInfo.address.zip,
-        addressCountry: "US",
-      },
-      areaServed: "Midtown Las Vegas, NV",
-    },
+    generateBreadcrumbListNode("/midtown-real-estate", "Midtown Real Estate Las Vegas"),
     {
       "@type": "FAQPage",
       mainEntity: [
@@ -93,6 +80,7 @@ export default function MidtownRealEstatePage() {
       <PageHero
         imageKey="homeStripNight"
         pagePath="/midtown-real-estate"
+        includeBreadcrumb={false}
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Midtown real estate in Las Vegas"
         subtitle="Condos, lofts, and condo-hotel residences in the Arts District corridor — bought and sold with Dr. Jan Duffy."

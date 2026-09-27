@@ -78,6 +78,7 @@ export default function SunCitySummerlinPage() {
       <PageHero
         imageKey="fiftyFiveSunCitySummerlin"
         pagePath={PATH}
+        includeBreadcrumb={false}
         title="Sun City Summerlin homes for sale"
         subtitle="7,700+ homes. 3 golf courses. 4 recreation centers. Nevada's largest 55+ community — with Dr. Jan Duffy."
         priority

@@ -78,6 +78,7 @@ export default function TrilogySummerlinPage() {
       <PageHero
         imageKey="fiftyFiveTrilogy"
         pagePath={PATH}
+        includeBreadcrumb={false}
         title="Trilogy at Summerlin homes for sale"
         subtitle="Resort-style 55+ living with spa amenities and contemporary homes — represented by Dr. Jan Duffy."
         priority

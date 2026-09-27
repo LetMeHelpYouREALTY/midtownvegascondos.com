@@ -82,6 +82,7 @@ export default function SummerlinPage() {
       <PageHero
         imageKey="nbSummerlin"
         pagePath="/neighborhoods/summerlin"
+        includeBreadcrumb={false}
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Berkshire Hathaway HomeServices Summerlin"
       >

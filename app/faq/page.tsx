@@ -110,6 +110,7 @@ export default function FAQPage() {
       <PageHero
         imageKey="faqLoft"
         pagePath="/faq"
+        includeBreadcrumb={false}
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Frequently Asked Questions"
       >

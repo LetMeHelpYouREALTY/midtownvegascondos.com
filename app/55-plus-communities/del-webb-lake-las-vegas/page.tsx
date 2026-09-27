@@ -75,6 +75,7 @@ export default function DelWebbLakeLasVegasPage() {
       <PageHero
         imageKey="fiftyFiveDelWebb"
         pagePath={PATH}
+        includeBreadcrumb={false}
         title="Del Webb at Lake Las Vegas homes for sale"
         subtitle="Modern 55+ homes with lake and mountain views in Henderson — with Dr. Jan Duffy."
         priority

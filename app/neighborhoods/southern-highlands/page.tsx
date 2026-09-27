@@ -71,6 +71,7 @@ export default function SouthernHighlandsPage() {
       <PageHero
         imageKey="nbSouthernHighlands"
         pagePath={PATH}
+        includeBreadcrumb={false}
         badge="Berkshire Hathaway HomeServices Nevada Properties"
         title="Southern Highlands homes for sale"
         subtitle="Championship golf, gated and open villages, and southwest valley access — with Dr. Jan Duffy."

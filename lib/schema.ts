@@ -226,6 +226,57 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
+const BREADCRUMB_SEGMENT_LABELS: Record<string, string> = {
+  buyers: "Buyers",
+  sellers: "Sellers",
+  neighborhoods: "Neighborhoods",
+  "55-plus-communities": "55+ Communities",
+  listings: "Listings",
+  blog: "Blog",
+  about: "About",
+  contact: "Contact",
+  faq: "FAQ",
+  services: "Services",
+};
+
+function slugToBreadcrumbLabel(segment: string): string {
+  return (
+    BREADCRUMB_SEGMENT_LABELS[segment] ??
+    segment
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
+  );
+}
+
+/**
+ * BreadcrumbList node for nesting in @graph (no @context).
+ */
+export function generateBreadcrumbListNode(pagePath: string, currentPageName: string) {
+  const normalized = pagePath.replace(/\/$/, "") || "/";
+  const items: BreadcrumbItem[] = [{ name: "Home", url: "/" }];
+  const segments = normalized.split("/").filter(Boolean);
+
+  segments.forEach((segment, index) => {
+    const path = `/${segments.slice(0, index + 1).join("/")}`;
+    const isLast = index === segments.length - 1;
+    items.push({
+      name: isLast ? currentPageName : slugToBreadcrumbLabel(segment),
+      url: path,
+    });
+  });
+
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url.startsWith("http") ? item.url : `${BASE_URL}${item.url}`,
+    })),
+  };
+}
+
 /**
  * Generate WebSite schema with search action
  */

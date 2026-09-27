@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
-import { agentInfo, getAgentImageSrc, officeInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo, getAgentImageSrc, officeInfo, organizationSchemaId, siteConfig } from "@/lib/site-config";
 import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = withPageHeroMetadata("/about", {
@@ -41,8 +41,9 @@ export const metadata: Metadata = withPageHeroMetadata("/about", {
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "Dr. Jan Duffy",
-  jobTitle: "REALTOR®",
+  "@id": organizationSchemaId,
+  name: agentInfo.name,
+  jobTitle: agentInfo.title,
   description:
     "Licensed real estate agent with Berkshire Hathaway HomeServices Nevada Properties, specializing in midtown and downtown Las Vegas condos since 2008.",
   telephone: "+17025001980",

@@ -94,6 +94,7 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
       <PageHero
         imageKey={heroKey}
         pagePath={`/neighborhoods/${area.slug}`}
+        includeBreadcrumb={false}
         badge="Midtown Las Vegas Condos"
         title={`${area.name} Condos for Sale`}
         subtitle={area.description}

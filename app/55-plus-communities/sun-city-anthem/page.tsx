@@ -109,6 +109,7 @@ export default function SunCityAnthemPage() {
       <PageHero
         imageKey="fiftyFiveSunCityAnthem"
         pagePath="/55-plus-communities/sun-city-anthem"
+        includeBreadcrumb={false}
         title="Sun City Anthem"
         subtitle="7,100+ homes. Mountain views. Henderson safety. Championship golf."
       />
