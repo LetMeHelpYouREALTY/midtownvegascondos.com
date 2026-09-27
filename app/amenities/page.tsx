@@ -78,9 +78,11 @@ export default function AmenitiesPage() {
                   className="rounded-lg border border-slate-200 p-4 text-sm"
                 >
                   <p className="font-semibold text-slate-900">{place.name}</p>
-                  <p className="text-slate-600 mt-1">{place.address}</p>
+                  {place.address ? (
+                    <p className="text-slate-600 mt-1">{place.address}</p>
+                  ) : null}
                   <a
-                    href={placeSearchUrl(place.name, place.address)}
+                    href={placeSearchUrl(place.name, place.address ?? "")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1 text-blue-600 hover:underline"

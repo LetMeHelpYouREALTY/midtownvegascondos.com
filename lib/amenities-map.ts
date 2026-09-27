@@ -128,7 +128,10 @@ export const amenityCategories: AmenityCategory[] = [
 
 export type CuratedPlace = {
   name: string;
-  address: string;
+  /** Verified street address — omit from schema if undefined */
+  address?: string;
+  /** Official business / agency page used to verify name and address */
+  sourceUrl: string;
   categories: AmenityCategoryId[];
   schemaType:
     | "Restaurant"
@@ -153,97 +156,107 @@ export type CuratedPlace = {
 export const curatedNearbyPlaces: CuratedPlace[] = [
   {
     name: "Esther's Kitchen",
-    address: "1130 S Main St, Las Vegas, NV 89101",
+    address: "1131 S Main St, Las Vegas, NV 89104",
+    sourceUrl: "https://www.estherslv.com/location/esthers-kitchen/",
     categories: ["restaurants"],
     schemaType: "Restaurant",
   },
   {
     name: "Main Street Provisions",
-    address: "1120 S Main St, Las Vegas, NV 89101",
+    address: "1214 S Main St, Las Vegas, NV 89104",
+    sourceUrl: "https://www.mainstprovisions.com/",
     categories: ["restaurants", "cafes"],
     schemaType: "Restaurant",
   },
   {
-    name: "The Pepper Club",
+    name: "KJ's Social",
     address: "921 S Main St, Las Vegas, NV 89101",
-    categories: ["restaurants", "entertainment"],
+    sourceUrl: "https://kjslv.com/",
+    categories: ["restaurants", "entertainment", "cafes"],
     schemaType: "Restaurant",
   },
   {
     name: "The Mob Museum",
     address: "300 Stewart Ave, Las Vegas, NV 89101",
+    sourceUrl: "https://themobmuseum.org/about/contact/",
     categories: ["entertainment"],
     schemaType: "TouristAttraction",
   },
   {
     name: "Downtown Container Park",
     address: "707 Fremont St, Las Vegas, NV 89101",
+    sourceUrl: "https://downtowncontainerpark.com/visit/",
     categories: ["entertainment", "shopping"],
     schemaType: "TouristAttraction",
   },
   {
     name: "Fremont Street Experience",
     address: "425 Fremont St, Las Vegas, NV 89101",
+    sourceUrl: "https://vegasexperience.com/",
     categories: ["entertainment"],
     schemaType: "TouristAttraction",
   },
   {
     name: "The Smith Center for the Performing Arts",
     address: "361 Symphony Park Ave, Las Vegas, NV 89106",
+    sourceUrl: "https://thesmithcenter.com/about/contact/",
     categories: ["entertainment"],
     schemaType: "TouristAttraction",
   },
   {
-    name: "Symphony Park",
-    address: "Symphony Park Ave, Las Vegas, NV 89106",
-    categories: ["parks", "entertainment"],
-    schemaType: "Park",
-  },
-  {
     name: "Smith's Food and Drug",
-    address: "4751 W Charleston Blvd, Las Vegas, NV 89102",
-    categories: ["grocery"],
+    address: "9851 W Charleston Blvd, Las Vegas, NV 89117",
+    sourceUrl: "https://www.smithsfoodanddrug.com",
+    categories: ["grocery", "pharmacies"],
     schemaType: "GroceryStore",
   },
   {
-    name: "La Bonita Supermarket",
-    address: "2400 E Charleston Blvd, Las Vegas, NV 89104",
+    name: "La Bonita Supermarkets",
+    address: "2405 E Ogden Ave, Las Vegas, NV 89101",
+    sourceUrl: "https://www.bonitamarkets.com/locations",
     categories: ["grocery"],
     schemaType: "GroceryStore",
   },
   {
     name: "University Medical Center",
     address: "1800 W Charleston Blvd, Las Vegas, NV 89102",
+    sourceUrl: "https://www.umcsn.com/contact-us",
     categories: ["healthcare"],
     schemaType: "Hospital",
   },
   {
-    name: "CVS Pharmacy",
-    address: "425 S Main St, Las Vegas, NV 89101",
+    name: "Walgreens Pharmacy",
+    address: "495 Fremont St, Las Vegas, NV 89101",
+    sourceUrl:
+      "https://www.walgreens.com/locator/walgreens-495+fremont+st-las-vegas-nv-89101/id=7499",
     categories: ["pharmacies"],
     schemaType: "Pharmacy",
   },
   {
     name: "The Shops at Crystals",
     address: "3720 S Las Vegas Blvd, Las Vegas, NV 89158",
+    sourceUrl: "https://www.theshopsatcrystals.com/",
     categories: ["shopping"],
     schemaType: "ShoppingCenter",
   },
   {
     name: "Bali Hai Golf Club",
     address: "5160 Las Vegas Blvd S, Las Vegas, NV 89119",
+    sourceUrl: "https://www.balihaigolfclub.com/",
     categories: ["golf"],
     schemaType: "GolfCourse",
   },
   {
-    name: "EōS Fitness",
-    address: "1500 E Charleston Blvd, Las Vegas, NV 89104",
+    name: "studio 140",
+    address: "1027 S Main St, Unit 140, Las Vegas, NV 89101",
+    sourceUrl: "https://www.studio140lv.com/",
     categories: ["fitness"],
     schemaType: "ExerciseGym",
   },
   {
     name: "Rancho High School",
-    address: "1895 S Rancho Dr, Las Vegas, NV 89102",
+    address: "1900 Searles Ave, Las Vegas, NV 89101",
+    sourceUrl: "https://www.ranchorams.org/",
     categories: ["schools"],
     schemaType: "School",
   },
@@ -259,31 +272,31 @@ export const amenityWrittenSections = [
   {
     id: "dining",
     title: "Dining near Midtown Las Vegas condos",
-    body: `The Arts District and Main Street corridor put chef-driven dining within walking distance of midtown towers. Esther's Kitchen and Main Street Provisions anchor South Main Street, and Midtown Las Vegas at ${officeInfo.address.street} hosts evolving restaurant concepts such as The Pepper Club. Buyers who want a walkable dinner after a showing should tour buildings on both sides of Charleston Boulevard.`,
+    body: `The Arts District and Main Street corridor put chef-driven dining within walking distance of midtown towers. Esther's Kitchen and Main Street Provisions anchor South Main Street, and KJ's Social at The English Hotel (${officeInfo.address.street}) adds hotel dining and social-hour options. Buyers who want a walkable dinner after a showing should tour buildings on both sides of Charleston Boulevard.`,
   },
   {
     id: "entertainment",
     title: "Entertainment & attractions",
     body:
-      "The Mob Museum, Fremont Street Experience, and Downtown Container Park are established downtown destinations a short drive—or in some cases a brisk walk—from Arts District condos. The Smith Center and Symphony Park add performing-arts and park space north of the core midtown high-rises.",
+      "The Mob Museum, Fremont Street Experience, and Downtown Container Park are established downtown destinations a short drive—or in some cases a brisk walk—from Arts District condos. The Smith Center in Symphony Park adds performing-arts programming north of the core midtown high-rises.",
   },
   {
     id: "grocery",
     title: "Grocery & everyday errands",
     body:
-      "Smith's Food and Drug on West Charleston Boulevard and La Bonita Supermarket on East Charleston Boulevard are full-service grocers commonly used by downtown and midtown residents. Confirm your preferred store when you compare HOA parking and elevator access in each building.",
+      "Smith's Food and Drug on West Charleston Boulevard (9851 W Charleston Blvd) and La Bonita Supermarkets on East Ogden Avenue are full-service grocers commonly used by downtown and midtown residents. Confirm your preferred store when you compare HOA parking and elevator access in each building.",
   },
   {
     id: "healthcare",
     title: "Healthcare",
     body:
-      "University Medical Center on West Charleston Boulevard is a major hospital campus serving the Las Vegas urban core. Pharmacies such as the CVS on South Main Street sit closer to the Arts District for prescriptions and quick errands.",
+      "University Medical Center on West Charleston Boulevard is a major hospital campus serving the Las Vegas urban core. Walgreens Pharmacy on Fremont Street sits a short drive from the Arts District for prescriptions and quick errands.",
   },
   {
     id: "fitness",
     title: "Fitness",
     body:
-      "Many midtown condo buildings include gyms or pool decks; for a larger club footprint, EōS Fitness on East Charleston Boulevard is one option east of the Arts District. Ask Dr. Jan Duffy which towers bundle fitness amenities in HOA dues.",
+      "Many midtown condo buildings include gyms or pool decks; studio 140 on South Main Street offers yoga and pilates in the Arts District. Ask Dr. Jan Duffy which towers bundle fitness amenities in HOA dues.",
   },
   {
     id: "shopping-golf",
@@ -303,7 +316,7 @@ export const amenitiesFaqs = [
   {
     question: "What grocery stores are near Midtown Las Vegas condos?",
     answer:
-      "Smith's Food and Drug on West Charleston Boulevard and La Bonita Supermarket on East Charleston Boulevard are two full-service grocers midtown and Arts District buyers commonly use. Use the amenity map on midtownvegascondos.com to see what is closest to your shortlist.",
+      "Smith's Food and Drug on West Charleston Boulevard and La Bonita Supermarkets on East Ogden Avenue are two full-service grocers midtown and Arts District buyers commonly use. Use the amenity map on midtownvegascondos.com to see what is closest to your shortlist.",
   },
   {
     question: "How far is Midtown Las Vegas from the Strip?",
@@ -318,7 +331,7 @@ export const amenitiesFaqs = [
   {
     question: "What restaurants are walkable from Arts District condos?",
     answer:
-      "South Main Street venues such as Esther's Kitchen and Main Street Provisions are among the walkable dining options in the Arts District. Midtown Las Vegas at 921 South Main Street adds hotel and event dining concepts—verify what is open when you tour.",
+      "South Main Street venues such as Esther's Kitchen and Main Street Provisions are among the walkable dining options in the Arts District. KJ's Social at The English Hotel on South Main Street adds brunch and dinner—verify hours when you tour.",
   },
   {
     question: "Is there parking near midtown Las Vegas condos?",
@@ -328,7 +341,7 @@ export const amenitiesFaqs = [
   {
     question: "Can I walk to entertainment from midtown condos?",
     answer:
-      "Fremont Street Experience, Container Park, and The Mob Museum are established downtown attractions within a short drive or, for some buildings, a walkable distance. The Smith Center and Symphony Park add culture north of the core corridor.",
+      "Fremont Street Experience, Container Park, and The Mob Museum are established downtown attractions within a short drive or, for some buildings, a walkable distance. The Smith Center adds culture north of the core corridor.",
   },
   {
     question: "Who is the local REALTOR for Midtown Las Vegas condos?",
@@ -359,21 +372,31 @@ export function generateAmenitiesPageSchemaGraph(): Record<string, unknown> {
   const communityId = `${pageUrl}#community-place`;
   const agentId = `${siteConfig.url}#organization`;
 
-  const itemListElements = curatedNearbyPlaces.map((place, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    item: {
+  const itemListElements = curatedNearbyPlaces.map((place, index) => {
+    const item: Record<string, unknown> = {
       "@type": place.schemaType,
       name: place.name,
-      address: {
+      url: place.sourceUrl,
+    };
+    if (place.address) {
+      const parts = place.address.split(",").map((p) => p.trim());
+      const zipState = parts[parts.length - 1] ?? "";
+      const stateZip = zipState.match(/^([A-Z]{2})\s+(\d{5}(?:-\d{4})?)$/);
+      item.address = {
         "@type": "PostalAddress",
-        streetAddress: place.address.split(",")[0]?.trim(),
-        addressLocality: communityAmenitiesConfig.city,
-        addressRegion: communityAmenitiesConfig.state,
+        streetAddress: parts.slice(0, -2).join(", ") || parts[0],
+        addressLocality: parts[parts.length - 2] ?? communityAmenitiesConfig.city,
+        addressRegion: stateZip?.[1] ?? communityAmenitiesConfig.state,
+        postalCode: stateZip?.[2],
         addressCountry: "US",
-      },
-    },
-  }));
+      };
+    }
+    return {
+      "@type": "ListItem",
+      position: index + 1,
+      item,
+    };
+  });
 
   return {
     "@context": "https://schema.org",
