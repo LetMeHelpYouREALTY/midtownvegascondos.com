@@ -81,9 +81,6 @@ importers:
       '@lhci/cli':
         specifier: ^0.13.0
         version: 0.13.0
-      '@testing-library/dom':
-        specifier: ^10.4.2
-        version: 10.4.2
       '@testing-library/jest-dom':
         specifier: ^6.9.1
         version: 6.9.1
