@@ -4,6 +4,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import DeferredRealScoutWidget from "@/components/realscout/DeferredRealScoutWidget";
 import SchemaScript from "@/components/SchemaScript";
 import PageHero from "@/components/sections/PageHero";
+import AmenityMapSection from "@/components/sections/AmenityMapSection";
 import Link from "next/link";
 import {
   Phone,
@@ -351,6 +352,7 @@ export default function ListingsPage() {
             </div>
           </section>
         </div>
+        <AmenityMapSection compact />
         <RealScoutListings />
       </main>
       <Footer />
