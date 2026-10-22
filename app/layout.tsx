@@ -101,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
+        <Script src="/ads-conversions.js" strategy="afterInteractive" />
         <Analytics />
                 {/* Google Tag */}
         {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
