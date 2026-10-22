@@ -123,11 +123,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://www.googletagmanager.com https://www.google-analytics.com https://widgetbe.com https://va.vercel-scripts.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://www.googletagmanager.com https://www.google-analytics.com https://widgetbe.com https://va.vercel-scripts.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net",
               "style-src 'self' 'unsafe-inline' https://em.realscout.com https://www.realscout.com https://assets.calendly.com",
               "img-src 'self' data: blob: https: http: https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://td.doubleclick.net",
               "font-src 'self' data: https://assets.calendly.com",
-              "connect-src 'self' https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io https://widgetbe.com https://vitals.vercel-insights.com https://storage.googleapis.com https://*.googleapis.com https://maps.googleapis.com https://td.doubleclick.net",
+              "connect-src 'self' https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com https://*.ingest.sentry.io https://widgetbe.com https://vitals.vercel-insights.com https://storage.googleapis.com https://*.googleapis.com https://maps.googleapis.com https://td.doubleclick.net https://www.facebook.com https://connect.facebook.net https://ad.doubleclick.net",
               "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com https://storage.googleapis.com https://*.googleapis.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://td.doubleclick.net",
               "worker-src 'self' blob:",
             ].join('; '),
