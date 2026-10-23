@@ -47,11 +47,10 @@ export default function MarketReportPage() {
       <PageHero
         imageKey="marketReport"
         pagePath="/market-report"
-        badge="Berkshire Hathaway HomeServices Market Intelligence"
+        badge="Market Intelligence"
         title="Midtown Las Vegas Condo Market Report"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">{marketStats.lastUpdated} | Midtown condo data from{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong></p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">{marketStats.lastUpdated} | Midtown condo data from <strong>Dr. Jan Duffy, REALTOR®</strong></p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
@@ -194,7 +193,7 @@ export default function MarketReportPage() {
                 proper pricing and preparation."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
 
@@ -313,9 +312,6 @@ export default function MarketReportPage() {
               <Phone className="h-5 w-5 mr-2" />
               Call (702) 500-1980
             </a>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 

@@ -88,7 +88,7 @@ export default function NeighborhoodLifestyleHubPage() {
                 {officeInfo.address.full}
               </p>
               <p className="text-sm text-slate-600 mt-1">
-                {agentInfo.name} · Berkshire Hathaway HomeServices Nevada Properties
+                {agentInfo.name} · REALTOR®
               </p>
             </div>
             <a

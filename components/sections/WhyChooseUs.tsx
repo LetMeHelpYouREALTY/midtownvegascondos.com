@@ -21,15 +21,15 @@ const features = [
   },
   {
     icon: Shield,
-    title: "BHHS Trust & Resources",
+    title: "Trust & Resources",
     description:
-      "Backed by Berkshire Hathaway HomeServices — Warren Buffett's brand with 50,000+ agents and world-class marketing.",
+      "In real estate since 1983, with a nationwide referral network and world-class marketing.",
   },
   {
     icon: Award,
     title: "500+ Transactions",
     description:
-      "Serving Las Vegas since 2008 with $127M+ closed — including high-rise, loft, and urban condo specialists.",
+      "In real estate since 1983 with $127M+ closed — including high-rise, loft, and urban condo specialists.",
   },
   {
     icon: Clock,

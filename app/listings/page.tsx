@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Midtown Las Vegas Condos for Sale | Live MLS Listings | Dr. Jan Duffy",
     description:
-      "Search live MLS midtown Las Vegas condos for sale — Arts District lofts, high-rises, The English Residences, and downtown inventory. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1980.",
+      "Search live MLS midtown Las Vegas condos for sale — Arts District lofts, high-rises, The English Residences, and downtown inventory. Dr. Jan Duffy. Call (702) 500-1980.",
     keywords: [
       "midtown Las Vegas condos for sale",
       "Las Vegas MLS listings",
@@ -138,7 +138,7 @@ export default function ListingsPage() {
         imageKey="listingsSearch"
         pagePath={PATH}
         includeBreadcrumb={false}
-        badge="Live MLS · Berkshire Hathaway HomeServices Nevada Properties"
+        badge="Live MLS · Dr. Jan Duffy, REALTOR®"
         title="Midtown Las Vegas condos for sale"
         subtitle="Search active MLS inventory, then shortlist Arts District lofts and downtown high-rises with Dr. Jan Duffy."
         priority
@@ -180,10 +180,10 @@ export default function ListingsPage() {
               This page is your midtown condo search hub — not a generic valley dump. Start with
               for-sale inventory, then filter toward condominiums and townhomes. When a building
               looks right, open the neighborhood guide for HOA context and walkability notes, then
-              book a showing with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.
+              book a showing with Dr. Jan Duffy.
             </p>
             <p className="text-slate-700 leading-relaxed">
-              Office: {officeInfo.address.full}. License {agentInfo.license}. Also explore{" "}
+              Office: {officeInfo.address.full}. Also explore{" "}
               <Link href="/midtown-real-estate" className="text-blue-600 font-medium">
                 midtown real estate
               </Link>{" "}
@@ -331,7 +331,7 @@ export default function ListingsPage() {
           <section className="rounded-2xl bg-slate-900 text-white p-8 md:p-12 max-w-4xl mx-auto text-center mb-8">
             <h2 className="text-2xl font-bold mb-3">Get a curated midtown shortlist</h2>
             <p className="text-slate-300 mb-2">
-              {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
+              {agentInfo.name}, {agentInfo.title}
             </p>
             <p className="text-slate-400 text-sm mb-6">{officeInfo.address.full}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

@@ -9,9 +9,9 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = withPageHeroMetadata("/home-valuation", {
-  title: "Free Home Valuation Las Vegas | What's Your Home Worth? | Berkshire Hathaway HomeServices",
+  title: "Free Home Valuation Las Vegas | What's Your Home Worth?",
   description:
-    "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 500-1980.",
+    "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 500-1980.",
   keywords: [
     "home valuation Las Vegas",
     "what is my home worth Las Vegas",
@@ -74,12 +74,11 @@ export default function HomeValuationPage() {
       <PageHero
         imageKey="homeValuation"
         pagePath="/home-valuation"
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="What's Your Las Vegas Home Worth?"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Get a free, no-obligation home valuation from Dr. Jan Duffy at{" "}
-              <strong>Berkshire Hathaway HomeServices</strong>. Accurate pricing backed by 17+ years
-              of Las Vegas market expertise and $127M+ in closed transactions.</p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Get a free, no-obligation home valuation from Dr. Jan Duffy. Accurate pricing backed by a career
+              in real estate since 1983 and $127M+ in closed transactions.</p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
@@ -95,20 +94,19 @@ export default function HomeValuationPage() {
               </div>
               <CalendlyWidget url="showing" height="650px" />
               <p className="text-xs text-slate-500 text-center p-4 border-t border-slate-200">
-                No obligation. No pressure. Just accurate information from Berkshire Hathaway
-                HomeServices.
+                No obligation. No pressure. Just accurate information.
               </p>
             </div>
 
             {/* Value Prop */}
             <div className="space-y-8">
               <div className="bg-slate-900 text-white rounded-lg p-8">
-                <h2 className="text-2xl font-bold mb-4">Why Request a BHHS Valuation?</h2>
+                <h2 className="text-2xl font-bold mb-4">Why Request a Valuation?</h2>
                 <p className="text-slate-300 mb-6">
                   Online estimators like Zillow's "Zestimate" can be off by 10% or more—that's
                   $45,000+ on a typical Las Vegas home. Dr. Jan Duffy provides a comprehensive
                   market analysis using current MLS data, recent comparable sales, and her expertise
-                  serving Las Vegas since 2008. The result? Accurate pricing that helps you sell
+                  built since 1983. The result? Accurate pricing that helps you sell
                   faster and for more money.
                 </p>
                 <div className="space-y-3">
@@ -158,7 +156,7 @@ export default function HomeValuationPage() {
                   algorithms—to determine your home's true value."
                 </blockquote>
                 <cite className="text-slate-900 font-semibold text-sm">
-                  — Dr. Jan Duffy, BHHS Nevada Properties
+                  — Dr. Jan Duffy, REALTOR®
                 </cite>
               </div>
 
@@ -189,7 +187,7 @@ export default function HomeValuationPage() {
                 your home or understand the nuances of the Las Vegas market.
               </p>
               <p>
-                <strong>Berkshire Hathaway HomeServices</strong> agents like Dr. Jan Duffy provide
+                Experienced local agents like Dr. Jan Duffy provide
                 something these algorithms cannot: local expertise combined with a detailed
                 understanding of what makes your specific home valuable. A professional Comparative
                 Market Analysis (CMA) considers factors that online tools miss entirely.
@@ -227,7 +225,7 @@ export default function HomeValuationPage() {
                 </ul>
               </div>
               <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="font-bold text-green-800 mb-4">What a BHHS CMA Includes</h3>
+                <h3 className="font-bold text-green-800 mb-4">What a CMA Includes</h3>
                 <ul className="space-y-2 text-green-700">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
@@ -357,7 +355,7 @@ export default function HomeValuationPage() {
           {/* The Valuation Process */}
           <section className="max-w-5xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              The BHHS Home Valuation Process
+              The Home Valuation Process
             </h2>
             <div className="space-y-6">
               <div className="flex items-start">
@@ -449,8 +447,7 @@ export default function HomeValuationPage() {
               Ready to Know What Your Home Is Worth?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Get a free, no-obligation home valuation from Dr. Jan Duffy and Berkshire Hathaway
-              HomeServices Nevada Properties. Accurate pricing. Expert guidance. Zero pressure.
+              Get a free, no-obligation home valuation from Dr. Jan Duffy. Accurate pricing. Expert guidance. Zero pressure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -467,9 +464,6 @@ export default function HomeValuationPage() {
                 Learn About Selling
               </Link>
             </div>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 

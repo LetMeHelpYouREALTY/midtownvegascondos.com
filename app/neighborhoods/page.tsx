@@ -26,8 +26,7 @@ export default function NeighborhoodsPage() {
         title="Midtown Las Vegas Condo Neighborhoods"
       >
         <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">From Arts District lofts to Strip-view high-rises — explore every midtown building
-              and neighborhood with Dr. Jan Duffy, your condo specialist at{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>.</p>
+              and neighborhood with Dr. Jan Duffy, your condo specialist.</p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">

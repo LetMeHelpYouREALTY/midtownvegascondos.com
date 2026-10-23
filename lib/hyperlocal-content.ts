@@ -234,7 +234,7 @@ export const midtownCondoFaqs = [
 export const hyperlocalMeta = {
   buyers: {
     title: "Buy a Midtown Las Vegas Condo | Dr. Jan Duffy, REALTOR®",
-    description: `Buy a midtown Las Vegas condo with expert HOA review and building comparisons. Dr. Jan Duffy, BHHS Nevada Properties. Call ${agentInfo.phone}.`,
+    description: `Buy a midtown Las Vegas condo with expert HOA review and building comparisons. Dr. Jan Duffy. Call ${agentInfo.phone}.`,
     keywords: [
       "buy midtown Las Vegas condo",
       "downtown Las Vegas condos for sale",

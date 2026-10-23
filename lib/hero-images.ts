@@ -269,16 +269,16 @@ export const heroImages = {
   ),
   aboutAgent: hero(
     "agent-office.webp",
-    "Professional real estate office of Dr. Jan Duffy — midtown Las Vegas condo specialist BHHS Nevada",
+    "Professional real estate office of Dr. Jan Duffy — midtown Las Vegas condo specialist",
     "Professional real estate workspace for Dr. Jan Duffy.",
     officeInfo.address.city + ", NV",
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["Dr Jan Duffy", "BHHS Nevada Properties"]
+    ["Dr Jan Duffy", "midtown Las Vegas condo specialist"]
   ),
   contactOffice: hero(
     "extra07.webp",
-    "Contact Dr. Jan Duffy midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties",
+    "Contact Dr. Jan Duffy midtown Las Vegas condo specialist",
     "Reach Dr. Jan Duffy for midtown Las Vegas condo help.",
     officeInfo.address.full,
     officeInfo.coordinates.lat,
@@ -296,7 +296,7 @@ export const heroImages = {
   ),
   servicesHub: hero(
     "extra09.webp",
-    "Full-service midtown Las Vegas condo real estate services from BHHS Nevada Properties",
+    "Full-service midtown Las Vegas condo real estate services from Dr. Jan Duffy",
     "Comprehensive condo real estate services in midtown Las Vegas.",
     "Las Vegas, NV",
     LV.lat,
@@ -377,12 +377,12 @@ export const heroImages = {
   ),
   whyBhhs: hero(
     "extra17.webp",
-    "Why Berkshire Hathaway HomeServices — trusted brokerage behind Dr. Jan Duffy midtown condo practice",
-    "Berkshire Hathaway HomeServices brand trust for condo clients.",
+    "Why work with Dr. Jan Duffy — midtown condo specialist in real estate since 1983",
+    "Trusted guidance for condo clients.",
     "Las Vegas, NV",
     officeInfo.coordinates.lat,
     officeInfo.coordinates.lng,
-    ["Berkshire Hathaway HomeServices", "trusted brokerage"]
+    ["Dr Jan Duffy", "midtown condo specialist"]
   ),
   googleBusiness: hero(
     "extra18.webp",
@@ -612,7 +612,6 @@ export const pageHeroByPath: Record<string, HeroImageKey> = {
   "/market-report": "marketReport",
   "/market-insights": "marketInsights",
   "/market-update": "marketUpdate",
-  "/why-berkshire-hathaway": "whyBhhs",
   "/google-business": "googleBusiness",
   "/blog": "homeSkylineDay",
   "/midtown-real-estate": "homeStripNight",

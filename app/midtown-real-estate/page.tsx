@@ -14,7 +14,7 @@ import { generateBreadcrumbListNode } from "@/lib/schema";
 export const metadata: Metadata = withPageHeroMetadata("/midtown-real-estate", {
   title: "Midtown Real Estate Las Vegas | Condos for Sale | Dr. Jan Duffy",
   description:
-    "Midtown real estate in Las Vegas — Arts District lofts, high-rises, The English Residences, and downtown condos. Expert buying and selling with Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1980.",
+    "Midtown real estate in Las Vegas — Arts District lofts, high-rises, The English Residences, and downtown condos. Expert buying and selling with Dr. Jan Duffy. Call (702) 500-1980.",
   keywords: [
     "midtown real estate Las Vegas",
     "midtown Las Vegas condos for sale",
@@ -68,7 +68,7 @@ const buyingSteps = [
   "Define budget, HOA comfort range, and must-have amenities (parking, EV, gym, views).",
   "Shortlist midtown micro-neighborhoods: Arts District, Fremont East, Symphony Park, English Residences.",
   "Tour with CC&R / rental-cap / special-assessment review before you write.",
-  "Negotiate with BHHS market data and close with clear title and condo docs.",
+  "Negotiate with current MLS market data and close with clear title and condo docs.",
 ];
 
 export default function MidtownRealEstatePage() {
@@ -80,7 +80,7 @@ export default function MidtownRealEstatePage() {
         imageKey="homeStripNight"
         pagePath="/midtown-real-estate"
         includeBreadcrumb={false}
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="Midtown real estate in Las Vegas"
         subtitle="Condos, lofts, and condo-hotel residences in the Arts District corridor — bought and sold with Dr. Jan Duffy."
         priority
@@ -155,7 +155,7 @@ export default function MidtownRealEstatePage() {
           <section className="rounded-2xl bg-slate-900 text-white p-8 text-center">
             <h2 className="text-2xl font-bold mb-3">Work with a midtown condo specialist</h2>
             <p className="text-slate-300 mb-2">
-              {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
+              {agentInfo.name}, {agentInfo.title}
             </p>
             <p className="text-slate-400 text-sm mb-6">{officeInfo.address.full}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

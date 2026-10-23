@@ -33,13 +33,13 @@ import { officeInfo } from "@/lib/site-config";
 export const metadata: Metadata = withPageHeroMetadata("/google-business", {
   title: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy | GBP",
   description:
-    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy. 921 South Main Street, Las Vegas, NV 89101. Call (702) 500-1980.",
+    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy. 921 S Main St, Las Vegas, NV 89101. Call (702) 500-1980.",
   keywords: [
     "Las Vegas Arts District Condos",
     "Dr. Jan Duffy realtor",
     "Downtown Las Vegas real estate agent",
     "Arts District Las Vegas realtor",
-    "921 South Main Street Las Vegas",
+    "921 S Main St Las Vegas",
   ],
   openGraph: {
     title: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
@@ -68,9 +68,9 @@ export default function GoogleBusinessPage() {
       <PageHero
         imageKey="googleBusiness"
         pagePath="/google-business"
-        badge="Berkshire Hathaway HomeServices"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="Dr. Jan Duffy"
-        subtitle={`REALTOR® | License ${businessInfo.license} — Midtown Las Vegas condo specialist at Nevada Properties`}
+        subtitle="REALTOR® — Midtown Las Vegas condo specialist"
         priority
       />
       <main className="pb-16">
@@ -82,13 +82,12 @@ export default function GoogleBusinessPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <Award className="h-6 w-6 text-yellow-400" />
-                    <span className="text-yellow-400 font-semibold">Berkshire Hathaway HomeServices</span>
+                    <span className="text-yellow-400 font-semibold">In Real Estate Since 1983</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">
                     {businessInfo.name}
                   </h2>
-                  <p className="text-xl text-blue-200 mb-2">REALTOR® | License {businessInfo.license}</p>
-                  <p className="text-slate-300 mb-6">Berkshire Hathaway HomeServices Nevada Properties</p>
+                  <p className="text-xl text-blue-200 mb-2">REALTOR® · Top 1% Las Vegas REALTOR®</p>
                   
                   {/* NAP - Exact match to GBP */}
                   <div className="space-y-3">
@@ -119,11 +118,11 @@ export default function GoogleBusinessPage() {
                   <AgentPhoto size="lg" className="mx-auto mb-6 border-white/30" />
                   <div className="flex justify-center mb-4">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="h-8 w-8 text-yellow-400 fill-yellow-400" />
+                      <Star key={star} className={`h-8 w-8 text-yellow-400 ${star <= 1 ? "fill-yellow-400" : ""}`} />
                     ))}
                   </div>
-                  <p className="text-3xl font-bold mb-2">4.9 / 5.0</p>
-                  <p className="text-blue-200 mb-6">200+ Client Reviews</p>
+                  <p className="text-3xl font-bold mb-2">1.0 / 5.0</p>
+                  <p className="text-blue-200 mb-6">1 Google review</p>
                   <a
                     href={`tel:${businessInfo.phone.tel}`}
                     className="inline-block w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-lg font-bold text-lg transition-colors"
@@ -144,13 +143,7 @@ export default function GoogleBusinessPage() {
                 <h2 className="text-xl font-bold text-slate-900">Business Hours</h2>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div><span className="font-medium">Sunday:</span> 9:00 AM – 5:00 PM</div>
-                <div><span className="font-medium">Monday:</span> 9:00 AM – 5:00 PM</div>
-                <div><span className="font-medium">Tuesday:</span> 9:00 AM – 5:00 PM</div>
-                <div><span className="font-medium">Wednesday:</span> 9:00 AM – 5:00 PM</div>
-                <div><span className="font-medium">Thursday:</span> 9:00 AM – 5:00 PM</div>
-                <div><span className="font-medium">Friday:</span> Closed</div>
-                <div><span className="font-medium">Saturday:</span> Closed</div>
+                <div><span className="font-medium">Daily:</span> 8:00 AM – 8:00 PM</div>
               </div>
             </div>
           </section>

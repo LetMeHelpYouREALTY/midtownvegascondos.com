@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { withPageHeroMetadata } from "@/lib/image-seo";
+import Footer from "@/components/layouts/Footer";
 
 export const metadata: Metadata = {
   ...withPageHeroMetadata("/security-policy", {
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 
 export default function SecurityPolicyPage() {
   return (
+    <>
     <div className="min-h-screen bg-white py-12">
       <div className="container mx-auto max-w-4xl px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">
@@ -275,5 +277,7 @@ export default function SecurityPolicyPage() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   )
 }

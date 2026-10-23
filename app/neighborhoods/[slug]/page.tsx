@@ -142,7 +142,7 @@ export default async function MidtownNeighborhoodPage({ params }: PageProps) {
             <div>
               <p className="text-slate-700 mb-6">
                 Explore {area.name} with Dr. Jan Duffy — HOA review, building comps, and condo-specific
-                guidance from a midtown specialist at Berkshire Hathaway HomeServices Nevada Properties.
+                guidance from a midtown specialist.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a

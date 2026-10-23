@@ -41,7 +41,7 @@ const faqCategories = [
     faqs: midtownCondoFaqs.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
-    title: "About Dr. Jan Duffy & BHHS",
+    title: "About Dr. Jan Duffy",
     faqs: commonFAQs.general.map((f) => ({ q: f.question, a: f.answer })),
   },
   {
@@ -70,7 +70,7 @@ const faqCategories = [
     faqs: [
       {
         q: "What is Dr. Jan Duffy's midtown condo experience?",
-        a: "Dr. Jan has served Las Vegas since 2008 with $127M+ in closed transactions. She specializes in midtown and downtown condos including One Las Vegas, Juhl, Arts District lofts, and Palms Place.",
+        a: "Dr. Jan has been in real estate since 1983 with $127M+ in closed transactions. She specializes in midtown and downtown condos including One Las Vegas, Juhl, Arts District lofts, and Palms Place.",
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
@@ -92,9 +92,9 @@ const allFaqs = faqCategories.flatMap((category) =>
 const pageSchemas = combineSchemas(
   generateBreadcrumbSchema(breadcrumbs),
   generateWebPageSchema({
-    name: "Frequently Asked Questions | Berkshire Hathaway HomeServices Las Vegas",
+    name: "Frequently Asked Questions | Las Vegas",
     description:
-      "Comprehensive FAQ about Las Vegas real estate, buying, selling, investing, and working with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.",
+      "Comprehensive FAQ about Las Vegas real estate, buying, selling, investing, and working with Dr. Jan Duffy.",
     url: "/faq",
     dateModified: "2026-01-25",
   }),
@@ -111,11 +111,11 @@ export default function FAQPage() {
         imageKey="faqLoft"
         pagePath="/faq"
         includeBreadcrumb={false}
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="Frequently Asked Questions"
       >
         <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Midtown Las Vegas condo questions — HOA fees, rental rules, buildings, and working
-              with <strong>Dr. Jan Duffy</strong> at Berkshire Hathaway HomeServices</p>
+              with <strong>Dr. Jan Duffy</strong></p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
@@ -153,9 +153,6 @@ export default function FAQPage() {
               <Phone className="h-5 w-5 mr-2" />
               Call (702) 500-1980
             </a>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 

@@ -72,7 +72,7 @@ export default function SouthernHighlandsPage() {
         imageKey="nbSouthernHighlands"
         pagePath={PATH}
         includeBreadcrumb={false}
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="Southern Highlands homes for sale"
         subtitle="Championship golf, gated and open villages, and southwest valley access — with Dr. Jan Duffy."
         priority
@@ -135,7 +135,7 @@ export default function SouthernHighlandsPage() {
                 southwest Las Vegas built around a Robert Trent Jones Jr. championship golf course.
                 Buyers who want golf-course lots, gated estate sections, or larger-lot single-family
                 homes with quick I-15 access work with{" "}
-                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong> and Dr. Jan Duffy
+                <strong>Dr. Jan Duffy</strong>
                 to compare HOA fees, lot premiums, and commute times to the Strip and airport.
               </p>
               <p>
@@ -224,7 +224,7 @@ export default function SouthernHighlandsPage() {
           <section className="rounded-2xl bg-slate-900 text-white p-8 md:p-12 max-w-5xl mx-auto text-center mb-12">
             <h2 className="text-2xl font-bold mb-3">Tour Southern Highlands with Dr. Jan Duffy</h2>
             <p className="text-slate-300 mb-2">
-              {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
+              {agentInfo.name}, {agentInfo.title}
             </p>
             <p className="text-slate-400 text-sm mb-6">{officeInfo.address.full}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">

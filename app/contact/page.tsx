@@ -39,13 +39,12 @@ export default function ContactPage() {
       <PageHero
         imageKey="contactOffice"
         pagePath="/contact"
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="Contact Dr. Jan Duffy"
       >
         <AgentPhoto size="lg" className="mx-auto mb-6 border-white/40" />
         <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">
-          Questions about midtown Las Vegas condos? Your{" "}
-          <strong>Berkshire Hathaway HomeServices</strong> condo specialist is here to help.
+          Questions about midtown Las Vegas condos? Your midtown condo specialist is here to help.
           Schedule a showing or reach out directly.
         </p>
       </PageHero>
@@ -59,8 +58,7 @@ export default function ContactPage() {
               <p className="text-slate-700 mb-8">
                 Whether you&apos;re buying your first midtown condo, selling a high-rise unit, or
                 exploring downtown investment opportunities, I provide expert HOA review and
-                building-specific guidance backed by{" "}
-                <strong>Berkshire Hathaway HomeServices</strong>. Serving Las Vegas since 2008 with
+                building-specific guidance. In real estate since 1983 with
                 $127M+ in closed transactions.
               </p>
 
@@ -77,7 +75,7 @@ export default function ContactPage() {
                       {agentInfo.phone}
                     </a>
                     <p className="text-sm text-slate-500 mt-1">
-                      Sunday–Thursday 9:00 AM–5:00 PM · Appointment required
+                      Daily 8:00 AM–8:00 PM · Appointment required
                     </p>
                   </div>
                 </div>
@@ -119,8 +117,6 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-slate-900 mb-1">Business Hours</h3>
                     <p className="text-slate-700">
                       {officeInfo.hoursDisplay[0]}
-                      <br />
-                      {officeInfo.hoursDisplay[1]}
                     </p>
                     <p className="text-sm text-slate-500 mt-1">
                       Appointment required · Online appointments available
@@ -169,8 +165,7 @@ export default function ContactPage() {
               <div className="p-4 bg-blue-50 rounded-lg">
                 <p className="text-sm text-slate-700">
                   <strong>Dr. Jan Duffy, REALTOR®</strong><br />
-                  License S.0197614.LLC<br />
-                  Berkshire Hathaway HomeServices Nevada Properties
+                  
                 </p>
               </div>
             </div>
@@ -189,26 +184,26 @@ export default function ContactPage() {
                 <CalendlyWidget height="600px" />
               </div>
 
-              {/* Why Contact BHHS */}
+              {/* Why Contact Dr. Jan */}
               <div className="mt-6 bg-slate-900 text-white rounded-xl p-6">
-                <h3 className="font-bold text-lg mb-4">Why Contact Berkshire Hathaway HomeServices?</h3>
+                <h3 className="font-bold text-lg mb-4">Why Contact Dr. Jan Duffy?</h3>
                 <div className="space-y-3">
                   <div className="flex items-start">
                     <Shield className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Trusted Brand:</strong> The only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc.
+                      <strong className="text-white">Experience:</strong> In real estate since 1983.
                     </p>
                   </div>
                   <div className="flex items-start">
                     <Star className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Proven Results:</strong> $127M+ in closed transactions serving Las Vegas since 2008.
+                      <strong className="text-white">Proven Results:</strong> $127M+ in closed transactions.
                     </p>
                   </div>
                   <div className="flex items-start">
                     <Users className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Global Network:</strong> 50,000+ agents worldwide for seamless relocations and referrals.
+                      <strong className="text-white">Referral Network:</strong> A nationwide referral network for seamless relocations.
                     </p>
                   </div>
                 </div>
@@ -224,7 +219,7 @@ export default function ContactPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Dr. Jan Duffy provides expert real estate services throughout the Las Vegas Valley. 
               Whether you're buying, selling, or investing in any of these communities, contact us 
-              for personalized guidance backed by Berkshire Hathaway HomeServices.
+              for personalized guidance.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -294,7 +289,7 @@ export default function ContactPage() {
                 },
                 {
                   q: "How quickly can you respond to inquiries?",
-                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (9am-6pm daily). For urgent matters, calling or texting (702) 500-1980 is the fastest way to reach me.",
+                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (8:00 AM–8:00 PM daily). For urgent matters, calling or texting (702) 500-1980 is the fastest way to reach me.",
                 },
                 {
                   q: "Do you charge for consultations?",

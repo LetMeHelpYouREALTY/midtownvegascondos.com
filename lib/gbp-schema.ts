@@ -7,7 +7,7 @@ export const businessInfo = {
   // NAP - Must match GBP exactly
   name: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
   address: {
-    streetAddress: "921 South Main Street",
+    streetAddress: "921 S Main St",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
     postalCode: "89101",
@@ -25,20 +25,20 @@ export const businessInfo = {
   license: "S.0197614.LLC",
   priceRange: "$$",
   description:
-    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, a real estate expert with 30+ years of experience. Personalized service guaranteed!",
+    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, in real estate since 1983. Personalized service guaranteed!",
 
-  // Hours - Match GBP exactly (Sun–Thu 9–5; Fri–Sat closed)
+  // Hours - Match GBP exactly (Daily 8:00 AM–8:00 PM)
   hours: {
-    sunday: "09:00-17:00",
-    monday: "09:00-17:00",
-    tuesday: "09:00-17:00",
-    wednesday: "09:00-17:00",
-    thursday: "09:00-17:00",
-    friday: "Closed",
-    saturday: "Closed",
+    sunday: "08:00-20:00",
+    monday: "08:00-20:00",
+    tuesday: "08:00-20:00",
+    wednesday: "08:00-20:00",
+    thursday: "08:00-20:00",
+    friday: "08:00-20:00",
+    saturday: "08:00-20:00",
   },
 
-  // Geo coordinates for 921 South Main Street
+  // Geo coordinates for 921 S Main St
   geo: {
     latitude: officeInfo.coordinates.lat,
     longitude: officeInfo.coordinates.lng,
@@ -104,11 +104,11 @@ export const businessInfo = {
 
 // GBP description aligned to Downtown / Arts District profile
 export const gbpDescription = {
-  whoWeAre: `Las Vegas Arts District Condos | Homes by Dr. Jan Duffy helps buyers and sellers find luxury condos and charming homes in Downtown Las Vegas and the Arts District. Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices Nevada Properties (License S.0197614.LLC) with 30+ years of experience and personalized service.`,
+  whoWeAre: `Las Vegas Arts District Condos | Homes by Dr. Jan Duffy helps buyers and sellers find luxury condos and charming homes in Downtown Las Vegas and the Arts District. Dr. Jan Duffy is a REALTOR® in real estate since 1983, known for personalized service.`,
 
   whatWeDo: `We specialize in Downtown Las Vegas and Arts District condominiums — loft conversions, midtown high-rises, and walkable urban residences. Services include buyer and seller representation, investment consulting, online appointments, and onsite consultations by appointment.`,
 
-  whereWeServe: `Service areas: Arts District, Las Vegas, NV and Downtown Las Vegas, Las Vegas, NV. Business location: 921 South Main Street, Las Vegas, NV 89101. Hours: Sunday–Thursday 9:00 AM–5:00 PM; Friday–Saturday closed. Call or text (702) 500-1980 or visit midtownvegascondos.com.`,
+  whereWeServe: `Service areas: Arts District, Las Vegas, NV and Downtown Las Vegas, Las Vegas, NV. Business location: 921 S Main St, Las Vegas, NV 89101. Hours: Daily 8:00 AM–8:00 PM. Call or text (702) 500-1980 or visit midtownvegascondos.com.`,
 };
 
 // FAQ Schema for GBP Q&A section
@@ -116,12 +116,12 @@ export const gbpFAQs = [
   {
     question: "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
     answer:
-      "Our business location is 921 South Main Street, Las Vegas, NV 89101 in the Arts District / Downtown Las Vegas corridor. Call (702) 500-1980 for directions or to schedule an appointment.",
+      "Our business location is 921 S Main St, Las Vegas, NV 89101 in the Arts District / Downtown Las Vegas corridor. Call (702) 500-1980 for directions or to schedule an appointment.",
   },
   {
     question: "What are your business hours?",
     answer:
-      "We are open Sunday through Thursday from 9:00 AM to 5:00 PM. We are closed Friday and Saturday. Appointments are required — call or text (702) 500-1980 to schedule.",
+      "We are open daily from 8:00 AM to 8:00 PM. Appointments are required — call or text (702) 500-1980 to schedule.",
   },
   {
     question: "What areas does Dr. Jan Duffy serve?",
@@ -131,7 +131,7 @@ export const gbpFAQs = [
   {
     question: "How do I schedule a consultation with Dr. Jan Duffy?",
     answer:
-      "Call or text (702) 500-1980, use SMS at +17025001980, or book an online appointment at midtownvegascondos.com/contact. Visits are by appointment at 921 South Main Street, Las Vegas, NV 89101.",
+      "Call or text (702) 500-1980, use SMS at +17025001980, or book an online appointment at midtownvegascondos.com/contact. Visits are by appointment at 921 S Main St, Las Vegas, NV 89101.",
   },
   {
     question: "Does Dr. Jan help buyers relocating from California?",
@@ -181,33 +181,9 @@ export function generateLocalBusinessSchema() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Sunday",
-        opens: "09:00",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Monday",
-        opens: "09:00",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Tuesday",
-        opens: "09:00",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Wednesday",
-        opens: "09:00",
-        closes: "17:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Thursday",
-        opens: "09:00",
-        closes: "17:00",
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "08:00",
+        closes: "20:00",
       },
     ],
     areaServed: businessInfo.serviceAreas.map((area) => ({
@@ -229,8 +205,8 @@ export function generateLocalBusinessSchema() {
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "500",
+      ratingValue: "1.0",
+      reviewCount: "1",
       bestRating: "5",
     },
     sameAs: businessInfo.socialProfiles,

@@ -76,7 +76,7 @@ export default function Home() {
             <div className="mb-8 flex flex-col items-center gap-4">
               <AgentPhoto size="md" className="border-blue-400/50" />
               <p className="text-sm text-white/70">
-                {agentInfo.name}, {agentInfo.title} · License {agentInfo.license}
+                {agentInfo.name}, {agentInfo.title}
               </p>
             </div>
 
@@ -104,12 +104,12 @@ export default function Home() {
                 <span>Families Helped</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">30+ Years</span>
-                <span>Las Vegas Experience</span>
+                <span className="font-semibold text-white">Since 1983</span>
+                <span>In Real Estate</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">4.9★</span>
-                <span>Client Rating</span>
+                <span className="font-semibold text-white">1.0★</span>
+                <span>1 Google review</span>
               </div>
             </div>
 
@@ -153,14 +153,14 @@ export default function Home() {
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600">
-                Midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties.
+                Midtown Las Vegas condo specialist.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[
                 { icon: Shield, title: "HOA Expertise", desc: "CC&R review, rental caps, and special assessment checks on every building" },
-                { icon: Users, title: "50K+ Network", desc: "Global BHHS referral network for relocations to or from Las Vegas" },
-                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven midtown and valley-wide results since 2008" },
+                { icon: Users, title: "Referral Network", desc: "Nationwide referral network for relocations to or from Las Vegas" },
+                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven midtown and valley-wide results" },
                 { icon: HomeIcon, title: "Condo Specialist", desc: "High-rise towers, urban lofts, Arts District — one expert for all midtown condos" },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="text-center p-6">
@@ -271,7 +271,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy | REALTOR®
             </p>
           </div>
         </section>

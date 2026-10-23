@@ -15,9 +15,9 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = withPageHeroMetadata("/neighborhoods/summerlin", {
-  title: "Berkshire Hathaway HomeServices Summerlin | Las Vegas Luxury Real Estate",
+  title: "Summerlin Homes for Sale | Las Vegas Luxury Real Estate",
   description:
-    "Find Summerlin homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy offers expert guidance in Las Vegas's premier master-planned community. Median price $625K. Call (702) 500-1980.",
+    "Find Summerlin homes with Dr. Jan Duffy, who offers expert guidance in Las Vegas's premier master-planned community. Median price $625K. Call (702) 500-1980.",
   keywords: [
     "Berkshire Hathaway HomeServices Summerlin",
     "Summerlin homes for sale",
@@ -52,9 +52,9 @@ const summerlinFaqs = [
       "Summerlin offers 150+ parks, 150+ miles of trails, top-rated schools, and stunning Red Rock Canyon views. The Howard Hughes Corporation has developed Summerlin with careful planning since 1990, creating distinct villages each with unique character.",
   },
   {
-    question: "Why should I use a Berkshire Hathaway HomeServices agent in Summerlin?",
+    question: "Why should I use an experienced local REALTOR® in Summerlin?",
     answer:
-      "Berkshire Hathaway HomeServices agents like Dr. Jan Duffy bring deep Summerlin expertise combined with the global resources and trusted reputation of the BHHS brand. This combination helps buyers compete in Summerlin's competitive market and helps sellers maximize their home's value.",
+      "Experienced local agents like Dr. Jan Duffy bring deep Summerlin expertise combined with a commitment to client service. This combination helps buyers compete in Summerlin's competitive market and helps sellers maximize their home's value.",
   },
 ];
 
@@ -83,11 +83,10 @@ export default function SummerlinPage() {
         imageKey="nbSummerlin"
         pagePath="/neighborhoods/summerlin"
         includeBreadcrumb={false}
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
-        title="Berkshire Hathaway HomeServices Summerlin"
+        badge="Dr. Jan Duffy, REALTOR®"
+        title="Summerlin Real Estate"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Discover Las Vegas's premier master-planned community with Dr. Jan Duffy, your trusted{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> Summerlin expert.</p>
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Discover Las Vegas's premier master-planned community with Dr. Jan Duffy, your trusted Summerlin expert.</p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
@@ -125,7 +124,7 @@ export default function SummerlinPage() {
               </h2>
               <p>
                 When homebuyers search for the best neighborhoods in Las Vegas, <strong>Summerlin</strong> consistently
-                ranks at the top. As a <strong>Berkshire Hathaway HomeServices</strong> agent specializing in Summerlin
+                ranks at the top. As a REALTOR® specializing in Summerlin
                 real estate, Dr. Jan Duffy has helped hundreds of families find their perfect home in this
                 award-winning master-planned community.
               </p>
@@ -137,10 +136,10 @@ export default function SummerlinPage() {
                 enjoy an active, healthy lifestyle that's hard to find elsewhere in the desert Southwest.
               </p>
               <p>
-                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong> has deep roots in Summerlin,
+                Dr. Jan Duffy has deep roots in Summerlin,
                 and our agents understand the nuances of each village—from the family-friendly atmosphere of
                 The Paseos to the luxury estates of The Ridges. Whether you're a first-time buyer looking at
-                condos in Affinity or a move-up buyer seeking a custom home in Red Rock Country Club, BHHS
+                condos in Affinity or a move-up buyer seeking a custom home in Red Rock Country Club, Dr. Jan
                 has the expertise to guide you through the process.
               </p>
 
@@ -273,9 +272,9 @@ export default function SummerlinPage() {
                 a fraction of the cost—with no state income tax.
               </p>
               <p>
-                Working with a <strong>Berkshire Hathaway HomeServices</strong> agent gives you access to listings
+                Working with an experienced local REALTOR® gives you access to listings
                 before they hit the market, expert negotiation skills, and the backing of a globally trusted brand.
-                Dr. Jan Duffy has been serving Summerlin since 2008, which means you'll have insights that online 
+                Dr. Jan Duffy has been in real estate since 1983, which means you'll have insights that online 
                 searches simply can't provide—from which streets have the best mountain views to which builders 
                 offer the best construction quality.
               </p>
@@ -286,13 +285,12 @@ export default function SummerlinPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Summerlin isn't just a neighborhood—it's a lifestyle. I've been serving this area since
-                2008, and I can tell you exactly which villages suit young families, which offer the
+                "Summerlin isn't just a neighborhood—it's a lifestyle. I've been in real estate since 1983, and I can tell you exactly which villages suit young families, which offer the
                 best investment potential, and where you'll find the hidden gems. That local knowledge is
-                what sets Berkshire Hathaway HomeServices apart."
+                what sets Dr. Jan apart."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
@@ -335,11 +333,11 @@ export default function SummerlinPage() {
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
                 <h3 className="font-bold text-slate-900 mb-2">
-                  Why should I use a Berkshire Hathaway HomeServices agent in Summerlin?
+                  Why should I use an experienced local REALTOR® in Summerlin?
                 </h3>
                 <p className="text-slate-600">
-                  Berkshire Hathaway HomeServices agents like Dr. Jan Duffy bring deep Summerlin expertise
-                  combined with the global resources and trusted reputation of the BHHS brand. This
+                  Experienced local agents like Dr. Jan Duffy bring deep Summerlin expertise
+                  combined with a commitment to client service. This
                   combination helps buyers compete in Summerlin's competitive market and helps sellers
                   maximize their home's value.
                 </p>
@@ -353,7 +351,7 @@ export default function SummerlinPage() {
               Ready to Find Your Summerlin Home?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Contact Dr. Jan Duffy, your Berkshire Hathaway HomeServices Summerlin specialist,
+              Contact Dr. Jan Duffy Summerlin specialist,
               for a personalized home search or free market analysis.
             </p>
             <a
@@ -363,9 +361,6 @@ export default function SummerlinPage() {
               <Phone className="h-5 w-5 mr-2" />
               Call (702) 500-1980
             </a>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>

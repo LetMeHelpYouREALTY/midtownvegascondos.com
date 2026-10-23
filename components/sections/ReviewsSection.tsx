@@ -46,8 +46,8 @@ export const defaultReviews: Review[] = [
 
 // Aggregate rating stats
 export const aggregateRating = {
-  ratingValue: 4.9,
-  reviewCount: 500,
+  ratingValue: 1.0,
+  reviewCount: 1,
   bestRating: 5,
   worstRating: 1,
 };
@@ -98,7 +98,7 @@ export default function ReviewsSection({
               {aggregateRating.ratingValue}
             </span>
             <span className="text-slate-600">
-              ({aggregateRating.reviewCount}+ reviews)
+              ({aggregateRating.reviewCount} Google review)
             </span>
           </div>
         </div>

@@ -59,6 +59,11 @@ const nextConfig = {
         permanent: true,
       },
       ...legacyNeighborhoodRedirects,
+      {
+        source: "/why-berkshire-hathaway",
+        destination: "/about",
+        permanent: true,
+      },
       // Legacy short paths Google crawled — consolidate to the listings hub
       {
         source: "/ap",

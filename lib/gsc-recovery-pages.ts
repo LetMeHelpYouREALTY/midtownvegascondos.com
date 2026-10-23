@@ -72,7 +72,7 @@ export const midtownLifestylePages = {
     headline: "Midtown EV Vehicle Program",
     summary:
       "Midtown’s EV share program is designed for residents who want electric mobility at the doorstep — reserve, drive, and charge without owning a second car downtown.",
-    addressLabel: "921 South Main Street, Las Vegas, NV 89101",
+    addressLabel: "921 S Main St, Las Vegas, NV 89101",
     highlights: [
       "Resident-oriented EV access near Midtown Plaza Tower",
       "Reserve / drive / charge workflow for last-mile trips",
@@ -80,7 +80,7 @@ export const midtownLifestylePages = {
       "Ask about parking, charging stalls, and HOA rules before you buy",
     ],
     body: [
-      "The Midtown EV Vehicle Program (featured by Midtown Las Vegas at 921 S Main Street) targets residents who want flexible electric mobility without keeping a second vehicle in a downtown garage.",
+      "The Midtown EV Vehicle Program (featured by Midtown Las Vegas at 921 S Main St) targets residents who want flexible electric mobility without keeping a second vehicle in a downtown garage.",
       "When you tour midtown condos with Dr. Jan Duffy, she flags which buildings advertise EV share access, dedicated charging, or assigned stalls — and which HOA docs still need buyer review for fees and usage caps.",
       "California relocators and strip-adjacent professionals often shortlist midtown partly for this amenity stack: walkability plus on-demand EVs for airport runs and errands.",
     ],
@@ -93,7 +93,7 @@ export const midtownLifestylePages = {
       {
         question: "Where is the Midtown EV program based?",
         answer:
-          "Midtown lists the EV Vehicle Program at 921 South Main Street in the Las Vegas Arts District, alongside The English Residences and Plaza Tower projects.",
+          "Midtown lists the EV Vehicle Program at 921 S Main St in the Las Vegas Arts District, alongside The English Residences and Plaza Tower projects.",
       },
     ],
     relatedLinks: [
@@ -177,7 +177,7 @@ export const blogPosts = [
     slug: "midtown-real-estate-guide",
     title: "Complete Midtown Real Estate Guide",
     description:
-      "Neighborhoods, buildings, HOA checks, and how to buy a midtown condo with BHHS representation.",
+      "Neighborhoods, buildings, HOA checks, and how to buy a midtown condo with expert representation.",
     href: "/midtown-real-estate",
     date: "2026-07-09",
     category: "Guides",
@@ -246,7 +246,7 @@ export function generateLifestylePageSchema(slug: MidtownLifestyleSlug) {
           name: "Midtown Las Vegas",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "921 South Main Street",
+            streetAddress: "921 S Main St",
             addressLocality: "Las Vegas",
             addressRegion: "NV",
             postalCode: "89101",

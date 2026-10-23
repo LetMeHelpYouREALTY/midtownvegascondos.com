@@ -204,7 +204,7 @@ export default function HeritageStonebridgePage() {
               Tour Heritage at Stonebridge or Midtown
             </h2>
             <p className="text-slate-700 mb-1">
-              Dr. Jan Duffy · License {agentInfo.license} · {officeInfo.name}
+              Dr. Jan Duffy · {officeInfo.name}
             </p>
             <p className="text-sm text-slate-600 mb-4 flex items-start gap-2">
               <MapPin className="w-4 h-4 mt-0.5 shrink-0" aria-hidden />

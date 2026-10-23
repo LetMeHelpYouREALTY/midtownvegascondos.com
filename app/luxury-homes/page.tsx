@@ -22,9 +22,9 @@ import { withPageHeroMetadata } from "@/lib/image-seo";
 import PageHero from "@/components/sections/PageHero";
 
 export const metadata: Metadata = withPageHeroMetadata("/luxury-homes", {
-  title: "Las Vegas Luxury Homes for Sale | Berkshire Hathaway HomeServices",
+  title: "Las Vegas Luxury Homes for Sale",
   description:
-    "Discover Las Vegas luxury real estate with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. The Ridges, MacDonald Highlands, Summerlin, Southern Highlands. $1M+ homes. Call (702) 500-1980.",
+    "Discover Las Vegas luxury real estate with Dr. Jan Duffy. The Ridges, MacDonald Highlands, Summerlin, Southern Highlands. $1M+ homes. Call (702) 500-1980.",
   keywords: [
     "Las Vegas luxury homes",
     "The Ridges Las Vegas",
@@ -126,10 +126,10 @@ export default function LuxuryHomesPage() {
       <PageHero
         imageKey="luxuryHomes"
         pagePath="/luxury-homes"
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="Las Vegas Luxury Real Estate"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto"><strong>Berkshire Hathaway HomeServices</strong> represents the gold standard in
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Dr. Jan Duffy represents the gold standard in
               luxury real estate. When you're buying or selling a $1M+ home, trust matters more than
               ever. Our global network, discretion, and expertise ensure your luxury transaction 
               receives the exceptional service it deserves.</p>
@@ -172,14 +172,14 @@ export default function LuxuryHomesPage() {
             </div>
           </section>
 
-          {/* Why BHHS for Luxury */}
+          {/* Why Dr. Jan for Luxury */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Why Choose Berkshire Hathaway for Luxury Real Estate
+              Why Choose Dr. Jan Duffy for Luxury Real Estate
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               In luxury real estate, the agent you choose can impact both the sale price and 
-              the transaction experience. Berkshire Hathaway HomeServices agents bring resources, 
+              the transaction experience. Dr. Jan Duffy brings resources, 
               reputation, and expertise that make a measurable difference in this competitive segment.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -187,12 +187,12 @@ export default function LuxuryHomesPage() {
                 {
                   icon: Shield,
                   title: "Trusted Brand",
-                  desc: "The Berkshire Hathaway name commands respect and attracts serious, qualified buyers to your property",
+                  desc: "A reputation built since 1983 that attracts serious, qualified buyers to your property",
                 },
                 {
                   icon: Globe,
                   title: "Global Reach",
-                  desc: "50,000+ agents worldwide connecting your property to affluent buyers in every major market",
+                  desc: "A nationwide referral network connecting your property to affluent buyers in every major market",
                 },
                 {
                   icon: Eye,
@@ -228,13 +228,11 @@ export default function LuxuryHomesPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Luxury buyers expect discretion, market expertise, and flawless execution. In this
                 price range, one wrong move can cost hundreds of thousands of dollars. That's why
-                the Berkshire Hathaway HomeServices name matters—it tells buyers and sellers alike
-                that they're working with the best. I've helped clients purchase and sell homes from 
-                $1 million to over $10 million, and every transaction receives my full attention 
-                and the complete resources of BHHS."
+                experience matters. I've helped clients purchase and sell homes from 
+                $1 million to over $10 million, and every transaction receives my full attention."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas Since 2008
+                — Dr. Jan Duffy, REALTOR® | In Real Estate Since 1983
               </cite>
             </div>
           </section>
@@ -291,7 +289,7 @@ export default function LuxuryHomesPage() {
             <p className="text-blue-100 text-center max-w-3xl mx-auto mb-8">
               Selling a luxury home requires more than just an MLS listing. Dr. Jan Duffy provides 
               comprehensive marketing services that showcase your property to qualified buyers 
-              worldwide through Berkshire Hathaway HomeServices' premium marketing channels.
+              worldwide through premium marketing channels.
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               {luxuryServices.map((service) => (
@@ -344,8 +342,7 @@ export default function LuxuryHomesPage() {
                   For Luxury Sellers
                 </h3>
                 <p className="text-slate-600 mb-4">
-                  World-class marketing that reaches qualified buyers globally. The Berkshire 
-                  Hathaway brand attracts serious buyers and commands premium prices for 
+                  World-class marketing that reaches qualified buyers globally. Premium presentation attracts serious buyers and commands premium prices for 
                   exceptional properties.
                 </p>
                 <ul className="space-y-2">
@@ -391,15 +388,15 @@ export default function LuxuryHomesPage() {
                 },
                 {
                   q: "Can I sell my luxury home privately without public listing?",
-                  a: "Yes. Dr. Jan offers confidential, off-market sales for clients who prefer discretion. Berkshire Hathaway HomeServices' network can connect your property with qualified buyers without public marketing, protecting your privacy while still reaching serious buyers.",
+                  a: "Yes. Dr. Jan offers confidential, off-market sales for clients who prefer discretion. Her referral network can connect your property with qualified buyers without public marketing, protecting your privacy while still reaching serious buyers.",
                 },
                 {
                   q: "What commission do you charge for luxury home sales?",
-                  a: "Commission rates are negotiable and discussed during your consultation. Dr. Jan provides transparent pricing based on your property and marketing needs. The value of Berkshire Hathaway's global reach and reputation often results in higher sale prices that more than offset commission.",
+                  a: "Commission rates are negotiable and discussed during your consultation. Dr. Jan provides transparent pricing based on your property and marketing needs. The value of a nationwide referral network and reputation often results in higher sale prices that more than offset commission.",
                 },
                 {
                   q: "Do you work with international buyers?",
-                  a: "Yes. Berkshire Hathaway HomeServices' global network includes agents in major international markets. Dr. Jan has experience working with buyers from Asia, Europe, and the Middle East who are interested in Las Vegas luxury properties.",
+                  a: "Yes. A nationwide referral network includes agents in major international markets. Dr. Jan has experience working with buyers from Asia, Europe, and the Middle East who are interested in Las Vegas luxury properties.",
                 },
                 {
                   q: "What's the process for buying a luxury home in Las Vegas?",
@@ -421,7 +418,7 @@ export default function LuxuryHomesPage() {
             </h2>
             <p className="text-xl text-slate-300 mb-8">
               Whether buying or selling a luxury property, Dr. Jan Duffy provides the expertise and
-              Berkshire Hathaway prestige your transaction deserves. Confidential consultations 
+              discretion your transaction deserves. Confidential consultations 
               available for discerning clients.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -439,9 +436,6 @@ export default function LuxuryHomesPage() {
                 Schedule Private Consultation
               </Link>
             </div>
-            <p className="mt-4 text-slate-400 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 

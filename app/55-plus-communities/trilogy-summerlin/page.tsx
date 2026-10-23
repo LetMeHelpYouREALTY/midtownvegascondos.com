@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   ...withPageHeroMetadata(PATH, {
     title: "Trilogy at Summerlin Homes for Sale | Luxury 55+ | Dr. Jan Duffy",
     description:
-      "Trilogy at Summerlin luxury 55+ homes — resort amenities, spa, contemporary designs. Often $500K–$1.1M. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1980.",
+      "Trilogy at Summerlin luxury 55+ homes — resort amenities, spa, contemporary designs. Often $500K–$1.1M. Dr. Jan Duffy. Call (702) 500-1980.",
     keywords: [
       "Trilogy at Summerlin homes for sale",
       "Trilogy Summerlin Las Vegas",
@@ -156,7 +156,7 @@ export default function TrilogySummerlinPage() {
                 plans, designer finishes, and modern smart home technology.
               </p>
               <p>
-                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>{" "}
+                Dr. Jan Duffy{" "}
                 serves discerning buyers seeking luxury 55+ options. Dr. Jan
                 Duffy understands why buyers choose Trilogy's resort experience
                 over traditional active adult communities.
@@ -386,13 +386,12 @@ export default function TrilogySummerlinPage() {
                 "Trilogy at Summerlin is for buyers who want more than a 55+
                 community—they want a lifestyle. The on-site restaurant, spa, and
                 contemporary homes create an experience you simply can't find
-                elsewhere. As a{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> agent serving
+                elsewhere. As a REALTOR® serving
                 luxury 55+ buyers, I recommend Trilogy to those who appreciate
                 quality and won't settle for ordinary."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>

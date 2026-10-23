@@ -85,11 +85,10 @@ export default function BuyersPage() {
       <PageHero
         imageKey="buyersCondoTower"
         pagePath="/buyers"
-        badge="Berkshire Hathaway HomeServices Nevada Properties"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="Buy Your Midtown Las Vegas Condo with Confidence"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">When you work with Dr. Jan Duffy, a midtown condo specialist at{" "}
-              <strong>Berkshire Hathaway HomeServices</strong>, you get HOA expertise, building
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">When you work with Dr. Jan Duffy, a midtown condo specialist, you get HOA expertise, building
               comparisons, and expert negotiation — and buyer representation costs you nothing.</p>
         <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Free Buyer Representation</span>
@@ -107,8 +106,7 @@ export default function BuyersPage() {
                 <h2 className="text-3xl font-bold mb-4">Why You Need a Buyer's Agent</h2>
                 <p className="text-slate-300 mb-6">
                   Here's what many buyers don't know: having your own agent costs you nothing. The
-                  seller pays the commission, but the representation is yours.{" "}
-                  <strong>Berkshire Hathaway HomeServices</strong> agents protect your interests,
+                  seller pays the commission, but the representation is yours. A buyer's agent protects your interests,
                   not the seller's. In a competitive market like Las Vegas, having expert 
                   representation can mean the difference between winning your dream home and losing out.
                 </p>
@@ -119,7 +117,7 @@ export default function BuyersPage() {
                     "Contract and disclosure review",
                     "Inspection coordination and repair negotiation",
                     "Lender and service provider referrals",
-                    "Local market expertise since 2008",
+                    "In real estate since 1983",
                   ].map((item) => (
                     <li key={item} className="flex items-center">
                       <CheckCircle className="h-5 w-5 text-green-400 mr-2 flex-shrink-0" />
@@ -136,7 +134,7 @@ export default function BuyersPage() {
                   transaction—from the first showing to the closing table and beyond.
                 </p>
                 <div className="text-sm text-slate-500">
-                  Serving Las Vegas since 2008 | $127M+ in transactions
+                  In real estate since 1983 | $127M+ in transactions
                 </div>
               </div>
             </div>
@@ -272,25 +270,23 @@ export default function BuyersPage() {
             </div>
           </section>
 
-          {/* Why BHHS */}
+          {/* Why Dr. Jan */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Why Buy with Berkshire Hathaway HomeServices
+              Why Buy with Dr. Jan Duffy
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Not all real estate agents are created equal. When you choose a Berkshire Hathaway 
-              HomeServices agent, you're choosing the only real estate brand backed by Warren 
-              Buffett's Berkshire Hathaway Inc.—a name synonymous with trust, ethical standards, 
-              and financial strength.
+              Not all real estate agents are created equal. When you choose Dr. Jan Duffy, you're choosing a REALTOR® 
+              in real estate since 1983, with a reputation for trust and ethical standards.
             </p>
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Award className="h-7 w-7 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">Trusted Brand</h3>
+                <h3 className="font-bold text-slate-900 mb-2">Trusted Advisor</h3>
                 <p className="text-slate-600 text-sm">
-                  The only real estate brand backed by Berkshire Hathaway Inc.
+                  In real estate since 1983
                 </p>
               </div>
               <div className="text-center">
@@ -299,7 +295,7 @@ export default function BuyersPage() {
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">Global Network</h3>
                 <p className="text-slate-600 text-sm">
-                  50,000+ agents worldwide for seamless relocations and referrals
+                  A nationwide referral network for seamless relocations
                 </p>
               </div>
               <div className="text-center">
@@ -308,7 +304,7 @@ export default function BuyersPage() {
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">Local Expertise</h3>
                 <p className="text-slate-600 text-sm">
-                  Dr. Jan has served Las Vegas since 2008 with $127M+ in transactions
+                  Dr. Jan has been in real estate since 1983 with $127M+ in transactions
                 </p>
               </div>
               <div className="text-center">
@@ -329,11 +325,11 @@ export default function BuyersPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "My job isn't just to show you houses—it's to make sure you don't overpay, that you
                 understand what you're buying, and that you're protected through every step of the
-                transaction. That's what Berkshire Hathaway HomeServices representation means. I treat 
+                transaction. That's what real representation means. I treat 
                 every client like family and won't stop until we find the right home for your needs."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas Since 2008
+                — Dr. Jan Duffy, REALTOR® | In Real Estate Since 1983
               </cite>
             </div>
           </section>
@@ -434,9 +430,6 @@ export default function BuyersPage() {
                 Schedule Consultation
               </Link>
             </div>
-            <p className="mt-4 text-slate-400 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 

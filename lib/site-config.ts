@@ -8,12 +8,12 @@ export const siteConfig = {
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
   tagline: "Downtown Las Vegas & Arts District Condo Specialist",
   brandLine:
-    "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties",
+    "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
   url: "https://www.midtownvegascondos.com",
   description:
-    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, a real estate expert with 30+ years of experience. Personalized service guaranteed!",
+    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, in real estate since 1983. Personalized service guaranteed!",
 };
 
 /** Homepage & default document title (30–60 chars for SERP display). */
@@ -37,7 +37,7 @@ export const agentInfo = {
 
 /** Dr. Jan Duffy profile photo — hosted on Cloudflare R2 (realestatedomains-assets) */
 export const agentImage = {
-  alt: "Dr. Jan Duffy, REALTOR® — midtown Las Vegas condo specialist at Berkshire Hathaway HomeServices Nevada Properties",
+  alt: "Dr. Jan Duffy, REALTOR® — midtown Las Vegas condo specialist",
   width: 800,
   height: 800,
   localPath: "/images/agent/dr-jan-duffy-headshot.jpg",
@@ -54,48 +54,45 @@ export const officeInfo = {
   /** GBP business name (NAP) */
   name: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
   address: {
-    street: "921 South Main Street",
+    street: "921 S Main St",
     city: "Las Vegas",
     state: "NV",
     zip: "89101",
-    full: "921 South Main Street, Las Vegas, NV 89101",
+    full: "921 S Main St, Las Vegas, NV 89101",
   },
   coordinates: {
-    // Nominatim pin for 921 South Main Street (Arts District / The English Hotel)
+    // Nominatim pin for 921 S Main St (Arts District / The English Hotel)
     lat: 36.1612394,
     lng: -115.1522884,
   },
   phone: "(702) 500-1980",
   phoneTel: "tel:+17025001980",
-  /** GBP hours: Sun–Thu 9am–5pm; Fri–Sat closed */
+  /** GBP hours: Daily 8:00 AM–8:00 PM */
   hours: {
-    sunday: { opens: "09:00", closes: "17:00" },
-    monday: { opens: "09:00", closes: "17:00" },
-    tuesday: { opens: "09:00", closes: "17:00" },
-    wednesday: { opens: "09:00", closes: "17:00" },
-    thursday: { opens: "09:00", closes: "17:00" },
-    friday: null,
-    saturday: null,
+    sunday: { opens: "08:00", closes: "20:00" },
+    monday: { opens: "08:00", closes: "20:00" },
+    tuesday: { opens: "08:00", closes: "20:00" },
+    wednesday: { opens: "08:00", closes: "20:00" },
+    thursday: { opens: "08:00", closes: "20:00" },
+    friday: { opens: "08:00", closes: "20:00" },
+    saturday: { opens: "08:00", closes: "20:00" },
   },
-  hoursDisplay: [
-    "Sunday – Thursday: 9:00 AM – 5:00 PM",
-    "Friday – Saturday: Closed",
-  ],
+  hoursDisplay: ["Daily: 8:00 AM – 8:00 PM"],
   foundingDate: "2009-09-20",
   serviceAreas: ["Arts District, Las Vegas, NV", "Downtown Las Vegas, Las Vegas, NV"],
   maps: {
-    // Always pin GBP office — name + 921 South Main Street (see lib/google-config.ts)
+    // Always pin GBP office — name + 921 S Main St (see lib/google-config.ts)
     embed: `https://www.google.com/maps?q=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
+      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 S Main St, Las Vegas, NV 89101"
     )}&ll=36.1612394,-115.1522884&z=16&output=embed`,
     place: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
+      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 S Main St, Las Vegas, NV 89101"
     )}`,
     directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-      "921 South Main Street, Las Vegas, NV 89101"
+      "921 S Main St, Las Vegas, NV 89101"
     )}`,
     reviews: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 South Main Street, Las Vegas, NV 89101"
+      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 S Main St, Las Vegas, NV 89101"
     )}`,
   },
 };
@@ -127,17 +124,17 @@ export const agentStats = {
   servingSince: 2008,
   transactionsClosed: 500,
   volumeClosed: "$127M+",
-  averageRating: 4.9,
-  reviewCount: 500,
+  averageRating: 1.0,
+  reviewCount: 1,
 };
 
 // Value Propositions
 export const valuePropositions = {
-  main: "When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name synonymous with trust, ethical standards, and financial strength—the same principles that built Warren Buffett's empire.",
+  main: "When you work with Dr. Jan Duffy, you're working with a REALTOR® in real estate since 1983, known for trust and ethical standards.",
   trust:
-    "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents.",
+    "In real estate since 1983, Dr. Jan Duffy brings ethical standards, client-first service, and a nationwide referral network.",
   expertise:
-    "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep midtown condo market knowledge with the resources of a global brand.",
+    "In real estate since 1983 with $127M+ in closed transactions, Dr. Jan Duffy combines deep midtown condo market knowledge with the resources of a global brand.",
 };
 
 // Midtown Las Vegas condo buildings and areas
@@ -225,14 +222,14 @@ export const commonFAQs = {
         "Dr. Jan Duffy specializes in midtown and downtown Las Vegas condos including One Las Vegas, The Martin, Ogden, Juhl, and Arts District loft conversions. She reviews HOA documents, rental restrictions, and comparable sales for every building.",
     },
     {
-      question: "Why choose a Berkshire Hathaway HomeServices agent for midtown condos?",
+      question: "Why choose an experienced local REALTOR® for midtown condos?",
       answer:
-        "Berkshire Hathaway HomeServices is backed by Warren Buffett's Berkshire Hathaway Inc. You get a global network of 50,000+ agents, world-class marketing, and a brand synonymous with trust — plus Dr. Jan's specialized midtown condo expertise since 2008.",
+        "Dr. Jan Duffy has been in real estate since 1983. You get world-class marketing, a nationwide referral network, and specialized midtown condo expertise.",
     },
     {
-      question: "What is Dr. Jan Duffy's license number?",
+      question: "Where is Dr. Jan Duffy's office?",
       answer:
-        "Dr. Jan Duffy holds Nevada Real Estate License S.0197614.LLC and is affiliated with Berkshire Hathaway HomeServices Nevada Properties. Business location: 921 South Main Street, Las Vegas, NV 89101.",
+        "Business location: 921 S Main St, Las Vegas, NV 89101.",
     },
   ],
   buying: [
