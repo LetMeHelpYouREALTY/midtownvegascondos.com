@@ -104,8 +104,8 @@ export default function Home() {
                 <span>Families Helped</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">Since 1983</span>
-                <span>In Real Estate</span>
+                <span className="font-semibold text-white">Since 2008</span>
+                <span>Licensed</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-white">1.0★</span>

@@ -377,7 +377,7 @@ export const heroImages = {
   ),
   whyBhhs: hero(
     "extra17.webp",
-    "Why work with Dr. Jan Duffy — midtown condo specialist in real estate since 1983",
+    "Why work with Dr. Jan Duffy — midtown condo specialist licensed since 2008 · 35 years in Las Vegas",
     "Trusted guidance for condo clients.",
     "Las Vegas, NV",
     officeInfo.coordinates.lat,

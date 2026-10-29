@@ -82,12 +82,12 @@ export default function GoogleBusinessPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <Award className="h-6 w-6 text-yellow-400" />
-                    <span className="text-yellow-400 font-semibold">In Real Estate Since 1983</span>
+                    <span className="text-yellow-400 font-semibold">Licensed Since 2008</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">
                     {businessInfo.name}
                   </h2>
-                  <p className="text-xl text-blue-200 mb-2">REALTOR® · Top 1% Las Vegas REALTOR®</p>
+                  <p className="text-xl text-blue-200 mb-2">Las Vegas REALTOR®</p>
                   
                   {/* NAP - Exact match to GBP */}
                   <div className="space-y-3">

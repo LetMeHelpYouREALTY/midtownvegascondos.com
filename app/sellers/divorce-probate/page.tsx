@@ -445,7 +445,7 @@ export default function DivorceProbatePage() {
                 <Shield className="h-10 w-10 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-slate-900 mb-2">Credibility & Trust</h3>
                 <p className="text-slate-600 text-sm">
-                  In real estate since 1983, Dr. Jan's valuations and processes are respected by
+                  Licensed since 2008 · 35 years in Las Vegas, Dr. Jan's valuations and processes are respected by
                   attorneys, judges, and opposing parties for their integrity.
                 </p>
               </div>
@@ -476,7 +476,7 @@ export default function DivorceProbatePage() {
                 "When you're going through a divorce or handling a loved one's estate, the last
                 thing you need is real estate stress. I've handled hundreds of sensitive transactions,
                 and I understand these situations require more than market expertise—they require
-                discretion, patience, and genuine care. Being in real estate since 1983
+                discretion, patience, and genuine care. Being licensed since 2008 · 35 years in Las Vegas
                 gives me the resources and credibility these situations demand. Your privacy and
                 peace of mind come first."
               </blockquote>

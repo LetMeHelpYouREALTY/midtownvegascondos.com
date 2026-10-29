@@ -296,11 +296,11 @@ export default function SellersPage() {
                 "Pricing your home correctly from day one is the single most important factor in
                 getting top dollar. Overpriced homes sit on the market, and every day on market costs 
                 you money—both in carrying costs and buyer perception. That's why I use comprehensive 
-                market analysis and my experience since 1983 to price homes right 
+                market analysis and my 35 years of Las Vegas experience to price homes right 
                 the first time. The result? My listings typically sell within 2% of asking price."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, REALTOR® | In Real Estate Since 1983
+                — Dr. Jan Duffy, REALTOR® | Licensed Since 2008
               </cite>
             </div>
           </section>
@@ -332,7 +332,7 @@ export default function SellersPage() {
                 <h2 className="text-3xl font-bold mb-4">What's Your Home Worth?</h2>
                 <p className="text-blue-100 mb-6">
                   Get a free, no-obligation home valuation from Dr. Jan Duffy. Using current MLS
-                  data and expertise built since 1983, you'll know exactly what your 
+                  data and expertise built over 35 years in Las Vegas, you'll know exactly what your 
                   home could sell for in today's market. No algorithms—just real analysis from 
                   a local expert.
                 </p>

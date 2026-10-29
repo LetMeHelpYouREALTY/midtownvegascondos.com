@@ -25,7 +25,7 @@ import PageHero from "@/components/sections/PageHero";
 export const metadata: Metadata = withPageHeroMetadata("/about", {
   title: "About Dr. Jan Duffy | Midtown Las Vegas Condo Specialist",
   description:
-    "Meet Dr. Jan Duffy, your midtown Las Vegas condo specialist. In real estate since 1983. Call (702) 500-1980.",
+    "Meet Dr. Jan Duffy, your midtown Las Vegas condo specialist. Licensed since 2008 · 35 years in Las Vegas. Call (702) 500-1980.",
   keywords: [
     "Dr. Jan Duffy",
     "Berkshire Hathaway HomeServices agent",
@@ -131,7 +131,7 @@ export default function AboutPage() {
         pagePath="/about"
         badge="Dr. Jan Duffy, REALTOR®"
         title="Meet Dr. Jan Duffy, REALTOR®"
-        subtitle="Dr. Jan Duffy has been in real estate since 1983. Whether you're buying, selling, investing, or relocating, you'll receive expert guidance with integrity and professionalism."
+        subtitle="Dr. Jan Duffy has been licensed since 2008 · 35 years in Las Vegas. Whether you're buying, selling, investing, or relocating, you'll receive expert guidance with integrity and professionalism."
       />
       <main className="pb-16">
         <div className="container mx-auto px-4">
@@ -150,7 +150,7 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Dr. Jan Duffy</h2>
                 <p className="text-lg text-blue-600 mb-6">
-                  REALTOR® · Top 1% Las Vegas REALTOR®
+                  Las Vegas REALTOR®
                 </p>
 
                 <div className="prose prose-lg text-slate-700 mb-8 space-y-4">
@@ -161,7 +161,7 @@ export default function AboutPage() {
                     world-class resources and local expertise to every client I serve.
                   </p>
                   <p>
-                    I've closed $127 million in transactions and
+                    I've led the Dr. Duffy Group to $127 million in career sales and
                     helped hundreds of families find their perfect home in Las Vegas, Henderson,
                     Summerlin, and throughout Southern Nevada. My expertise spans luxury properties,
                     new construction, investment real estate, 55+ active adult communities, and 
@@ -240,16 +240,16 @@ export default function AboutPage() {
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-blue-50 rounded-lg p-6 text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-1">Since 1983</div>
+                    <div className="text-3xl font-bold text-blue-600 mb-1">Since 2008</div>
                     <div className="text-sm text-slate-600">Serving Las Vegas</div>
                   </div>
                   <div className="bg-blue-50 rounded-lg p-6 text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">$127M+</div>
-                    <div className="text-sm text-slate-600">Volume Closed</div>
+                    <div className="text-sm text-slate-600">Team Career Sales</div>
                   </div>
                   <div className="bg-blue-50 rounded-lg p-6 text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">500+</div>
-                    <div className="text-sm text-slate-600">Transactions</div>
+                    <div className="text-sm text-slate-600">Team Sales</div>
                   </div>
                   <div className="bg-blue-50 rounded-lg p-6 text-center">
                     <div className="text-3xl font-bold text-blue-600 mb-1">1.0★</div>
@@ -312,7 +312,7 @@ export default function AboutPage() {
               Why Work With Dr. Jan Duffy?
             </h2>
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
-              In real estate since 1983, Dr. Jan brings ethical standards and a commitment
+              Licensed since 2008 · 35 years in Las Vegas, Dr. Jan brings ethical standards and a commitment
               to client service that defines every transaction.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -322,7 +322,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-bold text-xl mb-2">Trusted Advisor</h3>
                 <p className="text-slate-300 text-sm">
-                  In real estate since 1983, with a reputation built on trust and integrity.
+                  Licensed since 2008 · 35 years in Las Vegas, with a reputation built on trust and integrity.
                 </p>
               </div>
               <div className="text-center">
