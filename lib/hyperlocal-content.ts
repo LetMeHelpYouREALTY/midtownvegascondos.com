@@ -40,7 +40,7 @@ export const midtownNeighborhoods = [
     description:
       "Revitalized downtown corridor with entertainment, dining, and boutique condo options near the Fremont Street experience.",
     highlights: ["Entertainment district", "Downtown proximity", "Investment potential", "Urban nightlife"],
-    bestFor: "Investors, young professionals, entertainment-industry workers",
+    bestFor: "Investors, professionals, entertainment-industry workers",
     latitude: 36.1699,
     longitude: -115.1398,
     faqs: [
