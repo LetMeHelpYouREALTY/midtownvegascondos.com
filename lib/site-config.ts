@@ -13,7 +13,7 @@ export const siteConfig = {
   shortName: "BHHS",
   url: "https://www.midtownvegascondos.com",
   description:
-    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, in real estate since 1983. Personalized service guaranteed!",
+    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas. Personalized service guaranteed!",
 };
 
 /** Homepage & default document title (30–60 chars for SERP display). */
@@ -130,11 +130,11 @@ export const agentStats = {
 
 // Value Propositions
 export const valuePropositions = {
-  main: "When you work with Dr. Jan Duffy, you're working with a REALTOR® in real estate since 1983, known for trust and ethical standards.",
+  main: "When you work with Dr. Jan Duffy, you're working with a REALTOR® licensed since 2008 · 35 years in Las Vegas, known for trust and ethical standards.",
   trust:
-    "In real estate since 1983, Dr. Jan Duffy brings ethical standards, client-first service, and a nationwide referral network.",
+    "Licensed since 2008 · 35 years in Las Vegas, Dr. Jan Duffy brings ethical standards, client-first service, and a nationwide referral network.",
   expertise:
-    "In real estate since 1983 with $127M+ in closed transactions, Dr. Jan Duffy combines deep midtown condo market knowledge with the resources of a global brand.",
+    "Licensed since 2008 · 35 years in Las Vegas with $127M+ in Dr. Duffy Group career sales, Dr. Jan Duffy combines deep midtown condo market knowledge with the resources of a global brand.",
 };
 
 // Midtown Las Vegas condo buildings and areas
@@ -224,7 +224,7 @@ export const commonFAQs = {
     {
       question: "Why choose an experienced local REALTOR® for midtown condos?",
       answer:
-        "Dr. Jan Duffy has been in real estate since 1983. You get world-class marketing, a nationwide referral network, and specialized midtown condo expertise.",
+        "Dr. Jan Duffy has been licensed since 2008 · 35 years in Las Vegas. You get world-class marketing, a nationwide referral network, and specialized midtown condo expertise.",
     },
     {
       question: "Where is Dr. Jan Duffy's office?",

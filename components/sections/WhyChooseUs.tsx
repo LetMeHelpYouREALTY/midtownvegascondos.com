@@ -23,13 +23,13 @@ const features = [
     icon: Shield,
     title: "Trust & Resources",
     description:
-      "In real estate since 1983, with a nationwide referral network and world-class marketing.",
+      "Licensed since 2008 · 35 years in Las Vegas, with a nationwide referral network and world-class marketing.",
   },
   {
     icon: Award,
     title: "500+ Transactions",
     description:
-      "In real estate since 1983 with $127M+ closed — including high-rise, loft, and urban condo specialists.",
+      "Licensed since 2008 · 35 years in Las Vegas with $127M+ closed — including high-rise, loft, and urban condo specialists.",
   },
   {
     icon: Clock,

@@ -25,7 +25,7 @@ export const businessInfo = {
   license: "S.0197614.LLC",
   priceRange: "$$",
   description:
-    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, in real estate since 1983. Personalized service guaranteed!",
+    "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas. Personalized service guaranteed!",
 
   // Hours - Match GBP exactly (Daily 8:00 AM–8:00 PM)
   hours: {
@@ -104,7 +104,7 @@ export const businessInfo = {
 
 // GBP description aligned to Downtown / Arts District profile
 export const gbpDescription = {
-  whoWeAre: `Las Vegas Arts District Condos | Homes by Dr. Jan Duffy helps buyers and sellers find luxury condos and charming homes in Downtown Las Vegas and the Arts District. Dr. Jan Duffy is a REALTOR® in real estate since 1983, known for personalized service.`,
+  whoWeAre: `Las Vegas Arts District Condos | Homes by Dr. Jan Duffy helps buyers and sellers find luxury condos and charming homes in Downtown Las Vegas and the Arts District. Dr. Jan Duffy is a REALTOR® licensed since 2008 · 35 years in Las Vegas, known for personalized service.`,
 
   whatWeDo: `We specialize in Downtown Las Vegas and Arts District condominiums — loft conversions, midtown high-rises, and walkable urban residences. Services include buyer and seller representation, investment consulting, online appointments, and onsite consultations by appointment.`,
 

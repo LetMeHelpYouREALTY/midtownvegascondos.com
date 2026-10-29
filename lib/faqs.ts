@@ -28,7 +28,7 @@ export const defaultFaqs: FAQ[] = [
   {
     question: "What makes Dr. Jan different for condo buyers?",
     answer:
-      "In real estate since 1983 with 500+ transactions, Dr. Jan combines specialized condo expertise — HOA review, rental cap analysis, and building-specific knowledge.",
+      "Licensed since 2008 · 35 years in Las Vegas with 500+ transactions, Dr. Jan combines specialized condo expertise — HOA review, rental cap analysis, and building-specific knowledge.",
   },
   {
     question: "Can you help with midtown condo investment properties?",

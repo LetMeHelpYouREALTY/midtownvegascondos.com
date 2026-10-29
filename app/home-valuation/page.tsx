@@ -78,7 +78,7 @@ export default function HomeValuationPage() {
         title="What's Your Las Vegas Home Worth?"
       >
         <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Get a free, no-obligation home valuation from Dr. Jan Duffy. Accurate pricing backed by a career
-              in real estate since 1983 and $127M+ in closed transactions.</p>
+              licensed since 2008 · 35 years in Las Vegas and $127M+ in closed transactions.</p>
       </PageHero>
       <main className="pb-16">
         <div className="container mx-auto px-4">
@@ -106,7 +106,7 @@ export default function HomeValuationPage() {
                   Online estimators like Zillow's "Zestimate" can be off by 10% or more—that's
                   $45,000+ on a typical Las Vegas home. Dr. Jan Duffy provides a comprehensive
                   market analysis using current MLS data, recent comparable sales, and her expertise
-                  built since 1983. The result? Accurate pricing that helps you sell
+                  built since 2008. The result? Accurate pricing that helps you sell
                   faster and for more money.
                 </p>
                 <div className="space-y-3">

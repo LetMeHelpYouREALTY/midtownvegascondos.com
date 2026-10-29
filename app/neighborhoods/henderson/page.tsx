@@ -129,7 +129,7 @@ export default function HendersonPage() {
                 <strong>Henderson</strong> has quietly become one of the most desirable cities in the American
                 Southwest. As Nevada's second-largest city with over 320,000 residents, Henderson offers the
                 perfect balance of suburban tranquility and urban convenience. Dr. Jan Duffy,
-                in real estate since 1983, brings unmatched expertise to every Henderson transaction.
+                licensed since 2008 · 35 years in Las Vegas, brings unmatched expertise to every Henderson transaction.
               </p>
               <p>
                 What sets Henderson apart? Start with safety. Henderson consistently ranks as one of America's
@@ -357,7 +357,7 @@ export default function HendersonPage() {
                   Why work with Dr. Jan Duffy for Henderson real estate?
                 </h3>
                 <p className="text-slate-600">
-                  Dr. Jan Duffy, in real estate since 1983, knows every Henderson community,
+                  Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, knows every Henderson community,
                   school district, and HOA, and that knowledge benefits both buyers and sellers.
                 </p>
               </div>

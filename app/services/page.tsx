@@ -65,7 +65,7 @@ const coreServices = [
     title: "Home Selling Services",
     slug: "sellers",
     description:
-      "Maximize your home's value with professional marketing, accurate pricing, and expert negotiation from Dr. Jan Duffy, in real estate since 1983.",
+      "Maximize your home's value with professional marketing, accurate pricing, and expert negotiation from Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas.",
     highlights: ["World-class marketing", "Accurate pricing", "Global exposure", "Staging guidance"],
     stats: { label: "Homes Sold", value: "500+" },
   },
@@ -119,7 +119,7 @@ const specializedServices = [
     title: "Home Valuation Services",
     slug: "home-valuation",
     description:
-      "Free, no-obligation home valuations using current MLS data, recent comparable sales, and deep local market knowledge built since 1983.",
+      "Free, no-obligation home valuations using current MLS data, recent comparable sales, and deep local market knowledge built since 2008.",
     highlights: ["Accurate pricing", "No obligation", "Detailed analysis", "Market trends"],
   },
 ];
@@ -179,21 +179,21 @@ export default function ServicesPage() {
         badge="Dr. Jan Duffy, REALTOR®"
         title="Las Vegas Real Estate Services"
       >
-        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Comprehensive real estate solutions from Dr. Jan Duffy, in real estate since 1983. Whether you're 
+        <p className="text-xl md:text-2xl text-white/85 mb-8 max-w-3xl mx-auto">Comprehensive real estate solutions from Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas. Whether you're 
               buying your first home, selling a luxury estate, or relocating from California, 
               you'll receive expert guidance every step of the way.</p>
         <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>In Real Estate Since 1983</span>
+                <span>Licensed Since 2008</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>$127M+ in Transactions</span>
+                <span>$127M+ in Team Career Sales</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>500+ Satisfied Clients</span>
+                <span>500+ Team Sales</span>
               </div>
             </div>
       </PageHero>
@@ -208,7 +208,7 @@ export default function ServicesPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               These foundational services cover the majority of real estate transactions in Las Vegas. 
               Each service is delivered with the professionalism, resources, and ethical standards 
-              that Dr. Jan has brought to clients since 1983.
+              that Dr. Jan has brought to clients since 2008.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               {coreServices.map((service) => {
@@ -363,21 +363,21 @@ export default function ServicesPage() {
               The Dr. Jan Duffy Difference
             </h2>
             <p className="text-lg text-slate-300 text-center max-w-3xl mx-auto mb-8">
-              When you work with Dr. Jan Duffy, you get a REALTOR® in real estate since 1983 with
+              When you work with Dr. Jan Duffy, you get a REALTOR® licensed since 2008 · 35 years in Las Vegas with
               a commitment to trust, ethical standards, and putting your interests first.
             </p>
             <div className="grid md:grid-cols-4 gap-6 text-center mb-8">
               <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">Top 1%</div>
-                <div className="text-slate-300 text-sm">Las Vegas REALTOR®</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">5.0★</div>
+                <div className="text-slate-300 text-sm">Realtor.com (50 reviews)</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">Since 1983</div>
-                <div className="text-slate-300 text-sm">In Real Estate</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">Since 2008</div>
+                <div className="text-slate-300 text-sm">Licensed</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-blue-400 mb-2">$127M+</div>
-                <div className="text-slate-300 text-sm">Volume Closed</div>
+                <div className="text-slate-300 text-sm">Team Career Sales</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-blue-400 mb-2">1.0★</div>
@@ -389,7 +389,7 @@ export default function ServicesPage() {
                 <Shield className="h-10 w-10 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-2">Financial Strength</h3>
                 <p className="text-slate-400 text-sm">
-                  A reputation for trust and stability built since 1983
+                  A reputation for trust and stability built since 2008
                 </p>
               </div>
               <div className="text-center">

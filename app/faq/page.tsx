@@ -70,7 +70,7 @@ const faqCategories = [
     faqs: [
       {
         q: "What is Dr. Jan Duffy's midtown condo experience?",
-        a: "Dr. Jan has been in real estate since 1983 with $127M+ in closed transactions. She specializes in midtown and downtown condos including One Las Vegas, Juhl, Arts District lofts, and Palms Place.",
+        a: "Dr. Jan has been licensed since 2008 · 35 years in Las Vegas with $127M+ in Dr. Duffy Group career sales. She specializes in midtown and downtown condos including One Las Vegas, Juhl, Arts District lofts, and Palms Place.",
       },
       {
         q: "How do I contact Dr. Jan Duffy?",

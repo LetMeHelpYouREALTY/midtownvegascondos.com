@@ -58,7 +58,7 @@ export default function ContactPage() {
               <p className="text-slate-700 mb-8">
                 Whether you&apos;re buying your first midtown condo, selling a high-rise unit, or
                 exploring downtown investment opportunities, I provide expert HOA review and
-                building-specific guidance. In real estate since 1983 with
+                building-specific guidance. Licensed since 2008 · 35 years in Las Vegas with
                 $127M+ in closed transactions.
               </p>
 
@@ -191,7 +191,7 @@ export default function ContactPage() {
                   <div className="flex items-start">
                     <Shield className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
                     <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Experience:</strong> In real estate since 1983.
+                      <strong className="text-white">Experience:</strong> Licensed since 2008 · 35 years in Las Vegas.
                     </p>
                   </div>
                   <div className="flex items-start">
