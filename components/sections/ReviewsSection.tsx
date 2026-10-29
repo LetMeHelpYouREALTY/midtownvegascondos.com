@@ -69,7 +69,7 @@ export default function ReviewsSection({
   reviews = defaultReviews,
   title = "What Our Clients Say",
   subtitle = "Real testimonials from satisfied clients across Las Vegas and Henderson",
-  googleReviewsUrl = "https://g.page/r/heyberkshire/review",
+  googleReviewsUrl = "https://maps.app.goo.gl/zkkxv23xjghMB5nT7",
   className = "",
 }: ReviewsSectionProps) {
   return (
