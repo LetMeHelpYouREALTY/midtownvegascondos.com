@@ -203,12 +203,6 @@ export function generateLocalBusinessSchema() {
         },
       })),
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "1.0",
-      reviewCount: "1",
-      bestRating: "5",
-    },
     sameAs: businessInfo.socialProfiles,
   };
 }
