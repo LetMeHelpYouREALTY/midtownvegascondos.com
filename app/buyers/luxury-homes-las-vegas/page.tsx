@@ -166,7 +166,7 @@ export default function LuxuryHomesPage() {
                     </li>
                   </ul>
                   <Link
-                    href="/neighborhoods/the-ridges"
+                    href="/neighborhoods"
                     className="text-blue-600 font-semibold hover:text-blue-700"
                   >
                     Explore The Ridges →
@@ -210,7 +210,7 @@ export default function LuxuryHomesPage() {
                     </li>
                   </ul>
                   <Link
-                    href="/neighborhoods/henderson"
+                    href="/neighborhoods"
                     className="text-blue-600 font-semibold hover:text-blue-700"
                   >
                     Explore Henderson Luxury →

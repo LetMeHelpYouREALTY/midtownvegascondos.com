@@ -192,7 +192,7 @@ export default function FirstTimeBuyersPage() {
                   </li>
                 </ul>
                 <Link
-                  href="/neighborhoods/north-las-vegas"
+                  href="/neighborhoods"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
                   Explore North Las Vegas →
@@ -224,7 +224,7 @@ export default function FirstTimeBuyersPage() {
                   </li>
                 </ul>
                 <Link
-                  href="/neighborhoods/mountains-edge"
+                  href="/neighborhoods"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
                   Explore Mountains Edge →
@@ -256,7 +256,7 @@ export default function FirstTimeBuyersPage() {
                   </li>
                 </ul>
                 <Link
-                  href="/neighborhoods/centennial-hills"
+                  href="/neighborhoods"
                   className="block mt-4 text-blue-600 font-semibold hover:text-blue-700 text-sm"
                 >
                   Explore Centennial Hills →

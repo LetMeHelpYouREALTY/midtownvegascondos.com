@@ -277,15 +277,26 @@ export default function GoogleBusinessPage() {
               <div className="mt-8 pt-8 border-t border-blue-200">
                 <h3 className="font-bold text-slate-900 mb-4">Neighborhood Expertise</h3>
                 <div className="flex flex-wrap gap-2">
-                  {["Summerlin", "Henderson", "Green Valley", "The Ridges", "Southern Highlands", "Centennial Hills", "Skye Canyon", "Inspirada", "Mountains Edge", "North Las Vegas"].map((area) => (
-                    <Link
-                      key={area}
-                      href={`/neighborhoods/${area.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="bg-white px-3 py-1 rounded-full text-sm text-slate-700 hover:bg-blue-100 transition-colors"
-                    >
-                      {area}
-                    </Link>
-                  ))}
+                  {["Summerlin", "Henderson", "Green Valley", "The Ridges", "Southern Highlands", "Centennial Hills", "Skye Canyon", "Inspirada", "Mountains Edge", "North Las Vegas"].map((area) =>
+                    // Only Southern Highlands has its own live page; the other legacy
+                    // /neighborhoods/* slugs 308-redirect, so show them as plain labels.
+                    area === "Southern Highlands" ? (
+                      <Link
+                        key={area}
+                        href="/neighborhoods/southern-highlands"
+                        className="bg-white px-3 py-1 rounded-full text-sm text-slate-700 hover:bg-blue-100 transition-colors"
+                      >
+                        {area}
+                      </Link>
+                    ) : (
+                      <span
+                        key={area}
+                        className="bg-white px-3 py-1 rounded-full text-sm text-slate-700"
+                      >
+                        {area}
+                      </span>
+                    )
+                  )}
                 </div>
               </div>
             </div>

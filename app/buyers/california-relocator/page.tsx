@@ -246,7 +246,7 @@ export default function CaliforniaRelocatorPage() {
                     </li>
                   </ul>
                   <Link
-                    href="/neighborhoods/summerlin"
+                    href="/neighborhoods"
                     className="block mt-4 text-blue-600 font-semibold hover:text-blue-700"
                   >
                     Explore Summerlin →
@@ -282,7 +282,7 @@ export default function CaliforniaRelocatorPage() {
                     </li>
                   </ul>
                   <Link
-                    href="/neighborhoods/henderson"
+                    href="/neighborhoods"
                     className="block mt-4 text-blue-600 font-semibold hover:text-blue-700"
                   >
                     Explore Henderson →
@@ -318,7 +318,7 @@ export default function CaliforniaRelocatorPage() {
                     </li>
                   </ul>
                   <Link
-                    href="/neighborhoods/the-ridges"
+                    href="/neighborhoods"
                     className="block mt-4 text-blue-600 font-semibold hover:text-blue-700"
                   >
                     Explore The Ridges →
