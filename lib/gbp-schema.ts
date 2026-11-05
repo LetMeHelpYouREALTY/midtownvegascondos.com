@@ -5,7 +5,7 @@ import { agentInfo, getAgentImageSrc, officeInfo, organizationSchemaId, siteConf
 
 export const businessInfo = {
   // NAP - Must match GBP exactly
-  name: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
+  name: "Las Vegas Arts District Condos",
   address: {
     streetAddress: "921 S Main St",
     addressLocality: "Las Vegas",
@@ -104,7 +104,7 @@ export const businessInfo = {
 
 // GBP description aligned to Downtown / Arts District profile
 export const gbpDescription = {
-  whoWeAre: `Las Vegas Arts District Condos | Homes by Dr. Jan Duffy helps buyers and sellers find luxury condos and charming homes in Downtown Las Vegas and the Arts District. Dr. Jan Duffy is a REALTOR® licensed since 2008 · 35 years in Las Vegas, known for personalized service.`,
+  whoWeAre: `Las Vegas Arts District Condos helps buyers and sellers find luxury condos and charming homes in Downtown Las Vegas and the Arts District. Dr. Jan Duffy is a REALTOR® licensed since 2008 · 35 years in Las Vegas, known for personalized service.`,
 
   whatWeDo: `We specialize in Downtown Las Vegas and Arts District condominiums — loft conversions, midtown high-rises, and walkable urban residences. Services include buyer and seller representation, investment consulting, online appointments, and onsite consultations by appointment.`,
 
@@ -114,7 +114,7 @@ export const gbpDescription = {
 // FAQ Schema for GBP Q&A section
 export const gbpFAQs = [
   {
-    question: "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
+    question: "Where is Las Vegas Arts District Condos located?",
     answer:
       "Our business location is 921 S Main St, Las Vegas, NV 89101 in the Arts District / Downtown Las Vegas corridor. Call (702) 500-1980 for directions or to schedule an appointment.",
   },

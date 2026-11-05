@@ -66,7 +66,7 @@ export const commuteFaqs = [
       "Harry Reid International Airport (LAS) is typically a 15–25 minute drive from midtown Las Vegas condo areas, subject to traffic. Enter LAS on the commute map for live estimates.",
   },
   {
-    question: "Where is Las Vegas Arts District Condos | Homes by Dr. Jan Duffy located?",
+    question: "Where is Las Vegas Arts District Condos located?",
     answer: `The business location is ${officeInfo.address.full} in the Arts District / Downtown Las Vegas corridor. Call ${agentInfo.phone} for directions or to schedule an appointment.`,
   },
   {

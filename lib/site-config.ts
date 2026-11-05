@@ -3,12 +3,12 @@
 
 export const siteConfig = {
   /** Exact Google Business Profile business name */
-  name: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
+  name: "Las Vegas Arts District Condos",
   shortBrand: "Las Vegas Arts District Condos",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
   tagline: "Downtown Las Vegas & Arts District Condo Specialist",
   brandLine:
-    "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
+    "Las Vegas Arts District Condos",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
   url: "https://www.midtownvegascondos.com",
@@ -52,7 +52,7 @@ export function getAgentImageSrc(): string {
 
 export const officeInfo = {
   /** GBP business name (NAP) */
-  name: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
+  name: "Las Vegas Arts District Condos",
   address: {
     street: "921 S Main St",
     city: "Las Vegas",
@@ -83,16 +83,16 @@ export const officeInfo = {
   maps: {
     // Always pin GBP office — name + 921 S Main St (see lib/google-config.ts)
     embed: `https://www.google.com/maps?q=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 S Main St, Las Vegas, NV 89101"
+      "Las Vegas Arts District Condos, 921 S Main St, Las Vegas, NV 89101"
     )}&ll=36.1612394,-115.1522884&z=16&output=embed`,
     place: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 S Main St, Las Vegas, NV 89101"
+      "Las Vegas Arts District Condos, 921 S Main St, Las Vegas, NV 89101"
     )}`,
     directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
       "921 S Main St, Las Vegas, NV 89101"
     )}`,
     reviews: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy, 921 S Main St, Las Vegas, NV 89101"
+      "Las Vegas Arts District Condos, 921 S Main St, Las Vegas, NV 89101"
     )}`,
   },
 };
