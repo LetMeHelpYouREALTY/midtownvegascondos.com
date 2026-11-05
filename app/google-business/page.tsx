@@ -31,7 +31,7 @@ import {
 import { officeInfo } from "@/lib/site-config";
 
 export const metadata: Metadata = withPageHeroMetadata("/google-business", {
-  title: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy | GBP",
+  title: "Las Vegas Arts District Condos | GBP",
   description:
     "Discover luxury condos and charming homes in Downtown Las Vegas with Dr. Jan Duffy. 921 S Main St, Las Vegas, NV 89101. Call (702) 500-1980.",
   keywords: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = withPageHeroMetadata("/google-business", {
     "921 S Main St Las Vegas",
   ],
   openGraph: {
-    title: "Las Vegas Arts District Condos | Homes by Dr. Jan Duffy",
+    title: "Las Vegas Arts District Condos",
     description:
       "Downtown Las Vegas & Arts District condos with Dr. Jan Duffy. Call (702) 500-1980.",
     url: "https://www.midtownvegascondos.com/google-business",
